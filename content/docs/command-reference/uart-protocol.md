@@ -1,0 +1,174 @@
++++
+weight = 12
+title = 'UART/Serial Protocol'
++++
+
+
+
+# UART Protocol Commands
+
+## Overview
+
+-   **Bus:** [UART](http://en.wikipedia.org/wiki/Serial_uart),
+    [MIDI](http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface)
+    (universal asynchronous receiver transmitter)
+-   **Connections:** two pins (RX/TX) and ground
+-   **Output type:** 1.65-5volts. Powered by onboard supply or an external voltage on the VOUT/VREF pin
+-   **Maximum Voltage:** 5volts
+
+:::info
+UART is also known as the common PC serial port. The PC serial port
+operates at full RS232 voltage levels (-13volts to +13volts) though,
+which are not compatible with the Bus Pirate.
+:::
+
+## Connections
+| Bus Pirate | Direction                     | Circuit | Description   |
+|------------|--------------------------|---------|---------------|
+| TX       | <font size="+2">→</font> | RX    | Bus Pirate Transmit   |
+| RX        | <font size="+2">←</font> | TX     | Bus Pirate Receive  |
+| GND        | <font size="+2">⏚</font> | GND     | Signal Ground |
+
+Connect the Bus Pirate transmit pin (TX) to the UART device receive
+pin (RX). Connect the Bus Pirate receive pin (RX) to the UART
+device transmit pin (TX).
+
+## Configuration options
+
+{{% term "Bus Pirate [/dev/ttyS0]" %}}
+<span className="bp-info">UART speed</span><br/>
+ 1200, 2400, 4800, 19200, 38400, 57600, 115200 etc<br/>
+ x. <span className="bp-info">Exit</span><br/>
+<span className="bp-prompt">Baud (</span>115200*<span className="bp-prompt">) ></span> <br/>
+<span className="bp-info">Data bits</span><br/>
+ 5 to 8 bits<br/>
+ x. <span className="bp-info">Exit</span><br/>
+<span className="bp-prompt">Bits (</span>8*<span className="bp-prompt">) ></span> <br/>
+<span className="bp-info">Parity</span><br/>
+ 1. <span className="bp-info">None*</span><br/>
+ 2. <span className="bp-info">Even</span><br/>
+ 3. <span className="bp-info">Odd</span><br/>
+ x. <span className="bp-info">Exit</span><br/>
+<span className="bp-prompt">Parity (</span>1<span className="bp-prompt">) ></span> <br/>
+<span className="bp-info">Stop bits</span><br/>
+ 1. <span className="bp-info">1*</span><br/>
+ 2. <span className="bp-info">2</span><br/>
+ x. <span className="bp-info">Exit</span><br/>
+<span className="bp-prompt">Bits (</span>1<span className="bp-prompt">) ></span> <br/>
+<span className="bp-info">Actual speed: 115207 baud</span><br/>
+<span className="bp-info">Mode:</span> UART<br/>
+<span className="bp-prompt">UART></span> <br/>
+{{% /term %}}
+
+## Syntax
+
+|Command| Description  |
+|---------|-------|
+| [      | Open UART, use ```r``` to read bytes. |
+| \{       | Open UART, display data as it arrives asynchronously. |
+| \] or } | Close UART.  |
+| r       | Check UART for byte, or fail if empty. (r:1…255 for bulk reads) |
+| 0b      | Write this binary value. Format is 0b00000000 for a byte, but partial bytes are also fine: 0b1001.|
+| 0x      | Write this HEX value. Format is 0x01. Partial bytes are fine: 0xA. A-F can be lower-case or capital letters. |
+| 0-255   | Write this decimal value. Any number not preceded by 0x or 0b is interpreted as a decimal value. |
+| ```space```| Value delimiter. Use a space to separate numbers. No delimiter is required between non-number values: \{0xa6 0 0 16 5 0b111 0xaF rrrr}. |
+| \(#\)   | Run macro, (0) for macro list. |
+
+
+## Commands
+
+Bus Pirate 5 has global commands available everywhere, and mode commands specific to the currently selected mode. Type ```help``` to see all commands in every mode, or ```help mode``` for the currently available mode commands.
+
+:::tip
+Most Bus Pirate commands have help. Add the ```-h``` flag to any command to see the latest available options and usage examples. 
+:::
+
+### bridge
+
+Transparent UART ```bridge```. Bidirectional UART pass-through to interact with other serial devices from inside the Bus Pirate terminal. Press the Bus Pirate button to exit.
+
+#### Help
+
+{{% term "Bus Pirate [/dev/ttyS0]" %}}
+<span className="bp-prompt">UART></span> bridge -h<br/>
+usage:<br/>
+<span className="bp-info">bridge	[-h(elp)] [-t(oolbar)]</span><br/>
+<span className="bp-info">Transparent UART bridge: bridge</span><br/>
+<span className="bp-info">Exit: press Bus Pirate button</span><br/>
+<br/>
+<span className="bp-info">open UART with raw data IO, usb to serial bridge mode</span><br/>
+<span className="bp-prompt">-t</span>	<span className="bp-info">ENABLE toolbar while bridge is active (default: disabled)</span><br/>
+<span className="bp-prompt">-h</span>	<span className="bp-info">Get additional help</span><br/>
+<br/>
+<span className="bp-prompt">UART></span> <br/>
+{{% /term %}} 
+ 
+
+:::tip
+Use ```bridge -h``` to see the latest options and features.
+:::
+
+### gps 
+Most GPS modules output [NMEA sentences](https://gpsd.gitlab.io/gpsd/NMEA.html) through a serial UART. The ```gps``` command decodes common sentences using [minmea](https://github.com/kosma/minmea). The raw data and decoded data are printed in the terminal. Press any key to exit.
+
+#### Help
+
+{{% term "Bus Pirate [/dev/ttyS0]" %}}
+<span className="bp-prompt">UART></span> gps -h<br/>
+usage:<br/>
+<span className="bp-info">gps	[-h(elp)]</span><br/>
+<span className="bp-info">Decode GPS NMEA packets: gps</span><br/>
+<span className="bp-info">Exit: press any key</span><br/>
+<br/>
+<span className="bp-info">parse NMEA GPS data</span><br/>
+<span className="bp-prompt">-h</span>	<span className="bp-info">Get additional help</span><br/>
+<br/>
+<span className="bp-prompt">UART></span> <br/>
+{{% /term %}}
+
+:::tip
+Use ```gps -h``` to see the latest options and features.
+:::
+
+<!--
+
+                                                             |
+| 2   | Live raw UART monitor. Any key exits. [More](http://dangerousprototypes.com/2009/10/19/uart-mode-updates/) |
+| 3   | Transparent UART bridge with flow control.                                                                 |
+
+
+
+### Live UART monitor
+
+UART>(2)**<<<macro 2, UART monitor** Raw UART input. Space to
+exit. UART> The UART monitor macro (2) shows a live display of
+UART input as raw byte values without any type of formatting. Press any
+key to exit the live monitor. This mode works best with a terminal that
+can display raw byte values in a variety of formats.
+
+This macro is like the transparent UART macro (1) but without
+transmission abilities, and it can be exited with a key press. It’s
+useful for monitoring high-speed UART input that causes buffer overrun
+errors in other modes.
+-->
+## MIDI
+
+[MIDI](http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface)
+is a command set used by electronic (music) instruments. It travels over
+a standard serial UART configured for 31250bps/8/n/1.
+
+MIDI is a ring network, each node has an input and output socket. Each
+node passes messages to the next in the ring. The input and outputs are
+opto-isolated. The signaling is at 5volts, 5ma (current-based
+signaling). An adapter is required: [example
+1](http://www.compuphase.com/electronics/midi_rs232.htm), [example
+2](http://www.midi.org/techspecs/electrispec.php).
+
+
+
+<!--
+
+For macros and modes with flow control: CTS is on the CS pin (PIC input
+from external circuit is passed to FTDI USB->serial chip). RTS is on the
+CLOCK pin (PIC output mirrors output from FTDI chip).
+-->
