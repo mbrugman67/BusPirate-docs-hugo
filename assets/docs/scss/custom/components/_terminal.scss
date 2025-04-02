@@ -5,8 +5,6 @@
     border-top-left-radius: 0.4rem;
     border-top-right-radius: 0.4rem;
 
-    color: white;
-
 
     .header {
       display: flex;
@@ -46,6 +44,7 @@
     .highlight {
       font-family: var(--bs-font-sans-serif);
       font-size: 17px;
+      color: white;
 
       padding: 1rem !important;
       margin: 0rem !important;

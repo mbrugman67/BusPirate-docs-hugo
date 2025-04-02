@@ -1,6 +1,6 @@
 baseURL = '/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Bus Pirate Documentation'
 
 [module]
     [[module.imports]]
@@ -22,11 +22,11 @@ title = 'My New Hugo Site'
   mono_font       = "Fira Code" # Default is System font
 
     [params.docs] # Parameters for the /docs 'template'
-        title           = "Bus Pirate 5 Firmware"           # default html title for documentation pages/sections
-        pathname        = ""
+        title           = "Bus Pirate Docs"           # default html title for documentation pages/sections
         themeColor      = "dark-red"                            # (optional) - Set theme accent colour. Options include: blue (default), green, red, yellow, emerald, cardinal, magenta, cyan
         darkMode        = true                                # enable dark mode option? default false
         logo = "images/logos/danger.png"
+        keywords = "Hardware hacking, debugging, learn electronics"
 
     [params.footer] 
         copyright       = "Copyright © 2025 Where Labs, LLC. Built with Open Source."
