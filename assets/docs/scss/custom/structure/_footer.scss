@@ -8,6 +8,7 @@ footer {
   height: 58px;
 
   z-index: 5001;
+  font-size: 17px;
 
   .text-foot {
     color: var(--gray-500);
@@ -28,6 +29,14 @@ footer {
     text-decoration: underline 1.5px var(--primary-200);
     text-underline-offset: 3px !important;
     transition: 0s !important;
+  }
+
+  .footer-menu-title {
+    margin-bottom: 17px;
+  }
+
+  .footer-menu-item {
+    line-height: 34px;
   }
 }
 

@@ -6,10 +6,21 @@
       {{ range site.Menus.footer }}
       <div class="col-12 col-lg-2">
         <div class="mx-md-2">
-          <div class="fw-bold mb-3 text-white">{{ .Name }}</div>
+          <div class="fw-bold mb-3 text-white footer-menu-title">
+            {{ .Name }}
+          </div>
           {{ range .Children }}
           <div>
-            <a class="mb-0" {{ with .URL }}href="{{ . }}" {{ end }}>
+            <a
+              class="mb-0 footer-menu-item"
+              {{
+              with
+              .URL
+              }}href="{{ . }}"
+              {{
+              end
+              }}
+            >
               {{ .Name }}
             </a>
           </div>
