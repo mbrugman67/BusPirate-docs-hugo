@@ -1,0 +1,104 @@
+baseURL = '/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+
+[module]
+    [[module.imports]]
+        path = "github.com/colinwilson/lotusdocs"
+        disable = false
+    [[module.imports]]
+        path = "github.com/gohugoio/hugo-mod-bootstrap-scss/v5"
+        disable = false
+
+[params]
+
+  google_fonts = [
+    ["Manrope", "300, 400, 600, 700"],
+    ["Fira Code", "500, 700"]
+  ]
+
+  sans_serif_font = "Manrope"     # Default is System font
+  secondary_font  = "Manrope"     # Default is System font
+  mono_font       = "Fira Code" # Default is System font
+
+    [params.docs] # Parameters for the /docs 'template'
+        title           = "Bus Pirate 5 Firmware"           # default html title for documentation pages/sections
+        pathname        = ""
+        themeColor      = "dark-red"                            # (optional) - Set theme accent colour. Options include: blue (default), green, red, yellow, emerald, cardinal, magenta, cyan
+        darkMode        = true                                # enable dark mode option? default false
+        logo = "images/logos/danger.png"
+
+    [params.footer] 
+        copyright       = "Copyright © 2025 Where Labs, LLC. Built with Open Source."
+
+[menu]
+[[menu.primary]]
+    name  = "Bus Pirate v5"
+    url = "https://buspirate.com/"
+    weight = 10
+[[menu.primary]]
+    name  = "Hardware"
+    url = "https://hardware.buspirate.com/"
+    weight = 10
+[[menu.primary]]
+    name  = "Firmware"
+    url = "https://firmware.buspirate.com/"
+    weight = 10
+[[menu.primary]]
+    name  = "Forum"
+    url = "https://forum.buspirate.com/"
+    weight = 10
+[[menu.primary]]
+    name  = "Get"
+    url = "https://buspirate.com/get"
+    weight = 10
+[[menu.primary]]
+    name  = "Contact"
+    url = "https://buspirate.com/contact"
+    weight = 10
+
+
+[[menu.footer]]
+    name  = "Distributors"
+    weight = 10
+
+[[menu.footer]]
+    name = "Dirty PCBs"
+    url = "https://dirtypcbs.com/store/browse/bus-pirate"
+    parent = "Distributors"
+
+[[menu.footer]]
+    name = "Docs"
+    weight = 20
+
+[[menu.footer]]
+    name = "Hardware"
+    url = "https://hardware.buspirate.com/"
+    parent = "Docs"
+
+[[menu.footer]]
+    name = "Firmware"
+    url = "https://firmware.buspirate.com/"
+    parent = "Docs"
+
+[[menu.footer]]
+    name = "Community"
+    weight = 30
+
+[[menu.footer]]
+    name = "Forum"
+    url = "https://forum.buspirate.com/"
+    parent = "Community"
+
+[[menu.footer]]
+    name = "More"
+    weight = 40
+
+[[menu.footer]]
+    name = "Blog"
+    url = "https://buspirate.com/"
+    parent = "More"    
+
+
+[markup.goldmark.renderer]
+  unsafe = true

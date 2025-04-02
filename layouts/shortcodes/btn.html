@@ -1,0 +1,34 @@
+{{ $icon_array := dict
+  "info" "info"
+  "warning" "warning"
+  "success" "check_circle"
+  "danger" "report"
+  "default" "notifications"
+  "primary" "info"
+}}
+<a class="d-inline-flex text-white btn btn-lg btn-{{ with .Get "context" }}{{ . }}{{ else }}default{{ end }}" href="{{ .Get "href" }}" role="button">
+<div class="text-white flex-shrink-1 alert-icon">
+{{ with .Get "icon" }}
+{{ . }}
+{{ else }}
+<span class="text-white material-icons size-20 me-2">
+{{ with .Get "context" }}
+  {{ index $icon_array . }}
+{{ else }}
+  {{ $icon_array.default }}
+{{ end }}
+</span>
+{{- end -}}
+</div>
+{{ with .Get "text" }}
+<div>{{ . | $.Page.RenderString }}</div>
+{{ else }}
+{{ with .InnerDeindent }}
+<div>
+{{ . }}
+</div>
+{{ else }}
+{{ errorf "No valid text variable or Inner content given"}}
+{{- end -}}
+{{- end -}}
+</a>
