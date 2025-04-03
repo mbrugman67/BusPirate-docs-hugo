@@ -3,11 +3,7 @@ weight = 110
 title = 'USB Flash Storage'
 +++
 
-
-
-# USB Flash Storage
-
-![](./img/usb-flash-storage.png)
+![](/images/docs/fw/usb-flash-storage.png)
 
 The Bus Pirate has a NAND flash chip for storing settings and data. The flash chip also appears as a USB flash drive when the Bus Pirate is connected to a computer. Sharing the chip between the Bus Pirate and the computer operating system is a bit tricky.
 
@@ -55,7 +51,7 @@ These common commands are supported in the firmware as of this update, but alway
 
 ## USB Flash Drive Use
 
-![](./img/usb-flash-storage.png)
+![](/images/docs/fw/usb-flash-storage.png)
 
 
 Sharing the NAND chip between the Bus Pirate and a computer is a bit tricky. The USB mass storage driver doesn't have a mechanism to signal when changes are made to the disk, leading to data corruption. This is why e.g. Android uses MTP protocol for file transfer.

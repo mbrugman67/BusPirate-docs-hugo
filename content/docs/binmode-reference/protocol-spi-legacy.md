@@ -1,5 +1,5 @@
 +++
-title = "Legacy Raw SPI"
+title = "Legacy Raw SPI (Flashrom and AVRdude)"
 description = "Use with FlashRom to program SPI flash and AVRdude to program AVR microcontrollers"
 icon = "article"
 date = "2023-05-22T00:27:57+01:00"
@@ -8,8 +8,6 @@ draft = false
 toc = true
 weight = 400
 +++
-
-# Legacy Binary Mode for Flashrom and AVRdude
 
 {{% alert context="danger" %}}
 This documentation is not accurate or complete. It is pending updates.

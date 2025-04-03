@@ -3,11 +3,7 @@ weight = 10
 title = 'PulseView (Normal)'
 +++
 
-
-
-# PulseView with SUMP interface
-
-![](./img/sigrok-capture.png)
+![](/images/docs/fw/sigrok-capture.png)
 
 [Sigrok/PulseView](https://sigrok.org/wiki/Main_Page) is a popular open source logic analyzer GUI that runs on Windows, Linux, and Mac. The Bus Pirate supports Sigrok/PulseView through a SUMP protocol interface.
 
@@ -73,11 +69,11 @@ Download and install Sigrok/PulseView for your operating system. There is curren
 
 ### Setup
 
-![](./img/sigrok-select-device.png)
+![](/images/docs/fw/sigrok-select-device.png)
 
 Open PulseView. From the device drop down select ```Connect to Device```.
 
-![](./img/sigrok-config.png)
+![](/images/docs/fw/sigrok-config.png)
 
 - Choose ```Openbench Logic Sniffer & SUMP compatables (ols)``` as the device driver
 - Choose ```Serial Port``` as the interface and select the Bus Pirate secondary (binmode) serial port from the list
@@ -94,7 +90,7 @@ The power supply is disabled when the SUMP serial port is closed.
 
 ### Configure
 
-![](./img/sigrok-triggers.png)
+![](/images/docs/fw/sigrok-triggers.png)
 
 Select the sampling speed and number of samples to capture using the two drop down menus.
 
@@ -102,13 +98,13 @@ To configure a trigger, click the channel label and choose none, high, or low. T
 
 ### Capture
 
-![](./img/sigrok-capture.png)
+![](/images/docs/fw/sigrok-capture.png)
 
 With or without a trigger, click the ```run``` button to start the capture. When complete, the captured data will be displayed in the graph.
 
 ### Capture During Use
 
-![](./img/sigrok-pwm.png)
+![](/images/docs/fw/sigrok-pwm.png)
 
 The terminal can be used while the SUMP logic analyzer is running. You can set triggers and capture while sending or receiving data from the Bus Pirate terminal.    
 
@@ -124,7 +120,7 @@ All Bus Pirates support logic capture while the hardware is in use, however only
 
 ## Logic Analyzer System
 
-![](./img/logic-system.png)
+![](/images/docs/fw/logic-system.png)
 
 {{% alert context="info" %}}
 The ```logic``` command and the [follow along binmode interface](/logic-analyzer/pulseview-fala) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode](/logic-analyzer/pulseview-sump). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.

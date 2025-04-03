@@ -3,12 +3,6 @@ weight = 12
 title = 'UART/Serial Protocol'
 +++
 
-
-
-# UART Protocol Commands
-
-## Overview
-
 -   **Bus:** [UART](http://en.wikipedia.org/wiki/Serial_uart),
     [MIDI](http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface)
     (universal asynchronous receiver transmitter)

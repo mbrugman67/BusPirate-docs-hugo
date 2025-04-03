@@ -3,10 +3,7 @@ weight = 50
 title = 'Oscilloscope'
 +++
 
-
-# Scope Mode
-
-![](./img/scope-cover.jpg)
+![](/images/docs/fw/scope-cover.jpg)
 
 The Bus Pirate can support an oscilloscope display mode - it's limited by the underlying
 RP2040 chip to 0.5Msps so it's suitable for analog audio, not for high speed digital signals greater than 500KHz. Analog signals can be captured on any IO pin.
@@ -30,7 +27,7 @@ The ```d``` command selects the LCD display mode.
 
 ## Display overview
 
-![](./img/scope1a.jpg)
+![](/images/docs/fw/scope1a.jpg)
 
 The display is small, to make the scope more useful we have a much larger capture buffer than the actual display and software scales the captured data to fit. The actual resolution is 0.5M samples per second. In the 100uS/div range that's one sample per pixel, any faster (50uS/div and below and samples are interpolated on the screen). If possible we try and capture up to 10 samples per pixel at whatever the current resolution is so that you can zoom into captured data at least 10 times (3 steps) before we start interpolating.
 
@@ -116,7 +113,7 @@ In trigger mode you will see a red crosshair that shows the time and voltage tha
 there's also red test that describes it. If the crosshair is off the screen you'll see a red arrow
 pointing at where it's located.
 
-![](./img/scope2a.jpg)
+![](/images/docs/fw/scope2a.jpg)
 
 In all 3 modes you can type:
 - ```T``` moves the x display point to show the current trigger point
@@ -196,7 +193,7 @@ The ```d``` command selects the LCD display mode.
 - Choose ```scope``` to load the oscilloscope on the Bus Pirate LCD
 - You should see an oscilloscope on the Bus Pirate screen
 
-![](./img/scope1a.jpg)
+![](/images/docs/fw/scope1a.jpg)
 
 ### Triggers
 
@@ -213,7 +210,7 @@ Set the trigger to 'both' edges and begin the scope capture on pin 2:
 
 The default trigger point is ~2.4volts.
 
-![](./img/scope2a.jpg)
+![](/images/docs/fw/scope2a.jpg)
 
 ### Capture
 
@@ -229,7 +226,7 @@ Now we'll use the pull-up resistors to trigger the scope:
 - ```P``` and ```enter``` to turn **on** the pull-up resistors. You should see a trace with a rising edge
 - ```p``` and ```enter``` to turn **off** the pull-up resistors. You should see a nice exponential decay curve on the scope as pin 2's capacitance discharges
 
-![](./img/scope3a.jpg) ![](./img/scope4a.jpg)
+![](/images/docs/fw/scope3a.jpg) ![](/images/docs/fw/scope4a.jpg)
 
 ### Edge triggers
 
@@ -296,7 +293,7 @@ You should see the display showing a square wave. The capture buffer is large. W
 - ```x``` and ```enter``` to scale the X axis (time). 
 - You should see a bunch of square waves, try ```+``` and ```-``` to change the scale, and the left and right arrows to move around. Freeze a trace with ```o```
 
-![](./img/scope5a.jpg) 
+![](/images/docs/fw/scope5a.jpg) 
 
 Note you are now in interactive mode - try the ```-``` command a few times and see that you can zoom out from the current display and the ```+``` zooms in, ```<``` and ```>``` let you more right and left within the display.
 
@@ -313,7 +310,7 @@ Type ```y``` on the command line **or** in the x or t interactive mode type. Now
 - ```y``` and ```enter``` to scale the Y axis (volts).
 - Change the voltage scale with ```+``` and ```-```, and use the up down arrows to move the display
 
-![](./img/scope6a.jpg)
+![](/images/docs/fw/scope6a.jpg)
 
 Scroll back to the beginning and use ```-``` zoom out to 1v/div. Now type ```t``` to go into trigger  mode - you'll see a red crosshair showing the trigger voltage and time, and their actual values in red at the top right, you can edit them using the arrow keys, you can also change the trigger type using +-bn - try typing ```-``` and seeing how the display changes. 
 

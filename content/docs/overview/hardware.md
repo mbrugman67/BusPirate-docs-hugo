@@ -1,11 +1,9 @@
 +++
 weight = 1
-title = 'Bus Pirate 5'
+title = 'Bus Pirate Hardware'
 +++
 
-# Bus Pirate 5 Firmware Guide
-
-![](./img/bp5rev10-cover-angle.jpg)
+![](/images/docs/fw/bp5rev10-cover-angle.jpg)
 
 Bus Pirate 5 is the latest edition of the universal serial interface trusted by hackers since 2008.
 
@@ -17,7 +15,7 @@ Can't get a chip to work? Is it the circuit, code, bad part or a burned out pin?
 
 ## VT100 terminal interface
 
-![](./img/teraterm-done.png)
+![](/images/docs/fw/teraterm-done.png)
 
 VT100 terminal emulation supports color and a live statusbar view of the voltage and functions on each pin. Type simple commands into the terminal, the Bus Pirate translates them into popular serial protocols and displays the response. Learn how a chip works without touching a line of code.
 
@@ -45,12 +43,12 @@ This is the user guide for Bus Pirate 5. See the [hardware documentation](https:
 
 ## Color IPS LCD
 
-![](./img/bp5rev10-cover-2.jpg)
+![](/images/docs/fw/bp5rev10-cover-2.jpg)
 
 A beautiful 240x320 pixel color IPS (all angle viewing) LCD acts as a pin label, while also showing the voltage on each pin and the current consumption of the programmable power supply unit
 
 ## Main connector
-![](./img/bp5-connectors.jpg)
+![](/images/docs/fw/bp5-connectors.jpg)
 
 2.54mm 10 pin connector - A keyed locking connector that works just as well with common jumper wires and 2.54mm 'DuPont' style connectors.
 
@@ -62,7 +60,7 @@ A beautiful 240x320 pixel color IPS (all angle viewing) LCD acts as a pin label,
 
 ## Auxiliary connector
 
-![](./img/bp5-aux.jpg)
+![](/images/docs/fw/bp5-aux.jpg)
 
 1mm 9 pin connector - Intended as a tap point for a logic analyzer. No more trying to balance two or three probes on a single pin, just tap the bus activity from this secondary header.
 
@@ -73,35 +71,35 @@ A beautiful 240x320 pixel color IPS (all angle viewing) LCD acts as a pin label,
 
 ## 1Gbit NAND flash
 
-![](./img/bp5rev10-nand.jpg)
+![](/images/docs/fw/bp5rev10-nand.jpg)
 
 1Gbit (~100MB usable) NAND flash - Appears as a readable and writable disk drive when plugged into a USB port. 
 
-![](./img/json-config.png)
+![](/images/docs/fw/json-config.png)
 
 Flash storage is used to save global and mode configuration preferences in simple JSON files. 
 
 ## Just one button
 
-![](./img/bp5-onebutton.jpg)
+![](/images/docs/fw/bp5-onebutton.jpg)
 
 18 party LEDs but just one button! This is due to the low pin count of the RP2040. The button is used to escape modes, production programming and user defined functions.
 
 ## USB C connector
-![](./img/bp5-usbc.jpg)
+![](/images/docs/fw/bp5-usbc.jpg)
 
 Modern USB C connector. Only RP2040 supported USB modes are available.
 
 ## USB bootloader
 
-![](./img/bp5-back.jpg)
+![](/images/docs/fw/bp5-back.jpg)
 
 Updating is as simple as dragging a file onto the disk. 
 
 Normally the ```$``` key in the Bus Pirate terminal enters bootloader mode for firmware upgrades. You can also use the button on the bottom to activate the bootloader manually. 
 
 ## JTAG debug header
-![](./img/bp5-debug.jpg)
+![](/images/docs/fw/bp5-debug.jpg)
 
 A three pin debugging port is exposed on the bottom of the board. See the development section for more info on developing for the Bus Pirate.
 

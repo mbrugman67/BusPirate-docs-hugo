@@ -2,14 +2,13 @@
 weight = 100
 title = 'JSON Configuration Files'
 +++
-# JSON Configuration Files
 
-![](./img/json-config.png)
+![](/images/docs/fw/json-config.png)
 
 Global and mode settings will be saved and reloaded from onboard NAND flash storage. The settings are saved in simple JSON files. Configuration files can be viewed and edited from the USB disk that appears when the Bus Pirate is connected to a computer.
 
 ## Global settings
-```json
+```js
 {
 "terminal_language": 0,
 "terminal_ansi_color": 1,
@@ -30,7 +29,7 @@ Global and mode settings will be saved and reloaded from onboard NAND flash stor
 The variable names are self explanatory. The values correspond to the options in the configuration menu, minus one. 
 
 ## UART settings
-```json
+```js
 {
 "baudrate": 115200,
 "data_bits": 8,
@@ -39,14 +38,14 @@ The variable names are self explanatory. The values correspond to the options in
 }
 ```
 ## I2C settings
-```json
+```js
 {
 "baudrate": 400,
 "data_bits": 0
 }
 ```
 ## SPI settings
-```json
+```js
 {
 "baudrate": 100000,
 "data_bits": 8,
@@ -56,7 +55,7 @@ The variable names are self explanatory. The values correspond to the options in
 }
 ```
 ## LED settings
-```json
+```js
 {
 "device": 2,
 "num_leds": 16

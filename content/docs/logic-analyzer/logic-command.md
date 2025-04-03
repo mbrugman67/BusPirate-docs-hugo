@@ -3,9 +3,7 @@ weight = 20
 title = "Logic Command"
 +++
 
-# ```logic``` Command
-
-![](./img/logic-command-nav.png)
+![](/images/docs/fw/logic-command-nav.png)
 
 The ```logic``` command configures the logic analyzer core, and can display logic capture graphs directly in the terminal. It supports the "follow along" logic analyzer mode that triggers each time you send data to a bus. It eliminates the need setup triggers and arm a second tool for debugging. 
 
@@ -60,7 +58,7 @@ usage:
 ```logic -h``` will display the help menu with the latest options for the ```logic``` command.
 
 ## Start Logic Analyzer
-![](./img/logic-start.png)
+![](/images/docs/fw/logic-start.png)
 
 ```logic start``` configures the logic analyzer core for follow along mode and draws a blank logic graph. Use ```logic stop``` to stop the logic analyzer and release any resources used.
 
@@ -70,7 +68,7 @@ The ```logic``` command and the [follow along binmode interface](/logic-analyzer
 
 ### Show/Hide Logic Graph
 
-![](./img/logic-hide.png)
+![](/images/docs/fw/logic-hide.png)
 
 If the graph isn't needed, use ```logic hide``` to release it from the toolbar. Use ```logic show``` to draw the graph again showing the current capture buffer.
 
@@ -124,13 +122,13 @@ Currently the ```logic``` command only supports automatic capture in follow alon
 
 ## Navigation
 
-![](./img/logic-command-nav.png)
+![](/images/docs/fw/logic-command-nav.png)
 
 If there are too many samples to display at once, use ```logic nav``` to navigate the graph. The arrow keys will move the graph left and right, and ```x``` will exit the navigation mode.
 
 ## Logic Analyzer System
 
-![](./img/logic-system.png)
+![](/images/docs/fw/logic-system.png)
 
 {{% alert context="info" %}}
 The ```logic``` command and the [follow along binmode interface](/logic-analyzer/pulseview-fala) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode](/logic-analyzer/pulseview-sump). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.

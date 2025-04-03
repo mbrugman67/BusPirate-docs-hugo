@@ -1,9 +1,7 @@
 +++
 weight = 1
-title = 'Commands'
+title = 'Command Reference'
 +++
-
-# Command Reference
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> i
@@ -31,7 +29,7 @@ It's always best to use the latest firmware, especially in these early days of a
 
 ## User terminal
 
-![](./img/cmd-toolbar.png)
+![](/images/docs/fw/cmd-toolbar.png)
 
 The Bus Pirate is accessed from a command line in a serial terminal. Use your terminal of choice. On Windows we like the latest version of [Tera Term](https://ttssh2.osdn.jp/index.html.en).
 
@@ -200,7 +198,7 @@ Print the contents of a file. Type ```cat``` followed by a file name, then hit `
 
 ### **?/h/H** Help menu with latest options
 
-![Bpv52-help](./img/bp-term2.png)
+![Bpv52-help](/images/docs/fw/bp-term2.png)
 
 Type ```?``` followed by ```enter``` to display a help screen with all available menu and syntax options in the current firmware.
 
@@ -452,7 +450,7 @@ Lowercase ```w``` disables the PPSU.
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 
-![](./img/cmd-v.png)
+![](/images/docs/fw/cmd-v.png)
 
 {{< /term >}}
 
@@ -523,7 +521,7 @@ Uppercase ```G``` displays the frequency generation menu. Choose an available pi
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 
-![](./img/cmd-freq.png)
+![](/images/docs/fw/cmd-freq.png)
 
 {{< /term >}}
 
@@ -573,7 +571,7 @@ Not all pins will be available due to the PWM structure of the RP2040, and adjac
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 
-![](./img/cmd-freq.png)
+![](/images/docs/fw/cmd-freq.png)
 
 {{< /term >}}
 

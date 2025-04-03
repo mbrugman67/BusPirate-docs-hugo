@@ -3,10 +3,7 @@ weight = 102
 title = 'Flashrom'
 +++
 
-
-# Flashrom
-
-![](./img/zifqfn.jpg)
+![](/images/docs/fw/zifqfn.jpg)
 
 The Bus Pirate can serve as a programmer and dumper for flash memory chips, using the command-line utility Flashrom.
 
@@ -39,13 +36,13 @@ You can use an inexpensive WSON8 6x8 to DIP adapter to connect the Bus Pirate to
 
 Some inexpensive adapters, like this QFN8 6X8 to DIP: 
 
-![](./img/qfntodip.jpg)
+![](/images/docs/fw/qfntodip.jpg)
 
 May not make proper contact and might require extra pressure to work correctly with the chip. You can use these adapters by connecting the Bus Pirate cables to the male header, or if you have the Bus Pirate’s ZIF plank, connect it directly there, and it should work out of the box.
 
 These official planks work seamlessly with the Bus Pirate:
 
-![](./img/flashadapters.jpg)
+![](/images/docs/fw/flashadapters.jpg)
 
 Just push the chip into the socket and connect the Bus Pirate to the computer.
 

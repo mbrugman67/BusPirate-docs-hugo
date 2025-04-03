@@ -3,11 +3,7 @@ weight = 20
 title = 'Upgrade Firmware'
 +++
 
-
-
-# Bus Pirate firmware updates
-
-![](./img/firmware-1024.jpg)
+![](/images/docs/fw/firmware-1024.jpg)
 
 {{% alert context="info" %}}
 It's early days of a new Bus Pirate design, don't skip this step. We're adding features and squashing bugs daily. Things will be much easier with the latest and greatest firmware installed in your Bus Pirate. Don't worry, it's so very easy!
@@ -27,25 +23,14 @@ This is your best bet at the moment. Pirate-Bot compiles the latest code and upl
 
 - [Download a bleeding edge release in the forum](https://forum.buspirate.com/t/bus-pirate-5-auto-build-main-branch/20/999999)
 
-### Olde trusty
-
-Stable "long term" releases will be posted occasionally at GitHub. These can be considered well tested and reliable.
-
-- [Download a stable release at GitHub](https://github.com/DangerousPrototypes/BusPirate5-firmware)
-
-{{% alert context="info" %}}
-Keen observers will notice there's no stable release yet. Development is so active at the moment we haven't reached the point of making a stable release package. You really want the latest and greatest though, don't you?
-{{% /alert %}}
-
 ## Extract your firmware
 
 Open the firmware .zip file and find the right version for your Bus Pirate:
 - ```bus_pirate5_rev10.uf2``` - If your Bus Pirate came in a case, use this firmware for revision 10 hardware. **Most people should use this one**
+- ```bus_pirate6_rev2.uf2``` - If you have the latest limited edition hardware with RP2350
 - ```bus_pirate5_rev8.uf2``` - If you have an engineering sample, developers board or a preview board (all without a case) use this firmware for revision 8 hardware.
 
 {{% alert context="info" %}}
-If your Bus Pirate is in a case, it's revision 10 hardware. If you're not sure, use the revision 10 firmware.
-
 If the Bus Pirate blinks a menacing red, you've used the wrong firmware. Don't worry, [manually activate the bootloader](tutorial-basics/firmware-update#manually) and just try the other one.
 {{% /alert %}}
 
@@ -68,7 +53,7 @@ If the firmware update is interrupted and you find yourself locked out of the Bu
 
 ### Manually
 
-![](./img/boot-loader.jpg)
+![](/images/docs/fw/boot-loader.jpg)
 
 Something went wrong and you can't access the Bus Pirate? Just not in the mood to fire up a terminal? No problem, we've got you covered.
 
@@ -81,7 +66,7 @@ The Bus Pirate will connect to your computer in bootloader mode and a USB disk d
 
 ## Drag and drop the firmware
 
-![](./img/bootload-drive.png)
+![](/images/docs/fw/bootload-drive.png)
 
 Drag the firmware file ending with **.uf2** into the USB disk drive. The update should only take a few seconds.
 

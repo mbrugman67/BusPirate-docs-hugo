@@ -3,11 +3,7 @@ weight = 100
 title = 'Self-test Procedure'
 +++
 
-
-
-# Bus Pirate Self-test Guide
-
-![](./img/selftest-1024.jpg)
+![](/images/docs/fw/selftest-1024.jpg)
 
 Every Bus Pirate is lovingly tested by our crack team before it ships, but problems can always occur in transit or over time. The Bus Pirate firmware has a self-test that will help determine if your Bus Pirate is in good working order. 
 

@@ -3,10 +3,7 @@ weight = 4
 title = 'Translation'
 +++
 
-
-# Translation
-
-![](./img/translate.png)
+![](/images/docs/fw/translate.png)
 
 Bus Pirate 5 supports live language switching via the configuration menu. The language setting will be saved to flash storage and loaded each time the Bus Pirate starts.
 
@@ -39,7 +36,7 @@ Type ```c``` and press ```enter``` to display the configuration menu. Choose lan
 
 ## Make or update a translation
 
-![](./img/webtranslate.png)
+![](/images/docs/fw/webtranslate.png)
 
 
 {{% alert context="info" %}}
@@ -80,7 +77,7 @@ Format entries exactly as the previous entries: **no spaces between the ]=" or b
 {{% /alert %}}
 
 ### Run json2h.py
-![](./img/json2h.png)
+![](/images/docs/fw/json2h.png)
 
 json2h.py first processes the en-us.h file, then builds the other headers files using the .json translation files as a source.
 - Open a terminal

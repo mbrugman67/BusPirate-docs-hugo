@@ -1,11 +1,10 @@
 +++
 weight = 40
-title = 'Quick Connectors'
+title = 'KF141 Quick Connector'
 +++
 
-# KF141 Quick Connect Adapter
 
-![](./img/kf141r-render.png)![](./img/kf141r-pcb-2.jpg)   
+![](/images/docs/fw/kf141r-render.png)![](/images/docs/fw/kf141r-pcb-2.jpg)   
 
 Sometimes you just need to connect some wires and dig into a project. Quick connector boards get you working right away.
 
@@ -17,13 +16,13 @@ KF141 is a popular quick connector block with sturdy spring retention clamps. Pr
 
 ## KF141-R right angle connector
 
-![](./img/bp5-promo-8.jpg)
+![](/images/docs/fw/bp5-promo-8.jpg)
 
 KF141-R is a right angle connector. Wires clamps are oriented to the front of the connector block. Pin names are silkscreened in bright orange to save time and hassle.
 
 ## KF141-V vertical connector
 
-![](./img/bp5-promo-7.jpg)
+![](/images/docs/fw/bp5-promo-7.jpg)
 
 KF141-V is a vertical connector. Wires clamps are oriented to the top of the connector block. Pin names are silkscreened in bright orange to save time and hassle.
 

@@ -3,9 +3,7 @@ weight = 43
 title = 'Dual RS 232 Adapter'
 +++
 
-# Dual RS-232 Adapter
-
-![](./img/rs232-full.jpg)
+![](/images/docs/fw/rs232-full.jpg)
 
 Serial ports are old tech, but old tech is meant to be hacked. Here's an adapter that handy to have around if you work with vintage hardware or industrial equipment. We'll also sift through some common serial port accessories that can save the day when you're in a pinch.
 
@@ -35,7 +33,7 @@ The adapter has two connectors, male for DTE (Data Terminal Equipment) and femal
 
 ## Transceiver IC
 
-![](./img/rs232-hgsemi.jpg)
+![](/images/docs/fw/rs232-hgsemi.jpg)
 
 |Plank | Transceiver Chip | 
 |--- | -|
@@ -132,7 +130,7 @@ Breakout male and female connectors to screw terminals. Super handy to have, ine
 
 ## Schematic
 
-![](./img/rs232-schematic.png)
+![](/images/docs/fw/rs232-schematic.png)
 
 Dual RS-232 adapter [schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/) are available in the Bus Pirate 5 hardware repository.
 

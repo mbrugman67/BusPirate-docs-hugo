@@ -3,9 +3,7 @@ weight = 45
 title = 'Programming Voltage SMPS'
 +++
 
-# Programming Voltage SMPS
-
-![](./img/plank-vpp-smps.jpg)
+![](/images/docs/fw/plank-vpp-smps.jpg)
 
 This little plank is an adjustable Switch Mode Power Supply that generates a 5-16volt programming voltage (VPP) for microcontroller and EEPROMs. This includes PIC 12F/16F/18F (13volts), ATmega (12volts), and various other chips. Includes FETs to switch the voltage on and off, and short to ground.
 - 5-16volt output
@@ -23,7 +21,7 @@ Programming Voltage SMPS is "in development". If hardware is available it has pa
 
 ## Overview
 
-![](./img/vpp-cct.png)
+![](/images/docs/fw/vpp-cct.png)
 
 The circuit is a copy of the Microchip PICkit 2 programmer, with a few modifications. 
 
@@ -87,7 +85,7 @@ IO0 t o IO3 control the SMPS and switch VPP output to the target chip. IO4 to IO
 
 ## Schematic
 
-![](./img/vpp-cct.png)
+![](/images/docs/fw/vpp-cct.png)
 
 Programming Voltage SMPS [schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-hardware) are available in the Bus Pirate 5 hardware repository.
 

@@ -3,9 +3,7 @@ weight = 100
 title = 'IO Pin Descriptions'
 +++
 
-# IO Pin Descriptions
-
-![](./img/bp5-promo-12.jpg)
+![](/images/docs/fw/bp5-promo-12.jpg)
 
 ## Main connector pinout
 |Pin|Name      | Description|

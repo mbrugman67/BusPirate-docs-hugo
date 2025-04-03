@@ -3,11 +3,7 @@ weight = 60
 title = 'Configuration Menu'
 +++
 
-
-
-# Configuration Menu
-
-![](./img/configuration-1024.jpg)
+![](/images/docs/fw/configuration-1024.jpg)
 
 ## Options
 

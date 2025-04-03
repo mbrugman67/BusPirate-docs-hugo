@@ -71,7 +71,7 @@ The power supply is disabled when the SUMP serial port is closed.
 
 ## Logic Analyzer System
 
-![](./img/logic-system.png)
+![](/images/docs/fw/logic-system.png)
 
 {{% alert context="info" %}}
 The ```logic``` command and the [follow along binmode interface](/logic-analyzer/pulseview-fala) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode](/logic-analyzer/pulseview-sump). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.
@@ -126,16 +126,14 @@ Are five bytes long. The first byte contains the opcode. The bytes are displayed
 
 Defines which trigger values must match. In parallel mode each bit represents one channel, in serial mode each bit represents one of the last 32 samples of the selected channel. The opcodes refer to stage 0-3 in the order given above. (Protocol version 0 only supports stage 0.)
 
-![](/docs/binmode-reference/img/1100xx00.png)
+![](/images/docs/fw/1100xx00.png)
 
-
-![](images/docs/cmd-toolbar.png)
 
 #### Set Trigger Values (C1h, C5h, C9h, CDh)
 
 Defines which values individual bits must have. In parallel mode each bit represents one channel, in serial mode each bit represents one of the last 32 samples of the selected channel. The opcodes refer to stage 0-3 in the order given above. (Protocol version 0 only supports stage 0.)
 
-![Set Trigger Values](./img/1100xx01.png)
+![Set Trigger Values](/images/docs/fw/1100xx01.png)
 
 #### Set Trigger Configuration (C2h, C6h, CAh, CEh)
 
@@ -147,19 +145,19 @@ Configures the selected trigger stage. The opcodes refer to stage 0-3 in the ord
 - **serial** When set to 1 the stage operates as serial trigger, otherwise it used as parallel trigger.
 - **start** When set to 1 a match will start the capturing process. The trigger level will rise on match regardless of this flag.
 
-![Set Trigger Configuration](./img/1100xx10.png)
+![Set Trigger Configuration](/images/docs/fw/1100xx10.png)
 
 #### Set Divider (80h)
 
 When x is written, the sampling frequency is set to f = clock / (x + 1)
 
-![Set Divider](./img/10000000.png)
+![Set Divider](/images/docs/fw/10000000.png)
 
 #### Set Read & Delay Count (81h)
 
 Read Count is the number of samples (divided by four) to read back from memory and sent to the host computer. Delay Count is the number of samples (divided by four) to capture after the trigger fired. A Read Count bigger than the Delay Count means that data from before the trigger match will be read back. This data will only be valid if the device was running long enough before the trigger matched.
 
-![Set Read & Delay Count](./img/10000001.png)
+![Set Read & Delay Count](/images/docs/fw/10000001.png)
 
 #### Set Flags (82h)
 
@@ -171,7 +169,7 @@ Sets the following flags:
 - **external** Selects the clock to be used for sampling. If set to 0, the internal clock divided by the configured divider is used, and if set to 1, the external clock will be used. (filter and demux are only available with internal clock)
 - **inverted** When set to 1, the external clock will be inverted before being used. The inversion causes a delay that may cause problems at very high clock rates. This option only has an effect with external set to 1.
 
-![Set Flags](./img/10000010.png)
+![Set Flags](/images/docs/fw/10000010.png)
 
 ## Extended Protocol
 

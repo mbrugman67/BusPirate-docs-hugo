@@ -3,11 +3,7 @@ weight = 40
 title = 'Programmable Power Supply'
 +++
 
-
-
-# Programmable Power Supply Unit
-
-![](./img/ppsu-1024.jpg)
+![](/images/docs/fw/ppsu-1024.jpg)
 
 ## Features
 Bus Pirate 5 has a single 'Programmable Power Supply Unit' (PPSU) that can power devices from the VOUT/VREF pin of the main connector.
@@ -52,7 +48,7 @@ Enter any protocol mode (```m```) to use the power supply. The power supply is a
 
 ## Check voltage and current
 
-![](./img/ppsu-vreport.png)
+![](/images/docs/fw/ppsu-vreport.png)
 
 Check the voltage and current in the live view statusbar if active, or show the power supply voltage report using the ```v``` command followed by ```enter```.
 

@@ -1,10 +1,7 @@
 +++
 weight = 2
-title = 'Bus Syntax'
+title = 'Bus Syntax Reference'
 +++
-
-
-# Syntax Reference
 
 A simple syntax is used to interact with chips. Syntax characters have
 the same general function in each bus mode, such as ```r``` to read a byte

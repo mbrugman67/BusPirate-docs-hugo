@@ -1,12 +1,9 @@
 +++
 weight = 1
-title = 'SPI Flash Chips'
+title = 'NOR Flash Chips SPI'
 +++
 
-
-# SPI flash chips
-
-![](./img/spi-flash-pinout.png)
+![](/images/docs/demo/spi-flash-pinout.png)
 
 Eight pin SPI flash chips are a cheap and easy way to add storage to your project. They're available in sizes from 1MB to 128MB, and can be used to store data, firmware, or even a filesystem. They're commonly found on PC motherboards for storing BIOS, FPGAs for storing bitstreams, and even the Bus Pirate for storing the firmware.
 
@@ -31,7 +28,7 @@ Connect the Bus Pirate to the SPI flash chip as shown in the table above. Don't 
 
 ### SPI Flash Adapters 
 
-![](./img/flash-adapter-all.jpg)
+![](/images/docs/demo/flash-adapter-all.jpg)
 
 {{% alert context="info" %}}
 SPI [flash adapters for SOP8, WSON8, and DIP8 chips](/overview/spi-flash-adapters) are available for Bus Pirate 5. Connect SPI flash chips to the Bus Pirate quickly and easily.

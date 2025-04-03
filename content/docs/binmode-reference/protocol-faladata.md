@@ -1,5 +1,5 @@
 +++
-title = "FALA Logic Analyzer"
+title = "Follow Along Logic Analyzer"
 description = "Live action follow along logic analyzer"
 icon = "article"
 date = "2023-05-22T00:27:57+01:00"
@@ -8,8 +8,6 @@ draft = false
 toc = true
 weight = 300
 +++
-
-# Follow Along Logic Analyzer
 
 An asynchronous logic analyzer that triggers each time bus syntax is run from the terminal. It eliminates the need setup triggers and arm a second tool for debugging.  We like to call it FALA for short.
 
@@ -128,7 +126,7 @@ Returns the most recent capture notification. Can be used to retrieve missed cap
 
 ## Logic Analyzer System
 
-![](./img/logic-system.png)
+![](/images/docs/fw/logic-system.png)
 
 {{% alert context="info" %}}
 The ```logic``` command and the [follow along binmode interface](/logic-analyzer/pulseview-fala) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode](/logic-analyzer/pulseview-sump). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.

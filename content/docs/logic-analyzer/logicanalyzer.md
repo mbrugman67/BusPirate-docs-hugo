@@ -3,11 +3,7 @@ weight = 1
 title = 'Available Logic Analyzers'
 +++
 
-
-
-# Available Logic Analyzers
-
-![](./img/logic-system.png)
+![](/images/docs/fw/logic-system.png)
 
 The Bus Pirate can be used as a logic analyzer in multiple ways:
 - [PulseView and the SUMP interface](/logic-analyzer/pulseview-sump)
@@ -33,21 +29,21 @@ All Bus Pirate hardware supports follow along logic analyzer, however only Bus P
 
 ## Sigrok/PulseView (SUMP compatible)
 
-![](./img/sigrok-capture.png)
+![](/images/docs/fw/sigrok-capture.png)
 
 Sigrok/PulseView is a popular and mature open source logic analyzer GUI that runs on Windows, Linux, and Mac. 
 - [Learn how to use Sigrok/PulseView with the Bus Pirate](/logic-analyzer/pulseview-sump)
 
 ## Follow Along Interface
 
-![](./img/fala1.png)
+![](/images/docs/fw/fala1.png)
 
 A binary mode on the second UART that announces each follow along logic capture and dumps samples to host software.
 - [Sigrok/PulseView with the follow along interface](/logic-analyzer/pulseview-fala)
 
 ## ```logic``` Command
 
-![](./img/logic-command-nav.png)
+![](/images/docs/fw/logic-command-nav.png)
 
 The ```logic``` command configures the logic analyzer core, and can display logic capture graphs directly in the terminal.
 - [Learn more about the ```logic``` command](/logic-analyzer/logic-command)

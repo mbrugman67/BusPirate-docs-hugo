@@ -9,10 +9,6 @@ toc = true
 weight = 10
 +++
 
-# 1-Wire Protocol Commands
-
-## Overview
-
 -   **Bus:** [1-Wire](https://en.wikipedia.org/wiki/1-Wire)
 -   **Connections:** one pin (OWD) and ground
 -   **Output type:** open drain/open collector

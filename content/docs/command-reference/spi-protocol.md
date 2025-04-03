@@ -3,11 +3,6 @@ weight = 13
 title = 'SPI Protocol'
 +++
 
-
-# SPI Protocol Commands
-
-## Overview
-
 -   **Bus:** [SPI](http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) (serial peripheral interface)
 -   **Connections:** four pins (CDO/CDI/CLK/CS) and ground
 -   **Output type:** 1.65-5volts

@@ -3,14 +3,7 @@ weight = 1
 title = 'Quick Setup'
 +++
 
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-
-# Quick Setup
-
-![](./img/quicksetup-1024.jpg)
+![](/images/docs/fw/quicksetup-1024.jpg)
 
 ## Connect Bus Pirate 5
 
@@ -32,7 +25,7 @@ Your terminal emulation software will probably detect and list all the available
 <Tabs groupId="operating-systems" queryString="current-os">
   <TabItem value="win" label="Windows">
 
-![Windows device manager](./img/serialport-windows.png)
+![Windows device manager](/images/docs/fw/serialport-windows.png)
 
 
 - Press the Windows key or open the start menu
@@ -73,7 +66,7 @@ Another way to find information about the Bus Pirate on a Mac is:
  - Scroll Down and click "More Information"
  - Click USB on the sidebar_label
 
-![A screenshot of the System Information dialog, showing the Bus Pirate](./img/mac-system-information.png)
+![A screenshot of the System Information dialog, showing the Bus Pirate](/images/docs/fw/mac-system-information.png)
   
 The serial number shown will match the name of the device in `/dev/`.
 
@@ -88,13 +81,13 @@ A terminal emulator is software that connects to the Bus Pirate serial interface
 <Tabs groupId="operating-systems" queryString="current-os">
   <TabItem value="win" label="Windows">
 
-![TeraTerm setup](./img/teraterm-setup-com.png)
+![TeraTerm setup](/images/docs/fw/teraterm-setup-com.png)
 
 - We're huge fans of [Tera Term](https://ttssh2.osdn.jp/index.html.en) on Windows. Download and install the latest version.
 - Open Tera Term and select ```Setup``` then ```Serial port```.
 - Choose the Bus Pirate port, and configure it for 115200 (speed), 8 bit (data), None (parity), and 1 bit (stop bits). Click ```New setting``` or ```New Open``` to open the port.
 
-![TeraTerm setup](./img/teraterm-setup-term.png)
+![TeraTerm setup](/images/docs/fw/teraterm-setup-term.png)
 
 - Now select ```Setup``` then ```Terminal```.
 - Configure as shown above. Terminal size 80x24, New-line both set to CR, Terminal ID set to VT100. Click ```OK```.
@@ -104,13 +97,13 @@ A terminal emulator is software that connects to the Bus Pirate serial interface
 Seeing duplicate characters when you type? Check that ```local echo``` is unchecked in this menu.
 {{% /alert %}}
 
-![TeraTerm setup](./img/teraterm-vt100.png)
+![TeraTerm setup](/images/docs/fw/teraterm-vt100.png)
 
 - Press ```Enter``` in the terminal. 
 - The Bus Pirate will prompt you to choose VT100 color mode or the fallback ASCII monochrome mode. 
 - We recommend you type ```y``` followed by the ```enter``` key.
 
-![TeraTerm setup](./img/teraterm-done.png)
+![TeraTerm setup](/images/docs/fw/teraterm-done.png)
 
 You should see something like this. Congratulations, you're talking to the Bus Pirate!
 

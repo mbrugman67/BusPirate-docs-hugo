@@ -3,15 +3,11 @@ weight = 35
 title = 'Blink Some LEDs'
 +++
 
-
-
-# Blink Some LEDs
-
-![](./img/leds-1024.jpg)
+![](/images/docs/fw/leds-1024.jpg)
 
 ## SK6812 RGB LEDs
 
-![](./img/sk6812-mini-e-400.png) ![](./img/led-die.jpg) 
+![](/images/docs/fw/sk6812-mini-e-400.png) ![](/images/docs/fw/led-die.jpg) 
 
 |Pin|Description|
 |-|-|
@@ -105,7 +101,7 @@ Let's start by lighting the red die in the LED. The Bus Pirate understands binar
 - The final command is kind of unwieldy: ```0b111111110000000000000000.24```
 - Press ```enter``` to send the command to the LED. The red die should light at full brightness.
 
-![](./img/led-red.jpg)
+![](/images/docs/fw/led-red.jpg)
 
 Now the pattern for working with the SK6812 starts to become clear. We can enter ```0b000000001111111100000000.24``` to light the green die, or ```0b000000000000000011111111.24``` to light the blue die.
 
@@ -151,7 +147,7 @@ Now let's put it all together and send the same command in hexadecimal.
 Green is controlled by the second eight bits of data.
 - Type ```[0x00ff00.24``` followed by ```enter``` to light the green die.
 
-![](./img/led-green.jpg)
+![](/images/docs/fw/led-green.jpg)
 
 ### Blue
 
@@ -165,7 +161,7 @@ Green is controlled by the second eight bits of data.
 Blue is controlled by the last eight bits of data. 
 - Type ```[0x0000ff.24``` followed by ```enter``` to light the blue die.
 
-![](./img/led-blue.jpg)
+![](/images/docs/fw/led-blue.jpg)
 
 ### Purple
 
@@ -181,7 +177,7 @@ At this point you may wonder if you can mix colors. Why, yes, you can! Let's try
 - The red and blue die light to full brightness.
 - The color changes to purple.
 
-![](./img/led-purple.jpg)
+![](/images/docs/fw/led-purple.jpg)
 
 ### White
 
@@ -197,7 +193,7 @@ Through the magic of [additive color](https://en.wikipedia.org/wiki/Additive_col
 - All three LED dies light to full brightness.
 - The color is a sort of white at the cool (blue) end of the spectrum.
 
-![](./img/led-white.jpg)
+![](/images/docs/fw/led-white.jpg)
 
 ### Brightness
 
@@ -225,6 +221,6 @@ Finally, send a command to set all three dies at half power.
 - All three LED dies are lit at half power and the brightness is reduced.
 - The SK6812 controller chip in the LED uses pulse-width modulation to blink the dies on 50% of the time and off 50% of the time. 
 
-![](./img/led-dim.jpg)
+![](/images/docs/fw/led-dim.jpg)
 
 Even though the LED dies are only lit 50% of the time it doesn't appear half as bright. This is because human perception of brightness is non-liner. To make it really dim try sending a smaller value like 0x10: ```0x101010.24``` followed by ```enter```.

@@ -3,11 +3,6 @@ weight = 11
 title = 'I2C Protocol'
 +++
 
-
-# I2C Protocol Commands
-
-## Overview
-
 -   **Bus:** [I2C](http://en.wikipedia.org/wiki/I2c) (eye-squared-see or
     eye-two-see)
 -   **Connections:** two pins (SDA/SCL) and ground

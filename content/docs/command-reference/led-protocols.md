@@ -3,11 +3,6 @@ weight = 14
 title = 'LED Protocols'
 +++
 
-
-# LED Protocol Commands
-
-## Overview
-
 -   **Bus:** [WS2812](https://www.mouser.com/pdfDocs/WS2812B-2020_V10_EN_181106150240761.pdf) single wire, [APA102](https://www.mouser.com/datasheet/2/737/APA102_2020_SMD_LED-2487271.pdf) two wire
 -   **Connections:** one or two pins (SDO, SCL), and ground
 -   **Output type:** 1.65-5volts

@@ -3,9 +3,7 @@ weight = 44
 title = 'Infrared RX/TX Toy'
 +++
 
-# Infrared RX/TX Toy
-
-![](./img/plank-irtoy.jpg) 
+![](/images/docs/fw/plank-irtoy.jpg) 
 
 Use a remote control with your computer, view infrared signals on a logic analyzer, or capture and replay remote control buttons. Infrared Toy v3 brings new life to an [old favorite](http://dangerousprototypes.com/docs/USB_IR_Toy_v2) with much more powerful transmitter LEDs, and a full array of receivers to cover most common, and uncommon, infrared protocols.
 
@@ -19,7 +17,7 @@ Infrared Toy v3 is "in development". If hardware is available it has passed basi
 
 
 ## Transmitters
-![](./img/plank-irtoy-sensors.jpg)
+![](/images/docs/fw/plank-irtoy-sensors.jpg)
 
 
 |LED|Angle|Output|Current|Brand|Part|
@@ -43,7 +41,7 @@ The LEDs are rated for 100mA constant current output. Higher currents are possib
 
 ### Infrared LED output
 
-![constant current LED driver](./img/irtoy3-ccdriver.png)
+![constant current LED driver](/images/docs/fw/irtoy3-ccdriver.png)
 
 The LEDs are switched by a [constant current driver](http://dangerousprototypes.com/docs/USB_IR_Toy_v2#Infrared_transmitter), the current remains fixed even with variations in supply voltage and LED forward voltage. 
 
@@ -51,7 +49,7 @@ The current through the LEDs is equal to the current through the selected resist
 
 #### Setup
 
-![](./img/irtoy3-setup.png)
+![](/images/docs/fw/irtoy3-setup.png)
 
 To start, let's generate a 38kHz signal with a 50% duty cycle. This is the most common IR transmission modulation frequency.
 
@@ -103,7 +101,7 @@ Only use the 300mA setting at 50% duty cycle or less **and** short bursts of les
 
 IR Toy v3 has four infrared receivers that cover most common **and** uncommon infrared protocols/frequencies.
 
-![](./img/iroty3-rctest.png)
+![](/images/docs/fw/iroty3-rctest.png)
 
 Here's what it looks like when we hit the sensors with an IR remote control from close range. 
 
@@ -115,7 +113,7 @@ Passes through true, modulated signals in the range 20kHz to 60kHz. Lower and hi
 
 Demodulates an IR signal to high and low. When IR light modulated in the range of 36-40kHz hits the sensor, it outputs low. The learner is passing the modulated signal (lots of up and down). The barrier, and other demodulators, convert those bursts to high and low. Barrier sensors are used to detect a break in a beam of light for door sensors, soap dispensers, automatic faucets and in automated production line equipment.  
 
-![](./img/irtoy3-freqrange.png)
+![](/images/docs/fw/irtoy3-freqrange.png)
 
 This sensor is centered at 38kHz, but is 90% effective in the common 36-40kHz range.
 
@@ -129,7 +127,7 @@ Similar to the 38kHz demodualtor, but centered in the very uncommonly used 56kHz
 
 ### Infrared sensor input
 
-![](./img/irtoy3-setup.png)
+![](/images/docs/fw/irtoy3-setup.png)
 
 Let's take a look at the timeout and signal shaping embedded in each sensor. First, setup a 38kHz signal with a 50% duty cycle on the IR transmitter.
 
@@ -137,7 +135,7 @@ Let's take a look at the timeout and signal shaping embedded in each sensor. Fir
 - **G** - setup PWM ouput, choose IO4 for the IR Toy infrared LED transmit pin
 - Set **38kHz** output at **50%** duty cycle
 
-![](./img/irtoy3-38khzrx.png)
+![](/images/docs/fw/irtoy3-38khzrx.png)
 
 The bottom trace shows the Infrared Transmit LED PWM at 38kHz. The IR LEDs are transmitting a 38kHz modulated signal.
 
@@ -146,7 +144,7 @@ The bottom trace shows the Infrared Transmit LED PWM at 38kHz. The IR LEDs are t
 - **38kHz demodulator** - after about 2 seconds it times out and, probably, internally adjusts the gain in an attempt to filter out the ongoing "noise".
 - **56kHz demodulator** - Wait, shouldn't this sensor filter out the 38kHz modulated signal? Yes and no. If the signal source is a significant distance away, the 56kHz would be significantly less sensitive than the 38kHz sensors. On the test bench though, the 38kHz signal bounces off near objects and is powerful enough to activate the 56kHz sensor too. This sensor also times out a little more than a second.
 
-![](./img/irtoy3-56khzrx.png)
+![](/images/docs/fw/irtoy3-56khzrx.png)
 
 Let's change to that odd-ball 56kHz signal.
 - **g** to disable the 38kHz signal
@@ -159,7 +157,7 @@ This is because I moved the IR board to point at a distant wall instead of nearb
 
 ## Schematic
 
-![](./img/irtoy3-cct.png)
+![](/images/docs/fw/irtoy3-cct.png)
 
 IR Toy v3 [schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-hardware) are available in the Bus Pirate 5 hardware repository.
 

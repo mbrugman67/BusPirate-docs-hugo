@@ -3,11 +3,6 @@ weight = 13
 title = 'Half-Duplex UART'
 +++
 
-
-# Half-Duplex UART Protocol Commands
-
-## Overview
-
 -   **Bus:** Half-duplex [UART](http://en.wikipedia.org/wiki/Serial_uart),
     [MIDI](http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface)
     (universal asynchronous receiver transmitter), RX and TX on the same wire

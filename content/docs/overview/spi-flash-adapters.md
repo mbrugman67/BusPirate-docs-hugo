@@ -3,13 +3,11 @@ weight = 42
 title = 'SPI Flash Adapters'
 +++
 
-# SPI Flash Adapters
-
-![](./img/flash-adapter-all.jpg)   
+![](/images/docs/fw/flash-adapter-all.jpg)   
 
 Bus Pirate 5 has a "flash" command to read and write 8 pin SPI flash chips. Soldering chips on breakouts for testing got a bit wasteful, so we whipped up some simple socket adapters that fit the Bus Pirate header.
 
-![pinout for 8 pin SPI flash chips](./img/spi-flash-pinout.png)
+![pinout for 8 pin SPI flash chips](/images/docs/fw/spi-flash-pinout.png)
 
 The sockets on each board are connected with the "most common" SPI flash footprint. Found a chip with a different pinout? Power and ground have a switch that selects between the Bus Pirate VOUT/GND and IO0/IO1 pins for full flexibility.
 
@@ -19,11 +17,11 @@ The sockets on each board are connected with the "most common" SPI flash footpri
 
 ## SOP8 SPI Flash Adapter
 
-![](./img/flash-sop8.jpg)
+![](/images/docs/fw/flash-sop8.jpg)
 
 SOP8 150mil and 208mil are the most common and inexpensive flash packages at the moment. After [looking at a number of sockets](https://forum.buspirate.com/t/spi-flash-adapter-socket-reviews/400?u=ian) we decided these bad boys, favorites of the mobile phone repair market, were the way to go. Easy to insert and remove a chip, but a bit bulky with delicate pins. The cost is in the pins, 16 pins cost double that of an 8 pins socket.
 
-![](./img/sop8-use.jpg)
+![](/images/docs/fw/sop8-use.jpg)
 
 Inserting a chip:
 - Press down gently on the top of the socket. The spring fingers will retract.
@@ -37,11 +35,11 @@ Removing a chip:
 
 ### SOP8 LOTES Socket Version
 
-![](./img/flash-sop8-lotes-closed.jpg) 
+![](/images/docs/fw/flash-sop8-lotes-closed.jpg) 
 
 This board also supports 150mil and 208mil SOP8 SPI flash chips using a socket made by LOTES. We like the previous socket better, but these are low profile, easier to carry and more convenient to store. However, they are also more expensive and prone to breaking. There are a [limited number of these available](https://dirtypcbs.com/store/designer/details/ian/6663/sop8-spi-flash-adapter-for-bus-pirate-5) if you'd like to compare the sockets yourself.
  
-![](./img/flash-sop8-lotes-open.jpg)
+![](/images/docs/fw/flash-sop8-lotes-open.jpg)
 
 Inserting a chip:
 - Gently lift the top flap of the lid. The is the flap closest to the white circle that marks pin 1 on the PCB.
@@ -61,11 +59,11 @@ The lid flaps are delicate and really prone to snapping off. Be especially caref
 
 ## WSON8 SPI Flash Adapter
 
-![](./img/flash-wson8.jpg)
+![](/images/docs/fw/flash-wson8.jpg)
 
 Lead-less WSON 5x6/6x8 flash chips are becoming more common, but are a bit more expensive than SOP8 chips. The sockets are **significantly** more expensive than other sizes. We're doing small batches, so our cost is pretty high. If you need something more affordable, look for a WSON8 to DIP8 adapter on your favorite China stuff shopping site and use it with the DIP8 adapter below.
 
-![](./img/wson-use.jpg)
+![](/images/docs/fw/wson-use.jpg)
 
 Inserting a chip:
 - Push the retaining clip forward to unlock, then lift up to open the socket.
@@ -79,11 +77,11 @@ Removing a chip:
 
 ## DIP8 SPI Flash Adapter
 
-![](./img/flash-dip8.jpg)
+![](/images/docs/fw/flash-dip8.jpg)
 
 New through hole DIP flash chips are getting rare, but they’re everywhere in vintage computers. These 16P aquamarine ZIF sockets are the universal programming solution. Pull up the little lever, drop in a chip, and push the level down to lock the chip in place. 
 
-![](./img/dip8-use.jpg)
+![](/images/docs/fw/dip8-use.jpg)
 
 Inserting a chip:
 - Pull up the lever to open the socket.

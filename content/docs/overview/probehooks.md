@@ -1,9 +1,7 @@
 +++
 weight = 50
-title = 'Probe Hooks'
+title = 'Probes and Hooks'
 +++
-
-# Probes and Hooks
 
 There’s a bunch of ingenious ways to tap signals in an electronic circuit. Probe hooks have small wire claws that grab onto a chip leg, and a spring that retracts to hold it into place. The right hook depends on what you’ll be connecting, and how much space you have available.
 
@@ -13,11 +11,11 @@ Treat probe hooks as consumables. They will wear out and need to be replaced fro
 
 ## The Shenzhen Hook
 
-![](./img/csg902-profile.png)
+![](/images/docs/fw/csg902-profile.png)
 
 |**Manufacturer**|**Part Num**|**Rating**|**Weight**|**Material**|**Hook Details**|**Colors**|
 |-|-|-|-|-|-|-|
-|Various|CSG902, XDL-DBXX|-VDC/1A|1.25g|ABS or PA|![](./img/csg902.png)|Black, White, Red, Yellow, Green, Blue|
+|Various|CSG902, XDL-DBXX|-VDC/1A|1.25g|ABS or PA|![](/images/docs/fw/csg902.png)|Black, White, Red, Yellow, Green, Blue|
 
 This inexpensive hook has been everywhere for as long as the Bus Pirate has been around. It’s not really clear who the original or primary manufacturer was. Our current theory is that the housing and crimps are produced separately, and third party cable manufacturers assemble them with the proper tooling. 
 
@@ -27,12 +25,12 @@ Three connection types exist in the market. We’re most interested in the type 
 
 ## Box Hooks
 
-![](./img/box-profile.png)
+![](/images/docs/fw/box-profile.png)
 
 |**Manufacturer**|**Part Num**|**Rating**|**Weight**|**Material**|**Hook Details**|**Colors**|
 |-|-|-|-|-|-|-|
-|ETA|ETA3122|60VDC/1A|1.13g|PA|![](./img/eta3122.png)|Black, Red|
-|Cleqee, Various|P5013|30VDC/5A|-|PA|![](./img/p5013.png)|Black, White, Red, Yellow, Green, Blue|
+|ETA|ETA3122|60VDC/1A|1.13g|PA|![](/images/docs/fw/eta3122.png)|Black, Red|
+|Cleqee, Various|P5013|30VDC/5A|-|PA|![](/images/docs/fw/p5013.png)|Black, White, Red, Yellow, Green, Blue|
 
 This style of probe hook probably has the best cost to hassle ratio and works in lots of different situations. It’s a great starter probe that will withstand a small amount of abuse while still remaining useful. If you don’t know what probe to get, this is probably the one.
 
@@ -43,12 +41,12 @@ Several similar probes have come onto the market in recent years. The ETA 3122 i
 ## Airplane Hooks
 
 ### Surface Mount
-![](./img/airplane-profile.png)
+![](/images/docs/fw/airplane-profile.png)
 
 |**Manufacturer**|**Part Num**|**Rating**|**Weight**|**Material**|**Hook Details**|**Colors**|
 |-|-|-|-|-|-|-|
-|ETA|ETA3125|40VDC/1A|1.3g|PA|![](./img/eta3125.png)|Black, Red, Grey|
-|Cleqee|P5003|-|1.3g|PA|![](./img/p5003.png)|Black, White, Red, Yellow, Green, Blue|
+|ETA|ETA3125|40VDC/1A|1.3g|PA|![](/images/docs/fw/eta3125.png)|Black, Red, Grey|
+|Cleqee|P5003|-|1.3g|PA|![](/images/docs/fw/p5003.png)|Black, White, Red, Yellow, Green, Blue|
 
 This probe, called an “airplane test hook” in Mandarin, is styled after the fancy probes found on high end test equipment. At a fraction of the cost, the quality isn’t close to an original Tektronix probe, but they will fit *** slight tighter spaces, slightly smaller pins*** than the XKM-style hooks. 
 
@@ -60,12 +58,12 @@ Unless you’re already familiar with this style, or specifically need a hook wi
 
 ### Through-Hole
 
-![](./img/thickairplane-profile.png)
+![](/images/docs/fw/thickairplane-profile.png)
 
 |**Manufacturer**|**Part Num**|**Rating**|**Weight**|**Material**|**Hook Details**|**Colors**|
 |-|-|-|-|-|-|-|
-|ETA|ETA3123|30VDC/2A|1.3g|PA|![](./img/eta3123.png)|Black, Red|
-|You Ji Xiong, Various|CSG905|60VDC/2A|-|-|![](./img/csg905.png)|Black, Grey, White, Red, Yellow, Green, Blue|
+|ETA|ETA3123|30VDC/2A|1.3g|PA|![](/images/docs/fw/eta3123.png)|Black, Red|
+|You Ji Xiong, Various|CSG905|60VDC/2A|-|-|![](/images/docs/fw/csg905.png)|Black, Grey, White, Red, Yellow, Green, Blue|
 
 
 This is a wide-body version of the airplane hook. This is an older style hook intended for through-hole parts and pin header. The most common part number used among manufacturers of similar hooks is CSG905.
@@ -74,11 +72,11 @@ ETA markets a high quality version, but there are a multitude of similar probes 
 
 ## SDK08 Hooks
 
-![](./img/sdk08-profile.png)
+![](/images/docs/fw/sdk08-profile.png)
 
 |**Manufacturer**|**Part Num**|**Rating**|**Weight**|**Material**|**Hook Details**|**Colors**|
 |-|-|-|-|-|-|-|
-|-|SDK08|40VDC/2A|1.1g|ABS|![](./img/sdk08.png)|Black, Red, Yellow, Green, Blue|
+|-|SDK08|40VDC/2A|1.1g|ABS|![](/images/docs/fw/sdk08.png)|Black, Red, Yellow, Green, Blue|
 
 A patented design intended to stack closely in tight spaces. This could be a useful hook if you need to connect consecutive pins on a surface mount chip.  The price is pretty good for a surface mount friendly hook and they do stack nicely in tight space, but the finger “trigger” can be a bit fussy to use in practice on a tightly packed PCB.
 
@@ -88,11 +86,11 @@ We know that the design patent is owned by an individual and several outlets cla
 
 ### Small
 
-![](./img/profile-round-small.png)
+![](/images/docs/fw/profile-round-small.png)
 
 |**Manufacturer**|**Part Num**|**Rating**|**Weight**|**Material**|**Hook Details**|**Colors**|
 |-|-|-|-|-|-|-|
-|Various|CSG903|-VDC/1A|0.9g|ABS|![](./img/csg903.png)|Red, Black, Green, Blue, Yellow|
+|Various|CSG903|-VDC/1A|0.9g|ABS|![](/images/docs/fw/csg903.png)|Red, Black, Green, Blue, Yellow|
 
 Inexpensive round hooks work great with pin headers and through-hole parts, but require a soldered connection. The original Bus Pirate v3 cable from Seeed Studio used 8 of these connectors. They’re cheap and sturdy, but only useful for big pins with lots of space or moderate-current power connections.
 
@@ -100,23 +98,23 @@ There are multiple sources for these parts, many use the CSG903 part number. It 
 
 ### Medium
 
-![](./img/profile-round-medium.png)
+![](/images/docs/fw/profile-round-medium.png)
 
 |**Manufacturer**|**Part Num**|**Rating**|**Weight**|**Material**|**Hook Details**|**Colors**|
 |-|-|-|-|-|-|-|
-|Cleqee|P5001|60VDC/3A|-|PVC|![](./img/csg904.png)|Red, Black, Green, Blue, Yellow|
-|Various|CSG904|-VDC/1A|1.9g|ABS|![](./img/csg904.png)|Red, Black, Green, Blue, Yellow|
+|Cleqee|P5001|60VDC/3A|-|PVC|![](/images/docs/fw/csg904.png)|Red, Black, Green, Blue, Yellow|
+|Various|CSG904|-VDC/1A|1.9g|ABS|![](/images/docs/fw/csg904.png)|Red, Black, Green, Blue, Yellow|
 
 A larger, higher current version of the CSG903, also with a soldered connection. These are all over the market and have been around for ages. Useful for pin header and moderate current applications, but not particularly fun to use for tapping into signals.
 
 ### Large
 
-![](./img/profile-round-large.png)
+![](/images/docs/fw/profile-round-large.png)
 
 |**Manufacturer**|**Part Num**|**Rating**|**Weight**|**Material**|**Hook Details**|**Colors**|
 |-|-|-|-|-|-|-|
-|Cleqee|P5002|60VDC/10A|1.8g|ABS|![](./img/csg901.png)|Red, Black, Green, Blue, Yellow|
-|Various|CSG901|60VDC/10A|1.8g|ABS|![](./img/csg901.png)|Red, Black, Green, Blue, Yellow|
+|Cleqee|P5002|60VDC/10A|1.8g|ABS|![](/images/docs/fw/csg901.png)|Red, Black, Green, Blue, Yellow|
+|Various|CSG901|60VDC/10A|1.8g|ABS|![](/images/docs/fw/csg901.png)|Red, Black, Green, Blue, Yellow|
 
 An even larger round hook, primarily useful for higher current applications. We'd avoid using this for digital signals as all the additional metal will impact the switching waveform.
 

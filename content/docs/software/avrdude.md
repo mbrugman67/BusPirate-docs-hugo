@@ -3,10 +3,7 @@ weight = 101
 title = 'AVRDUDE Programmer'
 +++
 
-
-# AVRDUDE Programmer
-
-![](./img/leonardo-icsp-bp-connected.png)
+![](/images/docs/fw/leonardo-icsp-bp-connected.png)
 
 The Bus Pirate can serve as a programmer and dumper for AVR chips, using the command-line utility AVRDUDE. 
 
@@ -20,7 +17,7 @@ In this demo we'll program the ATmega32U4 chip found on the Arduino Leonardo thr
 
 ## Connections
 
-![](./img/leonardo-icsp-pinout.png)
+![](/images/docs/fw/leonardo-icsp-pinout.png)
 
 |Bus Pirate|Arduino Leonardo|Description|
 |-|-|-|
@@ -113,7 +110,7 @@ avrdude done.  Thank you.
 ```
 ### AVRDUDESS
 
-![](./img/avrdudess.png)
+![](/images/docs/fw/avrdudess.png)
 
 Using AVRDUDESS is easy and straightforward. Just select:
 

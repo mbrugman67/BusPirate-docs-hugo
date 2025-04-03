@@ -4,11 +4,6 @@ weight = 12
 title = '2-Wire Protocol'
 +++
 
-
-# 2-Wire Protocol Commands
-
-## Overview
-
 -   **Bus:** 2 wire bus with bidirectional data (SDA) line and a clock (SCL) line
 -   **Connections:** two pins (SDA/SCL) and ground. An additional pin is reserved for RESET, and is controlled by the ```{```/```}``` commands.
 -   **Output type:** open drain/open collector

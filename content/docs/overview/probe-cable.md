@@ -2,9 +2,8 @@
 weight = 2
 title = 'Probe Cable Kit'
 +++
-# Probe Cable Set
 
-![](./img/bp5-promo-11.jpg) 
+![](/images/docs/fw/bp5-promo-11.jpg) 
 
 - 1 [Premium Probe Cable](https://hardware.buspirate.com/cables/#probe-cable)
 - 10 [Shenzhen starter probe hooks](/overview/probehooks#the-shenzhen-hook)
@@ -18,7 +17,7 @@ A keyed and locking probe cable made of premium soft and flexible silicone coate
 
 ## Premium Probe Cable
 
-![](./img/bp5-promo-6.jpg)
+![](/images/docs/fw/bp5-promo-6.jpg)
 
 A high quality probe cable to connect the Bus Pirate to test hooks, milled breadboard pins and pin header.
 
@@ -40,7 +39,7 @@ Resources
 
 ## Starter Hooks
 
-![](./img/bp5-promo-5.jpg)
+![](/images/docs/fw/bp5-promo-5.jpg)
 
 10 [Shenzhen Hook test probes](/overview/probehooks#the-shenzhen-hook) to tap surface mount chip leads. Cheap and black. Oh so fashionable! 
 
@@ -52,7 +51,7 @@ Resources:
 
 ## Milled Breadboard Pins
 
-![](./img/bp5-promo-4.jpg)
+![](/images/docs/fw/bp5-promo-4.jpg)
 
 There had to be a better way to connect a probe cable to a breadboard or pin header. Something better than probe hooks precariously clipped to the end of jumper wires...
 
@@ -64,7 +63,7 @@ Resources:
 
 ## Premium silicone coated wire
 
-![](./img/cable-wire.jpg)
+![](/images/docs/fw/cable-wire.jpg)
 
 All [Bus Pirate cables](https://hardware.buspirate.com/cables/) are made with super soft and flexible premium silicone coated wire. The inner strands are very fine tinned copper. 22AWG has 60 strands 0.08mm thick (bottom), compared to 8-12 strands in common wire (top). The silicone coating has a very nice feel, tolerates  high heat and chemicals.
 

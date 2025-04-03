@@ -2,9 +2,8 @@
 weight = 30
 title = 'Auxiliary Cable Kit'
 +++
-# Auxiliary Cable Kit
 
-![](./img/bp5-promo-13.jpg)
+![](/images/docs/fw/bp5-promo-13.jpg)
 
 A collection of auxiliary cables made from premium soft and flexible silicone coated wire.
 
@@ -22,7 +21,7 @@ This silicone coated wire feels so nice we made a bundle of color coded jumper c
 
 ### Auxiliary Connector Cable
 
-![](./img/bp5-promo-1.jpg)
+![](/images/docs/fw/bp5-promo-1.jpg)
 
 A 9 pin cable connects the Bus Pirate auxiliary connector to external tools like logic analyzers, oscilloscopes etc. 
 
@@ -44,7 +43,7 @@ The first version of the auxiliary cable has all back crimp housings. The second
 
 ### Y Splitter Cable
 
-![](./img/bp5-promo-2.jpg)
+![](/images/docs/fw/bp5-promo-2.jpg)
 
 A high quality splitter cable to make multiple connections to a single pin. Connect power and ground to multiple devices, or share a 1-Wire, I2C or SPI bus between several chips.
 
@@ -58,7 +57,7 @@ Resources:
 
 ### Jumper Cable
 
-![](./img/bp5-promo-3.jpg)
+![](/images/docs/fw/bp5-promo-3.jpg)
 
 A high quality jumper wire to quickly connect your latest breakout board.
 
@@ -71,7 +70,7 @@ Resources:
 
 ## Premium silicone coated wire
 
-![](./img/cable-wire.jpg)
+![](/images/docs/fw/cable-wire.jpg)
 
 All [Bus Pirate cables](https://hardware.buspirate.com/cables/) are made with super soft and flexible premium silicone coated wire. The inner strands are very fine tinned copper. 22AWG has 60 strands 0.08mm thick (bottom), compared to 8-12 strands in common wire (top). The silicone coating has a very nice feel, tolerates high heat and chemicals.
 

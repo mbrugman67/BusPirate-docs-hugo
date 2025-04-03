@@ -1,5 +1,5 @@
 +++
-title = "Change Binary Mode"
+title = "Change Binary Interface"
 description = "Access logic analyzers, programmers, and more"
 icon = "article"
 date = "2023-05-22T00:27:57+01:00"
@@ -8,11 +8,6 @@ draft = false
 toc = true
 weight = 100
 +++
-
-
-
-
-# Binary Interfaces
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> binmode

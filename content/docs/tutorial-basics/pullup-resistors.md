@@ -3,11 +3,7 @@ weight = 45
 title = 'Pull-up Resistors'
 +++
 
-
-
-# Onboard Pull-up Resistors
-
-![](./img/pullups-1024.jpg)
+![](/images/docs/fw/pullups-1024.jpg)
 
 # Pull-up resistors
 
@@ -63,7 +59,7 @@ V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">5.0</s
  - Use the ```W``` command to enable the programmable power supply. 
  - The voltage is fed to the pull-ups and is available on the VOUT/VREF pin of the Bus Pirate main connector.
 
-![](./img/pullup-statusbar-3.png)
+![](/images/docs/fw/pullup-statusbar-3.png)
 
 Check the live view statusbar at the bottom of the terminal. 
 - The top line indicates the power supply is set at 5volts with a 100mA current limit. 
@@ -98,7 +94,7 @@ The Bus Pirate is rated for 5volts DC maximum. Exceeding this limit will damage 
 - Enter any protocol mode (```m```). Pull-up resistors are disabled in HiZ safe mode.
 - Type uppercase ```P``` followed by ```enter``` to activate the pull-up resistors.
 
-![](./img/pullup-statusbar-1.png)
+![](/images/docs/fw/pullup-statusbar-1.png)
 
 In the live view statusbar all pins should be high, close to 5.0volts.
 - The top line now shows that the pull-up resistors are enabled.
@@ -128,7 +124,7 @@ Sometimes it's helpful to manually operate a pin. ```a```/```A```/```@``` are sy
 - Type ```a.0 a.1 a.2 a.3``` followed by ```enter```.
 - The ```a.X``` syntax grounds the corresponding Bus Pirate output, in this case pins 0,1,2 and 3.
 
-![](./img/pullup-statusbar-2.png)
+![](/images/docs/fw/pullup-statusbar-2.png)
 
 Verify that the pins are low in the live view statusbar if active, or use the ```v``` command to view a voltage report.
 - The third line shows that IO0 to IO3 are auxiliary-low (AUXL).
@@ -153,7 +149,7 @@ The ```@.X``` syntax makes the corresponding Bus Pirate pins inputs, allowing th
 - Type ```@.0 @.1 @.2 @.3``` followed by ```enter```.
 - ```@.X``` also reads the state of the input pin. In this case the Bus Pirate reads '1' because the pull-up resistors are holding the pin high.
 
-![](./img/pullup-statusbar-1.png)
+![](/images/docs/fw/pullup-statusbar-1.png)
 
 Verify that all the pins are around 5volts in the live monitor statusbar, or by using the voltage report command ```v```.
 - All pins should be pulled high again.
@@ -167,7 +163,7 @@ Verify that all the pins are around 5volts in the live monitor statusbar, or by 
 
 - Type lowercase ```p``` then hit ```enter``` to disable the pull-up resistors.
 
-![](./img/pullup-statusbar-4.png)
+![](/images/docs/fw/pullup-statusbar-4.png)
 
 Verify that all the pins show 0volts in the live monitor statusbar or voltage report.
 - All pins should now be at 0volts because the pull-up are disabled.

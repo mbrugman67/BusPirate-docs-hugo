@@ -3,11 +3,7 @@ weight = 15
 title = 'PulseView (Follow Along)'
 +++
 
-
-
-# PulseView with Follow Along Interface
-
-![](./img/fala1.png)
+![](/images/docs/fw/fala1.png)
 
 FALA is a "live action" logic analyzer mode that automatically captures everything that happens when you send commands from the Bus Pirate. It eliminates the need to setup triggers and arm a second tool for debugging.  We like to call it FALA for short.
 
@@ -52,7 +48,7 @@ Enable the FALA binary interface with the ```binmode``` command. This will confi
 
 ## Configure PulseView
 
-![](./img/fala2.png)
+![](/images/docs/fw/fala2.png)
 
 Click "connect to device" and configure PulseView for the Bus Pirate FALA mode.
 
@@ -63,7 +59,7 @@ Click "connect to device" and configure PulseView for the Bus Pirate FALA mode.
 
 ### Run Capture on PulseView
 
-![](./img/fala3.png)
+![](/images/docs/fw/fala3.png)
 
 Click "run" to start capturing.
 
@@ -134,13 +130,13 @@ Every time you send data to the bus, the logic analyzer will capture samples. En
 
 ### Live Logic View!
 
-![](./img/fala4.png)
+![](/images/docs/fw/fala4.png)
 
 The samples are loaded into PulseView every time something happens on the bus.
 - You may need to zoom a lot if there are only a few samples
 - The box with a 2 (red arrow) indicates the number of captures. Up and down arrows scroll through the capture history
 
-![](./img/fala5.png)
+![](/images/docs/fw/fala5.png)
 
 Autozoom fits all samples in the logic graph (red arrow).
 
@@ -171,7 +167,7 @@ All Bus Pirate hardware supports the follow along logic analyzer, however only B
 
 ## Logic Analyzer System
 
-![](./img/logic-system.png)
+![](/images/docs/fw/logic-system.png)
 
 {{% alert context="info" %}}
 The ```logic``` command and the [follow along binmode interface](/logic-analyzer/pulseview-fala) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode](/logic-analyzer/pulseview-sump). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.

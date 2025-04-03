@@ -1,11 +1,9 @@
 +++
 weight = 2
-title = 'Firmware'
+title = 'Firmware Development'
 +++
 
-# Firmware Development
-
-![](./img/vscode.jpg)
+![](/images/docs/fw/vscode.jpg)
 
 Bus Pirate 5 is based on the Raspberry Pi RP2040 and uses the Pico C language SDK. It's a really wonderful toolchain and usually 'just works' on most operating systems.
 
@@ -30,7 +28,7 @@ Debugging is supported through a two wire JTAG interface. It's a great way to se
 
 ### Raspberry Pi Pico as debugger
 
-![](./img/pico.jpg)
+![](/images/docs/fw/pico.jpg)
 
 A [RP2040 Pico board](https://www.raspberrypi.com/products/raspberry-pi-Pico/) can be used as a debugger.
 - Download the [Pico Probe firmware](https://github.com/raspberrypi/Picoprobe/releases)
@@ -38,7 +36,7 @@ A [RP2040 Pico board](https://www.raspberrypi.com/products/raspberry-pi-Pico/) c
 - Drag and drop the Pico Probe firmware into the USB disk. The Pico will reset and two USB connections will appear. One is the debug interface, the other is a USB to serial converter.
 
 #### Windows driver install
-![](./img/zadig.png)
+![](/images/docs/fw/zadig.png)
 
 **Windows Only** - We need to swap the driver for the debug interface.
 
@@ -57,7 +55,7 @@ The Pico Probe firmware is open and the early versions were rather simple. We sh
 
 
 ### Debug Connections
-![](./img/bp5-debug.jpg)
+![](/images/docs/fw/bp5-debug.jpg)
 
 |Connection|Pico Probe pin|Bus Pirate pin|
 |-|-|-|
@@ -71,7 +69,7 @@ The Bus Pirate debug header is exposed on the bottom of the PCB/enclosure. Conne
 
 ### Debug Station
 
-![](./img/debug-station-2.jpg)
+![](/images/docs/fw/debug-station-2.jpg)
 
 A 3D printable debug station is in the hardware repository.
 - A cradle for the Bus Pirate with mating debug header
@@ -81,7 +79,7 @@ A 3D printable debug station is in the hardware repository.
 
 We tried really hard to make it "drop and go" using pogo pins for the debug header but the connection was unreliable. Instead we use a 3P milled pin header on a PCB or perf board.
 
-![](./img/debug-station.jpg)
+![](/images/docs/fw/debug-station.jpg)
 
 Hardware:
 - M3x5mm DIN7991 bolts

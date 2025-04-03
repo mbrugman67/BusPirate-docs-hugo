@@ -1,16 +1,13 @@
 +++
 weight = 5
-title = 'Documentation'
+title = 'Writing Documentation'
 +++
-
-
-# Writing Documentation
 
 To avoid using screenshots, which have variable quality and aren't screen reader friendly, most of the Bus Pirate terminal output is shown as actual text inside a React component tag. This page describes how to capture, convert and export terminal output for use in this documentation.
 
 ## Disable the Bus Pirate toolbar
 
-![Disable the Bus Pirate toolbar](./img/docs-disabletoolbar.png)
+![Disable the Bus Pirate toolbar](/images/docs/fw/docs-disabletoolbar.png)
 
 The screen redraw activity form the Bus Pirate toolbar will make a mess in the output. Open [Tera Term](https://ttssh2.osdn.jp/index.html.en) and disable the toolbar before logging.
 
@@ -18,11 +15,11 @@ The screen redraw activity form the Bus Pirate toolbar will make a mess in the o
 * Choose ```ANSI toolbar mode``` and ```Disable```.
 
 ## Capture Terminal Output
-![Teraterm log menu](./img/teraterm-log.png)
+![Teraterm log menu](/images/docs/fw/teraterm-log.png)
 
 * In Tera Term select ```File```>```Log...```.
 
-![Teraterm log configuration](./img/teraterm-logsettings.png)
+![Teraterm log configuration](/images/docs/fw/teraterm-logsettings.png)
 
 * Under options select ```Binary``` and ```Append```. 
 * Unselect ```Plain text``` if it is not automatically disabled. 
@@ -39,7 +36,7 @@ npx ansi-to-html teraterm.log > test.html
 Convert the Tera Term .log file to html from an OS command prompt using this command.
 
 ## Convert HTML tags for use in docs
-![Clean.html browser cleanup tool](./img/docs-cleanhtml.png)
+![Clean.html browser cleanup tool](/images/docs/fw/docs-cleanhtml.png)
 
 
 The final conversion step simply replaces the ansi-to-html color codes with our custom Bus Pirate terminal html color classes, and does a few other escape things to make the output play well with Docusaurus.
