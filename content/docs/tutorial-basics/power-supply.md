@@ -18,7 +18,7 @@ Bus Pirate 5 has a single 'Programmable Power Supply Unit' (PPSU) that can power
 - Backflow prevention to protect the PPSU when an external voltage is applied to the VREF/VOUT pin
 
 ## Enable
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">I2C></span> W
 <span style="color:#bfa530"><span style="color:#bfa530">Power supply
 Volts (0.80V-5.00V)</span></span>
@@ -36,7 +36,7 @@ y
 Vreg output: <span style="color:#53a6e6">2.1</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">2.1</span></span>V<span style="color:#bfa530">, Current sense: <span style="color:#53a6e6">7.3</span></span>mA<span style="color:#bfa530">
 </span>
 <span style="color:#96cb59">I2C></span> 
-{{% /term %}}
+{{< /term >}}
 
 Type uppercase ```W``` followed by ```enter``` to enable the power supply. 
 
@@ -70,20 +70,20 @@ The difference in voltages (2.1, 2.19) is due to some code inconsistencies in fl
 
 ## Current limit
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#bf3030">Error:<span style="color:#bfa530"> Current over limit, power supply disabled</span></span>
 
 <span style="color:#96cb59">I2C></span> 
-{{% /term %}}
+{{< /term >}}
 
 When the programmed current limit is exceeded the PPSU hardware fuse disables the power supply. The terminal colors invert repeatedly, an alarm bell will sound, an error message is shown and command execution is halted. Use the ```W``` command to restart the PPSU again.
 
 ## Disable
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">I2C></span>w
 <span style="color:#bfa530"><span style="color:#bfa530">Power supply: </span></span>Disabled
 <span style="color:#96cb59">I2C></span> 
-{{% /term %}}
+{{< /term >}}
 
 Lowercase ```w``` disables the PPSU.

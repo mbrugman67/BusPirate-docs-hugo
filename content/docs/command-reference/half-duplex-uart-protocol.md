@@ -28,7 +28,7 @@ Half-duplex UART is a common serial UART, but receive and transmit share a singl
 
 ## Configuration options
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#bfa530">UART speed</span>
  1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200 etc
  x. <span style="color:#bfa530">Exit</span>
@@ -50,7 +50,7 @@ Half-duplex UART is a common serial UART, but receive and transmit share a singl
 <span style="color:#96cb59">Bits (</span>1<span style="color:#96cb59">) ></span> 
 <span style="color:#bfa530">Mode:</span> HDPLXUART
 <span style="color:#96cb59">HDPLXUART></span> 
-{{% /term %}}
+{{< /term >}}
 
 **Pull-up resistors**
 
@@ -95,7 +95,7 @@ Transparent UART ```bridge```. Bidirectional UART pass-through to interact with 
 
 #### Help
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HDPLXUART></span> bridge -h
 usage:
 <span style="color:#bfa530">bridge	[-h(elp)]</span>
@@ -108,7 +108,7 @@ usage:
 <span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
 
 <span style="color:#96cb59">HDPLXUART></span> 
-{{% /term %}} 
+{{< /term >}} 
  
 
 {{% alert context="info" %}}

@@ -38,7 +38,7 @@ RESET is connected to the CS pin on the Bus Pirate. The CS pin is used to reset 
 {{% /alert %}}
 
 ## Setup
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> binmode
 
 <span style="color:#bfa530">Select binary mode</span>
@@ -52,7 +52,7 @@ RESET is connected to the CS pin on the Bus Pirate. The CS pin is used to reset 
 <span style="color:#bfa530">Binmode selected: </span>
  Legacy Binary Mode for Flashrom and AVRdude (EXPERIMENTAL)
 <span style="color:#bfa530">Binmode active. Terminal locked</span>
-{{% /term %}}
+{{< /term >}}
 
 In the Bus Pirate terminal use the ```binmode``` command to select the "Legacy Binary Mode for Flashrom and AVRdude".
 
@@ -60,7 +60,7 @@ In the Bus Pirate terminal use the ```binmode``` command to select the "Legacy B
 This mode is experimental, use at your own risk.
 {{% /alert %}}
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#bfa530">Power supply
 Volts (0.80V-5.00V)</span>
 <span style="color:#96cb59">x to exit (3.30) ></span> 5
@@ -76,7 +76,7 @@ y
 <span style="color:#bfa530">
 Vreg output: <span style="color:#53a6e6">4.9</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">4.9</span></span>V<span style="color:#bfa530">, Current sense: <span style="color:#53a6e6">9.2</span></span>mA<span style="color:#bfa530">
 </span>
-{{% /term %}}
+{{< /term >}}
 
 When entering this mode, it asks for the power supply voltage. Select 5 volts. It also asks for the current limit. 150 mA is a good value for the current limit.
 

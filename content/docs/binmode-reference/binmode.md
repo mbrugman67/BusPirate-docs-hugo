@@ -14,7 +14,7 @@ weight = 100
 
 # Binary Interfaces
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> binmode
 
 <span style="color:#bfa530">Select binary mode</span>
@@ -28,7 +28,7 @@ weight = 100
 <span style="color:#bfa530">Binmode selected:</span> SUMP logic analyzer
 
 <span style="color:#96cb59">HiZ></span> 
-{{% /term %}}
+{{< /term >}}
 
 The Bus Pirate has two USB serial ports. One is used for the command line terminal. The other can be configured to use various protocols that support software running on a PC.  
 

@@ -32,7 +32,7 @@ Each LED die in the SK6812 (red, blue, green) uses 20mA at full power. 60mA is r
 
 ## Choose LED Mode
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span>m
 <span style="color:#bfa530">
 <span style="color:#bfa530">Mode selection</span></span>
@@ -45,7 +45,7 @@ Each LED die in the SK6812 (red, blue, green) uses 20mA at full power. 60mA is r
  x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Mode ></span> 5
 
-{{% /term %}}
+{{< /term >}}
 
 First, enter the Bus Pirate LED control mode.
 
@@ -54,7 +54,7 @@ First, enter the Bus Pirate LED control mode.
 
 ## Configuration
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#bfa530">LED type</span>
  1. <span style="color:#bfa530">WS2812/SK6812/'NeoPixel' (single wire interface)*</span>
  2. <span style="color:#bfa530">APA102/SK9822 (clock and data interface)</span>
@@ -65,7 +65,7 @@ First, enter the Bus Pirate LED control mode.
 <span style="color:#bfa530">Mode:</span> LED
 
 <span style="color:#96cb59">LED-()></span>
-{{% /term %}}
+{{< /term >}}
 
 Now configure the LED mode to use the onboard SK6812 LEDs. Many prompts have a default option in ```( )```, in this case 1. For this tutorial we want option 3, the onboard LEDs. 
 
@@ -89,12 +89,12 @@ SK6812 uses GRB (green, red, blue) for the data, but the default format is RGB (
 
 ### Red
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> [0b111111110000000000000000.24
 <span style="color:#bfa530">RESET</span>
 <span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0b<span style="color:#53a6e6">1111</span>1111<span style="color:#53a6e6">0000</span>0000<span style="color:#53a6e6">0000</span>0000.24
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
 Let's start by lighting the red die in the LED. The Bus Pirate understands binary, hexadecimal and decimal formatted numbers. We'll use binary entry first so it's clear exactly how the bits control the LED.
 - The data structure table above shows the format for controlling each color in the LED. The first eight bits control red, the next 8 control green and the final 8 control blue.
@@ -109,13 +109,13 @@ Let's start by lighting the red die in the LED. The Bus Pirate understands binar
 
 Now the pattern for working with the SK6812 starts to become clear. We can enter ```0b000000001111111100000000.24``` to light the green die, or ```0b000000000000000011111111.24``` to light the blue die.
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> = 0b11111111
 <span style="color:#bfa530"> </span>=0x<span style="color:#53a6e6">FF</span> =255 =0b<span style="color:#53a6e6">1111</span>1111
 <span style="color:#96cb59">LED-()></span> = 0b00000000
 <span style="color:#bfa530"> </span>=0x<span style="color:#53a6e6">00</span> =0 =0b<span style="color:#53a6e6">0000</span>0000
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
 Binary entry is handy because you see exactly what each bit is doing, but that's a lot of 1s and 0s to type every time. Let's have a look at hexadecimal numbers - much shorter and less prone to mistyping.
 - The ```=``` command converts between number formats.
@@ -124,12 +124,12 @@ Binary entry is handy because you see exactly what each bit is doing, but that's
 - Do the same for our green and blue bits: ```= 0b00000000``` followed by ```enter```.
 - The Bus Pirate displays the value in hexadecimal (0x00), decimal (0) and binary (0b00000000).
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> [0xff0000.24
 <span style="color:#bfa530">RESET</span>
 <span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">FF</span>00<span style="color:#53a6e6">00</span>.24
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
 Now let's put it all together and send the same command in hexadecimal.
 - Begin with ```[``` to tell the Bus Pirate to expect bus syntax and send a WS2812 RESET command.
@@ -141,12 +141,12 @@ Now let's put it all together and send the same command in hexadecimal.
 
 ### Green
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> [0x00ff00.24
 <span style="color:#bfa530">RESET</span>
 <span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">00</span>FF<span style="color:#53a6e6">00</span>.24
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
 Green is controlled by the second eight bits of data.
 - Type ```[0x00ff00.24``` followed by ```enter``` to light the green die.
@@ -155,12 +155,12 @@ Green is controlled by the second eight bits of data.
 
 ### Blue
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> [0x0000ff.24
 <span style="color:#bfa530">RESET</span>
 <span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">00</span>00<span style="color:#53a6e6">FF</span>.24
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
 Blue is controlled by the last eight bits of data. 
 - Type ```[0x0000ff.24``` followed by ```enter``` to light the blue die.
@@ -169,12 +169,12 @@ Blue is controlled by the last eight bits of data.
 
 ### Purple
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> [0xff00ff.24
 <span style="color:#bfa530">RESET</span>
 <span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">FF</span>00<span style="color:#53a6e6">FF</span>.24
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
 At this point you may wonder if you can mix colors. Why, yes, you can! Let's try red plus blue.
 - Type ```[0xff00ff.24``` followed by ```enter```.
@@ -185,12 +185,12 @@ At this point you may wonder if you can mix colors. Why, yes, you can! Let's try
 
 ### White
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> [0xffffff.24
 <span style="color:#bfa530">RESET</span>
 <span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">FF</span>FF<span style="color:#53a6e6">FF</span>.24
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
 Through the magic of [additive color](https://en.wikipedia.org/wiki/Additive_color) we can make a whole rainbow of tones and shades. We can also make something approximating white light using all three dies.
 - Type ```[0xffffff.24``` followed by ```enter```.
@@ -201,23 +201,23 @@ Through the magic of [additive color](https://en.wikipedia.org/wiki/Additive_col
 
 ### Brightness
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> = 128
 <span style="color:#bfa530"> </span>=0x<span style="color:#53a6e6">80</span> =128 =0b<span style="color:#53a6e6">1000</span>0000
 <span style="color:#96cb59">LED-()></span>
-{{% /term %}}
+{{< /term >}}
 
 Up to this point we've used all the LED dies at full brightness (0xff/255/0b11111111), but we can also control the power level by sending smaller values. Let's reduce the power by half.
 - Half of 255 is approximately 128.
 - Type ```= 128``` followed by ```enter``` to convert 128 to an easier-to-use hexadecimal number.
 - 0x80 hexadecimal is the same as 128 in decimal notation.
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> [0x808080.24
 <span style="color:#bfa530">RESET</span>
 <span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">80</span>80<span style="color:#53a6e6">80</span>.24
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
 Finally, send a command to set all three dies at half power.
 

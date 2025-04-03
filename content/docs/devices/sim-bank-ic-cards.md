@@ -46,7 +46,7 @@ A [smart IC card and SIM card adapter](/overview/sim-iccard-adapter) is availabl
 
 ## Setup
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> m
 
 <span style="color:#bfa530">Mode selection</span>
@@ -78,7 +78,7 @@ A [smart IC card and SIM card adapter](/overview/sim-iccard-adapter) is availabl
 <span style="color:#96cb59">Bits (</span>1<span style="color:#96cb59">) ></span> 2
 <span style="color:#bfa530">Mode:</span> HDPLXUART
 <span style="color:#96cb59">HDPLXUART></span> 
-{{% /term %}}
+{{< /term >}}
 
 Mobile SIM cards and bank IC cards use a half-duplex UART interface, data travels both directions on a single wire. 
 - Use the ```m``` mode command and select **HDPLXUART**
@@ -87,7 +87,7 @@ Mobile SIM cards and bank IC cards use a half-duplex UART interface, data travel
 - Set the parity to **Even**
 - Set the stop bits to **2**
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HDPLXUART></span> W 3.3
 <span style="color:#53a6e6">3.30</span>V<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">3.30</span></span>V
 <span style="color:#bfa530">Current limit:</span>Disabled
@@ -96,7 +96,7 @@ Mobile SIM cards and bank IC cards use a half-duplex UART interface, data travel
 <span style="color:#bfa530">Vreg output: <span style="color:#53a6e6">3.3</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">3.2</span></span>V<span style="color:#bfa530">, Current: <span style="color:#53a6e6">3.4</span></span>mA<span style="color:#bfa530">
 </span>
 <span style="color:#96cb59">HDPLXUART></span> 
-{{% /term %}}
+{{< /term >}}
 
 Most SIM cards will work fine at 3.3volts.
 - ```W 3.3``` - Enable the onboard power supply at 3.3 volts
@@ -105,11 +105,11 @@ Most SIM cards will work fine at 3.3volts.
 Most SIM cards will be okay with 3.3 volts, but some cards may use 2.5 or 1.8 volts. If the SIM or card is valuable, consider starting at a lower voltage and check the power requirements coded in the ATR response.
 {{% /alert %}}
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HDPLXUART></span> P
 <span style="color:#bfa530">Pull-up resistors:</span> Enabled (10K ohms @ <span style="color:#53a6e6">3.3</span>V)
 <span style="color:#96cb59">HDPLXUART></span> 
-{{% /term %}}
+{{< /term >}}
 
 Half-duplex UART is an open collector output bus. The Bus Pirate and the SIM can only pull the line low to 0 (ground). A pull-up resistor is needed to pull the line high to 1 (5 volts). The Bus Pirate has built-in pull-up resistors that can be enabled with the ```P``` command.
 - ```P``` - Enable the onboard pull-up resistors.
@@ -129,7 +129,7 @@ A continuous clock signal applied to C3/CLK drives the SIM's microcontroller. Af
 
 At 9600 baud the clock frequency should be 9600 * 372 =3.5712MHz.
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HDPLXUART></span> G 
 <span style="color:#bfa530">Generate frequency</span>
 <span style="color:#bfa530">Choose available pin:</span>
@@ -153,7 +153,7 @@ Divider: 16, Period: 34, Duty: 18
 <span style="color:#bfa530">Generate frequency:</span> Enabled on IO<span style="color:#53a6e6">1</span>
 
 <span style="color:#96cb59">HDPLXUART></span>
-{{% /term %}}
+{{< /term >}}
 
 The Bus Pirate PWM can generate a clock frequency on the IO1/CLK pin.
 - ```G``` - Start a frequency generator
@@ -172,26 +172,26 @@ SIM and bank IC cards use the asynchronous ATR standard. This is different than 
 {{% /alert %}}
 
 ### Open UART
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HDPLXUART></span> [
 
 UART OPEN (ASYNC READ)
 <span style="color:#96cb59">HDPLXUART></span> 
-{{% /term %}}
+{{< /term >}}
 
 First, ensure the UART is open and printing data values as they arrive.
 - ```[``` - open UART for async data
 
 ### Send ATR and get response
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HDPLXUART></span> a 2; @ 2
 IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
 IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> INPUT: <span style="color:#53a6e6">1</span>
 
 <span style="color:#96cb59">HDPLXUART></span> 0x3b 0x9f 0x95 0x80 0x1f 0xc7 0x80 0x31 0xe0 0x73 0xfe 0x21 0x13 0x67 0x22 0x28 0x00 0x40 0x01 0x00 0x01 0x91 
-{{% /term %}}
+{{< /term >}}
 
 
 To perform the ATR command, pull the RESET pin low and then release it high.
@@ -224,14 +224,14 @@ Based on a [database of ATR responses](http://ludovic.rousseau.free.fr/softwares
 
 ## Hong Kong IMC SIM
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HDPLXUART></span> a 2; @ 2
 IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
 IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> INPUT: <span style="color:#53a6e6">1</span>
 
 <span style="color:#96cb59">HDPLXUART></span>0x3b 0x9e 0x96 0x80 0x1f 0xc7 0x80 0x31 0xe0 0x73 0xfe 0x21 0x1b 0x66 0xd0 0x01 0xa1 0xb8 0x10 0x00 0x08
-{{% /term %}}
+{{< /term >}}
 
 ![](./img/atr-hkimg-sim.png)
 
@@ -240,14 +240,14 @@ A cheap 4G travel SIM from IMG in Hong Kong.
 
 ## Hong Kong ValueGB SIM
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HDPLXUART></span> a 2; @ 2
 IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
 IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> INPUT: <span style="color:#53a6e6">1</span>
 
 <span style="color:#96cb59">HDPLXUART></span>0x3b 0x9e 0x95 0x80 0x1f 0xc7 0x80 0x31 0xe0 0x73 0xfe 0x21 0x1b 0x66 0xd0 0x02 0x24 0x7b 0x14 0x00 0x4a
-{{% /term %}}
+{{< /term >}}
 
 ![](./img/atr-hkvaluegb-sim.png)
 
@@ -256,14 +256,14 @@ A cheap 4G travel SIM from ValueGB in Hong Kong.
 
 ## EU Master Card
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HDPLXUART></span> a 2; @ 2
 IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
 IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> INPUT: <span style="color:#53a6e6">1</span>
 
 <span style="color:#96cb59">HDPLXUART></span>0x3b 0x6e 0x00 0x00 0x80 0x31 0x80 0x66 0xb0 0x84 0x0c 0x01 0x6e 0x01 0x83 0x00 0x90 0x00
-{{% /term %}}
+{{< /term >}}
 
 ![](./img/atr-eumc.png)
 
@@ -272,7 +272,7 @@ Bank card chips respond to the same ATR as mobile SIM cards. This is a Master Ca
 
 ## US Visa Card
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HDPLXUART></span> a 2; @ 2
 IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
@@ -280,7 +280,7 @@ IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span>
 
 <span style="color:#96cb59">HDPLXUART></span>
 0x3b 0x6f 0x00 0x00 0x80 0x31 0xe0 0x6b 0x08 0x24 0x05 0x02 0xb5 0x55 0x55 0x55 0x55 0x55 0x55
-{{% /term %}}
+{{< /term >}}
 
 ![](./img/atr-usvisa.png)
 
@@ -288,7 +288,7 @@ A Visa debit card from a US transit system.
 - [ATR lookup](https://smartcard-atr.apdu.fr/parse?ATR=3B6F00008031E06B08240502B5555555555555)
 
 ## Hong Kong Union Pay Card
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HDPLXUART></span> a 2; @ 2
 IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
@@ -296,7 +296,7 @@ IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span>
 
 <span style="color:#96cb59">HDPLXUART></span>
 0x3b 0x6b 0x00 0x00 0x00 0x31 0xc0 0x64 0x08 0x04 0x61 0x76 0x07 0x90 0x00
-{{% /term %}}
+{{< /term >}}
 
 ![](./img/atr-hkunionpay.png)
 

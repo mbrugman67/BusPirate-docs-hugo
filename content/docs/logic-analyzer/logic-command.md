@@ -26,7 +26,7 @@ All Bus Pirate hardware supports the follow along logic analyzer, however only B
 
 ## Latest Features and Help
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> logic -? h
 usage:
 <span style="color:#bfa530">logic analyzer usage</span>
@@ -55,7 +55,7 @@ usage:
 <span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
 
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 ```logic -h``` will display the help menu with the latest options for the ```logic``` command.
 
@@ -75,19 +75,19 @@ The ```logic``` command and the [follow along binmode interface](/logic-analyzer
 If the graph isn't needed, use ```logic hide``` to release it from the toolbar. Use ```logic show``` to draw the graph again showing the current capture buffer.
 
 ## Auto Capture Speed
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#bfa530">Actual speed:</span> 10kHz
 <span style="color:#bfa530">Logic analyzer speed:</span> 80000Hz (8x oversampling)
 <span style="color:#bfa530">Use the 'logic' command to change capture settings</span>
 
 <span style="color:#bfa530">Mode:</span> SPI
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 When changing protocol modes with the ```m``` command, FALA will automatically set the capture speed to oversample the bus speed by a factor of 8. 
 
 ### Change Capture Speed
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> logic -o 16
 Oversample rate set to: 16
 
@@ -99,13 +99,13 @@ Note: oversample rate is not 1
 Actual sample frequency: 160000Hz (16 * 10000Hz)
 
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 The base capture speed or the oversample rate can can be changed with the ```logic``` command. Changing the oversample rate with the ```-o``` flag is probably easiest as the Bus Pirate will calculate the new sample frequency for you.
 
 ## Capture Samples
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [ 0xaa 0x55]
 
 CS Enabled
@@ -114,7 +114,7 @@ CS Disabled
 
 <span style="color:#bfa530">Logic analyzer:</span> 144 samples captured
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 Every time you send data to the bus, the logic analyzer will capture samples and the logic graph will update (if visible).
 

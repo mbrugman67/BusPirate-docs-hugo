@@ -56,9 +56,9 @@ The RP2040 chip in the Bus Pirate has a hardware bootloader that appears as a US
 
 ### From the terminal
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> $
-{{% /term %}}
+{{< /term >}}
 
 In the Bus Pirate terminal type ```$``` and then press ```enter```. The Bus Pirate will jump to bootloader mode and a USB disk drive named ```RPI-RP2``` will connect to your computer. 
 

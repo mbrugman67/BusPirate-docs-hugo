@@ -5,7 +5,7 @@ title = 'Commands'
 
 # Command Reference
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> i
 <span style="color:#bfa530">
 Bus Pirate 5 REV6
@@ -21,7 +21,7 @@ Flash Storage: <span style="color:#53a6e6"> 0.10GB</span> (FAT16)
 <span style="color:#bfa530">Display format:</span> Auto
 
 <span style="color:#96cb59">HiZ></span> 
-{{% /term %}}
+{{< /term >}}
 
 This guide is updated with to reflect feature changes with each firmware release. To check your firmware version type ```i``` followed by ```enter``` in the Bus Pirate terminal window. Here, the Bus Pirate is running firmware v0.1. 
 
@@ -40,9 +40,9 @@ Talk to the Bus Pirate from a serial terminal of your choice set to 115200bps, 8
 {{% /alert %}}
 
 ### VT100 terminal emulation
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 VT100 compatible color mode? (Y/n)>
-{{% /term %}}
+{{< /term >}}
 
 Press ```enter``` to show the command prompt if your terminal is blank. 
 
@@ -65,9 +65,9 @@ You can also navigate to the Bus Pirate USB disk, delete the bpconfig.bp file an
 {{% /alert %}}
 
 ### Command line
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> 
-{{% /term %}}
+{{< /term >}}
 
 The Bus Pirate has a simple Linux-like command line interface. Enter a command followed by optional parameters and then press ```enter```.
 
@@ -90,7 +90,7 @@ Bus Pirate 5 understands some common control keys.
 
 ### Default options
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">Mode ></span> 3
 
 <span style="color:#bfa530">I2C speed</span>
@@ -107,7 +107,7 @@ Bus Pirate 5 understands some common control keys.
 <span style="color:#bfa530">Mode:</span> I2C
 
 <span style="color:#96cb59">I2C></span> 
-{{% /term %}}
+{{< /term >}}
 
 Most configuration and option prompts have a default value shown in ( ) and the option to exit without changes.
 - Press ```enter``` to select the default option. 
@@ -115,7 +115,7 @@ Most configuration and option prompts have a default value shown in ( ) and the 
 
 ### Saved options
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">Mode ></span> 3
 
 <span style="color:#bfa530">Use previous settings?</span>
@@ -126,7 +126,7 @@ y/n> y
 <span style="color:#bfa530">Mode:</span> I2C
 
 <span style="color:#96cb59">I2C></span> 
-{{% /term %}}
+{{< /term >}}
 
 Many options will be saved to flash storage. You will be prompted to reloaded previous settings the next time.
 
@@ -135,7 +135,7 @@ Several Linux-like disk commands can be used to navigate the Bus Pirate flash st
 
 ### **ls** List directory contents
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> ls
    DIR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System Volume Information
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;81&nbsp;&nbsp;bpspi.bp
@@ -147,23 +147,23 @@ Several Linux-like disk commands can be used to navigate the Bus Pirate flash st
 1 dirs, 6 files.
 
 <span style="color:#96cb59">HiZ></span> 
-{{% /term %}}
+{{< /term >}}
 
 List the contents of the current directory in flash storage. Type ```ls``` followed by ```enter```. ``ls`` followed by a directory name lists the contents of that directory.
 
 ### **mkdir** Make directory
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> mkdir test
 
 <span style="color:#96cb59">HiZ></span> 
-{{% /term %}}
+{{< /term >}}
 
 Make a directory in the current location in the flash storage. Type ```mkdir``` followed by a directory name and then ```enter```.
 
 ### **cd** Change directory
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> cd test
 /test
 
@@ -171,28 +171,28 @@ Make a directory in the current location in the flash storage. Type ```mkdir``` 
 0 dirs, 0 files.
 
 <span style="color:#96cb59">HiZ></span> 
-{{% /term %}}
+{{< /term >}}
 
 Change directory. Type ```cd``` followed by a directory name and then ```enter```.
 
 ### **rm** Remove file or directory
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> rm test
 
 <span style="color:#96cb59">HiZ></span>
-{{% /term %}}
+{{< /term >}}
 
 Remove file or directory (if empty). Type ```rm``` followed by the name of a file or empty directory, then hit ```enter```.
 
 ### **cat** Print file contents
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> cat sample.txt
 Bus Pirate 5 can program and dump EEPROM, flash and other memory chips directly to the flash storage! No need for external software on your computer. No need to install toolchains and compile scripts. What you need, where you need it. Bus Pirate 5 is here! --EOM
 
 <span style="color:#96cb59">HiZ></span> 
-{{% /term %}}
+{{< /term >}}
 
 Print the contents of a file. Type ```cat``` followed by a file name, then hit ```enter```.
 
@@ -205,7 +205,7 @@ Print the contents of a file. Type ```cat``` followed by a file name, then hit `
 Type ```?``` followed by ```enter``` to display a help screen with all available menu and syntax options in the current firmware.
 
 ### **i** Version information
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> i
 <span style="color:#bfa530">
 Bus Pirate 5 REV6
@@ -221,11 +221,11 @@ Flash Storage: <span style="color:#53a6e6"> 0.10GB</span> (FAT16 File System)
 <span style="color:#bfa530">Display format:</span> Auto
 
 <span style="color:#96cb59">HiZ></span> 
-{{% /term %}}
+{{< /term >}}
 
 Type ```i``` followed by ```enter``` to see the hardware, firmware, and microcontroller version.
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#bfa530">Active mode:</span> HWI2C (speed)=(0)
 <span style="color:#bfa530">Display format:</span> Auto
 <span style="color:#bfa530">Data format:</span> 8 bits, MSB bitorder
@@ -233,14 +233,14 @@ Type ```i``` followed by ```enter``` to see the hardware, firmware, and microcon
 <span style="color:#bfa530">Power supply:</span> ON (3.3V/3.3V)
 <span style="color:#bfa530">Current limit:</span> OK (8.0mA/50.0mA)
 <span style="color:#bfa530">Frequency generators:</span> OFF
-{{% /term %}}
+{{< /term >}}
 
 If a bus mode is configured additional
  information about the configuration is printed.
 
 ### **c** Configuration options menu
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">I2C></span> c
 <span style="color:#bfa530">
 <span style="color:#bfa530">Configuration options</span></span>
@@ -275,7 +275,7 @@ Language <span style="color:#bfa530">set to</span> English
 <span style="color:#bfa530">Configuration file:</span> Saved
 
 <span style="color:#96cb59">I2C></span>
-{{% /term %}}
+{{< /term >}}
 
 Type ```c``` followed by ```enter``` to show the configuration menu. 
 
@@ -283,7 +283,7 @@ Press ```x``` followed by ```enter``` to exist the configuration menus and save 
 
 ### **m** Set bus mode
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> m
 <span style="color:#bfa530">
 <span style="color:#bfa530">Mode selection</span></span>
@@ -297,25 +297,25 @@ Press ```x``` followed by ```enter``` to exist the configuration menus and save 
 <span style="color:#96cb59">Mode ></span> 1
 <span style="color:#bfa530">Mode:</span> HiZ
 <span style="color:#96cb59">HiZ></span> 
-{{% /term %}}
+{{< /term >}}
 
 Type ```m``` followed by ```enter``` to select a bus mode. HiZ is a safe mode with all pins set to high-impedance and all peripherals disabled.
 
 ### **l/L** Set MSB/LSB first
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> l
 <span style="color:#bfa530"><span style="color:#bfa530">Bitorder:</span></span> MSB 0b<span style="color:#bfa530">1</span>0000000
 <span style="color:#96cb59">HiZ></span> L
 <span style="color:#bfa530"><span style="color:#bfa530">Bitorder:</span></span> LSB 0b0000000<span style="color:#bfa530">1</span>
 <span style="color:#96cb59">HiZ></span> 
-{{% /term %}}
+{{< /term >}}
 
 The l/L commands determines the [bit order](http://en.wikipedia.org/wiki/Most_significant_bit) for reading and writing bytes. 
 
 The current bit order configuration is displayed on the extended information screen using the ```i``` command while in a mode other than HiZ.
 
 ### **o** Data output display format
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> o
 <span style="color:#bfa530">
 <span style="color:#bfa530">Number display format</span></span>
@@ -329,7 +329,7 @@ The current bit order configuration is displayed on the extended information scr
 <span style="color:#96cb59">Mode ></span> 1
 <span style="color:#bfa530">Mode:</span> Auto
 <span style="color:#96cb59">HiZ></span> 
-{{% /term %}}
+{{< /term >}}
 
 The Bus Pirate can display values as [hexadecimal](http://en.wikipedia.org/wiki/Hexadecimal), [decimal](http://en.wikipedia.org/wiki/Decimal), [binary](http://en.wikipedia.org/wiki/Binary_numeral_system) and a raw
 [ASCII](http://en.wikipedia.org/wiki/ASCII) byte. Change the setting in
@@ -339,7 +339,7 @@ the data display format menu (o). The default display format is Auto.
 - RAW display mode sends data to the terminal as raw bytes without any text conversion. This is useful for talking to ASCII serial interfaces that don't need further conversion.
 
 ### **d** Display mode
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> d
 <span style="color:#bfa530">Display selection
  1. Default
@@ -347,14 +347,14 @@ the data display format menu (o). The default display format is Auto.
  x. Exit</span>
 <span style="color:#96cb59">Display ></span> 2
 <span style="color:#bfa530">Display:</span> Scope
-{{% /term %}}
+{{< /term >}}
 
 ```d``` selects the LCD display mode.
 1. Default: Pin labels and voltage
 2. Scope: Oscilloscope mode
 
 ### **~** Self-test 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> ~
 <span style="color:#bfa530">SELF TEST STARTING
 DISABLE IRQ: OK
@@ -372,26 +372,26 @@ BIO5 FLOAT: 0/0.04V OK
 BIO6 FLOAT: 0/0.04V OK
 BIO7 FLOAT: 0/0.04V OK
 BIO HIGH TEST (SHOULD BE >3.0V)</span>
-{{% /term %}}
+{{< /term >}}
 
 Perform a factory self-test. The Bus Pirate is capable of twiddling pins and checking for hardware faults. See the Bus Pirate self-test guide for a complete list of tests and the problems they detect.
 
 ### **#** Reset
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> #
 
 VT100 compatible color mode? (Y/n)>
-{{% /term %}}
+{{< /term >}}
 
 Reset the Bus Pirate. 
 
 Depending on your serial terminal software you may need to reconnect to the Bus Pirate serial port. The latest versions of many terminal emulators, such as Tera Term, reconnect automatically.
 
 ### **$** Jump to bootloader 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> $
-{{% /term %}}
+{{< /term >}}
 
 Activate the Bus Pirate bootloader for firmware updates. The bootloader appears as a USB disk drive connected to your computer. Drag a **.uf2** firmware file into the disk. After an update the Bus Pirate resets.
 
@@ -402,7 +402,7 @@ If the firmware update is interrupted and you find yourself locked out of the Bu
 ## Utilities
 
 ### **w/W** Power supply (off/ON) 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">I2C></span> W
 <span style="color:#bfa530"><span style="color:#bfa530">Power supply
 Volts (0.80V-5.00V)</span></span>
@@ -420,7 +420,7 @@ y
 Vreg output: <span style="color:#53a6e6">2.1</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">2.1</span></span>V<span style="color:#bfa530">, Current sense: <span style="color:#53a6e6">7.3</span></span>mA<span style="color:#bfa530">
 </span>
 <span style="color:#96cb59">I2C></span> 
-{{% /term %}}
+{{< /term >}}
 
 Bus Pirate 5 has a single 'Programmable Power Supply Unit' (PPSU) with several handy features:
 - 1-5volts adjustable output
@@ -440,21 +440,21 @@ The PPSU is capable of 0.8 to 5volts output. However, the maximum working range 
 
 When the programmed current limit is exceeded the PPSU hardware fuse disables the power supply. The terminal colors invert repeatedly, an alarm bell will sound, an error message is shown and command execution is halted. Use the ```W``` command to restart the PPSU again.
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span>w
 <span style="color:#bfa530"><span style="color:#bfa530">Power supply: </span></span>Disabled
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 Lowercase ```w``` disables the PPSU.
 
 ### **v/V** Power supply voltage report 
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 
 ![](./img/cmd-v.png)
 
-{{% /term %}}
+{{< /term >}}
 
 The voltage report shows the current state of all the Bus Pirate pins and peripherals. This is a duplicate of the information shown on the live view statusbar.
 
@@ -467,7 +467,7 @@ Lowercase ```v``` displays a one time voltage measurement. Uppercase ```V``` dis
 
 ### **p/P** Pull-up resistors 
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">I2C></span> P
 <span style="color:#bfa530"><span style="color:#bfa530">Pull-up resistors:</span></span> Enabled (10Kohms @ <span style="color:#53a6e6">3.3</span>V)
 
@@ -475,7 +475,7 @@ Lowercase ```v``` displays a one time voltage measurement. Uppercase ```V``` dis
 <span style="color:#bfa530"><span style="color:#bfa530">Pull-up resistors:</span></span> Disabled
 
 <span style="color:#96cb59">I2C></span> 
-{{% /term %}}
+{{< /term >}}
 
 ```p``` and ```P``` toggle the pull-up resistors off and on. Pull-up resistors are generally used with open collector/open drain bus types such as 1-Wire and I2C.
 
@@ -488,7 +488,7 @@ A warning is displayed if there's no voltage on the VREF/VOUT pin. Check the vol
 
 ### **g/G** Frequency generator
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> G
 <span style="color:#bfa530"><span style="color:#bfa530">Generate frequency</span></span>
 <span style="color:#bfa530">Choose available pin:</span>
@@ -517,33 +517,33 @@ Divider: 16, Period: 10079, Duty: 3528
 <span style="color:#bfa530">Generate frequency:</span> Enabled on IO<span style="color:#53a6e6">0</span>
 
 <span style="color:#96cb59">LED-()></span>
-{{% /term %}}
+{{< /term >}}
 
 Uppercase ```G``` displays the frequency generation menu. Choose an available pin and enter the period or frequency, including the units (ns, us, ms, Hz, KHz or Mhz). Enter a duty cycle as a percent, don't forget the ```%```. The Bus Pirate will find the closest match and generate a frequency on the pin. 
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 
 ![](./img/cmd-freq.png)
 
-{{% /term %}}
+{{< /term >}}
 
 The frequency generator will be displayed in the live view statusbar and on the LCD with the label ***PWM***.
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> g 0
 <span style="color:#bfa530">Generate frequency:</span> Disabled on IO<span style="color:#53a6e6">0</span>
 
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
 To stop the frequency generator on a single pin, use the lowercase ```g.X``` command where X is the pin number.
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> g
 <span style="color:#bfa530">Generate frequency:</span> Disabled on IO<span style="color:#53a6e6">0</span>
 
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
 To stop frequency generation on all pins, use the lowercase ```g``` command without specifying a pin.
 
@@ -553,7 +553,7 @@ Not all pins will be available due to the PWM structure of the RP2040, and adjac
 
 ### **f/F** Measure frequency
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> F
 <span style="color:#bfa530"><span style="color:#bfa530">Frequency measurement</span></span>
 <span style="color:#bfa530">Choose available pin:</span>
@@ -567,42 +567,42 @@ Not all pins will be available due to the PWM structure of the RP2040, and adjac
 <span style="color:#bfa530">Frequency</span> IO<span style="color:#53a6e6">7</span>: <span style="color:#53a6e6">12.40</span>KHz <span style="color:#53a6e6">80.65</span>us (<span style="color:#53a6e6">12400</span>Hz), <span style="color:#bfa530">Duty cycle:</span> <span style="color:#53a6e6">35.0</span>%
 
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
 ```F``` displays the frequency measurement menu. Choose one of the available pins. 
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 
 ![](./img/cmd-freq.png)
 
-{{% /term %}}
+{{< /term >}}
 
 The frequency will be measured continuously and displayed in the live view statusbar and LCD with the label **FREQ**.
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> f 7
 <span style="color:#bfa530"><span style="color:#bfa530">Frequency</span></span> IO<span style="color:#53a6e6">7</span>: <span style="color:#53a6e6">12.40</span>KHz <span style="color:#53a6e6">80.65</span>us (<span style="color:#53a6e6">12400</span>Hz), <span style="color:#bfa530">Duty cycle:</span> <span style="color:#53a6e6">35.0</span>%
 <span style="color:#96cb59">LED-()></span>
-{{% /term %}}
+{{< /term >}}
 
 Lowercase ```f X``` measures the frequency and duty cycle on pin X once.
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> F 7
 <span style="color:#bfa530"><span style="color:#bfa530">Press any key to exit</span></span>
 <span style="color:#bfa530">Frequency</span> IO<span style="color:#53a6e6">7</span>: <span style="color:#53a6e6">12.40</span>KHz <span style="color:#53a6e6">80.65</span>us (<span style="color:#53a6e6">12400</span>Hz), <span style="color:#bfa530">Duty cycle:</span> <span style="color:#53a6e6">35.0</span>%
-{{% /term %}}
+{{< /term >}}
 
 Uppercase ```F X``` continuously measures the frequency and duty cycle on pin X. Press any key to exit.
 
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> f 6
 <span style="color:#bfa530">IO6 has no frequency measurement hardware!
 Freq. measure is currently only possible on odd pins (1,3,5,7).
 In the future we will fix this using the RP2040 PIO.
 </span>
-{{% /term %}}
+{{< /term >}}
 
 Only half of the RP2040 pins support frequency measurement. The Bus Pirate will warn you if hardware isn't available. To see which pins are currently available use the ```F``` command.
 
@@ -612,7 +612,7 @@ Not all pins will be available due to the PWM structure of the RP2040, and adjac
 
 ### **=X** Convert X to HEX/DEC/BIN number format
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">I2C></span> = 0b110
 <span style="color:#bfa530"> </span>=0x<span style="color:#53a6e6">06</span> =6 =0b<span style="color:#53a6e6">0000</span>0110
 <span style="color:#96cb59">I2C></span> = 0x6
@@ -620,7 +620,7 @@ Not all pins will be available due to the PWM structure of the RP2040, and adjac
 <span style="color:#96cb59">I2C></span> = 6
 <span style="color:#bfa530"> </span>=0x<span style="color:#53a6e6">06</span> =6 =0b<span style="color:#53a6e6">0000</span>0110
 <span style="color:#96cb59">I2C></span> 
-{{% /term %}}
+{{< /term >}}
 
 Type ```=``` and enter a value to see the HEX/DEC/BIN equivalent. Base conversion command, available in all modes. 
 
@@ -630,11 +630,11 @@ To change the Bus Pirate output display format see the ```o``` command.
 
 ### **| X** Reverse bits in byte X 
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">I2C></span> | 0b11110000
 <span style="color:#bfa530">|0x0F000000.32|0001700000000.32|0b00001111000000000000000000000000.32</span>
 <span style="color:#96cb59">I2C></span>
-{{% /term %}}
+{{< /term >}}
 
 Reverse bit order in byte X. Displays the HEX/DEC/BIN value of the reversed byte.
 
@@ -644,7 +644,7 @@ To change the Bus Pirate read/write bit order see the ```l```/```L``` command.
 
 ### **a/A/@** Auxiliary pin control (low/HIGH/read)
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">UART></span> a 1
 <span style="color:#bfa530">IO<span style="color:#53a6e6">1<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
@@ -655,7 +655,7 @@ To change the Bus Pirate read/write bit order see the ```l```/```L``` command.
 <span style="color:#bfa530">IO<span style="color:#53a6e6">1<span style="color:#bfa530"> set to</span></span></span> INPUT: <span style="color:#53a6e6">0</span>
 
 <span style="color:#96cb59">UART></span>
-{{% /term %}}
+{{< /term >}}
 
 Sometimes it's useful to control a pin directly from the user terminal.
  ```a X```, ```A X``` and ```@ X``` set pin X low, high and input (HiZ). The ```@``` command also reads and reports the pin state.
@@ -677,18 +677,18 @@ entered inside ```( )```. Macro ```(0)``` always displays a list of macros avail
 
 ### **(0)** List mode macros 
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">I2C></span> (0)
 <span style="color:#bfa530"> 1. I2C Address search
 </span>
 <span style="color:#96cb59">I2C></span>
-{{% /term %}}
+{{< /term >}}
 
 Macro ```(0)``` always displays a list of macros available in the current bus mode.
 
 ### **(#)** Run macro 
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">I2C></span> (1)
 <span style="color:#bfa530">
 I2C Bus Scan
@@ -704,7 +704,7 @@ I2C Bus Scan
 Done.
 </span>
 <span style="color:#96cb59">I2C></span>
-{{% /term %}}
+{{< /term >}}
 
 Execute a macro by typing the macro number between ```( )```.
 

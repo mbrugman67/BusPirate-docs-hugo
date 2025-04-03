@@ -43,7 +43,7 @@ While some flash chips have an impressive top speed of 104MHz, it's unreliable a
 - 3V3, 100kHz.
 - Max current: 50ma.
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> m
 
 <span style="color:#bfa530">Mode selection</span>
@@ -98,7 +98,7 @@ y
 Vreg output: <span style="color:#53a6e6">3.3</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">3.3</span></span>V<span style="color:#bfa530">, Current sense: <span style="color:#53a6e6">5.8</span></span>mA<span style="color:#bfa530">
 </span>
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 - Use the ```m``` mode command and select **SPI**
 - Configure SPI for **100kHz** and **8bits** of data, hit enter to accept the defaults
@@ -107,11 +107,11 @@ Vreg output: <span style="color:#53a6e6">3.3</span></span>V<span style="color:#b
 
 ### WP and HOLD pins
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> P
 <span style="color:#bfa530">Pull-up resistors:</span> Enabled (10K ohms @ <span style="color:#53a6e6">3.3</span>V)
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 Most SPI flash chips have a write protect pin (WP) that prevents accidental writes, and a hold pin (HOLD) that pauses the chip. The HOLD pin must be held high or the chip won't respond. WP must be held high or the chip will be read only. Often the chip will not respond if is WP is left floating, so be sure to hold it high (write enabled) or low (write disabled).
 
@@ -133,7 +133,7 @@ We'll try to use the most common commands, but not all chips will respond to all
 
 ### Reset ID
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [0xb9] D:10 [0xab 0x00:3 r]
 
 CS Enabled
@@ -143,7 +143,7 @@ CS Enabled
 <span style="color:#bfa530">RX:</span> 0x<span style="color:#53a6e6">EF</span> 
 CS Disabled
 <span style="color:#96cb59">SPI></span>
-{{% /term %}}
+{{< /term >}}
 
 The 'Reset ID' command ```0xAB``` is used to read the device ID of the flash chip immediately after reset. The command is followed by a single byte response.
 
@@ -155,7 +155,7 @@ The response ```0x13``` is the device ID of the flash chip. There's no standard,
 
 ### Read Electronic Manufacturer ID
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [0x90 0x00:3 r:2]
 
 CS Enabled
@@ -163,7 +163,7 @@ CS Enabled
 <span style="color:#bfa530">RX:</span> 0x<span style="color:#53a6e6">13</span> 0x<span style="color:#53a6e6">EF</span> 
 CS Disabled
 <span style="color:#96cb59">SPI></span>
-{{% /term %}}
+{{< /term >}}
 
 The 'Read Electronic Manufacturer ID' command ```0x90``` is used to read the device ID and manufacturer ID of the flash chip. The command is followed by a two byte response.
 
@@ -175,7 +175,7 @@ The response ```0x13``` is the device ID of the flash chip, same as the Reset ID
 
 ### Read JEDEC ID
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [0x9F r:3]
 
 CS Enabled
@@ -183,7 +183,7 @@ CS Enabled
 <span style="color:#bfa530">RX:</span> 0x<span style="color:#53a6e6">EF</span> 0x<span style="color:#53a6e6">40</span> 0x<span style="color:#53a6e6">14</span> 
 CS Disabled
 <span style="color:#96cb59">SPI></span>
-{{% /term %}}
+{{< /term >}}
 
 The 'Read JEDEC ID' command ```0x9F``` is used to read the manufacturer ID, memory type ID, and capacity ID of the flash chip. The command is followed by a three byte response.
 
@@ -193,13 +193,13 @@ The manufacturer ID is 0xEF, the memory type ID is 0x40, and the capacity ID is 
 
 ### Read SFDP tables 
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [0x5A 0x00:4 r:8]
 
 CS Enabled
 <span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">5A</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 
 <span style="color:#bfa530">RX:</span> 0x<span style="color:#53a6e6">50</span> 0x<span style="color:#53a6e6">44</span> 0x<span style="color:#53a6e6">46</span> 0x<span style="color:#53a6e6">53</span> 0x<span style="color:#53a6e6">05</span> 0x<span style="color:#53a6e6">01</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">FF</span> 
-{{% /term %}}
+{{< /term >}}
 
 We've tried three ID commands that don't give us a ton of useful information. The Serial Flash Discoverable Parameters (SFDP) tables are a newer standard that provides a lot more information about the flash chip.
 
@@ -234,14 +234,14 @@ We will write 256 ASCII characters 'i' (0x69) at the memory address 0x00. Follow
 
 ### Enable writes
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [0x06]
 
 CS Enabled
 <span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">06</span> 
 CS Disabled
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 The 'Write Enable' command ```0x06``` must be sent before write and erase commands will be accepted. This prevents accidental erasures or overwrites of your valuable data. This command must be sent before any write, erase or configuration command.
 
@@ -250,7 +250,7 @@ The 'Write Enable' command ```0x06``` must be sent before write and erase comman
 - ```]``` - End of SPI transaction. Raises the CS pin to 3.3volts.
 
 ### Verify write enable
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [0x05 r:1]
 
 CS Enabled
@@ -258,7 +258,7 @@ CS Enabled
 <span style="color:#bfa530">RX:</span> 0x<span style="color:#53a6e6">02</span> 
 CS Disabled
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 |S7|S6|S5|S4|S3|S2|S1|S0|
 |---|---|---|---|---|---|---|---|
@@ -274,7 +274,7 @@ Read Status Register ```0x05``` is used to verify the 'Write Enable' instruction
 Response ```0x02``` indicates that the write enable bit (S1) is set to 1 (0x02=0b00000010).  
 
 ### Erase sector
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [0x06]
 
 CS Enabled
@@ -286,7 +286,7 @@ CS Enabled
 <span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">20</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 
 CS Disabled
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 Flash works by flipping 1s in the memory to 0. Writing a location twice will simply flip more bits from 1 to 0, but will not flip 0 to 1. The erase sector command ```0x20``` is used to flip all bits in a 4000 byte sector from 0 to 1, after which we can write new data. 
 
@@ -308,7 +308,7 @@ Flash needs to be erased before it can be rewritten. Flash is erased in sectors,
 
 ### Verify erase sector
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [0x03 0x00 0x00 0x00 r:256]
 
 CS Enabled
@@ -348,7 +348,7 @@ CS Enabled
     
 CS Disabled
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 We'll use the read data command ```0x03``` to verify that the sector has been erased to all 1s (0xff). The command is followed by a three byte address of the location to begin reading 256 bytes. We'll read the first 256 bytes from address 0x00.
 
@@ -360,7 +360,7 @@ We'll use the read data command ```0x03``` to verify that the sector has been er
 
 ### Enable writes and verify
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [0x06]
 
 CS Enabled
@@ -373,13 +373,13 @@ CS Enabled
 <span style="color:#bfa530">RX:</span> 0x<span style="color:#53a6e6">02</span> 
 <span style="color:#96cb59">SPI></span>
 CS Disabled
-{{% /term %}}
+{{< /term >}}
 
 Use the write enable command ```0x06``` to enable writes. Verify the write enable bit is set to 1 (0x02=0b00000010) using the read status register command ```0x05```.
 
 ### Write data
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [0x02 0x00 0x00 0x00 0x69:256]
 
 CS Enabled
@@ -418,7 +418,7 @@ CS Enabled
     0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
 CS Disabled
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 Use the page program command ```0x02``` to write 256 bytes of data to address 0x00. The command is followed by a three byte address of the location to begin writing 256 bytes ```0x00 0x00 0x00```. The data to be written ```i``` (0x69) follows the address. 
 
@@ -434,7 +434,7 @@ The write enable command ```0x06``` must be send before writing data to the chip
 
 ## Read data
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [0x03 0x00 0x00 0x00 r:256]
 
 CS Enabled
@@ -474,7 +474,7 @@ CS Enabled
     
 CS Disabled
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 To confirm the data was written, we use the 'Read Data' instruction ```0x03``` once again. 
 
@@ -492,7 +492,7 @@ If the writing/reading process fails, check all connections. /HOLD & /WP pins mu
 
 The [flash command](command-reference/spi-protocol#flash) can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip by reading the SFDP tables. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back.
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> flash init
 Probing:
 		Device ID	Manuf ID	Type ID		Capacity ID
@@ -520,7 +520,7 @@ Flash device supports 32KB block erase (instruction 0x52)
 Flash device supports 64KB block erase (instruction 0xD8)
 Found a Winbond  flash chip (1048576 bytes)
 Flash device reset success
-{{% /term %}}
+{{< /term >}}
 
 ```flash```, ```flash init```, and ```flash probe``` provide various levels of details about a flash chip. The flash command tries three common methods to identify a flash chip (RESID, REMSID, RDID), then attempts to read the SFDP tables.  
 

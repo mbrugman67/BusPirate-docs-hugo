@@ -27,7 +27,7 @@ SPI is a common 4 wire full duplex protocol. Separate connections for data-in an
 
 ## Configuration options
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#bfa530">SPI speed</span>
  1 to 62500KHz
  x. <span style="color:#bfa530">Exit</span>
@@ -54,7 +54,7 @@ SPI is a common 4 wire full duplex protocol. Separate connections for data-in an
 <span style="color:#bfa530">Actual speed:</span> 122KHz
 <span style="color:#bfa530">Mode:</span> SPI
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 ## Syntax
 
@@ -189,7 +189,7 @@ Bus Pirate 5 has global commands available everywhere, and mode commands specifi
 The ```flash``` command can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip and select the appropriate settings. Most modern flash chips contain SFDP tables that describe the chip capabilities. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back .
 
 #### Help
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> flash -h
 usage:
 <span style="color:#bfa530">flash [init|probe|erase|write|read|verify|test]
@@ -212,7 +212,7 @@ usage:
 <span style="color:#96cb59">-f</span>	<span style="color:#bfa530">File flag. File to write, read or verify. flash verify -f file</span>
 <span style="color:#96cb59">-e</span>	<span style="color:#bfa530">Erase flag. Add erase before write. flash write -f file -e</span>
 <span style="color:#96cb59">-v</span>	<span style="color:#bfa530">Verify flag. Add verify after write or erase. flash write -f file -v</span>
-{{% /term %}}
+{{< /term >}}
 
  
 {{% alert context="info" %}}
@@ -241,7 +241,7 @@ Most Bus Pirate commands have help and usage examples. Add the ```-h``` flag to 
 
 #### Initialize and identify a flash chip
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> flash init
 Probing:
 		Device ID	Manuf ID	Type ID		Capacity ID
@@ -269,23 +269,23 @@ Flash device supports 32KB block erase (instruction 0x52)
 Flash device supports 64KB block erase (instruction 0xD8)
 Found a Winbond  flash chip (1048576 bytes)
 Flash device reset success
-{{% /term %}}
+{{< /term >}}
 
 ```flash```, ```flash init```, and ```flash probe``` provide various levels of details about a flash chip. The flash command tries three common methods to identify a flash chip (RESID, REMSID, RDID), then attempts to read the SFDP tables.  
 
 #### Read a flash chip
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> flash read -f example.bin
 Reading 1048576 bytes from flash to example.bin
 [-------C o o o o o]
-{{% /term %}}
+{{< /term >}}
 
 Read the contents of a flash chip to a file with the ```flash read``` command. The file name is specified with the ```-f``` flag.
 
 #### Write a flash chip
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> flash write -f example.bin -e -v
 Erasing 1048576 bytes
 [-----------------C]
@@ -293,23 +293,23 @@ Writing 1048576 bytes from example.bin to flash
 [-----------------C]
 Verifying 1048576 bytes from example.bin to flash
 [-------c o o o o]
-{{% /term %}}
+{{< /term >}}
 
 Write a file to a flash chip with the ```flash write``` command. The file name is specified with the ```-f``` flag. Use the ```-e``` flag to erase the chip before writing, and the ```-v``` flag to verify the write.
 
 #### Verify a flash chip
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> flash verify -f example.bin
 Verifying 1048576 bytes from example.bin to flash
 [-------c o o o o]
-{{% /term %}}
+{{< /term >}}
 
 Verify the contents of a flash chip against a file with the ```flash verify``` command. The file name is specified with the ```-f``` flag.
 
 #### Test a flash chip
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> flash test
 Erasing 1048576 bytes
 [-----------------C]
@@ -317,7 +317,7 @@ Writing 1048576 bytes to flash
 [-----------------C]
 Verifying 1048576 bytes
 [-------c o o o o]
-{{% /term %}}
+{{< /term >}}
 
 The ```flash test``` command erases the chip, writes dummy data, and verifies the write. This is a way to test a chip.
 

@@ -36,7 +36,7 @@ LEDs are power hungry, up to 60mA each at full brightness. The programmable powe
 
 ## Configuration options
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#bfa530">LED type</span>
  1. <span style="color:#bfa530">WS2812/SK6812/'NeoPixel' (single wire interface)*</span>
  2. <span style="color:#bfa530">APA102/SK9822 (clock and data interface)</span>
@@ -49,7 +49,7 @@ LEDs are power hungry, up to 60mA each at full brightness. The programmable powe
 <span style="color:#96cb59">LEDs (</span>1*<span style="color:#96cb59">) ></span> 
 <span style="color:#bfa530">Mode:</span> LED
 <span style="color:#96cb59">LED-(WS2812)></span> 
-{{% /term %}}
+{{< /term >}}
 
 ## Syntax
 

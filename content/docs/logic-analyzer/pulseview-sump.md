@@ -33,11 +33,11 @@ Configure the Bus Pirate for SUMP logic analyzer mode.
 
 ### Change to HiZ mode
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> m 1
 <span style="color:#bfa530">Mode:</span> HiZ
 <span style="color:#96cb59">HiZ></span> 
-{{% /term %}}
+{{< /term >}}
 
 For general purpose logic analyzer use, change to HiZ mode with the ```m 1``` command. This will make all the pins inputs and disable pull-up resistors.
 
@@ -47,7 +47,7 @@ There is no restriction on using the logic analyzer while the Bus Pirate is not 
 
 ### Enable SUMP Interface
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> binmode
 
 <span style="color:#bfa530">Select binary mode</span>
@@ -60,7 +60,7 @@ There is no restriction on using the logic analyzer while the Bus Pirate is not 
 <span style="color:#bfa530">Binmode selected:</span> SUMP logic analyzer
 
 <span style="color:#96cb59">HiZ></span> 
-{{% /term %}}
+{{< /term >}}
 
 Enable the SUMP binary interface with the ```binmode``` command. A SUMP-compatible logic analyzer interface will now respond to the Bus Pirate's second serial port.
 

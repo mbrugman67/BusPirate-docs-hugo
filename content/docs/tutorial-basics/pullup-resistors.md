@@ -34,7 +34,7 @@ For this tutorial let's use the onboard power supply.
 
 ### Programmable Power Supply Unit
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> W
 <span style="color:#bfa530"><span style="color:#bfa530">Power supply
 Volts (0.80V-5.00V)</span></span>
@@ -58,7 +58,7 @@ V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">5.0</s
 
 </span>
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
  - Use the ```W``` command to enable the programmable power supply. 
  - The voltage is fed to the pull-ups and is available on the VOUT/VREF pin of the Bus Pirate main connector.
@@ -86,14 +86,14 @@ The Bus Pirate is rated for 5volts DC maximum. Exceeding this limit will damage 
 
 ### Enable Pull-up Resistors
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> P
 <span style="color:#bfa530"><span style="color:#bfa530">Pull-up resistors:</span></span> Enabled (10K ohms @ <span style="color:#53a6e6">5.0</span>V)
 
 <span style="color:#96cb59">LED-()></span> 
 
 
-{{% /term %}}
+{{< /term >}}
 
 - Enter any protocol mode (```m```). Pull-up resistors are disabled in HiZ safe mode.
 - Type uppercase ```P``` followed by ```enter``` to activate the pull-up resistors.
@@ -110,7 +110,7 @@ In the live view statusbar all pins should be high, close to 5.0volts.
 
 ### Pull Pins Low
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> >a.0 a.1 a.2 a.3
 <span style="color:#bfa530">IO<span style="color:#53a6e6">0<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
@@ -121,7 +121,7 @@ In the live view statusbar all pins should be high, close to 5.0volts.
 <span style="color:#bfa530">IO<span style="color:#53a6e6">3<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
 Sometimes it's helpful to manually operate a pin. ```a```/```A```/```@``` are syntax commands that toggle Bus Pirate pins low, high and input.
 - Type ```>``` to tell the Bus Pirate to process the commands as syntax and send it to the bus.
@@ -136,7 +136,7 @@ Verify that the pins are low in the live view statusbar if active, or use the ``
 
 ### Release Pins High
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> >@.0 @.1 @.2 @.3
 <span style="color:#bfa530">IO<span style="color:#53a6e6">0<span style="color:#bfa530"> set to</span></span></span> INPUT: <span style="color:#53a6e6">1</span>
 
@@ -147,7 +147,7 @@ Verify that the pins are low in the live view statusbar if active, or use the ``
 <span style="color:#bfa530">IO<span style="color:#53a6e6">3<span style="color:#bfa530"> set to</span></span></span> INPUT: <span style="color:#53a6e6">1</span>
 
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
 The ```@.X``` syntax makes the corresponding Bus Pirate pins inputs, allowing the pull-up resistors to hold the pin high.  
 - Type ```@.0 @.1 @.2 @.3``` followed by ```enter```.
@@ -159,11 +159,11 @@ Verify that all the pins are around 5volts in the live monitor statusbar, or by 
 - All pins should be pulled high again.
 
 ### Disable Pull-ups
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> p
 <span style="color:#bfa530">Pull-up resistors:</span> Disabled
 <span style="color:#96cb59">LED-()></span>
-{{% /term %}}
+{{< /term >}}
 
 - Type lowercase ```p``` then hit ```enter``` to disable the pull-up resistors.
 

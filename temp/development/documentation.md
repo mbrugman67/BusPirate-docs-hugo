@@ -53,7 +53,7 @@ Copy the processed output from the browser box. It's ready to add to the documen
 
 ## Paste the output in docs
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span className="BP_COLOR_PROMPT_TEXT">LED-()></span> m
 <span className="BP_COLOR_INFO_TEXT">
 <span className="BP_COLOR_INFO_TEXT">Mode selection</span></span>
@@ -67,7 +67,7 @@ Copy the processed output from the browser box. It's ready to add to the documen
 <span className="BP_COLOR_PROMPT_TEXT">Mode ></span> 1
 <span className="BP_COLOR_INFO_TEXT">Mode:</span> HiZ
 <span className="BP_COLOR_PROMPT_TEXT">HiZ></span>
-{{% /term %}}
+{{< /term >}}
 
 Paste the output into a markdown file, the extension ***must*** be ```.mdx```. 
 
@@ -76,10 +76,10 @@ Paste the output into a markdown file, the extension ***must*** be ```.mdx```.
 ```
 Import the BrowserWindow component using this code on the first line below the front mater.
 
-Wrap the terminal output in ```{{% term "Bus Pirate [/dev/ttyS0]" %}}``` ```{{% /term %}}``` tags.
+Wrap the terminal output in ```{{< term "Bus Pirate [/dev/ttyS0]" >}}``` ```{{< /term >}}``` tags.
 
 {{% alert context="danger" %}}
-The ```{{% term "Bus Pirate [/dev/ttyS0]" %}}``` React component only works in pages with ```.mdx``` extension.
+The ```{{< term "Bus Pirate [/dev/ttyS0]" >}}``` React component only works in pages with ```.mdx``` extension.
 {{% /alert %}}
 
 ## Resources

@@ -13,7 +13,7 @@ The Bus Pirate has a NAND flash chip for storing settings and data. The flash ch
 
 ## Navigation
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> ls
 <span style="color:#96cb59">       350 <span style="color:#bfa530">bpconfig.bp</span></span>
 <span style="color:#bfa530">0 dirs, 1 files</span>
@@ -38,7 +38,7 @@ The Bus Pirate has a NAND flash chip for storing settings and data. The flash ch
 <span style="color:#bfa530">0 dirs, 1 files</span>
 
 <span style="color:#96cb59">HiZ></span> 
-{{% /term %}}
+{{< /term >}}
 
 Linux-like commands are used to navigate the flash storage from the Bus Pirate command line. 
 

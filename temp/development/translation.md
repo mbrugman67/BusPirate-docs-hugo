@@ -13,7 +13,7 @@ Bus Pirate 5 supports live language switching via the configuration menu. The la
 
 ## Configure interface language
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> c
 <span style="color:#bfa530"></span>
 <span style="color:#bfa530">Configuration options</span>
@@ -32,7 +32,7 @@ Bus Pirate 5 supports live language switching via the configuration menu. The la
  2. <span style="color:#bfa530">Chinese (simplified)</span>
  x. <span style="color:#bfa530"></span>
 <span style="color:#96cb59"> ></span> 
-{{% /term %}}
+{{< /term >}}
 
 Type ```c``` and press ```enter``` to display the configuration menu. Choose language (option 1), then select an available language.
 
@@ -155,7 +155,7 @@ static const struct prompt_item menu_items_language[]=
 
 ### Compile the firmware and test
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> c
 <span style="color:#bfa530">
 <span style="color:#bfa530">Configuration options</span></span>
@@ -175,7 +175,7 @@ static const struct prompt_item menu_items_language[]=
  3. <span style="color:#bfa530">Dutch</span>
  x. <span style="color:#bfa530"></span>
 <span style="color:#96cb59"> ></span> 
-{{% /term %}}
+{{< /term >}}
 
 - Compile the firmware and load it into the Bus Pirate.
 - Your translation should appear in the configuration menu.

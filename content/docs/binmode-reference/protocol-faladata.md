@@ -30,7 +30,7 @@ All Bus Pirate hardware supports follow along logic analyzer, however only Bus P
 
 ## Enable FALA Interface
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> binmode
 
 <span style="color:#bfa530">Select binary mode</span>
@@ -43,24 +43,24 @@ All Bus Pirate hardware supports follow along logic analyzer, however only Bus P
 <span style="color:#bfa530">Binmode selected:</span> Follow along logic analyzer
 
 <span style="color:#96cb59">HiZ></span> 
-{{% /term %}}
+{{< /term >}}
 
 Enable the FALA binary interface with the ```binmode``` command. This will configure the logic analyzer and send capture notifications to the Bus Pirate's second serial port.
 
 ### Auto Capture Speed
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#bfa530">Actual speed:</span> 10kHz
 <span style="color:#bfa530">Logic analyzer speed:</span> 80000Hz (8x oversampling)
 <span style="color:#bfa530">Use the 'logic' command to change capture settings</span>
 
 <span style="color:#bfa530">Mode:</span> SPI
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 When changing protocol modes with the ```m``` command, FALA will automatically set the capture speed to oversample the bus speed by a factor of 8. 
 
 ### Change Capture Speed
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> logic -o 16
 Oversample rate set to: 16
 
@@ -72,13 +72,13 @@ Note: oversample rate is not 1
 Actual sample frequency: 160000Hz (16 * 10000Hz)
 
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 The base capture speed or the oversample rate can can be changed with the ```logic``` command. Changing the oversample rate with the ```-o``` flag is probably easiest as the Bus Pirate will calculate the new sample frequency for you.
 
 ### Capture Samples
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [ 0xaa 0x55]
 
 CS Enabled
@@ -87,7 +87,7 @@ CS Disabled
 
 <span style="color:#bfa530">Logic analyzer:</span> 144 samples captured
 <span style="color:#96cb59">SPI></span> 
-{{% /term %}}
+{{< /term >}}
 
 Every time you send data to the bus, the logic analyzer will capture samples. The capture notification will be sent to the second serial port.
 

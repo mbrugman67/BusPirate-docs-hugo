@@ -19,7 +19,7 @@ I2C is a common 2-wire bus for low speed interfaces, generally 100KHz, 400KHz an
 
 ## Configuration options
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#bfa530">I2C speed</span>
  1KHz to 1000KHz
  x. <span style="color:#bfa530">Exit</span>
@@ -31,7 +31,7 @@ I2C is a common 2-wire bus for low speed interfaces, generally 100KHz, 400KHz an
 <span style="color:#96cb59">Bits (</span>1<span style="color:#96cb59">) ></span> 
 <span style="color:#bfa530">Mode:</span> I2C
 <span style="color:#96cb59">I2C></span> 
-{{% /term %}}
+{{< /term >}}
 
 **Pull-up resistors**
 
@@ -81,7 +81,7 @@ The ```scan``` command in the Bus Pirate I2C mode scans the for device addresses
 
 #### Help
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">I2C></span> scan -h
 usage:
 <span style="color:#bfa530">scan	[-v(erbose)] [-h(elp)]</span>
@@ -92,7 +92,7 @@ usage:
 <span style="color:#96cb59">-v</span>	<span style="color:#bfa530">Verbose mode, print potential part numbers</span>
 <span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
 
-{{% /term %}}
+{{< /term >}}
 
 {{% alert context="info" %}}
 Use ```scan -h``` to see the latest options and features.
@@ -107,7 +107,7 @@ Use ```scan -h``` to see the latest options and features.
 
 #### Scans for I2C Devices
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">I2C></span> scan
 I2C address search:
 0x50 (0xA0 W) (0xA1 R)
@@ -122,7 +122,7 @@ I2C address search:
 Found 16 addresses, 8 W/R pairs.
 
 <span style="color:#96cb59">I2C></span> 
-{{% /term %}}
+{{< /term >}}
 
 You can find the [I2C](http://en.wikipedia.org/wiki/I%C2%B2C) address
 for most I2C-compatible chips in the datasheet. But what if you're

@@ -13,7 +13,7 @@ RP2040 chip to 0.5Msps so it's suitable for analog audio, not for high speed dig
 
 ## Start the scope
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> d
 <span style="color:#bfa530">Display selection
  1. Default
@@ -21,7 +21,7 @@ RP2040 chip to 0.5Msps so it's suitable for analog audio, not for high speed dig
  x. Exit</span>
 <span style="color:#96cb59">Display ></span> 2
 <span style="color:#bfa530">Display:</span> Scope
-{{% /term %}}
+{{< /term >}}
 
 The ```d``` command selects the LCD display mode. 
 - Choose ```scope``` to load the oscilloscope on the Bus Pirate LCD
@@ -59,9 +59,9 @@ All of these commands enter a more interactive UI where you can type single char
 
 ### Scope Run
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> sr 2n  
-{{% /term %}}
+{{< /term >}}
 
 ```sr {pin} {mode}``` ('scope run') starts the oscilloscope, you can specify additional parameters if you don't specify any it will use the previous settings. 
 
@@ -86,12 +86,12 @@ In addition there are 3 commands than can be used to alter parameters - these re
 These commands work a bit differently from normal Bus Pirate commands, you can use them two ways, either type the command along with some parameters and hit ```enter```, or just type the command and ```enter``` and you will pop into an interactive mode where you can type parameters to change things interactively on the display, typing ```enter``` again will return you to the main BusPirate prompt.
 
 #### X/Y navigation
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> x
 Timebase: +- ^vT ty rsona> +-
 <span style="color:#96cb59">LED-()></span> y
 Voltage scale: +- ^vT tx rsona> +-
-{{% /term %}}
+{{< /term >}}
 
 Interactive parameters in x and y modes are:
 
@@ -101,10 +101,10 @@ Interactive parameters in x and y modes are:
 
 #### Triggers
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> t
 Trigger: +-*b ^vT BME xy rsona> 
-{{% /term %}}
+{{< /term >}}
 
 In Trigger mode
 - ```+```/```-```/```b```/```n``` changes which edge triggers a data capture (positive going, negative going, both edges or no edges respectively)
@@ -140,7 +140,7 @@ Here's a quick start tutorial using only the Bus Pirate hardware. We're going to
 
 ### Setup
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> m
 
 <span style="color:#bfa530">Mode selection</span>
@@ -173,7 +173,7 @@ n
 Vreg output: <span style="color:#53a6e6">3.3</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">3.3</span></span>V<span style="color:#bfa530">, Current sense: <span style="color:#53a6e6">2.4</span></span>mA<span style="color:#bfa530">
 </span>
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
 Enter LED mode and enable a 3.3volt power supply:
 - Enter a mode with the ```m``` command, select LED mode with onboard LEDs
@@ -181,7 +181,7 @@ Enter LED mode and enable a 3.3volt power supply:
 
 ### Enable Scope
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED></span> d
 <span style="color:#bfa530">Display selection
  1. Default
@@ -189,7 +189,7 @@ Enter LED mode and enable a 3.3volt power supply:
  x. Exit</span>
 <span style="color:#96cb59">Display ></span> 2
 <span style="color:#bfa530">Display:</span> Scope
-{{% /term %}}
+{{< /term >}}
 
 The ```d``` command selects the LCD display mode. 
 - Type ```d``` and ```enter``` to configure the display mode
@@ -200,11 +200,11 @@ The ```d``` command selects the LCD display mode.
 
 ### Triggers
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> t
 Trigger: +-*b ^vT BME xy rsona> b
 <span style="color:#96cb59">LED-()></span> sr 2n  
-{{% /term %}}
+{{< /term >}}
 
 Set the trigger to 'both' edges and begin the scope capture on pin 2:
 - Type ```t``` and ```enter``` to get into trigger mode. 
@@ -217,13 +217,13 @@ The default trigger point is ~2.4volts.
 
 ### Capture
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> P
 <span style="color:#bfa530">Pull-up resistors:</span> Enabled (10K ohms @ <span style="color:#53a6e6">3.3</span>V)
 <span style="color:#96cb59">LED-()></span> p
 <span style="color:#bfa530">Pull-up resistors:</span> Disabled
 <span style="color:#96cb59">LED-()></span>
-{{% /term %}}
+{{< /term >}}
 
 Now we'll use the pull-up resistors to trigger the scope:
 - ```P``` and ```enter``` to turn **on** the pull-up resistors. You should see a trace with a rising edge
@@ -233,7 +233,7 @@ Now we'll use the pull-up resistors to trigger the scope:
 
 ### Edge triggers
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> P
 <span style="color:#bfa530">Pull-up resistors:</span> Enabled (10K ohms @ <span style="color:#53a6e6">3.3</span>V)
 <span style="color:#96cb59">LED-()></span> t
@@ -243,7 +243,7 @@ Trigger: +-*b ^vT BME xy rsona> +
 <span style="color:#96cb59">LED-()></span> P
 <span style="color:#bfa530">Pull-up resistors:</span> Enabled (10K ohms @ <span style="color:#53a6e6">3.3</span>V)
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
 The scope can be triggered by the rising or falling edge of a signal, or both:
 - ```P``` and ```enter``` to turn **on** the pull-up resistors again. 
@@ -253,7 +253,7 @@ The scope can be triggered by the rising or falling edge of a signal, or both:
 
 ### Navigation
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> G 2
 <span style="color:#bfa530">Generate frequency</span>
 <span style="color:#bfa530">Choose available pin:</span>
@@ -280,17 +280,17 @@ Divider: 31, Period: 64515, Duty: 21290
 <span style="color:#bfa530">Generate frequency:</span> Enabled on IO<span style="color:#53a6e6">2</span>
 
 <span style="color:#96cb59">LED-()></span> 
-{{% /term %}}
+{{< /term >}}
 
 Next let's try something more involved, let's set up a square wave on pin 2.
 - Generate a frequency on pin 2 (G 2 ```enter``` 1ms ```enter``` 33% ```enter```)
 
 #### Time scale
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> x
 Timebase: +- ^vT ty rsona> +-
-{{% /term %}}
+{{< /term >}}
 
 You should see the display showing a square wave. The capture buffer is large. We can zoom and pan to navigate the data:
 - ```x``` and ```enter``` to scale the X axis (time). 
@@ -303,10 +303,10 @@ Note you are now in interactive mode - try the ```-``` command a few times and s
 
 #### Voltage scale
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> y
 Voltage scale: +- ^vT tx rsona> +-
-{{% /term %}}
+{{< /term >}}
 
 
 Type ```y``` on the command line **or** in the x or t interactive mode type. Now you are in 'voltage mode'. ```+``` will zoom in vertically and ```^```/```v``` will let you scroll up and down.

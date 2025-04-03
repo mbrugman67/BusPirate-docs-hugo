@@ -11,7 +11,7 @@ title = 'Configuration Menu'
 
 ## Options
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">I2C></span> c
 <span style="color:#bfa530">
 <span style="color:#bfa530">Configuration options</span></span>
@@ -24,13 +24,13 @@ title = 'Configuration Menu'
  7. <span style="color:#bfa530">LED brightness</span>
  x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59"> ></span> 
-{{% /term %}}
+{{< /term >}}
 
 Type ```c``` followed by ```enter``` to show the Bus Pirate configuration menu. These options control things like the language, live view statusbar and LED party mode.
 
 ## Configuration
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59"> ></span> 1
 
 <span style="color:#bfa530">Language</span>
@@ -39,12 +39,12 @@ Type ```c``` followed by ```enter``` to show the Bus Pirate configuration menu. 
  x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59"> ></span> 1
 Language <span style="color:#bfa530">set to</span> English
-{{% /term %}}
+{{< /term >}}
 
 Type a menu option number followed by ```enter```. Choose a configuration setting by typing the number followed by ```enter```.
 
 ## Exit and Save
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#bfa530">LED effect</span>
  1. <span style="color:#bfa530">Disable</span>
  2. <span style="color:#bfa530">Solid</span>
@@ -59,7 +59,7 @@ Type a menu option number followed by ```enter```. Choose a configuration settin
 <span style="color:#bfa530">Configuration file:</span> Saved
 
 <span style="color:#96cb59">HiZ></span> 
-{{% /term %}}
+{{< /term >}}
 
 Press ```x``` followed by ```enter``` at any prompt to exit the configuration menu. Settings will be saved and loaded automatically when the Bus Pirate restarts.
 

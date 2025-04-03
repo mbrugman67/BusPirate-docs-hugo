@@ -75,7 +75,7 @@ Most Bus Pirate commands have help. Add the ```-h``` flag to any command to see 
 
 #### help
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">1-WIRE></span> scan -h
 usage:
 <span style="color:#bfa530">scan	[-h(elp)]</span>
@@ -85,17 +85,17 @@ usage:
 <span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
 
 <span style="color:#96cb59">1-WIRE></span> 
-{{% /term %}}
+{{< /term >}}
 
 #### use
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">1-WIRE></span> scan
 <span style="color:#bfa530">
 1-Wire ROM search:
 1: 28 5c aa 13 0a 00 00 19
 </span>
 <span style="color:#96cb59">1-WIRE></span>
-{{% /term %}}
+{{< /term >}}
 
 ```scan``` performs a 1-Wire ROM search to detect the ID of every connected 1-Wire device. They type of device is shown if the family ID is known.
 
@@ -105,7 +105,7 @@ usage:
 
 #### help
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">1-WIRE></span> ds18b20 -h
 usage:
 <span style="color:#bfa530">ds18b20	[-h(elp)]</span>
@@ -115,17 +115,17 @@ usage:
 <span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
 
 <span style="color:#96cb59">1-WIRE></span> 
-{{% /term %}}
+{{< /term >}}
 
 #### use
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">1-WIRE></span> ds18b20
 <span style="color:#bfa530">
 RX: 1a 01 00 00 7f ff 06 10 12
 Temperature: 17.625
 </span>
 <span style="color:#96cb59">1-WIRE></span>
-{{% /term %}}
+{{< /term >}}
 
 Macro ```ds18b20``` reads the temperature from a single 18B20 temperature sensor. The macro uses the skip ROM command, so it will only work with a single DS18B20 device connected.

@@ -35,7 +35,7 @@ device transmit pin (TX).
 
 ## Configuration options
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#bfa530">UART speed</span>
  1200, 2400, 4800, 19200, 38400, 57600, 115200 etc
  x. <span style="color:#bfa530">Exit</span>
@@ -58,7 +58,7 @@ device transmit pin (TX).
 <span style="color:#bfa530">Actual speed: 115207 baud</span>
 <span style="color:#bfa530">Mode:</span> UART
 <span style="color:#96cb59">UART></span> 
-{{% /term %}}
+{{< /term >}}
 
 ## Syntax
 
@@ -89,7 +89,7 @@ Transparent UART ```bridge```. Bidirectional UART pass-through to interact with 
 
 #### Help
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">UART></span> bridge -h
 usage:
 <span style="color:#bfa530">bridge	[-h(elp)] [-t(oolbar)]</span>
@@ -101,7 +101,7 @@ usage:
 <span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
 
 <span style="color:#96cb59">UART></span> 
-{{% /term %}} 
+{{< /term >}} 
  
 
 {{% alert context="info" %}}
@@ -113,7 +113,7 @@ Most GPS modules output [NMEA sentences](https://gpsd.gitlab.io/gpsd/NMEA.html) 
 
 #### Help
 
-{{% term "Bus Pirate [/dev/ttyS0]" %}}
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">UART></span> gps -h
 usage:
 <span style="color:#bfa530">gps	[-h(elp)]</span>
@@ -124,7 +124,7 @@ usage:
 <span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
 
 <span style="color:#96cb59">UART></span> 
-{{% /term %}}
+{{< /term >}}
 
 {{% alert context="info" %}}
 Use ```gps -h``` to see the latest options and features.
