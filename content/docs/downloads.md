@@ -13,9 +13,9 @@ weight = 1000
 Download Firmware
 {{% /btn %}}
 
-## Upgrade Instructions
-
 See the [firmware update tutorial](https://firmware.buspirate.com/tutorial-basics/firmware-update) for detailed instructions.
+
+## Upgrade Instructions
 
 - [Grab the latest and greatest auto-build firmware from the forum](https://forum.buspirate.com/t/bus-pirate-5-auto-build-main-branch/20/999999)
 - Type `$` and press `enter` in the Bus Pirate terminal to enter bootloader/upgrade mode
@@ -40,6 +40,4 @@ Bus Pirate blinking red? Recent firmware detects the hardware revision at startu
 
 ## Get Bus Pirate 5
 
-{{% btn icon="🛒" context="danger" href="https://buspirate.com/get" %}}
-Get Bus Pirate 5 & Accessories
-{{% /btn %}}
+{{% readfile "/_common/_footer/_footer-cart.md" %}}

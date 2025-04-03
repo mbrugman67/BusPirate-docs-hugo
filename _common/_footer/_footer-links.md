@@ -1,17 +1,11 @@
 ## Join the fun
 
-import FooterGet from './_footer-get.md'
+{{% readfile "/_common/_footer/_footer-get.md" %}}
 
-<FooterGet/>
+{{% readfile "/_common/_footer/_footer-files.md" %}}
 
-import FooterFiles from './_footer-files.md'
+{{% readfile "/_common/_footer/_footer-community.md" %}}
 
-<FooterFiles/>
+{{% readfile "/_common/_footer/_footer-docs.md" %}}
 
-import FooterCommunity from './_footer-community.md'
 
-<FooterCommunity/>
-
-import FooterDocs from './_footer-docs.md'
-
-<FooterDocs/>
