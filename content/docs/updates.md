@@ -79,7 +79,7 @@ This is the raw output of a NodeJS converter script. The colors are hex color co
 
 ```html
 <span style="color:#96cb59">HiZ></span> i
-<span className="bp-info">
+<span style="color:#bfa530">
 Bus Pirate 5 REV6
 Firmware 
 <span className="bp-float">v0.1</span>

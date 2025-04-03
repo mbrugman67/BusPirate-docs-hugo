@@ -15,8 +15,8 @@ The Bus Pirate has a NAND flash chip for storing settings and data. The flash ch
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HiZ></span> ls
-<span style="color:#96cb59">       350 <span className="bp-info">bpconfig.bp</span></span>
-<span className="bp-info">0 dirs, 1 files</span>
+<span style="color:#96cb59">       350 <span style="color:#bfa530">bpconfig.bp</span></span>
+<span style="color:#bfa530">0 dirs, 1 files</span>
 
 <span style="color:#96cb59">HiZ></span> mkdir temp
 
@@ -27,15 +27,15 @@ The Bus Pirate has a NAND flash chip for storing settings and data. The flash ch
 /
 
 <span style="color:#96cb59">HiZ></span> ls
-<span style="color:#96cb59">       350 <span className="bp-info">bpconfig.bp</span></span>
-<span style="color:#96cb59">   &#x003c;DIR>   <span className="bp-info">temp</span></span>
-<span className="bp-info">1 dirs, 1 files</span>
+<span style="color:#96cb59">       350 <span style="color:#bfa530">bpconfig.bp</span></span>
+<span style="color:#96cb59">   &#x003c;DIR>   <span style="color:#bfa530">temp</span></span>
+<span style="color:#bfa530">1 dirs, 1 files</span>
 
 <span style="color:#96cb59">HiZ></span> rm temp
 
 <span style="color:#96cb59">HiZ></span> ls
-<span style="color:#96cb59">       350 <span className="bp-info">bpconfig.bp</span></span>
-<span className="bp-info">0 dirs, 1 files</span>
+<span style="color:#96cb59">       350 <span style="color:#bfa530">bpconfig.bp</span></span>
+<span style="color:#bfa530">0 dirs, 1 files</span>
 
 <span style="color:#96cb59">HiZ></span> 
 {{% /term %}}

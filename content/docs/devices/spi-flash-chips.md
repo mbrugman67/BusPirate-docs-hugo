@@ -46,56 +46,56 @@ While some flash chips have an impressive top speed of 104MHz, it's unreliable a
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HiZ></span> m
 
-<span className="bp-info">Mode selection</span>
- 1. <span className="bp-info">HiZ</span>
- 2. <span className="bp-info">1-WIRE</span>
- 3. <span className="bp-info">UART</span>
- 4. <span className="bp-info">I2C</span>
- 5. <span className="bp-info">SPI</span>
- 6. <span className="bp-info">LED</span>
- x. <span className="bp-info">Exit</span>
+<span style="color:#bfa530">Mode selection</span>
+ 1. <span style="color:#bfa530">HiZ</span>
+ 2. <span style="color:#bfa530">1-WIRE</span>
+ 3. <span style="color:#bfa530">UART</span>
+ 4. <span style="color:#bfa530">I2C</span>
+ 5. <span style="color:#bfa530">SPI</span>
+ 6. <span style="color:#bfa530">LED</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Mode ></span> 5
 
-<span className="bp-info">SPI speed</span>
+<span style="color:#bfa530">SPI speed</span>
  1 to 62500KHz
- x. <span className="bp-info">Exit</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">KHz (</span>100KHz*<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Data bits</span>
+<span style="color:#bfa530">Data bits</span>
  4 to 8 bits
- x. <span className="bp-info">Exit</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Bits (</span>8*<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Clock polarity</span>
- 1. <span className="bp-info">Idle LOW*</span>
- 2. <span className="bp-info">Idle HIGH</span>
- x. <span className="bp-info">Exit</span>
+<span style="color:#bfa530">Clock polarity</span>
+ 1. <span style="color:#bfa530">Idle LOW*</span>
+ 2. <span style="color:#bfa530">Idle HIGH</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Polarity (</span>1<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Clock phase</span>
- 1. <span className="bp-info">LEADING edge*</span>
- 2. <span className="bp-info">TRAILING edge</span>
- x. <span className="bp-info">Exit</span>
+<span style="color:#bfa530">Clock phase</span>
+ 1. <span style="color:#bfa530">LEADING edge*</span>
+ 2. <span style="color:#bfa530">TRAILING edge</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Phase (</span>1<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Chip select</span>
- 1. <span className="bp-info">Active HIGH (CS)</span>
- 2. <span className="bp-info">Active LOW (/CS)*</span>
- x. <span className="bp-info">Exit</span>
+<span style="color:#bfa530">Chip select</span>
+ 1. <span style="color:#bfa530">Active HIGH (CS)</span>
+ 2. <span style="color:#bfa530">Active LOW (/CS)*</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">CS (</span>2<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Actual speed:</span> 122KHz
-<span className="bp-info">Mode:</span> SPI
+<span style="color:#bfa530">Actual speed:</span> 122KHz
+<span style="color:#bfa530">Mode:</span> SPI
 <span style="color:#96cb59">SPI></span> W
-<span className="bp-info">Power supply
+<span style="color:#bfa530">Power supply
 Volts (0.80V-5.00V)</span>
 <span style="color:#96cb59">x to exit (3.30) ></span> 
-<span className="bp-float">3.30</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">3.30</span></span>V
+<span className="bp-float">3.30</span>V<span style="color:#bfa530"> requested, closest value: <span className="bp-float">3.30</span></span>V
 Set current limit?
 y
 
-<span className="bp-info">Maximum current (0mA-500mA)</span>
+<span style="color:#bfa530">Maximum current (0mA-500mA)</span>
 <span style="color:#96cb59">x to exit (100.00) ></span> 50
-<span className="bp-float">50.0</span>mA<span className="bp-info"> requested, closest value: <span className="bp-float">50.0</span></span>mA
+<span className="bp-float">50.0</span>mA<span style="color:#bfa530"> requested, closest value: <span className="bp-float">50.0</span></span>mA
 
-<span className="bp-info">Power supply:</span>Enabled
-<span className="bp-info">
-Vreg output: <span className="bp-float">3.3</span></span>V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">3.3</span></span>V<span className="bp-info">, Current sense: <span className="bp-float">5.8</span></span>mA<span className="bp-info">
+<span style="color:#bfa530">Power supply:</span>Enabled
+<span style="color:#bfa530">
+Vreg output: <span className="bp-float">3.3</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span className="bp-float">3.3</span></span>V<span style="color:#bfa530">, Current sense: <span className="bp-float">5.8</span></span>mA<span style="color:#bfa530">
 </span>
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
@@ -109,7 +109,7 @@ Vreg output: <span className="bp-float">3.3</span></span>V<span className="bp-in
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> P
-<span className="bp-info">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)
+<span style="color:#bfa530">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
@@ -137,10 +137,10 @@ We'll try to use the most common commands, but not all chips will respond to all
 <span style="color:#96cb59">SPI></span> [0xb9] D:10 [0xab 0x00:3 r]
 
 CS Enabled
-<span className="bp-info">TX:</span> 0x<span className="bp-float">B9</span> 
-<span className="bp-info">Delay:</span> 10ms
-<span className="bp-info">TX:</span> 0x<span className="bp-float">AB</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
-<span className="bp-info">RX:</span> 0x<span className="bp-float">EF</span> 
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">B9</span> 
+<span style="color:#bfa530">Delay:</span> 10ms
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">AB</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
+<span style="color:#bfa530">RX:</span> 0x<span className="bp-float">EF</span> 
 CS Disabled
 <span style="color:#96cb59">SPI></span>
 {{% /term %}}
@@ -159,8 +159,8 @@ The response ```0x13``` is the device ID of the flash chip. There's no standard,
 <span style="color:#96cb59">SPI></span> [0x90 0x00:3 r:2]
 
 CS Enabled
-<span className="bp-info">TX:</span> 0x<span className="bp-float">90</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
-<span className="bp-info">RX:</span> 0x<span className="bp-float">13</span> 0x<span className="bp-float">EF</span> 
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">90</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
+<span style="color:#bfa530">RX:</span> 0x<span className="bp-float">13</span> 0x<span className="bp-float">EF</span> 
 CS Disabled
 <span style="color:#96cb59">SPI></span>
 {{% /term %}}
@@ -179,8 +179,8 @@ The response ```0x13``` is the device ID of the flash chip, same as the Reset ID
 <span style="color:#96cb59">SPI></span> [0x9F r:3]
 
 CS Enabled
-<span className="bp-info">TX:</span> 0x<span className="bp-float">9F</span> 
-<span className="bp-info">RX:</span> 0x<span className="bp-float">EF</span> 0x<span className="bp-float">40</span> 0x<span className="bp-float">14</span> 
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">9F</span> 
+<span style="color:#bfa530">RX:</span> 0x<span className="bp-float">EF</span> 0x<span className="bp-float">40</span> 0x<span className="bp-float">14</span> 
 CS Disabled
 <span style="color:#96cb59">SPI></span>
 {{% /term %}}
@@ -197,8 +197,8 @@ The manufacturer ID is 0xEF, the memory type ID is 0x40, and the capacity ID is 
 <span style="color:#96cb59">SPI></span> [0x5A 0x00:4 r:8]
 
 CS Enabled
-<span className="bp-info">TX:</span> 0x<span className="bp-float">5A</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
-<span className="bp-info">RX:</span> 0x<span className="bp-float">50</span> 0x<span className="bp-float">44</span> 0x<span className="bp-float">46</span> 0x<span className="bp-float">53</span> 0x<span className="bp-float">05</span> 0x<span className="bp-float">01</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">FF</span> 
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">5A</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
+<span style="color:#bfa530">RX:</span> 0x<span className="bp-float">50</span> 0x<span className="bp-float">44</span> 0x<span className="bp-float">46</span> 0x<span className="bp-float">53</span> 0x<span className="bp-float">05</span> 0x<span className="bp-float">01</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">FF</span> 
 {{% /term %}}
 
 We've tried three ID commands that don't give us a ton of useful information. The Serial Flash Discoverable Parameters (SFDP) tables are a newer standard that provides a lot more information about the flash chip.
@@ -238,7 +238,7 @@ We will write 256 ASCII characters 'i' (0x69) at the memory address 0x00. Follow
 <span style="color:#96cb59">SPI></span> [0x06]
 
 CS Enabled
-<span className="bp-info">TX:</span> 0x<span className="bp-float">06</span> 
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">06</span> 
 CS Disabled
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
@@ -254,8 +254,8 @@ The 'Write Enable' command ```0x06``` must be sent before write and erase comman
 <span style="color:#96cb59">SPI></span> [0x05 r:1]
 
 CS Enabled
-<span className="bp-info">TX:</span> 0x<span className="bp-float">05</span> 
-<span className="bp-info">RX:</span> 0x<span className="bp-float">02</span> 
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">05</span> 
+<span style="color:#bfa530">RX:</span> 0x<span className="bp-float">02</span> 
 CS Disabled
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
@@ -278,12 +278,12 @@ Response ```0x02``` indicates that the write enable bit (S1) is set to 1 (0x02=0
 <span style="color:#96cb59">SPI></span> [0x06]
 
 CS Enabled
-<span className="bp-info">TX:</span> 0x<span className="bp-float">06</span> 
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">06</span> 
 CS Disabled
 <span style="color:#96cb59">SPI></span> [0x20 0x00 0x00 0x00]
 
 CS Enabled
-<span className="bp-info">TX:</span> 0x<span className="bp-float">20</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">20</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
 CS Disabled
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
@@ -312,8 +312,8 @@ Flash needs to be erased before it can be rewritten. Flash is erased in sectors,
 <span style="color:#96cb59">SPI></span> [0x03 0x00 0x00 0x00 r:256]
 
 CS Enabled
-<span className="bp-info">TX:</span> 0x<span className="bp-float">03</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
-<span className="bp-info">RX:</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">03</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
+<span style="color:#bfa530">RX:</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 
     0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 
     0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 
     0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 
@@ -364,13 +364,13 @@ We'll use the read data command ```0x03``` to verify that the sector has been er
 <span style="color:#96cb59">SPI></span> [0x06]
 
 CS Enabled
-<span className="bp-info">TX:</span> 0x<span className="bp-float">06</span> 
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">06</span> 
 CS Disabled
 <span style="color:#96cb59">SPI></span> [0x05 r:1]
 
 CS Enabled
-<span className="bp-info">TX:</span> 0x<span className="bp-float">05</span> 
-<span className="bp-info">RX:</span> 0x<span className="bp-float">02</span> 
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">05</span> 
+<span style="color:#bfa530">RX:</span> 0x<span className="bp-float">02</span> 
 <span style="color:#96cb59">SPI></span>
 CS Disabled
 {{% /term %}}
@@ -383,7 +383,7 @@ Use the write enable command ```0x06``` to enable writes. Verify the write enabl
 <span style="color:#96cb59">SPI></span> [0x02 0x00 0x00 0x00 0x69:256]
 
 CS Enabled
-<span className="bp-info">TX:</span> 0x<span className="bp-float">02</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">02</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 
     0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 
     0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 
     0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 
@@ -438,8 +438,8 @@ The write enable command ```0x06``` must be send before writing data to the chip
 <span style="color:#96cb59">SPI></span> [0x03 0x00 0x00 0x00 r:256]
 
 CS Enabled
-<span className="bp-info">TX:</span> 0x<span className="bp-float">03</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
-<span className="bp-info">RX:</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">03</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
+<span style="color:#bfa530">RX:</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 
     0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 
     0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 
     0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 

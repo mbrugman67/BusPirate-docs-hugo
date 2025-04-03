@@ -36,25 +36,25 @@ For this tutorial let's use the onboard power supply.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> W
-<span className="bp-info"><span className="bp-info">Power supply
+<span style="color:#bfa530"><span style="color:#bfa530">Power supply
 Volts (0.80V-5.00V)</span></span>
 <span style="color:#96cb59">x to exit (3.30) ></span> 5
-<span className="bp-float">5.00</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">5.00</span></span>V
+<span className="bp-float">5.00</span>V<span style="color:#bfa530"> requested, closest value: <span className="bp-float">5.00</span></span>V
 Set current limit?
 y 
 
-<span className="bp-info">Maximum current (0mA-500mA)</span>
+<span style="color:#bfa530">Maximum current (0mA-500mA)</span>
 <span style="color:#96cb59">x to exit (100.00) ></span> 
-<span className="bp-float">100.0</span>mA<span className="bp-info"> requested, closest value: <span className="bp-float">100.0</span></span>mA
+<span className="bp-float">100.0</span>mA<span style="color:#bfa530"> requested, closest value: <span className="bp-float">100.0</span></span>mA
 
-<span className="bp-info">Power supply:</span>Enabled
+<span style="color:#bfa530">Power supply:</span>Enabled
 
-<span className="bp-info">
+<span style="color:#bfa530">
 
 Vreg output: <span className="bp-float">5.0</span>
 </span>
-V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">5.0</span></span>V<span className="bp-info">, Current sense: <span className="bp-float">8.4</span></span>mA
-<span className="bp-info">
+V<span style="color:#bfa530">, Vref/Vout pin: <span className="bp-float">5.0</span></span>V<span style="color:#bfa530">, Current sense: <span className="bp-float">8.4</span></span>mA
+<span style="color:#bfa530">
 
 </span>
 <span style="color:#96cb59">LED-()></span> 
@@ -88,7 +88,7 @@ The Bus Pirate is rated for 5volts DC maximum. Exceeding this limit will damage 
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> P
-<span className="bp-info"><span className="bp-info">Pull-up resistors:</span></span> Enabled (10K ohms @ <span className="bp-float">5.0</span>V)
+<span style="color:#bfa530"><span style="color:#bfa530">Pull-up resistors:</span></span> Enabled (10K ohms @ <span className="bp-float">5.0</span>V)
 
 <span style="color:#96cb59">LED-()></span> 
 
@@ -112,13 +112,13 @@ In the live view statusbar all pins should be high, close to 5.0volts.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> >a.0 a.1 a.2 a.3
-<span className="bp-info">IO<span className="bp-float">0<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span>
+<span style="color:#bfa530">IO<span className="bp-float">0<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span>
 
-<span className="bp-info">IO<span className="bp-float">1<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span>
+<span style="color:#bfa530">IO<span className="bp-float">1<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span>
 
-<span className="bp-info">IO<span className="bp-float">2<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span>
+<span style="color:#bfa530">IO<span className="bp-float">2<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span>
 
-<span className="bp-info">IO<span className="bp-float">3<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span>
+<span style="color:#bfa530">IO<span className="bp-float">3<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span>
 
 <span style="color:#96cb59">LED-()></span> 
 {{% /term %}}
@@ -138,13 +138,13 @@ Verify that the pins are low in the live view statusbar if active, or use the ``
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> >@.0 @.1 @.2 @.3
-<span className="bp-info">IO<span className="bp-float">0<span className="bp-info"> set to</span></span></span> INPUT: <span className="bp-float">1</span>
+<span style="color:#bfa530">IO<span className="bp-float">0<span style="color:#bfa530"> set to</span></span></span> INPUT: <span className="bp-float">1</span>
 
-<span className="bp-info">IO<span className="bp-float">1<span className="bp-info"> set to</span></span></span> INPUT: <span className="bp-float">1</span>
+<span style="color:#bfa530">IO<span className="bp-float">1<span style="color:#bfa530"> set to</span></span></span> INPUT: <span className="bp-float">1</span>
 
-<span className="bp-info">IO<span className="bp-float">2<span className="bp-info"> set to</span></span></span> INPUT: <span className="bp-float">1</span>
+<span style="color:#bfa530">IO<span className="bp-float">2<span style="color:#bfa530"> set to</span></span></span> INPUT: <span className="bp-float">1</span>
 
-<span className="bp-info">IO<span className="bp-float">3<span className="bp-info"> set to</span></span></span> INPUT: <span className="bp-float">1</span>
+<span style="color:#bfa530">IO<span className="bp-float">3<span style="color:#bfa530"> set to</span></span></span> INPUT: <span className="bp-float">1</span>
 
 <span style="color:#96cb59">LED-()></span> 
 {{% /term %}}
@@ -161,7 +161,7 @@ Verify that all the pins are around 5volts in the live monitor statusbar, or by 
 ### Disable Pull-ups
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> p
-<span className="bp-info">Pull-up resistors:</span> Disabled
+<span style="color:#bfa530">Pull-up resistors:</span> Disabled
 <span style="color:#96cb59">LED-()></span>
 {{% /term %}}
 

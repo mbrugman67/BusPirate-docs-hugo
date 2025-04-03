@@ -41,7 +41,7 @@ RESET is connected to the CS pin on the Bus Pirate. The CS pin is used to reset 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HiZ></span> binmode
 
-<span className="bp-info">Select binary mode</span>
+<span style="color:#bfa530">Select binary mode</span>
  1. SUMP logic analyzer
  2. Binmode test framework
  3. Arduino CH32V003 SWIO
@@ -49,9 +49,9 @@ RESET is connected to the CS pin on the Bus Pirate. The CS pin is used to reset 
  5. Legacy Binary Mode for Flashrom and AVRdude (EXPERIMENTAL)
  x. Exit
 <span style="color:#96cb59"> ></span> 5
-<span className="bp-info">Binmode selected: </span>
+<span style="color:#bfa530">Binmode selected: </span>
  Legacy Binary Mode for Flashrom and AVRdude (EXPERIMENTAL)
-<span className="bp-info">Binmode active. Terminal locked</span>
+<span style="color:#bfa530">Binmode active. Terminal locked</span>
 {{% /term %}}
 
 In the Bus Pirate terminal use the ```binmode``` command to select the "Legacy Binary Mode for Flashrom and AVRdude".
@@ -61,20 +61,20 @@ This mode is experimental, use at your own risk.
 {{% /alert %}}
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">Power supply
+<span style="color:#bfa530">Power supply
 Volts (0.80V-5.00V)</span>
 <span style="color:#96cb59">x to exit (3.30) ></span> 5
-<span className="bp-float">5.00</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">5.00</span></span>V
+<span className="bp-float">5.00</span>V<span style="color:#bfa530"> requested, closest value: <span className="bp-float">5.00</span></span>V
 Set current limit?
 y
 
-<span className="bp-info">Maximum current (0mA-500mA)</span>
+<span style="color:#bfa530">Maximum current (0mA-500mA)</span>
 <span style="color:#96cb59">x to exit (100.00) ></span> 150
-<span className="bp-float">150.0</span>mA<span className="bp-info"> requested, closest value: <span className="bp-float">150.0</span></span>mA
+<span className="bp-float">150.0</span>mA<span style="color:#bfa530"> requested, closest value: <span className="bp-float">150.0</span></span>mA
 
-<span className="bp-info">Power supply:</span>Enabled
-<span className="bp-info">
-Vreg output: <span className="bp-float">4.9</span></span>V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">4.9</span></span>V<span className="bp-info">, Current sense: <span className="bp-float">9.2</span></span>mA<span className="bp-info">
+<span style="color:#bfa530">Power supply:</span>Enabled
+<span style="color:#bfa530">
+Vreg output: <span className="bp-float">4.9</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span className="bp-float">4.9</span></span>V<span style="color:#bfa530">, Current sense: <span className="bp-float">9.2</span></span>mA<span style="color:#bfa530">
 </span>
 {{% /term %}}
 

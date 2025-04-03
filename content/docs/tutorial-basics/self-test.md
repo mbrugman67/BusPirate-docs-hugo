@@ -28,19 +28,19 @@ Disconnect any devices before performing the self-test.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> m
-<span className="bp-info">
-<span className="bp-info">Mode selection</span></span>
- 1. <span className="bp-info">HiZ</span>
- 2. <span className="bp-info">UART</span>
- 3. <span className="bp-info">I2C</span>
- 4. <span className="bp-info">SPI</span>
- 5. <span className="bp-info">LED</span>
- 6. <span className="bp-info">DUMMY1</span>
- x. <span className="bp-info">Exit</span>
+<span style="color:#bfa530">
+<span style="color:#bfa530">Mode selection</span></span>
+ 1. <span style="color:#bfa530">HiZ</span>
+ 2. <span style="color:#bfa530">UART</span>
+ 3. <span style="color:#bfa530">I2C</span>
+ 4. <span style="color:#bfa530">SPI</span>
+ 5. <span style="color:#bfa530">LED</span>
+ 6. <span style="color:#bfa530">DUMMY1</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Mode ></span> 1
-<span className="bp-info">Mode:</span> HiZ
+<span style="color:#bfa530">Mode:</span> HiZ
 <span style="color:#96cb59">HiZ></span> ~
-<span className="bp-info">SELF TEST STARTING</span>
+<span style="color:#bfa530">SELF TEST STARTING</span>
 {{% /term %}}
 
 {{% alert context="warning" %}}
@@ -80,7 +80,7 @@ You should not normally see this message. Formatting is performed during product
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 
 
-<span className="bp-info">SELF TEST STARTING
+<span style="color:#bfa530">SELF TEST STARTING
 DISABLE IRQ: OK
 ADC SUBSYSTEM: VUSB  5.03V OK
 FLASH STORAGE: OK
@@ -98,7 +98,7 @@ Prototype boards (REV8 and below) use a TF flash card for storage. If a formatte
 
 ### BIO float
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">
+<span style="color:#bfa530">
 BIO FLOAT TEST (SHOULD BE 0/&lt;0.2V)
 BIO0 FLOAT: 0/0.03V OK
 BIO1 FLOAT: 0/0.03V OK
@@ -117,7 +117,7 @@ BIO7 FLOAT: 0/0.04V OK</span>
 
 ### BIO high
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">
+<span style="color:#bfa530">
 BIO HIGH TEST (SHOULD BE >3.0V)
 BIO0 HIGH: 3.29V OK
 BIO1 HIGH: 3.29V OK
@@ -136,7 +136,7 @@ BIO7 HIGH: 3.29V OK</span>
 
 ### BIO low
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">
+<span style="color:#bfa530">
 BIO LOW TEST (SHOULD BE &lt;0.2V)
 BIO0 LOW: 0.03V OK
 BIO1 LOW: 0.03V OK
@@ -155,7 +155,7 @@ BIO7 LOW: 0.03V OK</span>
 
 ### BIO pull-up high
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">
+<span style="color:#bfa530">
 BIO PULL-UP HIGH TEST (SHOULD BE >3.0V)
 BIO0 PU-HIGH: 1/3.22V OK
 BIO1 PU-HIGH: 1/3.22V OK
@@ -174,7 +174,7 @@ BIO7 PU-HIGH: 1/3.25V OK</span>
 
 ### BIO pull-up low
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">
+<span style="color:#bfa530">
 BIO PULL-UP LOW TEST (SHOULD BE &lt;0.5V)
 BIO0 PU-LOW: 0.13V OK
 BIO1 PU-LOW: 0.14V OK
@@ -193,7 +193,7 @@ BIO7 PU-LOW: 0.14V OK</span>
 
 ### Current override
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">
+<span style="color:#bfa530">
 CURRENT OVERRIDE: OK</span>
 {{% /term %}}
 
@@ -203,7 +203,7 @@ CURRENT OVERRIDE: OK</span>
 
 ### Current limit
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">
+<span style="color:#bfa530">
 CURRENT LIMIT TEST: OK</span>
 {{% /term %}}
 
@@ -212,7 +212,7 @@ CURRENT LIMIT TEST: OK</span>
 
 ### Just one button
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">
+<span style="color:#bfa530">
 PUSH BUTTON TO COMPLETE: OK
 </span>
 {{% /term %}}
@@ -225,7 +225,7 @@ PUSH BUTTON TO COMPLETE: OK
 ### Success
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">
+<span style="color:#bfa530">
 
 PASS :)
 </span>
@@ -239,7 +239,7 @@ If you're still having a problem, could it be a firmware bug? Please let us know
 ### Errors
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">
+<span style="color:#bfa530">
 PSU ENABLE: CODE 3. ERROR!
 ...
 ERRORS: 1

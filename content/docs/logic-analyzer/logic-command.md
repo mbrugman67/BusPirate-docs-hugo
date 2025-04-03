@@ -29,30 +29,30 @@ All Bus Pirate hardware supports the follow along logic analyzer, however only B
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> logic -? h
 usage:
-<span className="bp-info">logic analyzer usage</span>
-<span className="bp-info">logic	[start|stop|hide|show|nav]</span>
-<span className="bp-info">	[-i] [-g] [-o oversample] [-f frequency] [-d debug]</span>
-<span className="bp-info">start logic analyzer: logic start</span>
-<span className="bp-info">stop logic analyzer: logic stop</span>
-<span className="bp-info">hide logic analyzer: logic hide</span>
-<span className="bp-info">show logic analyzer: logic show</span>
-<span className="bp-info">navigate logic analyzer: logic nav</span>
-<span className="bp-info">configure logic analyzer: logic -i -o 8 -f 1000000 -d 0</span>
-<span className="bp-info">undocumented: set base pin (0=bufdir, 8=bufio, 20=follow along) -b: logic -b 20</span>
+<span style="color:#bfa530">logic analyzer usage</span>
+<span style="color:#bfa530">logic	[start|stop|hide|show|nav]</span>
+<span style="color:#bfa530">	[-i] [-g] [-o oversample] [-f frequency] [-d debug]</span>
+<span style="color:#bfa530">start logic analyzer: logic start</span>
+<span style="color:#bfa530">stop logic analyzer: logic stop</span>
+<span style="color:#bfa530">hide logic analyzer: logic hide</span>
+<span style="color:#bfa530">show logic analyzer: logic show</span>
+<span style="color:#bfa530">navigate logic analyzer: logic nav</span>
+<span style="color:#bfa530">configure logic analyzer: logic -i -o 8 -f 1000000 -d 0</span>
+<span style="color:#bfa530">undocumented: set base pin (0=bufdir, 8=bufio, 20=follow along) -b: logic -b 20</span>
 
-<span className="bp-info">logic analyzer control</span>
-<span style="color:#96cb59">start</span>	<span className="bp-info">start logic analyzer</span>
-<span style="color:#96cb59">stop</span>	<span className="bp-info">stop logic analyzer</span>
-<span style="color:#96cb59">hide</span>	<span className="bp-info">hide logic graph</span>
-<span style="color:#96cb59">show</span>	<span className="bp-info">show logic graph</span>
-<span style="color:#96cb59">nav</span>	<span className="bp-info">navigate logic graph with arrow keys, x to exit</span>
-<span style="color:#96cb59">-i</span>	<span className="bp-info">show configuration info</span>
-<span style="color:#96cb59">-o</span>	<span className="bp-info">set oversample rate, multiplies the sample frequency</span>
-<span style="color:#96cb59">-f</span>	<span className="bp-info">set sample frequency in Hz</span>
-<span style="color:#96cb59">-0</span>	<span className="bp-info">set character used for low in graph (ex:_)</span>
-<span style="color:#96cb59">-1</span>	<span className="bp-info">set character used for high in graph (ex:*)</span>
-<span style="color:#96cb59">-d</span>	<span className="bp-info">set debug level: 0-2</span>
-<span style="color:#96cb59">-h</span>	<span className="bp-info">Get additional help</span>
+<span style="color:#bfa530">logic analyzer control</span>
+<span style="color:#96cb59">start</span>	<span style="color:#bfa530">start logic analyzer</span>
+<span style="color:#96cb59">stop</span>	<span style="color:#bfa530">stop logic analyzer</span>
+<span style="color:#96cb59">hide</span>	<span style="color:#bfa530">hide logic graph</span>
+<span style="color:#96cb59">show</span>	<span style="color:#bfa530">show logic graph</span>
+<span style="color:#96cb59">nav</span>	<span style="color:#bfa530">navigate logic graph with arrow keys, x to exit</span>
+<span style="color:#96cb59">-i</span>	<span style="color:#bfa530">show configuration info</span>
+<span style="color:#96cb59">-o</span>	<span style="color:#bfa530">set oversample rate, multiplies the sample frequency</span>
+<span style="color:#96cb59">-f</span>	<span style="color:#bfa530">set sample frequency in Hz</span>
+<span style="color:#96cb59">-0</span>	<span style="color:#bfa530">set character used for low in graph (ex:_)</span>
+<span style="color:#96cb59">-1</span>	<span style="color:#bfa530">set character used for high in graph (ex:*)</span>
+<span style="color:#96cb59">-d</span>	<span style="color:#bfa530">set debug level: 0-2</span>
+<span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
 
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
@@ -76,11 +76,11 @@ If the graph isn't needed, use ```logic hide``` to release it from the toolbar. 
 
 ## Auto Capture Speed
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">Actual speed:</span> 10kHz
-<span className="bp-info">Logic analyzer speed:</span> 80000Hz (8x oversampling)
-<span className="bp-info">Use the 'logic' command to change capture settings</span>
+<span style="color:#bfa530">Actual speed:</span> 10kHz
+<span style="color:#bfa530">Logic analyzer speed:</span> 80000Hz (8x oversampling)
+<span style="color:#bfa530">Use the 'logic' command to change capture settings</span>
 
-<span className="bp-info">Mode:</span> SPI
+<span style="color:#bfa530">Mode:</span> SPI
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
@@ -109,10 +109,10 @@ The base capture speed or the oversample rate can can be changed with the ```log
 <span style="color:#96cb59">SPI></span> [ 0xaa 0x55]
 
 CS Enabled
-<span className="bp-info">TX:</span> 0x<span className="bp-float">AA</span> 0x<span className="bp-float">55</span> 
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">AA</span> 0x<span className="bp-float">55</span> 
 CS Disabled
 
-<span className="bp-info">Logic analyzer:</span> 144 samples captured
+<span style="color:#bfa530">Logic analyzer:</span> 144 samples captured
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 

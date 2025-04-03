@@ -78,11 +78,11 @@ Most Bus Pirate commands have help. Add the ```-h``` flag to any command to see 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">1-WIRE></span> scan -h
 usage:
-<span className="bp-info">scan	[-h(elp)]</span>
-<span className="bp-info">Scan 1-Wire address space: scan</span>
+<span style="color:#bfa530">scan	[-h(elp)]</span>
+<span style="color:#bfa530">Scan 1-Wire address space: scan</span>
 
-<span className="bp-info">scan for 1-Wire devices</span>
-<span style="color:#96cb59">-h</span>	<span className="bp-info">Get additional help</span>
+<span style="color:#bfa530">scan for 1-Wire devices</span>
+<span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
 
 <span style="color:#96cb59">1-WIRE></span> 
 {{% /term %}}
@@ -90,7 +90,7 @@ usage:
 #### use
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">1-WIRE></span> scan
-<span className="bp-info">
+<span style="color:#bfa530">
 1-Wire ROM search:
 1: 28 5c aa 13 0a 00 00 19
 </span>
@@ -108,11 +108,11 @@ usage:
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">1-WIRE></span> ds18b20 -h
 usage:
-<span className="bp-info">ds18b20	[-h(elp)]</span>
-<span className="bp-info">measure temperature (single sensor bus only): ds18b20</span>
+<span style="color:#bfa530">ds18b20	[-h(elp)]</span>
+<span style="color:#bfa530">measure temperature (single sensor bus only): ds18b20</span>
 
-<span className="bp-info">Query DS18B20 temperature sensor</span>
-<span style="color:#96cb59">-h</span>	<span className="bp-info">Get additional help</span>
+<span style="color:#bfa530">Query DS18B20 temperature sensor</span>
+<span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
 
 <span style="color:#96cb59">1-WIRE></span> 
 {{% /term %}}
@@ -121,7 +121,7 @@ usage:
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">1-WIRE></span> ds18b20
-<span className="bp-info">
+<span style="color:#bfa530">
 RX: 1a 01 00 00 7f ff 06 10 12
 Temperature: 17.625
 </span>

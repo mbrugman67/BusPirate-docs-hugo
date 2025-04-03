@@ -33,14 +33,14 @@ All Bus Pirate hardware supports follow along logic analyzer, however only Bus P
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HiZ></span> binmode
 
-<span className="bp-info">Select binary mode</span>
+<span style="color:#bfa530">Select binary mode</span>
  1. SUMP logic analyzer
  2. Binmode test framework
  3. Arduino CH32V003 SWIO
  4. Follow along logic analyzer
- x. <span className="bp-info">Exit</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59"> ></span> 4
-<span className="bp-info">Binmode selected:</span> Follow along logic analyzer
+<span style="color:#bfa530">Binmode selected:</span> Follow along logic analyzer
 
 <span style="color:#96cb59">HiZ></span> 
 {{% /term %}}
@@ -72,20 +72,20 @@ Click "run" to start capturing.
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HiZ></span> m
 
-<span className="bp-info">Mode selection</span>
- 1. <span className="bp-info">HiZ</span>
+<span style="color:#bfa530">Mode selection</span>
+ 1. <span style="color:#bfa530">HiZ</span>
 ...
- 6. <span className="bp-info">SPI</span>
+ 6. <span style="color:#bfa530">SPI</span>
 ...
- x. <span className="bp-info">Exit</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Mode ></span> 6
 
-<span className="bp-info">Use previous settings?</span>
- <span className="bp-info">SPI speed:</span> 10 kHz
- <span className="bp-info">Data bits:</span> 8
- <span className="bp-info">Clock polarity:</span> Idle LOW
- <span className="bp-info">Clock phase:</span> LEADING edge
- <span className="bp-info">Chip select:</span> Active LOW (/CS)
+<span style="color:#bfa530">Use previous settings?</span>
+ <span style="color:#bfa530">SPI speed:</span> 10 kHz
+ <span style="color:#bfa530">Data bits:</span> 8
+ <span style="color:#bfa530">Clock polarity:</span> Idle LOW
+ <span style="color:#bfa530">Clock phase:</span> LEADING edge
+ <span style="color:#bfa530">Chip select:</span> Active LOW (/CS)
 
 <span style="color:#96cb59">y/n, x to exit (Y) ></span> y
 
@@ -96,11 +96,11 @@ Enter a Bus Pirate mode. For now, SPI is best for testing.
 
 ### Auto Capture Speed
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">Actual speed:</span> 10kHz
-<span className="bp-info">Logic analyzer speed:</span> 80000Hz (8x oversampling)
-<span className="bp-info">Use the 'logic' command to change capture settings</span>
+<span style="color:#bfa530">Actual speed:</span> 10kHz
+<span style="color:#bfa530">Logic analyzer speed:</span> 80000Hz (8x oversampling)
+<span style="color:#bfa530">Use the 'logic' command to change capture settings</span>
 
-<span className="bp-info">Mode:</span> SPI
+<span style="color:#bfa530">Mode:</span> SPI
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
@@ -111,19 +111,19 @@ When changing protocol modes with the ```m``` command, FALA will automatically s
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> W 5
-<span className="bp-float">5.00</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">5.00</span></span>V
-<span className="bp-info">Current limit:</span>Disabled
+<span className="bp-float">5.00</span>V<span style="color:#bfa530"> requested, closest value: <span className="bp-float">5.00</span></span>V
+<span style="color:#bfa530">Current limit:</span>Disabled
 
-<span className="bp-info">Power supply:</span>Enabled
-<span className="bp-info">Vreg output: <span className="bp-float">5.0</span></span>V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">5.0</span></span>V<span className="bp-info">, Current: <span className="bp-float">3.2</span></span>mA<span className="bp-info">
+<span style="color:#bfa530">Power supply:</span>Enabled
+<span style="color:#bfa530">Vreg output: <span className="bp-float">5.0</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span className="bp-float">5.0</span></span>V<span style="color:#bfa530">, Current: <span className="bp-float">3.2</span></span>mA<span style="color:#bfa530">
 </span>
 <span style="color:#96cb59">SPI></span> [0x00 0xff 0x55 0xaa]
 
 CS Enabled
-<span className="bp-info">TX:</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">55</span> 0x<span className="bp-float">AA</span> 
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">55</span> 0x<span className="bp-float">AA</span> 
 CS Disabled
 
-<span className="bp-info">Logic analyzer:</span> 288 samples captured
+<span style="color:#bfa530">Logic analyzer:</span> 288 samples captured
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 

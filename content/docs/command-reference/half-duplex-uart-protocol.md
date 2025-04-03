@@ -29,26 +29,26 @@ Half-duplex UART is a common serial UART, but receive and transmit share a singl
 ## Configuration options
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">UART speed</span>
+<span style="color:#bfa530">UART speed</span>
  1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200 etc
- x. <span className="bp-info">Exit</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Baud (</span>115200*<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Data bits</span>
+<span style="color:#bfa530">Data bits</span>
  5 to 8 bits
- x. <span className="bp-info">Exit</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Bits (</span>8*<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Parity</span>
- 1. <span className="bp-info">None*</span>
- 2. <span className="bp-info">Even</span>
- 3. <span className="bp-info">Odd</span>
- x. <span className="bp-info">Exit</span>
+<span style="color:#bfa530">Parity</span>
+ 1. <span style="color:#bfa530">None*</span>
+ 2. <span style="color:#bfa530">Even</span>
+ 3. <span style="color:#bfa530">Odd</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Parity (</span>1<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Stop bits</span>
- 1. <span className="bp-info">1*</span>
- 2. <span className="bp-info">2</span>
- x. <span className="bp-info">Exit</span>
+<span style="color:#bfa530">Stop bits</span>
+ 1. <span style="color:#bfa530">1*</span>
+ 2. <span style="color:#bfa530">2</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Bits (</span>1<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Mode:</span> HDPLXUART
+<span style="color:#bfa530">Mode:</span> HDPLXUART
 <span style="color:#96cb59">HDPLXUART></span> 
 {{% /term %}}
 
@@ -98,14 +98,14 @@ Transparent UART ```bridge```. Bidirectional UART pass-through to interact with 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HDPLXUART></span> bridge -h
 usage:
-<span className="bp-info">bridge	[-h(elp)]</span>
-<span className="bp-info">Transparent UART bridge: bridge</span>
-<span className="bp-info">Exit: press Bus Pirate button</span>
+<span style="color:#bfa530">bridge	[-h(elp)]</span>
+<span style="color:#bfa530">Transparent UART bridge: bridge</span>
+<span style="color:#bfa530">Exit: press Bus Pirate button</span>
 
-<span className="bp-info">open UART with raw data IO, usb to serial bridge mode</span>
-<span style="color:#96cb59">-t</span>	<span className="bp-info">ENABLE toolbar while bridge is active (default: disabled)</span>
-<span style="color:#96cb59">-s</span>	<span className="bp-info">Suppress local echo, don't echo back sent data</span>
-<span style="color:#96cb59">-h</span>	<span className="bp-info">Get additional help</span>
+<span style="color:#bfa530">open UART with raw data IO, usb to serial bridge mode</span>
+<span style="color:#96cb59">-t</span>	<span style="color:#bfa530">ENABLE toolbar while bridge is active (default: disabled)</span>
+<span style="color:#96cb59">-s</span>	<span style="color:#bfa530">Suppress local echo, don't echo back sent data</span>
+<span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
 
 <span style="color:#96cb59">HDPLXUART></span> 
 {{% /term %}} 

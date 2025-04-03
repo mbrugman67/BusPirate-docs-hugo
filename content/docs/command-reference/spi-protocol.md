@@ -28,31 +28,31 @@ SPI is a common 4 wire full duplex protocol. Separate connections for data-in an
 ## Configuration options
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">SPI speed</span>
+<span style="color:#bfa530">SPI speed</span>
  1 to 62500KHz
- x. <span className="bp-info">Exit</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">KHz (</span>100KHz*<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Data bits</span>
+<span style="color:#bfa530">Data bits</span>
  4 to 8 bits
- x. <span className="bp-info">Exit</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Bits (</span>8*<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Clock polarity</span>
- 1. <span className="bp-info">Idle LOW*</span>
- 2. <span className="bp-info">Idle HIGH</span>
- x. <span className="bp-info">Exit</span>
+<span style="color:#bfa530">Clock polarity</span>
+ 1. <span style="color:#bfa530">Idle LOW*</span>
+ 2. <span style="color:#bfa530">Idle HIGH</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Polarity (</span>1<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Clock phase</span>
- 1. <span className="bp-info">LEADING edge*</span>
- 2. <span className="bp-info">TRAILING edge</span>
- x. <span className="bp-info">Exit</span>
+<span style="color:#bfa530">Clock phase</span>
+ 1. <span style="color:#bfa530">LEADING edge*</span>
+ 2. <span style="color:#bfa530">TRAILING edge</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Phase (</span>1<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Chip select</span>
- 1. <span className="bp-info">Active HIGH (CS)</span>
- 2. <span className="bp-info">Active LOW (/CS)*</span>
- x. <span className="bp-info">Exit</span>
+<span style="color:#bfa530">Chip select</span>
+ 1. <span style="color:#bfa530">Active HIGH (CS)</span>
+ 2. <span style="color:#bfa530">Active LOW (/CS)*</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">CS (</span>2<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Actual speed:</span> 122KHz
-<span className="bp-info">Mode:</span> SPI
+<span style="color:#bfa530">Actual speed:</span> 122KHz
+<span style="color:#bfa530">Mode:</span> SPI
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
@@ -192,26 +192,26 @@ The ```flash``` command can read, write, and erase common SPI flash memory chips
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> flash -h
 usage:
-<span className="bp-info">flash [init|probe|erase|write|read|verify|test]
+<span style="color:#bfa530">flash [init|probe|erase|write|read|verify|test]
 	[-f(ile)] [-e(rase)] [-v(verify)] [-h(elp)]</span>
-<span className="bp-info">Initialize and probe: flash probe</span>
-<span className="bp-info">Erase and program, with verify: flash write -f example.bin -e -v</span>
-<span className="bp-info">Read to file: flash read -f example.bin</span>
-<span className="bp-info">Verify with file: flash verify -f example.bin</span>
-<span className="bp-info">Test chip (full erase/write/verify): flash test</span>
-<span className="bp-info">Force dump: flash read -o -b bytes -f file</span>
+<span style="color:#bfa530">Initialize and probe: flash probe</span>
+<span style="color:#bfa530">Erase and program, with verify: flash write -f example.bin -e -v</span>
+<span style="color:#bfa530">Read to file: flash read -f example.bin</span>
+<span style="color:#bfa530">Verify with file: flash verify -f example.bin</span>
+<span style="color:#bfa530">Test chip (full erase/write/verify): flash test</span>
+<span style="color:#bfa530">Force dump: flash read -o -b bytes -f file</span>
 
-<span className="bp-info">read, write and erase flash chips using SFDP info if available</span>
-<span style="color:#96cb59">init</span>	<span className="bp-info">Reset and initialize flash chip. Default if no options given. flash</span>
-<span style="color:#96cb59">probe</span> <span className="bp-info">Probe flash chip for ID and SFDP info. flash probe</span>
-<span style="color:#96cb59">erase</span>	<span className="bp-info">Erase flash chip. flash erase [-v(erify)]</span>
-<span style="color:#96cb59">write</span>	<span className="bp-info">Write file to flash chip. flash write -f file [-e(rase)] [-v(erify)]</span>
-<span style="color:#96cb59">read</span>	<span className="bp-info">Read flash chip to file. flash read -f file</span>
-<span style="color:#96cb59">verify</span>	<span className="bp-info">Verify flash chip against file. flash verify -f file</span>
-<span style="color:#96cb59">test</span>	<span className="bp-info">Erase and write full chip with dummy data, verify. flash test</span>
-<span style="color:#96cb59">-f</span>	<span className="bp-info">File flag. File to write, read or verify. flash verify -f file</span>
-<span style="color:#96cb59">-e</span>	<span className="bp-info">Erase flag. Add erase before write. flash write -f file -e</span>
-<span style="color:#96cb59">-v</span>	<span className="bp-info">Verify flag. Add verify after write or erase. flash write -f file -v</span>
+<span style="color:#bfa530">read, write and erase flash chips using SFDP info if available</span>
+<span style="color:#96cb59">init</span>	<span style="color:#bfa530">Reset and initialize flash chip. Default if no options given. flash</span>
+<span style="color:#96cb59">probe</span> <span style="color:#bfa530">Probe flash chip for ID and SFDP info. flash probe</span>
+<span style="color:#96cb59">erase</span>	<span style="color:#bfa530">Erase flash chip. flash erase [-v(erify)]</span>
+<span style="color:#96cb59">write</span>	<span style="color:#bfa530">Write file to flash chip. flash write -f file [-e(rase)] [-v(erify)]</span>
+<span style="color:#96cb59">read</span>	<span style="color:#bfa530">Read flash chip to file. flash read -f file</span>
+<span style="color:#96cb59">verify</span>	<span style="color:#bfa530">Verify flash chip against file. flash verify -f file</span>
+<span style="color:#96cb59">test</span>	<span style="color:#bfa530">Erase and write full chip with dummy data, verify. flash test</span>
+<span style="color:#96cb59">-f</span>	<span style="color:#bfa530">File flag. File to write, read or verify. flash verify -f file</span>
+<span style="color:#96cb59">-e</span>	<span style="color:#bfa530">Erase flag. Add erase before write. flash write -f file -e</span>
+<span style="color:#96cb59">-v</span>	<span style="color:#bfa530">Verify flag. Add verify after write or erase. flash write -f file -v</span>
 {{% /term %}}
 
  

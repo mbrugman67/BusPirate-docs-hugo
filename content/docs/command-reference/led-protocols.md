@@ -37,17 +37,17 @@ LEDs are power hungry, up to 60mA each at full brightness. The programmable powe
 ## Configuration options
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">LED type</span>
- 1. <span className="bp-info">WS2812/SK6812/'NeoPixel' (single wire interface)*</span>
- 2. <span className="bp-info">APA102/SK9822 (clock and data interface)</span>
- 3. <span className="bp-info">Onboard LEDs (16 SK6812s)</span>
- x. <span className="bp-info">Exit</span>
+<span style="color:#bfa530">LED type</span>
+ 1. <span style="color:#bfa530">WS2812/SK6812/'NeoPixel' (single wire interface)*</span>
+ 2. <span style="color:#bfa530">APA102/SK9822 (clock and data interface)</span>
+ 3. <span style="color:#bfa530">Onboard LEDs (16 SK6812s)</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Type (</span>1<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Number of LEDs in the strip</span>
+<span style="color:#bfa530">Number of LEDs in the strip</span>
  1 to 10000
- x. <span className="bp-info">Exit</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">LEDs (</span>1*<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Mode:</span> LED
+<span style="color:#bfa530">Mode:</span> LED
 <span style="color:#96cb59">LED-(WS2812)></span> 
 {{% /term %}}
 

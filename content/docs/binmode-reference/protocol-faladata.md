@@ -33,14 +33,14 @@ All Bus Pirate hardware supports follow along logic analyzer, however only Bus P
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HiZ></span> binmode
 
-<span className="bp-info">Select binary mode</span>
+<span style="color:#bfa530">Select binary mode</span>
  1. SUMP logic analyzer
  2. Binmode test framework
  3. Arduino CH32V003 SWIO
  4. Follow along logic analyzer
- x. <span className="bp-info">Exit</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59"> ></span> 4
-<span className="bp-info">Binmode selected:</span> Follow along logic analyzer
+<span style="color:#bfa530">Binmode selected:</span> Follow along logic analyzer
 
 <span style="color:#96cb59">HiZ></span> 
 {{% /term %}}
@@ -49,11 +49,11 @@ Enable the FALA binary interface with the ```binmode``` command. This will confi
 
 ### Auto Capture Speed
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">Actual speed:</span> 10kHz
-<span className="bp-info">Logic analyzer speed:</span> 80000Hz (8x oversampling)
-<span className="bp-info">Use the 'logic' command to change capture settings</span>
+<span style="color:#bfa530">Actual speed:</span> 10kHz
+<span style="color:#bfa530">Logic analyzer speed:</span> 80000Hz (8x oversampling)
+<span style="color:#bfa530">Use the 'logic' command to change capture settings</span>
 
-<span className="bp-info">Mode:</span> SPI
+<span style="color:#bfa530">Mode:</span> SPI
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
@@ -82,10 +82,10 @@ The base capture speed or the oversample rate can can be changed with the ```log
 <span style="color:#96cb59">SPI></span> [ 0xaa 0x55]
 
 CS Enabled
-<span className="bp-info">TX:</span> 0x<span className="bp-float">AA</span> 0x<span className="bp-float">55</span> 
+<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">AA</span> 0x<span className="bp-float">55</span> 
 CS Disabled
 
-<span className="bp-info">Logic analyzer:</span> 144 samples captured
+<span style="color:#bfa530">Logic analyzer:</span> 144 samples captured
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 

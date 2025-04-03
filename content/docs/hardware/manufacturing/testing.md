@@ -12,14 +12,14 @@ Every Bus Pirate is lovingly tested by our crack team before it ships. The Bus P
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HiZ></span> ~
-<span className="bp-info">SELF TEST STARTING</span>
+<span style="color:#bfa530">SELF TEST STARTING</span>
 {{% /term %}}
 
 - Type ```~``` followed by ```enter```.
 
 ## Press button when prompted
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">
+<span style="color:#bfa530">
 PUSH BUTTON TO COMPLETE: OK
 </span>
 {{% /term %}}
@@ -31,7 +31,7 @@ PUSH BUTTON TO COMPLETE: OK
 ### Success
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">
+<span style="color:#bfa530">
 
 PASS :)
 </span>
@@ -41,7 +41,7 @@ PASS :)
 ### Error
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">
+<span style="color:#bfa530">
 PSU: CODE 3. ERROR!
 ...
 ERRORS: 1

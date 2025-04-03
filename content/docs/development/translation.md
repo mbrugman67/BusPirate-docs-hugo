@@ -15,22 +15,22 @@ Bus Pirate 5 supports live language switching via the configuration menu. The la
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HiZ></span> c
-<span className="bp-info"></span>
-<span className="bp-info">Configuration options</span>
- 1. <span className="bp-info">Language</span>
- 2. <span className="bp-info">ANSI color mode</span>
- 3. <span className="bp-info">ANSI toolbar mode</span>
- 4. <span className="bp-info">LCD screensaver</span>
- 5. <span className="bp-info">LED effect</span>
- 6. <span className="bp-info">LED color</span>
- 7. <span className="bp-info">LED brightness</span>
- x. <span className="bp-info"></span>
+<span style="color:#bfa530"></span>
+<span style="color:#bfa530">Configuration options</span>
+ 1. <span style="color:#bfa530">Language</span>
+ 2. <span style="color:#bfa530">ANSI color mode</span>
+ 3. <span style="color:#bfa530">ANSI toolbar mode</span>
+ 4. <span style="color:#bfa530">LCD screensaver</span>
+ 5. <span style="color:#bfa530">LED effect</span>
+ 6. <span style="color:#bfa530">LED color</span>
+ 7. <span style="color:#bfa530">LED brightness</span>
+ x. <span style="color:#bfa530"></span>
 <span style="color:#96cb59"> ></span> 1
 
-<span className="bp-info">Language</span>
- 1. <span className="bp-info">English</span>
- 2. <span className="bp-info">Chinese (simplified)</span>
- x. <span className="bp-info"></span>
+<span style="color:#bfa530">Language</span>
+ 1. <span style="color:#bfa530">English</span>
+ 2. <span style="color:#bfa530">Chinese (simplified)</span>
+ x. <span style="color:#bfa530"></span>
 <span style="color:#96cb59"> ></span> 
 {{% /term %}}
 
@@ -158,23 +158,23 @@ static const struct prompt_item menu_items_language[]=
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 
 <span style="color:#96cb59">HiZ></span> c
-<span className="bp-info">
-<span className="bp-info">Configuration options</span></span>
- 1. <span className="bp-info">Language</span>
- 2. <span className="bp-info">ANSI color mode</span>
- 3. <span className="bp-info">ANSI toolbar mode</span>
- 4. <span className="bp-info">LCD screensaver</span>
- 5. <span className="bp-info">LED effect</span>
- 6. <span className="bp-info">LED color</span>
- 7. <span className="bp-info">LED brightness</span>
- x. <span className="bp-info"></span>
+<span style="color:#bfa530">
+<span style="color:#bfa530">Configuration options</span></span>
+ 1. <span style="color:#bfa530">Language</span>
+ 2. <span style="color:#bfa530">ANSI color mode</span>
+ 3. <span style="color:#bfa530">ANSI toolbar mode</span>
+ 4. <span style="color:#bfa530">LCD screensaver</span>
+ 5. <span style="color:#bfa530">LED effect</span>
+ 6. <span style="color:#bfa530">LED color</span>
+ 7. <span style="color:#bfa530">LED brightness</span>
+ x. <span style="color:#bfa530"></span>
 <span style="color:#96cb59"> ></span> 1
 
-<span className="bp-info">Language</span>
- 1. <span className="bp-info">English</span>
- 2. <span className="bp-info">Chinese (simplified)</span>
- 3. <span className="bp-info">Dutch</span>
- x. <span className="bp-info"></span>
+<span style="color:#bfa530">Language</span>
+ 1. <span style="color:#bfa530">English</span>
+ 2. <span style="color:#bfa530">Chinese (simplified)</span>
+ 3. <span style="color:#bfa530">Dutch</span>
+ x. <span style="color:#bfa530"></span>
 <span style="color:#96cb59"> ></span> 
 
 {{% /term %}}

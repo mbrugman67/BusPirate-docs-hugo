@@ -20,20 +20,20 @@ Bus Pirate 5 has a single 'Programmable Power Supply Unit' (PPSU) that can power
 ## Enable
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">I2C></span> W
-<span className="bp-info"><span className="bp-info">Power supply
+<span style="color:#bfa530"><span style="color:#bfa530">Power supply
 Volts (0.80V-5.00V)</span></span>
 <span style="color:#96cb59">x to exit (3.30) ></span> 2.1
-<span className="bp-float">2.10</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">2.10</span></span>V
+<span className="bp-float">2.10</span>V<span style="color:#bfa530"> requested, closest value: <span className="bp-float">2.10</span></span>V
 Set current limit?
 y
 
-<span className="bp-info">Maximum current (0mA-500mA)</span>
+<span style="color:#bfa530">Maximum current (0mA-500mA)</span>
 <span style="color:#96cb59">x to exit (100.00) ></span> 50
-<span className="bp-float">50.0</span>mA<span className="bp-info"> requested, closest value: <span className="bp-float">50.0</span></span>mA
+<span className="bp-float">50.0</span>mA<span style="color:#bfa530"> requested, closest value: <span className="bp-float">50.0</span></span>mA
 
-<span className="bp-info">Power supply:</span>Enabled
-<span className="bp-info">
-Vreg output: <span className="bp-float">2.1</span></span>V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">2.1</span></span>V<span className="bp-info">, Current sense: <span className="bp-float">7.3</span></span>mA<span className="bp-info">
+<span style="color:#bfa530">Power supply:</span>Enabled
+<span style="color:#bfa530">
+Vreg output: <span className="bp-float">2.1</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span className="bp-float">2.1</span></span>V<span style="color:#bfa530">, Current sense: <span className="bp-float">7.3</span></span>mA<span style="color:#bfa530">
 </span>
 <span style="color:#96cb59">I2C></span> 
 {{% /term %}}
@@ -71,7 +71,7 @@ The difference in voltages (2.1, 2.19) is due to some code inconsistencies in fl
 ## Current limit
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-error">Error:<span className="bp-info"> Current over limit, power supply disabled</span></span>
+<span className="bp-error">Error:<span style="color:#bfa530"> Current over limit, power supply disabled</span></span>
 
 <span style="color:#96cb59">I2C></span> 
 {{% /term %}}
@@ -82,7 +82,7 @@ When the programmed current limit is exceeded the PPSU hardware fuse disables th
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">I2C></span>w
-<span className="bp-info"><span className="bp-info">Power supply: </span></span>Disabled
+<span style="color:#bfa530"><span style="color:#bfa530">Power supply: </span></span>Disabled
 <span style="color:#96cb59">I2C></span> 
 {{% /term %}}
 

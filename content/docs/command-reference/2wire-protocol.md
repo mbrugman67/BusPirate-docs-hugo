@@ -29,11 +29,11 @@ title = '2-Wire Protocol'
 ## Configuration options
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">2WIRE speed</span>
+<span style="color:#bfa530">2WIRE speed</span>
  1kHz to 1000kHz
- x. <span className="bp-info">Exit</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">kHz (</span>400kHz*<span style="color:#96cb59">) ></span> 20
-<span className="bp-info">Mode:</span> 2WIRE
+<span style="color:#bfa530">Mode:</span> 2WIRE
 <span style="color:#96cb59">2WIRE></span> 
 {{% /term %}}
 
@@ -83,26 +83,26 @@ The ```sle4442``` command in the Bus Pirate's 2-WIRE mode automates the process 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">2WIRE></span> sle4442 -h
 usage:
-<span className="bp-info">sle4442 [init|dump|unlock|write|erase|psc]
+<span style="color:#bfa530">sle4442 [init|dump|unlock|write|erase|psc]
 	[-a &#x003c;address&#x003e;] [-v &#x003c;value&#x003e;] [-p &#x003c;current psc&#x003e;] [-n &#x003c;new psc&#x003e;] [-h(elp)]</span>
-<span className="bp-info">Initialize and probe: sle4442 init</span>
-<span className="bp-info">Dump contents: sle4442 dump</span>
-<span className="bp-info">Unlock card: sle4442 unlock -p 0xffffff</span>
-<span className="bp-info">Write a value: sle4442 write -a 0xff -v 0x55</span>
-<span className="bp-info">Erase memory: sle4442 erase</span>
-<span className="bp-info">Update PSC: sle4442 psc -p 0xffffff -n 0x000000</span>
+<span style="color:#bfa530">Initialize and probe: sle4442 init</span>
+<span style="color:#bfa530">Dump contents: sle4442 dump</span>
+<span style="color:#bfa530">Unlock card: sle4442 unlock -p 0xffffff</span>
+<span style="color:#bfa530">Write a value: sle4442 write -a 0xff -v 0x55</span>
+<span style="color:#bfa530">Erase memory: sle4442 erase</span>
+<span style="color:#bfa530">Update PSC: sle4442 psc -p 0xffffff -n 0x000000</span>
 
-<span className="bp-info">SLE4442 smart card interface</span>
-<span style="color:#96cb59">init</span>	<span className="bp-info">Initialize card with ISO7816-3 ATR. Default action</span>
-<span style="color:#96cb59">dump</span>	<span className="bp-info">Display main, security and protect memory</span>
-<span style="color:#96cb59">unlock</span>	<span className="bp-info">Unlock card with Programmable Security Code (PSC)</span>
-<span style="color:#96cb59">write</span>	<span className="bp-info">Write data to card (requires unlock)</span>
-<span style="color:#96cb59">erase</span>	<span className="bp-info">Erase data from range 0x32-0x255 (requires unlock)</span>
-<span style="color:#96cb59">psc</span>	<span className="bp-info">Change Programmable Security Code (PSC)</span>
-<span style="color:#96cb59">-a</span>	<span className="bp-info">Write address flag</span>
-<span style="color:#96cb59">-v</span>	<span className="bp-info">Write value flag</span>
-<span style="color:#96cb59">-p</span>	<span className="bp-info">Current Programmable Security Code (PSC) flag</span>
-<span style="color:#96cb59">-n</span>	<span className="bp-info">New Programmable Security Code (PSC) flag</span>
+<span style="color:#bfa530">SLE4442 smart card interface</span>
+<span style="color:#96cb59">init</span>	<span style="color:#bfa530">Initialize card with ISO7816-3 ATR. Default action</span>
+<span style="color:#96cb59">dump</span>	<span style="color:#bfa530">Display main, security and protect memory</span>
+<span style="color:#96cb59">unlock</span>	<span style="color:#bfa530">Unlock card with Programmable Security Code (PSC)</span>
+<span style="color:#96cb59">write</span>	<span style="color:#bfa530">Write data to card (requires unlock)</span>
+<span style="color:#96cb59">erase</span>	<span style="color:#bfa530">Erase data from range 0x32-0x255 (requires unlock)</span>
+<span style="color:#96cb59">psc</span>	<span style="color:#bfa530">Change Programmable Security Code (PSC)</span>
+<span style="color:#96cb59">-a</span>	<span style="color:#bfa530">Write address flag</span>
+<span style="color:#96cb59">-v</span>	<span style="color:#bfa530">Write value flag</span>
+<span style="color:#96cb59">-p</span>	<span style="color:#bfa530">Current Programmable Security Code (PSC) flag</span>
+<span style="color:#96cb59">-n</span>	<span style="color:#bfa530">New Programmable Security Code (PSC) flag</span>
 
 <span style="color:#96cb59">2WIRE></span> 
 {{% /term %}} 

@@ -33,7 +33,7 @@ Configure the Bus Pirate for SUMP logic analyzer mode.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> m 1
-<span className="bp-info">Mode:</span> HiZ
+<span style="color:#bfa530">Mode:</span> HiZ
 <span style="color:#96cb59">HiZ></span> 
 {{% /term %}}
 
@@ -48,14 +48,14 @@ There is no restriction on using the logic analyzer while the Bus Pirate is not 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HiZ></span> binmode
 
-<span className="bp-info">Select binary mode</span>
+<span style="color:#bfa530">Select binary mode</span>
  1. SUMP logic analyzer
  2. Binmode test framework
  3. Arduino CH32V003 SWIO
  4. Follow along logic analyzer
- x. <span className="bp-info">Exit</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59"> ></span> 1
-<span className="bp-info">Binmode selected:</span> SUMP logic analyzer
+<span style="color:#bfa530">Binmode selected:</span> SUMP logic analyzer
 
 <span style="color:#96cb59">HiZ></span> 
 {{% /term %}}

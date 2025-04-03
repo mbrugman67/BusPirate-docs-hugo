@@ -15,12 +15,12 @@ RP2040 chip to 0.5Msps so it's suitable for analog audio, not for high speed dig
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HiZ></span> d
-<span className="bp-info">Display selection
+<span style="color:#bfa530">Display selection
  1. Default
  2. Scope
  x. Exit</span>
 <span style="color:#96cb59">Display ></span> 2
-<span className="bp-info">Display:</span> Scope
+<span style="color:#bfa530">Display:</span> Scope
 {{% /term %}}
 
 The ```d``` command selects the LCD display mode. 
@@ -143,34 +143,34 @@ Here's a quick start tutorial using only the Bus Pirate hardware. We're going to
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HiZ></span> m
 
-<span className="bp-info">Mode selection</span>
- 1. <span className="bp-info">HiZ</span>
- 2. <span className="bp-info">1-WIRE</span>
- 3. <span className="bp-info">UART</span>
- 4. <span className="bp-info">I2C</span>
- 5. <span className="bp-info">SPI</span>
- 6. <span className="bp-info">LED</span>
- x. <span className="bp-info">Exit</span>
+<span style="color:#bfa530">Mode selection</span>
+ 1. <span style="color:#bfa530">HiZ</span>
+ 2. <span style="color:#bfa530">1-WIRE</span>
+ 3. <span style="color:#bfa530">UART</span>
+ 4. <span style="color:#bfa530">I2C</span>
+ 5. <span style="color:#bfa530">SPI</span>
+ 6. <span style="color:#bfa530">LED</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Mode ></span> 6
 
-<span className="bp-info">LED type</span>
- 1. <span className="bp-info">WS2812/SK6812/'NeoPixel' (single wire interface)*</span>
- 2. <span className="bp-info">APA102/SK9822 (clock and data interface)</span>
- 3. <span className="bp-info">Onboard LEDs (16 SK6812s)</span>
- x. <span className="bp-info">Exit</span>
+<span style="color:#bfa530">LED type</span>
+ 1. <span style="color:#bfa530">WS2812/SK6812/'NeoPixel' (single wire interface)*</span>
+ 2. <span style="color:#bfa530">APA102/SK9822 (clock and data interface)</span>
+ 3. <span style="color:#bfa530">Onboard LEDs (16 SK6812s)</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Type (</span>1<span style="color:#96cb59">) ></span> 3
-<span className="bp-info">Mode:</span> LED
+<span style="color:#bfa530">Mode:</span> LED
 <span style="color:#96cb59">LED-()></span> W
-<span className="bp-info">Power supply
+<span style="color:#bfa530">Power supply
 Volts (0.80V-5.00V)</span>
 <span style="color:#96cb59">x to exit (3.30) ></span> 
-<span className="bp-float">3.30</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">3.30</span></span>V
+<span className="bp-float">3.30</span>V<span style="color:#bfa530"> requested, closest value: <span className="bp-float">3.30</span></span>V
 Set current limit?
 n 
 
-<span className="bp-info">Power supply:</span>Enabled
-<span className="bp-info">
-Vreg output: <span className="bp-float">3.3</span></span>V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">3.3</span></span>V<span className="bp-info">, Current sense: <span className="bp-float">2.4</span></span>mA<span className="bp-info">
+<span style="color:#bfa530">Power supply:</span>Enabled
+<span style="color:#bfa530">
+Vreg output: <span className="bp-float">3.3</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span className="bp-float">3.3</span></span>V<span style="color:#bfa530">, Current sense: <span className="bp-float">2.4</span></span>mA<span style="color:#bfa530">
 </span>
 <span style="color:#96cb59">LED-()></span> 
 {{% /term %}}
@@ -183,12 +183,12 @@ Enter LED mode and enable a 3.3volt power supply:
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED></span> d
-<span className="bp-info">Display selection
+<span style="color:#bfa530">Display selection
  1. Default
  2. Scope
  x. Exit</span>
 <span style="color:#96cb59">Display ></span> 2
-<span className="bp-info">Display:</span> Scope
+<span style="color:#bfa530">Display:</span> Scope
 {{% /term %}}
 
 The ```d``` command selects the LCD display mode. 
@@ -219,9 +219,9 @@ The default trigger point is ~2.4volts.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> P
-<span className="bp-info">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)
+<span style="color:#bfa530">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)
 <span style="color:#96cb59">LED-()></span> p
-<span className="bp-info">Pull-up resistors:</span> Disabled
+<span style="color:#bfa530">Pull-up resistors:</span> Disabled
 <span style="color:#96cb59">LED-()></span>
 {{% /term %}}
 
@@ -235,13 +235,13 @@ Now we'll use the pull-up resistors to trigger the scope:
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> P
-<span className="bp-info">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)
+<span style="color:#bfa530">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)
 <span style="color:#96cb59">LED-()></span> t
 Trigger: +-*b ^vT BME xy rsona> +
 <span style="color:#96cb59">LED-()></span> p
-<span className="bp-info">Pull-up resistors:</span> Disabled
+<span style="color:#bfa530">Pull-up resistors:</span> Disabled
 <span style="color:#96cb59">LED-()></span> P
-<span className="bp-info">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)
+<span style="color:#bfa530">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)
 <span style="color:#96cb59">LED-()></span> 
 {{% /term %}}
 
@@ -255,29 +255,29 @@ The scope can be triggered by the rising or falling edge of a signal, or both:
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> G 2
-<span className="bp-info">Generate frequency</span>
-<span className="bp-info">Choose available pin:</span>
+<span style="color:#bfa530">Generate frequency</span>
+<span style="color:#bfa530">Choose available pin:</span>
  2. IO<span className="bp-float">2</span>
  3. IO<span className="bp-float">3</span>
  4. IO<span className="bp-float">4</span>
  5. IO<span className="bp-float">5</span>
  6. IO<span className="bp-float">6</span>
  7. IO<span className="bp-float">7</span>
- x. <span className="bp-info">Exit</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59"> ></span> 2
 <span style="color:#96cb59">Period or frequency (ns, us, ms, Hz, KHz or Mhz) ></span> 1ms
-<span className="bp-info">Frequency:</span> <span className="bp-float">1.000</span>ms = <span className="bp-float">1000</span>Hz (<span className="bp-float">1000.00</span>Hz)
-<span className="bp-info">Period:</span> <span className="bp-float">1000000</span>ns (<span className="bp-float">1.00</span>ms)
+<span style="color:#bfa530">Frequency:</span> <span className="bp-float">1.000</span>ms = <span className="bp-float">1000</span>Hz (<span className="bp-float">1000.00</span>Hz)
+<span style="color:#bfa530">Period:</span> <span className="bp-float">1000000</span>ns (<span className="bp-float">1.00</span>ms)
 
-<span className="bp-info">Actual frequency:</span> <span className="bp-float">1000</span>Hz (<span className="bp-float">1.00</span>KHz)
-<span className="bp-info">Actual period:</span> <span className="bp-float">999998</span>ns (<span className="bp-float">1000.00</span>us)
+<span style="color:#bfa530">Actual frequency:</span> <span className="bp-float">1000</span>Hz (<span className="bp-float">1.00</span>KHz)
+<span style="color:#bfa530">Actual period:</span> <span className="bp-float">999998</span>ns (<span className="bp-float">1000.00</span>us)
 
 <span style="color:#96cb59">Duty cycle (%) ></span> 33%
-<span className="bp-info">Duty cycle:</span> <span className="bp-float">33.00</span>% = <span className="bp-float">329999</span>ns (<span className="bp-float">330.00</span>us)
-<span className="bp-info">Actual duty cycle:</span> <span className="bp-float">330000</span>ns (<span className="bp-float">330.00</span>us)
+<span style="color:#bfa530">Duty cycle:</span> <span className="bp-float">33.00</span>% = <span className="bp-float">329999</span>ns (<span className="bp-float">330.00</span>us)
+<span style="color:#bfa530">Actual duty cycle:</span> <span className="bp-float">330000</span>ns (<span className="bp-float">330.00</span>us)
 Divider: 31, Period: 64515, Duty: 21290
 
-<span className="bp-info">Generate frequency:</span> Enabled on IO<span className="bp-float">2</span>
+<span style="color:#bfa530">Generate frequency:</span> Enabled on IO<span className="bp-float">2</span>
 
 <span style="color:#96cb59">LED-()></span> 
 {{% /term %}}

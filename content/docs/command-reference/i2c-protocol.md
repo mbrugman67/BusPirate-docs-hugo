@@ -20,16 +20,16 @@ I2C is a common 2-wire bus for low speed interfaces, generally 100KHz, 400KHz an
 ## Configuration options
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">I2C speed</span>
+<span style="color:#bfa530">I2C speed</span>
  1KHz to 1000KHz
- x. <span className="bp-info">Exit</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">KHz (</span>400KHz*<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Data bits</span>
- 1. <span className="bp-info">8*</span>
- 2. <span className="bp-info">10</span>
- x. <span className="bp-info">Exit</span>
+<span style="color:#bfa530">Data bits</span>
+ 1. <span style="color:#bfa530">8*</span>
+ 2. <span style="color:#bfa530">10</span>
+ x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Bits (</span>1<span style="color:#96cb59">) ></span> 
-<span className="bp-info">Mode:</span> I2C
+<span style="color:#bfa530">Mode:</span> I2C
 <span style="color:#96cb59">I2C></span> 
 {{% /term %}}
 
@@ -84,13 +84,13 @@ The ```scan``` command in the Bus Pirate I2C mode scans the for device addresses
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">I2C></span> scan -h
 usage:
-<span className="bp-info">scan	[-v(erbose)] [-h(elp)]</span>
-<span className="bp-info">Scan I2C address space: scan</span>
-<span className="bp-info">Scan, list possible part numbers: scan -v</span>
+<span style="color:#bfa530">scan	[-v(erbose)] [-h(elp)]</span>
+<span style="color:#bfa530">Scan I2C address space: scan</span>
+<span style="color:#bfa530">Scan, list possible part numbers: scan -v</span>
 
-<span className="bp-info">scan I2C addresses, with optional part number</span>
-<span style="color:#96cb59">-v</span>	<span className="bp-info">Verbose mode, print potential part numbers</span>
-<span style="color:#96cb59">-h</span>	<span className="bp-info">Get additional help</span>
+<span style="color:#bfa530">scan I2C addresses, with optional part number</span>
+<span style="color:#96cb59">-v</span>	<span style="color:#bfa530">Verbose mode, print potential part numbers</span>
+<span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
 
 {{% /term %}}
 
