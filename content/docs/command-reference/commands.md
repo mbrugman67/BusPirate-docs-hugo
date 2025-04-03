@@ -25,9 +25,9 @@ Flash Storage: <span className="bp-float"> 0.10GB</span> (FAT16)<br/>
 
 This guide is updated with to reflect feature changes with each firmware release. To check your firmware version type ```i``` followed by ```enter``` in the Bus Pirate terminal window. Here, the Bus Pirate is running firmware v0.1. 
 
-:::tip
+{{% alert context="info" %}}
 It's always best to use the latest firmware, especially in these early days of a new design. There will be continuous improvements and new features. See the upgrade guide for the simple drag and drop bootload process.
-:::
+{{% /alert %}}
 
 ## User terminal
 
@@ -35,9 +35,9 @@ It's always best to use the latest firmware, especially in these early days of a
 
 The Bus Pirate is accessed from a command line in a serial terminal. Use your terminal of choice. On Windows we like the latest version of [Tera Term](https://ttssh2.osdn.jp/index.html.en).
 
-:::tip
+{{% alert context="info" %}}
 Talk to the Bus Pirate from a serial terminal of your choice set to 115200bps, 8/N/1. The serial port is emulated over USB, so higher bitrate (bps) settings will also work with no extra configuration. If the user interface feels slow, check that the speed is at least 115200bps.
-:::
+{{% /alert %}}
 
 ### VT100 terminal emulation
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
@@ -50,19 +50,19 @@ If the Bus Pirate has just restarted you will be prompted to choose the terminal
 - VT100 mode - Supports color and a live view statusbar at the bottom of the terminal. This should be your first choice unless you specifically need the legacy ASCII mode.
 - ASCII mode - Legacy monochrome text only mode.
 
-:::info
+{{% alert context="info" %}}
 If you choose VT100 mode and see lots of garbage characters in the terminal, check that your terminal emulator has VT100 support and that VT100 support is enabled.
-:::
+{{% /alert %}}
 
 Your terminal mode choice will be saved and automatically loaded the next time the Bus Pirate is connected. Just press ```enter``` to start the command prompt.
 
 The terminal mode can be changed from the configuration menu. Open the configuration menu with the ```c``` command followed by ```enter```. 
 
-:::tip
+{{% alert context="info" %}}
 If you're stuck in a terminal mode that's not working, press and hold the Bus Pirate button and then plug in the USB cable. The Bus Pirate will start without loading any saved settings.
 
 You can also navigate to the Bus Pirate USB disk, delete the bpconfig.bp file and restart the Bus Pirate. You will be prompted to choose VT100 or ASCII mode after restarting. 
-:::
+{{% /alert %}}
 
 ### Command line
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
@@ -395,9 +395,9 @@ Depending on your serial terminal software you may need to reconnect to the Bus 
 
 Activate the Bus Pirate bootloader for firmware updates. The bootloader appears as a USB disk drive connected to your computer. Drag a **.uf2** firmware file into the disk. After an update the Bus Pirate resets.
 
-:::tip
+{{% alert context="info" %}}
 If the firmware update is interrupted and you find yourself locked out of the Bus Pirate terminal don't panic. Use the 2mm HEX key included with Bus Pirate 5 (or a paperclip) to press and hold the bootloader button on the bottom of the board. Plug in the USB cable while holding the button down. The bootloader with connect and you can try the update again. The bootloader is frozen in hardware and cannot be corrupted or overwritten.
-:::
+{{% /alert %}}
 
 ## Utilities
 
@@ -432,11 +432,11 @@ Uppercase ```W``` enables the onboard power supply unit. You will be prompted fo
 
 Check the voltage and current in the live view statusbar if active, or show the power supply voltage report using the ```v``` command.
 
-:::warning
+{{% alert context="danger" %}}
 400mA is the rated maximum of the PPSU, but we added some headroom in the current limit to account for current spikes.
 
 The PPSU is capable of 0.8 to 5volts output. However, the maximum working range is limited to 1-5volts because of the Vgs of the P-channel MOSFET used in the one-way valve. Many will be capable of the full range, but some may not. The Bus Pirate 5 IO buffers are only rated to 1.65volts, so in practice this isn't an issue over the specified working range.
-:::
+{{% /alert %}}
 
 When the programmed current limit is exceeded the PPSU hardware fuse disables the power supply. The terminal colors invert repeatedly, an alarm bell will sound, an error message is shown and command execution is halted. Use the ```W``` command to restart the PPSU again.
 
@@ -482,9 +482,9 @@ Lowercase ```v``` displays a one time voltage measurement. Uppercase ```V``` dis
 The onboard pull-up resistors **are powered through the VREF/VOUT pin
 of the IO header**, either by the onboard power supply or an external voltage applied to the VREF/VOUT pin. 
 
-:::tip
+{{% alert context="info" %}}
 A warning is displayed if there's no voltage on the VREF/VOUT pin. Check the voltage report ```v``` and verify that a voltage is present on VOUT/VREF.
-:::
+{{% /alert %}}
 
 ### **g/G** Frequency generator
 
@@ -547,9 +547,9 @@ To stop the frequency generator on a single pin, use the lowercase ```g.X``` com
 
 To stop frequency generation on all pins, use the lowercase ```g``` command without specifying a pin.
 
-:::warning
+{{% alert context="danger" %}}
 Not all pins will be available due to the PWM structure of the RP2040, and adjacent pairs must share the same frequency. There is also an issue with the PPSU using a PWM slice. This should all be solvable with the PIO, but for now the Bus Pirate will warn you about the limitations.
-:::
+{{% /alert %}}
 
 ### **f/F** Measure frequency
 
@@ -606,9 +606,9 @@ In the future we will fix this using the RP2040 PIO.<br/>
 
 Only half of the RP2040 pins support frequency measurement. The Bus Pirate will warn you if hardware isn't available. To see which pins are currently available use the ```F``` command.
 
-:::warning
+{{% alert context="danger" %}}
 Not all pins will be available due to the PWM structure of the RP2040, and adjacent pairs share the same PWM slice. There is also an issue with the PPSU using a PWM slice. This should all be solvable with the PIO, but for now the Bus Pirate will warn you about the limitations.
-:::
+{{% /alert %}}
 
 ### **=X** Convert X to HEX/DEC/BIN number format
 
@@ -624,9 +624,9 @@ Not all pins will be available due to the PWM structure of the RP2040, and adjac
 
 Type ```=``` and enter a value to see the HEX/DEC/BIN equivalent. Base conversion command, available in all modes. 
 
-:::tip
+{{% alert context="info" %}}
 To change the Bus Pirate output display format see the ```o``` command.
-:::
+{{% /alert %}}
 
 ### **| X** Reverse bits in byte X 
 
@@ -638,9 +638,9 @@ To change the Bus Pirate output display format see the ```o``` command.
 
 Reverse bit order in byte X. Displays the HEX/DEC/BIN value of the reversed byte.
 
-:::tip
+{{% alert context="info" %}}
 To change the Bus Pirate read/write bit order see the ```l```/```L``` command.
-:::
+{{% /alert %}}
 
 ### **a/A/@** Auxiliary pin control (low/HIGH/read)
 
@@ -660,13 +660,13 @@ To change the Bus Pirate read/write bit order see the ```l```/```L``` command.
 Sometimes it's useful to control a pin directly from the user terminal.
  ```a X```, ```A X``` and ```@ X``` set pin X low, high and input (HiZ). The ```@``` command also reads and reports the pin state.
 
-:::tip
+{{% alert context="info" %}}
 Commands a/A/@ are followed by a space and the pin number to control. This is different than syntax a/A/@  which use the ```a.X``` notation.
-:::
+{{% /alert %}}
 
-:::tip
+{{% alert context="info" %}}
 Pins already assigned a function cannot be changed with the a/A/@ commands. The Bus Pirate will report an error.
-:::
+{{% /alert %}}
 
 
 ## Macros

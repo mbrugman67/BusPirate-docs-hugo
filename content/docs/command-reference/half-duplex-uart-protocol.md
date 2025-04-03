@@ -15,9 +15,9 @@ title = 'Half-Duplex UART'
 -   **Output type:** open collector - pull-up resistors required
 -   **Maximum Voltage:** 5volts
 
-:::info
+{{% alert context="info" %}}
 Half-duplex UART is a common serial UART, but receive and transmit share a single data line. This is used to interface mobile phone SIM cards and bank IC cards.
-:::
+{{% /alert %}}
 
 
 ## Connections
@@ -60,11 +60,11 @@ never be a '1'.
 
 Enable the Bus Pirate onboard pull-up resistors with the ```P``` command.
 
-:::tip
+{{% alert context="info" %}}
 - Half-duplex UART requires pull-up resistors to hold the data line high.
 - Without pull-up resistors there can never be a '1'. 
 - Enable the Bus Pirate onboard pull-up resistors with the ```P``` command.
-:::
+{{% /alert %}}
 
 ## Syntax
 
@@ -85,9 +85,9 @@ Enable the Bus Pirate onboard pull-up resistors with the ```P``` command.
 
 Bus Pirate 5 has global commands available everywhere, and mode commands specific to the currently selected mode. Type ```help``` to see all commands in every mode, or ```help mode``` for the currently available mode commands.
 
-:::tip
+{{% alert context="info" %}}
 Most Bus Pirate commands have help. Add the ```-h``` flag to any command to see the latest available options and usage examples. 
-:::
+{{% /alert %}}
 
 ### bridge
 
@@ -111,9 +111,9 @@ usage:<br/>
 {{% /term %}} 
  
 
-:::tip
+{{% alert context="info" %}}
 Use ```bridge -h``` to see the latest options and features.
-:::
+{{% /alert %}}
 
 
 

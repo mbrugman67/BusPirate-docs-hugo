@@ -15,9 +15,9 @@ FALA is a "live action" logic analyzer mode that automatically captures everythi
 
 Currently FALA support is only available in a special patched version of PulseView for Windows.
 
-:::warning
+{{% alert context="danger" %}}
 All Bus Pirate hardware supports follow along logic analyzer, however only Bus Pirate 6 has a second buffer to capture pins directly. In earlier hardware **all output pins are measured behind the IO buffer**. This means the logic capture may not match the actual output of the IO buffer. **This is not a problem when the Bus Pirate is used as a logic analyzer only and all pins are inputs**.
-:::
+{{% /alert %}}
 
 ## Capabilities
 
@@ -173,9 +173,9 @@ All Bus Pirate hardware supports the follow along logic analyzer, however only B
 
 ![](./img/logic-system.png)
 
-:::info
+{{% alert context="info" %}}
 The ```logic``` command and the [follow along binmode interface](/logic-analyzer/pulseview-fala) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode](/logic-analyzer/pulseview-sump). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.
-:::
+{{% /alert %}}
 
 ## FALA Protocol
 

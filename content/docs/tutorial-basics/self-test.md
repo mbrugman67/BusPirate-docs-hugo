@@ -20,9 +20,9 @@ The detailed self-test is primarily useful in three situations:
 
 - Disconnect any devices from the Bus Pirate. An external device will interfere with the test and could be damaged by the voltage used on the pins.
 
-:::warning
+{{% alert context="danger" %}}
 Disconnect any devices before performing the self-test.
-:::
+{{% /alert %}}
 
 ## Start the self-test
 
@@ -43,9 +43,9 @@ Disconnect any devices before performing the self-test.
 <span className="bp-info">SELF TEST STARTING<br/></span>
 {{% /term %}}
 
-:::caution
+{{% alert context="warning" %}}
 Ensure the Bus Pirate is in HiZ mode before starting the self-test.
-:::
+{{% /alert %}}
 
 - Ensure the Bus Pirate is in HiZ mode. Type ```m``` and press ```enter```. Select option ```1``` to enter HiZ mode.
 - Begin the self-test. Type ```~``` followed by ```enter``` in the terminal. Self-test is available in HiZ mode only.
@@ -71,9 +71,9 @@ FORMAT NAND FLASH: OK<br/>
 First the Bus Pirate checks the connection and health of the onboard NAND flash storage.
 - If the NAND flash is blank or corrupted, you will be prompted to format the chip
 
-:::danger
+{{% alert context="danger" %}}
 You should not normally see this message. Formatting is performed during production testing. Answering yes will destroy all data on the NAND flash. Please [post a bug report in the forum](https://forum.buspirate.com/) if you see this message.
-:::
+{{% /alert %}}
 
 ### System tests
 
@@ -92,9 +92,9 @@ PSU ENABLE: OK<br/></span>
 - **FLASH STORAGE** - Try to mount the onboard storage. 
 - **PSU ENABLE** - Test the programmable power supply unit. Output is set to 3.3volts with a 50mA current limit, after a delay the voltage is measured. Tests op-amps, comparator, transistors, FETs and several other components in the PPSU.
 
-:::caution
+{{% alert context="warning" %}}
 Prototype boards (REV8 and below) use a TF flash card for storage. If a formatted flash card isn't installed the flash storage section of the self-test will fail.
-:::
+{{% /alert %}}
 
 ### BIO float
 {{% term "Bus Pirate [/dev/ttyS0]" %}}

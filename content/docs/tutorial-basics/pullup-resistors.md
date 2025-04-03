@@ -19,9 +19,9 @@ The Bus Pirate has 10KΩ onboard pull-up resistors that can be toggled with the 
 
 This tutorial uses LED mode configured for the onboard LEDs (see 'Blink Some LEDs'). In this mode all the Bus Pirate IO pins are free for experimenting.
 
-:::info
+{{% alert context="info" %}}
 See the 'Blink Some LEDs' tutorial to enter and configure LED mode.
-:::
+{{% /alert %}}
 
 ## Voltage Source
 
@@ -77,9 +77,9 @@ Hacking a device with its own power supply? You can use that instead.
 - Connect the device power to the Bus Pirate VOUT/VREF pin
 - Connect the device ground to the Bus Pirate ground pin.
 
-:::warning
+{{% alert context="danger" %}}
 The Bus Pirate is rated for 5volts DC maximum. Exceeding this limit will damage the Bus Pirate and your computer.
-:::
+{{% /alert %}}
 
 ## Pull-ups and Auxiliary Control
 
@@ -104,9 +104,9 @@ In the live view statusbar all pins should be high, close to 5.0volts.
 - The top line now shows that the pull-up resistors are enabled.
 - The bottom line shows that IO0 to IO7 all measure 4.9volts.
 
-:::info
+{{% alert context="info" %}}
 4.9volts isn't exactly 5, but that's not a problem.
-:::
+{{% /alert %}}
 
 ### Pull Pins Low
 

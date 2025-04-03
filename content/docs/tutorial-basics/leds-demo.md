@@ -26,9 +26,9 @@ The colors are set with a single wire, time-based protocol. Multiple LEDs can be
 
 16 of these RGB LEDs are on the Bus Pirate 5 PCB, all wired up and ready to go. We're just going to control one of them because all 16 LEDs at full power would be too much current for some USB ports.
 
-:::info
+{{% alert context="info" %}}
 Each LED die in the SK6812 (red, blue, green) uses 20mA at full power. 60mA is required to light all three dies at maximum brightness.
-:::
+{{% /alert %}}
 
 ## Choose LED Mode
 
@@ -83,9 +83,9 @@ Now configure the LED mode to use the onboard SK6812 LEDs. Many prompts have a d
 
 Each LED is controlled by 24 bits of color information: 8 bits of red, 8 bits of green and 8 bits of blue. That means each LED has 256 brightness levels from 0 to 255.
 
-:::info
+{{% alert context="info" %}}
 SK6812 uses GRB (green, red, blue) for the data, but the default format is RGB (red, green, blue). So we use that with Bus Pirate.
-:::
+{{% /alert %}}
 
 ### Red
 

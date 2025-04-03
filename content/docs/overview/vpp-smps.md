@@ -13,9 +13,9 @@ This little plank is an adjustable Switch Mode Power Supply that generates a 5-1
 - Feedback output clamped to ~4.7volts (protect Bus Pirate)
 - VPP output clamped to ~18volts (protect humans)
 
-:::warning
+{{% alert context="danger" %}}
 Programming Voltage SMPS is "in development". If hardware is available it has passed basic functionality tests, but there isn't full documentation or support just yet. At this stage, it's best suited for developers who are comfortable with hardware and firmware development. Or for those who want to follow along.
-:::
+{{% /alert %}}
 
 import FooterCart from '/_common/_footer/_footer-cart.md'
 
@@ -41,9 +41,9 @@ So far we have the bog standard SMPS from a PICkit2 programmer. Since this board
 
 VPP output is clamped at 16volts by Zener diode D3. D3 is an 18volt Zener, but with slop it could be anywhere from 16.8 and 19.1volts. If the voltage gets too high, the Zener conducts to ground. There’s no protection resistor so in the worst case scenario the Zener burns out “open” and shorts the SMPS to ground. The board will be ruined, but it will prevent runaway output.
 
-:::caution
+{{% alert context="warning" %}}
 The Zener diodes are a safety feature, not a guarantee. It’s possible to damage the Bus Pirate or target chip if the SMPS is misused. When developing new code, especially, enable a current limit in the Bus Pirate power supply configuration.
-:::  
+{{% /alert %}}  
 
 ### VPP Control
 

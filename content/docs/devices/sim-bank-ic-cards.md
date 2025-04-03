@@ -10,9 +10,9 @@ title = 'Mobile SIMs & Bank IC Cards'
 
 Mobile phone SIM cards and most bank IC cards will output some useful information in response to an Answer To Reset command. The Bus Pirate can interact with these cards in [Half-Duplex UART mode](/command-reference/half-duplex-uart-protocol).
 
-:::info
+{{% alert context="info" %}}
 Mobile phone SIMs and bank IC cards are usually based on "Java Cards" that are specially programmed and have advanced cryptographic features to keep data secure. We're evaluating blank, programmable cards for future tutorials.
-:::
+{{% /alert %}}
 
 import FooterCart from '/_common/_footer/_footer-cart.md'
 
@@ -40,9 +40,9 @@ Connect the Bus Pirate to the SIM as shown in the table above.
 
 It's possible to gently solder wires on to each pad of the chip, but SIM and smart card sockets are useful if you don't want to destroy the card.
 
-:::tip
+{{% alert context="info" %}}
 A [smart IC card and SIM card adapter](/overview/sim-iccard-adapter) is available for Bus Pirate 5 with the correct connections already set. The adapter accepts most ISO 7816-3 smart cards and mini/micro/nano SIM cards. 
-::: 
+{{% /alert %}} 
 
 ## Setup
 
@@ -101,9 +101,9 @@ Mobile SIM cards and bank IC cards use a half-duplex UART interface, data travel
 Most SIM cards will work fine at 3.3volts.
 - ```W 3.3``` - Enable the onboard power supply at 3.3 volts
 
-:::danger
+{{% alert context="danger" %}}
 Most SIM cards will be okay with 3.3 volts, but some cards may use 2.5 or 1.8 volts. If the SIM or card is valuable, consider starting at a lower voltage and check the power requirements coded in the ATR response.
-:::
+{{% /alert %}}
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-prompt">HDPLXUART></span> P<br/>
@@ -114,9 +114,9 @@ Most SIM cards will be okay with 3.3 volts, but some cards may use 2.5 or 1.8 vo
 Half-duplex UART is an open collector output bus. The Bus Pirate and the SIM can only pull the line low to 0 (ground). A pull-up resistor is needed to pull the line high to 1 (5 volts). The Bus Pirate has built-in pull-up resistors that can be enabled with the ```P``` command.
 - ```P``` - Enable the onboard pull-up resistors.
 
-:::caution 
+{{% alert context="warning" %}} 
 Be sure to enable the pull-up resistors. The data line will never go high without them and you'll read only 0s.
-:::
+{{% /alert %}}
 
 ## Setup Clock
 A continuous clock signal applied to C3/CLK drives the SIM's microcontroller. After processing commands, the SIM responds on the UART asynchronously at a baud rate determined by the clock frequency. 
@@ -161,15 +161,15 @@ The Bus Pirate PWM can generate a clock frequency on the IO1/CLK pin.
 - **3.5712mhz** - Set the output frequency
 - **50%** - Set the duty cycle
 
-:::tip
+{{% alert context="info" %}}
 Don't forget to type the units (Hz, kHz, MHz) when setting the frequency, and % when setting the duty cycle.
-:::
+{{% /alert %}}
 
 ## Answer To Reset
 
-:::info
+{{% alert context="info" %}}
 SIM and bank IC cards use the asynchronous ATR standard. This is different than the synchronous ATR standard used by the [SLE4442 smart card](/devices/sle4442).
-:::
+{{% /alert %}}
 
 ### Open UART
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
@@ -305,9 +305,9 @@ Hong Kong Union Pay debit card.
 
 ## Blank Java Cards
 
-:::info
+{{% alert context="info" %}}
 We're secured a few different "blank" and diagnostic Java cards for further tests. You can find something similar on your favorite China export website. Stay tuned. 
-:::
+{{% /alert %}}
 
 ## Accessing SIM Data 
 

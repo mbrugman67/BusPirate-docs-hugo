@@ -14,7 +14,7 @@ import BrowserWindow from '@site/src/components/BrowserWindow';
 
 # Binary Interfaces
 
-<BrowserWindow>
+{{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-prompt">HiZ></span> binmode<br/>
 <br/>
 <span className="bp-info">Select binary mode</span><br/>
@@ -28,7 +28,7 @@ import BrowserWindow from '@site/src/components/BrowserWindow';
 <span className="bp-info">Binmode selected:</span> SUMP logic analyzer<br/>
 <br/>
 <span className="bp-prompt">HiZ></span> 
-</BrowserWindow>
+{{% /term %}}
 
 The Bus Pirate has two USB serial ports. One is used for the command line terminal. The other can be configured to use various protocols that support software running on a PC.  
 

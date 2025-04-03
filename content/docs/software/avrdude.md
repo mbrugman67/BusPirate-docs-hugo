@@ -33,9 +33,9 @@ In this demo we'll program the ATmega32U4 chip found on the Arduino Leonardo thr
 
 Connect the Bus Pirate to the ICSP header according to the table above.
 
-:::tip
+{{% alert context="info" %}}
 RESET is connected to the CS pin on the Bus Pirate. The CS pin is used to reset the AVR chip.
-:::
+{{% /alert %}}
 
 ## Setup
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
@@ -56,9 +56,9 @@ RESET is connected to the CS pin on the Bus Pirate. The CS pin is used to reset 
 
 In the Bus Pirate terminal use the ```binmode``` command to select the "Legacy Binary Mode for Flashrom and AVRdude".
 
-:::caution 
+{{% alert context="warning" %}} 
 This mode is experimental, use at your own risk.
-:::
+{{% /alert %}}
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-info">Power supply<br/>
@@ -82,9 +82,9 @@ When entering this mode, it asks for the power supply voltage. Select 5 volts. I
 
 The terminal is locked in this mode. To exit, re-plug the Bus Pirate.
 
-:::caution 
+{{% alert context="warning" %}} 
 Arduino Leonardo runs at 5 volts. Make sure the Bus Pirate power supply is set to 5 volts.
-:::
+{{% /alert %}}
 
 ## Dumping Flash memory
 
@@ -124,9 +124,9 @@ Using AVRDUDESS is easy and straightforward. Just select:
 
 Select "Read" and click "Go" button to dump the flash memory.
 
-:::caution 
+{{% alert context="warning" %}} 
 Never select "The Bus Pirate bitbang interface, supports TPI" as the programmer. It will not work.
-:::
+{{% /alert %}}
 
 
 

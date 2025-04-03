@@ -33,9 +33,9 @@ This adapter matches the same pinout order as the ZIF SOCKET module on the Bus P
 
 Simply insert the adapter into the ZIF SOCKET module and seat the W25Q64JV-.Q chip onto the adapter.
 
-:::tip
+{{% alert context="info" %}}
 You can use an inexpensive WSON8 6x8 to DIP adapter to connect the Bus Pirate to the W25Q64JV-.Q chip, or simply use the Bus Pirate's plank with the socket already soldered.
-:::
+{{% /alert %}}
 
 Some inexpensive adapters, like this QFN8 6X8 to DIP: 
 
@@ -68,9 +68,9 @@ Just push the chip into the socket and connect the Bus Pirate to the computer.
 
 In the Bus Pirate terminal use the ```binmode``` command to select the "Legacy Binary Mode for Flashrom and AVRdude".
 
-:::caution 
+{{% alert context="warning" %}} 
 This mode is experimental, use at your own risk.
-:::
+{{% /alert %}}
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-info">Power supply<br/>
@@ -94,9 +94,9 @@ When entering this mode, it asks for the power supply voltage. Select 3.30 volts
 
 The terminal is locked in this mode. To exit, re-plug the Bus Pirate.
 
-:::caution 
+{{% alert context="warning" %}} 
 Max voltage for the W25Q64JV-.Q is 3.6 volts. Make sure the Bus Pirate power supply is set to 3.30 volts.
-:::
+{{% /alert %}}
 
 ## Dumping Flash memory
 
@@ -107,11 +107,11 @@ flashrom.exe --progress -V -c "W25Q64JV-.Q" -p buspirate_spi:dev=COM54,serialspe
 ```
 This command uses flashrom to read the flash memory of the W25Q64JV-.Q and saves it to a file named `flash_content.bin`.
 
-:::tip
+{{% alert context="info" %}}
 - serialspeed: Sets the baud rate of the terminal serial port. This value must be 115200.
 - spispeed: Specifies the speed of the SPI interface; 1M denotes 1MHz.
 - dev: Indicates the COM/serial port used by the Bus Pirate. Verify the correct port in the Windows Device Manager.
-:::
+{{% /alert %}}
 
 - The correct COM/serial port is the Bus Pirate binary interface, this **is not the same** as the terminal serial port used to enter binmode.
 - For Linux, the serial port usually starts with `/dev/ttyUSB`
@@ -154,8 +154,8 @@ Reading flash... read_flash:  region (00000000..0x7fffff) is readable, reading r
 
 At the end of the process, flashrom will save the content of the flash memory to a file named `flash_content.bin`.
 
-:::caution 
+{{% alert context="warning" %}} 
 - The baud rate is fixed at 115200 and cannot be changed, simulating Bus Pirate hardware 2.5 which defaults to this value.
 - Voltage and current limits must be configured via the Bus Pirate terminal.
 - This is an experimental version and may not work in all cases.
-:::
+{{% /alert %}}

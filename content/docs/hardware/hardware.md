@@ -80,9 +80,9 @@ While the RP2040 is an amazing chip that's fun to work with, we struggled with t
 
 One 74HC595 is connected to a [74HCT245 level shifter](/components/chips#74hct245-bus-transceiver-tssop-20) (U503) that translates 3.3volt output to 5volts/VUSB. This gives some flexibility to choose 74HC or 74HCT parts, depending on what is actually available and cheapest in the market. Part selection has been especially important as supply chain issues have delayed production for over a year.
 
-:::tip
+{{% alert context="info" %}}
 Some control signals are translated to 5volts so we can fit a 74HC(T)4066 and 74HC(T)4067 depending what is available. The supply of 7400 logic chips remains uncomfortably weird.
-:::
+{{% /alert %}}
 
 ### Bus Pirate 6
 
@@ -116,9 +116,9 @@ IO pins are fitted with [74LVC1T45 bidirectional buffers](/components/chips#74lv
 
 Two RP2040/RP2350 pins control each buffer: one sets the direction (input/output), and one does the actual IO (high/low/read). In the past this setup forced us towards a CPLD or FPGA to deal with bidirectional protocols like I2C, but the PIO peripheral does a great job of managing the buffer.
 
-:::caution
+{{% alert context="warning" %}}
 Care must be taken so the buffer and pins don't draw excessive current from each other. This happens when both pins are set to output at the same time, one high and one low. To prevent damage we limit the maximum current draw with 330R series resistors on each 74LVC1T45 IO pin.
-:::
+{{% /alert %}}
 
 |Part Number|Manufacturer|Voltage Range|
 |-|-|-|
@@ -144,9 +144,9 @@ Production Bus Pirates are fitted with buffers made by WuXi I-Core, a Chinese do
 
 Each IO pin has a toggleable [10K pull-up resistor](/components/passives#resistor-arrays-5-0402x4-convex). Onboard pull-ups are controlled by eight [SI2301](/components/transistors-fets#pmos-fet-2a-vgs-1-volts-sot-523) PFETs with a very low (<1volt) gate threshold voltage. Pull-ups are powered through the VOUT/VREF pin.
 
-:::info
+{{% alert context="info" %}}
 Eight SI2301 PFETs replace two 74HC4066 chips for pull-up control. This change lowers cost, simplifies the circuit and saves board space. They operate identically over the 74LVC1T45 operating range (1.2-5volts). However, **there is a point at which each PFET will not fully turn on when VOUT/VREF is lower than the maximum gate threshold voltage (<1volt)**.
-:::
+{{% /alert %}}
 
 ### Main IO Connector
 
@@ -160,9 +160,9 @@ The main IO header uses a 2.54mm 10 pin [TJC8A/HX25418 connector](/components/co
 |2-9|IO0 - IO7|Buffered 1.2-5volt IO pins with voltage measurement and optional 10K pull-up resistors|
 |10|GND| Ground pin|
 
-:::info
+{{% alert context="info" %}}
 The pinout is logical! VOUT/VREF, IO0-IO7 and Ground. Bus Pirate v3 tried so very hard to have a logical pinout, but a mis-rotated IDC connector grandfathered in a confusing pin order for nearly 15 years. 
-:::
+{{% /alert %}}
 
 ### Auxiliary IO Connector
 
@@ -175,9 +175,9 @@ A secondary [1mm 9 pin connector](connectors#9p-male-10mm-right-angle-90-degrees
 |1-8|IO0 - IO7|Buffered IO pins with voltage measurement and optional 10K pull-up resistors|
 |9|GND| Ground pin|
 
-:::tip
+{{% alert context="info" %}}
 The 1mm 9 pin connector mates with 'SH' style cables.
-:::
+{{% /alert %}}
 
 ### "Look Behind" Buffer (v6)
 
@@ -205,13 +205,13 @@ Older adjustable voltage regulators typically have a range from 1.25 to 5volts o
 
 We worked with two regulators during development: MCP1824 from Microchip, and AP2127 from Diodes INC. They have the same pinout and similar specs, but the MCP1824 has a 0.41volt reference while the AP2127 has a 0.8volt reference. We prefer the MCP1824 because the reference value makes it easier to select common resistors for the margining circuit, but it has become expensive and at times hard to find.
 
-:::info
+{{% alert context="info" %}}
 0.8-5volts is the voltage regulator range, but the PFET used in the [backflow prevention circuit](#backflow-prevention) may not turn on when the output is less than the gate threshold voltage (1volt max). The average gate threshold for the SI2301 in REV10 is <0.4volts, but that is not guaranteed, the Vgth will vary. For this reason, the Bus Pirate power supply is specified for 1-5volts output, but you might just get lucky!
-:::
+{{% /alert %}}
 
-:::warning
+{{% alert context="danger" %}}
 400mA is the rated maximum of the voltage regulator, but we added some headroom in the current limit circuit to account for current spikes.
-:::
+{{% /alert %}}
 
 |**Part**  |**Ideal Value**|||**Closest Value**|
 |-|-|-|-|-|-|-|
@@ -221,9 +221,9 @@ We worked with two regulators during development: MCP1824 from Microchip, and AP
 
 MCP1824 and AP2127 are similar, but each has a different reference voltage. R403/R404/R405 need to match the regulator as shown in the table.
 
-:::tip
+{{% alert context="info" %}}
 A common 1.25V-5V adjustable regulator can be used with the correct resistor values (see calculations spreadsheet). The Bus Pirate will lose features though. The output range will be limited to 1.25volts to 5volts, instead of ~1volts to 5volts.
-:::
+{{% /alert %}}
 
 ### Current Sense
 
@@ -233,13 +233,13 @@ Current consumption can be used as a proxy to debug a circuit. Is there a short?
 
 A [200m resistor](/components/passives#resistor-02r-1-2w-2512) (R601) causes a slight voltage drop in proportion to the current passing through it. [An op-amp](/components/analog#op-amp-rail-to-rail-sot-23-5-a-grade) (U601) amplifies the difference approximately 32 times, scaling 0-500mA current use to 0-3.3volt output that we can measure with the RP2040/RP2350 ADC. 
 
-:::info
+{{% alert context="info" %}}
 Current sense is measured with a dedicated RP2040/RP2350 ADC pin instead of passing through the analog multiplexer. This is because the mux is followed by a voltage divider that would cut the measurement resolution in half. That wouldn't be fair to our hard working little op-amp!
-:::
+{{% /alert %}}
 
-:::note
+{{% alert context="info" %}}
 Production Bus Pirates use an 'A' graded op-amp with lower maximum input offset (0.1mV typical, 0.4mV max @25C -vs- 0.4mV typical, 3.5mV max @25C) for improved current measurement accuracy.
-:::
+{{% /alert %}}
 
 ### Programmable 0-500mA Current Limit
 
@@ -257,9 +257,9 @@ A [PFET](/components/transistors-fets#pmos-fet-2a-vgs-2-volts-sot-23) (Q602) con
 
 There you have it, a programmable fuse with just a couple extra parts. 
 
-:::warning
+{{% alert context="danger" %}}
 400mA is the rated maximum of the voltage regulator, but we added some headroom in the current limit circuit to account for current spikes.
-:::
+{{% /alert %}}
 
 ### Backflow Prevention
 
@@ -276,13 +276,13 @@ The Bus Pirate monitors the voltage on both sides of the PFET, and displays a wa
 
 Q401 requires a closely matched PNP transistor pair. The hFE of the transistor pair should differ by no more than 10%, and the VBE should differ no more than 2mV.
 
-:::info
+{{% alert context="info" %}}
 While the adjustable voltage regulator is capable of 0.8 to 5.0volt output, the gate threshold of the PFET determines the minimum output. Common inexpensive PFETs generally have a maximum gate threshold of -1volt or more, and therefore may not fully turn on in the 0.8-1volt range.
-:::
+{{% /alert %}}
 
-:::tip
+{{% alert context="info" %}}
 R408/R409 are two 33K resistors instead of a single resistor. This was done to reduce the number of parts in the BOM and save a pick and place feeder during development.
-:::
+{{% /alert %}}
 
 ## 1Gbit NAND Flash
 
@@ -294,9 +294,9 @@ A [1 Gbit NAND flash chip](components-rev10/chips#nand-flash-1gbit-spi-updfn-8) 
 
 NAND flash is used to save global and mode configuration in simple JSON files. It can also be used for all kinds of interesting things, like firmware storage for production programming, saving dumps from flash chips and EEPROMs or logging bus communications. 
 
-:::info
+{{% alert context="info" %}}
 NAND flash appears as a readable and writable USB disk drive, however the speed is quite low because there are only enough RP2040 pins to implement a one bit SPI interface.
-:::
+{{% /alert %}}
 
 ## LCD
 
@@ -304,9 +304,9 @@ NAND flash appears as a readable and writable USB disk drive, however the speed 
 
 A beautiful 240x320 pixel color [IPS (all angle viewing) LCD](/components/leds#lcd-20-ips-lcd-240x320-st7789v-with-spi-interface-qt200h1201) acts as a pin label, displays the voltage on each pin and shows the current consumption of the programmable power supply unit. The LCD shares an SPI bus with the NAND flash and 74HC595 IO expanders. The display is already FCC certified, which doesn't exempt us from certification, but a bad LCD can spray radiation all over the spectrum causing us to fail.
 
-:::info
+{{% alert context="info" %}}
 The LCD background image is a bitmap converted to a C byte array and included in the firmware. Several open source font sets were converted to bitmaps for the display.
-:::
+{{% /alert %}}
 
 ## 18 RGB LEDs
 
@@ -316,15 +316,15 @@ It's customary to have an indicator LED, so to check that box we added 18 [SK681
 
 SK6812s are found in cheap LED strips. They're common, inexpensive and come in a variety of interesting form factors. 10 [MINI-E packaged LEDs](/components/leds#led-sk6812-mini-e-led6028--3528) shine up through holes in the PCB to illuminate the case around the LCD. 8 [SIDE-A LEDs](/components/leds#led-sk6812-side-a-4020--40x20x16mm) along the edge of the board have an under lighting effect. 
 
-:::tip
+{{% alert context="info" %}}
 There are two common footprints for SK6812-SIDE-A. The preferred part has evenly spaced pads that bend 90 degrees and extend up the back of the case. We have had the best success reflow soldering this footprint, and it is MUCH easier to hand rework than others.
-:::
+{{% /alert %}}
 
 You might be thinking: 18 LEDs x 3 colors x 20mA is too much current for USB! You'd be totally right! Great care is taken in the firmware to ensure that the maximum current stays within the allowable limits for USB. 
 
-:::warning
+{{% alert context="danger" %}}
 If you go hardware hacking, be aware that it is possible to far exceed the limits of your USB port when the LEDs are turned on at 100% brightness. It does look really cool though.
-:::
+{{% /alert %}}
 
 ## Just One Button
 
@@ -336,9 +336,9 @@ If you go hardware hacking, be aware that it is possible to far exceed the limit
 
 18 party LEDs, but just [one button](/components/switches#spst-33x33mm-15mmh)! The button is scriptable and automates repetitive tasks such as production firmware programming. It's also used to escape from modes where the Bus Pirate would otherwise need to be reset, such as a transparent UART bridge.
 
-:::info
+{{% alert context="info" %}}
 Previous revisions had three buttons (up/ok/down) to control a menu on the LCD. However, those revisions used a DAC chip to set the voltage and current of the programmable power supply unit. This DAC was a casualty of the supply chain crisis so we re-rolled the board to use RP2040/RP2350 PWMs instead. This change gobbled up the button pins, though we managed to reclaim one by detecting over current through the analog mux instead of an RP2040/RP2350 interrupt pin.
-:::
+{{% /alert %}}
 
 ## Interactive BOM
 

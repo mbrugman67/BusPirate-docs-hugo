@@ -42,9 +42,9 @@ Type ```c``` and press ```enter``` to display the configuration menu. Choose lan
 ![](./img/webtranslate.png)
 
 
-:::tip
+{{% alert context="info" %}}
 Translations can be created and edited in your browser. Check out the [Bus Pirate 5 translation web app](pathname:///translate.html).
-:::
+{{% /alert %}}
 
 - Open the [translation web page](pathname:///translate.html)
 - To edit an existing translation choose it from the ```Load Translation File``` drop down menu
@@ -75,9 +75,9 @@ en-us.h is the base translation file. Add new entries in en-us.h and then run js
 - Locate en-us.h in the ```/translation/``` folder of the firmware
 - Add your new entries somewhere logical and give them a descriptive key, example: ```T_ADDED_NEW_STRING```
 
-:::danger
+{{% alert context="danger" %}}
 Format entries exactly as the previous entries: **no spaces between the ]=" or between ",**. The regex used to process the file isn't very robust. If you get compile errors be sure to check this!
-:::
+{{% /alert %}}
 
 ### Run json2h.py
 ![](./img/json2h.png)
@@ -137,9 +137,9 @@ switch(language)
 - Here, we added ```T_CONFIG_LANGUAGE_DUTCH```
 - Run ```translation/json2h.py``` to rebuild all the headers with this new string 
 
-:::warning
+{{% alert context="danger" %}}
 The firmware will not compile and throw an error if the entry isn't included in each translation file by running json2h.py.
-:::
+{{% /alert %}}
 
 ### Add translation to the language menu struct
 

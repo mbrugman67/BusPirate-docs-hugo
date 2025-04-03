@@ -39,9 +39,9 @@ Configure the Bus Pirate for SUMP logic analyzer mode.
 
 For general purpose logic analyzer use, change to HiZ mode with the ```m 1``` command. This will make all the pins inputs and disable pull-up resistors.
 
-:::warning
+{{% alert context="danger" %}}
 There is no restriction on using the logic analyzer while the Bus Pirate is not in HiZ mode. However, prior to Bus Pirate hardware 6, all pins are measured behind the IO buffer. This means the logic capture may not match the actual output of the IO buffer **on pins configured as outputs**. This is not a problem when the Bus Pirate is used as a logic analyzer in HiZ mode and all pins are inputs.
-:::
+{{% /alert %}}
 
 ### Enable SUMP Interface
 
@@ -73,9 +73,9 @@ The power supply is disabled when the SUMP serial port is closed.
 
 ![](./img/logic-system.png)
 
-:::info
+{{% alert context="info" %}}
 The ```logic``` command and the [follow along binmode interface](/logic-analyzer/pulseview-fala) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode](/logic-analyzer/pulseview-sump). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.
-:::
+{{% /alert %}}
 
 ## SUMP protocol
 
@@ -84,9 +84,9 @@ The ```logic``` command and the [follow along binmode interface](/logic-analyzer
 
 ## Base Protocol v1
 
-:::danger
+{{% alert context="danger" %}}
 As of October 2024, the SUMP.org website is no longer available. The base protocol below is reproduced from sump.org and is copyright Michael Poppitz (2000-2019).
-:::
+{{% /alert %}}
 
 All communication is done using a standard RS232 connection with 8 data bits, 1 stop bit and no parity. The transfer rate can be set to 115200, 57600, 38400 or 19200 bps. XON/XOFF software flow control is available.
 

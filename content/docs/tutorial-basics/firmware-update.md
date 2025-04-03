@@ -9,9 +9,9 @@ title = 'Upgrade Firmware'
 
 ![](./img/firmware-1024.jpg)
 
-:::tip
+{{% alert context="info" %}}
 It's early days of a new Bus Pirate design, don't skip this step. We're adding features and squashing bugs daily. Things will be much easier with the latest and greatest firmware installed in your Bus Pirate. Don't worry, it's so very easy!
-:::
+{{% /alert %}}
 
 ## Download the latest firmware
 
@@ -19,9 +19,9 @@ There's two types of firmware releases: the bleeding edge and olde trusty.
 
 ### Bleeding edge
 
-:::tip
+{{% alert context="info" %}}
 The latest bleeding edge firmware is auto-compiled and posted in the forum. [Get the latest and greatest](https://forum.buspirate.com/t/bus-pirate-5-auto-build-main-branch/20/999999).
-:::
+{{% /alert %}}
 
 This is your best bet at the moment. Pirate-Bot compiles the latest code and uploads it to the forum every time there's a push to the git repository. Don't wait for lazy devs to prepare a release package.
 
@@ -33,9 +33,9 @@ Stable "long term" releases will be posted occasionally at GitHub. These can be 
 
 - [Download a stable release at GitHub](https://github.com/DangerousPrototypes/BusPirate5-firmware)
 
-:::info
+{{% alert context="info" %}}
 Keen observers will notice there's no stable release yet. Development is so active at the moment we haven't reached the point of making a stable release package. You really want the latest and greatest though, don't you?
-:::
+{{% /alert %}}
 
 ## Extract your firmware
 
@@ -43,11 +43,11 @@ Open the firmware .zip file and find the right version for your Bus Pirate:
 - ```bus_pirate5_rev10.uf2``` - If your Bus Pirate came in a case, use this firmware for revision 10 hardware. **Most people should use this one**
 - ```bus_pirate5_rev8.uf2``` - If you have an engineering sample, developers board or a preview board (all without a case) use this firmware for revision 8 hardware.
 
-:::tip
+{{% alert context="info" %}}
 If your Bus Pirate is in a case, it's revision 10 hardware. If you're not sure, use the revision 10 firmware.
 
 If the Bus Pirate blinks a menacing red, you've used the wrong firmware. Don't worry, [manually activate the bootloader](tutorial-basics/firmware-update#manually) and just try the other one.
-:::
+{{% /alert %}}
 
 
 ## Activate the bootloader
@@ -62,9 +62,9 @@ The RP2040 chip in the Bus Pirate has a hardware bootloader that appears as a US
 
 In the Bus Pirate terminal type ```$``` and then press ```enter```. The Bus Pirate will jump to bootloader mode and a USB disk drive named ```RPI-RP2``` will connect to your computer. 
 
-:::tip
+{{% alert context="info" %}}
 If the firmware update is interrupted and you find yourself locked out of the Bus Pirate terminal don't panic. Follow the instructions in the next step to enter bootloader mode without the terminal.
-:::
+{{% /alert %}}
 
 ### Manually
 

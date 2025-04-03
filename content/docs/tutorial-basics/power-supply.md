@@ -46,9 +46,9 @@ Type uppercase ```W``` followed by ```enter``` to enable the power supply.
 
 The Bus Pirate will calculate the closest possible values and enable the PPSU.
 
-:::info
+{{% alert context="info" %}}
 Enter any protocol mode (```m```) to use the power supply. The power supply is always disabled in HiZ safe mode.
-:::
+{{% /alert %}}
 
 ## Check voltage and current
 
@@ -60,13 +60,13 @@ Check the voltage and current in the live view statusbar if active, or show the 
 - The third line shows that 9.2mA is being consumed on VOUT/VREF. Since nothing is connected this is the current leakage, offset error and noise in the RP2040 analog to digital converter.
 - The last line shows that VOUT currently measures 2.1volts, and other pins measure 0 volts.
 
-:::info
+{{% alert context="info" %}}
 The difference in voltages (2.1, 2.19) is due to some code inconsistencies in float handling. It will be fixed shortly. 
-:::
+{{% /alert %}}
 
-:::caution
+{{% alert context="warning" %}}
 400mA is the rated maximum of the PPSU, but we added some headroom in the current limit to account for current spikes.
-:::
+{{% /alert %}}
 
 ## Current limit
 

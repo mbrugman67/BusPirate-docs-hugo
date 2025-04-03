@@ -39,9 +39,9 @@ import FooterGet from '/_common/_footer/_footer-get.md'
 
 <FooterGet/>  
 
-:::info
+{{% alert context="info" %}}
 This is the user guide for Bus Pirate 5. See the [hardware documentation](https://hardware.buspirate.com/) for all the technical details.
-:::
+{{% /alert %}}
 
 ## Color IPS LCD
 

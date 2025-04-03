@@ -73,16 +73,16 @@ When a terminal is connected to the Bus Pirate, the flash storage appears as a r
 
 Let's elaborate on the last point. When the Bus Pirate makes changes to the flash - say saving a configuration file or dumping a flash chip - the drive will detach from the PC and then re-attach. This is to ensure that the computer sees the updated contents.
 
-:::info
+{{% alert context="info" %}}
 The disk will detach and re-attach when the Bus Pirate writes to the disk.
-:::
+{{% /alert %}}
 
 ### Read/Write Mode
 
 When a terminal is not connected, the flash storage appears as a read/write disk to the computer. You can copy and delete files as you would with any other USB flash drive.
 
-:::info
+{{% alert context="info" %}}
 To enable read/write mode, disconnect any terminals from the Bus Pirate serial ports.
-:::
+{{% /alert %}}
 
 <DiscourseComments/>

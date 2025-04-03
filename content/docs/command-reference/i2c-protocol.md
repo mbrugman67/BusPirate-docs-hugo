@@ -43,12 +43,12 @@ scanner reporting a response at every address.
 
 Enable the Bus Pirate onboard pull-up resistors with the ```P``` command.
 
-:::tip
+{{% alert context="info" %}}
 - I2C requires pull-up resistors to hold the clock and data lines high.
 - I2C parts don't output high, they only pull low.
 - Without pull-up resistors there can never be a '1'. 
 - Enable the Bus Pirate onboard pull-up resistors with the ```P``` command.
-:::
+{{% /alert %}}
 
 ## Connections
 
@@ -94,9 +94,9 @@ usage:<br/>
 <br/>
 {{% /term %}}
 
-:::tip
+{{% alert context="info" %}}
 Use ```scan -h``` to see the latest options and features.
-:::
+{{% /alert %}}
 
 #### Options and Flags 
 

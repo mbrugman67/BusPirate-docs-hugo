@@ -9,9 +9,9 @@ title = 'Infrared RX/TX Toy'
 
 Use a remote control with your computer, view infrared signals on a logic analyzer, or capture and replay remote control buttons. Infrared Toy v3 brings new life to an [old favorite](http://dangerousprototypes.com/docs/USB_IR_Toy_v2) with much more powerful transmitter LEDs, and a full array of receivers to cover most common, and uncommon, infrared protocols.
 
-:::warning
+{{% alert context="danger" %}}
 Infrared Toy v3 is "in development". If hardware is available it has passed basic functionality tests, but there isn't full documentation or support just yet. At this stage, it's best suited for developers who are comfortable with hardware and firmware development. Or for those who want to follow along.
-:::
+{{% /alert %}}
 
 import FooterCart from '/_common/_footer/_footer-cart.md'
 
@@ -37,9 +37,9 @@ The infrared transmitter has a constant current driver and two genuine Vishay LE
 
 Output currents of ~100mA, ~200mA and ~300mA are selected by the jumper at the center of the PCB. The LEDs are rated for 100mA constant current output. Higher currents are possible, but must be a pulse modulated signal (PWM) with less than 50% duty cycle or the LEDs may be damaged. 
 
-:::warning
+{{% alert context="danger" %}}
 The LEDs are rated for 100mA constant current output. Higher currents are possible, but must be a pulse modulated signal (PWM) with less than 50% duty cycle or the LEDs may be damaged. Be cautious not to power the LED continuously at 200/300mA.
-:::
+{{% /alert %}}
 
 ### Infrared LED output
 
@@ -69,9 +69,9 @@ First, let's check the voltage at the base of the transistor (Q3 pin 1). Two dio
 
 Now, with the jumper in the 100mA position, we measure the voltage at the high side of R13 (6.8 Ohms). 0.65 volts/6.8 Ohms = 0.0955A = 95.5mA. This is close enough to the 100mA target. A safe level to run these LEDs continuously.
 
-:::tip
+{{% alert context="info" %}}
 100mA is the maximum continuous current for these LEDs. Higher currents are possible, but must be a pulse modulated signal (PWM) with less than 50% duty cycle or the LEDs may be damaged. 
-:::
+{{% /alert %}}
 
 #### 200mA transmit current
 
@@ -79,9 +79,9 @@ Now, with the jumper in the 100mA position, we measure the voltage at the high s
 
 With the jumper in the 200mA position, the voltage at the 3 Ohm resistor measures 0.62volts. 0.62 volts/ 3 Ohms = 0.206A = 206mA. This is close enough to the 200mA target.
 
-:::warning
+{{% alert context="danger" %}}
 Only use the 200mA setting at 50% duty cycle or less. Continuous operation at 200mA will damage the LEDs.
-:::
+{{% /alert %}}
 
 #### 300mA transmit current
 
@@ -89,9 +89,9 @@ Only use the 200mA setting at 50% duty cycle or less. Continuous operation at 20
 
 Finally, with the jumper in the 300mA position, the voltage at the 1.2 Ohm resistor measures 0.47 volts. 0.47 volts/ 1.2 Ohms = 0.391A = 391mA. This is a bit high, but the idea is to get as close to maximum as possible. 
 
-:::warning
+{{% alert context="danger" %}}
 Only use the 300mA setting at 50% duty cycle or less **and** short bursts of less than 100uS. Continuous operation at 300mA will damage the LEDs.
-:::
+{{% /alert %}}
 
 ## Receivers
 | Sensor                        | Frequency|Brand     | Part            | C     | R    | Pull-up |

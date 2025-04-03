@@ -13,9 +13,9 @@ Dual RS-232 adapter for the Bus Pirate with male (Data Terminal Equipment) and f
 
 Microcontrollers typically have a TTL serial UART where a 0 is represented by 0 volts and a 1 is represented by 3.3volts or 5volts. RS-232 uses a different voltage range, a 0 is represented by +3 to +15volts and a 1 is represented by -3 to -15volts. The Bus Pirate can't directly communicate with RS-232 devices because it's voltage range is too low. This adapter converts the Bus Pirate UART to RS-232 voltage levels.
 
-:::warning
+{{% alert context="danger" %}}
 Dual RS-232 Adapter is "in development". If hardware is available it has passed  basic functionality tests, but there isn't full documentation or support just yet. At this stage, it's best suited for developers who are comfortable with hardware and firmware development. Or for those who want to follow along.
-:::
+{{% /alert %}}
 
 import FooterCart from '/_common/_footer/_footer-cart.md'
 
@@ -77,9 +77,9 @@ Let's see what cheap and useful serial port accessories are available in the mar
 
 The most common serial cable. Connects a male (usually PC/terminal/DTE) to female (usually equipment/DCE). Straight through 1 to 1 wiring.
 
-:::info
+{{% alert context="info" %}}
 Use this cable to connect the adapter DTE and DCE ports. Then use the ```monitor``` command in UART mode to test data transmission and flow control.
-:::
+{{% /alert %}}
 
 ### Crossover Cable
 
@@ -100,9 +100,9 @@ Also called a null modem cable. Connects two male (usually PC/terminal/DTE) port
 
 RX/TX, CTS/RTS, DTR/DSR are swapped so that two normally master devices can communicate. 
 
-:::info
+{{% alert context="info" %}}
 Using a null modem cable you can connect the serial ports of two PCs, open a terminal on each, and chat between them.
-:::
+{{% /alert %}}
 
 ### Gender Changer Adapters
 

@@ -7,9 +7,9 @@ title = 'Probe Hooks'
 
 There’s a bunch of ingenious ways to tap signals in an electronic circuit. Probe hooks have small wire claws that grab onto a chip leg, and a spring that retracts to hold it into place. The right hook depends on what you’ll be connecting, and how much space you have available.
 
-:::tip
+{{% alert context="info" %}}
 Treat probe hooks as consumables. They will wear out and need to be replaced from time to time, like the print plate of a 3D printer. 
-:::
+{{% /alert %}}
 
 ## The Shenzhen Hook
 
@@ -54,9 +54,9 @@ This probe, called an “airplane test hook” in Mandarin, is styled after the 
 
 Once again Cleqee and ETA appear to be the most stable and consistent suppliers. The ETA 3125 is billed as high quality and may be worth the price if you specifically need this type of probe. The Cleqee is a low cost probe without as much refinement. If you specifically need this kind of probe the ETA is the best option. If ETA is too expensive, and it is for us, consider using a good quality box-style hook from above instead of downgrading to the Cleqee P5003.
 
-:::caution
+{{% alert context="warning" %}}
 Unless you’re already familiar with this style, or specifically need a hook with these specs, the box-style probe is probably a better and cheaper option. 
-:::
+{{% /alert %}}
 
 ### Through-Hole
 
@@ -120,11 +120,11 @@ A larger, higher current version of the CSG903, also with a soldered connection.
 
 An even larger round hook, primarily useful for higher current applications. We'd avoid using this for digital signals as all the additional metal will impact the switching waveform.
 
-:::warning
+{{% alert context="danger" %}}
 Drawing, rating, and dimensions taken from datasheets and hand measurements. We sometimes used averages from various similar parts found in the market. These are not guaranteed values. 
 
 While some hooks may be rated for high voltages and current, the Bus Pirate is not. Do not use the Bus Pirate with >5 volts DC or high current sources. Never expose the Bus Pirate to AC voltages.
-:::
+{{% /alert %}}
 
 ## Join the fun
 ### Get Bus Pirate 5

@@ -215,9 +215,9 @@ usage:<br/>
 {{% /term %}}
 
  
-:::tip
+{{% alert context="info" %}}
 Use ```flash -h``` to see the latest options and features.
-:::
+{{% /alert %}}
 
 Most Bus Pirate commands have help and usage examples. Add the ```-h``` flag to any command to see the available options and examples.
 

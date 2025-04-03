@@ -11,9 +11,9 @@ weight = 400
 
 # Legacy Binary Mode for Flashrom and AVRdude
 
-:::warning
+{{% alert context="danger" %}}
 This documentation is not accurate or complete. It is pending updates.
-:::
+{{% /alert %}}
 
 Raw SPI is a new mode that provides high-speed access to the [Bus
 Pirate](http://dangerousprototypes.com/bus-pirate-manual/) SPI hardware.

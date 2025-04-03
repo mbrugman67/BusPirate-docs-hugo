@@ -38,9 +38,9 @@ Resources:
 
 - [Auxiliary cable hardware documentation](https://hardware.buspirate.com/cables/#auxiliary-cable)
 
-:::note
+{{% alert context="info" %}}
 The first version of the auxiliary cable has all back crimp housings. The second version has color coded crimp housings. Version one is in the current auxiliary cable kit, version 2 is available separately until we receive matching Y and splitter cables to make a kit.
-:::
+{{% /alert %}}
 
 ### Y Splitter Cable
 

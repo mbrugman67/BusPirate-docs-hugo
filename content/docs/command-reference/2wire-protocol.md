@@ -46,11 +46,11 @@ never be a '1'.
 
 Enable the Bus Pirate onboard pull-up resistors with the ```P``` command.
 
-:::tip
+{{% alert context="info" %}}
 - 2-Wire requires pull-up resistors to hold the clock and data lines high.
 - Without pull-up resistors there can never be a '1'. 
 - Enable the Bus Pirate onboard pull-up resistors with the ```P``` command.
-:::
+{{% /alert %}}
 
 ## Syntax
 
@@ -108,9 +108,9 @@ usage:<br/>
 {{% /term %}} 
  
 
-:::tip
+{{% alert context="info" %}}
 Use ```sle4442 -h``` to see the latest options and features.
-:::
+{{% /alert %}}
 
 Most Bus Pirate commands have help and usage examples. Add the -h flag to any command to see the available options and examples.
 
@@ -191,9 +191,9 @@ Remaining attempts: 3 (0x7)<br/>
 
 ```sle4442 unlock``` unlocks the card using the Programmable Security Code (PSC). Use the ```-p``` flag to specify the PSC. 
 
-:::tip
+{{% alert context="info" %}}
 New cards usually have a default PSC of 0xffffff.
-:::
+{{% /alert %}}
 
 #### Write data to SLE4442 card
 
@@ -214,9 +214,9 @@ Writing 0x88 to 0xff<br/>
 
 ```sle4442 write``` writes a single byte of data to the card. Specify the address with the ```-a``` flag and the data value with the ```-v``` flag.
 
-:::caution
+{{% alert context="warning" %}}
 The card must be unlocked before writing data.
-:::
+{{% /alert %}}
 
 #### Change SLE4442 passcode/PSC
 

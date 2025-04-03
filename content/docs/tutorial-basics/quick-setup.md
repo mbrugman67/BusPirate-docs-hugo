@@ -25,9 +25,9 @@ These are common device classes and recent operating systems will not request or
 
 ## Find the serial port
 
-:::tip
+{{% alert context="info" %}}
 Your terminal emulation software will probably detect and list all the available serial ports connected to your computer. If there's more than one serial port, you can connect to each and press ```enter``` until you find the Bus Pirate terminal. You can probably skip this step, but if you need to find the port manually follow the instructions below.
-:::
+{{% /alert %}}
 
 <Tabs groupId="operating-systems" queryString="current-os">
   <TabItem value="win" label="Windows">
@@ -100,9 +100,9 @@ A terminal emulator is software that connects to the Bus Pirate serial interface
 - Configure as shown above. Terminal size 80x24, New-line both set to CR, Terminal ID set to VT100. Click ```OK```.
 - To save the settings for next time, choose ```Setup``` then ```Save Settings```.
 
-:::tip
+{{% alert context="info" %}}
 Seeing duplicate characters when you type? Check that ```local echo``` is unchecked in this menu.
-:::
+{{% /alert %}}
 
 ![TeraTerm setup](./img/teraterm-vt100.png)
 
@@ -185,9 +185,9 @@ The "meta" key for minicom defaults to Escape. To exit, hold `Esc` and press `q`
   <TabItem value="android" label="Android">Help document the Bus Pirate, post your instructions in the forum and we'll add them to the docs.</TabItem>
 </Tabs>
 
-:::caution
+{{% alert context="warning" %}}
 If you see lots of extra garbage characters in the terminal that is probably the VT100 code that updates the live view statusbar. Verify that your terminal supports VT100 mode and that VT100 mode is enabled.
-::: 
+{{% /alert %}} 
 
 <DiscourseComments/>
 

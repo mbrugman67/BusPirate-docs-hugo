@@ -47,9 +47,9 @@ A [RP2040 Pico board](https://www.raspberrypi.com/products/raspberry-pi-Pico/) c
 - Select libusb-win32 as the driver
 - Click **Install Driver**
 
-:::tip
+{{% alert context="info" %}}
 According to various sources a driver swap is no longer required, however we leave these instructions here for completeness and troubleshooting purposes
-:::
+{{% /alert %}}
 
 ### Bus Pirate 5 as debugger
 

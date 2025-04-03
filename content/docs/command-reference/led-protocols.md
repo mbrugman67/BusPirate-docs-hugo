@@ -67,7 +67,7 @@ LEDs are power hungry, up to 60mA each at full brightness. The programmable powe
 
 Bus Pirate 5 has global commands available everywhere, and mode commands specific to the currently selected mode. Type ```help``` to see all commands in every mode, or ```help mode``` for the currently available mode commands.
 
-:::tip
+{{% alert context="info" %}}
 Most Bus Pirate commands have help. Add the ```-h``` flag to any command to see the latest available options and usage examples. 
-:::
+{{% /alert %}}
 

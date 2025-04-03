@@ -33,9 +33,9 @@ Connect the Bus Pirate to the SPI flash chip as shown in the table above. Don't 
 
 ![](./img/flash-adapter-all.jpg)
 
-:::tip
+{{% alert context="info" %}}
 SPI [flash adapters for SOP8, WSON8, and DIP8 chips](/overview/spi-flash-adapters) are available for Bus Pirate 5. Connect SPI flash chips to the Bus Pirate quickly and easily.
-:::
+{{% /alert %}}
 
 ## Setup
 
@@ -119,17 +119,17 @@ Two ways to correctly hold the WP and HOLD pins high for normal chip operation:
 - ```P``` - Enable pull-up resistors to hold the pins high 
 - ```A 2; A 3``` - Use Auxiliary pin control to set IO2 and IO3 high 
 
-:::caution
+{{% alert context="warning" %}}
 Ensure WP and HOLD pins are held high or the chip may not respond.
-:::
+{{% /alert %}}
 
 ## Identify the chip
 
 SPI flash chip commands are loosely standardized on some historical trends, but each manufacturer tends to add their own extensions. 
 
-:::info
+{{% alert context="info" %}}
 We'll try to use the most common commands, but not all chips will respond to all commands!
-:::
+{{% /alert %}}
 
 ### Reset ID
 
@@ -220,9 +220,9 @@ The read SFDP table command includes a 4 byte address where the chip will start 
 
 The first four bytes here are the SFDP signature: 0x50 0x44 0x46 0x53. This is the ASCII representation of 'PDFS'. Values are stored in big-endian format, so reverse that to get `SFDP`.
 
-:::tip
+{{% alert context="info" %}}
 Use the Bus Pirate ```=``` command to convert numerical values to ASCII: ```= 0x50```
-:::
+{{% /alert %}}
 
 The next byte is the minor revision number (0x05), followed by the major revision number (0x01). This is a JEDEC v1.5 SFDP table. The number of parameter headers byte (0x00) plus 1 = 1 available Headers. The table ends with 0xFF.
 
@@ -302,9 +302,9 @@ A write enable command must be sent before the erase sector command will be acce
 - ```0x00 0x00 0x00``` - Address 0x00.
 - ```]``` - End of SPI transaction. Raises the CS pin to 3.3volts.
 
-:::tip
+{{% alert context="info" %}}
 Flash needs to be erased before it can be rewritten. Flash is erased in sectors, blocks or the entire chip. 
-:::
+{{% /alert %}}
 
 ### Verify erase sector
 
@@ -428,9 +428,9 @@ Use the page program command ```0x02``` to write 256 bytes of data to address 0x
 - ```0x69:256``` - Write 256 bytes of data. The data to be written is ```i``` (0x69).
 - ```]``` - End of SPI transaction. Raises the CS pin to 3.3volts.
 
-:::warning
+{{% alert context="danger" %}}
 The write enable command ```0x06``` must be send before writing data to the chip. Write up to 256 bytes at a time. If more than 256 bytes are sent, the internal buffer will circle back to the beginning of the page and overwrite previously sent data.
-:::
+{{% /alert %}}
 
 ## Read data
 
@@ -484,9 +484,9 @@ To confirm the data was written, we use the 'Read Data' instruction ```0x03``` o
 - ```r:256``` - Read 256 bytes of data.
 - ```]``` - End of SPI transaction. Raises the CS pin to 3.3volts.
 
-:::info
+{{% alert context="info" %}}
 If the writing/reading process fails, check all connections. /HOLD & /WP pins must be connected to 3.3 volts.
-:::
+{{% /alert %}}
 
 ## flash command
 

@@ -16,11 +16,11 @@ title = 'UART/Serial Protocol'
 -   **Output type:** 1.65-5volts. Powered by onboard supply or an external voltage on the VOUT/VREF pin
 -   **Maximum Voltage:** 5volts
 
-:::info
+{{% alert context="info" %}}
 UART is also known as the common PC serial port. The PC serial port
 operates at full RS232 voltage levels (-13volts to +13volts) though,
 which are not compatible with the Bus Pirate.
-:::
+{{% /alert %}}
 
 ## Connections
 | Bus Pirate | Direction                     | Circuit | Description   |
@@ -79,9 +79,9 @@ device transmit pin (TX).
 
 Bus Pirate 5 has global commands available everywhere, and mode commands specific to the currently selected mode. Type ```help``` to see all commands in every mode, or ```help mode``` for the currently available mode commands.
 
-:::tip
+{{% alert context="info" %}}
 Most Bus Pirate commands have help. Add the ```-h``` flag to any command to see the latest available options and usage examples. 
-:::
+{{% /alert %}}
 
 ### bridge
 
@@ -104,9 +104,9 @@ usage:<br/>
 {{% /term %}} 
  
 
-:::tip
+{{% alert context="info" %}}
 Use ```bridge -h``` to see the latest options and features.
-:::
+{{% /alert %}}
 
 ### gps 
 Most GPS modules output [NMEA sentences](https://gpsd.gitlab.io/gpsd/NMEA.html) through a serial UART. The ```gps``` command decodes common sentences using [minmea](https://github.com/kosma/minmea). The raw data and decoded data are printed in the terminal. Press any key to exit.
@@ -126,9 +126,9 @@ usage:<br/>
 <span className="bp-prompt">UART></span> <br/>
 {{% /term %}}
 
-:::tip
+{{% alert context="info" %}}
 Use ```gps -h``` to see the latest options and features.
-:::
+{{% /alert %}}
 
 <!--
 

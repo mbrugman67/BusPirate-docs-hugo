@@ -32,7 +32,7 @@
                             <div class="sidebar-submenu {{ if $active }}d-block{{ end }}">
                                 <ul>
                                     {{ range .Pages }}
-                                        {{ $active := eq $currentPage.RelPermalink .RelPermalink }}
+                                        {{ $active := in $currentPage.RelPermalink .RelPermalink }}
                                         {{ if .IsSection }}
                                             <li class="sidebar-dropdown nested {{ if eq .Site.Params.docs.sidebarIcons true -}}{{ else }}no-icon{{ end }} {{ if $active }}current active{{ end }}">
                                                 <button class="btn">

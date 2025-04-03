@@ -55,9 +55,9 @@ Removing a chip:
 - Now this is why we don't like the LOTES sockets: the chip is hard to remove. We've had the best success holding the socket upside down and picking the chip out with tweezers. 
 - Close the lower flap and then gently close the top flap.
 
-:::caution
+{{% alert context="warning" %}}
 The lid flaps are delicate and really prone to snapping off. Be especially careful with opening the socket and removing the chip. We broke more than a few while testing and definitely prefer using the other SOP8 socket.
-:::
+{{% /alert %}}
 
 ## WSON8 SPI Flash Adapter
 

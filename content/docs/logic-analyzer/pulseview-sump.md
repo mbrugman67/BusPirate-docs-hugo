@@ -41,9 +41,9 @@ Configure the Bus Pirate for SUMP logic analyzer mode.
 
 For general purpose logic analyzer use, change to HiZ mode with the ```m 1``` command. This will make all the pins inputs and disable pull-up resistors.
 
-:::warning
+{{% alert context="danger" %}}
 There is no restriction on using the logic analyzer while the Bus Pirate is not in HiZ mode. However, prior to Bus Pirate hardware 6, all pins are measured behind the IO buffer. This means the logic capture may not match the actual output of the IO buffer **on pins configured as outputs**. This is not a problem when the Bus Pirate is used as a logic analyzer in HiZ mode and all pins are inputs.
-:::
+{{% /alert %}}
 
 ### Enable SUMP Interface
 
@@ -118,17 +118,17 @@ To test capture during use:
 - ```G``` - Use the ```G``` command to start pulse-width modulation output on more or more pins
 - ```W 5``` - Make sure the buffers are powered
 
-:::warning
+{{% alert context="danger" %}}
 All Bus Pirates support logic capture while the hardware is in use, however only Bus Pirate 6 has a second buffer to capture pins directly. In earlier hardware **all output pins are captured behind the IO buffer**. This means the logic capture may not match the actual output of the IO buffer. **This is not a problem when the Bus Pirate is used as a logic analyzer only and all pins are inputs**.
-:::
+{{% /alert %}}
 
 ## Logic Analyzer System
 
 ![](./img/logic-system.png)
 
-:::info
+{{% alert context="info" %}}
 The ```logic``` command and the [follow along binmode interface](/logic-analyzer/pulseview-fala) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode](/logic-analyzer/pulseview-sump). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.
-:::
+{{% /alert %}}
 
 ## SUMP protocol
 

@@ -78,9 +78,9 @@ Import the BrowserWindow component using this code on the first line below the f
 
 Wrap the terminal output in ```{{% term "Bus Pirate [/dev/ttyS0]" %}}``` ```{{% /term %}}``` tags.
 
-:::warning
+{{% alert context="danger" %}}
 The ```{{% term "Bus Pirate [/dev/ttyS0]" %}}``` React component only works in pages with ```.mdx``` extension.
-:::
+{{% /alert %}}
 
 ## Resources
 

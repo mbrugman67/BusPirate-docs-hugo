@@ -27,9 +27,9 @@ The Bus Pirate can be used as a logic analyzer in multiple ways:
 
 Follow along means the logic analyzer triggers each time you send data to a bus. It eliminates the need setup triggers and arm a second tool for debugging. 
 
-:::warning
+{{% alert context="danger" %}}
 All Bus Pirate hardware supports follow along logic analyzer, however only Bus Pirate 6 has a second buffer to capture pins directly. In earlier hardware **all output pins are measured behind the IO buffer**. This means the logic capture may not match the actual output of the IO buffer. **This is not a problem when the Bus Pirate is used as a logic analyzer only and all pins are inputs**.
-:::
+{{% /alert %}}
 
 ## Sigrok/PulseView (SUMP compatible)
 

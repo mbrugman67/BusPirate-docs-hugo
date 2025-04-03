@@ -24,9 +24,9 @@ bytes, followed by bus stop. Up to 255 characters of syntax may be
 entered into the Bus Pirate terminal at once, press ```enter``` to execute the
 syntax.
 
-:::tip
+{{% alert context="info" %}}
 It's always best to use the latest firmware, especially in these early days of a new design. There will be continuous improvements and new features. See the upgrade guide for the simple drag and drop bootload process.
-:::
+{{% /alert %}}
 
 ## Execute syntax
 Start a line with ```[```, ```\{```, or ```>``` to tell the Bus Pirate to send data to an attached device.
@@ -56,9 +56,9 @@ Start commands generate a start condition (I2C), open a UART, control chip selec
 
 While the first two commands actually output something to the bus, this command tells the Bus Pirate to execute syntax without generating any output of its own.
 
-:::tip
+{{% alert context="info" %}}
 The ```>``` command is used to send syntax without sending a start command to the bus.
-:::
+{{% /alert %}}
 
 ## Bus interaction syntax 
 
@@ -100,9 +100,9 @@ selects (SPI), resets (1-wire), or opens (UART).
 r reads a byte from the bus. Use with the
 repeat command (r:1...255) for bulk reads.
 
-:::tip
+{{% alert context="info" %}}
 The ```>``` before ```r``` tells the Bus Pirate we want to send data to the bus.
-:::
+{{% /alert %}}
 
 ### **0b01** Write this binary value 
 
@@ -175,9 +175,9 @@ Characters enclosed in ```" "``` are sent to the bus as their [ASCII equivalent 
 
 Use a space to separate numbers. 
 
-:::tip
+{{% alert context="info" %}}
 No delimiter is required between non-number commands.
-:::
+{{% /alert %}}
 
 ### **d/D** Delay 1uS/MS 
 
@@ -195,9 +195,9 @@ No delimiter is required between non-number commands.
 
 ```d``` delays 1us, ```D``` delays 1ms. 
 
-:::tip
+{{% alert context="info" %}}
 Use the repeat command for multiple delays.
-:::
+{{% /alert %}}
 
 ### **:** Repeat (e.g. r:10) 
 
@@ -213,9 +213,9 @@ Use the repeat command for multiple delays.
 
 Many commands can be repeated by adding ```:```, followed by the number of times to repeat. To read five bytes, enter ```r:5```, etc. 
 
-:::tip
+{{% alert context="info" %}}
 The repeat values can also be HEX/DEC/BIN formatted.
-:::
+{{% /alert %}}
 
 ### **.** Partial read/write
 
@@ -281,8 +281,8 @@ Partial write/reads can be combined with the repeat command.
 
 Sometimes it's useful to control a pin directly when executing bus syntax. ```a.X```, ```A.X``` and ```@.X``` set pin X low, high and input (HiZ). The ```@``` command also reads and reports the pin state.
 
-:::tip
+{{% alert context="info" %}}
 Syntax a/A/@ use the ```a.X``` notation, the syntax is followed by a **.** and the pin number to control. This is different than the commands a/A/@, which are followed by a space and the pin number to control.
-:::
+{{% /alert %}}
 
 <DiscourseComments/>

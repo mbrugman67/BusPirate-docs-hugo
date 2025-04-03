@@ -34,12 +34,12 @@ never be a '1'.
 
 Enable the Bus Pirate onboard pull-up resistors with the ```P``` command.
 
-:::tip
+{{% alert context="info" %}}
 - 1-Wire requires a pull-up resistor to hold the data line high.
 - 1-Wire parts don't output high, they only pull low.
 - Without pull-up resistors there can never be a '1'. 
 - Enable the Bus Pirate onboard pull-up resistors with the ```P``` command.
-:::
+{{% /alert %}}
 
 ## Connections
 
@@ -65,9 +65,9 @@ Enable the Bus Pirate onboard pull-up resistors with the ```P``` command.
 
 Bus Pirate 5 has global commands available everywhere, and mode commands specific to the currently selected mode. Type ```help``` to see all commands in every mode, or ```help mode``` for the currently available mode commands.
 
-:::tip
+{{% alert context="info" %}}
 Most Bus Pirate commands have help. Add the ```-h``` flag to any command to see the latest available options and usage examples. 
-:::
+{{% /alert %}}
 
 ### scan
 
