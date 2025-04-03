@@ -71,7 +71,7 @@ The difference in voltages (2.1, 2.19) is due to some code inconsistencies in fl
 ## Current limit
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-error">Error:<span style="color:#bfa530"> Current over limit, power supply disabled</span></span>
+<span style="color:#bf3030">Error:<span style="color:#bfa530"> Current over limit, power supply disabled</span></span>
 
 <span style="color:#96cb59">I2C></span> 
 {{% /term %}}
