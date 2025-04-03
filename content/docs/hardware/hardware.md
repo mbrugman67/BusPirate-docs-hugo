@@ -1,6 +1,7 @@
 +++
 weight = 2
 title = "Hardware Design"
+url = '/'
 +++
 
 # Bus Pirate 5, 5XL, 6 Hardware
