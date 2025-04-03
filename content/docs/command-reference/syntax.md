@@ -13,8 +13,8 @@ of data.
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> [0x31 r:5]
 <span style="color:#bfa530">CS Select (0)</span>
-<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span className="bp-float">31</span>
-<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span>
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">31</span>
+<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span>
 <span style="color:#bfa530">CS Deselect (1)</span>
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
@@ -36,9 +36,9 @@ Start a line with ```[```, ```\{```, or ```>``` to tell the Bus Pirate to send d
 <span style="color:#96cb59">SPI></span> [ 0x03 0 r:5]
 
 CS Select (0)
-<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">03</span> 
+<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">03</span> 
 <span style="color:#bfa530">TX:</span> 0 
-<span style="color:#bfa530">RX:</span> 0x<span className="bp-float">48</span> 0x<span className="bp-float">65</span> 0x<span className="bp-float">6C</span> 0x<span className="bp-float">6C</span> 0x<span className="bp-float">6F</span> 
+<span style="color:#bfa530">RX:</span> 0x<span style="color:#53a6e6">48</span> 0x<span style="color:#53a6e6">65</span> 0x<span style="color:#53a6e6">6C</span> 0x<span style="color:#53a6e6">6C</span> 0x<span style="color:#53a6e6">6F</span> 
 CS Deselect (1)
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
@@ -50,7 +50,7 @@ Start commands generate a start condition (I2C), open a UART, control chip selec
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> > 0x55 0xaa
 
-<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">55</span> 0x<span className="bp-float">AA</span> 
+<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">55</span> 0x<span style="color:#53a6e6">AA</span> 
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
@@ -92,7 +92,7 @@ selects (SPI), resets (1-wire), or opens (UART).
 ### **r** Read byte 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> >r
-<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span className="bp-float">00</span>
+<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span style="color:#53a6e6">00</span>
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
@@ -108,7 +108,7 @@ The ```>``` before ```r``` tells the Bus Pirate we want to send data to the bus.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> >0b01
-<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0b<span className="bp-float">0000</span>0001
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0b<span style="color:#53a6e6">0000</span>0001
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
@@ -124,7 +124,7 @@ binary number as 0b and then the bits. Padding 0's are not required,
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> >0x01
-<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span className="bp-float">01</span>
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">01</span>
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
@@ -154,7 +154,7 @@ Any number not preceded by 0x, 0h, or 0b is interpreted as a decimal value and s
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> >"abc"
-<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 'a' 0x<span className="bp-float">61</span> 'b' 0x<span className="bp-float">62</span> 'c' 0x<span className="bp-float">63</span> 
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 'a' 0x<span style="color:#53a6e6">61</span> 'b' 0x<span style="color:#53a6e6">62</span> 'c' 0x<span style="color:#53a6e6">63</span> 
 {{% /term %}}
 
 Characters enclosed in ```" "``` are sent to the bus as their [ASCII equivalent codes](https://en.wikipedia.org/wiki/ASCII).
@@ -167,8 +167,8 @@ Characters enclosed in ```" "``` are sent to the bus as their [ASCII equivalent 
 <span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 1
 <span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 2
 <span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 3
-<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span className="bp-float">00</span>
-<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span className="bp-float">00</span>
+<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span style="color:#53a6e6">00</span>
+<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span style="color:#53a6e6">00</span>
 <span style="color:#bfa530">CS Deselect (1)</span>
 <span style="color:#96cb59">SPI></span>
 {{% /term %}}
@@ -183,13 +183,13 @@ No delimiter is required between non-number commands.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> >d
-<span style="color:#bfa530"><span style="color:#bfa530">Delay:</span></span> <span className="bp-float">1</span>us
+<span style="color:#bfa530"><span style="color:#bfa530">Delay:</span></span> <span style="color:#53a6e6">1</span>us
 <span style="color:#96cb59">SPI></span> >d:10
-<span style="color:#bfa530"><span style="color:#bfa530">Delay:</span></span> <span className="bp-float">10</span>us
+<span style="color:#bfa530"><span style="color:#bfa530">Delay:</span></span> <span style="color:#53a6e6">10</span>us
 <span style="color:#96cb59">SPI></span> >D
-<span style="color:#bfa530"><span style="color:#bfa530">Delay:</span></span> <span className="bp-float">1</span>ms
+<span style="color:#bfa530"><span style="color:#bfa530">Delay:</span></span> <span style="color:#53a6e6">1</span>ms
 <span style="color:#96cb59">SPI></span> >D:10
-<span style="color:#bfa530"><span style="color:#bfa530">Delay:</span></span> <span className="bp-float">10</span>ms
+<span style="color:#bfa530"><span style="color:#bfa530">Delay:</span></span> <span style="color:#53a6e6">10</span>ms
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
@@ -204,9 +204,9 @@ Use the repeat command for multiple delays.
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> [ 0x55:2 D:3 r:3]
 <span style="color:#bfa530">CS Select (0)</span>
-<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span className="bp-float">55</span> 0x<span className="bp-float">55</span>
-<span style="color:#bfa530"><span style="color:#bfa530">Delay:</span></span> <span className="bp-float">2</span>ms
-<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span>
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">55</span> 0x<span style="color:#53a6e6">55</span>
+<span style="color:#bfa530"><span style="color:#bfa530">Delay:</span></span> <span style="color:#53a6e6">2</span>ms
+<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span>
 <span style="color:#bfa530">CS Deselect (1)</span>
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
@@ -221,7 +221,7 @@ The repeat values can also be HEX/DEC/BIN formatted.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> >0x5a.4
-<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span className="bp-float">0A</span>.4
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">0A</span>.4
 <span style="color:#96cb59">SPI></span>
 {{% /term %}}
 
@@ -229,7 +229,7 @@ Write/read partial bytes (where enabled by hardware) using the ```.``` option. `
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> >r.4
-<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span className="bp-float">05</span>.4
+<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span style="color:#53a6e6">05</span>.4
 <span style="color:#96cb59">SPI></span>
 {{% /term %}}
 
@@ -237,7 +237,7 @@ Read 4 bits from the bus.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> >0x5432.12
-<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span className="bp-float">04</span>32.12
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">04</span>32.12
 <span style="color:#96cb59">SPI></span>
 {{% /term %}}
 
@@ -245,7 +245,7 @@ Write 12 bits of 0x5432 to the bus.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> >0x5a.4:2
-<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span className="bp-float">0a</span>.4 0x<span className="bp-float">0a</span>.4
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">0a</span>.4 0x<span style="color:#53a6e6">0a</span>.4
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
@@ -256,9 +256,9 @@ Partial write/reads can be combined with the repeat command.
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> > v.1 v.2 v.3
 
-<span style="color:#bfa530">Volts on IO1:</span> <span className="bp-float">3.2</span>V
-<span style="color:#bfa530">Volts on IO2:</span> <span className="bp-float">3.2</span>V
-<span style="color:#bfa530">Volts on IO3:</span> <span className="bp-float">3.2</span>V
+<span style="color:#bfa530">Volts on IO1:</span> <span style="color:#53a6e6">3.2</span>V
+<span style="color:#bfa530">Volts on IO2:</span> <span style="color:#53a6e6">3.2</span>V
+<span style="color:#bfa530">Volts on IO3:</span> <span style="color:#53a6e6">3.2</span>V
 <span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
@@ -268,13 +268,13 @@ Partial write/reads can be combined with the repeat command.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">UART></span> >a.1
-<span style="color:#bfa530">IO<span className="bp-float">1<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span>
+<span style="color:#bfa530">IO<span style="color:#53a6e6">1<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
 <span style="color:#96cb59">UART></span> >A.1
-<span style="color:#bfa530">IO<span className="bp-float">1<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span className="bp-float">1</span>
+<span style="color:#bfa530">IO<span style="color:#53a6e6">1<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span style="color:#53a6e6">1</span>
 
 <span style="color:#96cb59">UART></span> >@.1
-<span style="color:#bfa530">IO<span className="bp-float">1<span style="color:#bfa530"> set to</span></span></span> INPUT: <span className="bp-float">0</span>
+<span style="color:#bfa530">IO<span style="color:#53a6e6">1<span style="color:#bfa530"> set to</span></span></span> INPUT: <span style="color:#53a6e6">0</span>
 
 <span style="color:#96cb59">UART></span>
 {{% /term %}}

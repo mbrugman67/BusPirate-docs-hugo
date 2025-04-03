@@ -9,11 +9,11 @@ title = 'Commands'
 <span style="color:#96cb59">HiZ></span> i
 <span style="color:#bfa530">
 Bus Pirate 5 REV6
-Firmware <span className="bp-float">v0.1</span></span> (<span className="bp-float">unknown</span>), Bootloader <span className="bp-float">N/A</span>
-<span className="bp-float">RP2040</span> with <span className="bp-float">264KB</span> RAM, <span className="bp-float">16MB</span> FLASH
-S/N: <span className="bp-float">2509449B952069E4</span>
+Firmware <span style="color:#53a6e6">v0.1</span></span> (<span style="color:#53a6e6">unknown</span>), Bootloader <span style="color:#53a6e6">N/A</span>
+<span style="color:#53a6e6">RP2040</span> with <span style="color:#53a6e6">264KB</span> RAM, <span style="color:#53a6e6">16MB</span> FLASH
+S/N: <span style="color:#53a6e6">2509449B952069E4</span>
 https://DangerousPrototypes.com/
-Flash Storage: <span className="bp-float"> 0.10GB</span> (FAT16)
+Flash Storage: <span style="color:#53a6e6"> 0.10GB</span> (FAT16)
 
 <span style="color:#bfa530">Configuration file:</span> Loaded
 <span style="color:#bfa530">Available modes:</span> HiZ UART I2C SPI LED DUMMY1
@@ -209,11 +209,11 @@ Type ```?``` followed by ```enter``` to display a help screen with all available
 <span style="color:#96cb59">HiZ></span> i
 <span style="color:#bfa530">
 Bus Pirate 5 REV6
-Firmware <span className="bp-float">v8</span></span> (<span className="bp-float">unknown</span>), Bootloader <span className="bp-float">N/A</span>
-<span className="bp-float">RP2040</span> with <span className="bp-float">264KB</span> RAM, <span className="bp-float">16MB</span> FLASH
-S/N: <span className="bp-float">2509449B952069E4</span>
+Firmware <span style="color:#53a6e6">v8</span></span> (<span style="color:#53a6e6">unknown</span>), Bootloader <span style="color:#53a6e6">N/A</span>
+<span style="color:#53a6e6">RP2040</span> with <span style="color:#53a6e6">264KB</span> RAM, <span style="color:#53a6e6">16MB</span> FLASH
+S/N: <span style="color:#53a6e6">2509449B952069E4</span>
 https://DangerousPrototypes.com/
-Flash Storage: <span className="bp-float"> 0.10GB</span> (FAT16 File System)
+Flash Storage: <span style="color:#53a6e6"> 0.10GB</span> (FAT16 File System)
 
 <span style="color:#bfa530">Configuration file:</span> Loaded
 <span style="color:#bfa530">Available modes:</span> HiZ UART I2C SPI LED DUMMY1
@@ -407,17 +407,17 @@ If the firmware update is interrupted and you find yourself locked out of the Bu
 <span style="color:#bfa530"><span style="color:#bfa530">Power supply
 Volts (0.80V-5.00V)</span></span>
 <span style="color:#96cb59">x to exit (3.30) ></span> 2.1
-<span className="bp-float">2.10</span>V<span style="color:#bfa530"> requested, closest value: <span className="bp-float">2.10</span></span>V
+<span style="color:#53a6e6">2.10</span>V<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">2.10</span></span>V
 Set current limit?
 y
 
 <span style="color:#bfa530">Maximum current (0mA-500mA)</span>
 <span style="color:#96cb59">x to exit (100.00) ></span> 50
-<span className="bp-float">50.0</span>mA<span style="color:#bfa530"> requested, closest value: <span className="bp-float">50.0</span></span>mA
+<span style="color:#53a6e6">50.0</span>mA<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">50.0</span></span>mA
 
 <span style="color:#bfa530">Power supply:</span>Enabled
 <span style="color:#bfa530">
-Vreg output: <span className="bp-float">2.1</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span className="bp-float">2.1</span></span>V<span style="color:#bfa530">, Current sense: <span className="bp-float">7.3</span></span>mA<span style="color:#bfa530">
+Vreg output: <span style="color:#53a6e6">2.1</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">2.1</span></span>V<span style="color:#bfa530">, Current sense: <span style="color:#53a6e6">7.3</span></span>mA<span style="color:#bfa530">
 </span>
 <span style="color:#96cb59">I2C></span> 
 {{% /term %}}
@@ -469,7 +469,7 @@ Lowercase ```v``` displays a one time voltage measurement. Uppercase ```V``` dis
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">I2C></span> P
-<span style="color:#bfa530"><span style="color:#bfa530">Pull-up resistors:</span></span> Enabled (10Kohms @ <span className="bp-float">3.3</span>V)
+<span style="color:#bfa530"><span style="color:#bfa530">Pull-up resistors:</span></span> Enabled (10Kohms @ <span style="color:#53a6e6">3.3</span>V)
 
 <span style="color:#96cb59">I2C></span> p
 <span style="color:#bfa530"><span style="color:#bfa530">Pull-up resistors:</span></span> Disabled
@@ -492,29 +492,29 @@ A warning is displayed if there's no voltage on the VREF/VOUT pin. Check the vol
 <span style="color:#96cb59">LED-()></span> G
 <span style="color:#bfa530"><span style="color:#bfa530">Generate frequency</span></span>
 <span style="color:#bfa530">Choose available pin:</span>
- 0. IO<span className="bp-float">0</span>
- 1. IO<span className="bp-float">1</span>
- 2. IO<span className="bp-float">2</span>
- 3. IO<span className="bp-float">3</span>
- 4. IO<span className="bp-float">4</span>
- 5. IO<span className="bp-float">5</span>
- 6. IO<span className="bp-float">6</span>
- 7. IO<span className="bp-float">7</span>
+ 0. IO<span style="color:#53a6e6">0</span>
+ 1. IO<span style="color:#53a6e6">1</span>
+ 2. IO<span style="color:#53a6e6">2</span>
+ 3. IO<span style="color:#53a6e6">3</span>
+ 4. IO<span style="color:#53a6e6">4</span>
+ 5. IO<span style="color:#53a6e6">5</span>
+ 6. IO<span style="color:#53a6e6">6</span>
+ 7. IO<span style="color:#53a6e6">7</span>
  x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59"> ></span> 0
 <span style="color:#96cb59">Period or frequency (ns, us, ms, Hz, KHz or Mhz) ></span> 12.4KHz
-<span style="color:#bfa530">Frequency:</span> <span className="bp-float">12.400</span>KHz = <span className="bp-float">12400</span>Hz (<span className="bp-float">12.40</span>KHz)
-<span style="color:#bfa530">Period:</span> <span className="bp-float">80645</span>ns (<span className="bp-float">80.65</span>us)
+<span style="color:#bfa530">Frequency:</span> <span style="color:#53a6e6">12.400</span>KHz = <span style="color:#53a6e6">12400</span>Hz (<span style="color:#53a6e6">12.40</span>KHz)
+<span style="color:#bfa530">Period:</span> <span style="color:#53a6e6">80645</span>ns (<span style="color:#53a6e6">80.65</span>us)
 
-<span style="color:#bfa530">Actual frequency:</span> <span className="bp-float">12401</span>Hz (<span className="bp-float">12.40</span>KHz)
-<span style="color:#bfa530">Actual period:</span> <span className="bp-float">80640</span>ns (<span className="bp-float">80.64</span>us)
+<span style="color:#bfa530">Actual frequency:</span> <span style="color:#53a6e6">12401</span>Hz (<span style="color:#53a6e6">12.40</span>KHz)
+<span style="color:#bfa530">Actual period:</span> <span style="color:#53a6e6">80640</span>ns (<span style="color:#53a6e6">80.64</span>us)
 
 <span style="color:#96cb59">Duty cycle (%) ></span> 35%
-<span style="color:#bfa530">Duty cycle:</span> <span className="bp-float">35.00</span>% = <span className="bp-float">28224</span>ns (<span className="bp-float">28.22</span>us)
-<span style="color:#bfa530">Actual duty cycle:</span> <span className="bp-float">28227</span>ns (<span className="bp-float">28.23</span>us)
+<span style="color:#bfa530">Duty cycle:</span> <span style="color:#53a6e6">35.00</span>% = <span style="color:#53a6e6">28224</span>ns (<span style="color:#53a6e6">28.22</span>us)
+<span style="color:#bfa530">Actual duty cycle:</span> <span style="color:#53a6e6">28227</span>ns (<span style="color:#53a6e6">28.23</span>us)
 Divider: 16, Period: 10079, Duty: 3528
 
-<span style="color:#bfa530">Generate frequency:</span> Enabled on IO<span className="bp-float">0</span>
+<span style="color:#bfa530">Generate frequency:</span> Enabled on IO<span style="color:#53a6e6">0</span>
 
 <span style="color:#96cb59">LED-()></span>
 {{% /term %}}
@@ -531,7 +531,7 @@ The frequency generator will be displayed in the live view statusbar and on the 
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> g 0
-<span style="color:#bfa530">Generate frequency:</span> Disabled on IO<span className="bp-float">0</span>
+<span style="color:#bfa530">Generate frequency:</span> Disabled on IO<span style="color:#53a6e6">0</span>
 
 <span style="color:#96cb59">LED-()></span> 
 {{% /term %}}
@@ -540,7 +540,7 @@ To stop the frequency generator on a single pin, use the lowercase ```g.X``` com
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> g
-<span style="color:#bfa530">Generate frequency:</span> Disabled on IO<span className="bp-float">0</span>
+<span style="color:#bfa530">Generate frequency:</span> Disabled on IO<span style="color:#53a6e6">0</span>
 
 <span style="color:#96cb59">LED-()></span> 
 {{% /term %}}
@@ -557,14 +557,14 @@ Not all pins will be available due to the PWM structure of the RP2040, and adjac
 <span style="color:#96cb59">LED-()></span> F
 <span style="color:#bfa530"><span style="color:#bfa530">Frequency measurement</span></span>
 <span style="color:#bfa530">Choose available pin:</span>
- 1. IO<span className="bp-float">1</span>
- 3. IO<span className="bp-float">3</span>
- 5. IO<span className="bp-float">5</span>
- 7. IO<span className="bp-float">7</span>
+ 1. IO<span style="color:#53a6e6">1</span>
+ 3. IO<span style="color:#53a6e6">3</span>
+ 5. IO<span style="color:#53a6e6">5</span>
+ 7. IO<span style="color:#53a6e6">7</span>
  x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59"> ></span> 7
-<span style="color:#bfa530">Frequency measurement:</span> Enabled on IO<span className="bp-float">7</span>
-<span style="color:#bfa530">Frequency</span> IO<span className="bp-float">7</span>: <span className="bp-float">12.40</span>KHz <span className="bp-float">80.65</span>us (<span className="bp-float">12400</span>Hz), <span style="color:#bfa530">Duty cycle:</span> <span className="bp-float">35.0</span>%
+<span style="color:#bfa530">Frequency measurement:</span> Enabled on IO<span style="color:#53a6e6">7</span>
+<span style="color:#bfa530">Frequency</span> IO<span style="color:#53a6e6">7</span>: <span style="color:#53a6e6">12.40</span>KHz <span style="color:#53a6e6">80.65</span>us (<span style="color:#53a6e6">12400</span>Hz), <span style="color:#bfa530">Duty cycle:</span> <span style="color:#53a6e6">35.0</span>%
 
 <span style="color:#96cb59">LED-()></span> 
 {{% /term %}}
@@ -581,7 +581,7 @@ The frequency will be measured continuously and displayed in the live view statu
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> f 7
-<span style="color:#bfa530"><span style="color:#bfa530">Frequency</span></span> IO<span className="bp-float">7</span>: <span className="bp-float">12.40</span>KHz <span className="bp-float">80.65</span>us (<span className="bp-float">12400</span>Hz), <span style="color:#bfa530">Duty cycle:</span> <span className="bp-float">35.0</span>%
+<span style="color:#bfa530"><span style="color:#bfa530">Frequency</span></span> IO<span style="color:#53a6e6">7</span>: <span style="color:#53a6e6">12.40</span>KHz <span style="color:#53a6e6">80.65</span>us (<span style="color:#53a6e6">12400</span>Hz), <span style="color:#bfa530">Duty cycle:</span> <span style="color:#53a6e6">35.0</span>%
 <span style="color:#96cb59">LED-()></span>
 {{% /term %}}
 
@@ -590,7 +590,7 @@ Lowercase ```f X``` measures the frequency and duty cycle on pin X once.
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> F 7
 <span style="color:#bfa530"><span style="color:#bfa530">Press any key to exit</span></span>
-<span style="color:#bfa530">Frequency</span> IO<span className="bp-float">7</span>: <span className="bp-float">12.40</span>KHz <span className="bp-float">80.65</span>us (<span className="bp-float">12400</span>Hz), <span style="color:#bfa530">Duty cycle:</span> <span className="bp-float">35.0</span>%
+<span style="color:#bfa530">Frequency</span> IO<span style="color:#53a6e6">7</span>: <span style="color:#53a6e6">12.40</span>KHz <span style="color:#53a6e6">80.65</span>us (<span style="color:#53a6e6">12400</span>Hz), <span style="color:#bfa530">Duty cycle:</span> <span style="color:#53a6e6">35.0</span>%
 {{% /term %}}
 
 Uppercase ```F X``` continuously measures the frequency and duty cycle on pin X. Press any key to exit.
@@ -614,11 +614,11 @@ Not all pins will be available due to the PWM structure of the RP2040, and adjac
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">I2C></span> = 0b110
-<span style="color:#bfa530"> </span>=0x<span className="bp-float">06</span> =6 =0b<span className="bp-float">0000</span>0110
+<span style="color:#bfa530"> </span>=0x<span style="color:#53a6e6">06</span> =6 =0b<span style="color:#53a6e6">0000</span>0110
 <span style="color:#96cb59">I2C></span> = 0x6
-<span style="color:#bfa530"> </span>=0x<span className="bp-float">06</span> =6 =0b<span className="bp-float">0000</span>0110
+<span style="color:#bfa530"> </span>=0x<span style="color:#53a6e6">06</span> =6 =0b<span style="color:#53a6e6">0000</span>0110
 <span style="color:#96cb59">I2C></span> = 6
-<span style="color:#bfa530"> </span>=0x<span className="bp-float">06</span> =6 =0b<span className="bp-float">0000</span>0110
+<span style="color:#bfa530"> </span>=0x<span style="color:#53a6e6">06</span> =6 =0b<span style="color:#53a6e6">0000</span>0110
 <span style="color:#96cb59">I2C></span> 
 {{% /term %}}
 
@@ -646,13 +646,13 @@ To change the Bus Pirate read/write bit order see the ```l```/```L``` command.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">UART></span> a 1
-<span style="color:#bfa530">IO<span className="bp-float">1<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span>
+<span style="color:#bfa530">IO<span style="color:#53a6e6">1<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
 <span style="color:#96cb59">UART></span> A 1
-<span style="color:#bfa530">IO<span className="bp-float">1<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span className="bp-float">1</span>
+<span style="color:#bfa530">IO<span style="color:#53a6e6">1<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span style="color:#53a6e6">1</span>
 
 <span style="color:#96cb59">UART></span> @ 1
-<span style="color:#bfa530">IO<span className="bp-float">1<span style="color:#bfa530"> set to</span></span></span> INPUT: <span className="bp-float">0</span>
+<span style="color:#bfa530">IO<span style="color:#53a6e6">1<span style="color:#bfa530"> set to</span></span></span> INPUT: <span style="color:#53a6e6">0</span>
 
 <span style="color:#96cb59">UART></span>
 {{% /term %}}

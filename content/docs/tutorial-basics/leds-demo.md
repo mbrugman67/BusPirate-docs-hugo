@@ -92,7 +92,7 @@ SK6812 uses GRB (green, red, blue) for the data, but the default format is RGB (
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> [0b111111110000000000000000.24
 <span style="color:#bfa530">RESET</span>
-<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0b<span className="bp-float">1111</span>1111<span className="bp-float">0000</span>0000<span className="bp-float">0000</span>0000.24
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0b<span style="color:#53a6e6">1111</span>1111<span style="color:#53a6e6">0000</span>0000<span style="color:#53a6e6">0000</span>0000.24
 <span style="color:#96cb59">LED-()></span> 
 {{% /term %}}
 
@@ -111,9 +111,9 @@ Now the pattern for working with the SK6812 starts to become clear. We can enter
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> = 0b11111111
-<span style="color:#bfa530"> </span>=0x<span className="bp-float">FF</span> =255 =0b<span className="bp-float">1111</span>1111
+<span style="color:#bfa530"> </span>=0x<span style="color:#53a6e6">FF</span> =255 =0b<span style="color:#53a6e6">1111</span>1111
 <span style="color:#96cb59">LED-()></span> = 0b00000000
-<span style="color:#bfa530"> </span>=0x<span className="bp-float">00</span> =0 =0b<span className="bp-float">0000</span>0000
+<span style="color:#bfa530"> </span>=0x<span style="color:#53a6e6">00</span> =0 =0b<span style="color:#53a6e6">0000</span>0000
 <span style="color:#96cb59">LED-()></span> 
 {{% /term %}}
 
@@ -127,7 +127,7 @@ Binary entry is handy because you see exactly what each bit is doing, but that's
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> [0xff0000.24
 <span style="color:#bfa530">RESET</span>
-<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span className="bp-float">FF</span>00<span className="bp-float">00</span>.24
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">FF</span>00<span style="color:#53a6e6">00</span>.24
 <span style="color:#96cb59">LED-()></span> 
 {{% /term %}}
 
@@ -144,7 +144,7 @@ Now let's put it all together and send the same command in hexadecimal.
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> [0x00ff00.24
 <span style="color:#bfa530">RESET</span>
-<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span className="bp-float">00</span>FF<span className="bp-float">00</span>.24
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">00</span>FF<span style="color:#53a6e6">00</span>.24
 <span style="color:#96cb59">LED-()></span> 
 {{% /term %}}
 
@@ -158,7 +158,7 @@ Green is controlled by the second eight bits of data.
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> [0x0000ff.24
 <span style="color:#bfa530">RESET</span>
-<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span className="bp-float">00</span>00<span className="bp-float">FF</span>.24
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">00</span>00<span style="color:#53a6e6">FF</span>.24
 <span style="color:#96cb59">LED-()></span> 
 {{% /term %}}
 
@@ -172,7 +172,7 @@ Blue is controlled by the last eight bits of data.
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> [0xff00ff.24
 <span style="color:#bfa530">RESET</span>
-<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span className="bp-float">FF</span>00<span className="bp-float">FF</span>.24
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">FF</span>00<span style="color:#53a6e6">FF</span>.24
 <span style="color:#96cb59">LED-()></span> 
 {{% /term %}}
 
@@ -188,7 +188,7 @@ At this point you may wonder if you can mix colors. Why, yes, you can! Let's try
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> [0xffffff.24
 <span style="color:#bfa530">RESET</span>
-<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span className="bp-float">FF</span>FF<span className="bp-float">FF</span>.24
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">FF</span>FF<span style="color:#53a6e6">FF</span>.24
 <span style="color:#96cb59">LED-()></span> 
 {{% /term %}}
 
@@ -203,7 +203,7 @@ Through the magic of [additive color](https://en.wikipedia.org/wiki/Additive_col
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> = 128
-<span style="color:#bfa530"> </span>=0x<span className="bp-float">80</span> =128 =0b<span className="bp-float">1000</span>0000
+<span style="color:#bfa530"> </span>=0x<span style="color:#53a6e6">80</span> =128 =0b<span style="color:#53a6e6">1000</span>0000
 <span style="color:#96cb59">LED-()></span>
 {{% /term %}}
 
@@ -215,7 +215,7 @@ Up to this point we've used all the LED dies at full brightness (0xff/255/0b1111
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">LED-()></span> [0x808080.24
 <span style="color:#bfa530">RESET</span>
-<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span className="bp-float">80</span>80<span className="bp-float">80</span>.24
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">80</span>80<span style="color:#53a6e6">80</span>.24
 <span style="color:#96cb59">LED-()></span> 
 {{% /term %}}
 

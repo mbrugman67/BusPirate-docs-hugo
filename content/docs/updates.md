@@ -82,11 +82,11 @@ This is the raw output of a NodeJS converter script. The colors are hex color co
 <span style="color:#bfa530">
 Bus Pirate 5 REV6
 Firmware 
-<span className="bp-float">v0.1</span>
+<span style="color:#53a6e6">v0.1</span>
 
 </span> 
-(<span className="bp-float">unknown</span>), Bootloader 
-<span className="bp-float">N/A</span>
+(<span style="color:#53a6e6">unknown</span>), Bootloader 
+<span style="color:#53a6e6">N/A</span>
 
 ```
 

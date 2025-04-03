@@ -23,17 +23,17 @@ Bus Pirate 5 has a single 'Programmable Power Supply Unit' (PPSU) that can power
 <span style="color:#bfa530"><span style="color:#bfa530">Power supply
 Volts (0.80V-5.00V)</span></span>
 <span style="color:#96cb59">x to exit (3.30) ></span> 2.1
-<span className="bp-float">2.10</span>V<span style="color:#bfa530"> requested, closest value: <span className="bp-float">2.10</span></span>V
+<span style="color:#53a6e6">2.10</span>V<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">2.10</span></span>V
 Set current limit?
 y
 
 <span style="color:#bfa530">Maximum current (0mA-500mA)</span>
 <span style="color:#96cb59">x to exit (100.00) ></span> 50
-<span className="bp-float">50.0</span>mA<span style="color:#bfa530"> requested, closest value: <span className="bp-float">50.0</span></span>mA
+<span style="color:#53a6e6">50.0</span>mA<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">50.0</span></span>mA
 
 <span style="color:#bfa530">Power supply:</span>Enabled
 <span style="color:#bfa530">
-Vreg output: <span className="bp-float">2.1</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span className="bp-float">2.1</span></span>V<span style="color:#bfa530">, Current sense: <span className="bp-float">7.3</span></span>mA<span style="color:#bfa530">
+Vreg output: <span style="color:#53a6e6">2.1</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">2.1</span></span>V<span style="color:#bfa530">, Current sense: <span style="color:#53a6e6">7.3</span></span>mA<span style="color:#bfa530">
 </span>
 <span style="color:#96cb59">I2C></span> 
 {{% /term %}}

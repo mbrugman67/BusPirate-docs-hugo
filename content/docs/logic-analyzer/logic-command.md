@@ -109,7 +109,7 @@ The base capture speed or the oversample rate can can be changed with the ```log
 <span style="color:#96cb59">SPI></span> [ 0xaa 0x55]
 
 CS Enabled
-<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">AA</span> 0x<span className="bp-float">55</span> 
+<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">AA</span> 0x<span style="color:#53a6e6">55</span> 
 CS Disabled
 
 <span style="color:#bfa530">Logic analyzer:</span> 144 samples captured

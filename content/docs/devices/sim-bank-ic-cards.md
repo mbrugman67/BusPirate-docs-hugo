@@ -89,11 +89,11 @@ Mobile SIM cards and bank IC cards use a half-duplex UART interface, data travel
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HDPLXUART></span> W 3.3
-<span className="bp-float">3.30</span>V<span style="color:#bfa530"> requested, closest value: <span className="bp-float">3.30</span></span>V
+<span style="color:#53a6e6">3.30</span>V<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">3.30</span></span>V
 <span style="color:#bfa530">Current limit:</span>Disabled
 
 <span style="color:#bfa530">Power supply:</span>Enabled
-<span style="color:#bfa530">Vreg output: <span className="bp-float">3.3</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span className="bp-float">3.2</span></span>V<span style="color:#bfa530">, Current: <span className="bp-float">3.4</span></span>mA<span style="color:#bfa530">
+<span style="color:#bfa530">Vreg output: <span style="color:#53a6e6">3.3</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">3.2</span></span>V<span style="color:#bfa530">, Current: <span style="color:#53a6e6">3.4</span></span>mA<span style="color:#bfa530">
 </span>
 <span style="color:#96cb59">HDPLXUART></span> 
 {{% /term %}}
@@ -107,7 +107,7 @@ Most SIM cards will be okay with 3.3 volts, but some cards may use 2.5 or 1.8 vo
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HDPLXUART></span> P
-<span style="color:#bfa530">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)
+<span style="color:#bfa530">Pull-up resistors:</span> Enabled (10K ohms @ <span style="color:#53a6e6">3.3</span>V)
 <span style="color:#96cb59">HDPLXUART></span> 
 {{% /term %}}
 
@@ -133,24 +133,24 @@ At 9600 baud the clock frequency should be 9600 * 372 =3.5712MHz.
 <span style="color:#96cb59">HDPLXUART></span> G 
 <span style="color:#bfa530">Generate frequency</span>
 <span style="color:#bfa530">Choose available pin:</span>
- 1. IO<span className="bp-float">1</span>
+ 1. IO<span style="color:#53a6e6">1</span>
 ...
- 7. IO<span className="bp-float">7</span>
+ 7. IO<span style="color:#53a6e6">7</span>
  x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59"> ></span> 1
 <span style="color:#96cb59">Period or frequency (ns, us, ms, Hz, kHz or Mhz) ></span> 3.5712mhz
-<span style="color:#bfa530">Frequency:</span> <span className="bp-float">3.571</span>MHz = <span className="bp-float">3571200</span>Hz (<span className="bp-float">3.57</span>MHz)
-<span style="color:#bfa530">Period:</span> <span className="bp-float">280</span>ns (<span className="bp-float">280.02</span>ns)
+<span style="color:#bfa530">Frequency:</span> <span style="color:#53a6e6">3.571</span>MHz = <span style="color:#53a6e6">3571200</span>Hz (<span style="color:#53a6e6">3.57</span>MHz)
+<span style="color:#bfa530">Period:</span> <span style="color:#53a6e6">280</span>ns (<span style="color:#53a6e6">280.02</span>ns)
 
-<span style="color:#bfa530">Actual frequency:</span> <span className="bp-float">3571428</span>Hz (<span className="bp-float">3.57</span>MHz)
-<span style="color:#bfa530">Actual period:</span> <span className="bp-float">280</span>ns (<span className="bp-float">280.00</span>ns)
+<span style="color:#bfa530">Actual frequency:</span> <span style="color:#53a6e6">3571428</span>Hz (<span style="color:#53a6e6">3.57</span>MHz)
+<span style="color:#bfa530">Actual period:</span> <span style="color:#53a6e6">280</span>ns (<span style="color:#53a6e6">280.00</span>ns)
 
 <span style="color:#96cb59">Duty cycle (%) ></span> 50%
-<span style="color:#bfa530">Duty cycle:</span> <span className="bp-float">50.00</span>% = <span className="bp-float">140</span>ns (<span className="bp-float">140.00</span>ns)
-<span style="color:#bfa530">Actual duty cycle:</span> <span className="bp-float">148</span>ns (<span className="bp-float">148.24</span>ns)
+<span style="color:#bfa530">Duty cycle:</span> <span style="color:#53a6e6">50.00</span>% = <span style="color:#53a6e6">140</span>ns (<span style="color:#53a6e6">140.00</span>ns)
+<span style="color:#bfa530">Actual duty cycle:</span> <span style="color:#53a6e6">148</span>ns (<span style="color:#53a6e6">148.24</span>ns)
 Divider: 16, Period: 34, Duty: 18
 
-<span style="color:#bfa530">Generate frequency:</span> Enabled on IO<span className="bp-float">1</span>
+<span style="color:#bfa530">Generate frequency:</span> Enabled on IO<span style="color:#53a6e6">1</span>
 
 <span style="color:#96cb59">HDPLXUART></span>
 {{% /term %}}
@@ -186,9 +186,9 @@ First, ensure the UART is open and printing data values as they arrive.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HDPLXUART></span> a 2; @ 2
-IO<span className="bp-float">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span className="bp-float">0</span>
+IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
-IO<span className="bp-float">2<span style="color:#bfa530"> set to</span></span> INPUT: <span className="bp-float">1</span>
+IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> INPUT: <span style="color:#53a6e6">1</span>
 
 <span style="color:#96cb59">HDPLXUART></span> 0x3b 0x9f 0x95 0x80 0x1f 0xc7 0x80 0x31 0xe0 0x73 0xfe 0x21 0x13 0x67 0x22 0x28 0x00 0x40 0x01 0x00 0x01 0x91 
 {{% /term %}}
@@ -226,9 +226,9 @@ Based on a [database of ATR responses](http://ludovic.rousseau.free.fr/softwares
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HDPLXUART></span> a 2; @ 2
-IO<span className="bp-float">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span className="bp-float">0</span>
+IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
-IO<span className="bp-float">2<span style="color:#bfa530"> set to</span></span> INPUT: <span className="bp-float">1</span>
+IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> INPUT: <span style="color:#53a6e6">1</span>
 
 <span style="color:#96cb59">HDPLXUART></span>0x3b 0x9e 0x96 0x80 0x1f 0xc7 0x80 0x31 0xe0 0x73 0xfe 0x21 0x1b 0x66 0xd0 0x01 0xa1 0xb8 0x10 0x00 0x08
 {{% /term %}}
@@ -242,9 +242,9 @@ A cheap 4G travel SIM from IMG in Hong Kong.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HDPLXUART></span> a 2; @ 2
-IO<span className="bp-float">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span className="bp-float">0</span>
+IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
-IO<span className="bp-float">2<span style="color:#bfa530"> set to</span></span> INPUT: <span className="bp-float">1</span>
+IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> INPUT: <span style="color:#53a6e6">1</span>
 
 <span style="color:#96cb59">HDPLXUART></span>0x3b 0x9e 0x95 0x80 0x1f 0xc7 0x80 0x31 0xe0 0x73 0xfe 0x21 0x1b 0x66 0xd0 0x02 0x24 0x7b 0x14 0x00 0x4a
 {{% /term %}}
@@ -258,9 +258,9 @@ A cheap 4G travel SIM from ValueGB in Hong Kong.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HDPLXUART></span> a 2; @ 2
-IO<span className="bp-float">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span className="bp-float">0</span>
+IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
-IO<span className="bp-float">2<span style="color:#bfa530"> set to</span></span> INPUT: <span className="bp-float">1</span>
+IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> INPUT: <span style="color:#53a6e6">1</span>
 
 <span style="color:#96cb59">HDPLXUART></span>0x3b 0x6e 0x00 0x00 0x80 0x31 0x80 0x66 0xb0 0x84 0x0c 0x01 0x6e 0x01 0x83 0x00 0x90 0x00
 {{% /term %}}
@@ -274,9 +274,9 @@ Bank card chips respond to the same ATR as mobile SIM cards. This is a Master Ca
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HDPLXUART></span> a 2; @ 2
-IO<span className="bp-float">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span className="bp-float">0</span>
+IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
-IO<span className="bp-float">2<span style="color:#bfa530"> set to</span></span> INPUT: <span className="bp-float">1</span>
+IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> INPUT: <span style="color:#53a6e6">1</span>
 
 <span style="color:#96cb59">HDPLXUART></span>
 0x3b 0x6f 0x00 0x00 0x80 0x31 0xe0 0x6b 0x08 0x24 0x05 0x02 0xb5 0x55 0x55 0x55 0x55 0x55 0x55
@@ -290,9 +290,9 @@ A Visa debit card from a US transit system.
 ## Hong Kong Union Pay Card
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">HDPLXUART></span> a 2; @ 2
-IO<span className="bp-float">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span className="bp-float">0</span>
+IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
-IO<span className="bp-float">2<span style="color:#bfa530"> set to</span></span> INPUT: <span className="bp-float">1</span>
+IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span> INPUT: <span style="color:#53a6e6">1</span>
 
 <span style="color:#96cb59">HDPLXUART></span>
 0x3b 0x6b 0x00 0x00 0x00 0x31 0xc0 0x64 0x08 0x04 0x61 0x76 0x07 0x90 0x00

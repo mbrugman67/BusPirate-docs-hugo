@@ -76,17 +76,17 @@ This mode is experimental, use at your own risk.
 <span style="color:#bfa530">Power supply
 Volts (0.80V-5.00V)</span>
 <span style="color:#96cb59">x to exit (3.30) ></span> 3.30
-<span className="bp-float">3.30</span>V<span style="color:#bfa530"> requested, closest value: <span className="bp-float">3.30</span></span>V
+<span style="color:#53a6e6">3.30</span>V<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">3.30</span></span>V
 Set current limit?
 y
 
 <span style="color:#bfa530">Maximum current (0mA-500mA)</span>
 <span style="color:#96cb59">x to exit (100.00) ></span> 150
-<span className="bp-float">150.0</span>mA<span style="color:#bfa530"> requested, closest value: <span className="bp-float">150.0</span></span>mA
+<span style="color:#53a6e6">150.0</span>mA<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">150.0</span></span>mA
 
 <span style="color:#bfa530">Power supply:</span>Enabled
 <span style="color:#bfa530">
-Vreg output: <span className="bp-float">3.30</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span className="bp-float">3.30</span></span>V<span style="color:#bfa530">, Current sense: <span className="bp-float">9.2</span></span>mA<span style="color:#bfa530">
+Vreg output: <span style="color:#53a6e6">3.30</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">3.30</span></span>V<span style="color:#bfa530">, Current sense: <span style="color:#53a6e6">9.2</span></span>mA<span style="color:#bfa530">
 </span>
 {{% /term %}}
 

@@ -111,16 +111,16 @@ When changing protocol modes with the ```m``` command, FALA will automatically s
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span style="color:#96cb59">SPI></span> W 5
-<span className="bp-float">5.00</span>V<span style="color:#bfa530"> requested, closest value: <span className="bp-float">5.00</span></span>V
+<span style="color:#53a6e6">5.00</span>V<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">5.00</span></span>V
 <span style="color:#bfa530">Current limit:</span>Disabled
 
 <span style="color:#bfa530">Power supply:</span>Enabled
-<span style="color:#bfa530">Vreg output: <span className="bp-float">5.0</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span className="bp-float">5.0</span></span>V<span style="color:#bfa530">, Current: <span className="bp-float">3.2</span></span>mA<span style="color:#bfa530">
+<span style="color:#bfa530">Vreg output: <span style="color:#53a6e6">5.0</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">5.0</span></span>V<span style="color:#bfa530">, Current: <span style="color:#53a6e6">3.2</span></span>mA<span style="color:#bfa530">
 </span>
 <span style="color:#96cb59">SPI></span> [0x00 0xff 0x55 0xaa]
 
 CS Enabled
-<span style="color:#bfa530">TX:</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">55</span> 0x<span className="bp-float">AA</span> 
+<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">55</span> 0x<span style="color:#53a6e6">AA</span> 
 CS Disabled
 
 <span style="color:#bfa530">Logic analyzer:</span> 288 samples captured
