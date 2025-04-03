@@ -63,4 +63,3 @@ Type a menu option number followed by ```enter```. Choose a configuration settin
 
 Press ```x``` followed by ```enter``` at any prompt to exit the configuration menu. Settings will be saved and loaded automatically when the Bus Pirate restarts.
 
-<DiscourseComments/>

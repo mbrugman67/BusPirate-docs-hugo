@@ -2,7 +2,7 @@
 weight = 11
 title = 'Testing'
 +++
-import BrowserWindow from '@site/src/components/BrowserWindow';
+
 
 # Testing
 

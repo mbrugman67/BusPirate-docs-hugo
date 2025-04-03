@@ -247,5 +247,3 @@ FAIL! :(</span>
 {{% /term %}}
 
 If your self-test reports errors, we are eager to know. Please [post the full self-test results in the forum](https://forum.buspirate.com/) and we'll have a look.
-
-<DiscourseComments/>

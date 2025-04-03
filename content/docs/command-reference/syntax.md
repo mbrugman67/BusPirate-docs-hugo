@@ -285,4 +285,4 @@ Sometimes it's useful to control a pin directly when executing bus syntax. ```a.
 Syntax a/A/@ use the ```a.X``` notation, the syntax is followed by a **.** and the pin number to control. This is different than the commands a/A/@, which are followed by a space and the pin number to control.
 {{% /alert %}}
 
-<DiscourseComments/>
+

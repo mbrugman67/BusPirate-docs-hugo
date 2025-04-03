@@ -1,5 +1,5 @@
 +++
-weight = 2000
+weight = 200000
 title = 'License'
 +++
 import LicenseMit from '/_common/_license/_mit.md' 

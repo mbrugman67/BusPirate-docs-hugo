@@ -171,5 +171,3 @@ Verify that all the pins are around 5volts in the live monitor statusbar, or by 
 
 Verify that all the pins show 0volts in the live monitor statusbar or voltage report.
 - All pins should now be at 0volts because the pull-up are disabled.
-
-<DiscourseComments/>

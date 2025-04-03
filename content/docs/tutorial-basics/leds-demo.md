@@ -228,5 +228,3 @@ Finally, send a command to set all three dies at half power.
 ![](./img/led-dim.jpg)
 
 Even though the LED dies are only lit 50% of the time it doesn't appear half as bright. This is because human perception of brightness is non-liner. To make it really dim try sending a smaller value like 0x10: ```0x101010.24``` followed by ```enter```.
-
-<DiscourseComments/>

@@ -84,5 +84,3 @@ When a terminal is not connected, the flash storage appears as a read/write disk
 {{% alert context="info" %}}
 To enable read/write mode, disconnect any terminals from the Bus Pirate serial ports.
 {{% /alert %}}
-
-<DiscourseComments/>

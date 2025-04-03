@@ -91,4 +91,3 @@ The Bus Pirate will reset and connect to your computer when the firmware update 
 
 Congratulations, you now have the latest and greatest firmware! Happy hacking!
 
-<DiscourseComments/>

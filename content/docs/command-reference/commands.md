@@ -708,4 +708,3 @@ Done.
 
 Execute a macro by typing the macro number between ```( )```.
 
-<DiscourseComments/>

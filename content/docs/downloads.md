@@ -1,40 +1,32 @@
 +++
-title = "Downloads"
+title = "Download Firmware"
 description = ""
 icon = "article"
 date = "2023-05-22T00:27:57+01:00"
 lastmod = "2023-05-22T00:27:57+01:00"
 draft = false
 toc = true
-weight = 100
+weight = 1000
 +++
 
-{{% alert icon="💡" context="success" %}}
-TIP
+{{% btn icon=" " context="success" href="https://forum.buspirate.com/t/bus-pirate-5-auto-build-main-branch/20/999999" %}}
+Download Firmware
+{{% /btn %}}
 
-The latest bleeding edge firmware is auto-compiled and posted in the forum.
-[Get the latest and
-greatest](https://forum.buspirate.com/t/bus-pirate-5-auto-build-main-branch/20/999999).
-{{% /alert %}}
-
-{{% alert icon="🛈" context="info" %}}
-INFO
+## Upgrade Instructions
 
 See the [firmware update tutorial](https://firmware.buspirate.com/tutorial-basics/firmware-update) for detailed instructions.
 
 - [Grab the latest and greatest auto-build firmware from the forum](https://forum.buspirate.com/t/bus-pirate-5-auto-build-main-branch/20/999999)
-- Open the .zip archive and extract your firmware
-- If your Bus Pirate came in a case (most boards), use `bus_pirate5_rev10.uf2`
 - Type `$` and press `enter` in the Bus Pirate terminal to enter bootloader/upgrade mode
-- A USB drive called RPI-RP2 will connect to your computer
-- Drag a .uf2 firmware file into the RPI-RP2 drive
+- The Bus Pirate will print the name of the firmware file to load before entering the bootloader, such as `bus_pirate5_rev10.uf2` or `bus_pirate6_rev2.uf2`
+- A USB drive called RPI-RP2, RP2350 or BP__BOOT will connect to your computer, depending on hardware version
+- Open the .zip archive and extract the correct firmware
+- Drag the .uf2 firmware file into the USB drive
 
 The file copies, the Bus Pirate resets, and you're good to go!
-{{% /alert %}}
 
-{{% alert icon="🔥" context="danger" %}}
-DANGER
-
+{{% alert context="danger" %}}
 Bus Pirate blinking red? Recent firmware detects the hardware revision at startup. It will blink red if there is a mismatch.
 
 [Enter the bootloader manually](https://firmware.buspirate.com/tutorial-basics/firmware-update#manually) (plug in the USB cable while pressing the button on the bottom side) and try the other file.

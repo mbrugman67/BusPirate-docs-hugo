@@ -189,5 +189,4 @@ The "meta" key for minicom defaults to Escape. To exit, hold `Esc` and press `q`
 If you see lots of extra garbage characters in the terminal that is probably the VT100 code that updates the live view statusbar. Verify that your terminal supports VT100 mode and that VT100 mode is enabled.
 {{% /alert %}} 
 
-<DiscourseComments/>
 
