@@ -42,13 +42,13 @@ LEDs are power hungry, up to 60mA each at full brightness. The programmable powe
  2. <span className="bp-info">APA102/SK9822 (clock and data interface)</span>
  3. <span className="bp-info">Onboard LEDs (16 SK6812s)</span>
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">Type (</span>1<span className="bp-prompt">) ></span> 
+<span style="color:#96cb59">Type (</span>1<span style="color:#96cb59">) ></span> 
 <span className="bp-info">Number of LEDs in the strip</span>
  1 to 10000
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">LEDs (</span>1*<span className="bp-prompt">) ></span> 
+<span style="color:#96cb59">LEDs (</span>1*<span style="color:#96cb59">) ></span> 
 <span className="bp-info">Mode:</span> LED
-<span className="bp-prompt">LED-(WS2812)></span> 
+<span style="color:#96cb59">LED-(WS2812)></span> 
 {{% /term %}}
 
 ## Syntax

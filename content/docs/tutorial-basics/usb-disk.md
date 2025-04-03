@@ -14,30 +14,30 @@ The Bus Pirate has a NAND flash chip for storing settings and data. The flash ch
 ## Navigation
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> ls
-<span className="bp-prompt">       350 <span className="bp-info">bpconfig.bp</span></span>
+<span style="color:#96cb59">HiZ></span> ls
+<span style="color:#96cb59">       350 <span className="bp-info">bpconfig.bp</span></span>
 <span className="bp-info">0 dirs, 1 files</span>
 
-<span className="bp-prompt">HiZ></span> mkdir temp
+<span style="color:#96cb59">HiZ></span> mkdir temp
 
-<span className="bp-prompt">HiZ></span> cd temp
+<span style="color:#96cb59">HiZ></span> cd temp
 /TEMP
 
-<span className="bp-prompt">HiZ></span> cd ..
+<span style="color:#96cb59">HiZ></span> cd ..
 /
 
-<span className="bp-prompt">HiZ></span> ls
-<span className="bp-prompt">       350 <span className="bp-info">bpconfig.bp</span></span>
-<span className="bp-prompt">   &#x003c;DIR>   <span className="bp-info">temp</span></span>
+<span style="color:#96cb59">HiZ></span> ls
+<span style="color:#96cb59">       350 <span className="bp-info">bpconfig.bp</span></span>
+<span style="color:#96cb59">   &#x003c;DIR>   <span className="bp-info">temp</span></span>
 <span className="bp-info">1 dirs, 1 files</span>
 
-<span className="bp-prompt">HiZ></span> rm temp
+<span style="color:#96cb59">HiZ></span> rm temp
 
-<span className="bp-prompt">HiZ></span> ls
-<span className="bp-prompt">       350 <span className="bp-info">bpconfig.bp</span></span>
+<span style="color:#96cb59">HiZ></span> ls
+<span style="color:#96cb59">       350 <span className="bp-info">bpconfig.bp</span></span>
 <span className="bp-info">0 dirs, 1 files</span>
 
-<span className="bp-prompt">HiZ></span> 
+<span style="color:#96cb59">HiZ></span> 
 {{% /term %}}
 
 Linux-like commands are used to navigate the flash storage from the Bus Pirate command line. 

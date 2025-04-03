@@ -78,7 +78,7 @@ Volts (0.80V-5.00V)</span></span>
 This is the raw output of a NodeJS converter script. The colors are hex color codes inserted in the stype tag.
 
 ```html
-<span className="bp-prompt">HiZ></span> i
+<span style="color:#96cb59">HiZ></span> i
 <span className="bp-info">
 Bus Pirate 5 REV6
 Firmware 

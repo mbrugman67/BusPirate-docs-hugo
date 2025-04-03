@@ -31,7 +31,7 @@ All Bus Pirate hardware supports follow along logic analyzer, however only Bus P
 ## Enable FALA Interface
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> binmode
+<span style="color:#96cb59">HiZ></span> binmode
 
 <span className="bp-info">Select binary mode</span>
  1. SUMP logic analyzer
@@ -39,10 +39,10 @@ All Bus Pirate hardware supports follow along logic analyzer, however only Bus P
  3. Arduino CH32V003 SWIO
  4. Follow along logic analyzer
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt"> ></span> 4
+<span style="color:#96cb59"> ></span> 4
 <span className="bp-info">Binmode selected:</span> Follow along logic analyzer
 
-<span className="bp-prompt">HiZ></span> 
+<span style="color:#96cb59">HiZ></span> 
 {{% /term %}}
 
 Enable the FALA binary interface with the ```binmode``` command. This will configure the logic analyzer and send capture notifications to the Bus Pirate's second serial port.
@@ -70,7 +70,7 @@ Click "run" to start capturing.
 ## Capture Samples
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> m
+<span style="color:#96cb59">HiZ></span> m
 
 <span className="bp-info">Mode selection</span>
  1. <span className="bp-info">HiZ</span>
@@ -78,7 +78,7 @@ Click "run" to start capturing.
  6. <span className="bp-info">SPI</span>
 ...
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">Mode ></span> 6
+<span style="color:#96cb59">Mode ></span> 6
 
 <span className="bp-info">Use previous settings?</span>
  <span className="bp-info">SPI speed:</span> 10 kHz
@@ -87,7 +87,7 @@ Click "run" to start capturing.
  <span className="bp-info">Clock phase:</span> LEADING edge
  <span className="bp-info">Chip select:</span> Active LOW (/CS)
 
-<span className="bp-prompt">y/n, x to exit (Y) ></span> y
+<span style="color:#96cb59">y/n, x to exit (Y) ></span> y
 
 {{% /term %}}
 
@@ -101,7 +101,7 @@ Enter a Bus Pirate mode. For now, SPI is best for testing.
 <span className="bp-info">Use the 'logic' command to change capture settings</span>
 
 <span className="bp-info">Mode:</span> SPI
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 When changing protocol modes with the ```m``` command, FALA will automatically set the capture speed to oversample the bus speed by a factor of 8. 
@@ -110,21 +110,21 @@ When changing protocol modes with the ```m``` command, FALA will automatically s
 
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> W 5
+<span style="color:#96cb59">SPI></span> W 5
 <span className="bp-float">5.00</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">5.00</span></span>V
 <span className="bp-info">Current limit:</span>Disabled
 
 <span className="bp-info">Power supply:</span>Enabled
 <span className="bp-info">Vreg output: <span className="bp-float">5.0</span></span>V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">5.0</span></span>V<span className="bp-info">, Current: <span className="bp-float">3.2</span></span>mA<span className="bp-info">
 </span>
-<span className="bp-prompt">SPI></span> [0x00 0xff 0x55 0xaa]
+<span style="color:#96cb59">SPI></span> [0x00 0xff 0x55 0xaa]
 
 CS Enabled
 <span className="bp-info">TX:</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">55</span> 0x<span className="bp-float">AA</span> 
 CS Disabled
 
 <span className="bp-info">Logic analyzer:</span> 288 samples captured
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 Every time you send data to the bus, the logic analyzer will capture samples. Enable the power supply and write some data.
@@ -146,7 +146,7 @@ Autozoom fits all samples in the logic graph (red arrow).
 
 ## Change Capture Speed
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> logic -o 16
+<span style="color:#96cb59">SPI></span> logic -o 16
 Oversample rate set to: 16
 
 Logic Analyzer settings
@@ -156,7 +156,7 @@ Logic Analyzer settings
 Note: oversample rate is not 1
 Actual sample frequency: 160000Hz (16 * 10000Hz)
 
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 The base capture speed or the oversample rate can can be changed with the ```logic``` command. Changing the oversample rate with the ```-o``` flag is probably easiest as the Bus Pirate will calculate the new sample frequency for you.

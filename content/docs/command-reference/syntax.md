@@ -11,12 +11,12 @@ the same general function in each bus mode, such as ```r``` to read a byte
 of data.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [0x31 r:5]
+<span style="color:#96cb59">SPI></span> [0x31 r:5]
 <span className="bp-info">CS Select (0)</span>
 <span className="bp-info"><span className="bp-info">TX:</span></span> 0x<span className="bp-float">31</span>
 <span className="bp-info"><span className="bp-info">RX:</span></span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span>
 <span className="bp-info">CS Deselect (1)</span>
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 This example syntax sends a bus start, the value 0x31, and then reads 5
@@ -33,14 +33,14 @@ Start a line with ```[```, ```\{```, or ```>``` to tell the Bus Pirate to send d
 ### **[ or \{** Execute syntax with start
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [ 0x03 0 r:5]
+<span style="color:#96cb59">SPI></span> [ 0x03 0 r:5]
 
 CS Select (0)
 <span className="bp-info">TX:</span> 0x<span className="bp-float">03</span> 
 <span className="bp-info">TX:</span> 0 
 <span className="bp-info">RX:</span> 0x<span className="bp-float">48</span> 0x<span className="bp-float">65</span> 0x<span className="bp-float">6C</span> 0x<span className="bp-float">6C</span> 0x<span className="bp-float">6F</span> 
 CS Deselect (1)
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 Start commands generate a start condition (I2C), open a UART, control chip select (SPI) and have similar "start" type functions in every mode. A line beginning with these characters is interpreted as syntax.
@@ -48,10 +48,10 @@ Start commands generate a start condition (I2C), open a UART, control chip selec
 ### **>** Execute syntax (no start)
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> > 0x55 0xaa
+<span style="color:#96cb59">SPI></span> > 0x55 0xaa
 
 <span className="bp-info">TX:</span> 0x<span className="bp-float">55</span> 0x<span className="bp-float">AA</span> 
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 While the first two commands actually output something to the bus, this command tells the Bus Pirate to execute syntax without generating any output of its own.
@@ -70,9 +70,9 @@ each protocol.
 ### **\{ or [** Bus start condition
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [
+<span style="color:#96cb59">SPI></span> [
 <span className="bp-info">CS Select (0)</span>
-<span className="bp-prompt">SPI></span>
+<span style="color:#96cb59">SPI></span>
 {{% /term %}}
 
 ```[``` generally starts bus activity. In various modes it starts (I2C),
@@ -81,9 +81,9 @@ selects (SPI), resets (1-wire), or opens (UART).
 ### **] or }** Bus stop condition
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> >]
+<span style="color:#96cb59">SPI></span> >]
 <span className="bp-info">CS Deselect (1)</span>
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 ```]``` generally stops bus activity. In various modes it stops (I2C), deselects
@@ -91,9 +91,9 @@ selects (SPI), resets (1-wire), or opens (UART).
 
 ### **r** Read byte 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> >r
+<span style="color:#96cb59">SPI></span> >r
 <span className="bp-info"><span className="bp-info">RX:</span></span> 0x<span className="bp-float">00</span>
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 
@@ -107,9 +107,9 @@ The ```>``` before ```r``` tells the Bus Pirate we want to send data to the bus.
 ### **0b01** Write this binary value 
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> >0b01
+<span style="color:#96cb59">SPI></span> >0b01
 <span className="bp-info"><span className="bp-info">TX:</span></span> 0b<span className="bp-float">0000</span>0001
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 Enter a binary value to write it to the bus.
@@ -123,9 +123,9 @@ binary number as 0b and then the bits. Padding 0's are not required,
 ### **0x01** Write this HEX value 
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> >0x01
+<span style="color:#96cb59">SPI></span> >0x01
 <span className="bp-info"><span className="bp-info">TX:</span></span> 0x<span className="bp-float">01</span>
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 Enter a HEX value to write it to the bus.
@@ -140,9 +140,9 @@ uppercase letters.
 ### **0-255** Write this decimal value
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> >1
+<span style="color:#96cb59">SPI></span> >1
 <span className="bp-info"><span className="bp-info">TX:</span></span> 1
-<span className="bp-prompt">SPI></span>
+<span style="color:#96cb59">SPI></span>
 {{% /term %}}
 
 Any number not preceded by 0x, 0h, or 0b is interpreted as a decimal value and sent to the bus.
@@ -153,7 +153,7 @@ Any number not preceded by 0x, 0h, or 0b is interpreted as a decimal value and s
 ### **"abc"** Write this ASCII string 
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> >"abc"
+<span style="color:#96cb59">SPI></span> >"abc"
 <span className="bp-info"><span className="bp-info">TX:</span></span> 'a' 0x<span className="bp-float">61</span> 'b' 0x<span className="bp-float">62</span> 'c' 0x<span className="bp-float">63</span> 
 {{% /term %}}
 
@@ -162,7 +162,7 @@ Characters enclosed in ```" "``` are sent to the bus as their [ASCII equivalent 
 ### **```space```** Value delimiter
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [1 2 3  rr]
+<span style="color:#96cb59">SPI></span> [1 2 3  rr]
 <span className="bp-info">CS Select (0)</span>
 <span className="bp-info"><span className="bp-info">TX:</span></span> 1
 <span className="bp-info"><span className="bp-info">TX:</span></span> 2
@@ -170,7 +170,7 @@ Characters enclosed in ```" "``` are sent to the bus as their [ASCII equivalent 
 <span className="bp-info"><span className="bp-info">RX:</span></span> 0x<span className="bp-float">00</span>
 <span className="bp-info"><span className="bp-info">RX:</span></span> 0x<span className="bp-float">00</span>
 <span className="bp-info">CS Deselect (1)</span>
-<span className="bp-prompt">SPI></span>
+<span style="color:#96cb59">SPI></span>
 {{% /term %}}
 
 Use a space to separate numbers. 
@@ -182,15 +182,15 @@ No delimiter is required between non-number commands.
 ### **d/D** Delay 1uS/MS 
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> >d
+<span style="color:#96cb59">SPI></span> >d
 <span className="bp-info"><span className="bp-info">Delay:</span></span> <span className="bp-float">1</span>us
-<span className="bp-prompt">SPI></span> >d:10
+<span style="color:#96cb59">SPI></span> >d:10
 <span className="bp-info"><span className="bp-info">Delay:</span></span> <span className="bp-float">10</span>us
-<span className="bp-prompt">SPI></span> >D
+<span style="color:#96cb59">SPI></span> >D
 <span className="bp-info"><span className="bp-info">Delay:</span></span> <span className="bp-float">1</span>ms
-<span className="bp-prompt">SPI></span> >D:10
+<span style="color:#96cb59">SPI></span> >D:10
 <span className="bp-info"><span className="bp-info">Delay:</span></span> <span className="bp-float">10</span>ms
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 ```d``` delays 1us, ```D``` delays 1ms. 
@@ -202,13 +202,13 @@ Use the repeat command for multiple delays.
 ### **:** Repeat (e.g. r:10) 
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [ 0x55:2 D:3 r:3]
+<span style="color:#96cb59">SPI></span> [ 0x55:2 D:3 r:3]
 <span className="bp-info">CS Select (0)</span>
 <span className="bp-info"><span className="bp-info">TX:</span></span> 0x<span className="bp-float">55</span> 0x<span className="bp-float">55</span>
 <span className="bp-info"><span className="bp-info">Delay:</span></span> <span className="bp-float">2</span>ms
 <span className="bp-info"><span className="bp-info">RX:</span></span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span>
 <span className="bp-info">CS Deselect (1)</span>
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 Many commands can be repeated by adding ```:```, followed by the number of times to repeat. To read five bytes, enter ```r:5```, etc. 
@@ -220,33 +220,33 @@ The repeat values can also be HEX/DEC/BIN formatted.
 ### **.** Partial read/write
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> >0x5a.4
+<span style="color:#96cb59">SPI></span> >0x5a.4
 <span className="bp-info"><span className="bp-info">TX:</span></span> 0x<span className="bp-float">0A</span>.4
-<span className="bp-prompt">SPI></span>
+<span style="color:#96cb59">SPI></span>
 {{% /term %}}
 
 Write/read partial bytes (where enabled by hardware) using the ```.``` option. ```0x75.4``` will write 0x5 (4 bits) to the bus. 
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> >r.4
+<span style="color:#96cb59">SPI></span> >r.4
 <span className="bp-info"><span className="bp-info">RX:</span></span> 0x<span className="bp-float">05</span>.4
-<span className="bp-prompt">SPI></span>
+<span style="color:#96cb59">SPI></span>
 {{% /term %}}
 
 Read 4 bits from the bus.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> >0x5432.12
+<span style="color:#96cb59">SPI></span> >0x5432.12
 <span className="bp-info"><span className="bp-info">TX:</span></span> 0x<span className="bp-float">04</span>32.12
-<span className="bp-prompt">SPI></span>
+<span style="color:#96cb59">SPI></span>
 {{% /term %}}
 
 Write 12 bits of 0x5432 to the bus.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> >0x5a.4:2
+<span style="color:#96cb59">SPI></span> >0x5a.4:2
 <span className="bp-info"><span className="bp-info">TX:</span></span> 0x<span className="bp-float">0a</span>.4 0x<span className="bp-float">0a</span>.4
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 Partial write/reads can be combined with the repeat command.
@@ -254,12 +254,12 @@ Partial write/reads can be combined with the repeat command.
 ### **v** Measure voltage
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> > v.1 v.2 v.3
+<span style="color:#96cb59">SPI></span> > v.1 v.2 v.3
 
 <span className="bp-info">Volts on IO1:</span> <span className="bp-float">3.2</span>V
 <span className="bp-info">Volts on IO2:</span> <span className="bp-float">3.2</span>V
 <span className="bp-info">Volts on IO3:</span> <span className="bp-float">3.2</span>V
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 ```v.x``` measures the voltage on IO pin x.
@@ -267,16 +267,16 @@ Partial write/reads can be combined with the repeat command.
 ### **a/A/@** Auxiliary pin control (low/HIGH/read)
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">UART></span> >a.1
+<span style="color:#96cb59">UART></span> >a.1
 <span className="bp-info">IO<span className="bp-float">1<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span>
 
-<span className="bp-prompt">UART></span> >A.1
+<span style="color:#96cb59">UART></span> >A.1
 <span className="bp-info">IO<span className="bp-float">1<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">1</span>
 
-<span className="bp-prompt">UART></span> >@.1
+<span style="color:#96cb59">UART></span> >@.1
 <span className="bp-info">IO<span className="bp-float">1<span className="bp-info"> set to</span></span></span> INPUT: <span className="bp-float">0</span>
 
-<span className="bp-prompt">UART></span>
+<span style="color:#96cb59">UART></span>
 {{% /term %}}
 
 Sometimes it's useful to control a pin directly when executing bus syntax. ```a.X```, ```A.X``` and ```@.X``` set pin X low, high and input (HiZ). The ```@``` command also reads and reports the pin state.

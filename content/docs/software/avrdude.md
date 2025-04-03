@@ -39,7 +39,7 @@ RESET is connected to the CS pin on the Bus Pirate. The CS pin is used to reset 
 
 ## Setup
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> binmode
+<span style="color:#96cb59">HiZ></span> binmode
 
 <span className="bp-info">Select binary mode</span>
  1. SUMP logic analyzer
@@ -48,7 +48,7 @@ RESET is connected to the CS pin on the Bus Pirate. The CS pin is used to reset 
  4. Follow along logic analyzer
  5. Legacy Binary Mode for Flashrom and AVRdude (EXPERIMENTAL)
  x. Exit
-<span className="bp-prompt"> ></span> 5
+<span style="color:#96cb59"> ></span> 5
 <span className="bp-info">Binmode selected: </span>
  Legacy Binary Mode for Flashrom and AVRdude (EXPERIMENTAL)
 <span className="bp-info">Binmode active. Terminal locked</span>
@@ -63,13 +63,13 @@ This mode is experimental, use at your own risk.
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-info">Power supply
 Volts (0.80V-5.00V)</span>
-<span className="bp-prompt">x to exit (3.30) ></span> 5
+<span style="color:#96cb59">x to exit (3.30) ></span> 5
 <span className="bp-float">5.00</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">5.00</span></span>V
 Set current limit?
 y
 
 <span className="bp-info">Maximum current (0mA-500mA)</span>
-<span className="bp-prompt">x to exit (100.00) ></span> 150
+<span style="color:#96cb59">x to exit (100.00) ></span> 150
 <span className="bp-float">150.0</span>mA<span className="bp-info"> requested, closest value: <span className="bp-float">150.0</span></span>mA
 
 <span className="bp-info">Power supply:</span>Enabled

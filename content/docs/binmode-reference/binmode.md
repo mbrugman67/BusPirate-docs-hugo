@@ -15,7 +15,7 @@ import BrowserWindow from '@site/src/components/BrowserWindow';
 # Binary Interfaces
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> binmode
+<span style="color:#96cb59">HiZ></span> binmode
 
 <span className="bp-info">Select binary mode</span>
  1. SUMP logic analyzer
@@ -24,10 +24,10 @@ import BrowserWindow from '@site/src/components/BrowserWindow';
  4. Follow along logic analyzer
  5. Legacy Binary Mode for Flashrom and AVRdude (EXPERIMENTAL)
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt"> ></span> 1
+<span style="color:#96cb59"> ></span> 1
 <span className="bp-info">Binmode selected:</span> SUMP logic analyzer
 
-<span className="bp-prompt">HiZ></span> 
+<span style="color:#96cb59">HiZ></span> 
 {{% /term %}}
 
 The Bus Pirate has two USB serial ports. One is used for the command line terminal. The other can be configured to use various protocols that support software running on a PC.  

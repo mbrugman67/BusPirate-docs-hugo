@@ -31,7 +31,7 @@ All Bus Pirate hardware supports follow along logic analyzer, however only Bus P
 ## Enable FALA Interface
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> binmode
+<span style="color:#96cb59">HiZ></span> binmode
 
 <span className="bp-info">Select binary mode</span>
  1. SUMP logic analyzer
@@ -39,10 +39,10 @@ All Bus Pirate hardware supports follow along logic analyzer, however only Bus P
  3. Arduino CH32V003 SWIO
  4. Follow along logic analyzer
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt"> ></span> 4
+<span style="color:#96cb59"> ></span> 4
 <span className="bp-info">Binmode selected:</span> Follow along logic analyzer
 
-<span className="bp-prompt">HiZ></span> 
+<span style="color:#96cb59">HiZ></span> 
 {{% /term %}}
 
 Enable the FALA binary interface with the ```binmode``` command. This will configure the logic analyzer and send capture notifications to the Bus Pirate's second serial port.
@@ -54,14 +54,14 @@ Enable the FALA binary interface with the ```binmode``` command. This will confi
 <span className="bp-info">Use the 'logic' command to change capture settings</span>
 
 <span className="bp-info">Mode:</span> SPI
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 When changing protocol modes with the ```m``` command, FALA will automatically set the capture speed to oversample the bus speed by a factor of 8. 
 
 ### Change Capture Speed
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> logic -o 16
+<span style="color:#96cb59">SPI></span> logic -o 16
 Oversample rate set to: 16
 
 Logic Analyzer settings
@@ -71,7 +71,7 @@ Logic Analyzer settings
 Note: oversample rate is not 1
 Actual sample frequency: 160000Hz (16 * 10000Hz)
 
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 The base capture speed or the oversample rate can can be changed with the ```logic``` command. Changing the oversample rate with the ```-o``` flag is probably easiest as the Bus Pirate will calculate the new sample frequency for you.
@@ -79,14 +79,14 @@ The base capture speed or the oversample rate can can be changed with the ```log
 ### Capture Samples
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [ 0xaa 0x55]
+<span style="color:#96cb59">SPI></span> [ 0xaa 0x55]
 
 CS Enabled
 <span className="bp-info">TX:</span> 0x<span className="bp-float">AA</span> 0x<span className="bp-float">55</span> 
 CS Disabled
 
 <span className="bp-info">Logic analyzer:</span> 144 samples captured
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 Every time you send data to the bus, the logic analyzer will capture samples. The capture notification will be sent to the second serial port.

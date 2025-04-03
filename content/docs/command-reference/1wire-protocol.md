@@ -76,25 +76,25 @@ Most Bus Pirate commands have help. Add the ```-h``` flag to any command to see 
 #### help
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">1-WIRE></span> scan -h
+<span style="color:#96cb59">1-WIRE></span> scan -h
 usage:
 <span className="bp-info">scan	[-h(elp)]</span>
 <span className="bp-info">Scan 1-Wire address space: scan</span>
 
 <span className="bp-info">scan for 1-Wire devices</span>
-<span className="bp-prompt">-h</span>	<span className="bp-info">Get additional help</span>
+<span style="color:#96cb59">-h</span>	<span className="bp-info">Get additional help</span>
 
-<span className="bp-prompt">1-WIRE></span> 
+<span style="color:#96cb59">1-WIRE></span> 
 {{% /term %}}
 
 #### use
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">1-WIRE></span> scan
+<span style="color:#96cb59">1-WIRE></span> scan
 <span className="bp-info">
 1-Wire ROM search:
 1: 28 5c aa 13 0a 00 00 19
 </span>
-<span className="bp-prompt">1-WIRE></span>
+<span style="color:#96cb59">1-WIRE></span>
 {{% /term %}}
 
 ```scan``` performs a 1-Wire ROM search to detect the ID of every connected 1-Wire device. They type of device is shown if the family ID is known.
@@ -106,26 +106,26 @@ usage:
 #### help
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">1-WIRE></span> ds18b20 -h
+<span style="color:#96cb59">1-WIRE></span> ds18b20 -h
 usage:
 <span className="bp-info">ds18b20	[-h(elp)]</span>
 <span className="bp-info">measure temperature (single sensor bus only): ds18b20</span>
 
 <span className="bp-info">Query DS18B20 temperature sensor</span>
-<span className="bp-prompt">-h</span>	<span className="bp-info">Get additional help</span>
+<span style="color:#96cb59">-h</span>	<span className="bp-info">Get additional help</span>
 
-<span className="bp-prompt">1-WIRE></span> 
+<span style="color:#96cb59">1-WIRE></span> 
 {{% /term %}}
 
 #### use
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">1-WIRE></span> ds18b20
+<span style="color:#96cb59">1-WIRE></span> ds18b20
 <span className="bp-info">
 RX: 1a 01 00 00 7f ff 06 10 12
 Temperature: 17.625
 </span>
-<span className="bp-prompt">1-WIRE></span>
+<span style="color:#96cb59">1-WIRE></span>
 {{% /term %}}
 
 Macro ```ds18b20``` reads the temperature from a single 18B20 temperature sensor. The macro uses the skip ROM command, so it will only work with a single DS18B20 device connected.

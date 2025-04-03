@@ -11,7 +11,7 @@ Every Bus Pirate is lovingly tested by our crack team before it ships. The Bus P
 ## Start the self-test
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> ~
+<span style="color:#96cb59">HiZ></span> ~
 <span className="bp-info">SELF TEST STARTING</span>
 {{% /term %}}
 
@@ -35,7 +35,7 @@ PUSH BUTTON TO COMPLETE: OK
 
 PASS :)
 </span>
-<span className="bp-prompt">HiZ></span> 
+<span style="color:#96cb59">HiZ></span> 
 {{% /term %}}
 
 ### Error

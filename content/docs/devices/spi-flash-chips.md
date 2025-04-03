@@ -44,7 +44,7 @@ While some flash chips have an impressive top speed of 104MHz, it's unreliable a
 - Max current: 50ma.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> m
+<span style="color:#96cb59">HiZ></span> m
 
 <span className="bp-info">Mode selection</span>
  1. <span className="bp-info">HiZ</span>
@@ -54,50 +54,50 @@ While some flash chips have an impressive top speed of 104MHz, it's unreliable a
  5. <span className="bp-info">SPI</span>
  6. <span className="bp-info">LED</span>
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">Mode ></span> 5
+<span style="color:#96cb59">Mode ></span> 5
 
 <span className="bp-info">SPI speed</span>
  1 to 62500KHz
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">KHz (</span>100KHz*<span className="bp-prompt">) ></span> 
+<span style="color:#96cb59">KHz (</span>100KHz*<span style="color:#96cb59">) ></span> 
 <span className="bp-info">Data bits</span>
  4 to 8 bits
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">Bits (</span>8*<span className="bp-prompt">) ></span> 
+<span style="color:#96cb59">Bits (</span>8*<span style="color:#96cb59">) ></span> 
 <span className="bp-info">Clock polarity</span>
  1. <span className="bp-info">Idle LOW*</span>
  2. <span className="bp-info">Idle HIGH</span>
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">Polarity (</span>1<span className="bp-prompt">) ></span> 
+<span style="color:#96cb59">Polarity (</span>1<span style="color:#96cb59">) ></span> 
 <span className="bp-info">Clock phase</span>
  1. <span className="bp-info">LEADING edge*</span>
  2. <span className="bp-info">TRAILING edge</span>
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">Phase (</span>1<span className="bp-prompt">) ></span> 
+<span style="color:#96cb59">Phase (</span>1<span style="color:#96cb59">) ></span> 
 <span className="bp-info">Chip select</span>
  1. <span className="bp-info">Active HIGH (CS)</span>
  2. <span className="bp-info">Active LOW (/CS)*</span>
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">CS (</span>2<span className="bp-prompt">) ></span> 
+<span style="color:#96cb59">CS (</span>2<span style="color:#96cb59">) ></span> 
 <span className="bp-info">Actual speed:</span> 122KHz
 <span className="bp-info">Mode:</span> SPI
-<span className="bp-prompt">SPI></span> W
+<span style="color:#96cb59">SPI></span> W
 <span className="bp-info">Power supply
 Volts (0.80V-5.00V)</span>
-<span className="bp-prompt">x to exit (3.30) ></span> 
+<span style="color:#96cb59">x to exit (3.30) ></span> 
 <span className="bp-float">3.30</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">3.30</span></span>V
 Set current limit?
 y
 
 <span className="bp-info">Maximum current (0mA-500mA)</span>
-<span className="bp-prompt">x to exit (100.00) ></span> 50
+<span style="color:#96cb59">x to exit (100.00) ></span> 50
 <span className="bp-float">50.0</span>mA<span className="bp-info"> requested, closest value: <span className="bp-float">50.0</span></span>mA
 
 <span className="bp-info">Power supply:</span>Enabled
 <span className="bp-info">
 Vreg output: <span className="bp-float">3.3</span></span>V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">3.3</span></span>V<span className="bp-info">, Current sense: <span className="bp-float">5.8</span></span>mA<span className="bp-info">
 </span>
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 - Use the ```m``` mode command and select **SPI**
@@ -108,9 +108,9 @@ Vreg output: <span className="bp-float">3.3</span></span>V<span className="bp-in
 ### WP and HOLD pins
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> P
+<span style="color:#96cb59">SPI></span> P
 <span className="bp-info">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 Most SPI flash chips have a write protect pin (WP) that prevents accidental writes, and a hold pin (HOLD) that pauses the chip. The HOLD pin must be held high or the chip won't respond. WP must be held high or the chip will be read only. Often the chip will not respond if is WP is left floating, so be sure to hold it high (write enabled) or low (write disabled).
@@ -134,7 +134,7 @@ We'll try to use the most common commands, but not all chips will respond to all
 ### Reset ID
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [0xb9] D:10 [0xab 0x00:3 r]
+<span style="color:#96cb59">SPI></span> [0xb9] D:10 [0xab 0x00:3 r]
 
 CS Enabled
 <span className="bp-info">TX:</span> 0x<span className="bp-float">B9</span> 
@@ -142,7 +142,7 @@ CS Enabled
 <span className="bp-info">TX:</span> 0x<span className="bp-float">AB</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
 <span className="bp-info">RX:</span> 0x<span className="bp-float">EF</span> 
 CS Disabled
-<span className="bp-prompt">SPI></span>
+<span style="color:#96cb59">SPI></span>
 {{% /term %}}
 
 The 'Reset ID' command ```0xAB``` is used to read the device ID of the flash chip immediately after reset. The command is followed by a single byte response.
@@ -156,13 +156,13 @@ The response ```0x13``` is the device ID of the flash chip. There's no standard,
 ### Read Electronic Manufacturer ID
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [0x90 0x00:3 r:2]
+<span style="color:#96cb59">SPI></span> [0x90 0x00:3 r:2]
 
 CS Enabled
 <span className="bp-info">TX:</span> 0x<span className="bp-float">90</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
 <span className="bp-info">RX:</span> 0x<span className="bp-float">13</span> 0x<span className="bp-float">EF</span> 
 CS Disabled
-<span className="bp-prompt">SPI></span>
+<span style="color:#96cb59">SPI></span>
 {{% /term %}}
 
 The 'Read Electronic Manufacturer ID' command ```0x90``` is used to read the device ID and manufacturer ID of the flash chip. The command is followed by a two byte response.
@@ -176,13 +176,13 @@ The response ```0x13``` is the device ID of the flash chip, same as the Reset ID
 ### Read JEDEC ID
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [0x9F r:3]
+<span style="color:#96cb59">SPI></span> [0x9F r:3]
 
 CS Enabled
 <span className="bp-info">TX:</span> 0x<span className="bp-float">9F</span> 
 <span className="bp-info">RX:</span> 0x<span className="bp-float">EF</span> 0x<span className="bp-float">40</span> 0x<span className="bp-float">14</span> 
 CS Disabled
-<span className="bp-prompt">SPI></span>
+<span style="color:#96cb59">SPI></span>
 {{% /term %}}
 
 The 'Read JEDEC ID' command ```0x9F``` is used to read the manufacturer ID, memory type ID, and capacity ID of the flash chip. The command is followed by a three byte response.
@@ -194,7 +194,7 @@ The manufacturer ID is 0xEF, the memory type ID is 0x40, and the capacity ID is 
 ### Read SFDP tables 
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [0x5A 0x00:4 r:8]
+<span style="color:#96cb59">SPI></span> [0x5A 0x00:4 r:8]
 
 CS Enabled
 <span className="bp-info">TX:</span> 0x<span className="bp-float">5A</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
@@ -235,12 +235,12 @@ We will write 256 ASCII characters 'i' (0x69) at the memory address 0x00. Follow
 ### Enable writes
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [0x06]
+<span style="color:#96cb59">SPI></span> [0x06]
 
 CS Enabled
 <span className="bp-info">TX:</span> 0x<span className="bp-float">06</span> 
 CS Disabled
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 The 'Write Enable' command ```0x06``` must be sent before write and erase commands will be accepted. This prevents accidental erasures or overwrites of your valuable data. This command must be sent before any write, erase or configuration command.
@@ -251,13 +251,13 @@ The 'Write Enable' command ```0x06``` must be sent before write and erase comman
 
 ### Verify write enable
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [0x05 r:1]
+<span style="color:#96cb59">SPI></span> [0x05 r:1]
 
 CS Enabled
 <span className="bp-info">TX:</span> 0x<span className="bp-float">05</span> 
 <span className="bp-info">RX:</span> 0x<span className="bp-float">02</span> 
 CS Disabled
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 |S7|S6|S5|S4|S3|S2|S1|S0|
@@ -275,17 +275,17 @@ Response ```0x02``` indicates that the write enable bit (S1) is set to 1 (0x02=0
 
 ### Erase sector
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [0x06]
+<span style="color:#96cb59">SPI></span> [0x06]
 
 CS Enabled
 <span className="bp-info">TX:</span> 0x<span className="bp-float">06</span> 
 CS Disabled
-<span className="bp-prompt">SPI></span> [0x20 0x00 0x00 0x00]
+<span style="color:#96cb59">SPI></span> [0x20 0x00 0x00 0x00]
 
 CS Enabled
 <span className="bp-info">TX:</span> 0x<span className="bp-float">20</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
 CS Disabled
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 Flash works by flipping 1s in the memory to 0. Writing a location twice will simply flip more bits from 1 to 0, but will not flip 0 to 1. The erase sector command ```0x20``` is used to flip all bits in a 4000 byte sector from 0 to 1, after which we can write new data. 
@@ -309,7 +309,7 @@ Flash needs to be erased before it can be rewritten. Flash is erased in sectors,
 ### Verify erase sector
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [0x03 0x00 0x00 0x00 r:256]
+<span style="color:#96cb59">SPI></span> [0x03 0x00 0x00 0x00 r:256]
 
 CS Enabled
 <span className="bp-info">TX:</span> 0x<span className="bp-float">03</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
@@ -347,7 +347,7 @@ CS Enabled
     0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 0x<span className="bp-float">FF</span> 
     
 CS Disabled
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 We'll use the read data command ```0x03``` to verify that the sector has been erased to all 1s (0xff). The command is followed by a three byte address of the location to begin reading 256 bytes. We'll read the first 256 bytes from address 0x00.
@@ -361,17 +361,17 @@ We'll use the read data command ```0x03``` to verify that the sector has been er
 ### Enable writes and verify
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [0x06]
+<span style="color:#96cb59">SPI></span> [0x06]
 
 CS Enabled
 <span className="bp-info">TX:</span> 0x<span className="bp-float">06</span> 
 CS Disabled
-<span className="bp-prompt">SPI></span> [0x05 r:1]
+<span style="color:#96cb59">SPI></span> [0x05 r:1]
 
 CS Enabled
 <span className="bp-info">TX:</span> 0x<span className="bp-float">05</span> 
 <span className="bp-info">RX:</span> 0x<span className="bp-float">02</span> 
-<span className="bp-prompt">SPI></span>
+<span style="color:#96cb59">SPI></span>
 CS Disabled
 {{% /term %}}
 
@@ -380,7 +380,7 @@ Use the write enable command ```0x06``` to enable writes. Verify the write enabl
 ### Write data
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [0x02 0x00 0x00 0x00 0x69:256]
+<span style="color:#96cb59">SPI></span> [0x02 0x00 0x00 0x00 0x69:256]
 
 CS Enabled
 <span className="bp-info">TX:</span> 0x<span className="bp-float">02</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 
@@ -417,7 +417,7 @@ CS Enabled
     0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 
     0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 
 CS Disabled
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 Use the page program command ```0x02``` to write 256 bytes of data to address 0x00. The command is followed by a three byte address of the location to begin writing 256 bytes ```0x00 0x00 0x00```. The data to be written ```i``` (0x69) follows the address. 
@@ -435,7 +435,7 @@ The write enable command ```0x06``` must be send before writing data to the chip
 ## Read data
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> [0x03 0x00 0x00 0x00 r:256]
+<span style="color:#96cb59">SPI></span> [0x03 0x00 0x00 0x00 r:256]
 
 CS Enabled
 <span className="bp-info">TX:</span> 0x<span className="bp-float">03</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 0x<span className="bp-float">00</span> 
@@ -473,7 +473,7 @@ CS Enabled
     0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 0x<span className="bp-float">69</span> 
     
 CS Disabled
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 To confirm the data was written, we use the 'Read Data' instruction ```0x03``` once again. 
@@ -493,7 +493,7 @@ If the writing/reading process fails, check all connections. /HOLD & /WP pins mu
 The [flash command](command-reference/spi-protocol#flash) can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip by reading the SFDP tables. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> flash init
+<span style="color:#96cb59">SPI></span> flash init
 Probing:
 		Device ID	Manuf ID	Type ID		Capacity ID
 RESID (0xAB)	0x13

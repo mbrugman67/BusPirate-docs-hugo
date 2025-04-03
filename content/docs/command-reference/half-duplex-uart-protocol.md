@@ -32,24 +32,24 @@ Half-duplex UART is a common serial UART, but receive and transmit share a singl
 <span className="bp-info">UART speed</span>
  1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200 etc
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">Baud (</span>115200*<span className="bp-prompt">) ></span> 
+<span style="color:#96cb59">Baud (</span>115200*<span style="color:#96cb59">) ></span> 
 <span className="bp-info">Data bits</span>
  5 to 8 bits
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">Bits (</span>8*<span className="bp-prompt">) ></span> 
+<span style="color:#96cb59">Bits (</span>8*<span style="color:#96cb59">) ></span> 
 <span className="bp-info">Parity</span>
  1. <span className="bp-info">None*</span>
  2. <span className="bp-info">Even</span>
  3. <span className="bp-info">Odd</span>
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">Parity (</span>1<span className="bp-prompt">) ></span> 
+<span style="color:#96cb59">Parity (</span>1<span style="color:#96cb59">) ></span> 
 <span className="bp-info">Stop bits</span>
  1. <span className="bp-info">1*</span>
  2. <span className="bp-info">2</span>
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">Bits (</span>1<span className="bp-prompt">) ></span> 
+<span style="color:#96cb59">Bits (</span>1<span style="color:#96cb59">) ></span> 
 <span className="bp-info">Mode:</span> HDPLXUART
-<span className="bp-prompt">HDPLXUART></span> 
+<span style="color:#96cb59">HDPLXUART></span> 
 {{% /term %}}
 
 **Pull-up resistors**
@@ -96,18 +96,18 @@ Transparent UART ```bridge```. Bidirectional UART pass-through to interact with 
 #### Help
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HDPLXUART></span> bridge -h
+<span style="color:#96cb59">HDPLXUART></span> bridge -h
 usage:
 <span className="bp-info">bridge	[-h(elp)]</span>
 <span className="bp-info">Transparent UART bridge: bridge</span>
 <span className="bp-info">Exit: press Bus Pirate button</span>
 
 <span className="bp-info">open UART with raw data IO, usb to serial bridge mode</span>
-<span className="bp-prompt">-t</span>	<span className="bp-info">ENABLE toolbar while bridge is active (default: disabled)</span>
-<span className="bp-prompt">-s</span>	<span className="bp-info">Suppress local echo, don't echo back sent data</span>
-<span className="bp-prompt">-h</span>	<span className="bp-info">Get additional help</span>
+<span style="color:#96cb59">-t</span>	<span className="bp-info">ENABLE toolbar while bridge is active (default: disabled)</span>
+<span style="color:#96cb59">-s</span>	<span className="bp-info">Suppress local echo, don't echo back sent data</span>
+<span style="color:#96cb59">-h</span>	<span className="bp-info">Get additional help</span>
 
-<span className="bp-prompt">HDPLXUART></span> 
+<span style="color:#96cb59">HDPLXUART></span> 
 {{% /term %}} 
  
 

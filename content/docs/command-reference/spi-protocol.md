@@ -31,29 +31,29 @@ SPI is a common 4 wire full duplex protocol. Separate connections for data-in an
 <span className="bp-info">SPI speed</span>
  1 to 62500KHz
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">KHz (</span>100KHz*<span className="bp-prompt">) ></span> 
+<span style="color:#96cb59">KHz (</span>100KHz*<span style="color:#96cb59">) ></span> 
 <span className="bp-info">Data bits</span>
  4 to 8 bits
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">Bits (</span>8*<span className="bp-prompt">) ></span> 
+<span style="color:#96cb59">Bits (</span>8*<span style="color:#96cb59">) ></span> 
 <span className="bp-info">Clock polarity</span>
  1. <span className="bp-info">Idle LOW*</span>
  2. <span className="bp-info">Idle HIGH</span>
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">Polarity (</span>1<span className="bp-prompt">) ></span> 
+<span style="color:#96cb59">Polarity (</span>1<span style="color:#96cb59">) ></span> 
 <span className="bp-info">Clock phase</span>
  1. <span className="bp-info">LEADING edge*</span>
  2. <span className="bp-info">TRAILING edge</span>
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">Phase (</span>1<span className="bp-prompt">) ></span> 
+<span style="color:#96cb59">Phase (</span>1<span style="color:#96cb59">) ></span> 
 <span className="bp-info">Chip select</span>
  1. <span className="bp-info">Active HIGH (CS)</span>
  2. <span className="bp-info">Active LOW (/CS)*</span>
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">CS (</span>2<span className="bp-prompt">) ></span> 
+<span style="color:#96cb59">CS (</span>2<span style="color:#96cb59">) ></span> 
 <span className="bp-info">Actual speed:</span> 122KHz
 <span className="bp-info">Mode:</span> SPI
-<span className="bp-prompt">SPI></span> 
+<span style="color:#96cb59">SPI></span> 
 {{% /term %}}
 
 ## Syntax
@@ -190,7 +190,7 @@ The ```flash``` command can read, write, and erase common SPI flash memory chips
 
 #### Help
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> flash -h
+<span style="color:#96cb59">SPI></span> flash -h
 usage:
 <span className="bp-info">flash [init|probe|erase|write|read|verify|test]
 	[-f(ile)] [-e(rase)] [-v(verify)] [-h(elp)]</span>
@@ -202,16 +202,16 @@ usage:
 <span className="bp-info">Force dump: flash read -o -b bytes -f file</span>
 
 <span className="bp-info">read, write and erase flash chips using SFDP info if available</span>
-<span className="bp-prompt">init</span>	<span className="bp-info">Reset and initialize flash chip. Default if no options given. flash</span>
-<span className="bp-prompt">probe</span> <span className="bp-info">Probe flash chip for ID and SFDP info. flash probe</span>
-<span className="bp-prompt">erase</span>	<span className="bp-info">Erase flash chip. flash erase [-v(erify)]</span>
-<span className="bp-prompt">write</span>	<span className="bp-info">Write file to flash chip. flash write -f file [-e(rase)] [-v(erify)]</span>
-<span className="bp-prompt">read</span>	<span className="bp-info">Read flash chip to file. flash read -f file</span>
-<span className="bp-prompt">verify</span>	<span className="bp-info">Verify flash chip against file. flash verify -f file</span>
-<span className="bp-prompt">test</span>	<span className="bp-info">Erase and write full chip with dummy data, verify. flash test</span>
-<span className="bp-prompt">-f</span>	<span className="bp-info">File flag. File to write, read or verify. flash verify -f file</span>
-<span className="bp-prompt">-e</span>	<span className="bp-info">Erase flag. Add erase before write. flash write -f file -e</span>
-<span className="bp-prompt">-v</span>	<span className="bp-info">Verify flag. Add verify after write or erase. flash write -f file -v</span>
+<span style="color:#96cb59">init</span>	<span className="bp-info">Reset and initialize flash chip. Default if no options given. flash</span>
+<span style="color:#96cb59">probe</span> <span className="bp-info">Probe flash chip for ID and SFDP info. flash probe</span>
+<span style="color:#96cb59">erase</span>	<span className="bp-info">Erase flash chip. flash erase [-v(erify)]</span>
+<span style="color:#96cb59">write</span>	<span className="bp-info">Write file to flash chip. flash write -f file [-e(rase)] [-v(erify)]</span>
+<span style="color:#96cb59">read</span>	<span className="bp-info">Read flash chip to file. flash read -f file</span>
+<span style="color:#96cb59">verify</span>	<span className="bp-info">Verify flash chip against file. flash verify -f file</span>
+<span style="color:#96cb59">test</span>	<span className="bp-info">Erase and write full chip with dummy data, verify. flash test</span>
+<span style="color:#96cb59">-f</span>	<span className="bp-info">File flag. File to write, read or verify. flash verify -f file</span>
+<span style="color:#96cb59">-e</span>	<span className="bp-info">Erase flag. Add erase before write. flash write -f file -e</span>
+<span style="color:#96cb59">-v</span>	<span className="bp-info">Verify flag. Add verify after write or erase. flash write -f file -v</span>
 {{% /term %}}
 
  
@@ -242,7 +242,7 @@ Most Bus Pirate commands have help and usage examples. Add the ```-h``` flag to 
 #### Initialize and identify a flash chip
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> flash init
+<span style="color:#96cb59">SPI></span> flash init
 Probing:
 		Device ID	Manuf ID	Type ID		Capacity ID
 RESID (0xAB)	0x13
@@ -276,7 +276,7 @@ Flash device reset success
 #### Read a flash chip
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> flash read -f example.bin
+<span style="color:#96cb59">SPI></span> flash read -f example.bin
 Reading 1048576 bytes from flash to example.bin
 [-------C o o o o o]
 {{% /term %}}
@@ -286,7 +286,7 @@ Read the contents of a flash chip to a file with the ```flash read``` command. T
 #### Write a flash chip
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> flash write -f example.bin -e -v
+<span style="color:#96cb59">SPI></span> flash write -f example.bin -e -v
 Erasing 1048576 bytes
 [-----------------C]
 Writing 1048576 bytes from example.bin to flash
@@ -300,7 +300,7 @@ Write a file to a flash chip with the ```flash write``` command. The file name i
 #### Verify a flash chip
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> flash verify -f example.bin
+<span style="color:#96cb59">SPI></span> flash verify -f example.bin
 Verifying 1048576 bytes from example.bin to flash
 [-------c o o o o]
 {{% /term %}}
@@ -310,7 +310,7 @@ Verify the contents of a flash chip against a file with the ```flash verify``` c
 #### Test a flash chip
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> flash test
+<span style="color:#96cb59">SPI></span> flash test
 Erasing 1048576 bytes
 [-----------------C]
 Writing 1048576 bytes to flash

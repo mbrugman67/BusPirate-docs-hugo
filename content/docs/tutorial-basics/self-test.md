@@ -27,7 +27,7 @@ Disconnect any devices before performing the self-test.
 ## Start the self-test
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> m
+<span style="color:#96cb59">SPI></span> m
 <span className="bp-info">
 <span className="bp-info">Mode selection</span></span>
  1. <span className="bp-info">HiZ</span>
@@ -37,9 +37,9 @@ Disconnect any devices before performing the self-test.
  5. <span className="bp-info">LED</span>
  6. <span className="bp-info">DUMMY1</span>
  x. <span className="bp-info">Exit</span>
-<span className="bp-prompt">Mode ></span> 1
+<span style="color:#96cb59">Mode ></span> 1
 <span className="bp-info">Mode:</span> HiZ
-<span className="bp-prompt">HiZ></span> ~
+<span style="color:#96cb59">HiZ></span> ~
 <span className="bp-info">SELF TEST STARTING</span>
 {{% /term %}}
 
@@ -58,7 +58,7 @@ Let's break down the self-test step by step.
 ### Verify NAND flash
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> ~
+<span style="color:#96cb59">HiZ></span> ~
 No file system!
 Format the Bus Pirate NAND flash?
 ALL DATA WILL BE DESTROYED!
@@ -229,7 +229,7 @@ PUSH BUTTON TO COMPLETE: OK
 
 PASS :)
 </span>
-<span className="bp-prompt">HiZ></span> 
+<span style="color:#96cb59">HiZ></span> 
 {{% /term %}}
 
 Hopefully you see a happy Bus Pirate with no errors. Your hardware seems to be in working order. 
