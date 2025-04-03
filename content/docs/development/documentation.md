@@ -54,18 +54,18 @@ Copy the processed output from the browser box. It's ready to add to the documen
 ## Paste the output in docs
 
 ```
-<span className="BP_COLOR_PROMPT_TEXT">LED-()></span> m<br/>
-<span className="BP_COLOR_INFO_TEXT"><br/>
-<span className="BP_COLOR_INFO_TEXT">Mode selection</span></span><br/>
- 1. <span className="BP_COLOR_INFO_TEXT">HiZ</span><br/>
- 2. <span className="BP_COLOR_INFO_TEXT">UART</span><br/>
- 3. <span className="BP_COLOR_INFO_TEXT">I2C</span><br/>
- 4. <span className="BP_COLOR_INFO_TEXT">SPI</span><br/>
- 5. <span className="BP_COLOR_INFO_TEXT">LED</span><br/>
- 6. <span className="BP_COLOR_INFO_TEXT">DUMMY1</span><br/>
- x. <span className="BP_COLOR_INFO_TEXT">Exit</span><br/>
-<span className="BP_COLOR_PROMPT_TEXT">Mode ></span> 1<br/>
-<span className="BP_COLOR_INFO_TEXT">Mode:</span> HiZ<br/>
+<span className="BP_COLOR_PROMPT_TEXT">LED-()></span> m
+<span className="BP_COLOR_INFO_TEXT">
+<span className="BP_COLOR_INFO_TEXT">Mode selection</span></span>
+ 1. <span className="BP_COLOR_INFO_TEXT">HiZ</span>
+ 2. <span className="BP_COLOR_INFO_TEXT">UART</span>
+ 3. <span className="BP_COLOR_INFO_TEXT">I2C</span>
+ 4. <span className="BP_COLOR_INFO_TEXT">SPI</span>
+ 5. <span className="BP_COLOR_INFO_TEXT">LED</span>
+ 6. <span className="BP_COLOR_INFO_TEXT">DUMMY1</span>
+ x. <span className="BP_COLOR_INFO_TEXT">Exit</span>
+<span className="BP_COLOR_PROMPT_TEXT">Mode ></span> 1
+<span className="BP_COLOR_INFO_TEXT">Mode:</span> HiZ
 <span className="BP_COLOR_PROMPT_TEXT">HiZ></span>
 ```
 

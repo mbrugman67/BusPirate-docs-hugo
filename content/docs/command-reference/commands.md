@@ -6,20 +6,20 @@ title = 'Commands'
 # Command Reference
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> i<br/>
-<span className="bp-info"><br/>
-Bus Pirate 5 REV6<br/>
-Firmware <span className="bp-float">v0.1</span></span> (<span className="bp-float">unknown</span>), Bootloader <span className="bp-float">N/A</span><br/>
-<span className="bp-float">RP2040</span> with <span className="bp-float">264KB</span> RAM, <span className="bp-float">16MB</span> FLASH<br/>
-S/N: <span className="bp-float">2509449B952069E4</span><br/>
-https://DangerousPrototypes.com/<br/>
-Flash Storage: <span className="bp-float"> 0.10GB</span> (FAT16)<br/>
-<br/>
-<span className="bp-info">Configuration file:</span> Loaded<br/>
-<span className="bp-info">Available modes:</span> HiZ UART I2C SPI LED DUMMY1<br/>
-<span className="bp-info">Active mode:</span> HiZ ()=()<br/>
-<span className="bp-info">Display format:</span> Auto<br/>
-<br/>
+<span className="bp-prompt">HiZ></span> i
+<span className="bp-info">
+Bus Pirate 5 REV6
+Firmware <span className="bp-float">v0.1</span></span> (<span className="bp-float">unknown</span>), Bootloader <span className="bp-float">N/A</span>
+<span className="bp-float">RP2040</span> with <span className="bp-float">264KB</span> RAM, <span className="bp-float">16MB</span> FLASH
+S/N: <span className="bp-float">2509449B952069E4</span>
+https://DangerousPrototypes.com/
+Flash Storage: <span className="bp-float"> 0.10GB</span> (FAT16)
+
+<span className="bp-info">Configuration file:</span> Loaded
+<span className="bp-info">Available modes:</span> HiZ UART I2C SPI LED DUMMY1
+<span className="bp-info">Active mode:</span> HiZ ()=()
+<span className="bp-info">Display format:</span> Auto
+
 <span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 
@@ -41,7 +41,7 @@ Talk to the Bus Pirate from a serial terminal of your choice set to 115200bps, 8
 
 ### VT100 terminal emulation
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-VT100 compatible color mode? (Y/n)><br/>
+VT100 compatible color mode? (Y/n)>
 {{% /term %}}
 
 Press ```enter``` to show the command prompt if your terminal is blank. 
@@ -66,7 +66,7 @@ You can also navigate to the Bus Pirate USB disk, delete the bpconfig.bp file an
 
 ### Command line
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> <br/>
+<span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 
 The Bus Pirate has a simple Linux-like command line interface. Enter a command followed by optional parameters and then press ```enter```.
@@ -91,22 +91,22 @@ Bus Pirate 5 understands some common control keys.
 ### Default options
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">Mode ></span> 3<br/>
-<br/>
-<span className="bp-info">I2C speed</span><br/>
- 1KHz to 1000KHz<br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">KHz (</span>400KHz*<span className="bp-prompt">) ></span> <br/>
-<br/>
-<span className="bp-info">Data bits</span><br/>
- 1. <span className="bp-info">8*</span><br/>
- 2. <span className="bp-info">10</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">Bits (</span>1<span className="bp-prompt">) ></span> <br/>
-<br/>
-<span className="bp-info">Mode:</span> I2C<br/>
-<br/>
-<span className="bp-prompt">I2C></span> <br/>
+<span className="bp-prompt">Mode ></span> 3
+
+<span className="bp-info">I2C speed</span>
+ 1KHz to 1000KHz
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">KHz (</span>400KHz*<span className="bp-prompt">) ></span> 
+
+<span className="bp-info">Data bits</span>
+ 1. <span className="bp-info">8*</span>
+ 2. <span className="bp-info">10</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">Bits (</span>1<span className="bp-prompt">) ></span> 
+
+<span className="bp-info">Mode:</span> I2C
+
+<span className="bp-prompt">I2C></span> 
 {{% /term %}}
 
 Most configuration and option prompts have a default value shown in ( ) and the option to exit without changes.
@@ -116,16 +116,16 @@ Most configuration and option prompts have a default value shown in ( ) and the 
 ### Saved options
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">Mode ></span> 3<br/>
-<br/>
-<span className="bp-info">Use previous settings?</span><br/>
- I2C speed: 400KHz<br/>
- Data bits: 8<br/>
-y/n> y<br/>
-<br/>
-<span className="bp-info">Mode:</span> I2C<br/>
-<br/>
-<span className="bp-prompt">I2C></span> <br/>
+<span className="bp-prompt">Mode ></span> 3
+
+<span className="bp-info">Use previous settings?</span>
+ I2C speed: 400KHz
+ Data bits: 8
+y/n> y
+
+<span className="bp-info">Mode:</span> I2C
+
+<span className="bp-prompt">I2C></span> 
 {{% /term %}}
 
 Many options will be saved to flash storage. You will be prompted to reloaded previous settings the next time.
@@ -136,17 +136,17 @@ Several Linux-like disk commands can be used to navigate the Bus Pirate flash st
 ### **ls** List directory contents
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> ls<br/>
-   DIR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System Volume Information<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;81&nbsp;&nbsp;bpspi.bp<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;256&nbsp;&nbsp;test.txt<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;333&nbsp;&nbsp;bpconfig.bp<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35&nbsp;&nbsp;bpi2c.bp<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;31&nbsp;&nbsp;bpled.bp<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;256&nbsp;&nbsp;sample.txt<br/>
-1 dirs, 6 files.<br/>
-<br/>
-<span className="bp-prompt">HiZ></span> <br/>
+<span className="bp-prompt">HiZ></span> ls
+   DIR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System Volume Information
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;81&nbsp;&nbsp;bpspi.bp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;256&nbsp;&nbsp;test.txt
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;333&nbsp;&nbsp;bpconfig.bp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35&nbsp;&nbsp;bpi2c.bp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;31&nbsp;&nbsp;bpled.bp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;256&nbsp;&nbsp;sample.txt
+1 dirs, 6 files.
+
+<span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 
 List the contents of the current directory in flash storage. Type ```ls``` followed by ```enter```. ``ls`` followed by a directory name lists the contents of that directory.
@@ -154,9 +154,9 @@ List the contents of the current directory in flash storage. Type ```ls``` follo
 ### **mkdir** Make directory
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> mkdir test<br/>
-<br/>
-<span className="bp-prompt">HiZ></span> <br/>
+<span className="bp-prompt">HiZ></span> mkdir test
+
+<span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 
 Make a directory in the current location in the flash storage. Type ```mkdir``` followed by a directory name and then ```enter```.
@@ -164,13 +164,13 @@ Make a directory in the current location in the flash storage. Type ```mkdir``` 
 ### **cd** Change directory
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> cd test<br/>
-/test<br/>
-<br/>
-<span className="bp-prompt">HiZ></span> ls<br/>
-0 dirs, 0 files.<br/>
-<br/>
-<span className="bp-prompt">HiZ></span> <br/>
+<span className="bp-prompt">HiZ></span> cd test
+/test
+
+<span className="bp-prompt">HiZ></span> ls
+0 dirs, 0 files.
+
+<span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 
 Change directory. Type ```cd``` followed by a directory name and then ```enter```.
@@ -178,9 +178,9 @@ Change directory. Type ```cd``` followed by a directory name and then ```enter``
 ### **rm** Remove file or directory
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> rm test<br/>
-<br/>
-<span className="bp-prompt">HiZ></span><br/>
+<span className="bp-prompt">HiZ></span> rm test
+
+<span className="bp-prompt">HiZ></span>
 {{% /term %}}
 
 Remove file or directory (if empty). Type ```rm``` followed by the name of a file or empty directory, then hit ```enter```.
@@ -188,10 +188,10 @@ Remove file or directory (if empty). Type ```rm``` followed by the name of a fil
 ### **cat** Print file contents
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> cat sample.txt<br/>
-Bus Pirate 5 can program and dump EEPROM, flash and other memory chips directly to the flash storage! No need for external software on your computer. No need to install toolchains and compile scripts. What you need, where you need it. Bus Pirate 5 is here! --EOM<br/>
-<br/>
-<span className="bp-prompt">HiZ></span> <br/>
+<span className="bp-prompt">HiZ></span> cat sample.txt
+Bus Pirate 5 can program and dump EEPROM, flash and other memory chips directly to the flash storage! No need for external software on your computer. No need to install toolchains and compile scripts. What you need, where you need it. Bus Pirate 5 is here! --EOM
+
+<span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 
 Print the contents of a file. Type ```cat``` followed by a file name, then hit ```enter```.
@@ -206,33 +206,33 @@ Type ```?``` followed by ```enter``` to display a help screen with all available
 
 ### **i** Version information
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> i<br/>
-<span className="bp-info"><br/>
-Bus Pirate 5 REV6<br/>
-Firmware <span className="bp-float">v8</span></span> (<span className="bp-float">unknown</span>), Bootloader <span className="bp-float">N/A</span><br/>
-<span className="bp-float">RP2040</span> with <span className="bp-float">264KB</span> RAM, <span className="bp-float">16MB</span> FLASH<br/>
-S/N: <span className="bp-float">2509449B952069E4</span><br/>
-https://DangerousPrototypes.com/<br/>
-Flash Storage: <span className="bp-float"> 0.10GB</span> (FAT16 File System)<br/>
-<br/>
-<span className="bp-info">Configuration file:</span> Loaded<br/>
-<span className="bp-info">Available modes:</span> HiZ UART I2C SPI LED DUMMY1<br/>
-<span className="bp-info">Active mode:</span> HiZ ()=()<br/>
-<span className="bp-info">Display format:</span> Auto<br/>
-<br/>
+<span className="bp-prompt">HiZ></span> i
+<span className="bp-info">
+Bus Pirate 5 REV6
+Firmware <span className="bp-float">v8</span></span> (<span className="bp-float">unknown</span>), Bootloader <span className="bp-float">N/A</span>
+<span className="bp-float">RP2040</span> with <span className="bp-float">264KB</span> RAM, <span className="bp-float">16MB</span> FLASH
+S/N: <span className="bp-float">2509449B952069E4</span>
+https://DangerousPrototypes.com/
+Flash Storage: <span className="bp-float"> 0.10GB</span> (FAT16 File System)
+
+<span className="bp-info">Configuration file:</span> Loaded
+<span className="bp-info">Available modes:</span> HiZ UART I2C SPI LED DUMMY1
+<span className="bp-info">Active mode:</span> HiZ ()=()
+<span className="bp-info">Display format:</span> Auto
+
 <span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 
 Type ```i``` followed by ```enter``` to see the hardware, firmware, and microcontroller version.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">Active mode:</span> HWI2C (speed)=(0)<br/>
-<span className="bp-info">Display format:</span> Auto<br/>
-<span className="bp-info">Data format:</span> 8 bits, MSB bitorder<br/>
-<span className="bp-info">Pull-up resistors:</span> ON<br/>
-<span className="bp-info">Power supply:</span> ON (3.3V/3.3V)<br/>
-<span className="bp-info">Current limit:</span> OK (8.0mA/50.0mA)<br/>
-<span className="bp-info">Frequency generators:</span> OFF<br/>
+<span className="bp-info">Active mode:</span> HWI2C (speed)=(0)
+<span className="bp-info">Display format:</span> Auto
+<span className="bp-info">Data format:</span> 8 bits, MSB bitorder
+<span className="bp-info">Pull-up resistors:</span> ON
+<span className="bp-info">Power supply:</span> ON (3.3V/3.3V)
+<span className="bp-info">Current limit:</span> OK (8.0mA/50.0mA)
+<span className="bp-info">Frequency generators:</span> OFF
 {{% /term %}}
 
 If a bus mode is configured additional
@@ -241,40 +241,40 @@ If a bus mode is configured additional
 ### **c** Configuration options menu
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">I2C></span> c<br/>
-<span className="bp-info"><br/>
-<span className="bp-info">Configuration options</span></span><br/>
- 1. <span className="bp-info">Language</span><br/>
- 2. <span className="bp-info">ANSI color mode</span><br/>
- 3. <span className="bp-info">ANSI toolbar mode</span><br/>
- 4. <span className="bp-info">LCD screensaver</span><br/>
- 5. <span className="bp-info">LED effect</span><br/>
- 6. <span className="bp-info">LED color</span><br/>
- 7. <span className="bp-info">LED brightness</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt"> ></span> 1<br/>
-<br/>
-<span className="bp-info">Language</span><br/>
- 1. <span className="bp-info">English</span><br/>
- 2. <span className="bp-info">Chinese (simplified)</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt"> ></span> 1<br/>
-Language <span className="bp-info">set to</span> English<br/>
-<br/>
-<span className="bp-info">Configuration options</span><br/>
- 1. <span className="bp-info">Language</span><br/>
- 2. <span className="bp-info">ANSI color mode</span><br/>
- 3. <span className="bp-info">ANSI toolbar mode</span><br/>
- 4. <span className="bp-info">LCD screensaver</span><br/>
- 5. <span className="bp-info">LED effect</span><br/>
- 6. <span className="bp-info">LED color</span><br/>
- 7. <span className="bp-info">LED brightness</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt"> ></span> x<br/>
-<br/>
-<span className="bp-info">Configuration file:</span> Saved<br/>
-<br/>
-<span className="bp-prompt">I2C></span><br/>
+<span className="bp-prompt">I2C></span> c
+<span className="bp-info">
+<span className="bp-info">Configuration options</span></span>
+ 1. <span className="bp-info">Language</span>
+ 2. <span className="bp-info">ANSI color mode</span>
+ 3. <span className="bp-info">ANSI toolbar mode</span>
+ 4. <span className="bp-info">LCD screensaver</span>
+ 5. <span className="bp-info">LED effect</span>
+ 6. <span className="bp-info">LED color</span>
+ 7. <span className="bp-info">LED brightness</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt"> ></span> 1
+
+<span className="bp-info">Language</span>
+ 1. <span className="bp-info">English</span>
+ 2. <span className="bp-info">Chinese (simplified)</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt"> ></span> 1
+Language <span className="bp-info">set to</span> English
+
+<span className="bp-info">Configuration options</span>
+ 1. <span className="bp-info">Language</span>
+ 2. <span className="bp-info">ANSI color mode</span>
+ 3. <span className="bp-info">ANSI toolbar mode</span>
+ 4. <span className="bp-info">LCD screensaver</span>
+ 5. <span className="bp-info">LED effect</span>
+ 6. <span className="bp-info">LED color</span>
+ 7. <span className="bp-info">LED brightness</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt"> ></span> x
+
+<span className="bp-info">Configuration file:</span> Saved
+
+<span className="bp-prompt">I2C></span>
 {{% /term %}}
 
 Type ```c``` followed by ```enter``` to show the configuration menu. 
@@ -284,18 +284,18 @@ Press ```x``` followed by ```enter``` to exist the configuration menus and save 
 ### **m** Set bus mode
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> m<br/>
-<span className="bp-info"><br/>
-<span className="bp-info">Mode selection</span></span><br/>
- 1. <span className="bp-info">HiZ</span><br/>
- 2. <span className="bp-info">UART</span><br/>
- 3. <span className="bp-info">I2C</span><br/>
- 4. <span className="bp-info">SPI</span><br/>
- 5. <span className="bp-info">LED</span><br/>
- 6. <span className="bp-info">DUMMY1</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">Mode ></span> 1<br/>
-<span className="bp-info">Mode:</span> HiZ<br/>
+<span className="bp-prompt">SPI></span> m
+<span className="bp-info">
+<span className="bp-info">Mode selection</span></span>
+ 1. <span className="bp-info">HiZ</span>
+ 2. <span className="bp-info">UART</span>
+ 3. <span className="bp-info">I2C</span>
+ 4. <span className="bp-info">SPI</span>
+ 5. <span className="bp-info">LED</span>
+ 6. <span className="bp-info">DUMMY1</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">Mode ></span> 1
+<span className="bp-info">Mode:</span> HiZ
 <span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 
@@ -303,11 +303,11 @@ Type ```m``` followed by ```enter``` to select a bus mode. HiZ is a safe mode wi
 
 ### **l/L** Set MSB/LSB first
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> l<br/>
-<span className="bp-info"><span className="bp-info">Bitorder:</span></span> MSB 0b<span className="bp-info">1</span>0000000<br/>
-<span className="bp-prompt">HiZ></span> L<br/>
-<span className="bp-info"><span className="bp-info">Bitorder:</span></span> LSB 0b0000000<span className="bp-info">1</span><br/>
-<span className="bp-prompt">HiZ></span> <br/>
+<span className="bp-prompt">HiZ></span> l
+<span className="bp-info"><span className="bp-info">Bitorder:</span></span> MSB 0b<span className="bp-info">1</span>0000000
+<span className="bp-prompt">HiZ></span> L
+<span className="bp-info"><span className="bp-info">Bitorder:</span></span> LSB 0b0000000<span className="bp-info">1</span>
+<span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 
 The l/L commands determines the [bit order](http://en.wikipedia.org/wiki/Most_significant_bit) for reading and writing bytes. 
@@ -316,19 +316,19 @@ The current bit order configuration is displayed on the extended information scr
 
 ### **o** Data output display format
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> o<br/>
-<span className="bp-info"><br/>
-<span className="bp-info">Number display format</span></span><br/>
- <span className="bp-info">Current setting: Auto</span><br/>
- 1. <span className="bp-info">Auto</span><br/>
- 2. <span className="bp-info">HEX</span><br/>
- 3. <span className="bp-info">DEC</span><br/>
- 4. <span className="bp-info">BIN</span><br/>
- 5. <span className="bp-info">ASCII</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">Mode ></span> 1<br/>
-<span className="bp-info">Mode:</span> Auto<br/>
-<span className="bp-prompt">HiZ></span> <br/>
+<span className="bp-prompt">HiZ></span> o
+<span className="bp-info">
+<span className="bp-info">Number display format</span></span>
+ <span className="bp-info">Current setting: Auto</span>
+ 1. <span className="bp-info">Auto</span>
+ 2. <span className="bp-info">HEX</span>
+ 3. <span className="bp-info">DEC</span>
+ 4. <span className="bp-info">BIN</span>
+ 5. <span className="bp-info">ASCII</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">Mode ></span> 1
+<span className="bp-info">Mode:</span> Auto
+<span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 
 The Bus Pirate can display values as [hexadecimal](http://en.wikipedia.org/wiki/Hexadecimal), [decimal](http://en.wikipedia.org/wiki/Decimal), [binary](http://en.wikipedia.org/wiki/Binary_numeral_system) and a raw
@@ -340,12 +340,12 @@ the data display format menu (o). The default display format is Auto.
 
 ### **d** Display mode
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> d<br/>
-<span className="bp-info">Display selection<br/>
- 1. Default<br/>
- 2. Scope<br/>
- x. Exit<br/></span>
-<span className="bp-prompt">Display ></span> 2<br/>
+<span className="bp-prompt">HiZ></span> d
+<span className="bp-info">Display selection
+ 1. Default
+ 2. Scope
+ x. Exit</span>
+<span className="bp-prompt">Display ></span> 2
 <span className="bp-info">Display:</span> Scope
 {{% /term %}}
 
@@ -355,23 +355,23 @@ the data display format menu (o). The default display format is Auto.
 
 ### **~** Self-test 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> ~<br/>
-<span className="bp-info">SELF TEST STARTING<br/>
-DISABLE IRQ: OK<br/>
-ADC SUBSYSTEM: VUSB  5.08V OK<br/>
-DAC READ/WRITE: OK<br/>
-FLASH STORAGE: OK<br/>
-PSU ENABLE: OK<br/>
-BIO FLOAT TEST (SHOULD BE 0/0.2V)<br/>
-BIO0 FLOAT: 0/0.04V OK<br/>
-BIO1 FLOAT: 0/0.04V OK<br/>
-BIO2 FLOAT: 0/0.04V OK<br/>
-BIO3 FLOAT: 0/0.04V OK<br/>
-BIO4 FLOAT: 0/0.04V OK<br/>
-BIO5 FLOAT: 0/0.04V OK<br/>
-BIO6 FLOAT: 0/0.04V OK<br/>
-BIO7 FLOAT: 0/0.04V OK<br/>
-BIO HIGH TEST (SHOULD BE >3.0V)<br/></span>
+<span className="bp-prompt">HiZ></span> ~
+<span className="bp-info">SELF TEST STARTING
+DISABLE IRQ: OK
+ADC SUBSYSTEM: VUSB  5.08V OK
+DAC READ/WRITE: OK
+FLASH STORAGE: OK
+PSU ENABLE: OK
+BIO FLOAT TEST (SHOULD BE 0/0.2V)
+BIO0 FLOAT: 0/0.04V OK
+BIO1 FLOAT: 0/0.04V OK
+BIO2 FLOAT: 0/0.04V OK
+BIO3 FLOAT: 0/0.04V OK
+BIO4 FLOAT: 0/0.04V OK
+BIO5 FLOAT: 0/0.04V OK
+BIO6 FLOAT: 0/0.04V OK
+BIO7 FLOAT: 0/0.04V OK
+BIO HIGH TEST (SHOULD BE >3.0V)</span>
 {{% /term %}}
 
 Perform a factory self-test. The Bus Pirate is capable of twiddling pins and checking for hardware faults. See the Bus Pirate self-test guide for a complete list of tests and the problems they detect.
@@ -379,9 +379,9 @@ Perform a factory self-test. The Bus Pirate is capable of twiddling pins and che
 ### **#** Reset
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> #<br/>
-<br/>
-VT100 compatible color mode? (Y/n)><br/>
+<span className="bp-prompt">HiZ></span> #
+
+VT100 compatible color mode? (Y/n)>
 {{% /term %}}
 
 Reset the Bus Pirate. 
@@ -390,7 +390,7 @@ Depending on your serial terminal software you may need to reconnect to the Bus 
 
 ### **$** Jump to bootloader 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> $<br/>
+<span className="bp-prompt">HiZ></span> $
 {{% /term %}}
 
 Activate the Bus Pirate bootloader for firmware updates. The bootloader appears as a USB disk drive connected to your computer. Drag a **.uf2** firmware file into the disk. After an update the Bus Pirate resets.
@@ -403,23 +403,23 @@ If the firmware update is interrupted and you find yourself locked out of the Bu
 
 ### **w/W** Power supply (off/ON) 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">I2C></span> W<br/>
-<span className="bp-info"><span className="bp-info">Power supply<br/>
-Volts (0.80V-5.00V)</span></span><br/>
-<span className="bp-prompt">x to exit (3.30) ></span> 2.1<br/>
-<span className="bp-float">2.10</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">2.10</span></span>V<br/>
-Set current limit?<br/>
-y<br/>
-<br/>
-<span className="bp-info">Maximum current (0mA-500mA)</span><br/>
-<span className="bp-prompt">x to exit (100.00) ></span> 50<br/>
-<span className="bp-float">50.0</span>mA<span className="bp-info"> requested, closest value: <span className="bp-float">50.0</span></span>mA<br/>
-<br/>
-<span className="bp-info">Power supply:</span>Enabled<br/>
-<span className="bp-info"><br/>
-Vreg output: <span className="bp-float">2.1</span></span>V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">2.1</span></span>V<span className="bp-info">, Current sense: <span className="bp-float">7.3</span></span>mA<span className="bp-info"><br/>
-</span><br/>
-<span className="bp-prompt">I2C></span> <br/>
+<span className="bp-prompt">I2C></span> W
+<span className="bp-info"><span className="bp-info">Power supply
+Volts (0.80V-5.00V)</span></span>
+<span className="bp-prompt">x to exit (3.30) ></span> 2.1
+<span className="bp-float">2.10</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">2.10</span></span>V
+Set current limit?
+y
+
+<span className="bp-info">Maximum current (0mA-500mA)</span>
+<span className="bp-prompt">x to exit (100.00) ></span> 50
+<span className="bp-float">50.0</span>mA<span className="bp-info"> requested, closest value: <span className="bp-float">50.0</span></span>mA
+
+<span className="bp-info">Power supply:</span>Enabled
+<span className="bp-info">
+Vreg output: <span className="bp-float">2.1</span></span>V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">2.1</span></span>V<span className="bp-info">, Current sense: <span className="bp-float">7.3</span></span>mA<span className="bp-info">
+</span>
+<span className="bp-prompt">I2C></span> 
 {{% /term %}}
 
 Bus Pirate 5 has a single 'Programmable Power Supply Unit' (PPSU) with several handy features:
@@ -441,9 +441,9 @@ The PPSU is capable of 0.8 to 5volts output. However, the maximum working range 
 When the programmed current limit is exceeded the PPSU hardware fuse disables the power supply. The terminal colors invert repeatedly, an alarm bell will sound, an error message is shown and command execution is halted. Use the ```W``` command to restart the PPSU again.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span>w<br/>
-<span className="bp-info"><span className="bp-info">Power supply: </span></span>Disabled<br/>
-<span className="bp-prompt">SPI></span> <br/>
+<span className="bp-prompt">SPI></span>w
+<span className="bp-info"><span className="bp-info">Power supply: </span></span>Disabled
+<span className="bp-prompt">SPI></span> 
 {{% /term %}}
 
 Lowercase ```w``` disables the PPSU.
@@ -468,12 +468,12 @@ Lowercase ```v``` displays a one time voltage measurement. Uppercase ```V``` dis
 ### **p/P** Pull-up resistors 
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">I2C></span> P<br/>
-<span className="bp-info"><span className="bp-info">Pull-up resistors:</span></span> Enabled (10Kohms @ <span className="bp-float">3.3</span>V)<br/>
-<br/>
-<span className="bp-prompt">I2C></span> p<br/>
-<span className="bp-info"><span className="bp-info">Pull-up resistors:</span></span> Disabled<br/>
-<br/>
+<span className="bp-prompt">I2C></span> P
+<span className="bp-info"><span className="bp-info">Pull-up resistors:</span></span> Enabled (10Kohms @ <span className="bp-float">3.3</span>V)
+
+<span className="bp-prompt">I2C></span> p
+<span className="bp-info"><span className="bp-info">Pull-up resistors:</span></span> Disabled
+
 <span className="bp-prompt">I2C></span> 
 {{% /term %}}
 
@@ -489,33 +489,33 @@ A warning is displayed if there's no voltage on the VREF/VOUT pin. Check the vol
 ### **g/G** Frequency generator
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> G<br/>
-<span className="bp-info"><span className="bp-info">Generate frequency</span></span><br/>
-<span className="bp-info">Choose available pin:</span><br/>
- 0. IO<span className="bp-float">0</span><br/>
- 1. IO<span className="bp-float">1</span><br/>
- 2. IO<span className="bp-float">2</span><br/>
- 3. IO<span className="bp-float">3</span><br/>
- 4. IO<span className="bp-float">4</span><br/>
- 5. IO<span className="bp-float">5</span><br/>
- 6. IO<span className="bp-float">6</span><br/>
- 7. IO<span className="bp-float">7</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt"> ></span> 0<br/>
-<span className="bp-prompt">Period or frequency (ns, us, ms, Hz, KHz or Mhz) ></span> 12.4KHz<br/>
-<span className="bp-info">Frequency:</span> <span className="bp-float">12.400</span>KHz = <span className="bp-float">12400</span>Hz (<span className="bp-float">12.40</span>KHz)<br/>
-<span className="bp-info">Period:</span> <span className="bp-float">80645</span>ns (<span className="bp-float">80.65</span>us)<br/>
-<br/>
-<span className="bp-info">Actual frequency:</span> <span className="bp-float">12401</span>Hz (<span className="bp-float">12.40</span>KHz)<br/>
-<span className="bp-info">Actual period:</span> <span className="bp-float">80640</span>ns (<span className="bp-float">80.64</span>us)<br/>
-<br/>
-<span className="bp-prompt">Duty cycle (%) ></span> 35%<br/>
-<span className="bp-info">Duty cycle:</span> <span className="bp-float">35.00</span>% = <span className="bp-float">28224</span>ns (<span className="bp-float">28.22</span>us)<br/>
-<span className="bp-info">Actual duty cycle:</span> <span className="bp-float">28227</span>ns (<span className="bp-float">28.23</span>us)<br/>
-Divider: 16, Period: 10079, Duty: 3528<br/>
-<br/>
-<span className="bp-info">Generate frequency:</span> Enabled on IO<span className="bp-float">0</span><br/>
-<br/>
+<span className="bp-prompt">LED-()></span> G
+<span className="bp-info"><span className="bp-info">Generate frequency</span></span>
+<span className="bp-info">Choose available pin:</span>
+ 0. IO<span className="bp-float">0</span>
+ 1. IO<span className="bp-float">1</span>
+ 2. IO<span className="bp-float">2</span>
+ 3. IO<span className="bp-float">3</span>
+ 4. IO<span className="bp-float">4</span>
+ 5. IO<span className="bp-float">5</span>
+ 6. IO<span className="bp-float">6</span>
+ 7. IO<span className="bp-float">7</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt"> ></span> 0
+<span className="bp-prompt">Period or frequency (ns, us, ms, Hz, KHz or Mhz) ></span> 12.4KHz
+<span className="bp-info">Frequency:</span> <span className="bp-float">12.400</span>KHz = <span className="bp-float">12400</span>Hz (<span className="bp-float">12.40</span>KHz)
+<span className="bp-info">Period:</span> <span className="bp-float">80645</span>ns (<span className="bp-float">80.65</span>us)
+
+<span className="bp-info">Actual frequency:</span> <span className="bp-float">12401</span>Hz (<span className="bp-float">12.40</span>KHz)
+<span className="bp-info">Actual period:</span> <span className="bp-float">80640</span>ns (<span className="bp-float">80.64</span>us)
+
+<span className="bp-prompt">Duty cycle (%) ></span> 35%
+<span className="bp-info">Duty cycle:</span> <span className="bp-float">35.00</span>% = <span className="bp-float">28224</span>ns (<span className="bp-float">28.22</span>us)
+<span className="bp-info">Actual duty cycle:</span> <span className="bp-float">28227</span>ns (<span className="bp-float">28.23</span>us)
+Divider: 16, Period: 10079, Duty: 3528
+
+<span className="bp-info">Generate frequency:</span> Enabled on IO<span className="bp-float">0</span>
+
 <span className="bp-prompt">LED-()></span>
 {{% /term %}}
 
@@ -530,19 +530,19 @@ Uppercase ```G``` displays the frequency generation menu. Choose an available pi
 The frequency generator will be displayed in the live view statusbar and on the LCD with the label ***PWM***.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> g 0<br/>
-<span className="bp-info">Generate frequency:</span> Disabled on IO<span className="bp-float">0</span><br/>
-<br/>
-<span className="bp-prompt">LED-()></span> <br/>
+<span className="bp-prompt">LED-()></span> g 0
+<span className="bp-info">Generate frequency:</span> Disabled on IO<span className="bp-float">0</span>
+
+<span className="bp-prompt">LED-()></span> 
 {{% /term %}}
 
 To stop the frequency generator on a single pin, use the lowercase ```g.X``` command where X is the pin number.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> g<br/>
-<span className="bp-info">Generate frequency:</span> Disabled on IO<span className="bp-float">0</span><br/>
-<br/>
-<span className="bp-prompt">LED-()></span> <br/>
+<span className="bp-prompt">LED-()></span> g
+<span className="bp-info">Generate frequency:</span> Disabled on IO<span className="bp-float">0</span>
+
+<span className="bp-prompt">LED-()></span> 
 {{% /term %}}
 
 To stop frequency generation on all pins, use the lowercase ```g``` command without specifying a pin.
@@ -554,18 +554,18 @@ Not all pins will be available due to the PWM structure of the RP2040, and adjac
 ### **f/F** Measure frequency
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> F<br/>
-<span className="bp-info"><span className="bp-info">Frequency measurement</span></span><br/>
-<span className="bp-info">Choose available pin:</span><br/>
- 1. IO<span className="bp-float">1</span><br/>
- 3. IO<span className="bp-float">3</span><br/>
- 5. IO<span className="bp-float">5</span><br/>
- 7. IO<span className="bp-float">7</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt"> ></span> 7<br/>
-<span className="bp-info">Frequency measurement:</span> Enabled on IO<span className="bp-float">7</span><br/>
-<span className="bp-info">Frequency</span> IO<span className="bp-float">7</span>: <span className="bp-float">12.40</span>KHz <span className="bp-float">80.65</span>us (<span className="bp-float">12400</span>Hz), <span className="bp-info">Duty cycle:</span> <span className="bp-float">35.0</span>%<br/>
-<br/>
+<span className="bp-prompt">LED-()></span> F
+<span className="bp-info"><span className="bp-info">Frequency measurement</span></span>
+<span className="bp-info">Choose available pin:</span>
+ 1. IO<span className="bp-float">1</span>
+ 3. IO<span className="bp-float">3</span>
+ 5. IO<span className="bp-float">5</span>
+ 7. IO<span className="bp-float">7</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt"> ></span> 7
+<span className="bp-info">Frequency measurement:</span> Enabled on IO<span className="bp-float">7</span>
+<span className="bp-info">Frequency</span> IO<span className="bp-float">7</span>: <span className="bp-float">12.40</span>KHz <span className="bp-float">80.65</span>us (<span className="bp-float">12400</span>Hz), <span className="bp-info">Duty cycle:</span> <span className="bp-float">35.0</span>%
+
 <span className="bp-prompt">LED-()></span> 
 {{% /term %}}
 
@@ -580,28 +580,28 @@ Not all pins will be available due to the PWM structure of the RP2040, and adjac
 The frequency will be measured continuously and displayed in the live view statusbar and LCD with the label **FREQ**.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> f 7<br/>
-<span className="bp-info"><span className="bp-info">Frequency</span></span> IO<span className="bp-float">7</span>: <span className="bp-float">12.40</span>KHz <span className="bp-float">80.65</span>us (<span className="bp-float">12400</span>Hz), <span className="bp-info">Duty cycle:</span> <span className="bp-float">35.0</span>%<br/>
-<span className="bp-prompt">LED-()></span><br/>
+<span className="bp-prompt">LED-()></span> f 7
+<span className="bp-info"><span className="bp-info">Frequency</span></span> IO<span className="bp-float">7</span>: <span className="bp-float">12.40</span>KHz <span className="bp-float">80.65</span>us (<span className="bp-float">12400</span>Hz), <span className="bp-info">Duty cycle:</span> <span className="bp-float">35.0</span>%
+<span className="bp-prompt">LED-()></span>
 {{% /term %}}
 
 Lowercase ```f X``` measures the frequency and duty cycle on pin X once.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> F 7<br/>
-<span className="bp-info"><span className="bp-info">Press any key to exit</span></span><br/>
-<span className="bp-info">Frequency</span> IO<span className="bp-float">7</span>: <span className="bp-float">12.40</span>KHz <span className="bp-float">80.65</span>us (<span className="bp-float">12400</span>Hz), <span className="bp-info">Duty cycle:</span> <span className="bp-float">35.0</span>%<br/>
+<span className="bp-prompt">LED-()></span> F 7
+<span className="bp-info"><span className="bp-info">Press any key to exit</span></span>
+<span className="bp-info">Frequency</span> IO<span className="bp-float">7</span>: <span className="bp-float">12.40</span>KHz <span className="bp-float">80.65</span>us (<span className="bp-float">12400</span>Hz), <span className="bp-info">Duty cycle:</span> <span className="bp-float">35.0</span>%
 {{% /term %}}
 
 Uppercase ```F X``` continuously measures the frequency and duty cycle on pin X. Press any key to exit.
 
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> f 6<br/>
-<span className="bp-info">IO6 has no frequency measurement hardware!<br/>
-Freq. measure is currently only possible on odd pins (1,3,5,7).<br/>
-In the future we will fix this using the RP2040 PIO.<br/>
-</span><br/>
+<span className="bp-prompt">LED-()></span> f 6
+<span className="bp-info">IO6 has no frequency measurement hardware!
+Freq. measure is currently only possible on odd pins (1,3,5,7).
+In the future we will fix this using the RP2040 PIO.
+</span>
 {{% /term %}}
 
 Only half of the RP2040 pins support frequency measurement. The Bus Pirate will warn you if hardware isn't available. To see which pins are currently available use the ```F``` command.
@@ -613,13 +613,13 @@ Not all pins will be available due to the PWM structure of the RP2040, and adjac
 ### **=X** Convert X to HEX/DEC/BIN number format
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">I2C></span> = 0b110<br/>
-<span className="bp-info"> </span>=0x<span className="bp-float">06</span> =6 =0b<span className="bp-float">0000</span>0110<br/>
-<span className="bp-prompt">I2C></span> = 0x6<br/>
-<span className="bp-info"> </span>=0x<span className="bp-float">06</span> =6 =0b<span className="bp-float">0000</span>0110<br/>
-<span className="bp-prompt">I2C></span> = 6<br/>
-<span className="bp-info"> </span>=0x<span className="bp-float">06</span> =6 =0b<span className="bp-float">0000</span>0110<br/>
-<span className="bp-prompt">I2C></span> <br/>
+<span className="bp-prompt">I2C></span> = 0b110
+<span className="bp-info"> </span>=0x<span className="bp-float">06</span> =6 =0b<span className="bp-float">0000</span>0110
+<span className="bp-prompt">I2C></span> = 0x6
+<span className="bp-info"> </span>=0x<span className="bp-float">06</span> =6 =0b<span className="bp-float">0000</span>0110
+<span className="bp-prompt">I2C></span> = 6
+<span className="bp-info"> </span>=0x<span className="bp-float">06</span> =6 =0b<span className="bp-float">0000</span>0110
+<span className="bp-prompt">I2C></span> 
 {{% /term %}}
 
 Type ```=``` and enter a value to see the HEX/DEC/BIN equivalent. Base conversion command, available in all modes. 
@@ -631,8 +631,8 @@ To change the Bus Pirate output display format see the ```o``` command.
 ### **| X** Reverse bits in byte X 
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">I2C></span> | 0b11110000<br/>
-<span className="bp-info">|0x0F000000.32|0001700000000.32|0b00001111000000000000000000000000.32</span><br/>
+<span className="bp-prompt">I2C></span> | 0b11110000
+<span className="bp-info">|0x0F000000.32|0001700000000.32|0b00001111000000000000000000000000.32</span>
 <span className="bp-prompt">I2C></span>
 {{% /term %}}
 
@@ -645,15 +645,15 @@ To change the Bus Pirate read/write bit order see the ```l```/```L``` command.
 ### **a/A/@** Auxiliary pin control (low/HIGH/read)
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">UART></span> a 1<br/>
-<span className="bp-info">IO<span className="bp-float">1<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span><br/>
-<br/>
-<span className="bp-prompt">UART></span> A 1<br/>
-<span className="bp-info">IO<span className="bp-float">1<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">1</span><br/>
-<br/>
-<span className="bp-prompt">UART></span> @ 1<br/>
-<span className="bp-info">IO<span className="bp-float">1<span className="bp-info"> set to</span></span></span> INPUT: <span className="bp-float">0</span><br/>
-<br/>
+<span className="bp-prompt">UART></span> a 1
+<span className="bp-info">IO<span className="bp-float">1<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span>
+
+<span className="bp-prompt">UART></span> A 1
+<span className="bp-info">IO<span className="bp-float">1<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">1</span>
+
+<span className="bp-prompt">UART></span> @ 1
+<span className="bp-info">IO<span className="bp-float">1<span className="bp-info"> set to</span></span></span> INPUT: <span className="bp-float">0</span>
+
 <span className="bp-prompt">UART></span>
 {{% /term %}}
 
@@ -678,9 +678,9 @@ entered inside ```( )```. Macro ```(0)``` always displays a list of macros avail
 ### **(0)** List mode macros 
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">I2C></span> (0)<br/>
-<span className="bp-info"> 1. I2C Address search<br/>
-</span><br/>
+<span className="bp-prompt">I2C></span> (0)
+<span className="bp-info"> 1. I2C Address search
+</span>
 <span className="bp-prompt">I2C></span>
 {{% /term %}}
 
@@ -690,20 +690,20 @@ Macro ```(0)``` always displays a list of macros available in the current bus mo
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-prompt">I2C></span> (1)
-<span className="bp-info"><br/>
-I2C Bus Scan<br/>
-   0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F<br/>
-00 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .<br/>
-10 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .<br/>
-20 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .<br/>
-30 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .<br/>
-40 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .<br/>
-50 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .<br/>
-60 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .<br/>
-70 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .<br/>
-Done.<br/>
-</span><br/>
-<span className="bp-prompt">I2C></span><br/>
+<span className="bp-info">
+I2C Bus Scan
+   0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F
+00 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+10 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+20 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+30 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+40 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+50 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+60 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+70 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+Done.
+</span>
+<span className="bp-prompt">I2C></span>
 {{% /term %}}
 
 Execute a macro by typing the macro number between ```( )```.

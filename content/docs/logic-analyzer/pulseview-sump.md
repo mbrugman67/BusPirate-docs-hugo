@@ -34,9 +34,9 @@ Configure the Bus Pirate for SUMP logic analyzer mode.
 ### Change to HiZ mode
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> m 1<br/>
-<span className="bp-info">Mode:</span> HiZ<br/>
-<span className="bp-prompt">HiZ></span> <br/>
+<span className="bp-prompt">SPI></span> m 1
+<span className="bp-info">Mode:</span> HiZ
+<span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 
 For general purpose logic analyzer use, change to HiZ mode with the ```m 1``` command. This will make all the pins inputs and disable pull-up resistors.
@@ -48,18 +48,18 @@ There is no restriction on using the logic analyzer while the Bus Pirate is not 
 ### Enable SUMP Interface
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> binmode<br/>
-<br/>
-<span className="bp-info">Select binary mode</span><br/>
- 1. SUMP logic analyzer<br/>
- 2. Binmode test framework<br/>
- 3. Arduino CH32V003 SWIO<br/>
- 4. Follow along logic analyzer<br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt"> ></span> 1<br/>
-<span className="bp-info">Binmode selected:</span> SUMP logic analyzer<br/>
-<br/>
-<span className="bp-prompt">HiZ></span> <br/>
+<span className="bp-prompt">HiZ></span> binmode
+
+<span className="bp-info">Select binary mode</span>
+ 1. SUMP logic analyzer
+ 2. Binmode test framework
+ 3. Arduino CH32V003 SWIO
+ 4. Follow along logic analyzer
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt"> ></span> 1
+<span className="bp-info">Binmode selected:</span> SUMP logic analyzer
+
+<span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 
 Enable the SUMP binary interface with the ```binmode``` command. A SUMP-compatible logic analyzer interface will now respond to the Bus Pirate's second serial port.

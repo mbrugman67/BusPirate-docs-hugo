@@ -39,16 +39,16 @@ a<span style="color:#96cb59">I2C></span>
 With `class`:
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span class="bp-prompt">HiZ></span> i<br/>
-<span class="bp-info"><br/>
-Bus Pirate 5 REV6<br/>
+<span class="bp-prompt">HiZ></span> i
+<span class="bp-info">
+Bus Pirate 5 REV6
 Firmware 
 <span class="bp-float">v0.1</span>
 
 </span> 
 (<span class="bp-float">unknown</span>), Bootloader 
 <span class="bp-float">N/A</span>
-<br/>
+
 {{% /term %}}
 
 {{% alert icon="❓" context="danger" %}}
@@ -78,16 +78,16 @@ Volts (0.80V-5.00V)</span></span>
 This is the raw output of a NodeJS converter script. The colors are hex color codes inserted in the stype tag.
 
 ```html
-<span className="bp-prompt">HiZ></span> i<br/>
-<span className="bp-info"><br/>
-Bus Pirate 5 REV6<br/>
+<span className="bp-prompt">HiZ></span> i
+<span className="bp-info">
+Bus Pirate 5 REV6
 Firmware 
 <span className="bp-float">v0.1</span>
 
 </span> 
 (<span className="bp-float">unknown</span>), Bootloader 
 <span className="bp-float">N/A</span>
-<br/>
+
 ```
 
 For docusaurus we have an annoying two step process. The colors are replaced by className and the class names are added to docusaurus CSS.

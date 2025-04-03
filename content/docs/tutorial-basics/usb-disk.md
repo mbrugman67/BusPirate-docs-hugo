@@ -14,29 +14,29 @@ The Bus Pirate has a NAND flash chip for storing settings and data. The flash ch
 ## Navigation
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> ls<br/>
-<span className="bp-prompt">       350 <span className="bp-info">bpconfig.bp</span></span><br/>
-<span className="bp-info">0 dirs, 1 files</span><br/>
-<br/>
-<span className="bp-prompt">HiZ></span> mkdir temp<br/>
-<br/>
-<span className="bp-prompt">HiZ></span> cd temp<br/>
-/TEMP<br/>
-<br/>
-<span className="bp-prompt">HiZ></span> cd ..<br/>
-/<br/>
-<br/>
-<span className="bp-prompt">HiZ></span> ls<br/>
-<span className="bp-prompt">       350 <span className="bp-info">bpconfig.bp</span></span><br/>
-<span className="bp-prompt">   &#x003c;DIR>   <span className="bp-info">temp</span></span><br/>
-<span className="bp-info">1 dirs, 1 files</span><br/>
-<br/>
-<span className="bp-prompt">HiZ></span> rm temp<br/>
-<br/>
-<span className="bp-prompt">HiZ></span> ls<br/>
-<span className="bp-prompt">       350 <span className="bp-info">bpconfig.bp</span></span><br/>
-<span className="bp-info">0 dirs, 1 files</span><br/>
-<br/>
+<span className="bp-prompt">HiZ></span> ls
+<span className="bp-prompt">       350 <span className="bp-info">bpconfig.bp</span></span>
+<span className="bp-info">0 dirs, 1 files</span>
+
+<span className="bp-prompt">HiZ></span> mkdir temp
+
+<span className="bp-prompt">HiZ></span> cd temp
+/TEMP
+
+<span className="bp-prompt">HiZ></span> cd ..
+/
+
+<span className="bp-prompt">HiZ></span> ls
+<span className="bp-prompt">       350 <span className="bp-info">bpconfig.bp</span></span>
+<span className="bp-prompt">   &#x003c;DIR>   <span className="bp-info">temp</span></span>
+<span className="bp-info">1 dirs, 1 files</span>
+
+<span className="bp-prompt">HiZ></span> rm temp
+
+<span className="bp-prompt">HiZ></span> ls
+<span className="bp-prompt">       350 <span className="bp-info">bpconfig.bp</span></span>
+<span className="bp-info">0 dirs, 1 files</span>
+
 <span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 

@@ -20,17 +20,17 @@ I2C is a common 2-wire bus for low speed interfaces, generally 100KHz, 400KHz an
 ## Configuration options
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">I2C speed</span><br/>
- 1KHz to 1000KHz<br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">KHz (</span>400KHz*<span className="bp-prompt">) ></span> <br/>
-<span className="bp-info">Data bits</span><br/>
- 1. <span className="bp-info">8*</span><br/>
- 2. <span className="bp-info">10</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">Bits (</span>1<span className="bp-prompt">) ></span> <br/>
-<span className="bp-info">Mode:</span> I2C<br/>
-<span className="bp-prompt">I2C></span> <br/>
+<span className="bp-info">I2C speed</span>
+ 1KHz to 1000KHz
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">KHz (</span>400KHz*<span className="bp-prompt">) ></span> 
+<span className="bp-info">Data bits</span>
+ 1. <span className="bp-info">8*</span>
+ 2. <span className="bp-info">10</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">Bits (</span>1<span className="bp-prompt">) ></span> 
+<span className="bp-info">Mode:</span> I2C
+<span className="bp-prompt">I2C></span> 
 {{% /term %}}
 
 **Pull-up resistors**
@@ -82,16 +82,16 @@ The ```scan``` command in the Bus Pirate I2C mode scans the for device addresses
 #### Help
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">I2C></span> scan -h<br/>
-usage:<br/>
-<span className="bp-info">scan	[-v(erbose)] [-h(elp)]</span><br/>
-<span className="bp-info">Scan I2C address space: scan</span><br/>
-<span className="bp-info">Scan, list possible part numbers: scan -v</span><br/>
-<br/>
-<span className="bp-info">scan I2C addresses, with optional part number</span><br/>
-<span className="bp-prompt">-v</span>	<span className="bp-info">Verbose mode, print potential part numbers</span><br/>
-<span className="bp-prompt">-h</span>	<span className="bp-info">Get additional help</span><br/>
-<br/>
+<span className="bp-prompt">I2C></span> scan -h
+usage:
+<span className="bp-info">scan	[-v(erbose)] [-h(elp)]</span>
+<span className="bp-info">Scan I2C address space: scan</span>
+<span className="bp-info">Scan, list possible part numbers: scan -v</span>
+
+<span className="bp-info">scan I2C addresses, with optional part number</span>
+<span className="bp-prompt">-v</span>	<span className="bp-info">Verbose mode, print potential part numbers</span>
+<span className="bp-prompt">-h</span>	<span className="bp-info">Get additional help</span>
+
 {{% /term %}}
 
 {{% alert context="info" %}}
@@ -108,20 +108,20 @@ Use ```scan -h``` to see the latest options and features.
 #### Scans for I2C Devices
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">I2C></span> scan<br/>
-I2C address search:<br/>
-0x50 (0xA0 W) (0xA1 R)<br/>
-0x51 (0xA2 W) (0xA3 R)<br/>
-0x52 (0xA4 W) (0xA5 R)<br/>
-0x53 (0xA6 W) (0xA7 R)<br/>
-0x54 (0xA8 W) (0xA9 R)<br/>
-0x55 (0xAA W) (0xAB R)<br/>
-0x56 (0xAC W) (0xAD R)<br/>
-0x57 (0xAE W) (0xAF R)<br/>
-<br/>
-Found 16 addresses, 8 W/R pairs.<br/>
-<br/>
-<span className="bp-prompt">I2C></span> <br/>
+<span className="bp-prompt">I2C></span> scan
+I2C address search:
+0x50 (0xA0 W) (0xA1 R)
+0x51 (0xA2 W) (0xA3 R)
+0x52 (0xA4 W) (0xA5 R)
+0x53 (0xA6 W) (0xA7 R)
+0x54 (0xA8 W) (0xA9 R)
+0x55 (0xAA W) (0xAB R)
+0x56 (0xAC W) (0xAD R)
+0x57 (0xAE W) (0xAF R)
+
+Found 16 addresses, 8 W/R pairs.
+
+<span className="bp-prompt">I2C></span> 
 {{% /term %}}
 
 You can find the [I2C](http://en.wikipedia.org/wiki/I%C2%B2C) address

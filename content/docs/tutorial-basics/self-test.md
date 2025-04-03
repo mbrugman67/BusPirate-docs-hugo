@@ -27,20 +27,20 @@ Disconnect any devices before performing the self-test.
 ## Start the self-test
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">SPI></span> m<br/>
-<span className="bp-info"><br/>
-<span className="bp-info">Mode selection</span></span><br/>
- 1. <span className="bp-info">HiZ</span><br/>
- 2. <span className="bp-info">UART</span><br/>
- 3. <span className="bp-info">I2C</span><br/>
- 4. <span className="bp-info">SPI</span><br/>
- 5. <span className="bp-info">LED</span><br/>
- 6. <span className="bp-info">DUMMY1</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">Mode ></span> 1<br/>
-<span className="bp-info">Mode:</span> HiZ<br/>
-<span className="bp-prompt">HiZ></span> ~<br/>
-<span className="bp-info">SELF TEST STARTING<br/></span>
+<span className="bp-prompt">SPI></span> m
+<span className="bp-info">
+<span className="bp-info">Mode selection</span></span>
+ 1. <span className="bp-info">HiZ</span>
+ 2. <span className="bp-info">UART</span>
+ 3. <span className="bp-info">I2C</span>
+ 4. <span className="bp-info">SPI</span>
+ 5. <span className="bp-info">LED</span>
+ 6. <span className="bp-info">DUMMY1</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">Mode ></span> 1
+<span className="bp-info">Mode:</span> HiZ
+<span className="bp-prompt">HiZ></span> ~
+<span className="bp-info">SELF TEST STARTING</span>
 {{% /term %}}
 
 {{% alert context="warning" %}}
@@ -58,14 +58,14 @@ Let's break down the self-test step by step.
 ### Verify NAND flash
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> ~<br/>
-No file system!<br/>
-Format the Bus Pirate NAND flash?<br/>
-ALL DATA WILL BE DESTROYED!<br/>
- y/n> y<br/>
-Format succeeded!<br/> 
-Storage mounted: 0.10 GB FAT16<br/>
-FORMAT NAND FLASH: OK<br/>
+<span className="bp-prompt">HiZ></span> ~
+No file system!
+Format the Bus Pirate NAND flash?
+ALL DATA WILL BE DESTROYED!
+ y/n> y
+Format succeeded! 
+Storage mounted: 0.10 GB FAT16
+FORMAT NAND FLASH: OK
 {{% /term %}}
 
 First the Bus Pirate checks the connection and health of the onboard NAND flash storage.
@@ -78,13 +78,13 @@ You should not normally see this message. Formatting is performed during product
 ### System tests
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<br/>
 
-<span className="bp-info">SELF TEST STARTING<br/>
-DISABLE IRQ: OK<br/>
-ADC SUBSYSTEM: VUSB  5.03V OK<br/>
-FLASH STORAGE: OK<br/>
-PSU ENABLE: OK<br/></span>
+
+<span className="bp-info">SELF TEST STARTING
+DISABLE IRQ: OK
+ADC SUBSYSTEM: VUSB  5.03V OK
+FLASH STORAGE: OK
+PSU ENABLE: OK</span>
 {{% /term %}}
 
 - **DISABLE IRQ** - The Bus Pirate disables all interrupts during the test.
@@ -99,15 +99,15 @@ Prototype boards (REV8 and below) use a TF flash card for storage. If a formatte
 ### BIO float
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-info">
-BIO FLOAT TEST (SHOULD BE 0/&lt;0.2V)<br/>
-BIO0 FLOAT: 0/0.03V OK<br/>
-BIO1 FLOAT: 0/0.03V OK<br/>
-BIO2 FLOAT: 0/0.03V OK<br/>
-BIO3 FLOAT: 0/0.03V OK<br/>
-BIO4 FLOAT: 0/0.03V OK<br/>
-BIO5 FLOAT: 0/0.03V OK<br/>
-BIO6 FLOAT: 0/0.03V OK<br/>
-BIO7 FLOAT: 0/0.04V OK<br/></span>
+BIO FLOAT TEST (SHOULD BE 0/&lt;0.2V)
+BIO0 FLOAT: 0/0.03V OK
+BIO1 FLOAT: 0/0.03V OK
+BIO2 FLOAT: 0/0.03V OK
+BIO3 FLOAT: 0/0.03V OK
+BIO4 FLOAT: 0/0.03V OK
+BIO5 FLOAT: 0/0.03V OK
+BIO6 FLOAT: 0/0.03V OK
+BIO7 FLOAT: 0/0.04V OK</span>
 {{% /term %}}
 
 - **BIOx FLOAT** - The buffered IO pins are set as floating inputs. 
@@ -118,15 +118,15 @@ BIO7 FLOAT: 0/0.04V OK<br/></span>
 ### BIO high
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-info">
-BIO HIGH TEST (SHOULD BE >3.0V)<br/>
-BIO0 HIGH: 3.29V OK<br/>
-BIO1 HIGH: 3.29V OK<br/>
-BIO2 HIGH: 3.29V OK<br/>
-BIO3 HIGH: 3.29V OK<br/>
-BIO4 HIGH: 3.29V OK<br/>
-BIO5 HIGH: 3.29V OK<br/>
-BIO6 HIGH: 3.29V OK<br/>
-BIO7 HIGH: 3.29V OK<br/></span>
+BIO HIGH TEST (SHOULD BE >3.0V)
+BIO0 HIGH: 3.29V OK
+BIO1 HIGH: 3.29V OK
+BIO2 HIGH: 3.29V OK
+BIO3 HIGH: 3.29V OK
+BIO4 HIGH: 3.29V OK
+BIO5 HIGH: 3.29V OK
+BIO6 HIGH: 3.29V OK
+BIO7 HIGH: 3.29V OK</span>
 {{% /term %}}
 
 - **BIOx HIGH** - The buffered IO pins are set as high outputs. 
@@ -137,15 +137,15 @@ BIO7 HIGH: 3.29V OK<br/></span>
 ### BIO low
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-info">
-BIO LOW TEST (SHOULD BE &lt;0.2V)<br/>
-BIO0 LOW: 0.03V OK<br/>
-BIO1 LOW: 0.03V OK<br/>
-BIO2 LOW: 0.03V OK<br/>
-BIO3 LOW: 0.03V OK<br/>
-BIO4 LOW: 0.03V OK<br/>
-BIO5 LOW: 0.03V OK<br/>
-BIO6 LOW: 0.03V OK<br/>
-BIO7 LOW: 0.03V OK<br/></span>
+BIO LOW TEST (SHOULD BE &lt;0.2V)
+BIO0 LOW: 0.03V OK
+BIO1 LOW: 0.03V OK
+BIO2 LOW: 0.03V OK
+BIO3 LOW: 0.03V OK
+BIO4 LOW: 0.03V OK
+BIO5 LOW: 0.03V OK
+BIO6 LOW: 0.03V OK
+BIO7 LOW: 0.03V OK</span>
 {{% /term %}}
 
 - **BIOx LOW** - The buffered IO pins are set as low outputs. 
@@ -156,15 +156,15 @@ BIO7 LOW: 0.03V OK<br/></span>
 ### BIO pull-up high
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-info">
-BIO PULL-UP HIGH TEST (SHOULD BE >3.0V)<br/>
-BIO0 PU-HIGH: 1/3.22V OK<br/>
-BIO1 PU-HIGH: 1/3.22V OK<br/>
-BIO2 PU-HIGH: 1/3.23V OK<br/>
-BIO3 PU-HIGH: 1/3.26V OK<br/>
-BIO4 PU-HIGH: 1/3.26V OK<br/>
-BIO5 PU-HIGH: 1/3.22V OK<br/>
-BIO6 PU-HIGH: 1/3.25V OK<br/>
-BIO7 PU-HIGH: 1/3.25V OK<br/></span>
+BIO PULL-UP HIGH TEST (SHOULD BE >3.0V)
+BIO0 PU-HIGH: 1/3.22V OK
+BIO1 PU-HIGH: 1/3.22V OK
+BIO2 PU-HIGH: 1/3.23V OK
+BIO3 PU-HIGH: 1/3.26V OK
+BIO4 PU-HIGH: 1/3.26V OK
+BIO5 PU-HIGH: 1/3.22V OK
+BIO6 PU-HIGH: 1/3.25V OK
+BIO7 PU-HIGH: 1/3.25V OK</span>
 {{% /term %}}
 
 - **BIOx PU-HIGH** - The pull-up resistors are enabled and the buffered IO pins are set as inputs. 
@@ -175,15 +175,15 @@ BIO7 PU-HIGH: 1/3.25V OK<br/></span>
 ### BIO pull-up low
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-info">
-BIO PULL-UP LOW TEST (SHOULD BE &lt;0.5V)<br/>
-BIO0 PU-LOW: 0.13V OK<br/>
-BIO1 PU-LOW: 0.14V OK<br/>
-BIO2 PU-LOW: 0.14V OK<br/>
-BIO3 PU-LOW: 0.14V OK<br/>
-BIO4 PU-LOW: 0.14V OK<br/>
-BIO5 PU-LOW: 0.13V OK<br/>
-BIO6 PU-LOW: 0.14V OK<br/>
-BIO7 PU-LOW: 0.14V OK<br/></span>
+BIO PULL-UP LOW TEST (SHOULD BE &lt;0.5V)
+BIO0 PU-LOW: 0.13V OK
+BIO1 PU-LOW: 0.14V OK
+BIO2 PU-LOW: 0.14V OK
+BIO3 PU-LOW: 0.14V OK
+BIO4 PU-LOW: 0.14V OK
+BIO5 PU-LOW: 0.13V OK
+BIO6 PU-LOW: 0.14V OK
+BIO7 PU-LOW: 0.14V OK</span>
 {{% /term %}}
 
 - **BIOx PU-LOW** - The pull-up resistors are enabled and the buffered IO pins are set to output/ground. 
@@ -194,7 +194,7 @@ BIO7 PU-LOW: 0.14V OK<br/></span>
 ### Current override
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-info">
-CURRENT OVERRIDE: OK<br/></span>
+CURRENT OVERRIDE: OK</span>
 {{% /term %}}
 
 - **CURRENT OVERRIDE** - Tests the pin for overriding the current limit digital fuse. Current limit override is enabled. A very low current limit is set with the pull-ups enabled and the BIO pins grounded. The Bus Pirate checks that the power supply is still on, despite the blown fuse.
@@ -204,7 +204,7 @@ CURRENT OVERRIDE: OK<br/></span>
 ### Current limit
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-info">
-CURRENT LIMIT TEST: OK<br/></span>
+CURRENT LIMIT TEST: OK</span>
 {{% /term %}}
 
 - **CURRENT LIMIT TEST** - A very low current limit is set with the pull-ups enabled and the BIO pins grounded. The Bus Pirate waits up to 2 seconds for the digital fuse to blow.
@@ -213,8 +213,8 @@ CURRENT LIMIT TEST: OK<br/></span>
 ### Just one button
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-info">
-PUSH BUTTON TO COMPLETE: OK<br/>
-</span><br/>
+PUSH BUTTON TO COMPLETE: OK
+</span>
 {{% /term %}}
 
 - **PUSH BUTTON TO COMPLETE** - Press the Bus Pirate button to complete the test. The Bus Pirate will pause and wait indefinitely. 
@@ -226,10 +226,10 @@ PUSH BUTTON TO COMPLETE: OK<br/>
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-info">
-<br/>
-PASS :)<br/>
-</span><br/>
-<span className="bp-prompt">HiZ></span> <br/>
+
+PASS :)
+</span>
+<span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 
 Hopefully you see a happy Bus Pirate with no errors. Your hardware seems to be in working order. 
@@ -240,9 +240,9 @@ If you're still having a problem, could it be a firmware bug? Please let us know
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-info">
-PSU ENABLE: CODE 3. ERROR!<br/>
-...<br/>
-ERRORS: 1<br/>
+PSU ENABLE: CODE 3. ERROR!
+...
+ERRORS: 1
 FAIL! :(</span>
 {{% /term %}}
 

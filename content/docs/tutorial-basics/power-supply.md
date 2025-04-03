@@ -19,23 +19,23 @@ Bus Pirate 5 has a single 'Programmable Power Supply Unit' (PPSU) that can power
 
 ## Enable
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">I2C></span> W<br/>
-<span className="bp-info"><span className="bp-info">Power supply<br/>
-Volts (0.80V-5.00V)</span></span><br/>
-<span className="bp-prompt">x to exit (3.30) ></span> 2.1<br/>
-<span className="bp-float">2.10</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">2.10</span></span>V<br/>
-Set current limit?<br/>
-y<br/>
-<br/>
-<span className="bp-info">Maximum current (0mA-500mA)</span><br/>
-<span className="bp-prompt">x to exit (100.00) ></span> 50<br/>
-<span className="bp-float">50.0</span>mA<span className="bp-info"> requested, closest value: <span className="bp-float">50.0</span></span>mA<br/>
-<br/>
-<span className="bp-info">Power supply:</span>Enabled<br/>
-<span className="bp-info"><br/>
-Vreg output: <span className="bp-float">2.1</span></span>V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">2.1</span></span>V<span className="bp-info">, Current sense: <span className="bp-float">7.3</span></span>mA<span className="bp-info"><br/>
-</span><br/>
-<span className="bp-prompt">I2C></span> <br/>
+<span className="bp-prompt">I2C></span> W
+<span className="bp-info"><span className="bp-info">Power supply
+Volts (0.80V-5.00V)</span></span>
+<span className="bp-prompt">x to exit (3.30) ></span> 2.1
+<span className="bp-float">2.10</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">2.10</span></span>V
+Set current limit?
+y
+
+<span className="bp-info">Maximum current (0mA-500mA)</span>
+<span className="bp-prompt">x to exit (100.00) ></span> 50
+<span className="bp-float">50.0</span>mA<span className="bp-info"> requested, closest value: <span className="bp-float">50.0</span></span>mA
+
+<span className="bp-info">Power supply:</span>Enabled
+<span className="bp-info">
+Vreg output: <span className="bp-float">2.1</span></span>V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">2.1</span></span>V<span className="bp-info">, Current sense: <span className="bp-float">7.3</span></span>mA<span className="bp-info">
+</span>
+<span className="bp-prompt">I2C></span> 
 {{% /term %}}
 
 Type uppercase ```W``` followed by ```enter``` to enable the power supply. 
@@ -71,9 +71,9 @@ The difference in voltages (2.1, 2.19) is due to some code inconsistencies in fl
 ## Current limit
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-error">Error:<span className="bp-info"> Current over limit, power supply disabled</span></span><br/>
-<br/>
-<span className="bp-prompt">I2C></span> <br/>
+<span className="bp-error">Error:<span className="bp-info"> Current over limit, power supply disabled</span></span>
+
+<span className="bp-prompt">I2C></span> 
 {{% /term %}}
 
 When the programmed current limit is exceeded the PPSU hardware fuse disables the power supply. The terminal colors invert repeatedly, an alarm bell will sound, an error message is shown and command execution is halted. Use the ```W``` command to restart the PPSU again.
@@ -81,9 +81,9 @@ When the programmed current limit is exceeded the PPSU hardware fuse disables th
 ## Disable
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">I2C></span>w<br/>
-<span className="bp-info"><span className="bp-info">Power supply: </span></span>Disabled<br/>
-<span className="bp-prompt">I2C></span> <br/>
+<span className="bp-prompt">I2C></span>w
+<span className="bp-info"><span className="bp-info">Power supply: </span></span>Disabled
+<span className="bp-prompt">I2C></span> 
 {{% /term %}}
 
 Lowercase ```w``` disables the PPSU.

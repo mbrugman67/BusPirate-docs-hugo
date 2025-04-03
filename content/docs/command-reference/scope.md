@@ -14,12 +14,12 @@ RP2040 chip to 0.5Msps so it's suitable for analog audio, not for high speed dig
 ## Start the scope
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> d<br/>
-<span className="bp-info">Display selection<br/>
- 1. Default<br/>
- 2. Scope<br/>
- x. Exit<br/></span>
-<span className="bp-prompt">Display ></span> 2<br/>
+<span className="bp-prompt">HiZ></span> d
+<span className="bp-info">Display selection
+ 1. Default
+ 2. Scope
+ x. Exit</span>
+<span className="bp-prompt">Display ></span> 2
 <span className="bp-info">Display:</span> Scope
 {{% /term %}}
 
@@ -60,7 +60,7 @@ All of these commands enter a more interactive UI where you can type single char
 ### Scope Run
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> sr 2n  <br/>
+<span className="bp-prompt">LED-()></span> sr 2n  
 {{% /term %}}
 
 ```sr {pin} {mode}``` ('scope run') starts the oscilloscope, you can specify additional parameters if you don't specify any it will use the previous settings. 
@@ -87,10 +87,10 @@ These commands work a bit differently from normal Bus Pirate commands, you can u
 
 #### X/Y navigation
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> x<br/>
-Timebase: +- ^vT ty rsona> +-<br/>
-<span className="bp-prompt">LED-()></span> y<br/>
-Voltage scale: +- ^vT tx rsona> +-<br/>
+<span className="bp-prompt">LED-()></span> x
+Timebase: +- ^vT ty rsona> +-
+<span className="bp-prompt">LED-()></span> y
+Voltage scale: +- ^vT tx rsona> +-
 {{% /term %}}
 
 Interactive parameters in x and y modes are:
@@ -102,8 +102,8 @@ Interactive parameters in x and y modes are:
 #### Triggers
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> t<br/>
-Trigger: +-*b ^vT BME xy rsona> <br/>
+<span className="bp-prompt">LED-()></span> t
+Trigger: +-*b ^vT BME xy rsona> 
 {{% /term %}}
 
 In Trigger mode
@@ -141,38 +141,38 @@ Here's a quick start tutorial using only the Bus Pirate hardware. We're going to
 ### Setup
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> m<br/>
-<br/>
-<span className="bp-info">Mode selection</span><br/>
- 1. <span className="bp-info">HiZ</span><br/>
- 2. <span className="bp-info">1-WIRE</span><br/>
- 3. <span className="bp-info">UART</span><br/>
- 4. <span className="bp-info">I2C</span><br/>
- 5. <span className="bp-info">SPI</span><br/>
- 6. <span className="bp-info">LED</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">Mode ></span> 6<br/>
-<br/>
-<span className="bp-info">LED type</span><br/>
- 1. <span className="bp-info">WS2812/SK6812/'NeoPixel' (single wire interface)*</span><br/>
- 2. <span className="bp-info">APA102/SK9822 (clock and data interface)</span><br/>
- 3. <span className="bp-info">Onboard LEDs (16 SK6812s)</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">Type (</span>1<span className="bp-prompt">) ></span> 3<br/>
-<span className="bp-info">Mode:</span> LED<br/>
-<span className="bp-prompt">LED-()></span> W<br/>
-<span className="bp-info">Power supply<br/>
-Volts (0.80V-5.00V)</span><br/>
-<span className="bp-prompt">x to exit (3.30) ></span> <br/>
-<span className="bp-float">3.30</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">3.30</span></span>V<br/>
-Set current limit?<br/>
-n <br/>
-<br/>
-<span className="bp-info">Power supply:</span>Enabled<br/>
-<span className="bp-info"><br/>
-Vreg output: <span className="bp-float">3.3</span></span>V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">3.3</span></span>V<span className="bp-info">, Current sense: <span className="bp-float">2.4</span></span>mA<span className="bp-info"><br/>
-</span><br/>
-<span className="bp-prompt">LED-()></span> <br/>
+<span className="bp-prompt">HiZ></span> m
+
+<span className="bp-info">Mode selection</span>
+ 1. <span className="bp-info">HiZ</span>
+ 2. <span className="bp-info">1-WIRE</span>
+ 3. <span className="bp-info">UART</span>
+ 4. <span className="bp-info">I2C</span>
+ 5. <span className="bp-info">SPI</span>
+ 6. <span className="bp-info">LED</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">Mode ></span> 6
+
+<span className="bp-info">LED type</span>
+ 1. <span className="bp-info">WS2812/SK6812/'NeoPixel' (single wire interface)*</span>
+ 2. <span className="bp-info">APA102/SK9822 (clock and data interface)</span>
+ 3. <span className="bp-info">Onboard LEDs (16 SK6812s)</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">Type (</span>1<span className="bp-prompt">) ></span> 3
+<span className="bp-info">Mode:</span> LED
+<span className="bp-prompt">LED-()></span> W
+<span className="bp-info">Power supply
+Volts (0.80V-5.00V)</span>
+<span className="bp-prompt">x to exit (3.30) ></span> 
+<span className="bp-float">3.30</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">3.30</span></span>V
+Set current limit?
+n 
+
+<span className="bp-info">Power supply:</span>Enabled
+<span className="bp-info">
+Vreg output: <span className="bp-float">3.3</span></span>V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">3.3</span></span>V<span className="bp-info">, Current sense: <span className="bp-float">2.4</span></span>mA<span className="bp-info">
+</span>
+<span className="bp-prompt">LED-()></span> 
 {{% /term %}}
 
 Enter LED mode and enable a 3.3volt power supply:
@@ -182,12 +182,12 @@ Enter LED mode and enable a 3.3volt power supply:
 ### Enable Scope
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED></span> d<br/>
-<span className="bp-info">Display selection<br/>
- 1. Default<br/>
- 2. Scope<br/>
- x. Exit<br/></span>
-<span className="bp-prompt">Display ></span> 2<br/>
+<span className="bp-prompt">LED></span> d
+<span className="bp-info">Display selection
+ 1. Default
+ 2. Scope
+ x. Exit</span>
+<span className="bp-prompt">Display ></span> 2
 <span className="bp-info">Display:</span> Scope
 {{% /term %}}
 
@@ -201,9 +201,9 @@ The ```d``` command selects the LCD display mode.
 ### Triggers
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> t<br/>
-Trigger: +-*b ^vT BME xy rsona> b<br/>
-<span className="bp-prompt">LED-()></span> sr 2n  <br/>
+<span className="bp-prompt">LED-()></span> t
+Trigger: +-*b ^vT BME xy rsona> b
+<span className="bp-prompt">LED-()></span> sr 2n  
 {{% /term %}}
 
 Set the trigger to 'both' edges and begin the scope capture on pin 2:
@@ -218,10 +218,10 @@ The default trigger point is ~2.4volts.
 ### Capture
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> P<br/>
-<span className="bp-info">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)<br/>
-<span className="bp-prompt">LED-()></span> p<br/>
-<span className="bp-info">Pull-up resistors:</span> Disabled<br/>
+<span className="bp-prompt">LED-()></span> P
+<span className="bp-info">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)
+<span className="bp-prompt">LED-()></span> p
+<span className="bp-info">Pull-up resistors:</span> Disabled
 <span className="bp-prompt">LED-()></span>
 {{% /term %}}
 
@@ -234,14 +234,14 @@ Now we'll use the pull-up resistors to trigger the scope:
 ### Edge triggers
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> P<br/>
-<span className="bp-info">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)<br/>
-<span className="bp-prompt">LED-()></span> t<br/>
-Trigger: +-*b ^vT BME xy rsona> +<br/>
-<span className="bp-prompt">LED-()></span> p<br/>
-<span className="bp-info">Pull-up resistors:</span> Disabled<br/>
-<span className="bp-prompt">LED-()></span> P<br/>
-<span className="bp-info">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)<br/>
+<span className="bp-prompt">LED-()></span> P
+<span className="bp-info">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)
+<span className="bp-prompt">LED-()></span> t
+Trigger: +-*b ^vT BME xy rsona> +
+<span className="bp-prompt">LED-()></span> p
+<span className="bp-info">Pull-up resistors:</span> Disabled
+<span className="bp-prompt">LED-()></span> P
+<span className="bp-info">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)
 <span className="bp-prompt">LED-()></span> 
 {{% /term %}}
 
@@ -254,31 +254,31 @@ The scope can be triggered by the rising or falling edge of a signal, or both:
 ### Navigation
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> G 2<br/>
-<span className="bp-info">Generate frequency</span><br/>
-<span className="bp-info">Choose available pin:</span><br/>
- 2. IO<span className="bp-float">2</span><br/>
- 3. IO<span className="bp-float">3</span><br/>
- 4. IO<span className="bp-float">4</span><br/>
- 5. IO<span className="bp-float">5</span><br/>
- 6. IO<span className="bp-float">6</span><br/>
- 7. IO<span className="bp-float">7</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt"> ></span> 2<br/>
-<span className="bp-prompt">Period or frequency (ns, us, ms, Hz, KHz or Mhz) ></span> 1ms<br/>
-<span className="bp-info">Frequency:</span> <span className="bp-float">1.000</span>ms = <span className="bp-float">1000</span>Hz (<span className="bp-float">1000.00</span>Hz)<br/>
-<span className="bp-info">Period:</span> <span className="bp-float">1000000</span>ns (<span className="bp-float">1.00</span>ms)<br/>
-<br/>
-<span className="bp-info">Actual frequency:</span> <span className="bp-float">1000</span>Hz (<span className="bp-float">1.00</span>KHz)<br/>
-<span className="bp-info">Actual period:</span> <span className="bp-float">999998</span>ns (<span className="bp-float">1000.00</span>us)<br/>
-<br/>
-<span className="bp-prompt">Duty cycle (%) ></span> 33%<br/>
-<span className="bp-info">Duty cycle:</span> <span className="bp-float">33.00</span>% = <span className="bp-float">329999</span>ns (<span className="bp-float">330.00</span>us)<br/>
-<span className="bp-info">Actual duty cycle:</span> <span className="bp-float">330000</span>ns (<span className="bp-float">330.00</span>us)<br/>
-Divider: 31, Period: 64515, Duty: 21290<br/>
-<br/>
-<span className="bp-info">Generate frequency:</span> Enabled on IO<span className="bp-float">2</span><br/>
-<br/>
+<span className="bp-prompt">LED-()></span> G 2
+<span className="bp-info">Generate frequency</span>
+<span className="bp-info">Choose available pin:</span>
+ 2. IO<span className="bp-float">2</span>
+ 3. IO<span className="bp-float">3</span>
+ 4. IO<span className="bp-float">4</span>
+ 5. IO<span className="bp-float">5</span>
+ 6. IO<span className="bp-float">6</span>
+ 7. IO<span className="bp-float">7</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt"> ></span> 2
+<span className="bp-prompt">Period or frequency (ns, us, ms, Hz, KHz or Mhz) ></span> 1ms
+<span className="bp-info">Frequency:</span> <span className="bp-float">1.000</span>ms = <span className="bp-float">1000</span>Hz (<span className="bp-float">1000.00</span>Hz)
+<span className="bp-info">Period:</span> <span className="bp-float">1000000</span>ns (<span className="bp-float">1.00</span>ms)
+
+<span className="bp-info">Actual frequency:</span> <span className="bp-float">1000</span>Hz (<span className="bp-float">1.00</span>KHz)
+<span className="bp-info">Actual period:</span> <span className="bp-float">999998</span>ns (<span className="bp-float">1000.00</span>us)
+
+<span className="bp-prompt">Duty cycle (%) ></span> 33%
+<span className="bp-info">Duty cycle:</span> <span className="bp-float">33.00</span>% = <span className="bp-float">329999</span>ns (<span className="bp-float">330.00</span>us)
+<span className="bp-info">Actual duty cycle:</span> <span className="bp-float">330000</span>ns (<span className="bp-float">330.00</span>us)
+Divider: 31, Period: 64515, Duty: 21290
+
+<span className="bp-info">Generate frequency:</span> Enabled on IO<span className="bp-float">2</span>
+
 <span className="bp-prompt">LED-()></span> 
 {{% /term %}}
 
@@ -288,8 +288,8 @@ Next let's try something more involved, let's set up a square wave on pin 2.
 #### Time scale
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> x<br/>
-Timebase: +- ^vT ty rsona> +-<br/>
+<span className="bp-prompt">LED-()></span> x
+Timebase: +- ^vT ty rsona> +-
 {{% /term %}}
 
 You should see the display showing a square wave. The capture buffer is large. We can zoom and pan to navigate the data:
@@ -304,8 +304,8 @@ Note you are now in interactive mode - try the ```-``` command a few times and s
 #### Voltage scale
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> y<br/>
-Voltage scale: +- ^vT tx rsona> +-<br/>
+<span className="bp-prompt">LED-()></span> y
+Voltage scale: +- ^vT tx rsona> +-
 {{% /term %}}
 
 

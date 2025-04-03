@@ -29,12 +29,12 @@ title = '2-Wire Protocol'
 ## Configuration options
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">2WIRE speed</span><br/>
- 1kHz to 1000kHz<br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">kHz (</span>400kHz*<span className="bp-prompt">) ></span> 20<br/>
-<span className="bp-info">Mode:</span> 2WIRE<br/>
-<span className="bp-prompt">2WIRE></span> <br/>
+<span className="bp-info">2WIRE speed</span>
+ 1kHz to 1000kHz
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">kHz (</span>400kHz*<span className="bp-prompt">) ></span> 20
+<span className="bp-info">Mode:</span> 2WIRE
+<span className="bp-prompt">2WIRE></span> 
 {{% /term %}}
 
 **Pull-up resistors**
@@ -81,30 +81,30 @@ The ```sle4442``` command in the Bus Pirate's 2-WIRE mode automates the process 
 #### Help
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">2WIRE></span> sle4442 -h<br/>
-usage:<br/>
-<span className="bp-info">sle4442 [init|dump|unlock|write|erase|psc]<br/>
-	[-a &#x003c;address&#x003e;] [-v &#x003c;value&#x003e;] [-p &#x003c;current psc&#x003e;] [-n &#x003c;new psc&#x003e;] [-h(elp)]</span><br/>
-<span className="bp-info">Initialize and probe: sle4442 init</span><br/>
-<span className="bp-info">Dump contents: sle4442 dump</span><br/>
-<span className="bp-info">Unlock card: sle4442 unlock -p 0xffffff</span><br/>
-<span className="bp-info">Write a value: sle4442 write -a 0xff -v 0x55</span><br/>
-<span className="bp-info">Erase memory: sle4442 erase</span><br/>
-<span className="bp-info">Update PSC: sle4442 psc -p 0xffffff -n 0x000000</span><br/>
-<br/>
-<span className="bp-info">SLE4442 smart card interface</span><br/>
-<span className="bp-prompt">init</span>	<span className="bp-info">Initialize card with ISO7816-3 ATR. Default action</span><br/>
-<span className="bp-prompt">dump</span>	<span className="bp-info">Display main, security and protect memory</span><br/>
-<span className="bp-prompt">unlock</span>	<span className="bp-info">Unlock card with Programmable Security Code (PSC)</span><br/>
-<span className="bp-prompt">write</span>	<span className="bp-info">Write data to card (requires unlock)</span><br/>
-<span className="bp-prompt">erase</span>	<span className="bp-info">Erase data from range 0x32-0x255 (requires unlock)</span><br/>
-<span className="bp-prompt">psc</span>	<span className="bp-info">Change Programmable Security Code (PSC)</span><br/>
-<span className="bp-prompt">-a</span>	<span className="bp-info">Write address flag</span><br/>
-<span className="bp-prompt">-v</span>	<span className="bp-info">Write value flag</span><br/>
-<span className="bp-prompt">-p</span>	<span className="bp-info">Current Programmable Security Code (PSC) flag</span><br/>
-<span className="bp-prompt">-n</span>	<span className="bp-info">New Programmable Security Code (PSC) flag</span><br/>
-<br/>
-<span className="bp-prompt">2WIRE></span> <br/>
+<span className="bp-prompt">2WIRE></span> sle4442 -h
+usage:
+<span className="bp-info">sle4442 [init|dump|unlock|write|erase|psc]
+	[-a &#x003c;address&#x003e;] [-v &#x003c;value&#x003e;] [-p &#x003c;current psc&#x003e;] [-n &#x003c;new psc&#x003e;] [-h(elp)]</span>
+<span className="bp-info">Initialize and probe: sle4442 init</span>
+<span className="bp-info">Dump contents: sle4442 dump</span>
+<span className="bp-info">Unlock card: sle4442 unlock -p 0xffffff</span>
+<span className="bp-info">Write a value: sle4442 write -a 0xff -v 0x55</span>
+<span className="bp-info">Erase memory: sle4442 erase</span>
+<span className="bp-info">Update PSC: sle4442 psc -p 0xffffff -n 0x000000</span>
+
+<span className="bp-info">SLE4442 smart card interface</span>
+<span className="bp-prompt">init</span>	<span className="bp-info">Initialize card with ISO7816-3 ATR. Default action</span>
+<span className="bp-prompt">dump</span>	<span className="bp-info">Display main, security and protect memory</span>
+<span className="bp-prompt">unlock</span>	<span className="bp-info">Unlock card with Programmable Security Code (PSC)</span>
+<span className="bp-prompt">write</span>	<span className="bp-info">Write data to card (requires unlock)</span>
+<span className="bp-prompt">erase</span>	<span className="bp-info">Erase data from range 0x32-0x255 (requires unlock)</span>
+<span className="bp-prompt">psc</span>	<span className="bp-info">Change Programmable Security Code (PSC)</span>
+<span className="bp-prompt">-a</span>	<span className="bp-info">Write address flag</span>
+<span className="bp-prompt">-v</span>	<span className="bp-info">Write value flag</span>
+<span className="bp-prompt">-p</span>	<span className="bp-info">Current Programmable Security Code (PSC) flag</span>
+<span className="bp-prompt">-n</span>	<span className="bp-info">New Programmable Security Code (PSC) flag</span>
+
+<span className="bp-prompt">2WIRE></span> 
 {{% /term %}} 
  
 
@@ -134,35 +134,35 @@ Most Bus Pirate commands have help and usage examples. Add the -h flag to any co
 
 #### Reset SLE4442 card, decode ATR response
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">2WIRE></span> sle4442 init<br/>
---SLE44xx decoder--<br/>
-ATR: 0xa2 0x13 0x10 0x91<br/>
-Protocol Type: S 10<br/>
-Structure Identifier: General Purpose (Structure 1)<br/>
-Read: Read to end<br/>
-Data Units: 256<br/>
-Data Units Bits: 8<br/>
-Security memory: 0x07 0x00 0x00 0x00<br/>
-Remaining attempts: 3 (0x7)<br/>
-<br/>
+<span className="bp-prompt">2WIRE></span> sle4442 init
+--SLE44xx decoder--
+ATR: 0xa2 0x13 0x10 0x91
+Protocol Type: S 10
+Structure Identifier: General Purpose (Structure 1)
+Read: Read to end
+Data Units: 256
+Data Units Bits: 8
+Security memory: 0x07 0x00 0x00 0x00
+Remaining attempts: 3 (0x7)
+
 {{% /term %}}
 
 ```sle4442``` and ```sle4442 init``` reset the card and decodes the Answer To Reset (ATR) response.
 
 #### Dump SLE4442 card memory
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">2WIRE></span> sle4442 dump<br/>
---SLE44xx decoder--<br/>
-ATR: 0xa2 0x13 0x10 0x91<br/>
-Protocol Type: S 10<br/>
-Structure Identifier: General Purpose (Structure 1)<br/>
-Read: Read to end<br/>
-Data Units: 256<br/>
-Data Units Bits: 8<br/>
-Security memory: 0x07 0x00 0x00 0x00<br/>
-Remaining attempts: 3 (0x7)<br/>
-Protection memory: 0xff 0xff 0xff 0xff<br/>
-Memory:<br/>
+<span className="bp-prompt">2WIRE></span> sle4442 dump
+--SLE44xx decoder--
+ATR: 0xa2 0x13 0x10 0x91
+Protocol Type: S 10
+Structure Identifier: General Purpose (Structure 1)
+Read: Read to end
+Data Units: 256
+Data Units Bits: 8
+Security memory: 0x07 0x00 0x00 0x00
+Remaining attempts: 3 (0x7)
+Protection memory: 0xff 0xff 0xff 0xff
+Memory:
 0xa2 0x13 0x10 0x91 0xff 0xff 0x81 0x15 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xd2 0x76 0x00 0x00 0x04 0x00 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 
 {{% /term %}}
 
@@ -171,22 +171,22 @@ Memory:<br/>
 #### Unlock SLE4442 card with passcode
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">2WIRE></span> sle4442 unlock -p 0x123456<br/>
---SLE44xx decoder--<br/>
-ATR: 0xa2 0x13 0x10 0x91<br/>
-Protocol Type: S 10<br/>
-Structure Identifier: General Purpose (Structure 1)<br/>
-Read: Read to end<br/>
-Data Units: 256<br/>
-Data Units Bits: 8<br/>
-Security memory: 0x07 0x12 0x34 0x56<br/>
-Remaining attempts: 3 (0x7)<br/>
-Unlocking with PSC: 0x123456<br/>
-Using free security bit: 0x03<br/>
-Card unlocked, security bits reset<br/>
-Security memory: 0x07 0x12 0x34 0x56<br/>
-Remaining attempts: 3 (0x7)<br/>
-<br/>
+<span className="bp-prompt">2WIRE></span> sle4442 unlock -p 0x123456
+--SLE44xx decoder--
+ATR: 0xa2 0x13 0x10 0x91
+Protocol Type: S 10
+Structure Identifier: General Purpose (Structure 1)
+Read: Read to end
+Data Units: 256
+Data Units Bits: 8
+Security memory: 0x07 0x12 0x34 0x56
+Remaining attempts: 3 (0x7)
+Unlocking with PSC: 0x123456
+Using free security bit: 0x03
+Card unlocked, security bits reset
+Security memory: 0x07 0x12 0x34 0x56
+Remaining attempts: 3 (0x7)
+
 {{% /term %}}
 
 ```sle4442 unlock``` unlocks the card using the Programmable Security Code (PSC). Use the ```-p``` flag to specify the PSC. 
@@ -198,18 +198,18 @@ New cards usually have a default PSC of 0xffffff.
 #### Write data to SLE4442 card
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">2WIRE></span> sle4442 write -a 0xff -v 0x88<br/>
---SLE44xx decoder--<br/>
-ATR: 0xa2 0x13 0x10 0x91<br/>
-Protocol Type: S 10<br/>
-Structure Identifier: General Purpose (Structure 1)<br/>
-Read: Read to end<br/>
-Data Units: 256<br/>
-Data Units Bits: 8<br/>
-Security memory: 0x07 0x12 0x34 0x56<br/>
-Remaining attempts: 3 (0x7)<br/>
-Writing 0x88 to 0xff<br/>
-<br/>
+<span className="bp-prompt">2WIRE></span> sle4442 write -a 0xff -v 0x88
+--SLE44xx decoder--
+ATR: 0xa2 0x13 0x10 0x91
+Protocol Type: S 10
+Structure Identifier: General Purpose (Structure 1)
+Read: Read to end
+Data Units: 256
+Data Units Bits: 8
+Security memory: 0x07 0x12 0x34 0x56
+Remaining attempts: 3 (0x7)
+Writing 0x88 to 0xff
+
 {{% /term %}}
 
 ```sle4442 write``` writes a single byte of data to the card. Specify the address with the ```-a``` flag and the data value with the ```-v``` flag.
@@ -221,26 +221,26 @@ The card must be unlocked before writing data.
 #### Change SLE4442 passcode/PSC
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">2WIRE></span> sle4442 psc -p 0x123456 -n 0xffffff<br/>
---SLE44xx decoder--<br/>
-ATR: 0xa2 0x13 0x10 0x91<br/>
-Protocol Type: S 10<br/>
-Structure Identifier: General Purpose (Structure 1)<br/>
-Read: Read to end<br/>
-Data Units: 256<br/>
-Data Units Bits: 8<br/>
-Security memory: 0x07 0x12 0x34 0x56<br/>
-Remaining attempts: 3 (0x7)<br/>
-Unlocking with PSC: 0x123456<br/>
-Using free security bit: 0x03<br/>
-Card unlocked, security bits reset<br/>
-Security memory: 0x07 0x12 0x34 0x56<br/>
-Remaining attempts: 3 (0x7)<br/>
-Updating with PSC: 0xFFFFFF<br/>
-PSC updated to: 0xFFFFFF<br/>
-Security memory: 0x07 0xff 0xff 0xff<br/>
-Remaining attempts: 3 (0x7)<br/>
-<br/>
+<span className="bp-prompt">2WIRE></span> sle4442 psc -p 0x123456 -n 0xffffff
+--SLE44xx decoder--
+ATR: 0xa2 0x13 0x10 0x91
+Protocol Type: S 10
+Structure Identifier: General Purpose (Structure 1)
+Read: Read to end
+Data Units: 256
+Data Units Bits: 8
+Security memory: 0x07 0x12 0x34 0x56
+Remaining attempts: 3 (0x7)
+Unlocking with PSC: 0x123456
+Using free security bit: 0x03
+Card unlocked, security bits reset
+Security memory: 0x07 0x12 0x34 0x56
+Remaining attempts: 3 (0x7)
+Updating with PSC: 0xFFFFFF
+PSC updated to: 0xFFFFFF
+Security memory: 0x07 0xff 0xff 0xff
+Remaining attempts: 3 (0x7)
+
 {{% /term %}}
 
 ```sle4442 psc``` changes the Programmable Security Code (PSC). Use the ```-p``` flag to specify the current PSC and the ```-n``` flag to specify the new PSC.

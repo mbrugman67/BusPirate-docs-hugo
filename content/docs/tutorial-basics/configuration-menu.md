@@ -12,18 +12,18 @@ title = 'Configuration Menu'
 ## Options
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">I2C></span> c<br/>
-<span className="bp-info"><br/>
-<span className="bp-info">Configuration options</span></span><br/>
- 1. <span className="bp-info">Language</span><br/>
- 2. <span className="bp-info">ANSI color mode</span><br/>
- 3. <span className="bp-info">ANSI toolbar mode</span><br/>
- 4. <span className="bp-info">LCD screensaver</span><br/>
- 5. <span className="bp-info">LED effect</span><br/>
- 6. <span className="bp-info">LED color</span><br/>
- 7. <span className="bp-info">LED brightness</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt"> ></span> <br/>
+<span className="bp-prompt">I2C></span> c
+<span className="bp-info">
+<span className="bp-info">Configuration options</span></span>
+ 1. <span className="bp-info">Language</span>
+ 2. <span className="bp-info">ANSI color mode</span>
+ 3. <span className="bp-info">ANSI toolbar mode</span>
+ 4. <span className="bp-info">LCD screensaver</span>
+ 5. <span className="bp-info">LED effect</span>
+ 6. <span className="bp-info">LED color</span>
+ 7. <span className="bp-info">LED brightness</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt"> ></span> 
 {{% /term %}}
 
 Type ```c``` followed by ```enter``` to show the Bus Pirate configuration menu. These options control things like the language, live view statusbar and LED party mode.
@@ -31,34 +31,34 @@ Type ```c``` followed by ```enter``` to show the Bus Pirate configuration menu. 
 ## Configuration
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt"> ></span> 1<br/>
-<br/>
-<span className="bp-info">Language</span><br/>
- 1. <span className="bp-info">English</span><br/>
- 2. <span className="bp-info">Chinese (simplified)</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt"> ></span> 1<br/>
-Language <span className="bp-info">set to</span> English<br/>
+<span className="bp-prompt"> ></span> 1
+
+<span className="bp-info">Language</span>
+ 1. <span className="bp-info">English</span>
+ 2. <span className="bp-info">Chinese (simplified)</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt"> ></span> 1
+Language <span className="bp-info">set to</span> English
 {{% /term %}}
 
 Type a menu option number followed by ```enter```. Choose a configuration setting by typing the number followed by ```enter```.
 
 ## Exit and Save
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">LED effect</span><br/>
- 1. <span className="bp-info">Disable</span><br/>
- 2. <span className="bp-info">Solid</span><br/>
- 3. <span className="bp-info">Angle wipe</span><br/>
- 4. <span className="bp-info">Center wipe</span><br/>
- 5. <span className="bp-info">Clockwise wipe</span><br/>
- 6. <span className="bp-info">Top side wipe</span><br/>
- 7. <span className="bp-info">Scanner</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt"> ></span> x<br/>
-<br/>
-<span className="bp-info">Configuration file:</span> Saved<br/>
-<br/>
-<span className="bp-prompt">HiZ></span> <br/>
+<span className="bp-info">LED effect</span>
+ 1. <span className="bp-info">Disable</span>
+ 2. <span className="bp-info">Solid</span>
+ 3. <span className="bp-info">Angle wipe</span>
+ 4. <span className="bp-info">Center wipe</span>
+ 5. <span className="bp-info">Clockwise wipe</span>
+ 6. <span className="bp-info">Top side wipe</span>
+ 7. <span className="bp-info">Scanner</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt"> ></span> x
+
+<span className="bp-info">Configuration file:</span> Saved
+
+<span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 
 Press ```x``` followed by ```enter``` at any prompt to exit the configuration menu. Settings will be saved and loaded automatically when the Bus Pirate restarts.

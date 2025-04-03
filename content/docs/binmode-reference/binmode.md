@@ -15,18 +15,18 @@ import BrowserWindow from '@site/src/components/BrowserWindow';
 # Binary Interfaces
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> binmode<br/>
-<br/>
-<span className="bp-info">Select binary mode</span><br/>
- 1. SUMP logic analyzer<br/>
- 2. Binmode test framework<br/>
- 3. Arduino CH32V003 SWIO<br/>
- 4. Follow along logic analyzer<br/>
- 5. Legacy Binary Mode for Flashrom and AVRdude (EXPERIMENTAL)<br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt"> ></span> 1<br/>
-<span className="bp-info">Binmode selected:</span> SUMP logic analyzer<br/>
-<br/>
+<span className="bp-prompt">HiZ></span> binmode
+
+<span className="bp-info">Select binary mode</span>
+ 1. SUMP logic analyzer
+ 2. Binmode test framework
+ 3. Arduino CH32V003 SWIO
+ 4. Follow along logic analyzer
+ 5. Legacy Binary Mode for Flashrom and AVRdude (EXPERIMENTAL)
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt"> ></span> 1
+<span className="bp-info">Binmode selected:</span> SUMP logic analyzer
+
 <span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 

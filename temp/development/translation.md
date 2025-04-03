@@ -14,24 +14,24 @@ Bus Pirate 5 supports live language switching via the configuration menu. The la
 ## Configure interface language
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> c<br/>
-<span className="bp-info"></span><br/>
-<span className="bp-info">Configuration options</span><br/>
- 1. <span className="bp-info">Language</span><br/>
- 2. <span className="bp-info">ANSI color mode</span><br/>
- 3. <span className="bp-info">ANSI toolbar mode</span><br/>
- 4. <span className="bp-info">LCD screensaver</span><br/>
- 5. <span className="bp-info">LED effect</span><br/>
- 6. <span className="bp-info">LED color</span><br/>
- 7. <span className="bp-info">LED brightness</span><br/>
- x. <span className="bp-info"></span><br/>
-<span className="bp-prompt"> ></span> 1<br/>
-<br/>
-<span className="bp-info">Language</span><br/>
- 1. <span className="bp-info">English</span><br/>
- 2. <span className="bp-info">Chinese (simplified)</span><br/>
- x. <span className="bp-info"></span><br/>
-<span className="bp-prompt"> ></span> <br/>
+<span className="bp-prompt">HiZ></span> c
+<span className="bp-info"></span>
+<span className="bp-info">Configuration options</span>
+ 1. <span className="bp-info">Language</span>
+ 2. <span className="bp-info">ANSI color mode</span>
+ 3. <span className="bp-info">ANSI toolbar mode</span>
+ 4. <span className="bp-info">LCD screensaver</span>
+ 5. <span className="bp-info">LED effect</span>
+ 6. <span className="bp-info">LED color</span>
+ 7. <span className="bp-info">LED brightness</span>
+ x. <span className="bp-info"></span>
+<span className="bp-prompt"> ></span> 1
+
+<span className="bp-info">Language</span>
+ 1. <span className="bp-info">English</span>
+ 2. <span className="bp-info">Chinese (simplified)</span>
+ x. <span className="bp-info"></span>
+<span className="bp-prompt"> ></span> 
 {{% /term %}}
 
 Type ```c``` and press ```enter``` to display the configuration menu. Choose language (option 1), then select an available language.
@@ -156,25 +156,25 @@ static const struct prompt_item menu_items_language[]=
 ### Compile the firmware and test
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> c<br/>
-<span className="bp-info"><br/>
-<span className="bp-info">Configuration options</span></span><br/>
- 1. <span className="bp-info">Language</span><br/>
- 2. <span className="bp-info">ANSI color mode</span><br/>
- 3. <span className="bp-info">ANSI toolbar mode</span><br/>
- 4. <span className="bp-info">LCD screensaver</span><br/>
- 5. <span className="bp-info">LED effect</span><br/>
- 6. <span className="bp-info">LED color</span><br/>
- 7. <span className="bp-info">LED brightness</span><br/>
- x. <span className="bp-info"></span><br/>
-<span className="bp-prompt"> ></span> 1<br/>
-<br/>
-<span className="bp-info">Language</span><br/>
- 1. <span className="bp-info">English</span><br/>
- 2. <span className="bp-info">Chinese (simplified)</span><br/>
- 3. <span className="bp-info">Dutch</span><br/>
- x. <span className="bp-info"></span><br/>
-<span className="bp-prompt"> ></span> <br/>
+<span className="bp-prompt">HiZ></span> c
+<span className="bp-info">
+<span className="bp-info">Configuration options</span></span>
+ 1. <span className="bp-info">Language</span>
+ 2. <span className="bp-info">ANSI color mode</span>
+ 3. <span className="bp-info">ANSI toolbar mode</span>
+ 4. <span className="bp-info">LCD screensaver</span>
+ 5. <span className="bp-info">LED effect</span>
+ 6. <span className="bp-info">LED color</span>
+ 7. <span className="bp-info">LED brightness</span>
+ x. <span className="bp-info"></span>
+<span className="bp-prompt"> ></span> 1
+
+<span className="bp-info">Language</span>
+ 1. <span className="bp-info">English</span>
+ 2. <span className="bp-info">Chinese (simplified)</span>
+ 3. <span className="bp-info">Dutch</span>
+ x. <span className="bp-info"></span>
+<span className="bp-prompt"> ></span> 
 {{% /term %}}
 
 - Compile the firmware and load it into the Bus Pirate.

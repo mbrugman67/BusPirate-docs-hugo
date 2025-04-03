@@ -47,37 +47,37 @@ A [smart IC card and SIM card adapter](/overview/sim-iccard-adapter) is availabl
 ## Setup
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> m<br/>
-<br/>
-<span className="bp-info">Mode selection</span><br/>
- 1. <span className="bp-info">HiZ</span><br/>
-...<br/>
- 4. <span className="bp-info">HDPLXUART</span><br/>
-...<br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">Mode ></span> 4<br/>
-<br/>
-<span className="bp-info">UART speed</span><br/>
- 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200 etc<br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">Baud (</span>115200*<span className="bp-prompt">) ></span> 9600<br/>
-<span className="bp-info">Data bits</span><br/>
- 5 to 8 bits<br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">Bits (</span>8*<span className="bp-prompt">) ></span> <br/>
-<span className="bp-info">Parity</span><br/>
- 1. <span className="bp-info">None*</span><br/>
- 2. <span className="bp-info">Even</span><br/>
- 3. <span className="bp-info">Odd</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">Parity (</span>1<span className="bp-prompt">) ></span> 2<br/>
-<span className="bp-info">Stop bits</span><br/>
- 1. <span className="bp-info">1*</span><br/>
- 2. <span className="bp-info">2</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">Bits (</span>1<span className="bp-prompt">) ></span> 2<br/>
-<span className="bp-info">Mode:</span> HDPLXUART<br/>
-<span className="bp-prompt">HDPLXUART></span> <br/>
+<span className="bp-prompt">HiZ></span> m
+
+<span className="bp-info">Mode selection</span>
+ 1. <span className="bp-info">HiZ</span>
+...
+ 4. <span className="bp-info">HDPLXUART</span>
+...
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">Mode ></span> 4
+
+<span className="bp-info">UART speed</span>
+ 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200 etc
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">Baud (</span>115200*<span className="bp-prompt">) ></span> 9600
+<span className="bp-info">Data bits</span>
+ 5 to 8 bits
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">Bits (</span>8*<span className="bp-prompt">) ></span> 
+<span className="bp-info">Parity</span>
+ 1. <span className="bp-info">None*</span>
+ 2. <span className="bp-info">Even</span>
+ 3. <span className="bp-info">Odd</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">Parity (</span>1<span className="bp-prompt">) ></span> 2
+<span className="bp-info">Stop bits</span>
+ 1. <span className="bp-info">1*</span>
+ 2. <span className="bp-info">2</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">Bits (</span>1<span className="bp-prompt">) ></span> 2
+<span className="bp-info">Mode:</span> HDPLXUART
+<span className="bp-prompt">HDPLXUART></span> 
 {{% /term %}}
 
 Mobile SIM cards and bank IC cards use a half-duplex UART interface, data travels both directions on a single wire. 
@@ -88,14 +88,14 @@ Mobile SIM cards and bank IC cards use a half-duplex UART interface, data travel
 - Set the stop bits to **2**
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HDPLXUART></span> W 3.3<br/>
-<span className="bp-float">3.30</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">3.30</span></span>V<br/>
-<span className="bp-info">Current limit:</span>Disabled<br/>
-<br/>
-<span className="bp-info">Power supply:</span>Enabled<br/>
-<span className="bp-info">Vreg output: <span className="bp-float">3.3</span></span>V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">3.2</span></span>V<span className="bp-info">, Current: <span className="bp-float">3.4</span></span>mA<span className="bp-info"><br/>
-</span><br/>
-<span className="bp-prompt">HDPLXUART></span> <br/>
+<span className="bp-prompt">HDPLXUART></span> W 3.3
+<span className="bp-float">3.30</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">3.30</span></span>V
+<span className="bp-info">Current limit:</span>Disabled
+
+<span className="bp-info">Power supply:</span>Enabled
+<span className="bp-info">Vreg output: <span className="bp-float">3.3</span></span>V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">3.2</span></span>V<span className="bp-info">, Current: <span className="bp-float">3.4</span></span>mA<span className="bp-info">
+</span>
+<span className="bp-prompt">HDPLXUART></span> 
 {{% /term %}}
 
 Most SIM cards will work fine at 3.3volts.
@@ -106,9 +106,9 @@ Most SIM cards will be okay with 3.3 volts, but some cards may use 2.5 or 1.8 vo
 {{% /alert %}}
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HDPLXUART></span> P<br/>
-<span className="bp-info">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)<br/>
-<span className="bp-prompt">HDPLXUART></span> <br/>
+<span className="bp-prompt">HDPLXUART></span> P
+<span className="bp-info">Pull-up resistors:</span> Enabled (10K ohms @ <span className="bp-float">3.3</span>V)
+<span className="bp-prompt">HDPLXUART></span> 
 {{% /term %}}
 
 Half-duplex UART is an open collector output bus. The Bus Pirate and the SIM can only pull the line low to 0 (ground). A pull-up resistor is needed to pull the line high to 1 (5 volts). The Bus Pirate has built-in pull-up resistors that can be enabled with the ```P``` command.
@@ -130,28 +130,28 @@ A continuous clock signal applied to C3/CLK drives the SIM's microcontroller. Af
 At 9600 baud the clock frequency should be 9600 * 372 =3.5712MHz.
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HDPLXUART></span> G <br/>
-<span className="bp-info">Generate frequency</span><br/>
-<span className="bp-info">Choose available pin:</span><br/>
- 1. IO<span className="bp-float">1</span><br/>
-...<br/>
- 7. IO<span className="bp-float">7</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt"> ></span> 1<br/>
-<span className="bp-prompt">Period or frequency (ns, us, ms, Hz, kHz or Mhz) ></span> 3.5712mhz<br/>
-<span className="bp-info">Frequency:</span> <span className="bp-float">3.571</span>MHz = <span className="bp-float">3571200</span>Hz (<span className="bp-float">3.57</span>MHz)<br/>
-<span className="bp-info">Period:</span> <span className="bp-float">280</span>ns (<span className="bp-float">280.02</span>ns)<br/>
-<br/>
-<span className="bp-info">Actual frequency:</span> <span className="bp-float">3571428</span>Hz (<span className="bp-float">3.57</span>MHz)<br/>
-<span className="bp-info">Actual period:</span> <span className="bp-float">280</span>ns (<span className="bp-float">280.00</span>ns)<br/>
-<br/>
-<span className="bp-prompt">Duty cycle (%) ></span> 50%<br/>
-<span className="bp-info">Duty cycle:</span> <span className="bp-float">50.00</span>% = <span className="bp-float">140</span>ns (<span className="bp-float">140.00</span>ns)<br/>
-<span className="bp-info">Actual duty cycle:</span> <span className="bp-float">148</span>ns (<span className="bp-float">148.24</span>ns)<br/>
-Divider: 16, Period: 34, Duty: 18<br/>
-<br/>
-<span className="bp-info">Generate frequency:</span> Enabled on IO<span className="bp-float">1</span><br/>
-<br/>
+<span className="bp-prompt">HDPLXUART></span> G 
+<span className="bp-info">Generate frequency</span>
+<span className="bp-info">Choose available pin:</span>
+ 1. IO<span className="bp-float">1</span>
+...
+ 7. IO<span className="bp-float">7</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt"> ></span> 1
+<span className="bp-prompt">Period or frequency (ns, us, ms, Hz, kHz or Mhz) ></span> 3.5712mhz
+<span className="bp-info">Frequency:</span> <span className="bp-float">3.571</span>MHz = <span className="bp-float">3571200</span>Hz (<span className="bp-float">3.57</span>MHz)
+<span className="bp-info">Period:</span> <span className="bp-float">280</span>ns (<span className="bp-float">280.02</span>ns)
+
+<span className="bp-info">Actual frequency:</span> <span className="bp-float">3571428</span>Hz (<span className="bp-float">3.57</span>MHz)
+<span className="bp-info">Actual period:</span> <span className="bp-float">280</span>ns (<span className="bp-float">280.00</span>ns)
+
+<span className="bp-prompt">Duty cycle (%) ></span> 50%
+<span className="bp-info">Duty cycle:</span> <span className="bp-float">50.00</span>% = <span className="bp-float">140</span>ns (<span className="bp-float">140.00</span>ns)
+<span className="bp-info">Actual duty cycle:</span> <span className="bp-float">148</span>ns (<span className="bp-float">148.24</span>ns)
+Divider: 16, Period: 34, Duty: 18
+
+<span className="bp-info">Generate frequency:</span> Enabled on IO<span className="bp-float">1</span>
+
 <span className="bp-prompt">HDPLXUART></span>
 {{% /term %}}
 
@@ -173,10 +173,10 @@ SIM and bank IC cards use the asynchronous ATR standard. This is different than 
 
 ### Open UART
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HDPLXUART></span> [<br/>
-<br/>
-UART OPEN (ASYNC READ)<br/>
-<span className="bp-prompt">HDPLXUART></span> <br/>
+<span className="bp-prompt">HDPLXUART></span> [
+
+UART OPEN (ASYNC READ)
+<span className="bp-prompt">HDPLXUART></span> 
 {{% /term %}}
 
 First, ensure the UART is open and printing data values as they arrive.
@@ -185,12 +185,12 @@ First, ensure the UART is open and printing data values as they arrive.
 ### Send ATR and get response
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HDPLXUART></span> a 2; @ 2<br/>
-IO<span className="bp-float">2<span className="bp-info"> set to</span></span> OUTPUT: <span className="bp-float">0</span><br/>
-<br/>
-IO<span className="bp-float">2<span className="bp-info"> set to</span></span> INPUT: <span className="bp-float">1</span><br/>
-<br/>
-<span className="bp-prompt">HDPLXUART></span> 0x3b 0x9f 0x95 0x80 0x1f 0xc7 0x80 0x31 0xe0 0x73 0xfe 0x21 0x13 0x67 0x22 0x28 0x00 0x40 0x01 0x00 0x01 0x91 <br/>
+<span className="bp-prompt">HDPLXUART></span> a 2; @ 2
+IO<span className="bp-float">2<span className="bp-info"> set to</span></span> OUTPUT: <span className="bp-float">0</span>
+
+IO<span className="bp-float">2<span className="bp-info"> set to</span></span> INPUT: <span className="bp-float">1</span>
+
+<span className="bp-prompt">HDPLXUART></span> 0x3b 0x9f 0x95 0x80 0x1f 0xc7 0x80 0x31 0xe0 0x73 0xfe 0x21 0x13 0x67 0x22 0x28 0x00 0x40 0x01 0x00 0x01 0x91 
 {{% /term %}}
 
 
@@ -225,11 +225,11 @@ Based on a [database of ATR responses](http://ludovic.rousseau.free.fr/softwares
 ## Hong Kong IMC SIM
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HDPLXUART></span> a 2; @ 2<br/>
-IO<span className="bp-float">2<span className="bp-info"> set to</span></span> OUTPUT: <span className="bp-float">0</span><br/>
-<br/>
-IO<span className="bp-float">2<span className="bp-info"> set to</span></span> INPUT: <span className="bp-float">1</span><br/>
-<br/>
+<span className="bp-prompt">HDPLXUART></span> a 2; @ 2
+IO<span className="bp-float">2<span className="bp-info"> set to</span></span> OUTPUT: <span className="bp-float">0</span>
+
+IO<span className="bp-float">2<span className="bp-info"> set to</span></span> INPUT: <span className="bp-float">1</span>
+
 <span className="bp-prompt">HDPLXUART></span>0x3b 0x9e 0x96 0x80 0x1f 0xc7 0x80 0x31 0xe0 0x73 0xfe 0x21 0x1b 0x66 0xd0 0x01 0xa1 0xb8 0x10 0x00 0x08
 {{% /term %}}
 
@@ -241,11 +241,11 @@ A cheap 4G travel SIM from IMG in Hong Kong.
 ## Hong Kong ValueGB SIM
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HDPLXUART></span> a 2; @ 2<br/>
-IO<span className="bp-float">2<span className="bp-info"> set to</span></span> OUTPUT: <span className="bp-float">0</span><br/>
-<br/>
-IO<span className="bp-float">2<span className="bp-info"> set to</span></span> INPUT: <span className="bp-float">1</span><br/>
-<br/>
+<span className="bp-prompt">HDPLXUART></span> a 2; @ 2
+IO<span className="bp-float">2<span className="bp-info"> set to</span></span> OUTPUT: <span className="bp-float">0</span>
+
+IO<span className="bp-float">2<span className="bp-info"> set to</span></span> INPUT: <span className="bp-float">1</span>
+
 <span className="bp-prompt">HDPLXUART></span>0x3b 0x9e 0x95 0x80 0x1f 0xc7 0x80 0x31 0xe0 0x73 0xfe 0x21 0x1b 0x66 0xd0 0x02 0x24 0x7b 0x14 0x00 0x4a
 {{% /term %}}
 
@@ -257,11 +257,11 @@ A cheap 4G travel SIM from ValueGB in Hong Kong.
 ## EU Master Card
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HDPLXUART></span> a 2; @ 2<br/>
-IO<span className="bp-float">2<span className="bp-info"> set to</span></span> OUTPUT: <span className="bp-float">0</span><br/>
-<br/>
-IO<span className="bp-float">2<span className="bp-info"> set to</span></span> INPUT: <span className="bp-float">1</span><br/>
-<br/>
+<span className="bp-prompt">HDPLXUART></span> a 2; @ 2
+IO<span className="bp-float">2<span className="bp-info"> set to</span></span> OUTPUT: <span className="bp-float">0</span>
+
+IO<span className="bp-float">2<span className="bp-info"> set to</span></span> INPUT: <span className="bp-float">1</span>
+
 <span className="bp-prompt">HDPLXUART></span>0x3b 0x6e 0x00 0x00 0x80 0x31 0x80 0x66 0xb0 0x84 0x0c 0x01 0x6e 0x01 0x83 0x00 0x90 0x00
 {{% /term %}}
 
@@ -273,11 +273,11 @@ Bank card chips respond to the same ATR as mobile SIM cards. This is a Master Ca
 ## US Visa Card
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HDPLXUART></span> a 2; @ 2<br/>
-IO<span className="bp-float">2<span className="bp-info"> set to</span></span> OUTPUT: <span className="bp-float">0</span><br/>
-<br/>
-IO<span className="bp-float">2<span className="bp-info"> set to</span></span> INPUT: <span className="bp-float">1</span><br/>
-<br/>
+<span className="bp-prompt">HDPLXUART></span> a 2; @ 2
+IO<span className="bp-float">2<span className="bp-info"> set to</span></span> OUTPUT: <span className="bp-float">0</span>
+
+IO<span className="bp-float">2<span className="bp-info"> set to</span></span> INPUT: <span className="bp-float">1</span>
+
 <span className="bp-prompt">HDPLXUART></span>
 0x3b 0x6f 0x00 0x00 0x80 0x31 0xe0 0x6b 0x08 0x24 0x05 0x02 0xb5 0x55 0x55 0x55 0x55 0x55 0x55
 {{% /term %}}
@@ -289,11 +289,11 @@ A Visa debit card from a US transit system.
 
 ## Hong Kong Union Pay Card
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HDPLXUART></span> a 2; @ 2<br/>
-IO<span className="bp-float">2<span className="bp-info"> set to</span></span> OUTPUT: <span className="bp-float">0</span><br/>
-<br/>
-IO<span className="bp-float">2<span className="bp-info"> set to</span></span> INPUT: <span className="bp-float">1</span><br/>
-<br/>
+<span className="bp-prompt">HDPLXUART></span> a 2; @ 2
+IO<span className="bp-float">2<span className="bp-info"> set to</span></span> OUTPUT: <span className="bp-float">0</span>
+
+IO<span className="bp-float">2<span className="bp-info"> set to</span></span> INPUT: <span className="bp-float">1</span>
+
 <span className="bp-prompt">HDPLXUART></span>
 0x3b 0x6b 0x00 0x00 0x00 0x31 0xc0 0x64 0x08 0x04 0x61 0x76 0x07 0x90 0x00
 {{% /term %}}

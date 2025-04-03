@@ -12,8 +12,8 @@ The Bus Pirate is an open-source hardware debugging tool that converts simple co
 import FooterCart from '/_common/_footer/_footer-cart.md' 
 
 <FooterCart/>
-<br/>
-<br/>
+
+
 <div class="img-center"> 
 
 ![](./img/bp5rev10/bp-term2.png) 

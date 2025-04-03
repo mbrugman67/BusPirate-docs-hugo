@@ -11,8 +11,8 @@ Every Bus Pirate is lovingly tested by our crack team before it ships. The Bus P
 ## Start the self-test
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">HiZ></span> ~<br/>
-<span className="bp-info">SELF TEST STARTING<br/></span>
+<span className="bp-prompt">HiZ></span> ~
+<span className="bp-info">SELF TEST STARTING</span>
 {{% /term %}}
 
 - Type ```~``` followed by ```enter```.
@@ -20,8 +20,8 @@ Every Bus Pirate is lovingly tested by our crack team before it ships. The Bus P
 ## Press button when prompted
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-info">
-PUSH BUTTON TO COMPLETE: OK<br/>
-</span><br/>
+PUSH BUTTON TO COMPLETE: OK
+</span>
 {{% /term %}}
 
 - Press the Bus Pirate button to complete the test. The Bus Pirate will pause and wait indefinitely. 
@@ -32,18 +32,18 @@ PUSH BUTTON TO COMPLETE: OK<br/>
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-info">
-<br/>
-PASS :)<br/>
-</span><br/>
-<span className="bp-prompt">HiZ></span> <br/>
+
+PASS :)
+</span>
+<span className="bp-prompt">HiZ></span> 
 {{% /term %}}
 
 ### Error
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
 <span className="bp-info">
-PSU: CODE 3. ERROR!<br/>
-...<br/>
-ERRORS: 1<br/>
+PSU: CODE 3. ERROR!
+...
+ERRORS: 1
 FAIL! :(</span>
 {{% /term %}}

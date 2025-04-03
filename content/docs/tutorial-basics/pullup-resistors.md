@@ -35,29 +35,29 @@ For this tutorial let's use the onboard power supply.
 ### Programmable Power Supply Unit
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> W<br/>
-<span className="bp-info"><span className="bp-info">Power supply<br/>
-Volts (0.80V-5.00V)</span></span><br/>
-<span className="bp-prompt">x to exit (3.30) ></span> 5<br/>
-<span className="bp-float">5.00</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">5.00</span></span>V<br/>
-Set current limit?<br/>
-y <br/>
-<br/>
-<span className="bp-info">Maximum current (0mA-500mA)</span><br/>
-<span className="bp-prompt">x to exit (100.00) ></span> <br/>
-<span className="bp-float">100.0</span>mA<span className="bp-info"> requested, closest value: <span className="bp-float">100.0</span></span>mA<br/>
-<br/>
+<span className="bp-prompt">LED-()></span> W
+<span className="bp-info"><span className="bp-info">Power supply
+Volts (0.80V-5.00V)</span></span>
+<span className="bp-prompt">x to exit (3.30) ></span> 5
+<span className="bp-float">5.00</span>V<span className="bp-info"> requested, closest value: <span className="bp-float">5.00</span></span>V
+Set current limit?
+y 
+
+<span className="bp-info">Maximum current (0mA-500mA)</span>
+<span className="bp-prompt">x to exit (100.00) ></span> 
+<span className="bp-float">100.0</span>mA<span className="bp-info"> requested, closest value: <span className="bp-float">100.0</span></span>mA
+
 <span className="bp-info">Power supply:</span>Enabled
-<br/>
+
 <span className="bp-info">
-<br/>
+
 Vreg output: <span className="bp-float">5.0</span>
 </span>
 V<span className="bp-info">, Vref/Vout pin: <span className="bp-float">5.0</span></span>V<span className="bp-info">, Current sense: <span className="bp-float">8.4</span></span>mA
 <span className="bp-info">
-<br/>
-</span><br/>
-<span className="bp-prompt">LED-()></span> <br/>
+
+</span>
+<span className="bp-prompt">LED-()></span> 
 {{% /term %}}
 
  - Use the ```W``` command to enable the programmable power supply. 
@@ -87,12 +87,12 @@ The Bus Pirate is rated for 5volts DC maximum. Exceeding this limit will damage 
 ### Enable Pull-up Resistors
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> P<br/>
-<span className="bp-info"><span className="bp-info">Pull-up resistors:</span></span> Enabled (10K ohms @ <span className="bp-float">5.0</span>V)<br/>
-<br/>
-<span className="bp-prompt">LED-()></span> <br/>
-<br/>
-<br/>
+<span className="bp-prompt">LED-()></span> P
+<span className="bp-info"><span className="bp-info">Pull-up resistors:</span></span> Enabled (10K ohms @ <span className="bp-float">5.0</span>V)
+
+<span className="bp-prompt">LED-()></span> 
+
+
 {{% /term %}}
 
 - Enter any protocol mode (```m```). Pull-up resistors are disabled in HiZ safe mode.
@@ -111,16 +111,16 @@ In the live view statusbar all pins should be high, close to 5.0volts.
 ### Pull Pins Low
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> >a.0 a.1 a.2 a.3<br/>
-<span className="bp-info">IO<span className="bp-float">0<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span><br/>
-<br/>
-<span className="bp-info">IO<span className="bp-float">1<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span><br/>
-<br/>
-<span className="bp-info">IO<span className="bp-float">2<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span><br/>
-<br/>
-<span className="bp-info">IO<span className="bp-float">3<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span><br/>
-<br/>
-<span className="bp-prompt">LED-()></span> <br/>
+<span className="bp-prompt">LED-()></span> >a.0 a.1 a.2 a.3
+<span className="bp-info">IO<span className="bp-float">0<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span>
+
+<span className="bp-info">IO<span className="bp-float">1<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span>
+
+<span className="bp-info">IO<span className="bp-float">2<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span>
+
+<span className="bp-info">IO<span className="bp-float">3<span className="bp-info"> set to</span></span></span> OUTPUT: <span className="bp-float">0</span>
+
+<span className="bp-prompt">LED-()></span> 
 {{% /term %}}
 
 Sometimes it's helpful to manually operate a pin. ```a```/```A```/```@``` are syntax commands that toggle Bus Pirate pins low, high and input.
@@ -137,16 +137,16 @@ Verify that the pins are low in the live view statusbar if active, or use the ``
 ### Release Pins High
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> >@.0 @.1 @.2 @.3<br/>
-<span className="bp-info">IO<span className="bp-float">0<span className="bp-info"> set to</span></span></span> INPUT: <span className="bp-float">1</span><br/>
-<br/>
-<span className="bp-info">IO<span className="bp-float">1<span className="bp-info"> set to</span></span></span> INPUT: <span className="bp-float">1</span><br/>
-<br/>
-<span className="bp-info">IO<span className="bp-float">2<span className="bp-info"> set to</span></span></span> INPUT: <span className="bp-float">1</span><br/>
-<br/>
-<span className="bp-info">IO<span className="bp-float">3<span className="bp-info"> set to</span></span></span> INPUT: <span className="bp-float">1</span><br/>
-<br/>
-<span className="bp-prompt">LED-()></span> <br/>
+<span className="bp-prompt">LED-()></span> >@.0 @.1 @.2 @.3
+<span className="bp-info">IO<span className="bp-float">0<span className="bp-info"> set to</span></span></span> INPUT: <span className="bp-float">1</span>
+
+<span className="bp-info">IO<span className="bp-float">1<span className="bp-info"> set to</span></span></span> INPUT: <span className="bp-float">1</span>
+
+<span className="bp-info">IO<span className="bp-float">2<span className="bp-info"> set to</span></span></span> INPUT: <span className="bp-float">1</span>
+
+<span className="bp-info">IO<span className="bp-float">3<span className="bp-info"> set to</span></span></span> INPUT: <span className="bp-float">1</span>
+
+<span className="bp-prompt">LED-()></span> 
 {{% /term %}}
 
 The ```@.X``` syntax makes the corresponding Bus Pirate pins inputs, allowing the pull-up resistors to hold the pin high.  
@@ -160,8 +160,8 @@ Verify that all the pins are around 5volts in the live monitor statusbar, or by 
 
 ### Disable Pull-ups
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-prompt">LED-()></span> p<br/>
-<span className="bp-info">Pull-up resistors:</span> Disabled<br/>
+<span className="bp-prompt">LED-()></span> p
+<span className="bp-info">Pull-up resistors:</span> Disabled
 <span className="bp-prompt">LED-()></span>
 {{% /term %}}
 

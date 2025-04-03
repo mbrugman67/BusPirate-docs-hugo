@@ -37,18 +37,18 @@ LEDs are power hungry, up to 60mA each at full brightness. The programmable powe
 ## Configuration options
 
 {{% term "Bus Pirate [/dev/ttyS0]" %}}
-<span className="bp-info">LED type</span><br/>
- 1. <span className="bp-info">WS2812/SK6812/'NeoPixel' (single wire interface)*</span><br/>
- 2. <span className="bp-info">APA102/SK9822 (clock and data interface)</span><br/>
- 3. <span className="bp-info">Onboard LEDs (16 SK6812s)</span><br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">Type (</span>1<span className="bp-prompt">) ></span> <br/>
-<span className="bp-info">Number of LEDs in the strip</span><br/>
- 1 to 10000<br/>
- x. <span className="bp-info">Exit</span><br/>
-<span className="bp-prompt">LEDs (</span>1*<span className="bp-prompt">) ></span> <br/>
-<span className="bp-info">Mode:</span> LED<br/>
-<span className="bp-prompt">LED-(WS2812)></span> <br/>
+<span className="bp-info">LED type</span>
+ 1. <span className="bp-info">WS2812/SK6812/'NeoPixel' (single wire interface)*</span>
+ 2. <span className="bp-info">APA102/SK9822 (clock and data interface)</span>
+ 3. <span className="bp-info">Onboard LEDs (16 SK6812s)</span>
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">Type (</span>1<span className="bp-prompt">) ></span> 
+<span className="bp-info">Number of LEDs in the strip</span>
+ 1 to 10000
+ x. <span className="bp-info">Exit</span>
+<span className="bp-prompt">LEDs (</span>1*<span className="bp-prompt">) ></span> 
+<span className="bp-info">Mode:</span> LED
+<span className="bp-prompt">LED-(WS2812)></span> 
 {{% /term %}}
 
 ## Syntax
