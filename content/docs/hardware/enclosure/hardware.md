@@ -54,7 +54,7 @@ The supplier hydro dips all kinds of stuff, but button caps are unusually small.
 
 A 2mm HEX wrench to open the DIN7991 bolts that secure the Bus Pirate case. A hex wrench is included so you can open the Bus Pirate as soon as it arrives.
 
-## Get Bus Pirate 5
-import FooterGet from '/_common/_footer/_footer-get.md' 
+## Get a Bus Pirate
+ 
 
-<FooterGet/>
+{{% readfile "/_common/_footer/_footer-get.md" %}}

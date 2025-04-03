@@ -81,11 +81,11 @@ Wrap the terminal output in
 ## Resources
 
 ### Files
-import FooterFiles from '/_common/_footer/_footer-files.md'
 
-<FooterFiles/>
+
+{{% readfile "/_common/_footer/_footer-files.md" %}}
 
 ### Community
-import FooterCommunity from '/_common/_footer/_footer-community.md'
 
-<FooterCommunity/>
+
+{{% readfile "/_common/_footer/_footer-community.md" %}}

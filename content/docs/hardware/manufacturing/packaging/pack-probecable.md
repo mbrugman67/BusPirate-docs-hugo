@@ -6,9 +6,9 @@ title = 'Probe Cable Pack'
 
 ![](./img/cable-p.jpg)
 
-import FooterCart from '/_common/_footer/_footer-cart.md' 
 
-<FooterCart/>
+
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ## Contents
 
@@ -42,7 +42,7 @@ import FooterCart from '/_common/_footer/_footer-cart.md'
 |-|-|-|
 |6098403367374|Probe Cable|REV0|
 
-## Get Bus Pirate 5
-import FooterGet from '/_common/_footer/_footer-get.md' 
+## Get a Bus Pirate
+ 
 
-<FooterGet/>
+{{% readfile "/_common/_footer/_footer-get.md" %}}

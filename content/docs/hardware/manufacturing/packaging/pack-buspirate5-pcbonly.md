@@ -8,9 +8,9 @@ title = 'Bus Pirate 5 PCB only (EOL)'
 **Bus Pirate 5 REV8 preview is no longer in production. See the latest version.**
 {{% /alert %}}
 
-import FooterCart from '/_common/_footer/_footer-cart.md' 
 
-<FooterCart/>
+
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ## Contents
 
@@ -56,7 +56,7 @@ The wrap for "Bus Pirate 5 (PCB & enclosure)" is also used for the PCB only vers
 |-|-|-|
 |6098403367398|Bus Pirate 5 (assembled PCB only)|REV8|
 
-## Get Bus Pirate 5
-import FooterGet from '/_common/_footer/_footer-get.md' 
+## Get a Bus Pirate
+ 
 
-<FooterGet/>
+{{% readfile "/_common/_footer/_footer-get.md" %}}

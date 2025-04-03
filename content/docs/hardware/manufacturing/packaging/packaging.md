@@ -77,7 +77,7 @@ Our approach is to use large "waist" bands typically wrapped around bento box ta
 
 An EAN (Europe, 13 digits) or SKU (USA, 12 digits) is required for sales in online retail giants, but is also helps all involved to track inventory. We purchased a block of EAN numbers from a bulk reseller.
 
-## Get Bus Pirate 5
-import FooterGet from '/_common/_footer/_footer-get.md' 
+## Get a Bus Pirate
+ 
 
-<FooterGet/>
+{{% readfile "/_common/_footer/_footer-get.md" %}}

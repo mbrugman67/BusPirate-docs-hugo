@@ -11,9 +11,9 @@ Sometimes you just need to connect some wires and dig into a project. Quick conn
 
 KF141 is a popular quick connector block with sturdy spring retention clamps. Press the lever, insert a stripped wire, then release the lever to clamp it firmly in place. Pin names are silkscreened in bright orange so you get the right connection the first time. Made with the [highest quality KF141 we could source](https://forum.buspirate.com/t/kf141-quick-connector-adapter/90/4?u=ian).
 
-import FooterCart from '/_common/_footer/_footer-cart.md'
 
-<FooterCart/>
+
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ## KF141-R right angle connector
 
@@ -33,20 +33,20 @@ KF141-V is a vertical connector. Wires clamps are oriented to the top of the con
 - [KF141-Vertical Adapter Schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/kf141v-adapter)
 - [KF141 Adapter Hardware Documentation](https://hardware.buspirate.com/cables/kf141-quick-connect)
 
-## Get Bus Pirate 5
-import FooterGet from '../../_common/_footer/_footer-get.md'
+## Get a Bus Pirate
 
-<FooterGet/>
+
+{{% readfile "/_common/_footer/_footer-get.md" %}}
 
 ### Community
-import FooterCommunity from '../../_common/_footer/_footer-community.md'
 
-<FooterCommunity/>
+
+{{% readfile "/_common/_footer/_footer-community.md" %}}
 
 ### Documentation
 import FooterDocs from '../../_common/_footer/_footer-docs.md' 
 
-<FooterDocs/>
+{{% readfile "/_common/_footer/_footer-docs.md" %}}
 
 
 

@@ -127,17 +127,17 @@ While some hooks may be rated for high voltages and current, the Bus Pirate is n
 {{% /alert %}}
 
 ## Join the fun
-### Get Bus Pirate 5
-import FooterGet from '../../_common/_footer/_footer-get.md'
+### Get a Bus Pirate
 
-<FooterGet/>
+
+{{% readfile "/_common/_footer/_footer-get.md" %}}
 
 ### Community
-import FooterCommunity from '../../_common/_footer/_footer-community.md'
 
-<FooterCommunity/>
+
+{{% readfile "/_common/_footer/_footer-community.md" %}}
 
 ### Documentation
 import FooterDocs from '../../_common/_footer/_footer-docs.md' 
 
-<FooterDocs/>
+{{% readfile "/_common/_footer/_footer-docs.md" %}}

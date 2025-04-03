@@ -12,9 +12,9 @@ title = 'Probe Cable Kit'
 
 A keyed and locking probe cable made of premium soft and flexible silicone coated wire connects to the Bus Pirate 10 pin main header. The ends are 2.54mm Dupont connectors that fit many different types of probe hooks as well as our custom milled breadboard adapter pins. Each lead is wrapped with labeled and color coded shrink tube. 10 black [Shenzhen starter hooks](/overview/probehooks#the-shenzhen-hook) and [10 custom milled breadboard pins](https://hardware.buspirate.com/cables/milled-pins) are included. See the [probe hook guide](/overview/probehooks) for an overview of common affordable hooks.
 
-import FooterCart from '/_common/_footer/_footer-cart.md'
 
-<FooterCart/>
+
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ## Premium Probe Cable
 
@@ -68,17 +68,17 @@ Resources:
 
 All [Bus Pirate cables](https://hardware.buspirate.com/cables/) are made with super soft and flexible premium silicone coated wire. The inner strands are very fine tinned copper. 22AWG has 60 strands 0.08mm thick (bottom), compared to 8-12 strands in common wire (top). The silicone coating has a very nice feel, tolerates  high heat and chemicals.
 
-## Get Bus Pirate 5
-import FooterGet from '../../_common/_footer/_footer-get.md'
+## Get a Bus Pirate
 
-<FooterGet/>
+
+{{% readfile "/_common/_footer/_footer-get.md" %}}
 
 ### Community
-import FooterCommunity from '../../_common/_footer/_footer-community.md'
 
-<FooterCommunity/>
+
+{{% readfile "/_common/_footer/_footer-community.md" %}}
 
 ### Documentation
 import FooterDocs from '../../_common/_footer/_footer-docs.md' 
 
-<FooterDocs/>
+{{% readfile "/_common/_footer/_footer-docs.md" %}}

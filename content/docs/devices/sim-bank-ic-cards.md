@@ -14,9 +14,9 @@ Mobile phone SIM cards and most bank IC cards will output some useful informatio
 Mobile phone SIMs and bank IC cards are usually based on "Java Cards" that are specially programmed and have advanced cryptographic features to keep data secure. We're evaluating blank, programmable cards for future tutorials.
 {{% /alert %}}
 
-import FooterCart from '/_common/_footer/_footer-cart.md'
 
-<FooterCart/>
+
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ## Connections
 
@@ -317,12 +317,12 @@ A utility like [pySim](https://forum.buspirate.com/t/sle4442-smart-card-adapter-
 
 
 
-## Get Bus Pirate 5
-import FooterGet from '../../_common/_footer/_footer-get.md'
+## Get a Bus Pirate
 
-<FooterGet/>
+
+{{% readfile "/_common/_footer/_footer-get.md" %}}
 
 ### Community
-import FooterCommunity from '../../_common/_footer/_footer-community.md'
 
-<FooterCommunity/>
+
+{{% readfile "/_common/_footer/_footer-community.md" %}}

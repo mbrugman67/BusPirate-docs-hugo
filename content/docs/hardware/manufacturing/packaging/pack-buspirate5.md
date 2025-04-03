@@ -6,9 +6,9 @@ title = 'Bus Pirate 5 Pack'
 
 ![](./img/bp5rev10-retail-pack.jpg)
 
-import FooterCart from '/_common/_footer/_footer-cart.md' 
 
-<FooterCart/>
+
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ## Contents
 
@@ -43,7 +43,7 @@ import FooterCart from '/_common/_footer/_footer-cart.md'
 |-|-|-|
 |6098403367367|Bus Pirate 5 REV10 with enclosure|REV10|
 
-## Get Bus Pirate 5
-import FooterGet from '/_common/_footer/_footer-get.md' 
+## Get a Bus Pirate
+ 
 
-<FooterGet/>
+{{% readfile "/_common/_footer/_footer-get.md" %}}

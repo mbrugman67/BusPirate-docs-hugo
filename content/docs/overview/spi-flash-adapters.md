@@ -13,9 +13,9 @@ Bus Pirate 5 has a "flash" command to read and write 8 pin SPI flash chips. Sold
 
 The sockets on each board are connected with the "most common" SPI flash footprint. Found a chip with a different pinout? Power and ground have a switch that selects between the Bus Pirate VOUT/GND and IO0/IO1 pins for full flexibility.
 
-import FooterCart from '/_common/_footer/_footer-cart.md'
 
-<FooterCart/>
+
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ## SOP8 SPI Flash Adapter
 
@@ -130,20 +130,20 @@ SW1 and SW2 along the side of the adapter select the power (VCC) and ground (GND
 - [flash command documentation](command-reference/spi-protocol#flash)
 - [How to interface common SPI flash chips](devices/spi-flash-chips)
 
-## Get Bus Pirate 5
-import FooterGet from '../../_common/_footer/_footer-get.md'
+## Get a Bus Pirate
 
-<FooterGet/>
+
+{{% readfile "/_common/_footer/_footer-get.md" %}}
 
 ### Community
-import FooterCommunity from '../../_common/_footer/_footer-community.md'
 
-<FooterCommunity/>
+
+{{% readfile "/_common/_footer/_footer-community.md" %}}
 
 ### Documentation
 import FooterDocs from '../../_common/_footer/_footer-docs.md' 
 
-<FooterDocs/>
+{{% readfile "/_common/_footer/_footer-docs.md" %}}
 
 
 

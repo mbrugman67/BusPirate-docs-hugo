@@ -16,9 +16,9 @@ The star of the collection is a 9 pin 'SH' style cable that fits the auxiliary c
 
 This silicone coated wire feels so nice we made a bundle of color coded jumper cables and Y style splitter cables too.
 
-import FooterCart from '/_common/_footer/_footer-cart.md'
 
-<FooterCart/>
+
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ### Auxiliary Connector Cable
 
@@ -75,17 +75,17 @@ Resources:
 
 All [Bus Pirate cables](https://hardware.buspirate.com/cables/) are made with super soft and flexible premium silicone coated wire. The inner strands are very fine tinned copper. 22AWG has 60 strands 0.08mm thick (bottom), compared to 8-12 strands in common wire (top). The silicone coating has a very nice feel, tolerates high heat and chemicals.
 
-## Get Bus Pirate 5
-import FooterGet from '../../_common/_footer/_footer-get.md'
+## Get a Bus Pirate
 
-<FooterGet/>
+
+{{% readfile "/_common/_footer/_footer-get.md" %}}
 
 ### Community
-import FooterCommunity from '../../_common/_footer/_footer-community.md'
 
-<FooterCommunity/>
+
+{{% readfile "/_common/_footer/_footer-community.md" %}}
 
 ### Documentation
 import FooterDocs from '../../_common/_footer/_footer-docs.md' 
 
-<FooterDocs/>
+{{% readfile "/_common/_footer/_footer-docs.md" %}}

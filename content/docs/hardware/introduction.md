@@ -11,9 +11,9 @@ Bus Pirate 5 is the latest edition of the original universal serial interface tr
 
 Can't get a chip to work? Is it the circuit, code, bad part or a burned out pin? The Bus Pirate sends commands over common serial protocols so you can get to know a chip before prototyping. Updated with tons of new features and tools, talking to chips and probing interfaces is more fun than ever!
 
-import FooterCart from '/_common/_footer/_footer-cart.md' 
 
-<FooterCart/>
+
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ## RP2040
 - Based on Raspberry Pi Foundation RP2040
@@ -63,25 +63,25 @@ import FooterCart from '/_common/_footer/_footer-cart.md'
 ## USB C connector
 - ...but limited to the USB speeds supported by the RP2040
 
-## Get Bus Pirate 5
-import FooterGet from '/_common/_footer/_footer-get.md' 
+## Get a Bus Pirate
+ 
 
-<FooterGet/>
+{{% readfile "/_common/_footer/_footer-get.md" %}}
 
 ### Resources
-import FooterDocs from '/_common/_footer/_footer-docs.md' 
 
-<FooterDocs/>
+
+{{% readfile "/_common/_footer/_footer-docs.md" %}}
 
 ### Files
-import FooterFiles from '/_common/_footer/_footer-files.md'
 
-<FooterFiles/>
+
+{{% readfile "/_common/_footer/_footer-files.md" %}}
 
 ### Community
-import FooterCommunity from '/_common/_footer/_footer-community.md'
 
-<FooterCommunity/>
+
+{{% readfile "/_common/_footer/_footer-community.md" %}}
 
 ## FCC compliance statement
 This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.

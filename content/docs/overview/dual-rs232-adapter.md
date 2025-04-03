@@ -17,9 +17,9 @@ Microcontrollers typically have a TTL serial UART where a 0 is represented by 0 
 Dual RS-232 Adapter is "in development". If hardware is available it has passed  basic functionality tests, but there isn't full documentation or support just yet. At this stage, it's best suited for developers who are comfortable with hardware and firmware development. Or for those who want to follow along.
 {{% /alert %}}
 
-import FooterCart from '/_common/_footer/_footer-cart.md'
 
-<FooterCart/>
+
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ## DTE and DCE connectors
 
@@ -155,20 +155,20 @@ Dual RS-232 adapter [schematic and PCB](https://github.com/DangerousPrototypes/B
 - [UART mode documentation](/command-reference/uart-protocol)
 - [Development thread](https://forum.buspirate.com/t/dual-rs232-db9-adapter-plank/484)
 0
-## Get Bus Pirate 5
-import FooterGet from '../../_common/_footer/_footer-get.md'
+## Get a Bus Pirate
 
-<FooterGet/>
+
+{{% readfile "/_common/_footer/_footer-get.md" %}}
 
 ### Community
-import FooterCommunity from '../../_common/_footer/_footer-community.md'
 
-<FooterCommunity/>
+
+{{% readfile "/_common/_footer/_footer-community.md" %}}
 
 ### Documentation
 import FooterDocs from '../../_common/_footer/_footer-docs.md' 
 
-<FooterDocs/>
+{{% readfile "/_common/_footer/_footer-docs.md" %}}
 
 
 

@@ -17,9 +17,9 @@ This little plank is an adjustable Switch Mode Power Supply that generates a 5-1
 Programming Voltage SMPS is "in development". If hardware is available it has passed basic functionality tests, but there isn't full documentation or support just yet. At this stage, it's best suited for developers who are comfortable with hardware and firmware development. Or for those who want to follow along.
 {{% /alert %}}
 
-import FooterCart from '/_common/_footer/_footer-cart.md'
 
-<FooterCart/>
+
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ## Overview
 
@@ -118,20 +118,20 @@ Programming Voltage SMPS [schematic and PCB](https://github.com/DangerousPrototy
 - Programming Voltage SMPS [schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/)
 - [Development thread](https://forum.buspirate.com/t/pic-avr-eeprom-programming-voltage-smps/430/15)
 
-## Get Bus Pirate
-import FooterGet from '../../_common/_footer/_footer-get.md'
+## Get a Bus Pirate
 
-<FooterGet/>
+
+{{% readfile "/_common/_footer/_footer-get.md" %}}
 
 ### Community
-import FooterCommunity from '../../_common/_footer/_footer-community.md'
 
-<FooterCommunity/>
+
+{{% readfile "/_common/_footer/_footer-community.md" %}}
 
 ### Documentation
 import FooterDocs from '../../_common/_footer/_footer-docs.md' 
 
-<FooterDocs/>
+{{% readfile "/_common/_footer/_footer-docs.md" %}}
 
 
 

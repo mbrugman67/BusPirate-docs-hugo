@@ -69,10 +69,10 @@ In an act of desperation we [modeled a hole cover](https://github.com/DangerousP
 
 The SD card slot will be removed in a future revision of the case.
 
-## Get Bus Pirate 5
-import FooterGet from '/_common/_footer/_footer-get.md' 
+## Get a Bus Pirate
+ 
 
-<FooterGet/>
+{{% readfile "/_common/_footer/_footer-get.md" %}}
 
 ## Manufacturing Notes
 

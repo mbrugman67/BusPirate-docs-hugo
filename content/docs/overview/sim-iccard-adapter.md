@@ -13,9 +13,9 @@ The IC card and SIM adapter for Bus Pirate 5 has sockets for mini, micro and nan
 
 Common IC cards usually follow the [ISO 7816-3 standard](https://en.wikipedia.org/wiki/ISO/IEC_7816) and have the same pinout and contact shape. [Image source](https://commons.wikimedia.org/wiki/File:SmartCardPinout.svg).
 
-import FooterCart from '/_common/_footer/_footer-cart.md'
 
-<FooterCart/>
+
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ![](./img/sim-iccard-all.jpg)
 ## mini, micro, and nano SIM cards
@@ -75,20 +75,20 @@ SW1 and SW2 along the side of the adapter select the power (VCC) and ground (GND
 - [I2C mode documentation](/command-reference/i2c-protocol)
 - [sle4442 command documentation](/command-reference/2wire-protocol#sle4442) 
 
-## Get Bus Pirate 5
-import FooterGet from '../../_common/_footer/_footer-get.md'
+## Get a Bus Pirate
 
-<FooterGet/>
+
+{{% readfile "/_common/_footer/_footer-get.md" %}}
 
 ### Community
-import FooterCommunity from '../../_common/_footer/_footer-community.md'
 
-<FooterCommunity/>
+
+{{% readfile "/_common/_footer/_footer-community.md" %}}
 
 ### Documentation
 import FooterDocs from '../../_common/_footer/_footer-docs.md' 
 
-<FooterDocs/>
+{{% readfile "/_common/_footer/_footer-docs.md" %}}
 
 
 

@@ -12,7 +12,7 @@ title = 'Introduction'
 ![](./img/bp5rev10-3d-top.jpg)
 
 
-## Get Bus Pirate 5
-import FooterGet from '/_common/_footer/_footer-get.md' 
+## Get a Bus Pirate
+ 
 
-<FooterGet/>
+{{% readfile "/_common/_footer/_footer-get.md" %}}

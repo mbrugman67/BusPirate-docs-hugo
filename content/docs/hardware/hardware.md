@@ -9,9 +9,7 @@ title = "Hardware Design"
 
 The Bus Pirate is an open-source hardware debugging tool that converts simple commands into common bus protocols such as 1-Wire, I2C, SPI, UART, several LEDs and more. Send commands to a chip or sensor and get the response, without writing a line of code. 
 
-import FooterCart from '/_common/_footer/_footer-cart.md' 
-
-<FooterCart/>
+ {{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 
 <div class="img-center"> 
@@ -349,24 +347,20 @@ Previous revisions had three buttons (up/ok/down) to control a menu on the LCD. 
 - [Component placement](./img/bp5rev10/buspirate-5-rev10a-placement.pdf) (PDF)
 
 ## Get a Bus Pirate
-import FooterGet from '/_common/_footer/_footer-get.md' 
-
-<FooterGet/>
+ 
+{{% readfile "/_common/_footer/_footer-get.md" %}}
 
 ### More Documentation
-import FooterDocs from '/_common/_footer/_footer-docs.md' 
 
-<FooterDocs/>
+{{% readfile "/_common/_footer/_footer-docs.md" %}}
 
 ### Files
-import FooterFiles from '/_common/_footer/_footer-files.md'
 
-<FooterFiles/>
+{{% readfile "/_common/_footer/_footer-files.md" %}}
 
 ### Community
-import FooterCommunity from '/_common/_footer/_footer-community.md'
 
-<FooterCommunity/>
+{{% readfile "/_common/_footer/_footer-community.md" %}}
 
 
 

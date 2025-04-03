@@ -13,9 +13,9 @@ title = 'Hardware 5 REV 8'
 
 Bus Pirate 5 is an open-source hardware debugging tool designed to eliminate the frustrations and challenges commonly associated with hacking and hardware tinkering. We tried to tackle all the pain points, from bizarre and uncomfortable acrobatics with multimeter probes to the hassle of connecting multiple test hooks to a single pin. With Bus Pirate 5, information you need is right where you need it.
 
-import FooterCart from '/_common/_footer/_footer-cart.md' 
 
-<FooterCart/>
+
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ## Features
 
@@ -321,23 +321,23 @@ Bus Pirate 5 is used through a serial terminal. The optional VT100 mode supports
 [Bus Pirate 5 REV8 interactive BOM](pathname:///bp5-rev8-bom.html). Created with [Interactive HTML BOM plugin](https://github.com/openscopeproject/InteractiveHtmlBom) for [KiCad](https://www.kicad.org/).
 
 
-## Get Bus Pirate 5
-import FooterGet from '/_common/_footer/_footer-get.md' 
+## Get a Bus Pirate
+ 
 
-<FooterGet/>
+{{% readfile "/_common/_footer/_footer-get.md" %}}
 
 ### More Documentation
-import FooterDocs from '/_common/_footer/_footer-docs.md' 
 
-<FooterDocs/>
+
+{{% readfile "/_common/_footer/_footer-docs.md" %}}
 
 ### Files
-import FooterFiles from '/_common/_footer/_footer-files.md'
 
-<FooterFiles/>
+
+{{% readfile "/_common/_footer/_footer-files.md" %}}
 
 ### Community
-import FooterCommunity from '/_common/_footer/_footer-community.md'
 
-<FooterCommunity/>
+
+{{% readfile "/_common/_footer/_footer-community.md" %}}
 

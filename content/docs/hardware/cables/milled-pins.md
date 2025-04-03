@@ -11,9 +11,9 @@ Custom milled pins connect the Bus Pirate DuPont-style 2.54mm female connectors 
 
 Pins are milled from copper and then plated with nickel. Gold plating is an option, but gold is very soft and probably not worth the extra expense.
 
-import FooterCart from '/_common/_footer/_footer-cart.md' 
 
-<FooterCart/>
+
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ## Revision 2
 ![](./img/pin-milled-rev2.png)
@@ -21,8 +21,8 @@ import FooterCart from '/_common/_footer/_footer-cart.md'
 ## Revision 1
 ![](./img/pin-milled-measurements-400.png)
 
-## Get Bus Pirate 5
-import FooterGet from '/_common/_footer/_footer-get.md' 
+## Get a Bus Pirate
+ 
 
-<FooterGet/>
+{{% readfile "/_common/_footer/_footer-get.md" %}}
 

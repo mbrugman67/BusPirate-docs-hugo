@@ -13,9 +13,9 @@ Use a remote control with your computer, view infrared signals on a logic analyz
 Infrared Toy v3 is "in development". If hardware is available it has passed basic functionality tests, but there isn't full documentation or support just yet. At this stage, it's best suited for developers who are comfortable with hardware and firmware development. Or for those who want to follow along.
 {{% /alert %}}
 
-import FooterCart from '/_common/_footer/_footer-cart.md'
 
-<FooterCart/>
+
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 
 ## Transmitters
@@ -197,20 +197,20 @@ IR Toy v3 [schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-
 - [Infrared mode documentation](/command-reference)
 - [Development thread](https://forum.buspirate.com/t/infrared-io-explorer/372/40?u=ian)
 
-## Get Bus Pirate
-import FooterGet from '../../_common/_footer/_footer-get.md'
+## Get a Bus Pirate
 
-<FooterGet/>
+
+{{% readfile "/_common/_footer/_footer-get.md" %}}
 
 ### Community
-import FooterCommunity from '../../_common/_footer/_footer-community.md'
 
-<FooterCommunity/>
+
+{{% readfile "/_common/_footer/_footer-community.md" %}}
 
 ### Documentation
 import FooterDocs from '../../_common/_footer/_footer-docs.md' 
 
-<FooterDocs/>
+{{% readfile "/_common/_footer/_footer-docs.md" %}}
 
 
 

@@ -2,31 +2,19 @@
 weight = 200000
 title = 'License'
 +++
-import LicenseMit from '/_common/_license/_mit.md' 
-import LicenseCCBYSA from '/_common/_license/_cc-by-sa.md' 
 
-# Licenses
+Bus Pirate is an open source/open hardware project.
 
-Bus Pirate 5 is an open source/open hardware project.
+## Firmware, Hardware, Documentation
 
-## Firmware
-
-<LicenseMit/>
-
-## Hardware
-
-<LicenseCCBYSA/>
-
-## Documentation
-
-<LicenseCCBYSA/>
+{{% readfile "/_common/_license/_mit.md" %}}
 
 ## Artwork
 
-<LicenseCCBYSA/>
+Specifically limited to branded artwork such as product packaging and stickers.
 
-## Get Bus Pirate 5
+{{% readfile "/_common/_license/_cc-by-sa.md" %}}
 
-import FooterCart from '/_common/_footer/_footer-cart.md' 
+## Get a Bus Pirate
 
-<FooterCart/>
+{{% readfile "/_common/_footer/_footer-cart.md" %}} 
