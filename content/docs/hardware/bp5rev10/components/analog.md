@@ -1,5 +1,5 @@
 +++
-weight = 17
+weight = 100015
 title = 'Analog Components'
 +++
 

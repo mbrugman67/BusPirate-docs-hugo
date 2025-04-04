@@ -1,5 +1,5 @@
 +++
-weight = 110
+weight = 30800
 title = 'USB Flash Storage'
 +++
 

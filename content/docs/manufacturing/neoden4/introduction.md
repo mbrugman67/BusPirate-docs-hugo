@@ -1,6 +1,6 @@
 +++
 title = 'Introduction'
-weight = 1
+weight = 130201
 +++
 
 Bus Pirate 5 has over 200 component placements on one side, as well as a difficult to solder QFN Chip (the Raspberry Pi RP2040). To turn out prototypes without hours of backbreaking soldering we used a Neoden 4 Pick and Place gifted to us by the manufacturer in 2016/2017. 

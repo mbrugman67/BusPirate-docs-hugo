@@ -1,6 +1,6 @@
 +++
 title = 'Prepare Position File'
-weight = 2
+weight = 130202
 +++
 
 ## Generate Placement Files in KiCad

@@ -1,5 +1,5 @@
 +++
-weight = 45
+weight = 30500
 title = 'Pull-up Resistors'
 +++
 

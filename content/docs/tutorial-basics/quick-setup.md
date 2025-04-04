@@ -1,5 +1,5 @@
 +++
-weight = 1
+weight = 30100
 title = 'Quick Setup'
 +++
 

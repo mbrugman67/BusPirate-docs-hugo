@@ -1,5 +1,5 @@
 +++
-weight = 42
+weight = 20500
 title = 'SPI Flash Adapters'
 +++
 

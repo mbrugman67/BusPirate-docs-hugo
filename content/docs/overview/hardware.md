@@ -1,5 +1,5 @@
 +++
-weight = 1
+weight = 20100
 title = 'Bus Pirate Hardware'
 +++
 

@@ -1,5 +1,5 @@
 +++
-weight = 1000
+weight = 130199
 title = 'Bus Pirate 5 preview PCB only'
 +++
 

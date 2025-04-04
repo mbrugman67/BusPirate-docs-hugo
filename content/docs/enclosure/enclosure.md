@@ -1,5 +1,5 @@
 +++
-weight = 1
+weight = 120100
 title = 'Enclosure'
 +++
 

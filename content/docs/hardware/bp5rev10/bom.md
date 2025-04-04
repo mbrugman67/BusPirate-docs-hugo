@@ -1,5 +1,5 @@
 +++
-weight = 300
+weight = 100003
 title = 'Bill of Materials (5 REV 10)'
 +++
 

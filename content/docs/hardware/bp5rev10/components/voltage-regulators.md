@@ -1,5 +1,5 @@
 +++
-weight = 15
+weight = 100014
 title = 'Voltage Regulators'
 +++
 

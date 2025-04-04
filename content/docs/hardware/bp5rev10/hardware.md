@@ -1,5 +1,5 @@
 +++
-weight = 200
+weight = 100002
 title = 'Hardware Design (5 REV 10)'
 +++
 

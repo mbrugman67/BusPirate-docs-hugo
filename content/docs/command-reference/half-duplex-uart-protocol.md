@@ -1,5 +1,5 @@
 +++
-weight = 13
+weight = 70600
 title = 'Half-Duplex UART'
 +++
 

@@ -1,5 +1,5 @@
 +++
-weight = 44
+weight = 20800
 title = 'Infrared RX/TX Toy'
 +++
 

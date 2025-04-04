@@ -1,5 +1,5 @@
 +++
-weight = 2
+weight = 70200
 title = 'Bus Syntax Reference'
 +++
 

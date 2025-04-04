@@ -1,5 +1,5 @@
 +++
-weight = 43
+weight = 20700
 title = 'IC Card and SIM Adapter'
 +++
 

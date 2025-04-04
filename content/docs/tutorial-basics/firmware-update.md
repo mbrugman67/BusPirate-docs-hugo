@@ -1,5 +1,5 @@
 +++
-weight = 20
+weight = 30200
 title = 'Upgrade Firmware'
 +++
 

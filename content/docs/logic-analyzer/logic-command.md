@@ -1,5 +1,5 @@
 +++
-weight = 20
+weight = 50400
 title = "Logic Command"
 +++
 

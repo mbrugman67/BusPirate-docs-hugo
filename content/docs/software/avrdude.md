@@ -1,5 +1,5 @@
 +++
-weight = 101
+weight = 60100
 title = 'AVRDUDE Programmer'
 +++
 

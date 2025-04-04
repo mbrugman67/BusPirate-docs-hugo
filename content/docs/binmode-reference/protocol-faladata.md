@@ -6,7 +6,7 @@ date = "2023-05-22T00:27:57+01:00"
 lastmod = "2023-05-22T00:27:57+01:00"
 draft = false
 toc = true
-weight = 300
+weight = 80300
 +++
 
 An asynchronous logic analyzer that triggers each time bus syntax is run from the terminal. It eliminates the need setup triggers and arm a second tool for debugging.  We like to call it FALA for short.

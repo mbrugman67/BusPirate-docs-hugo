@@ -1,5 +1,5 @@
 +++
-weight = 1
+weight = 40100
 title = 'NOR Flash Chips SPI'
 +++
 

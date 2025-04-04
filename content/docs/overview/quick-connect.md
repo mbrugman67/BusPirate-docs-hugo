@@ -1,5 +1,5 @@
 +++
-weight = 40
+weight = 20400
 title = 'KF141 Quick Connector'
 +++
 

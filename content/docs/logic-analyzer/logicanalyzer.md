@@ -1,5 +1,5 @@
 +++
-weight = 1
+weight = 50100
 title = 'Available Logic Analyzers'
 +++
 

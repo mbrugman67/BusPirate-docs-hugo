@@ -1,5 +1,5 @@
 +++
-weight = 1
+weight = 100101
 title = 'Bus Pirate 6 Specs'
 +++
 

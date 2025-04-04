@@ -1,5 +1,5 @@
 +++
-weight = 40
+weight = 30400
 title = 'Programmable Power Supply'
 +++
 

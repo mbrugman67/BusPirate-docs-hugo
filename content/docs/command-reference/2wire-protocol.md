@@ -1,6 +1,6 @@
 
 +++
-weight = 12
+weight = 70400
 title = '2-Wire Protocol'
 +++
 
