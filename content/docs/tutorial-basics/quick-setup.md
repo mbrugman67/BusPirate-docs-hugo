@@ -5,11 +5,11 @@ title = 'Quick Setup'
 
 ![](/images/docs/fw/quicksetup-1024.jpg)
 
-## Connect Bus Pirate 5
+## Connect the Bus Pirate
 
 Connect the Bus Pirate to your computer with a USB C cable.
 
-Bus Pirate 5 currently appears as three USB devices:
+The Bus Pirate currently appears as three USB devices:
 - USB CDC class device 0: an emulated serial port for accessing the user terminal
 - USB CDC class device 1: an emulated serial port for accessing the binary scripting interface
 - USB Mass Storage Device: a disk drive interface for accessing onboard storage
@@ -22,8 +22,8 @@ These are common device classes and recent operating systems will not request or
 Your terminal emulation software will probably detect and list all the available serial ports connected to your computer. If there's more than one serial port, you can connect to each and press ```enter``` until you find the Bus Pirate terminal. You can probably skip this step, but if you need to find the port manually follow the instructions below.
 {{% /alert %}}
 
-<Tabs groupId="operating-systems" queryString="current-os">
-  <TabItem value="win" label="Windows">
+{{< tabs tabTotal="4">}}
+{{% tab tabName="Windows" %}}
 
 ![Windows device manager](/images/docs/fw/serialport-windows.png)
 
@@ -32,12 +32,17 @@ Your terminal emulation software will probably detect and list all the available
 - Type ```Device Manager```
 - Click on the Device Manager to open it
 - In the Device Manager look for ```Ports (COM & LPT)```, expand it
-- In the example Bus Pirate 5 is connected as COM3  
+- In the example the Bus Pirate is connected as COM3  
 
 
-</TabItem>
-  <TabItem value="linux" label="Linux">Help document the Bus Pirate, post your instructions in the forum and we'll add them to the docs.</TabItem>
-  <TabItem value="mac" label="macOS">
+{{% /tab %}}
+{{% tab tabName="Linux" %}}
+
+Help document the Bus Pirate, post your instructions in the forum and we'll add them to the docs.
+
+{{% /tab %}}
+{{% tab tabName="MacOS" %}}
+
 The easiest way to find the serial ports is probably with a terminal (see the next section).
 From a terminal, run:
 
@@ -70,16 +75,20 @@ Another way to find information about the Bus Pirate on a Mac is:
   
 The serial number shown will match the name of the device in `/dev/`.
 
-  </TabItem>
-  <TabItem value="android" label="Android">Help document the Bus Pirate, post your instructions in the forum and we'll add them to the docs.</TabItem>
-</Tabs>
+{{% /tab %}}
+{{% tab tabName="Android" %}}
+
+Help document the Bus Pirate, post your instructions in the forum and we'll add them to the docs.
+
+{{% /tab %}}
+{{< /tabs >}}
 
 ## Fire up a terminal emulator
 
-A terminal emulator is software that connects to the Bus Pirate serial interface and displays the command line. Bus Pirate 5 supports VT100 for a colorful interface with a live view statusbar. A fallback monochrome ASCII mode is also available. Most terminal emulators support VT100, it's been around since the 1970s.
+A terminal emulator is software that connects to the Bus Pirate serial interface and displays the command line. The Bus Pirate supports VT100 for a colorful interface with a live view statusbar. A fallback monochrome ASCII mode is also available. Most terminal emulators support VT100, it's been around since the 1970s.
 
-<Tabs groupId="operating-systems" queryString="current-os">
-  <TabItem value="win" label="Windows">
+{{< tabs tabTotal="4">}}
+{{% tab tabName="Windows" %}}
 
 ![TeraTerm setup](/images/docs/fw/teraterm-setup-com.png)
 
@@ -107,12 +116,13 @@ Seeing duplicate characters when you type? Check that ```local echo``` is unchec
 
 You should see something like this. Congratulations, you're talking to the Bus Pirate!
 
+{{% /tab %}}
+{{% tab tabName="Linux" %}}
 
+Help document the Bus Pirate, post your instructions in the forum and we'll add them to the docs.
 
-  </TabItem>
-  <TabItem value="linux" label="Linux">Help document the Bus Pirate, post your instructions in the forum and we'll add them to the docs.</TabItem>
-  <TabItem value="mac" label="macOS">
-  
+{{% /tab %}}
+{{% tab tabName="MacOS" %}}  
 
 Macs come with a terminal emulator called [Terminal](https://en.wikipedia.org/wiki/Terminal_(macOS)).
 
@@ -173,10 +183,13 @@ You can connect with minicom with `minicom -D /dev/cu.usbmodem1234567890121`.
 
 The "meta" key for minicom defaults to Escape. To exit, hold `Esc` and press `q`. `Esc`+`z` for help.
 
+{{% /tab %}}
+{{% tab tabName="Android" %}}
 
-  </TabItem>
-  <TabItem value="android" label="Android">Help document the Bus Pirate, post your instructions in the forum and we'll add them to the docs.</TabItem>
-</Tabs>
+Help document the Bus Pirate, post your instructions in the forum and we'll add them to the docs.
+
+{{% /tab %}}
+{{< /tabs >}}
 
 {{% alert context="warning" %}}
 If you see lots of extra garbage characters in the terminal that is probably the VT100 code that updates the live view statusbar. Verify that your terminal supports VT100 mode and that VT100 mode is enabled.
