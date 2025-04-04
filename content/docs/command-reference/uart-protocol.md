@@ -156,7 +156,7 @@ node passes messages to the next in the ring. The input and outputs are
 opto-isolated. The signaling is at 5volts, 5ma (current-based
 signaling). An adapter is required: [example
 1](http://www.compuphase.com/electronics/midi_rs232.htm), [example
-2](http://www.midi.org/techspecs/electrispec.php).
+2](https://midi.org/specs).
 
 
 
