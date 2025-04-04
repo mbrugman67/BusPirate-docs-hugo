@@ -11,7 +11,9 @@ FALA is a "live action" logic analyzer mode that automatically captures everythi
 - [libsigrok with FALA mode](https://github.com/phdussud/libsigrok/tree/bp5-fala) (Linux experimental)
 - [Support topic](https://forum.buspirate.com/t/pulseview-demo-for-follow-along-logic-analyzer-mode/681) (Windows/Linux)
 
-Currently FALA support is only available in a special patched version of PulseView for Windows.
+Currently pre-build FALA support is only available in a special patched version of PulseView for Windows.
+
+Linux users have reported to build libsigrok library that works with FALA and recent versions of PulseView.
 
 {{% alert context="danger" %}}
 All Bus Pirate hardware supports follow along logic analyzer, however only Bus Pirate 6 has a second buffer to capture pins directly. In earlier hardware **all output pins are measured behind the IO buffer**. This means the logic capture may not match the actual output of the IO buffer. **This is not a problem when the Bus Pirate is used as a logic analyzer only and all pins are inputs**.
