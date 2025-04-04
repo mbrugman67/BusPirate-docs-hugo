@@ -1,15 +1,13 @@
 +++
 weight = 17
-title = 'Analog'
+title = 'Analog Components'
 +++
 
-# Analog Components
-
-![](./img/analog.jpg)
+![](/images/docs/hw/bp5rev10/components/analog.jpg)
 
 ## Op-amp rail to rail SOT-23-5
 
-![](./img/lmv321.png)
+![](/images/docs/hw/bp5rev10/components/lmv321.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -50,7 +48,7 @@ Example:
 
 ## Op-amp rail to rail SOT-23-5 A grade
 
-![](./img/lmv321.png)
+![](/images/docs/hw/bp5rev10/components/lmv321.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -74,7 +72,7 @@ Example:
 
 ## Comparator SOT-23-5
 
-![](./img/lmv331.png)
+![](/images/docs/hw/bp5rev10/components/lmv331.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|

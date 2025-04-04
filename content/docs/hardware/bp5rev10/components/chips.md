@@ -3,9 +3,7 @@ weight = 20
 title = 'Chips'
 +++
 
-# Chips
-
-![](./img/chips2.jpg)
+![](/images/docs/hw/bp5rev10/components/chips2.jpg)
 
 ## Microcontroller RP2040 QFN-56
 

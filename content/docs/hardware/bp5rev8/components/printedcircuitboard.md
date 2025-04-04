@@ -1,15 +1,13 @@
 +++
-weight = 50
+weight = 1100
 title = 'Printed Circuit Board'
 +++
-
-# Printed Circuit Board
 
 {{% alert context="info" %}}
 **Bus Pirate 5 REV8 preview is no longer in production. See the latest version.**
 {{% /alert %}}
 
-![](./img/pcb.jpg)
+![](/images/docs/hw/bp5rev8/pcb.jpg)
 
 ### PCB 4 layers 60x60mm
 

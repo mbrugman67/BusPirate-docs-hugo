@@ -3,13 +3,11 @@ weight = 45
 title = 'Switches'
 +++
 
-# Switches
-
-![](./img/switches.jpg)
+![](/images/docs/hw/bp5rev10/components/switches.jpg)
 
 ## SPST 4.2x3.2mm
 
-![](./img/switchp810.jpg)![](./img/pts810-pcb.png)
+![](/images/docs/hw/bp5rev10/components/switchp810.jpg)![](/images/docs/hw/bp5rev10/components/pts810-pcb.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -26,7 +24,7 @@ Example:
     
 ## SPST 3.3x3.3mm, 1.5mmH
 
-![](./img/switch4p.jpg)![](img/spst-3.3mmx1.5mm-pcb.png)
+![](/images/docs/hw/bp5rev10/components/switch4p.jpg)![](/images/docs/hw/bp5rev10/components/spst-3.3mmx1.5mm-pcb.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|

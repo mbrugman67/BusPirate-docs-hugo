@@ -1,15 +1,13 @@
 +++
-weight = 20
+weight = 500
 title = 'Chips'
 +++
-
-# Chips
 
 {{% alert context="info" %}}
 **Bus Pirate 5 REV8 preview is no longer in production. See the latest version.**
 {{% /alert %}}
 
-![](./img/chips2.jpg)
+![](/images/docs/hw/bp5rev8/chips2.jpg)
 
 ## Microcontroller RP2040 QFN-56
 

@@ -1,19 +1,17 @@
 +++
-weight = 17
-title = 'Analog'
+weight = 400
+title = 'Analog Components'
 +++
-
-# Analog Components
 
 {{% alert context="info" %}}
 **Bus Pirate 5 REV8 preview is no longer in production. See the latest version.**
 {{% /alert %}}
 
-![](./img/analog.jpg)
+![](/images/docs/hw/bp5rev8/analog.jpg)
 
 ## Op-amp rail to rail SOT-23-5
 
-![c](./img/mcp6001-400.png)
+![c](/images/docs/hw/bp5rev8/mcp6001-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -33,7 +31,7 @@ Example:
 
 ## Comparator SOT-23-5
 
-![6](./img/mcp6541-400.png)
+![6](/images/docs/hw/bp5rev8/mcp6541-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|

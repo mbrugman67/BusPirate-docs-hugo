@@ -1,19 +1,17 @@
 +++
-weight = 25
+weight = 800
 title = 'LEDs and Display'
 +++
-
-# LEDs and Display
 
 {{% alert context="info" %}}
 **Bus Pirate 5 REV8 preview is no longer in production. See the latest version.**
 {{% /alert %}}
 
-![](./img/lcd-cover.jpg)
+![](/images/docs/hw/bp5rev8/lcd-cover.jpg)
 
 ## LCD 2.0" IPS LCD 240x320 ST7789V with SPI interface (QT200H1201)
 
-![QT200H1201](./img/lcd.jpg)
+![QT200H1201](/images/docs/hw/bp5rev8/lcd.jpg)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -27,7 +25,7 @@ Supplier:
 
 ## Double sided tape, insulating, 20mm, <0.2mm thick
 
-![](./img/3m9448a-400px.jpg)
+![](/images/docs/hw/bp5rev8/3m9448a-400px.jpg)
 
 Tape secures the LCD to the PCB, and insulates the flex PCB connector from contact with the metal LCD RF shield. 
 
@@ -37,7 +35,7 @@ Example:
 
 ## LED SK6812-MINI-E, LED6028 / 3528
 
-![](./img/ledminie.jpg)![](./img/sk6812-mini-e-400.png)
+![](/images/docs/hw/bp5rev8/ledminie.jpg)![](/images/docs/hw/bp5rev8/sk6812-mini-e-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -51,7 +49,7 @@ Example:
 
 ## LED SK6812-SIDE-A, 4020 / 4.0x2.0x1.6mm
 
-![](./img/led-sidea.jpg)![](./img/sk6812-side-a_b.png)
+![](/images/docs/hw/bp5rev8/led-sidea.jpg)![](/images/docs/hw/bp5rev8/sk6812-side-a_b.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -71,7 +69,7 @@ Example:
 
 _**Alternatives (requires PCB footprint change):**_
 
-![](./img/led-sidea-bad.jpg)
+![](/images/docs/hw/bp5rev8/led-sidea-bad.jpg)
 
 This version of the SK6812-side-a has a slightly different footprint. We avoid it if possible.
 {{% alert context="danger" %}}

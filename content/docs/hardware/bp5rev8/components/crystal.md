@@ -1,5 +1,5 @@
 +++
-weight = 22
+weight = 600
 title = 'Crystal'
 +++
 
@@ -9,11 +9,11 @@ title = 'Crystal'
 **Bus Pirate 5 REV8 preview is no longer in production. See the latest version.**
 {{% /alert %}}
 
-![](./img/crystal2.jpg)
+![](/images/docs/hw/bp5rev8/crystal2.jpg)
 
 ## Crystal 12MHz 18pf - 20pF, SMD3225-4 (4 pin)
 
-![SMD3225 pinout](img/smd3225-400.png)
+![SMD3225 pinout](/images/docs/hw/bp5rev8/smd3225-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|

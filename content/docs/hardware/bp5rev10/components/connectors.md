@@ -3,13 +3,11 @@ weight = 30
 title = 'Connectors'
 +++
 
-# Connectors
-
-![](./img/connectors.jpg)
+![](/images/docs/hw/bp5rev10/components/connectors.jpg)
 
 ## USB type C connector 16 pin
 
-![usbc](./img/usbc.jpg)
+![usbc](/images/docs/hw/bp5rev10/components/usbc.jpg)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -23,7 +21,7 @@ Example:
 
 ## 3P female 2.54mm low profile milled pin header
 
-![](./img/fpinheader-low-profile2.png)![](./img/con3p.jpg)
+![](/images/docs/hw/bp5rev10/components/fpinheader-low-profile2.png)![](/images/docs/hw/bp5rev10/components/con3p.jpg)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -41,7 +39,7 @@ Example:
 
 ## 10P male 2.54mm right angle (90 degrees) shrouded connector
 
-![](./img/con10p.jpg)![10 pin right able connector. Black shroud with IO pin names printed in white silkscreen.](./img/p10-silkscreen.jpg)  
+![](/images/docs/hw/bp5rev10/components/con10p.jpg)![10 pin right able connector. Black shroud with IO pin names printed in white silkscreen.](/images/docs/hw/bp5rev10/components/p10-silkscreen.jpg)  
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -60,7 +58,7 @@ Examples:
 
 ## 9P male 1.0mm right angle (90 degrees) JST SH compatible connector
 
-![](./img/con9p.jpg)
+![](/images/docs/hw/bp5rev10/components/con9p.jpg)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|

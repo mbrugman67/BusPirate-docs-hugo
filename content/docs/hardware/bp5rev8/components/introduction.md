@@ -1,19 +1,19 @@
 +++
-weight = 10
+weight = 100
 title = 'Introduction'
 +++
 
-# Bus Pirate 5 Component Guide REV 8
+# Bus Pirate 5 REV 8 Component Guide
 
 {{% alert context="info" %}}
 **Bus Pirate 5 REV8 preview is no longer in production. See the latest version.**
 {{% /alert %}}
 
-![](./img/bp-rgb-dark.jpg)
+![](/images/docs/hw/bp5rev8/bp-rgb-dark.jpg)
 
-![](./img/bp5-pcb-bottom.jpg)
+![](/images/docs/hw/bp5rev8/bp5-pcb-bottom.jpg)
 
-![](./img/bp5-pcb-top.jpg)
+![](/images/docs/hw/bp5rev8/bp5-pcb-top.jpg)
 
 ## Get a Bus Pirate
  

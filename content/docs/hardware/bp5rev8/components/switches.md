@@ -1,19 +1,17 @@
 +++
-weight = 45
+weight = 1000
 title = 'Switches'
 +++
-
-# Switches
 
 {{% alert context="info" %}}
 **Bus Pirate 5 REV8 preview is no longer in production. See the latest version.**
 {{% /alert %}}
 
-![](./img/switches.jpg)
+![](/images/docs/hw/bp5rev8/switches.jpg)
 
 ## SPST 4.2x3.2mm
 
-![](./img/switchp810.jpg)![](./img/pts810-pcb.png)
+![](/images/docs/hw/bp5rev8/switchp810.jpg)![](/images/docs/hw/bp5rev8/pts810-pcb.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -31,7 +29,7 @@ Example:
 
 ## SPST 3.3x3.3mm, 1.5mmH
 
-![](./img/switch4p.jpg)![](img/spst-3.3mmx1.5mm-pcb.png)
+![](/images/docs/hw/bp5rev8/switch4p.jpg)![](/images/docs/hw/bp5rev8/spst-3.3mmx1.5mm-pcb.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|

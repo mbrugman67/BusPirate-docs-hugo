@@ -1,15 +1,13 @@
 +++
-weight = 10
+weight = 300
 title = 'Transistors and MOSFETs'
 +++
-
-# Transistors and MOSFETs
 
 {{% alert context="info" %}}
 **Bus Pirate 5 REV8 preview is no longer in production. See the latest version.**
 {{% /alert %}}
 
-![](./img/transistors.jpg)
+![](/images/docs/hw/bp5rev8/transistors.jpg)
 
 {{% alert context="info" %}}
 We used jellybean parts that are available from several manufacturers under the same part number. Choosing all one manufacturer saves a bit on parts and shipping, and simplifies sourcing.
@@ -24,7 +22,7 @@ We used jellybean parts that are available from several manufacturers under the 
 
 ## NMOS FET 200mA+ Vgs<=1.5 volts SOT-23 
 
-![](./img/fet-400.png)
+![](/images/docs/hw/bp5rev8/fet-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -50,7 +48,7 @@ Examples:
 
 ## PMOS FET 2A+ Vgs>=-2 volts SOT-23 
 
-![](./img/fet-400.png)
+![](/images/docs/hw/bp5rev8/fet-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -69,7 +67,7 @@ Examples:
 
 ## Dual PNP transistor general purpose SOT-363/SC-70-6
 
-![MMDT3906 pinout](./img/sc70-pnp-400.png)
+![MMDT3906 pinout](/images/docs/hw/bp5rev8/sc70-pnp-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -90,7 +88,7 @@ Example:
 
 ## Dual PNP transistor matched pair SOT-363/SC-70-6 
 
-![BCM85x pinout](./img/sc70-pnp-400.png)
+![BCM85x pinout](/images/docs/hw/bp5rev8/sc70-pnp-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|

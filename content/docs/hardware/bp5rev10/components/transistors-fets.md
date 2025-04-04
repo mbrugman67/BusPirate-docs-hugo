@@ -3,9 +3,7 @@ weight = 10
 title = 'Transistors and MOSFETs'
 +++
 
-# Transistors and MOSFETs
-
-![](./img/transistors.jpg)
+![](/images/docs/hw/bp5rev10/components/transistors.jpg)
 
 ## Consolidating suppliers
 
@@ -14,6 +12,7 @@ title = 'Transistors and MOSFETs'
 |YONGYUTAI/KUU(永裕泰)|2N7002|SI2301|-|1N4148|
 |CBI(创基)|2N7002|BC2301(2A)|MMDT3906|1N4148|
 |JSMSEMI(杰盛微)|2N7002|SI2301|-|1N4148|
+<p></p>
 
 {{% alert context="info" %}}
 We used jellybean parts that are available from several manufacturers under the same part number. Choosing all one manufacturer saves a bit on parts and shipping, and simplifies sourcing.
@@ -21,7 +20,7 @@ We used jellybean parts that are available from several manufacturers under the 
 
 ## NMOS FET 200mA+ Vgs<=1.5 volts SOT-23 
 
-![](./img/fet-400.png)
+![](/images/docs/hw/bp5rev10/components/fet-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -47,7 +46,7 @@ Examples:
 
 ## PMOS FET 2A+ Vgs>=-1 volts SOT-523 
 
-![](./img/fet-400.png)
+![](/images/docs/hw/bp5rev10/components/fet-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -69,7 +68,7 @@ Example:
 
 ## Dual PNP transistor general purpose SOT-363/SC-70-6
 
-![MMDT3906 pinout](./img/sc70-pnp-400.png)
+![MMDT3906 pinout](/images/docs/hw/bp5rev10/components/sc70-pnp-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -90,7 +89,7 @@ Example:
 
 ## Dual PNP transistor matched pair SOT-363/SC-70-6 
 
-![BCM85x pinout](./img/sc70-pnp-400.png)
+![BCM85x pinout](/images/docs/hw/bp5rev10/components/sc70-pnp-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|

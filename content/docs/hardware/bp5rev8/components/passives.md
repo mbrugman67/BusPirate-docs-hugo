@@ -1,15 +1,13 @@
 +++
-weight = 5
+weight = 200
 title = 'Passives'
 +++
-
-# Passive components
 
 {{% alert context="info" %}}
 **Bus Pirate 5 REV8 preview is no longer in production. See the latest version.**
 {{% /alert %}}
 
-![](./img/passives2.jpg)
+![](/images/docs/hw/bp5rev8/passives2.jpg)
 
 ## Resistors 1% 0402
 
@@ -35,7 +33,7 @@ Any standard quality 1% resistor can be used.
 
 ## Resistor arrays 5% 0402x4 convex
 
-![Convex R Array](img/rarray.png)
+![Convex R Array](/images/docs/hw/bp5rev8/rarray.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|

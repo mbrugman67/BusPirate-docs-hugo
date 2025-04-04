@@ -1,19 +1,17 @@
 +++
-weight = 30
+weight = 900
 title = 'Connectors'
 +++
-
-# Connectors
 
 {{% alert context="info" %}}
 **Bus Pirate 5 REV8 preview is no longer in production. See the latest version.**
 {{% /alert %}}
 
-![](./img/connectors.jpg)
+![](/images/docs/hw/bp5rev8/connectors.jpg)
 
 ## TF flash card Socket
 
-![sd](./img/sdcard.jpg)
+![sd](/images/docs/hw/bp5rev8/sdcard.jpg)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -27,7 +25,7 @@ Example:
 
 ## USB type C connector 16 pin
 
-![usbc](./img/usbc.jpg)
+![usbc](/images/docs/hw/bp5rev8/usbc.jpg)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -41,7 +39,7 @@ Example:
 
 ## 3P female 2.54mm low profile milled pin header
 
-![](./img/fpinheader-low-profile2.png)![](./img/con3p.jpg)
+![](/images/docs/hw/bp5rev8/fpinheader-low-profile2.png)![](/images/docs/hw/bp5rev8/con3p.jpg)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -59,7 +57,7 @@ Example:
 
 ## 10P male 2.54mm right angle (90 degrees) shrouded connector
 
-![](./img/con10p.jpg)  
+![](/images/docs/hw/bp5rev8/con10p.jpg)  
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -74,7 +72,7 @@ Examples:
 
 ## 9P male 1.0mm right angle (90 degrees) JST SH compatible connector
 
-![](./img/con9p.jpg)
+![](/images/docs/hw/bp5rev8/con9p.jpg)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|

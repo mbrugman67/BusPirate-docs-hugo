@@ -1,15 +1,13 @@
 +++
-weight = 5
-title = 'Bill of Materials'
+weight = 100
+title = 'Bill of Materials (5 REV 8)'
 +++
-
-# Bill of Materials REV 8
 
 {{% alert context="info" %}}
 **Bus Pirate 5 REV8 preview is no longer in production. See the latest version.**
 {{% /alert %}}
 
-![](./img/bom-rev8.jpg)
+![](/images/docs/hw/bp5rev8/bom-rev8.jpg)
 
 REV 8 was produced in a small prototype production batch (August 2023) and an initial production batch (September 2023). Check your Bus Pirate 5 PCB to find your revision number located near the TF flash card (bottom) and the 10 pin connector (top). We intend to move to REV 9 (BOM cleanup) as soon as validation and FCC testing are completed. There are no feature changes in REV 9, just tweaks to the supplier list.
 

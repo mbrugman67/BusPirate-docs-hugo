@@ -3,13 +3,11 @@ weight = 15
 title = 'Voltage Regulators'
 +++
 
-# Voltage Regulators
-
-![](./img/vreg.jpg)
+![](/images/docs/hw/bp5rev10/components/vreg.jpg)
 
 ## LDO voltage regulator 3.3volts 200mA+ 1% accuracy SOT-89
 
-![](./img/sot89-ldo-400.png)
+![](/images/docs/hw/bp5rev10/components/sot89-ldo-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -25,7 +23,7 @@ Example, can be any equivalent part:
 
 ## Adjustable LDO VREG with 0.8v to 5.0v output SOT-23-5
 
-![v](./img/mcp1824-400.png)
+![v](/images/docs/hw/bp5rev10/components/mcp1824-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|

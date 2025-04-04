@@ -3,13 +3,11 @@ weight = 22
 title = 'Crystal'
 +++
 
-# Crystal
-
-![](./img/crystal2.jpg)
+![](/images/docs/hw/bp5rev10/components/crystal2.jpg)
 
 ## Crystal 12MHz 18pf - 20pF, SMD3225-4 (4 pin)
 
-![SMD3225 pinout](img/smd3225-400.png)
+![SMD3225 pinout](/images/docs/hw/bp5rev10/components/smd3225-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|

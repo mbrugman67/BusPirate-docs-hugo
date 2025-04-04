@@ -3,9 +3,7 @@ weight = 50
 title = 'Printed Circuit Board'
 +++
 
-# Printed Circuit Board
-
-![](./img/pcb.jpg)
+![](/images/docs/hw/bp5rev10/components/pcb.jpg)
 
 ## PCB 4 layers 60x60mm
 
@@ -17,12 +15,12 @@ Standard FR4 with 1oz top/bottom copper, 0.25oz internal copper.
 
 ### Bottom
 
-![Bus Pirate 5 PCB, component side](./img/bp5-rev10-pcb-bottom.jpg)
+![Bus Pirate 5 PCB, component side](/images/docs/hw/bp5rev10/components/bp5-rev10-pcb-bottom.jpg)
 
 Components are placed on the bottom layer of the PCB by a pick and place machine. The through-hole 10P connector is hand soldered after reflow.
 
 ### Top
 
-![Bus Pirate 5 PCB, LCD side](./img/bp5-rev10-pcb-top.jpg)
+![Bus Pirate 5 PCB, LCD side](/images/docs/hw/bp5rev10/components/bp5-rev10-pcb-top.jpg)
 
 The display, button and programming header are hand soldered to the top side of the PCB.

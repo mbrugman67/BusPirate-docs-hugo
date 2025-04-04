@@ -1,19 +1,17 @@
 +++
-weight = 15
+weight = 700
 title = 'Voltage Regulators'
 +++
-
-# Voltage Regulators
 
 {{% alert context="info" %}}
 **Bus Pirate 5 REV8 preview is no longer in production. See the latest version.**
 {{% /alert %}}
 
-![](./img/vreg.jpg)
+![](/images/docs/hw/bp5rev8/vreg.jpg)
 
 ## LDO voltage regulator 3.3volts 200mA+ 1% accuracy SOT-89
 
-![](./img/sot89-ldo-400.png)
+![](/images/docs/hw/bp5rev8/sot89-ldo-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -29,7 +27,7 @@ Example, can be any equivalent part:
 
 ## Adjustable LDO VREG with 0.8v to 5.0v output SOT-23-5
 
-![v](./img/mcp1824-400.png)
+![v](/images/docs/hw/bp5rev8/mcp1824-400.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
@@ -45,12 +43,13 @@ MCP1824 was used for development, but it is more expensive and harder to source 
 {{% alert context="danger" %}}
 MCP1824 and AP2127 are equivalent, but each has a different reference voltage. R403/R404/R405 need to match the regulator as follows:
 {{% /alert %}}
-|**Part**  |**Ideal Value**|||**Closest Value**|
+
+|**Part**|**Ideal Value**|||**Closest Value**|
 |-|-|-|-|-|-|-|
 ||R403|R404|R405|R403|R404|R405|
 |**MCP1824**|77.96K|99.22K|10K|78K|100K|10K|
 |**AP2127**|103.13K|131.25K|33K|102K|133K|33K|
-
+<p></p>
 {{% alert context="info" %}}
 If no part can be sourced, a common 1.25V-5V adjustable regulator can be used with the correct resistor values (see calculations spreadsheet). The Bus Pirate will lose features though. The output range will be limited to 1.25volts to 5volts, instead of 0.8volts to 5volts.
 {{% /alert %}}

@@ -3,9 +3,7 @@ weight = 5
 title = 'Passives'
 +++
 
-# Passive components
-
-![](./img/passives2.jpg)
+![](/images/docs/hw/bp5rev10/components/passives2.jpg)
 
 ## Resistors 1% 0402
 
@@ -32,7 +30,7 @@ Any standard quality 1% resistor can be used. We use UniRoyal (UniOhm/RoyalOhm).
 
 ## Resistor arrays 5% 0402x4 convex
 
-![Convex R Array](img/rarray.png)
+![Convex R Array](/images/docs/hw/bp5rev10/components/rarray.png)
 
 |**Reference**|**Package**|**Value**|**Quantity**|**Rating**|**Note**|
 |-|-|-|-|-|-|
