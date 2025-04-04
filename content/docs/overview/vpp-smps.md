@@ -118,16 +118,13 @@ Programming Voltage SMPS [schematic and PCB](https://github.com/DangerousPrototy
 
 ## Get a Bus Pirate
 
-
 {{% readfile "/_common/_footer/_footer-get.md" %}}
 
-### Community
-
+### Community 
 
 {{% readfile "/_common/_footer/_footer-community.md" %}}
 
 ### Documentation
-import FooterDocs from '../../_common/_footer/_footer-docs.md' 
 
 {{% readfile "/_common/_footer/_footer-docs.md" %}}
 

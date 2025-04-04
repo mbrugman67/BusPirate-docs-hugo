@@ -43,7 +43,7 @@ KF141-V is a vertical connector. Wires clamps are oriented to the top of the con
 {{% readfile "/_common/_footer/_footer-community.md" %}}
 
 ### Documentation
-import FooterDocs from '../../_common/_footer/_footer-docs.md' 
+ 
 
 {{% readfile "/_common/_footer/_footer-docs.md" %}}
 

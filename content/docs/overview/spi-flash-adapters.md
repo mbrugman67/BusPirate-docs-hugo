@@ -139,7 +139,7 @@ SW1 and SW2 along the side of the adapter select the power (VCC) and ground (GND
 {{% readfile "/_common/_footer/_footer-community.md" %}}
 
 ### Documentation
-import FooterDocs from '../../_common/_footer/_footer-docs.md' 
+ 
 
 {{% readfile "/_common/_footer/_footer-docs.md" %}}
 

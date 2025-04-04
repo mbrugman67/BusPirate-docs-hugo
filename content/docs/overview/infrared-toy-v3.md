@@ -58,12 +58,12 @@ To start, let's generate a 38kHz signal with a 50% duty cycle. This is the most 
 - Set **38kHz** output at **50%** duty cycle
 
 #### Base voltage
-![](./img/irtoy3-baselevel.png)
+![](/images/docs/fw/irtoy3-baselevel-2.png) 
 
 First, let's check the voltage at the base of the transistor (Q3 pin 1). Two diodes (D9, D10) offset the base voltage by 1.2-1.4 volts. 1.33 volts, so far so good.
 
 #### 100mA transmit current
-![](./img/irtoy3-100ma.png)
+![](/images/docs/fw/irtoy3-100ma-2.png)
 
 Now, with the jumper in the 100mA position, we measure the voltage at the high side of R13 (6.8 Ohms). 0.65 volts/6.8 Ohms = 0.0955A = 95.5mA. This is close enough to the 100mA target. A safe level to run these LEDs continuously.
 
@@ -73,7 +73,7 @@ Now, with the jumper in the 100mA position, we measure the voltage at the high s
 
 #### 200mA transmit current
 
-![](./img/irtoy3-200ma.png)
+![](/images/docs/fw/irtoy3-200ma-2.png)
 
 With the jumper in the 200mA position, the voltage at the 3 Ohm resistor measures 0.62volts. 0.62 volts/ 3 Ohms = 0.206A = 206mA. This is close enough to the 200mA target.
 
@@ -83,7 +83,7 @@ Only use the 200mA setting at 50% duty cycle or less. Continuous operation at 20
 
 #### 300mA transmit current
 
-![](./img/irtoy3-300ma.png)
+![](/images/docs/fw/irtoy3-300ma-2.png)
 
 Finally, with the jumper in the 300mA position, the voltage at the 1.2 Ohm resistor measures 0.47 volts. 0.47 volts/ 1.2 Ohms = 0.391A = 391mA. This is a bit high, but the idea is to get as close to maximum as possible. 
 
@@ -206,7 +206,7 @@ IR Toy v3 [schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-
 {{% readfile "/_common/_footer/_footer-community.md" %}}
 
 ### Documentation
-import FooterDocs from '../../_common/_footer/_footer-docs.md' 
+ 
 
 {{% readfile "/_common/_footer/_footer-docs.md" %}}
 

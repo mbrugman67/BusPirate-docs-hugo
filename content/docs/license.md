@@ -1,7 +1,7 @@
 +++
 weight = 200000
 title = 'License'
-+++
++++ 
 
 Bus Pirate is an open source/open hardware project.
 

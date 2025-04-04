@@ -8,10 +8,12 @@ draft = false
 toc = true
 weight = 1000
 +++
-
+<p></p>
 {{% btn icon=" " context="success" href="https://forum.buspirate.com/t/bus-pirate-5-auto-build-main-branch/20/999999" %}}
 Download Firmware
 {{% /btn %}}
+
+<p></p>
 
 See the [firmware update tutorial](https://firmware.buspirate.com/tutorial-basics/firmware-update) for detailed instructions.
 

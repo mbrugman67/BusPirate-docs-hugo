@@ -78,6 +78,6 @@ All [Bus Pirate cables](https://hardware.buspirate.com/cables/) are made with su
 {{% readfile "/_common/_footer/_footer-community.md" %}}
 
 ### Documentation
-import FooterDocs from '../../_common/_footer/_footer-docs.md' 
+ 
 
 {{% readfile "/_common/_footer/_footer-docs.md" %}}

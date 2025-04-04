@@ -164,7 +164,7 @@ Dual RS-232 adapter [schematic and PCB](https://github.com/DangerousPrototypes/B
 {{% readfile "/_common/_footer/_footer-community.md" %}}
 
 ### Documentation
-import FooterDocs from '../../_common/_footer/_footer-docs.md' 
+ 
 
 {{% readfile "/_common/_footer/_footer-docs.md" %}}
 
