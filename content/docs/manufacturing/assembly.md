@@ -1,11 +1,9 @@
 +++
-weight = 12
+weight = 10
 title = 'Final Assembly'
 +++
 
-# Bus Pirate 5 Final Assembly
-
-![](./img/bp5-full-frontal.jpg)
+![](/images/docs/manuf/bp5-full-frontal.jpg)
 
 ## Materials
 |Quantity|Description|
@@ -20,38 +18,52 @@ title = 'Final Assembly'
 
 ## Final assembly
 
-### Finger gloves on!
+![](/images/docs/manuf/fingercots.jpg)
+
+{{% alert context="danger" %}}
+Finger gloves on!
+{{% /alert %}}
+
+### Cut 3CM of 3M 9488A
+
+![](/images/docs/manuf/3m9448a-400px.jpg)
 
 ### Tape LCD flex PCB
 
-![](./img/bp-lcd-tape.jpg)
+![](/images/docs/manuf/bp-lcd-tape.jpg)
 
 ### Secure the LCD
 
-![](./img/lcd-fold.jpg)
+![](/images/docs/manuf/lcd-fold.jpg)
 
-{{% alert context="info" %}}
-Enclosure tooling is currently being made, we'll have the remaining steps in a few week!
-{{% /alert %}}
-
-<!--
 
 ### Place board into enclosure base
+
 {{% alert context="info" %}}
 Angle the board to slide the USB and programming connectors in place first. Now the board should sit flush with the bottom shell.
 {{% /alert %}}
+
 ### Remove LCD protector
+
+- Peel the blue tab
 
 ### Place button cap into enclosure top
 
+- Silver button
+
 ### Place base on the top
 
+- Device wil be upside down
+
 ### Flip and secure with bolts
+
 {{% alert context="warning" %}}
 Not too tight, don't crack the case or LCD.
 {{% /alert %}}
+
 ### Replace the LCD protector
 
--->
+- Blue tab to the top right
+
 
 

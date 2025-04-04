@@ -1,14 +1,11 @@
 +++
 weight = 1000
-title = 'Bus Pirate 5 PCB only (EOL)'
+title = 'Bus Pirate 5 preview PCB only'
 +++
-# Bus Pirate 5 PCB Only Package
 
 {{% alert context="info" %}}
 **Bus Pirate 5 REV8 preview is no longer in production. See the latest version.**
 {{% /alert %}}
-
-
 
 {{% readfile "/_common/_footer/_footer-cart.md" %}}
 
@@ -26,7 +23,7 @@ This package contains the assembled Bus Pirate 5 PCB without an enclosure. The e
 
 ## Packaging
 
-![](./img/wrap-5.jpg)
+![](/images/docs/manuf/wrap-5.jpg)
 
 |Quantity|Item|Description|
 |-|-|-|
@@ -46,7 +43,7 @@ This package contains the assembled Bus Pirate 5 PCB without an enclosure. The e
 
 ## Replacing the EAN
 
-![](./img/wrap-ean-pcb-only-30-20.png)
+![](/images/docs/manuf/wrap-ean-pcb-only-30-20.png)
 
 The wrap for "Bus Pirate 5 (PCB & enclosure)" is also used for the PCB only version. The correct EAN code is printed on a 20mm x 30mm label using a Postek C168 acetate transfer printer, the workhorse label maker of the electronics markets in Huaqiangbei. 
 

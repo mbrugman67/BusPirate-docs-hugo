@@ -1,10 +1,7 @@
 +++
-weight = 11
+weight = 20
 title = 'Testing'
 +++
-
-
-# Testing
 
 Every Bus Pirate is lovingly tested by our crack team before it ships. The Bus Pirate firmware has a self-test that will help make sure no failed components are on the board before we ship.
 
@@ -19,8 +16,7 @@ Every Bus Pirate is lovingly tested by our crack team before it ships. The Bus P
 
 ## Press button when prompted
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">
-PUSH BUTTON TO COMPLETE: OK
+<span style="color:#bfa530">PUSH BUTTON TO COMPLETE: OK
 </span>
 {{< /term >}}
 
@@ -31,18 +27,14 @@ PUSH BUTTON TO COMPLETE: OK
 ### Success
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">
-
-PASS :)
-</span>
+<span style="color:#bfa530">PASS :)</span>
 <span style="color:#96cb59">HiZ></span> 
 {{< /term >}}
 
 ### Error
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">
-PSU: CODE 3. ERROR!
+<span style="color:#bfa530">PSU: CODE 3. ERROR!
 ...
 ERRORS: 1
 FAIL! :(</span>

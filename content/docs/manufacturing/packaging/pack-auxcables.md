@@ -2,11 +2,8 @@
 weight = 14
 title = 'Auxiliary Cables Pack'
 +++
-# Auxiliary Cables Package
 
-![](./img/cable-a.jpg)
-
-
+![](/images/docs/manuf/cable-a.jpg)
 
 {{% readfile "/_common/_footer/_footer-cart.md" %}}
 
@@ -23,7 +20,7 @@ title = 'Auxiliary Cables Pack'
 
 ## Packaging
 
-![](./img/wrap-a.jpg)
+![](/images/docs/manuf/wrap-a.jpg)
 
 |Quantity|Item|Description|
 |-|-|-|
@@ -43,6 +40,7 @@ title = 'Auxiliary Cables Pack'
 |**EAN**|**Contents**|**Version**|
 |-|-|-|
 |6098403367381|Auxiliary Cables|REV0|
+|TDB|Auxiliary Cables (color coded crimp housings)|REV1|
 
 ## Get a Bus Pirate
  

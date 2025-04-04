@@ -2,20 +2,19 @@
 weight = 10
 title = 'Materials'
 +++
-# Packaging Materials
 
 ## Finger Cots
-![](./img/fingercots.jpg)
+![](/images/docs/manuf/fingercots.jpg)
 
 To avoid fingerprints on the LCD and enclosure during assembly.
 
 ## Cable Tie
-![](./img/velcro-10mm-400px.jpg)
+![](/images/docs/manuf/velcro-10mm-400px.jpg)
 
 A 5cm strip of 1cm wide Velcro strap holds the auxiliary cables together. Out of a lot of options like custom bags, cable clips, and cable wraps, this was the easiest and cheapest.
 
 ## Antistatic Bags
-![](./img/tear95x130-400px.jpg)
+![](/images/docs/manuf/tear95x130-400px.jpg)
 
 |Product|Zipless Bag|Tear Bag with Window|
 |-|-|-|
@@ -35,7 +34,7 @@ Bags with a pre-cut tear-open notch and a clear front window are significantly m
 Zipper bags for cables and small parts.
 
 ## Cardboard Boxes
-![](./img/box7x7x2-400px.jpg)
+![](/images/docs/manuf/box7x7x2-400px.jpg)
 
 |Product|T Box|
 |-|-|
@@ -46,11 +45,11 @@ At sizes this small, the T box type has a lot more strength than a small box but
 
 ## Label Wraps
 
-![](./img/wrap-5.jpg)
+![](/images/docs/manuf/wrap-5.jpg)
 
-![](./img/wrap-p.jpg)
+![](/images/docs/manuf/wrap-p.jpg)
 
-![](./img/wrap-a.jpg)
+![](/images/docs/manuf/wrap-a.jpg)
 
 Custom printed boxes are always tempting, but the MOQ is high and they take up a lot of storage room. Cheap box printing isn't always pretty, and if something is wrong or needs to be changed there's a lot of waste.
 
@@ -60,10 +59,10 @@ Our approach is to use large "waist" bands typically wrapped around bento box ta
 |-|-|-|
 |Country of Origin Label|Many countries, USA for example, require the country of origin to be clearly marked on packaging|Made in China|
 |EAN Number|An EAN (Europe, 13 digits) or SKU (USA, 12 digits) is required for sales in online retail giants, but is also helpful for all involved to track inventory. We purchased a block of EAN numbers from a bulk reseller.| See EAN table below|
-|FCC Symbol|This symbol indicating FCC compliance certification is required for most electronic products sold in the United States. Some other countries also recognize the US FCC certification.|![](./img/fcc.png)|
-|CE Symbol|This symbol indicating CE compliance certification is required for most electronic products sold in the European Union. Some other countries also recognize the EU CE certification.|![](./img/eu-ce.png)|
-|RoHS indication|This symbol indicates RoHS compliance testing. Testing is required for most electronic products sold in the European Union. Some other countries also require RoHS compliance testing.|![](./img/rohs.png)|
-|China Export Symbol|This symbol is easily confused with the CE symbol above, but it means China Export. It is a meme stamp among Chinese exporters and has no official registration or regulation.|![](./img/china-export.png)|
+|FCC Symbol|This symbol indicating FCC compliance certification is required for most electronic products sold in the United States. Some other countries also recognize the US FCC certification.|![](/images/docs/manuf/fcc.png)|
+|CE Symbol|This symbol indicating CE compliance certification is required for most electronic products sold in the European Union. Some other countries also recognize the EU CE certification.|![](/images/docs/manuf/eu-ce.png)|
+|RoHS indication|This symbol indicates RoHS compliance testing. Testing is required for most electronic products sold in the European Union. Some other countries also require RoHS compliance testing.|![](/images/docs/manuf/rohs.png)|
+|China Export Symbol|This symbol is easily confused with the CE symbol above, but it means China Export. It is a meme stamp among Chinese exporters and has no official registration or regulation.|![](/images/docs/manuf/china-export.png)|
 |Copyright statement||Where Labs LLC © 2024|
 
 ### EAN Numbers

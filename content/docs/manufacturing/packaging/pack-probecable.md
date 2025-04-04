@@ -2,11 +2,8 @@
 weight = 13
 title = 'Probe Cable Pack'
 +++
-# Probe Cable Package
 
-![](./img/cable-p.jpg)
-
-
+![](/images/docs/manuf/cable-p.jpg)
 
 {{% readfile "/_common/_footer/_footer-cart.md" %}}
 
@@ -20,7 +17,7 @@ title = 'Probe Cable Pack'
 
 ## Packaging
 
-![](./img/wrap-p.jpg)
+![](/images/docs/manuf/wrap-p.jpg)
 
 |Quantity|Item|Description|
 |-|-|-|

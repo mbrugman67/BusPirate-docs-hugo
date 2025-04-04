@@ -2,11 +2,8 @@
 weight = 12
 title = 'Bus Pirate 5 Pack'
 +++
-# Bus Pirate 5 Package
 
-![](./img/bp5rev10-retail-pack.jpg)
-
-
+![](/images/docs/manuf/bp5rev10-retail-pack.jpg)
 
 {{% readfile "/_common/_footer/_footer-cart.md" %}}
 
@@ -21,7 +18,7 @@ title = 'Bus Pirate 5 Pack'
 
 ## Packaging
 
-![](./img/wrap-5.jpg)
+![](/images/docs/manuf/wrap-5.jpg)
 
 |Quantity|Item|Description|
 |-|-|-|
