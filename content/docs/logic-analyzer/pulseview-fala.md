@@ -8,6 +8,8 @@ title = 'PulseView (Follow Along)'
 FALA is a "live action" logic analyzer mode that automatically captures everything that happens when you send commands from the Bus Pirate. It eliminates the need to setup triggers and arm a second tool for debugging.  We like to call it FALA for short.
 
 - [PulseView with FALA mode](https://github.com/DangerousPrototypes/BusPirate5-firmware/releases/tag/custom) (Windows)
+- [libsigrok with FALA mode](https://github.com/phdussud/libsigrok/tree/bp5-fala) (Linux experimental)
+- [Support topic](https://forum.buspirate.com/t/pulseview-demo-for-follow-along-logic-analyzer-mode/681) (Windows/Linux)
 
 Currently FALA support is only available in a special patched version of PulseView for Windows.
 
