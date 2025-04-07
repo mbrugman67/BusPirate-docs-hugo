@@ -5,7 +5,7 @@ title = 'Mobile SIMs & Bank IC Cards HDUART'
 
 ![](/images/docs/demo/sim-adapter.jpg)
 
-Mobile phone SIM cards and most bank IC cards will output some useful information in response to an Answer To Reset command. The Bus Pirate can interact with these cards in [Half-Duplex UART mode](/command-reference/half-duplex-uart-protocol).
+Mobile phone SIM cards and most bank IC cards will output some useful information in response to an Answer To Reset command. The Bus Pirate can interact with these cards in [Half-Duplex UART mode]({{< relref "/docs/command-reference/half-duplex-uart-protocol" >}}).
 
 {{% alert context="info" %}}
 Mobile phone SIMs and bank IC cards are usually based on "Java Cards" that are specially programmed and have advanced cryptographic features to keep data secure. We're evaluating blank, programmable cards for future tutorials.
@@ -33,12 +33,12 @@ Connect the Bus Pirate to the SIM as shown in the table above.
 
 ### Smart IC Card and SIM card adapter
 
-![](../overview/img/sim-iccard-all.jpg)
+![](/images/docs/fw/sim-iccard-all.jpg)
 
 It's possible to gently solder wires on to each pad of the chip, but SIM and smart card sockets are useful if you don't want to destroy the card.
 
 {{% alert context="info" %}}
-A [smart IC card and SIM card adapter](/overview/sim-iccard-adapter) is available for Bus Pirate 5 with the correct connections already set. The adapter accepts most ISO 7816-3 smart cards and mini/micro/nano SIM cards. 
+A [smart IC card and SIM card adapter]({{< relref "/docs/overview/sim-iccard-adapter" >}}) is available for Bus Pirate 5 with the correct connections already set. The adapter accepts most ISO 7816-3 smart cards and mini/micro/nano SIM cards. 
 {{% /alert %}} 
 
 ## Setup
@@ -165,7 +165,7 @@ Don't forget to type the units (Hz, kHz, MHz) when setting the frequency, and % 
 ## Answer To Reset
 
 {{% alert context="info" %}}
-SIM and bank IC cards use the asynchronous ATR standard. This is different than the synchronous ATR standard used by the [SLE4442 smart card](/devices/sle4442).
+SIM and bank IC cards use the asynchronous ATR standard. This is different than the synchronous ATR standard used by the [SLE4442 smart card]({{< relref "/docs/devices/sle4442" >}}).
 {{% /alert %}}
 
 ### Open UART

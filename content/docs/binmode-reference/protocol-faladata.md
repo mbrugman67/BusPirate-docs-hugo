@@ -11,7 +11,7 @@ weight = 80300
 
 An asynchronous logic analyzer that triggers each time bus syntax is run from the terminal. It eliminates the need setup triggers and arm a second tool for debugging.  We like to call it FALA for short.
 
-The Bus Pirate can be [used as a logic analyzer in multiple ways](/logic-analyzer/logicanalyzer). This is the documentation for the "follow along logic analyzer" interface.
+The Bus Pirate can be [used as a logic analyzer in multiple ways]({{< relref "/docs/logic-analyzer/logicanalyzer" >}}). This is the documentation for the "follow along logic analyzer" interface.
 
 {{% alert context="danger" %}}
 All Bus Pirate hardware supports follow along logic analyzer, however only Bus Pirate 6 has a second buffer to capture pins directly. In earlier hardware **all output pins are measured behind the IO buffer**. This means the logic capture may not match the actual output of the IO buffer. **This is not a problem when the Bus Pirate is used as a logic analyzer only and all pins are inputs**.
@@ -129,7 +129,7 @@ Returns the most recent capture notification. Can be used to retrieve missed cap
 ![](/images/docs/fw/logic-system.png)
 
 {{% alert context="info" %}}
-The ```logic``` command and the [follow along binmode interface](/logic-analyzer/pulseview-fala) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode](/logic-analyzer/pulseview-sump). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.
+The ```logic``` command and the [follow along binmode interface]({{< relref "/docs/logic-analyzer/pulseview-fala" >}}) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode]({{< relref "/docs/logic-analyzer/pulseview-sump" >}}). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.
 {{% /alert %}}
 
 

@@ -38,7 +38,7 @@ Bus Pirate 5 is the universal serial interface tool designed by hackers, for hac
 {{% readfile "/_common/_footer/_footer-get.md" %}}  
 
 {{% alert context="info" %}}
-This is the user guide for Bus Pirate 5. See the [hardware documentation](https://hardware.buspirate.com/) for all the technical details.
+This is the user guide for Bus Pirate 5. See the [hardware documentation]({{< relref "/docs/hardware" >}}) for all the technical details.
 {{% /alert %}}
 
 ## Color IPS LCD

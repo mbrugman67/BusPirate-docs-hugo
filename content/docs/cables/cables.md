@@ -53,7 +53,7 @@ A 9 pin cable connects the Bus Pirate auxiliary connector to external tools like
 The first version of this cable had all black crimp housings and it was a pain to find the right tiny wire. We sourced white plastic crimp housings and [dyed them to match the color labels](https://forum.buspirate.com/t/dyed-abs-button-caps/119) on the display and probe cable. Just for fun we dyed the SH connector black as well. Now it's a lot easier to use.
 
 {{% alert context="info" %}}
-ABS plastic can be dyed. The supplier is a factory that specializes in dying plastic clothing buttons and beads. First they do a material test with a random color. If everything looks good, they quote a price per gram of plastic dyed. We also used this technique to [color button caps](/enclosure/hardware#dyed-plastic-button-caps) for the enclosure.
+ABS plastic can be dyed. The supplier is a factory that specializes in dying plastic clothing buttons and beads. First they do a material test with a random color. If everything looks good, they quote a price per gram of plastic dyed. We also used this technique to [color button caps]({{< relref "/docs/enclosure/hardware#dyed-plastic-button-caps" >}}) for the enclosure.
 {{% /alert %}}
 
 ## Y Splitter Cable

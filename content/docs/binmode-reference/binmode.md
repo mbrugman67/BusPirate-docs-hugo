@@ -27,10 +27,10 @@ weight = 80100
 
 The Bus Pirate has two USB serial ports. One is used for the command line terminal. The other can be configured to use various protocols that support software running on a PC.  
 
-- [SUMP logic analyzer protocol](/binmode-reference/protocol-sump)
+- [SUMP logic analyzer protocol]({{< relref "protocol-sump" >}})
 - [Binmode test framework](https://forum.buspirate.com/t/bbio2-binary-mode/219/10?u=ian)
 - Arduino CH32V003 SWIO
-- [Follow Along Logic Analyzer protocol](/binmode-reference/protocol-fala)
-- [Legacy Binary Mode for Flashrom and AVRdude](/software/avrdude)
+- [Follow Along Logic Analyzer protocol]({{< relref "protocol-faladata" >}}) 
+- [Legacy Binary Mode for Flashrom and AVRdude]({{< relref "/docs/software/avrdude" >}})
 
 Use the ```binmode``` command see the currently supported binary modes and to select the active binary mode.
