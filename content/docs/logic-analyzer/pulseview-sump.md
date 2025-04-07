@@ -10,7 +10,7 @@ title = 'PulseView (Normal)'
 - [Sigrok/PulseView download](https://sigrok.org/wiki/Downloads) (Linux, Mac)
 - [Special patched version for Windows](https://github.com/DangerousPrototypes/BusPirate5-firmware/releases/tag/custom-patch-PulseView-0.5.0-git-d00efc6-installer)
 
-The Bus Pirate can be [used as a logic analyzer in multiple ways](/logic-analyzer/logicanalyzer). This page documents the SUMP compatible interface.
+The Bus Pirate can be [used as a logic analyzer in multiple ways]({{< relref "logicanalyzer" >}}). This page documents the SUMP compatible interface.
 
 - [Jawi OLS Client](https://github.com/jawi/ols) (Needs to be re-packaged for modern operating systems)
 
@@ -123,9 +123,9 @@ All Bus Pirates support logic capture while the hardware is in use, however only
 ![](/images/docs/fw/logic-system.png)
 
 {{% alert context="info" %}}
-The ```logic``` command and the [follow along binmode interface](/logic-analyzer/pulseview-fala) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode](/logic-analyzer/pulseview-sump). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.
+The ```logic``` command and the [follow along binmode interface]({{< relref "pulseview-fala" >}}) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode]({{< relref "pulseview-sump" >}}). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.
 {{% /alert %}}
 
 ## SUMP protocol
 
-- [SUMP protocol documentation](/binmode-reference/protocol-sump)
+- [SUMP protocol documentation]({{< relref "/docs/binmode-reference/protocol-sump" >}})

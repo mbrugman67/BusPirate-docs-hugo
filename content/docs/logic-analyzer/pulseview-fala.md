@@ -170,9 +170,9 @@ All Bus Pirate hardware supports the follow along logic analyzer, however only B
 ![](/images/docs/fw/logic-system.png)
 
 {{% alert context="info" %}}
-The ```logic``` command and the [follow along binmode interface](/logic-analyzer/pulseview-fala) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode](/logic-analyzer/pulseview-sump). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.
+The ```logic``` command and the [follow along binmode interface]({{< relref "pulseview-fala" >}}) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode]({{< relref "pulseview-sump" >}}). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.
 {{% /alert %}}
 
 ## FALA Protocol
 
-- [FALA protocol documentation](/binmode-reference/protocol-faladata)
+- [FALA protocol documentation]({{< relref "/docs/binmode-reference/protocol-faladata" >}})

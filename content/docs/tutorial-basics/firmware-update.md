@@ -31,7 +31,7 @@ Open the firmware .zip file and find the right version for your Bus Pirate:
 - ```bus_pirate5_rev8.uf2``` - If you have an engineering sample, developers board or a preview board (all without a case) use this firmware for revision 8 hardware.
 
 {{% alert context="info" %}}
-If the Bus Pirate blinks a menacing red, you've used the wrong firmware. Don't worry, [manually activate the bootloader](tutorial-basics/firmware-update#manually) and just try the other one.
+If the Bus Pirate blinks a menacing red, you've used the wrong firmware. Don't worry, [manually activate the bootloader]({{< relref "#manually" >}}) and just try the other one.
 {{% /alert %}}
 
 

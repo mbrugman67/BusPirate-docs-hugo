@@ -7,9 +7,9 @@ title = 'Auxiliary Cable Kit'
 
 A collection of auxiliary cables made from premium soft and flexible silicone coated wire.
 
-- 1 [Auxiliary Connector Cable](https://hardware.buspirate.com/cables/#auxiliary-cable)
-- 4 ["Y" Splitter Cables](https://hardware.buspirate.com/cables/#y-splitter-cable) (2 grey, 1 black, 1 red)
-- 10 [Jumper Cables](https://hardware.buspirate.com/cables/#jumper-cable) (8 grey, 1 black, 1 red)
+- 1 [Auxiliary Connector Cable]({{< relref "#auxiliary-connector-cable" >}})
+- 4 ["Y" Splitter Cables]({{< relref "/docs/cables/cables/#y-splitter-cable" >}}) (2 grey, 1 black, 1 red)
+- 10 [Jumper Cables]({{< relref "/docs/cables/cables/#jumper-cable" >}}) (8 grey, 1 black, 1 red)
 
 The star of the collection is a 9 pin 'SH' style cable that fits the auxiliary connection below main Bus Pirate connector. This cable is handy for connecting external equipment like a logic analyzer - without cramming multiple probe hooks onto a single tiny chip lead. 
 
@@ -35,7 +35,7 @@ A 9 pin cable connects the Bus Pirate auxiliary connector to external tools like
 
 Resources:
 
-- [Auxiliary cable hardware documentation](https://hardware.buspirate.com/cables/#auxiliary-cable)
+- [Auxiliary cable hardware documentation]({{< relref "/docs/cables/cables/#auxiliary-cable" >}})
 
 {{% alert context="info" %}}
 The first version of the auxiliary cable has all back crimp housings. The second version has color coded crimp housings. Version one is in the current auxiliary cable kit, version 2 is available separately until we receive matching Y and splitter cables to make a kit.
@@ -53,7 +53,7 @@ A high quality splitter cable to make multiple connections to a single pin. Conn
 
 Resources:
 
-- [Y splitter hardware documentation](https://hardware.buspirate.com/cables/#y-splitter-cable)
+- [Y splitter hardware documentation]({{< relref "/docs/cables/cables/#y-splitter-cable" >}})
 
 ### Jumper Cable
 
@@ -66,13 +66,13 @@ A high quality jumper wire to quickly connect your latest breakout board.
 - 22AWG super soft and flexible premium silicone coated wire. The inner strands are very fine tinned copper. 22AWG has 60 strands 0.08mm thick, compared to 8-12 strands in common wires. The silicone coating has a very nice feel, and is tolerant of high heat and chemicals.
 
 Resources:
-- [Jumper cable hardware documentation](https://hardware.buspirate.com/cables/#jumper-cable)
+- [Jumper cable hardware documentation]({{< relref "/docs/cables/cables/#jumper-cable" >}})
 
 ## Premium silicone coated wire
 
 ![](/images/docs/fw/cable-wire.jpg)
 
-All [Bus Pirate cables](https://hardware.buspirate.com/cables/) are made with super soft and flexible premium silicone coated wire. The inner strands are very fine tinned copper. 22AWG has 60 strands 0.08mm thick (bottom), compared to 8-12 strands in common wire (top). The silicone coating has a very nice feel, tolerates high heat and chemicals.
+All [Bus Pirate cables]({{< relref "/docs/cables/cables/" >}}) are made with super soft and flexible premium silicone coated wire. The inner strands are very fine tinned copper. 22AWG has 60 strands 0.08mm thick (bottom), compared to 8-12 strands in common wire (top). The silicone coating has a very nice feel, tolerates high heat and chemicals.
 
 ## Get a Bus Pirate
 

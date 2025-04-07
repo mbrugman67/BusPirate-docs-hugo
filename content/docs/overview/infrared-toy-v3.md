@@ -192,7 +192,7 @@ IR Toy v3 [schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-
 ## Resources
 
 - Infrared Toy v3 [schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/)
-- [Infrared mode documentation](/command-reference)
+- [Infrared mode documentation]({{< relref "/docs/command-reference" >}})
 - [Development thread](https://forum.buspirate.com/t/infrared-io-explorer/372/40?u=ian)
 
 ## Get a Bus Pirate

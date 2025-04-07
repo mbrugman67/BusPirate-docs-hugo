@@ -30,7 +30,7 @@ KF141-V is a vertical connector. Wires clamps are oriented to the top of the con
 
 - [KF141-Right Angle Adapter Schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/kf141r-adapter)
 - [KF141-Vertical Adapter Schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/kf141v-adapter)
-- [KF141 Adapter Hardware Documentation](https://hardware.buspirate.com/cables/kf141-quick-connect)
+- [KF141 Adapter Hardware Documentation]({{< relref "/docs/cables/kf141-quick-connect" >}})
 
 ## Get a Bus Pirate
 

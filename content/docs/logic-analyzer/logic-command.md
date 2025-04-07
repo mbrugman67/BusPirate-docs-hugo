@@ -7,7 +7,7 @@ title = "Logic Command"
 
 The ```logic``` command configures the logic analyzer core, and can display logic capture graphs directly in the terminal. It supports the "follow along" logic analyzer mode that triggers each time you send data to a bus. It eliminates the need setup triggers and arm a second tool for debugging. 
 
-The Bus Pirate can be [used as a logic analyzer in multiple ways](/logic-analyzer/logicanalyzer). This page documents the ```logic``` command in the terminal.
+The Bus Pirate can be [used as a logic analyzer in multiple ways]({{< relref "logicanalyzer" >}}). This page documents the ```logic``` command in the terminal.
 
 {{% alert context="danger" %}}
 All Bus Pirate hardware supports the follow along logic analyzer, however only Bus Pirate 6 has a second buffer for the follow along mode. In earlier hardware **all output pins are measured behind the IO buffer**. This means the logic capture may not match the actual output of the IO buffer. **This is not a problem when the Bus Pirate is used as a logic analyzer only and all pins are inputs**.
@@ -63,7 +63,7 @@ usage:
 ```logic start``` configures the logic analyzer core for follow along mode and draws a blank logic graph. Use ```logic stop``` to stop the logic analyzer and release any resources used.
 
 {{% alert context="info" %}}
-The ```logic``` command and the [follow along binmode interface](/logic-analyzer/pulseview-fala) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode](/logic-analyzer/pulseview-sump). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.
+The ```logic``` command and the [follow along binmode interface]({{< relref "pulseview-fala" >}}) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode]({{< relref "pulseview-sump" >}}). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.
 {{% /alert %}}
 
 ### Show/Hide Logic Graph
@@ -131,6 +131,6 @@ If there are too many samples to display at once, use ```logic nav``` to navigat
 ![](/images/docs/fw/logic-system.png)
 
 {{% alert context="info" %}}
-The ```logic``` command and the [follow along binmode interface](/logic-analyzer/pulseview-fala) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode](/logic-analyzer/pulseview-sump). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.
+The ```logic``` command and the [follow along binmode interface]({{< relref "pulseview-fala" >}}) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode]({{< relref "pulseview-sump" >}}). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.
 {{% /alert %}}
 

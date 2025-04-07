@@ -31,7 +31,7 @@ Connect the Bus Pirate to the SPI flash chip as shown in the table above. Don't 
 ![](/images/docs/demo/flash-adapter-all.jpg)
 
 {{% alert context="info" %}}
-SPI [flash adapters for SOP8, WSON8, and DIP8 chips](/overview/spi-flash-adapters) are available for Bus Pirate 5. Connect SPI flash chips to the Bus Pirate quickly and easily.
+SPI [flash adapters for SOP8, WSON8, and DIP8 chips]({{< relref "/docs/overview/spi-flash-adapters" >}}) are available for Bus Pirate 5. Connect SPI flash chips to the Bus Pirate quickly and easily.
 {{% /alert %}}
 
 ## Setup
@@ -487,7 +487,7 @@ If the writing/reading process fails, check all connections. /HOLD & /WP pins mu
 
 ## flash command
 
-The [flash command](command-reference/spi-protocol#flash) can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip by reading the SFDP tables. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back.
+The [flash command]({{< relref "/docs/command-reference/spi-protocol#flash" >}}) can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip by reading the SFDP tables. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back.
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> flash init

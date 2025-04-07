@@ -15,7 +15,7 @@ Download Firmware
 
 <p></p>
 
-See the [firmware update tutorial](https://firmware.buspirate.com/tutorial-basics/firmware-update) for detailed instructions.
+See the [firmware update tutorial]({{< relref "tutorial-basics/firmware-update.md" >}}) for detailed instructions.
 
 ## Upgrade Instructions
 
@@ -31,7 +31,7 @@ The file copies, the Bus Pirate resets, and you're good to go!
 {{% alert context="danger" %}}
 Bus Pirate blinking red? Recent firmware detects the hardware revision at startup. It will blink red if there is a mismatch.
 
-[Enter the bootloader manually](https://firmware.buspirate.com/tutorial-basics/firmware-update#manually) (plug in the USB cable while pressing the button on the bottom side) and try the other file.
+[Enter the bootloader manually]({{< relref "tutorial-basics/firmware-update.md#manually" >}})(plug in the USB cable while pressing the button on the bottom side) and try the other file.
 {{% /alert %}}
 
 ## Links

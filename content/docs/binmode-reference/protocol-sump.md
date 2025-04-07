@@ -13,7 +13,7 @@ weight = 80200
 
 SUMP is a simple protocol for logic analyzers. It was originally developed for the [SUMP FPGA-based open source logic analyzer](http://web.archive.org/web/20240422042804/http://www.sump.org:80/projects/analyzer/protocol/), but has been adopted by many other projects. The Bus Pirate supports the SUMP protocol for use as a logic analyzer. There's several clients that support the SUMP protocol, the most up to date is Sigrok/PulseView.
 
-- [Sigrok/PulseView](/logic-analyzer/pulseview-sump) (Windows, Linux, Mac)
+- [Sigrok/PulseView]({{< relref "/docs/logic-analyzer/pulseview-sump" >}}) (Windows, Linux, Mac)
 - [Jawi OLS Client](https://github.com/jawi/ols) (Needs to be re-packaged for modern operating systems)
 
 Other software also supports the SUMP protocol, but many haven't been updated in years and don't work on modern operating systems.
@@ -74,7 +74,7 @@ The power supply is disabled when the SUMP serial port is closed.
 ![](/images/docs/fw/logic-system.png)
 
 {{% alert context="info" %}}
-The ```logic``` command and the [follow along binmode interface](/logic-analyzer/pulseview-fala) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode](/logic-analyzer/pulseview-sump). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.
+The ```logic``` command and the [follow along binmode interface]({{< relref "/docs/logic-analyzer/pulseview-fala" >}}) can be run at the same time. However, the capture buffer is shared with [SUMP logic analyzer mode]({{< relref "/docs/logic-analyzer/pulseview-sump" >}}). SUMP and follow along logic analyzer modes cannot be used at the same time and will result in a memory error warning.
 {{% /alert %}}
 
 ## SUMP protocol
