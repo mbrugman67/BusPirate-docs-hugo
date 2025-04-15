@@ -5,36 +5,9 @@ title = 'USB Flash Storage'
 
 ![](/images/docs/fw/usb-flash-storage.png)
 
-The Bus Pirate has a NAND flash chip for storing settings and data. The flash chip also appears as a USB flash drive when the Bus Pirate is connected to a computer. Sharing the chip between the Bus Pirate and the computer operating system is a bit tricky.
+The Bus Pirate has a NAND flash chip for storing settings and data. The flash chip also appears as a USB flash drive when the Bus Pirate is connected to a computer. Sharing the chip between the Bus Pirate and the computer operating system [is a bit tricky]({{< relref "docs/tutorial-basics/usb-disk/#usb-flash-drive-use" >}}).
 
-## Navigation
-
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HiZ></span> ls
-<span style="color:#96cb59">       350 <span style="color:#bfa530">bpconfig.bp</span></span>
-<span style="color:#bfa530">0 dirs, 1 files</span>
-
-<span style="color:#96cb59">HiZ></span> mkdir temp
-
-<span style="color:#96cb59">HiZ></span> cd temp
-/TEMP
-
-<span style="color:#96cb59">HiZ></span> cd ..
-/
-
-<span style="color:#96cb59">HiZ></span> ls
-<span style="color:#96cb59">       350 <span style="color:#bfa530">bpconfig.bp</span></span>
-<span style="color:#96cb59">   &#x003c;DIR>   <span style="color:#bfa530">temp</span></span>
-<span style="color:#bfa530">1 dirs, 1 files</span>
-
-<span style="color:#96cb59">HiZ></span> rm temp
-
-<span style="color:#96cb59">HiZ></span> ls
-<span style="color:#96cb59">       350 <span style="color:#bfa530">bpconfig.bp</span></span>
-<span style="color:#bfa530">0 dirs, 1 files</span>
-
-<span style="color:#96cb59">HiZ></span> 
-{{< /term >}}
+## Internal storage commands
 
 Linux-like commands are used to navigate the flash storage from the Bus Pirate command line. 
 
@@ -48,6 +21,61 @@ Linux-like commands are used to navigate the flash storage from the Bus Pirate c
 - ```label```   get or set the disk label
 
 These common commands are supported in the firmware as of this update, but always use ```help``` or ```?``` to see the latest commands available. Add -h to any command for extended help: ```hex -h```.
+
+## Navigation
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">HiZ></span> ls
+<span style="color:#96cb59">       350 <span style="color:#bfa530">bpconfig.bp</span></span>
+<span style="color:#bfa530">0 dirs, 1 files</span>
+{{< /term >}}
+
+Navigate the internal storage using typical Linux commands such as ``ls`` to list the contents of the current directory.
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">HiZ></span> mkdir temp
+{{< /term >}}
+
+```mkdir``` to create a new directory.
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">HiZ></span> cd temp
+/TEMP
+{{< /term >}}
+
+```cd``` to change directory.
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">HiZ></span> cd ..
+/
+{{< /term >}}
+
+```cd ..``` to move up one directory or ```cd /``` to return to the root directory.  
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">HiZ></span> ls
+<span style="color:#96cb59">       350 <span style="color:#bfa530">bpconfig.bp</span></span>
+<span style="color:#96cb59">   &#x003c;DIR>   <span style="color:#bfa530">temp</span></span>
+<span style="color:#bfa530">1 dirs, 1 files</span>
+{{< /term >}}
+
+```ls``` shows the new temp folder was created.
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">HiZ></span> rm temp
+{{< /term >}}
+
+```rm``` removes files and directories.
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">HiZ></span> ls
+<span style="color:#96cb59">       350 <span style="color:#bfa530">bpconfig.bp</span></span>
+<span style="color:#bfa530">0 dirs, 1 files</span>
+
+<span style="color:#96cb59">HiZ></span> 
+{{< /term >}}
+
+```ls``` once more to verify the temp directory has been deleted.
 
 ## USB Flash Drive Use
 
