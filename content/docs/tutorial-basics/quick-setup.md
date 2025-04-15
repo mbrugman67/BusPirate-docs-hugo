@@ -3,7 +3,7 @@ weight = 30100
 title = 'Quick Setup'
 +++
 
-![TeraTerm setup](/images/docs/fw/teraterm-done1.png)
+![TeraTerm setup](/images/docs/fw/win-term-setup.png)
 
 ## Plug in the Bus Pirate
 
@@ -68,7 +68,7 @@ Seeing duplicate characters when you type? Check that ```local echo``` is unchec
 - The Bus Pirate will prompt you to choose VT100 color mode or the fallback ASCII monochrome mode. 
 - We recommend you type ```y``` followed by the ```enter``` key.
 
-![TeraTerm setup](/images/docs/fw/teraterm-done1.png)
+![TeraTerm setup](/images/docs/fw/win-term-setup.png)
 
 You should see something like this. Congratulations, you're talking to the Bus Pirate!
 

@@ -156,7 +156,7 @@ Verify that all the pins show 0volts in the live monitor statusbar or voltage re
 IO<span style="color:#53a6e6">0<span style="color:#bfa530"> set to</span></span> OUTPUT: <span style="color:#53a6e6">1</span>
 <span style="color:#96cb59">LED-()></span> 
 {{< /term >}}
-![](/images/docs/fw/aux-io-h.png)
+![](/images/docs/fw/aux-a.png)
 
 ```A X``` sets the corresponding Bus Pirate pin to output and high.
 - Type ```A 0``` followed by ```enter``` to set IO0 high.

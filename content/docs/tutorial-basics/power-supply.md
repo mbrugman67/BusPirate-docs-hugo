@@ -45,12 +45,12 @@ Press enter to accept the default values of 3.3 volts and no current limit fuse.
 ### Quick enable
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">I2C></span> W 3.3 100
-<span style="color:#53a6e6">3.30</span>V<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">3.30</span></span>V
+<span style="color:#96cb59">I2C></span> W 5 100
+<span style="color:#53a6e6">5.00</span>V<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">5.00</span></span>V
 <span style="color:#53a6e6">100.0</span>mA<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">100.0</span></span>mA
 
 <span style="color:#bfa530">Power supply:</span>Enabled
-<span style="color:#bfa530">Vreg output: <span style="color:#53a6e6">3.3</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">3.3</span></span>V<span style="color:#bfa530">, Current: <span style="color:#53a6e6">2.3</span></span>mA<span style="color:#bfa530">
+<span style="color:#bfa530">Vreg output: <span style="color:#53a6e6">5.0</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">5.0</span></span>V<span style="color:#bfa530">, Current: <span style="color:#53a6e6">2.3</span></span>mA<span style="color:#bfa530">
 </span>
 {{< /term >}}
 
@@ -59,8 +59,8 @@ The ```W``` command accepts voltage and current as command line options.
 - The second parameter specifies the current limit (omit for no current limit)
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">I2C></span> W 3.3
-<span style="color:#53a6e6">3.30</span>V<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">3.30</span></span>V
+<span style="color:#96cb59">I2C></span> W 5
+<span style="color:#53a6e6">5.00</span>V<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">5.00</span></span>V
 <span style="color:#bfa530">Current limit:</span>Disabled
 {{< /term >}}
 
@@ -68,7 +68,7 @@ Omit the second parameter to disable the current limit fuse.
 
 ## Check voltage and current
 
-![](/images/docs/fw/psu-statusbar1.png)
+![](/images/docs/fw/psu-statusbar1a.png)
 
 Check the voltage and current in the live view statusbar if active, or show the power supply voltage report using the ```v``` command followed by ```enter```.
 
