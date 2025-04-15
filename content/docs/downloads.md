@@ -9,7 +9,7 @@ toc = true
 weight = 10000
 +++
 <p></p>
-{{% btn icon=" " context="success" href="https://forum.buspirate.com/t/bus-pirate-5-auto-build-main-branch/20/999999" %}}
+{{% btn icon="📁" context="danger" href="https://forum.buspirate.com/t/bus-pirate-5-auto-build-main-branch/20/999999" %}}
 Download Firmware
 {{% /btn %}}
 
@@ -18,28 +18,42 @@ Download Firmware
 See the [firmware update tutorial]({{< relref "tutorial-basics/firmware-update.md" >}}) for detailed instructions.
 
 ## Upgrade Instructions
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">HiZ></span> $
+Jump to bootloader for firmware upgrades
 
-- [Grab the latest and greatest auto-build firmware from the forum](https://forum.buspirate.com/t/bus-pirate-5-auto-build-main-branch/20/999999)
-- Type `$` and press `enter` in the Bus Pirate terminal to enter bootloader/upgrade mode
-- The Bus Pirate will print the name of the firmware file to load before entering the bootloader, such as `bus_pirate5_rev10.uf2` or `bus_pirate6_rev2.uf2`
-- A USB drive called RPI-RP2, RP2350 or BP__BOOT will connect to your computer, depending on hardware version
-- Open the .zip archive and extract the correct firmware
-- Drag the .uf2 firmware file into the USB drive
+Bus Pirate 5 REV10
+Firmware download:
+https://forum.buspirate.com/t/bus-pirate-5-auto-build-main-branch/20/999999
+Hardware revision: 10
+Firmware file: bus_pirate5_rev10.uf2
+A USB disk named "RPI-RP2" will appear
+Drag a firmware file to the disk to upgrade
+Later Alligator!
+{{< /term >}}
 
-The file copies, the Bus Pirate resets, and you're good to go!
+- [Download the latest auto-build firmware from the forum](https://forum.buspirate.com/t/bus-pirate-5-auto-build-main-branch/20/999999).
+- Enter bootloader/upgrade mode by typing ```$``` in the Bus Pirate terminal and pressing ```Enter```.
+- The Bus Pirate will display the firmware file name to load, such as ```bus_pirate5_rev10.uf2``` or ```bus_pirate6_rev2.uf2```.
+- A USB drive will appear on your computer, named **RPI-RP2** (v5), **RP2350** (v6), or **BP__BOOT** (v6), depending on your hardware version.
+- Extract the correct firmware file from the downloaded ```.zip``` archive.
+- Drag and drop the ```.uf2``` firmware file into the USB drive.
+
+Once the file is copied, the Bus Pirate will reset automatically, and you're ready to go!
 
 {{% alert context="danger" %}}
-Bus Pirate blinking red? Recent firmware detects the hardware revision at startup. It will blink red if there is a mismatch.
+**Red LED blinking?** The firmware checks the hardware revision at startup and blinks red if there's a mismatch.
 
-[Enter the bootloader manually]({{< relref "tutorial-basics/firmware-update.md#manually" >}})(plug in the USB cable while pressing the button on the bottom side) and try the other file.
+[Manually enter the bootloader]({{< relref "tutorial-basics/firmware-update.md#manually" >}}) by plugging in the USB cable while holding the button on the bottom side, then try the other firmware file.
 {{% /alert %}}
 
 ## Links
 
+- [Detailed firmware update tutorial]({{< relref "tutorial-basics/firmware-update" >}})
 - [Download latest firmware build](https://forum.buspirate.com/t/bus-pirate-5-auto-build-main-branch/20/99999)
 - [Get help in the forum](https://forum.buspirate.com)
-- [Bus Pirate 5 Hardware repo](https://github.com/DangerousPrototypes/BusPirate5-hardware)
-- [Bus Pirate 5 Firmware repo](https://github.com/DangerousPrototypes/BusPirate5-firmware)
+- [Bus Pirate Hardware repo](https://github.com/DangerousPrototypes/BusPirate5-hardware)
+- [Bus Pirate Firmware repo](https://github.com/DangerousPrototypes/BusPirate5-firmware)
 
 ## Get a Bus Pirate
 

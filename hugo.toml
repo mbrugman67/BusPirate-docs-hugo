@@ -33,31 +33,31 @@ title = 'Bus Pirate Documentation'
 
 [menu]
 [[menu.primary]]
-    name  = "Bus Pirate v5"
+    name  = "Bus Pirate"
     url = "https://buspirate.com/"
     weight = 10
 [[menu.primary]]
-    name  = "Hardware"
-    url = "https://hardware.buspirate.com/"
-    weight = 10
+    name  = "Downloads"
+    url = "https://docs.buspirate.com/downloads/"
+    weight = 20
 [[menu.primary]]
-    name  = "Firmware"
-    url = "https://firmware.buspirate.com/"
-    weight = 10
+    name  = "Docs"
+    url = "https://docs.buspirate.com/"
+    weight = 30
 [[menu.primary]]
     name  = "Forum"
     url = "https://forum.buspirate.com/"
-    weight = 10
+    weight = 40
 [[menu.primary]]
     name  = "Get"
     url = "https://buspirate.com/get"
-    weight = 10
+    weight = 15
 [[menu.primary]]
     name  = "Contact"
     url = "https://buspirate.com/contact"
-    weight = 10
+    weight = 60
 
-
+ 
 [[menu.footer]]
     name  = "Distributors"
     weight = 10
