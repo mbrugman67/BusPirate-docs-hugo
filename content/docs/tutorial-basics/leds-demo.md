@@ -41,10 +41,23 @@ Each LED die in the SK6812 (red, blue, green) uses 20mA at full power. 60mA is r
 
 {{< /term >}}
 
-First, enter the Bus Pirate LED control mode.
+{{% alert context="info" %}}
+The Bus Pirate always starts in ```HiZ``` mode, a safe mode where all hardware is disabled. Choose a mode using the ```m``` command to use the power supply, manipulate pins, etc.
+{{% /alert %}}
+
+First, enter the Bus Pirate LED protocols mode.
 
 - Type ```m``` then press ```enter``` for the mode menu.
-- Type ```5``` then press ```enter``` to choose the LED mode.
+- Type the LED mode number (5 in this firmware version), then press ```enter``` to choose the LED mode.
+
+### Quick mode change
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">HiZ></span>m led
+{{< /term >}}
+
+The ```m``` mode change command accepts the mode name as an optional parameter.
+- ```m led``` will enter LED mode and bypass the selection menu.
 
 ## Configuration
 
@@ -52,7 +65,7 @@ First, enter the Bus Pirate LED control mode.
 <span style="color:#bfa530">LED type</span>
  1. <span style="color:#bfa530">WS2812/SK6812/'NeoPixel' (single wire interface)*</span>
  2. <span style="color:#bfa530">APA102/SK9822 (clock and data interface)</span>
- 3. <span style="color:#bfa530">Onboard LEDs (16 SK6812s)</span>
+ 3. <span style="color:#bfa530">Onboard LEDs (18 SK6812s)</span>
  x. <span style="color:#bfa530">Exit</span>
 <span style="color:#96cb59">Type (</span>1<span style="color:#96cb59">) ></span> 3
 
@@ -61,7 +74,9 @@ First, enter the Bus Pirate LED control mode.
 <span style="color:#96cb59">LED-()></span>
 {{< /term >}}
 
-Now configure the LED mode to use the onboard SK6812 LEDs. Many prompts have a default option in ```( )```, in this case 1. For this tutorial we want option 3, the onboard LEDs. 
+Now configure the LED mode to use the onboard SK6812 LEDs. Many prompts have a default option in ```( )```, in this case 1. 
+
+For this tutorial we want option 3, the onboard LEDs. 
 
 - Type ```3``` then press ```enter```.
 
