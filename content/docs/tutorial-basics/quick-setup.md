@@ -62,7 +62,7 @@ Seeing duplicate characters when you type? Check that ```local echo``` is unchec
 
 ## Start the Bus Pirate
 
-![TeraTerm setup](/images/docs/fw/teraterm-vt1001.png)
+![TeraTerm setup](/images/docs/fw/vt100-prompt1.png)
 
 - Press ```Enter``` in the terminal. 
 - The Bus Pirate will prompt you to choose VT100 color mode or the fallback ASCII monochrome mode. 
