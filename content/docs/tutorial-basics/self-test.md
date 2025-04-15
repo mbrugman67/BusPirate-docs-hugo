@@ -3,9 +3,7 @@ weight = 30700
 title = 'Self-test Procedure'
 +++
 
-![](/images/docs/fw/selftest-1024.jpg)
-
-Every Bus Pirate is lovingly tested by our crack team before it ships, but problems can always occur in transit or over time. The Bus Pirate firmware has a self-test that will help determine if your Bus Pirate is in good working order. 
+Every Bus Pirate is lovingly tested by our crack team before it ships, but problems can always occur in transit or over time. The firmware self-test can help determine if your Bus Pirate is in good working order. 
 
 The detailed self-test is primarily useful in three situations:
 - For prototype testing. We may have done a poor job solder paste stenciling or the Neoden 4 did its flick and chase thing. 
@@ -47,6 +45,32 @@ Ensure the Bus Pirate is in HiZ mode before starting the self-test.
 - Begin the self-test. Type ```~``` followed by ```enter``` in the terminal. Self-test is available in HiZ mode only.
 - Press the Bus Pirate button when prompted.
 
+## Results
+
+### Success
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#bfa530">PASS :)</span>
+<span style="color:#96cb59">HiZ></span> 
+{{< /term >}}
+
+Hopefully you see a happy Bus Pirate with no errors. Your hardware seems to be in working order. 
+
+{{% alert context="info" %}}
+If you're still having a problem, could it be a firmware bug? Please let us know [in the forum](https://forum.buspirate.com/).
+{{% /alert %}}
+
+### Errors
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#bfa530">PSU ENABLE: CODE 3. ERROR!
+...
+ERRORS: 1
+FAIL! :(</span>
+{{< /term >}}
+
+If your self-test reports errors, we are eager to know. Please [post the full self-test results in the forum](https://forum.buspirate.com/) and we'll have a look.
+
 ## Self-test steps
 
 Let's break down the self-test step by step.
@@ -74,8 +98,6 @@ You should not normally see this message. Formatting is performed during product
 ### System tests
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-
-
 <span style="color:#bfa530">SELF TEST STARTING
 DISABLE IRQ: OK
 ADC SUBSYSTEM: VUSB  5.03V OK
@@ -84,7 +106,7 @@ PSU ENABLE: OK</span>
 {{< /term >}}
 
 - **DISABLE IRQ** - The Bus Pirate disables all interrupts during the test.
-- **ADC SUBSYSTEM** - A test of the analog voltage measurement system and the IO expanders. Can the Bus Pirate change between analog inputs, and does the USB voltage measurement make sense? VUSB should be somewhere between 4.75 and 5.25 volts. Components include the RP2040 connections, 595 IO expander chips, 245 level translator, 4067 analog mux, an op-amp and various passive component connections.
+- **ADC SUBSYSTEM** - A test of the analog voltage measurement system and the IO expanders. Can the Bus Pirate change between analog inputs, and does the USB voltage measurement make sense? VUSB should be somewhere between 4.75 and 5.25 volts. Components include the RPi chip connections, 595 IO expander chips, 245 level translator, 4067 analog mux, an op-amp and various passive component connections.
 - **FLASH STORAGE** - Try to mount the onboard storage. 
 - **PSU ENABLE** - Test the programmable power supply unit. Output is set to 3.3volts with a 50mA current limit, after a delay the voltage is measured. Tests op-amps, comparator, transistors, FETs and several other components in the PPSU.
 
@@ -94,8 +116,7 @@ Prototype boards (REV8 and below) use a TF flash card for storage. If a formatte
 
 ### BIO float
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">
-BIO FLOAT TEST (SHOULD BE 0/&lt;0.2V)
+<span style="color:#bfa530">BIO FLOAT TEST (SHOULD BE 0/&lt;0.2V)
 BIO0 FLOAT: 0/0.03V OK
 BIO1 FLOAT: 0/0.03V OK
 BIO2 FLOAT: 0/0.03V OK
@@ -108,13 +129,12 @@ BIO7 FLOAT: 0/0.04V OK</span>
 
 - **BIOx FLOAT** - The buffered IO pins are set as floating inputs. 
 - The 1M ohm pull-down resistors should hold the pins close to ground (logic value 0, \<0.2volts). 
-- Tests the RP2040, IO buffers, pull-down resistors, and the analog connection to the IO pins. 
+- Tests the RPi chip, IO buffers, pull-down resistors, and the analog connection to the IO pins. 
 - If two adjacent pins are stuck, for example by a solder bridge, the self-test will attempt to determine which pins are effected.
 
 ### BIO high
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">
-BIO HIGH TEST (SHOULD BE >3.0V)
+<span style="color:#bfa530">BIO HIGH TEST (SHOULD BE >3.0V)
 BIO0 HIGH: 3.29V OK
 BIO1 HIGH: 3.29V OK
 BIO2 HIGH: 3.29V OK
@@ -127,13 +147,12 @@ BIO7 HIGH: 3.29V OK</span>
 
 - **BIOx HIGH** - The buffered IO pins are set as high outputs. 
 - The voltage should be close to the PPSU output (logic value 1, >3.0volts). 
-- Tests the RP2040, IO buffers and the analog connection to the IO pins. 
+- Tests the RPi chip, IO buffers and the analog connection to the IO pins. 
 - If two adjacent pins are stuck, for example by a solder bridge, the self-test will attempt to determine which pins are effected.
 
 ### BIO low
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">
-BIO LOW TEST (SHOULD BE &lt;0.2V)
+<span style="color:#bfa530">BIO LOW TEST (SHOULD BE &lt;0.2V)
 BIO0 LOW: 0.03V OK
 BIO1 LOW: 0.03V OK
 BIO2 LOW: 0.03V OK
@@ -146,13 +165,12 @@ BIO7 LOW: 0.03V OK</span>
 
 - **BIOx LOW** - The buffered IO pins are set as low outputs. 
 - The voltage should be close to ground (logic value 0, \<0.2volts). 
-- Tests the RP2040, IO buffers and the analog connection to the IO pins.
+- Tests the RPi chip, IO buffers and the analog connection to the IO pins.
 - If two adjacent pins are stuck, for example by a solder bridge, the self-test will attempt to determine which pins are effected.
 
 ### BIO pull-up high
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">
-BIO PULL-UP HIGH TEST (SHOULD BE >3.0V)
+<span style="color:#bfa530">BIO PULL-UP HIGH TEST (SHOULD BE >3.0V)
 BIO0 PU-HIGH: 1/3.22V OK
 BIO1 PU-HIGH: 1/3.22V OK
 BIO2 PU-HIGH: 1/3.23V OK
@@ -165,13 +183,12 @@ BIO7 PU-HIGH: 1/3.25V OK</span>
 
 - **BIOx PU-HIGH** - The pull-up resistors are enabled and the buffered IO pins are set as inputs. 
 - The voltage should be close to the PPSU output (logic value 1, >3.0volts). 
-- Tests the RP2040, pull-up resistors, 4066, IO buffers and the analog connection to the IO pins.
+- Tests the RPi chip, pull-up resistors, 4066, IO buffers and the analog connection to the IO pins.
 - If two adjacent pins are stuck, for example by a solder bridge, the self-test will attempt to determine which pins are effected.
 
 ### BIO pull-up low
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">
-BIO PULL-UP LOW TEST (SHOULD BE &lt;0.5V)
+<span style="color:#bfa530">BIO PULL-UP LOW TEST (SHOULD BE &lt;0.5V)
 BIO0 PU-LOW: 0.13V OK
 BIO1 PU-LOW: 0.14V OK
 BIO2 PU-LOW: 0.14V OK
@@ -184,13 +201,12 @@ BIO7 PU-LOW: 0.14V OK</span>
 
 - **BIOx PU-LOW** - The pull-up resistors are enabled and the buffered IO pins are set to output/ground. 
 - The voltage should be close to ground (logic value 0, \<0.5volts). 
-- Tests the RP2040, pull-up resistors, 4066, IO buffers and the analog connection to the IO pins.
+- Tests the RPi chip, pull-up resistors, 4066, IO buffers and the analog connection to the IO pins.
 - If two adjacent pins are stuck, for example by a solder bridge, the self-test will attempt to determine which pins are effected.
 
 ### Current override
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">
-CURRENT OVERRIDE: OK</span>
+<span style="color:#bfa530">CURRENT OVERRIDE: OK</span>
 {{< /term >}}
 
 - **CURRENT OVERRIDE** - Tests the pin for overriding the current limit digital fuse. Current limit override is enabled. A very low current limit is set with the pull-ups enabled and the BIO pins grounded. The Bus Pirate checks that the power supply is still on, despite the blown fuse.
@@ -199,8 +215,7 @@ CURRENT OVERRIDE: OK</span>
 
 ### Current limit
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">
-CURRENT LIMIT TEST: OK</span>
+<span style="color:#bfa530">CURRENT LIMIT TEST: OK</span>
 {{< /term >}}
 
 - **CURRENT LIMIT TEST** - A very low current limit is set with the pull-ups enabled and the BIO pins grounded. The Bus Pirate waits up to 2 seconds for the digital fuse to blow.
@@ -208,38 +223,9 @@ CURRENT LIMIT TEST: OK</span>
 
 ### Just one button
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">
-PUSH BUTTON TO COMPLETE: OK
+<span style="color:#bfa530">PUSH BUTTON TO COMPLETE: OK
 </span>
 {{< /term >}}
 
 - **PUSH BUTTON TO COMPLETE** - Press the Bus Pirate button to complete the test. The Bus Pirate will pause and wait indefinitely. 
-- Tests RP2040, switch.
-
-## Results
-
-### Success
-
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">
-
-PASS :)
-</span>
-<span style="color:#96cb59">HiZ></span> 
-{{< /term >}}
-
-Hopefully you see a happy Bus Pirate with no errors. Your hardware seems to be in working order. 
-
-If you're still having a problem, could it be a firmware bug? Please let us know in the forum.
-
-### Errors
-
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">
-PSU ENABLE: CODE 3. ERROR!
-...
-ERRORS: 1
-FAIL! :(</span>
-{{< /term >}}
-
-If your self-test reports errors, we are eager to know. Please [post the full self-test results in the forum](https://forum.buspirate.com/) and we'll have a look.
+- Tests RPi chip, switch.
