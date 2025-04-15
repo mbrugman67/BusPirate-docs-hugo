@@ -17,7 +17,7 @@ Download Firmware
 
 See the [firmware update tutorial]({{< relref "tutorial-basics/firmware-update.md" >}}) for detailed instructions.
 
-## Upgrade Instructions
+## Upgrading
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> $
 Jump to bootloader for firmware upgrades

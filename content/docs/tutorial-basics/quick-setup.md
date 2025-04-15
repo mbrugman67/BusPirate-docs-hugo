@@ -3,9 +3,9 @@ weight = 30100
 title = 'Quick Setup'
 +++
 
-![](/images/docs/fw/quicksetup-1024.jpg)
+![TeraTerm setup](/images/docs/fw/teraterm-done1.png)
 
-## Connect the Bus Pirate
+## Plug in the Bus Pirate
 
 Connect the Bus Pirate to your computer with a USB C cable.
 
@@ -16,32 +16,169 @@ The Bus Pirate currently appears as three USB devices:
 
 These are common device classes and recent operating systems will not request or require a driver. We're living in the future, woohoo!
 
-## Find the serial port
+## Connect with a terminal emulator
 
-{{% alert context="info" %}}
-Your terminal emulation software will probably detect and list all the available serial ports connected to your computer. If there's more than one serial port, you can connect to each and press ```enter``` until you find the Bus Pirate terminal. You can probably skip this step, but if you need to find the port manually follow the instructions below.
-{{% /alert %}}
+A terminal emulator is software that connects to the Bus Pirate serial interface and displays the command line. The Bus Pirate supports VT100 for a colorful interface with a live view statusbar. A fallback monochrome ASCII mode is also available. Most terminal emulators support VT100, it's been around since the 1970s.
 
 {{< tabs tabTotal="4">}}
 {{% tab tabName="Windows" %}}
 
-![Windows device manager](/images/docs/fw/serialport-windows.png)
+## Find the serial port
 
+{{% alert context="info" %}}
+Your terminal emulation software will probably detect and list all the available serial ports connected to your computer. If there's more than one serial port, you can connect to each and press ```enter``` until you find the Bus Pirate terminal. **You can probably skip this step**, but if you need to find the port manually follow the instructions below.
+{{% /alert %}}
+
+![Windows device manager](/images/docs/fw/windows-find-com.png)
 
 - Press the Windows key or open the start menu
 - Type ```Device Manager```
 - Click on the Device Manager to open it
 - In the Device Manager look for ```Ports (COM & LPT)```, expand it
-- In the example the Bus Pirate is connected as COM3  
+- In the example the Bus Pirate is connected as COM34 and COM35  
 
+One COM port will be the terminal, the other will be the binary access mode for logic analyzers and other software. The lower number is usually the terminal, but Windows is not always consistent. You may need to try both ports. 
+
+## Fire up a terminal emulator
+
+![TeraTerm setup](/images/docs/fw/teraterm-setup-com1.png)
+
+- We're huge fans of [Tera Term](https://ttssh2.osdn.jp/index.html.en) on Windows. Download and install the latest version.
+- Open Tera Term and select ```Setup``` then ```Serial port```.
+- Choose the Bus Pirate port, and configure it for 115200 (speed), 8 bit (data), None (parity), and 1 bit (stop bits). 
+- Click ```New Open``` to open the port.
+
+## Configure the terminal
+
+![TeraTerm setup](/images/docs/fw/teraterm-setup-term1.png) 
+
+- Now select ```Setup``` then ```Terminal```.
+- Configure as shown above. Terminal size 80x24, New-line both set to CR, Terminal ID set to VT100. Click ```OK```.
+- To save the settings for next time, choose ```Setup``` then ```Save Settings```.
+
+{{% alert context="info" %}}
+Seeing duplicate characters when you type? Check that ```local echo``` is unchecked in this menu.
+{{% /alert %}}
+
+## Start the Bus Pirate
+
+![TeraTerm setup](/images/docs/fw/teraterm-vt1001.png)
+
+- Press ```Enter``` in the terminal. 
+- The Bus Pirate will prompt you to choose VT100 color mode or the fallback ASCII monochrome mode. 
+- We recommend you type ```y``` followed by the ```enter``` key.
+
+![TeraTerm setup](/images/docs/fw/teraterm-done1.png)
+
+You should see something like this. Congratulations, you're talking to the Bus Pirate!
 
 {{% /tab %}}
 {{% tab tabName="Linux" %}}
 
-Help document the Bus Pirate, post your instructions in the forum and we'll add them to the docs.
+{{% alert context="info" %}}
+Your terminal emulation software will probably detect and list all the available serial ports connected to your computer. If there's more than one serial port, you can connect to each and press ```enter``` until you find the Bus Pirate terminal. 
+{{% /alert %}}
+
+## Bus Pirate shell scripts
+
+Two helper scripts can help setup a terminal program and automate common tasks.
+
+**BusPirateSetup.sh**
+
+```
+# BusPirateSetup
+# This script generates the file $HOME/.config/buspirate
+# It lets you configure
+#	1) If you have a BusPirate 5XL instead of a BusPirate 6
+#	2) If you have a BusPirate 5 Rev 8 instead of the released BusPirate 5
+#	3) The directory where new versions of the firmware are located
+# 4) Which terminal emulation program you use
+# You can re-run this program at any time to modify these values
+# Optionally, you can edit ~/.config/buspirate/$CONFIG
+```
+
+A [script to setup the Bus Pirate](https://github.com/DangerousPrototypes/BusPirate5-firmware/blob/main/hacks/BusPirateSetup.sh) on Linux offers the choice of 3 terminal emulators:
+
+- tio
+- minicom
+- screen
+
+**BusPirate.sh**
+
+```
+# Launch BusPirate using your choice of terminal emulators
+# It checks for mounted file systems and warns you if they are missing
+# If the BusPirate is in boot mode, it helps install new firmware,
+# and prevents some errors like installing incompatible firmware
+# There is a companion program - BusPirateSetup - that helps set things up.
+# Run that program first
+
+# Usage: BusPirate [-n] [-v] [terminal] [baud]
+#       BusPirate -n       -- ignores the checks for mounted file system
+#       BusPirate -v       -- echos the command, port, and baud rate
+# Examples
+#       BusPirate                             - uses the defaults
+# 		BusPirate /dev/ttyACM2                - if it's on a different port
+# 		BusPirate -n /dev/ttyACM0 11920       - Ignore mounted file system, specify al params
+# To Install:
+#    install BusPirateSetup.sh ~/bin/BusPirate
+
+```
+
+A [second script](https://github.com/DangerousPrototypes/BusPirate5-firmware/blob/main/hacks/BusPirate.sh) launches the terminal emulator of your choice, uploads firmware or reminds you to plug in the Bus Pirate.
+
+## tio 
+
+[tio](https://github.com/tio/tio) is a serial terminal emulator specifically designed for hardware development. It has a lot of nice features:
+- Defaults to 115200 8n1 
+- Gracefully reconnects when a serial device goes down and comes back up
+- Key remapping so you have your choice of backspace behavior
+
+```
+# Config file for tio serial terminal emulator
+
+[bp5]
+device = /dev/ttyACM0
+map = INLCRNL,ODELBS
+
+[bp3]
+device = /dev/ttyUSB0
+map = INLCRNL,ODELBS
+```
+
+In the config file, you can even setup profiles for different devices.
+
+```
+tio bp5
+```
+
+or 
+
+```
+tio bp3
+```
+
+Now you can connect to either Bus Pirate 5 or Bus Pirate v3 using the short name specified in the config file. 
+
+## GNU screen
+
+[GNU screen](https://www.gnu.org/software/screen/) is a simple terminal emulator.
+
+```
+$ screen /dev/ttyACM0 115200,8n1
+```
+Substitute `ACM0` for the name of your serial device. Now you can enter command. 
+- If you don't know the device name, check ```dmesg``` output. 
+- To exit, type `ctrl+a, shift+k` then `y`.
+
 
 {{% /tab %}}
-{{% tab tabName="MacOS" %}}
+{{% tab tabName="MacOS" %}}  
+## Find the serial port
+{{% alert context="info" %}}
+Your terminal emulation software will probably detect and list all the available serial ports connected to your computer. If there's more than one serial port, you can connect to each and press ```enter``` until you find the Bus Pirate terminal. You can probably skip this step, but if you need to find the port manually follow the instructions below.
+{{% /alert %}}
+
 
 The easiest way to find the serial ports is probably with a terminal (see the next section).
 From a terminal, run:
@@ -75,54 +212,7 @@ Another way to find information about the Bus Pirate on a Mac is:
   
 The serial number shown will match the name of the device in `/dev/`.
 
-{{% /tab %}}
-{{% tab tabName="Android" %}}
-
-Help document the Bus Pirate, post your instructions in the forum and we'll add them to the docs.
-
-{{% /tab %}}
-{{< /tabs >}}
-
 ## Fire up a terminal emulator
-
-A terminal emulator is software that connects to the Bus Pirate serial interface and displays the command line. The Bus Pirate supports VT100 for a colorful interface with a live view statusbar. A fallback monochrome ASCII mode is also available. Most terminal emulators support VT100, it's been around since the 1970s.
-
-{{< tabs tabTotal="4">}}
-{{% tab tabName="Windows" %}}
-
-![TeraTerm setup](/images/docs/fw/teraterm-setup-com.png)
-
-- We're huge fans of [Tera Term](https://ttssh2.osdn.jp/index.html.en) on Windows. Download and install the latest version.
-- Open Tera Term and select ```Setup``` then ```Serial port```.
-- Choose the Bus Pirate port, and configure it for 115200 (speed), 8 bit (data), None (parity), and 1 bit (stop bits). Click ```New setting``` or ```New Open``` to open the port.
-
-![TeraTerm setup](/images/docs/fw/teraterm-setup-term.png)
-
-- Now select ```Setup``` then ```Terminal```.
-- Configure as shown above. Terminal size 80x24, New-line both set to CR, Terminal ID set to VT100. Click ```OK```.
-- To save the settings for next time, choose ```Setup``` then ```Save Settings```.
-
-{{% alert context="info" %}}
-Seeing duplicate characters when you type? Check that ```local echo``` is unchecked in this menu.
-{{% /alert %}}
-
-![TeraTerm setup](/images/docs/fw/teraterm-vt100.png)
-
-- Press ```Enter``` in the terminal. 
-- The Bus Pirate will prompt you to choose VT100 color mode or the fallback ASCII monochrome mode. 
-- We recommend you type ```y``` followed by the ```enter``` key.
-
-![TeraTerm setup](/images/docs/fw/teraterm-done.png)
-
-You should see something like this. Congratulations, you're talking to the Bus Pirate!
-
-{{% /tab %}}
-{{% tab tabName="Linux" %}}
-
-Help document the Bus Pirate, post your instructions in the forum and we'll add them to the docs.
-
-{{% /tab %}}
-{{% tab tabName="MacOS" %}}  
 
 Macs come with a terminal emulator called [Terminal](https://en.wikipedia.org/wiki/Terminal_(macOS)).
 
@@ -190,6 +280,8 @@ Help document the Bus Pirate, post your instructions in the forum and we'll add 
 
 {{% /tab %}}
 {{< /tabs >}}
+
+## Common issues
 
 {{% alert context="warning" %}}
 If you see lots of extra garbage characters in the terminal that is probably the VT100 code that updates the live view statusbar. Verify that your terminal supports VT100 mode and that VT100 mode is enabled.
