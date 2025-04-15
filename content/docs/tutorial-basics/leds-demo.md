@@ -3,11 +3,9 @@ weight = 30300
 title = 'Blink Some LEDs'
 +++
 
-![](/images/docs/fw/leds-1024.jpg)
+![](/images/docs/fw/sk6812-mini-e-400.png) ![](/images/docs/fw/led-die.jpg) 
 
 ## SK6812 RGB LEDs
-
-![](/images/docs/fw/sk6812-mini-e-400.png) ![](/images/docs/fw/led-die.jpg) 
 
 |Pin|Description|
 |-|-|
@@ -20,7 +18,7 @@ SK6812 RGB LEDs are commonly found in long strips of color changing lights. 3 LE
 
 The colors are set with a single wire, time-based protocol. Multiple LEDs can be chained together, with the DOUT of one LED connecting to the DIN of the next.
 
-16 of these RGB LEDs are on the Bus Pirate 5 PCB, all wired up and ready to go. We're just going to control one of them because all 16 LEDs at full power would be too much current for some USB ports.
+18 of these RGB LEDs are on the Bus Pirate PCB, all wired up and ready to go. We're just going to control one of them because all 18 LEDs at full power would be too much current for some USB ports.
 
 {{% alert context="info" %}}
 Each LED die in the SK6812 (red, blue, green) uses 20mA at full power. 60mA is required to light all three dies at maximum brightness.
