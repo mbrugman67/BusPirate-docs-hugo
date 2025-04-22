@@ -38,7 +38,7 @@ title = 'Bus Pirate Documentation'
     weight = 10
 [[menu.primary]]
     name  = "Downloads"
-    url = "https://docs.buspirate.com/downloads/"
+    url = "/docs/downloads/"
     weight = 20
 [[menu.primary]]
     name  = "Docs"
