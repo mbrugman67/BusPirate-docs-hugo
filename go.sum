@@ -1,3 +1,5 @@
+cj.rs/gohugo-asciinema v0.0.0-20250204221733-65bbf8387df5 h1:/NWcLdBlc4lbp4K82RWKqI1h5cfnjsaWfl1bRvLTxlw=
+cj.rs/gohugo-asciinema v0.0.0-20250204221733-65bbf8387df5/go.mod h1:LOi9TNDxS4FX8P9N0PzCrqwvnksxP++9dsYbyNL0Fus=
 github.com/colinwilson/lotusdocs v0.2.0 h1:vG/frwOUKPRpF3xuXk177Pw73aFrFcT2zRgTI9FiiMY=
 github.com/colinwilson/lotusdocs v0.2.0/go.mod h1:hGOYA9Ym3MA3YGmm9YHo9HkJxlHCyPNaYeFwvn/IFJY=
 github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20400 h1:L6+F22i76xmeWWwrtijAhUbf3BiRLmpO5j34bgl1ggU=

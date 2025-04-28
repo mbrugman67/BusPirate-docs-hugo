@@ -9,6 +9,9 @@ title = 'Bus Pirate Documentation'
     [[module.imports]]
         path = "github.com/gohugoio/hugo-mod-bootstrap-scss/v5"
         disable = false
+    [[module.imports]]
+        path = "cj.rs/gohugo-asciinema"
+        disable = false
 
 [params]
 
