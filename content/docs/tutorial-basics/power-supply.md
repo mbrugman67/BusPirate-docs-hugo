@@ -3,6 +3,8 @@ weight = 30400
 title = 'Programmable Power Supply'
 +++
 
+{{< asciicast src="/qs-psu.json" poster="npt:0:14" terminalFontSize="medium" idleTimeLimit=2 >}}
+
 The Bus Pirate has a 'Programmable Power Supply Unit' (PPSU) that can power devices from the VOUT/VREF pin of the main connector.
 
 - 1-5volts adjustable output, 400mA max
@@ -10,14 +12,22 @@ The Bus Pirate has a 'Programmable Power Supply Unit' (PPSU) that can power devi
 - 0-500mA current limit with digital fuse
 - Backflow prevention to protect the PPSU when an external voltage is applied to the VREF/VOUT pin
 
+## Overview
+
+|Command|Description|
+|---|---|
+|```W```|Enable the power supply, configure voltage and current limit.|
+|```w```|Disable the power supply.|
+|```v```|Show the power supply voltage report.|
+
 ## Enable
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">I2C></span> W
 <span style="color:#bfa530">Power supply
 Volts (0.80V-5.00V)</span>
 <span style="color:#96cb59">x to exit (3.30) ></span> 5
-<span style="color:#bfa530">Maximum current (0mA-500mA), &ltenter> for none</span>
-<span style="color:#96cb59">x to exit (none) ></span> 100
+<span style="color:#bfa530">Maximum current (0mA-500mA), 0 for none</span>
+<span style="color:#96cb59">x to exit (300) ></span> 100
 <span style="color:#53a6e6">5.00</span>V<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">5.00</span></span>V
 <span style="color:#53a6e6">100.0</span>mA<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">100.0</span></span>mA
 
@@ -39,7 +49,7 @@ Type uppercase ```W``` followed by ```enter``` to enable the power supply.
 The Bus Pirate will calculate the closest possible values and enable the PPSU.
 
 {{% alert context="info" %}}
-Press enter to accept the default values of 3.3 volts and no current limit fuse.
+Press enter to accept the default values of 3.3 volts and 300mA current limit fuse.
 {{% /alert %}}
 
 ### Quick enable
@@ -54,17 +64,17 @@ Press enter to accept the default values of 3.3 volts and no current limit fuse.
 </span>
 {{< /term >}}
 
-The ```W``` command accepts voltage and current as command line options.
+The ```W``` command accepts voltage and current as command line options. ```W 5 100``` is equivalent to the previous example.
 - The first parameter specifies the voltage
 - The second parameter specifies the current limit (omit for no current limit)
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">I2C></span> W 5
 <span style="color:#53a6e6">5.00</span>V<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">5.00</span></span>V
-<span style="color:#bfa530">Current limit:</span>Disabled
+<span style="color:#bfa530">Current limit:</span>300mA
 {{< /term >}}
 
-Omit the second parameter to disable the current limit fuse.
+Omit the second parameter for the default 300mA current limit fuse.
 
 ## Check voltage and current
 
