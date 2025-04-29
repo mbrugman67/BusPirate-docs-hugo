@@ -93,6 +93,14 @@ Check the voltage and current in the live view statusbar if active, or show the 
 ## Current limit
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">I2C></span> W 5 10
+<span style="color:#53a6e6">5.00</span>V<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">5.00</span></span>V
+<span style="color:#53a6e6">10.0</span>mA<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">10.0</span></span>mA
+
+<span style="color:#bfa530">Power supply:</span>Enabled
+<span style="color:#bfa530">Vreg output: <span style="color:#53a6e6">5.0</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">5.0</span></span>V<span style="color:#bfa530">, Current: <span style="color:#53a6e6">2.3</span></span>mA<span style="color:#bfa530">
+</span>
+<span style="color:#96cb59">I2C></span>
 <span style="color:#bf3030">Error:<span style="color:#bfa530"> Current over limit, power supply disabled</span></span>
 
 <span style="color:#96cb59">I2C></span> 
@@ -104,7 +112,11 @@ When the programmed current limit is exceeded the PPSU hardware fuse disables th
 - An error message is shown 
 - Command execution is halted. 
 
-Use the ```W``` command to restart the PPSU again.
+Use the ```W``` command to restart the PPSU again, or the ```w``` command to disable.
+
+{{% alert context="info" %}}
+To test the current limit, set the current limit to 10mA, the connect a wire from the VOUT pin to the GND (pin). The Bus Pirate will disable the power supply when the current exceeds 10mA.
+{{% /alert %}}
 
 ## Disable
 

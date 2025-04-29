@@ -1,0 +1,1 @@
+sciine cut -s 112 -i qs-psu.cast | sciine cut -e 67.370913 | sciine maximum 2 | sciine quantize 0.05 0.4 0.2 > qs-psu.json
