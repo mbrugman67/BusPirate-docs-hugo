@@ -1,0 +1,9 @@
+rm bpi2c.bp
+m i2c
+400 
+2
+# ../static/screencast/tut-self-test.json
+m # m - change to HiZ mode
+1
+~ # ~ - start self-test
+#stop

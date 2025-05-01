@@ -2,10 +2,12 @@
 weight = 30300
 title = 'Blink Some LEDs'
 +++
-
-![](/images/docs/fw/sk6812-mini-e-400.png) ![](/images/docs/fw/led-die.jpg) 
+ 
+{{< asciicast src="/screencast/tut-led.json" poster="npt:0:14" terminalFontSize="medium" idleTimeLimit=2 >}}
 
 ## SK6812 RGB LEDs
+
+![](/images/docs/fw/sk6812-mini-e-400.png) ![](/images/docs/fw/led-die.jpg) 
 
 |Pin|Description|
 |-|-|

@@ -40,7 +40,7 @@ title = 'Bus Pirate Documentation'
         fit = "none"
         idleTimeLimit = 2
         terminalFontSize = "medium"
-        controls = true
+        controls = "auto"
         cols = 80
         rows = 24
 

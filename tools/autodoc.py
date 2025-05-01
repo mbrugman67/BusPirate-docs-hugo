@@ -41,18 +41,6 @@ def read_commands(input_file):
     with open(input_file, "r") as file:
         return [line.strip() for line in file if line.strip()]
 
-def save_asciinema_output(output, timestamp, asciinema_file):
-    asciinema_entry = [timestamp, "o", output]
-    with open(asciinema_file, "a") as file:
-        json.dump(asciinema_entry, file)
-        file.write("\n")
-
-def decode_vt100_to_html(output):
-    # Simplified VT100 to HTML conversion (expand as needed)
-    html_output = output.replace("\033[0m", "").replace("\033[1m", "<b>").replace("\033[31m", "<span style='color:red;'>")
-    html_output = re.sub(r"\033\[\d+m", "", html_output)  # Remove other VT100 codes
-    return f"<pre>{html_output}</pre>"
-
 def main():
     args = parse_arguments()
     commands = read_commands(args.input)
