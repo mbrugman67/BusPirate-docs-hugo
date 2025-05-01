@@ -83,7 +83,7 @@ Omit the second parameter for the default 300mA current limit fuse.
 Check the voltage and current in the live view statusbar if active, or show the power supply voltage report using the ```v``` command followed by ```enter```.
 
 - The top line indicates the power supply is set at 5.0 volts with a 100mA current limit. 
-- The third line shows that 2.1mA is being consumed on VOUT/VREF. Since nothing is connected this is the current leakage, offset error and noise in the RP chip's analog to digital converter.
+- The third line shows that 2.1mA is being consumed on VOUT/VREF. Since nothing is connected this is the power used by the IO pin buffers, current leakage, offset error and noise in the RP chip's analog to digital converter.
 - The last line shows that VOUT currently measures 5.0 volts, and all IO pins measure 0 volts.
 
 {{% alert context="warning" %}}
