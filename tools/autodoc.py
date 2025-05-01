@@ -56,9 +56,9 @@ def decode_vt100_to_html(output):
 def main():
     args = parse_arguments()
     commands = read_commands(args.input)
-    asciinema_file = args.file
-    html_file = asciinema_file.replace(".json", ".html")
+    asciinema_file = None
     start_time = None
+    timestamp = 0
     
     # States
     STATE_IDLE = 0
@@ -76,128 +76,166 @@ def main():
     vt100_reply = "[24;80R"   
     vt100_data_last = "" 
 
-    with open(asciinema_file, "a") as file:
-        #add header to asciinema
-        file.write('{"version": 2, "width": 80, "height": 24, "timestamp": ' + str(time.time()) + ', "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}\n')
+    with Serial(args.port, args.baudrate, timeout=1) as serial_conn:
+        if args.debug:
+            print(f"Connected to {args.port} at {args.baudrate} baud.")
 
-        with Serial(args.port, args.baudrate, timeout=1) as serial_conn:
-            if args.debug:
-                print(f"Connected to {args.port} at {args.baudrate} baud.")
+        output = ""            
+        html_output = ""
+        current_command = None  # Track the current command being processed
 
-            output = ""            
-            html_output = ""
-            current_command = None  # Track the current command being processed
-
-
-            while state != STATE_END:
-                
-                # Read data from the serial connection
-                data = serial_conn.read(serial_conn.in_waiting).decode("utf-8", errors="ignore")
-                if data:
-                    if args.debug:
-                        print(data, end="")
-                    
-                    # create a timestamp for the data
-                    if start_time is None:
-                        start_time = time.time()
-                        timestamp = 0
-                    else:
-                        timestamp = round(time.time() - start_time, 6)
-
-                    # write the data to the asciinema file
-                    asciinema_entry = [timestamp, "o", data]
-                    json.dump(asciinema_entry, file)
-                    file.write("\n")
-
-                    # Handle VT100 query
-                    vt100_search = vt100_data_last + data # combine the last data with the current data to find the VT100 query
-                    if vt100_query in vt100_search:
-                        serial_conn.write(vt100_reply.encode("utf-8"))
-                        vt100_data_last = "" # reset the last data
-                        if args.debug:
-                            print(f"VT100 query detected")
-                            print(f"Sent VT100 reply")
-                    else: # save the previous data to find VT100 query split over multiple reads
-                        vt100_data_last = data # save the current data to find the VT100 query
-                    
-                current_time = time.time()
-                # State machine
-                if(state == STATE_IDLE):
-                    if commands:
-                        # get next line, split on # to get the command and comment
-                        line = commands.pop(0)
-                        if "#" in line:
-                            current_command = line.split("#")[0].strip()
-                            current_comment = line.split("#")[1].strip()
-                            # insert the comment in ansiinema file as marker
-                            # create a timestamp for the data
-                            if start_time is None:
-                                start_time = time.time()
-                                timestamp = 0
-                            else:
-                                timestamp = round(time.time() - start_time, 6)
-
-                            # write the data to the asciinema file
-                            asciinema_entry = [timestamp, "m", current_comment]
-                            json.dump(asciinema_entry, file)
-                            file.write("\n")                            
-                        else:
-                            current_command = line
-
-                        send_queue.extend(current_command)
-                        state = STATE_SEND_COMMAND
-                        delay_time = 0
-                        if args.debug:
-                            print(f"Queueing command: {current_command.strip()}")
-                    else:
-                        state = STATE_END
-
-                elif(state == STATE_SEND_COMMAND):
-                    if send_queue and current_time >= delay_time:
-                        char = send_queue.popleft()
-                        serial_conn.write(char.encode("utf-8"))
-                        delay_time = current_time + random.uniform(0.1, 0.4)
-
-                        if not send_queue:
-                            state = STATE_EXECUTE_COMMAND
-                            delay_time = current_time + 1.0
-
-                elif(state == STATE_EXECUTE_COMMAND):
-                    # Check if the newline is scheduled and the time has passed
-                    if current_time >= delay_time:
-                        serial_conn.write("\r\n".encode("utf-8"))
-                        if args.debug:
-                            print("Sent: \\r\\n")
-                        delay_time = 0
-                        state = STATE_WAIT_FOR_PROMPT
-
-                elif(state == STATE_WAIT_FOR_PROMPT):
-                    # Handle prompt detection
-                    if "\x03" in data:
-                        if args.debug:
-                            print(f"Prompt detected")
-                        state = STATE_ADDITIONAL_DELAY
-                        delay_time = current_time + 1.0
-                        if args.debug:
-                            print(f"Scheduled additional delay of 1 second after prompt detection.")
-                
-                elif(state == STATE_ADDITIONAL_DELAY):
-                    # Check if the additional delay is active and skip queuing the next command until it ends
-                    if current_time >= delay_time:
-                        delay_time = 0
-                        state = STATE_IDLE
-                        if args.debug:
-                            print(f"Additional delay completed.")
-
-                elif(state == STATE_END):
-                    if args.debug:
-                        print(f"End of commands reached.")
-                 
-            #final timestamp in ansiinema file
-            file.write('[' + str(round(time.time() - start_time, 6)+2) + ', "o", ""]\n')
+        while state != STATE_END:
             
-            if args.debug:
-                print(f"Output saved to {asciinema_file} and {html_file}.")
+            # Read data from the serial connection
+            data = serial_conn.read(serial_conn.in_waiting).decode("utf-8", errors="ignore")
+            if data:
+                if args.debug:
+                    print(data, end="")
+                
+                # create a timestamp for the data
+                if start_time is None:
+                    start_time = time.time()
+                    timestamp = 0
+                else:
+                    timestamp = round(time.time() - start_time, 6)
+
+                # write the data to the asciinema file
+                if asciinema_file:
+                    asciinema_entry = [f"{timestamp:.6f}", "o", data]
+                    json.dump(asciinema_entry, asciinema_file)
+                    asciinema_file.write("\n")
+
+                # Handle VT100 query
+                vt100_search = vt100_data_last + data # combine the last data with the current data to find the VT100 query
+                if vt100_query in vt100_search:
+                    serial_conn.write(vt100_reply.encode("utf-8"))
+                    vt100_data_last = "" # reset the last data
+                    if args.debug:
+                        print(f"VT100 query detected")
+                        print(f"Sent VT100 reply")
+                else: # save the previous data to find VT100 query split over multiple reads
+                    vt100_data_last = data # save the current data to find the VT100 query
+                
+            current_time = time.time()
+            # State machine
+            if(state == STATE_IDLE):
+                if commands:
+                    # get next line, split on # to get the command and comment
+                    line = commands.pop(0)
+                    if "#" in line:
+                        current_command = line.split("#")[0].strip()
+                        current_comment = line.split("#")[1].strip()
+
+                        # handle control actions if command is empty
+                        if current_command == "": #this is a control action
+                            if current_comment == "stop":
+                                
+                                if asciinema_file is None:
+                                    print("No asciinema file to close.")
+                                    quit(1)
+
+                                # close the asciinema file
+                                try:
+                                    asciinema_file.write('[' + str(round(time.time() - start_time, 6)+2) + ', "o", ""]\n')
+                                    asciinema_file.close()
+                                    asciinema_file = None
+                                    if args.debug:
+                                        print(f"Closed file.")
+                                except Exception as e:
+                                    print(f"Error closing file: {e}")
+                                    quit(1)
+                                    
+                            else:
+                                # create a new save file
+                                if asciinema_file is not None:
+                                    print("Asciinema file already open. Closing it first.")
+                                    try:
+                                        asciinema_file.write('[' + str(round(time.time() - start_time, 6)+2) + ', "o", ""]\n')
+                                        asciinema_file.close()
+                                        asciinema_file = None
+                                    except Exception as e:
+                                        print(f"Error closing file: {e}")
+                                        quit(1)
+                                try:
+                                    asciinema_file = open(current_comment.strip(), "w")
+                                    start_time = None
+                                    timestamp = 0
+                                    asciinema_file.write('{"version": 2, "width": 80, "height": 24, "timestamp": ' + str(time.time()) + ', "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}\n')
+                                    char = "\x02"
+                                    serial_conn.write(char.encode("utf-8"))
+                                    state = STATE_ADDITIONAL_DELAY
+                                    delay_time = current_time + 1.0
+                                    if args.debug:
+                                        print(f"Saving output to {current_comment}.")
+                                except Exception as e:
+                                    print(f"Error opening {current_comment}: {e}")
+                                    quit(1)
+                            continue
+
+                        # insert the comment in ansiinema file as marker
+                        # create a timestamp for the data
+                        if start_time is None:
+                            start_time = time.time()
+                            timestamp = 0
+                        else:
+                            timestamp = round(time.time() - start_time, 6)
+
+                        # write the data to the asciinema file
+                        asciinema_entry = [f"{timestamp:.6f}", "m", current_comment]
+                        json.dump(asciinema_entry, asciinema_file)
+                        asciinema_file.write("\n")                            
+                    else:
+                        current_command = line
+
+                    send_queue.extend(current_command)
+                    state = STATE_SEND_COMMAND
+                    delay_time = 0
+                    if args.debug:
+                        print(f"Queueing command: {current_command.strip()}")
+                else:
+                    state = STATE_END
+
+            elif(state == STATE_SEND_COMMAND):
+                if send_queue and current_time >= delay_time:
+                    char = send_queue.popleft()
+                    serial_conn.write(char.encode("utf-8"))
+                    delay_time = current_time + random.uniform(0.1, 0.4)
+
+                    if not send_queue:
+                        state = STATE_EXECUTE_COMMAND
+                        delay_time = current_time + 1.0
+
+            elif(state == STATE_EXECUTE_COMMAND):
+                # Check if the newline is scheduled and the time has passed
+                if current_time >= delay_time:
+                    serial_conn.write("\r\n".encode("utf-8"))
+                    #if args.debug:
+                        #print("Sent: \\r\\n")
+                    delay_time = 0
+                    state = STATE_WAIT_FOR_PROMPT
+
+            elif(state == STATE_WAIT_FOR_PROMPT):
+                # Handle prompt detection
+                if "\x03" in data:
+                    if args.debug:
+                        print(f"Prompt detected")
+                    state = STATE_ADDITIONAL_DELAY
+                    delay_time = current_time + 1.0
+                    if args.debug:
+                        print(f"Scheduled additional delay of 1 second after prompt detection.")
+            
+            elif(state == STATE_ADDITIONAL_DELAY):
+                # Check if the additional delay is active and skip queuing the next command until it ends
+                if current_time >= delay_time:
+                    delay_time = 0
+                    state = STATE_IDLE
+                    if args.debug:
+                        print(f"Additional delay completed.")
+
+            elif(state == STATE_END):
+                if args.debug:
+                    print(f"End of commands reached.")
+
 
 if __name__ == "__main__":
     main()
