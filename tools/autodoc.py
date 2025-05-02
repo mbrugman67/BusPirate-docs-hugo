@@ -1,6 +1,14 @@
-# This is a python script that generates documentation for the Bus Pirate terminal interface.
+# This is a python script that generates asciinema screencast documentation for the Bus Pirate terminal interface.
 # Loads a list of commands to run in the Bus Pirate terminal over a serial connection.
 # Input commands are one per lines, and are read from a file.
+#    # tut-self-test.json
+#    m # m - change to HiZ mode
+#    1
+#    ~ # ~ - start self-test
+#    # stop
+# Example script. # <filename> begins a new asciinema file, and # stop closes it.
+# Other lines are commands to be sent to the Bus Pirate terminal, text after # is inserted as a marker in the asciinema file.
+#
 # The script uses the pyserial library to communicate with the Bus Pirate over a serial port.
 # It sends the commands to the Bus Pirate and captures the output.
 # The next command is sent after the previous command has completed when the >\r\n prompt is received.
@@ -10,16 +18,6 @@
 # data is a string containing the data that was printed. 
 # It must be valid, UTF-8 encoded JSON string as described in JSON RFC section 2.5, 
 # with any non-printable Unicode codepoints encoded as \uXXXX
-#
-# Also decode VT100 to HTML and save to a file for use in the documentation.
-# The script is designed to be run from the command line with the following arguments:
-# -h, --help: show this help message and exit
-# -p, --port: the serial port to use (default: /dev/ttyUSB0)
-# -b, --baudrate: the baud rate to use (default: 115200)
-# -i, --input: the input file containing the commands to run (default: commands.txt)
-# -f, --file: the file to save the output to (default: bus_pirate_output.json)
-# -d, --debug: enable debug mode (default: False)
-
 import argparse
 from serial import Serial
 import json
@@ -29,11 +27,11 @@ import random  # For simulating human typing
 from collections import deque  # For managing the send queue
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(description="Generate documentation for the Bus Pirate terminal interface.")
+    parser = argparse.ArgumentParser(description="Generate asciinema screencast documentation for the Bus Pirate terminal interface.")
     parser.add_argument("-p", "--port", default="/dev/ttyUSB0", help="The serial port to use (default: /dev/ttyUSB0)")
     parser.add_argument("-b", "--baudrate", type=int, default=115200, help="The baud rate to use (default: 115200)")
     parser.add_argument("-i", "--input", default="commands.txt", help="The input file containing the commands to run (default: commands.txt)")
-    parser.add_argument("-f", "--file", default="bus_pirate_output.json", help="The file to save the output to (default: bus_pirate_output.json)")
+    parser.add_argument("-o", "--output", default="../static/screencast/", help="Where to save the asciinema json files (default: ../static/screencast/)")
     parser.add_argument("-d", "--debug", action="store_true", help="Enable debug mode (default: False)")
     return parser.parse_args()
 
@@ -145,7 +143,7 @@ def main():
                                         print(f"Error closing file: {e}")
                                         quit(1)
                                 try:
-                                    asciinema_file = open(current_comment.strip(), "w")
+                                    asciinema_file = open(args.output + current_comment.strip(), "w")
                                     start_time = None
                                     timestamp = 0
                                     asciinema_file.write('{"version": 2, "width": 80, "height": 24, "timestamp": ' + str(time.time()) + ', "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}\n')

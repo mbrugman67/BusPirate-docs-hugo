@@ -1,9 +1,77 @@
+y
+m hiz
+rm bpled.bp
+m led
+3
+# tut-power-supply.json
+W # W - enable PSU (interactive)
+5
+100
+W 5 100 # W 5 100 - enable PSU (command line options)
+W 5 # W 5 - enable PSU (default current limit)
+w # w - disable PSU
+# stop
+m hiz
+rm bpled.bp
+# tut-led.json
+m # m - change to LED mode
+10
+3 # 3 - select onboard LEDs
+[0b111111110000000000000000.24 # LED red (binary input)
+= 0b11111111 # = - convert binary to HEX
+= 0b00000000
+[0xff0000.24 # LED red (HEX)
+[0x00ff00.24 # LED green (HEX)
+[0x0000ff.24 # LED blue (HEX)
+[0xff00ff.24 # LED purple (HEX)
+[0xffffff.24 # LED white (HEX)
+= 128 # LED brightness
+[0x808080.24
+# stop
+m hiz
+m led
+y
+# tut-pull-io.json
+W 5 100 # W - enable power supply
+P # P - enable pull-up resistors
+a 0 # a - auxiliary pin low
+a 1; a 2; a 3;
+@ 0; @ 1; @ 2; @ 3 # @ - auxiliary pin input
+p # p - disable pull-up resistors
+A 0 # A - auxiliary pin high
+# stop
+m hiz
+# tut-config-menu.json
+c # c - configuration menu
+5 # Change LED effect
+9 # Set LED to party mode
+x # x - exit menu and save settings
+ls # ls - view config files
+cat bpconfig.bp # cat - print file contents
+# stop
 rm bpi2c.bp
 m i2c
 400 
 2
-# ../static/screencast/tut-self-test.json
+# tut-self-test.json
 m # m - change to HiZ mode
 1
 ~ # ~ - start self-test
-#stop
+# stop
+# tut-usb-flash.json
+ls # ls - list files
+mkdir temp # mkdir - make directory
+ls
+cd temp # cd - change directory
+ls
+cd ..
+rm temp # rm - remove file or directory
+ls
+cat bpconfig.bp # cat - show file contents
+hex bpconfig.bp # hex - show file contents in HEX
+format # format - erase drive contents
+y
+y
+label set MYPIRATE # label - set drive label
+label get 
+# stop
