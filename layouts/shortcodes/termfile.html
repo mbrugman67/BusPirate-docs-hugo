@@ -1,0 +1,18 @@
+{{ $source := .Get "source" }}
+<div class="terminal">
+  <div class="header">
+    <div class="header-dots">
+      <div class="header-dot" style="background: rgb(242, 95, 88)"></div>
+      <div class="header-dot" style="background: rgb(251, 190, 60)"></div>
+      <div class="header-dot" style="background: rgb(88, 203, 66)"></div>
+    </div>
+    <div class="">Bus Pirate [/dev/ttyS0]</div>
+    <div class="header-bars">
+      <div class="header-bar"></div>
+      <div class="header-bar"></div>
+      <div class="header-bar"></div>
+    </div>
+  </div>
+  <pre class="highlight">{{ with $source | readFile }}{{ $snippet := . }}{{ $snippet | safeHTML }}{{ end }}</pre>
+  </pre>
+</div>

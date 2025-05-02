@@ -11,12 +11,6 @@ Dual RS-232 adapter for the Bus Pirate with male (Data Terminal Equipment) and f
 
 Microcontrollers typically have a TTL serial UART where a 0 is represented by 0 volts and a 1 is represented by 3.3volts or 5volts. RS-232 uses a different voltage range, a 0 is represented by +3 to +15volts and a 1 is represented by -3 to -15volts. The Bus Pirate can't directly communicate with RS-232 devices because it's voltage range is too low. This adapter converts the Bus Pirate UART to RS-232 voltage levels.
 
-{{% alert context="danger" %}}
-Dual RS-232 Adapter is "in development". If hardware is available it has passed  basic functionality tests, but there isn't full documentation or support just yet. At this stage, it's best suited for developers who are comfortable with hardware and firmware development. Or for those who want to follow along.
-{{% /alert %}}
-
-
-
 {{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ## DTE and DCE connectors

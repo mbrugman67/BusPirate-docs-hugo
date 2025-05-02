@@ -7,11 +7,6 @@ title = 'Infrared RX/TX Toy'
 
 Use a remote control with your computer, view infrared signals on a logic analyzer, or capture and replay remote control buttons. Infrared Toy v3 brings new life to an [old favorite](http://dangerousprototypes.com/docs/USB_IR_Toy_v2) with much more powerful transmitter LEDs, and a full array of receivers to cover most common, and uncommon, infrared protocols.
 
-{{% alert context="danger" %}}
-Infrared Toy v3 is "in development". If hardware is available it has passed basic functionality tests, but there isn't full documentation or support just yet. At this stage, it's best suited for developers who are comfortable with hardware and firmware development. Or for those who want to follow along.
-{{% /alert %}}
-
-
 
 {{% readfile "/_common/_footer/_footer-cart.md" %}}
 

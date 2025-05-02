@@ -174,6 +174,7 @@ Substitute `ACM0` for the name of your serial device. Now you can enter command.
 
 {{% /tab %}}
 {{% tab tabName="MacOS" %}}  
+
 ## Find the serial port
 {{% alert context="info" %}}
 Your terminal emulation software will probably detect and list all the available serial ports connected to your computer. If there's more than one serial port, you can connect to each and press ```enter``` until you find the Bus Pirate terminal. You can probably skip this step, but if you need to find the port manually follow the instructions below.
