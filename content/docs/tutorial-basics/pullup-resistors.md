@@ -9,6 +9,18 @@ Protocols such as I2C and 1-Wire use open collector outputs for two way communic
 
 The Bus Pirate has 10KΩ onboard pull-up resistors that can be toggled with the ```p``` and ```P``` commands.
 
+# Overview
+
+|Command|Description|
+|---|---|
+|```p```|Disable pull-up resistors.|
+|```P```|Enable pull-up resistors.|
+|```a X```|Set pin X to output and low.|
+|```A X```|Set pin X to output and high.|
+|```@ X```|Set pin X to input.|
+|```W```|Enable the power supply, configure voltage and current limit.|
+
+
 ## Enter LED mode
 
 This tutorial uses LED mode configured for the onboard LEDs, see [Blink Some LEDs tutorial]({{< relref "/docs/tutorial-basics/leds-demo.md" >}}). In this mode all the Bus Pirate IO pins are free for experimenting.
@@ -51,7 +63,7 @@ You can also use the ```W``` command with no options to see the configuration me
 
 Check the live view statusbar at the bottom of the terminal. 
 - The top line indicates the power supply is set at 5 volts with a 100mA current limit. 
-- The third line shows that 7.8mA is being consumed on VOUT. Since nothing is connected this represents the base current of the PPSU, op-amp offset error and noise in the RPi chip analog to digital converter.
+- The third line shows that 7.8mA is being consumed on VOUT. Since nothing is connected this represents the IO buffer current, base current of the PPSU, op-amp offset error and noise in the RPi chip analog to digital converter.
 - The last line shows that VOUT currently measures 5volts, and other pins measure 0 volts.
 
 ### External Power Supply

@@ -21,6 +21,13 @@ title = 'Configuration Menu'
 
 Type ```c``` followed by ```enter``` to show the Bus Pirate configuration menu. These options control things like the language, live view statusbar and LEDs.
 
+## Overview
+
+|Command | Description |
+|---|---|
+|```c```|Enter the configuration menu.|
+
+
 ## Configuration
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}

@@ -10,6 +10,12 @@ The detailed self-test is primarily useful in three situations:
 - Production testing. We need to make sure no failed components are on the board before we ship.
 - Disaster assessment. Something went wrong while hacking and now a pin doesn't work.
 
+## Overview
+
+|Command | Description |
+|---|---|
+|```~```|Start the self-test.|
+
 ## Setup the self-test
 
 - Disconnect any devices from the Bus Pirate. An external device will interfere with the test and could be damaged by the voltage used on the pins.

@@ -115,7 +115,11 @@ When the programmed current limit is exceeded the PPSU hardware fuse disables th
 Use the ```W``` command to restart the PPSU again, or the ```w``` command to disable.
 
 {{% alert context="info" %}}
-To test the current limit, set the current limit to 10mA, the connect a wire from the VOUT pin to the GND (pin). The Bus Pirate will disable the power supply when the current exceeds 10mA.
+Test the current limit:
+1. Set the current limit to 10mA
+2. Connect a wire from the VOUT pin to the GND pin. 
+
+The Bus Pirate will disable the power supply when the current exceeds 10mA.
 {{% /alert %}}
 
 ## Disable

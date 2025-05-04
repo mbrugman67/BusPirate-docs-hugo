@@ -26,6 +26,16 @@ The colors are set with a single wire, time-based protocol. Multiple LEDs can be
 Each LED die in the SK6812 (red, blue, green) uses 20mA at full power. 60mA is required to light all three dies at maximum brightness.
 {{% /alert %}}
 
+## Overview
+
+|Command|Description|
+|---|---|
+|```m```|Change mode|
+|```[```|WS2812 bus reset|
+|```0b```|Binary number entry|
+|```0x```|Hexadecimal number entry|
+|```=```|Convert between number formats|
+
 ## Choose LED Mode
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
