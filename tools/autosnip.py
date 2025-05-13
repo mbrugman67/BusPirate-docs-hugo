@@ -35,7 +35,7 @@ def parse_arguments():
 
 def read_commands(input_file):
     with open(input_file, "r") as file:
-        return [line.strip() for line in file if line.strip()]
+        return [line.strip() for line in file]
 
 def main():
     args = parse_arguments()
@@ -78,12 +78,12 @@ def main():
                 
                 # write the data to the asciinema file
                 if html_file:
-                    output = output + data
+                    output = output + data.replace("<", "&lt") # replace \r\n with \n
 
                 # Handle VT100 query
                 vt100_search = vt100_data_last + data # combine the last data with the current data to find the VT100 query
                 if vt100_query in vt100_search:
-                    serial_conn.write(vt100_reply)
+                    serial_conn.write(vt100_reply.encode("utf-8"))
                     vt100_data_last = "" # reset the last data
                     if args.debug:
                         print(f"VT100 query detected")
@@ -127,11 +127,11 @@ def main():
                                 converter = AnsiToHtml()
                                 html_file.write(output)
                                 html_file.close()      
-                                html_file = open(current_filename + '.vt1', "r")                     
+                                html_file = open(current_filename + '.vt1', "r", encoding="utf-8")                     
                                 vt100_in = html_file.read()
                                 html_output = converter.to_html(vt100_in)
                                 html_file.close()
-                                html_file = open(current_filename + '.html', "w")
+                                html_file = open(current_filename + '.html', "w", encoding="utf-8")
                                 html_file.write(html_output)
                                 html_file.close()
                                 html_file = None
@@ -155,7 +155,7 @@ def main():
                                     quit(1)
                             try:
                                 current_filename = args.output + current_comment.strip()
-                                html_file = open(args.output + current_comment.strip()+'.vt1', "w")
+                                html_file = open(args.output + current_comment.strip()+'.vt1', "w", encoding="utf-8")
                                 output = ""
                                 char = "\r\n"
                                 serial_conn.write(char.encode("utf-8"))

@@ -1,0 +1,13 @@
+[38;2;150;203;89m2WIRE>[0m&nbsp;o
+
+[38;2;191;165;48mNumber&nbsp;display&nbsp;format[0m
+&nbsp;[38;2;191;165;48mCurrent&nbsp;setting:&nbsp;Auto[0m
+&nbsp;1.&nbsp;[38;2;191;165;48mAuto[0m
+&nbsp;2.&nbsp;[38;2;191;165;48mHEX[0m
+&nbsp;3.&nbsp;[38;2;191;165;48mDEC[0m
+&nbsp;4.&nbsp;[38;2;191;165;48mBIN[0m
+&nbsp;5.&nbsp;[38;2;191;165;48mASCII[0m
+&nbsp;x.&nbsp;[38;2;191;165;48mExit[0m
+[38;2;150;203;89mMode&nbsp;>[0m&nbsp;1
+[38;2;191;165;48mMode:[0m&nbsp;Auto[0m
+[38;2;150;203;89m2WIRE>[0m&nbsp;

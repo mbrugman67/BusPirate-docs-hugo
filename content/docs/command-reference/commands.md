@@ -3,38 +3,22 @@ weight = 70100
 title = 'Command Reference'
 +++
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HiZ></span> i
-<span style="color:#bfa530">
-Bus Pirate 5 REV6
-Firmware <span style="color:#53a6e6">v0.1</span></span> (<span style="color:#53a6e6">unknown</span>), Bootloader <span style="color:#53a6e6">N/A</span>
-<span style="color:#53a6e6">RP2040</span> with <span style="color:#53a6e6">264KB</span> RAM, <span style="color:#53a6e6">16MB</span> FLASH
-S/N: <span style="color:#53a6e6">2509449B952069E4</span>
-https://DangerousPrototypes.com/
-Flash Storage: <span style="color:#53a6e6"> 0.10GB</span> (FAT16)
+{{< termfile source="static/snippets/cmdref-info.html" >}}
 
-<span style="color:#bfa530">Configuration file:</span> Loaded
-<span style="color:#bfa530">Available modes:</span> HiZ UART I2C SPI LED DUMMY1
-<span style="color:#bfa530">Active mode:</span> HiZ ()=()
-<span style="color:#bfa530">Display format:</span> Auto
-
-<span style="color:#96cb59">HiZ></span> 
-{{< /term >}}
-
-This guide is updated with to reflect feature changes with each firmware release. To check your firmware version type ```i``` followed by ```enter``` in the Bus Pirate terminal window. Here, the Bus Pirate is running firmware v0.1. 
+The Bus Pirate is a versatile debugging and development tool for working with various communication protocols like I2C, SPI, UART, and more. It acts as a bridge between a computer and embedded devices, allowing users to talk to chips without writing code. It is especially useful for prototyping, testing, and reverse engineering hardware.
 
 {{% alert context="info" %}}
-It's always best to use the latest firmware, especially in these early days of a new design. There will be continuous improvements and new features. See the upgrade guide for the simple drag and drop bootload process.
+It's always best to use the [latest firmware]({{< relref "/docs/downloads" >}}). There are continuous improvements and new features. See the [upgrade guide]({{< relref "/docs/tutorial-basics/firmware-update/" >}}) for the simple drag and drop update process.
 {{% /alert %}}
 
 ## User terminal
 
 ![](/images/docs/fw/cmd-toolbar.png)
 
-The Bus Pirate is accessed from a command line in a serial terminal. Use your terminal of choice. On Windows we like the latest version of [Tera Term](https://ttssh2.osdn.jp/index.html.en).
+Connect to the Bus Pirate command line with your [favorite serial terminal software]({{< relref "/docs/tutorial-basics/quick-setup/" >}}). On Windows we like the latest version of [Tera Term](https://ttssh2.osdn.jp/index.html.en).
 
 {{% alert context="info" %}}
-Talk to the Bus Pirate from a serial terminal of your choice set to 115200bps, 8/N/1. The serial port is emulated over USB, so higher bitrate (bps) settings will also work with no extra configuration. If the user interface feels slow, check that the speed is at least 115200bps.
+Talk to the Bus Pirate from a serial terminal of your choice. The serial port is emulated over USB, so the serial port speed setting should not matter. It is traditional to use "115200bps, 8/N/1" if you need configure your terminal, but it should not actually matter.
 {{% /alert %}}
 
 ### VT100 terminal emulation
@@ -48,18 +32,10 @@ If the Bus Pirate has just restarted you will be prompted to choose the terminal
 - VT100 mode - Supports color and a live view statusbar at the bottom of the terminal. This should be your first choice unless you specifically need the legacy ASCII mode.
 - ASCII mode - Legacy monochrome text only mode.
 
+The terminal mode can be changed from the [configuration menu]({{< relref "/docs/command-reference/commands/#c-configuration-options-menu">}}). Open the configuration menu with the ```c``` command followed by ```enter```. 
+
 {{% alert context="info" %}}
 If you choose VT100 mode and see lots of garbage characters in the terminal, check that your terminal emulator has VT100 support and that VT100 support is enabled.
-{{% /alert %}}
-
-Your terminal mode choice will be saved and automatically loaded the next time the Bus Pirate is connected. Just press ```enter``` to start the command prompt.
-
-The terminal mode can be changed from the configuration menu. Open the configuration menu with the ```c``` command followed by ```enter```. 
-
-{{% alert context="info" %}}
-If you're stuck in a terminal mode that's not working, press and hold the Bus Pirate button and then plug in the USB cable. The Bus Pirate will start without loading any saved settings.
-
-You can also navigate to the Bus Pirate USB disk, delete the bpconfig.bp file and restart the Bus Pirate. You will be prompted to choose VT100 or ASCII mode after restarting. 
 {{% /alert %}}
 
 ### Command line
@@ -67,9 +43,10 @@ You can also navigate to the Bus Pirate USB disk, delete the bpconfig.bp file an
 <span style="color:#96cb59">HiZ></span> 
 {{< /term >}}
 
-The Bus Pirate has a simple Linux-like command line interface. Enter a command followed by optional parameters and then press ```enter```.
+The Bus Pirate has a simple Linux-like command line interface. Enter a command followed by optional parameters and then press ```enter``` to execute.
 
-The Bus Pirate always starts in high impedance mode (HiZ), a safe mode with all outputs disabled. HiZ mode intends to protect any connected devices from conditions beyond their specifications. From the HiZ prompt, a bus mode can be selected to use a specific protocol.
+### HiZ mode
+The Bus Pirate always starts in high impedance mode (HiZ), a safe mode with all outputs disabled. HiZ mode intends to protect any connected devices from conditions beyond their specifications. From the HiZ prompt, a bus mode can be selected to use a specific protocol with the ```m``` [mode command]({{< relref "/docs/command-reference/commands/#m-set-bus-mode" >}}).
 
 ### Terminal control
 
@@ -84,259 +61,114 @@ The Bus Pirate always starts in high impedance mode (HiZ), a safe mode with all 
 | ```backspace```   |  Erases the character to the left of the cursor and moves the cursor left one character             |
 | ```delete```      |  Erases the character under (or to the right of) the cursor and moves the cursor left one character |
 
-Bus Pirate 5 understands some common control keys.
+The terminal understands some common control keys. Left and right move the cursor, up and down scroll through the command history. Home and end move the cursor to the beginning or end of the line. Backspace and delete erase characters.
 
 ### Default options
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">Mode ></span> 3
+{{< termfile  source="static/snippets/cmdref-defaults.html" >}} 
 
-<span style="color:#bfa530">I2C speed</span>
- 1KHz to 1000KHz
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">KHz (</span>400KHz*<span style="color:#96cb59">) ></span> 
-
-<span style="color:#bfa530">Data bits</span>
- 1. <span style="color:#bfa530">8*</span>
- 2. <span style="color:#bfa530">10</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Bits (</span>1<span style="color:#96cb59">) ></span> 
-
-<span style="color:#bfa530">Mode:</span> I2C
-
-<span style="color:#96cb59">I2C></span> 
-{{< /term >}}
-
-Most configuration and option prompts have a default value shown in ( ) and the option to exit without changes.
+Most prompts have a default value shown in ```( )``` or marked with ```*```, and the option to exit without making changes.
 - Press ```enter``` to select the default option. 
 - Press ```x``` followed by ```enter``` to exit a menu without changes.
 
 ### Saved options
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">Mode ></span> 3
-
-<span style="color:#bfa530">Use previous settings?</span>
- I2C speed: 400KHz
- Data bits: 8
-y/n> y
-
-<span style="color:#bfa530">Mode:</span> I2C
-
-<span style="color:#96cb59">I2C></span> 
-{{< /term >}}
+{{< termfile  source="static/snippets/cmdref-saved-options.html" >}} 
 
 Many options will be saved to flash storage. You will be prompted to reloaded previous settings the next time.
 
-## Disk Commands
-Several Linux-like disk commands can be used to navigate the Bus Pirate flash storage.
+## Getting help
+ 
+The latest help for commands and modes is available in the help menu. This will always be more up to date than the documentation you're currently reading. 
+- ```?``` or ```help``` - show the help menu with all available commands and options.
+- ```help mode``` or ```? mode``` - show the help menu with all available commands and options for the current mode.
+- ```<command> -h``` - show command specific help. For example, ```W -h``` shows help for the ```W``` command.
 
-### **ls** List directory contents
+### Global command list
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HiZ></span> ls
-   DIR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System Volume Information
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;81&nbsp;&nbsp;bpspi.bp
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;256&nbsp;&nbsp;test.txt
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;333&nbsp;&nbsp;bpconfig.bp
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35&nbsp;&nbsp;bpi2c.bp
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;31&nbsp;&nbsp;bpled.bp
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;256&nbsp;&nbsp;sample.txt
-1 dirs, 6 files.
+![Bpv52-help](/images/docs/fw/bp-term2.png) 
 
-<span style="color:#96cb59">HiZ></span> 
-{{< /term >}}
+- ```?``` or ```help``` - show the help menu with all available commands and options.
 
-List the contents of the current directory in flash storage. Type ```ls``` followed by ```enter```. ``ls`` followed by a directory name lists the contents of that directory.
+### Mode help
 
-### **mkdir** Make directory
+{{< termfile  source="static/snippets/cmdref-help-mode.html" >}}
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HiZ></span> mkdir test
+- ```help mode``` or ```? mode``` - show the help menu with all available commands and options for the current mode.
 
-<span style="color:#96cb59">HiZ></span> 
-{{< /term >}}
+### Command help
 
-Make a directory in the current location in the flash storage. Type ```mkdir``` followed by a directory name and then ```enter```.
+{{< termfile  source="static/snippets/cmdref-help-psu.html" >}}
 
-### **cd** Change directory
+- ```<command> -h``` - show command specific help. For example, ```W -h``` shows help for the ```W``` command.
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HiZ></span> cd test
-/test
+## Configuration 
 
-<span style="color:#96cb59">HiZ></span> ls
-0 dirs, 0 files.
-
-<span style="color:#96cb59">HiZ></span> 
-{{< /term >}}
-
-Change directory. Type ```cd``` followed by a directory name and then ```enter```.
-
-### **rm** Remove file or directory
-
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HiZ></span> rm test
-
-<span style="color:#96cb59">HiZ></span>
-{{< /term >}}
-
-Remove file or directory (if empty). Type ```rm``` followed by the name of a file or empty directory, then hit ```enter```.
-
-### **cat** Print file contents
-
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HiZ></span> cat sample.txt
-Bus Pirate 5 can program and dump EEPROM, flash and other memory chips directly to the flash storage! No need for external software on your computer. No need to install toolchains and compile scripts. What you need, where you need it. Bus Pirate 5 is here! --EOM
-
-<span style="color:#96cb59">HiZ></span> 
-{{< /term >}}
-
-Print the contents of a file. Type ```cat``` followed by a file name, then hit ```enter```.
-
-## Configuration
-
-### **?/h/H** Help menu with latest options
-
-![Bpv52-help](/images/docs/fw/bp-term2.png)
-
-Type ```?``` followed by ```enter``` to display a help screen with all available menu and syntax options in the current firmware.
+|Command | Description |
+|---|---|
+|```i```| Version information|
+|```c```| Configuration options menu|
+|```m```| Set bus mode|
+|```l```/```L```| Set MSB/LSB first|
+|```o```| Data output display format|
+|```d```| Display mode|
+|```~```| Self-test|
+|```#```| Reset|
+|```$```| Jump to bootloader|
 
 ### **i** Version information
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HiZ></span> i
-<span style="color:#bfa530">
-Bus Pirate 5 REV6
-Firmware <span style="color:#53a6e6">v8</span></span> (<span style="color:#53a6e6">unknown</span>), Bootloader <span style="color:#53a6e6">N/A</span>
-<span style="color:#53a6e6">RP2040</span> with <span style="color:#53a6e6">264KB</span> RAM, <span style="color:#53a6e6">16MB</span> FLASH
-S/N: <span style="color:#53a6e6">2509449B952069E4</span>
-https://DangerousPrototypes.com/
-Flash Storage: <span style="color:#53a6e6"> 0.10GB</span> (FAT16 File System)
+{{< termfile  source="static/snippets/cmdref-info.html" >}} 
 
-<span style="color:#bfa530">Configuration file:</span> Loaded
-<span style="color:#bfa530">Available modes:</span> HiZ UART I2C SPI LED DUMMY1
-<span style="color:#bfa530">Active mode:</span> HiZ ()=()
-<span style="color:#bfa530">Display format:</span> Auto
-
-<span style="color:#96cb59">HiZ></span> 
-{{< /term >}}
-
-Type ```i``` followed by ```enter``` to see the hardware, firmware, and microcontroller version.
-
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">Active mode:</span> HWI2C (speed)=(0)
-<span style="color:#bfa530">Display format:</span> Auto
-<span style="color:#bfa530">Data format:</span> 8 bits, MSB bitorder
-<span style="color:#bfa530">Pull-up resistors:</span> ON
-<span style="color:#bfa530">Power supply:</span> ON (3.3V/3.3V)
-<span style="color:#bfa530">Current limit:</span> OK (8.0mA/50.0mA)
-<span style="color:#bfa530">Frequency generators:</span> OFF
-{{< /term >}}
-
-If a bus mode is configured additional
- information about the configuration is printed.
+Display the hardware, firmware, and microcontroller version information. If a mode is selected, additional information about the mode is displayed.
+- ```i``` - show the current version information.
 
 ### **c** Configuration options menu
+{{< termfile  source="static/snippets/cmdref-config.html" >}}
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">I2C></span> c
-<span style="color:#bfa530">
-<span style="color:#bfa530">Configuration options</span></span>
- 1. <span style="color:#bfa530">Language</span>
- 2. <span style="color:#bfa530">ANSI color mode</span>
- 3. <span style="color:#bfa530">ANSI toolbar mode</span>
- 4. <span style="color:#bfa530">LCD screensaver</span>
- 5. <span style="color:#bfa530">LED effect</span>
- 6. <span style="color:#bfa530">LED color</span>
- 7. <span style="color:#bfa530">LED brightness</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59"> ></span> 1
-
-<span style="color:#bfa530">Language</span>
- 1. <span style="color:#bfa530">English</span>
- 2. <span style="color:#bfa530">Chinese (simplified)</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59"> ></span> 1
-Language <span style="color:#bfa530">set to</span> English
-
-<span style="color:#bfa530">Configuration options</span>
- 1. <span style="color:#bfa530">Language</span>
- 2. <span style="color:#bfa530">ANSI color mode</span>
- 3. <span style="color:#bfa530">ANSI toolbar mode</span>
- 4. <span style="color:#bfa530">LCD screensaver</span>
- 5. <span style="color:#bfa530">LED effect</span>
- 6. <span style="color:#bfa530">LED color</span>
- 7. <span style="color:#bfa530">LED brightness</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59"> ></span> x
-
-<span style="color:#bfa530">Configuration file:</span> Saved
-
-<span style="color:#96cb59">I2C></span>
-{{< /term >}}
-
-Type ```c``` followed by ```enter``` to show the configuration menu. 
-
-Press ```x``` followed by ```enter``` to exist the configuration menus and save the current settings to flash storage.
+Configure language, LED effects, terminal output and other options. On exit settings are saved to bpconfig.bp on the Bus Pirate flash storage.
+- ```c``` - show the configuration menu.
+- ```x``` - exit the configuration menu and save the current settings to flash storage.
 
 ### **m** Set bus mode
+{{< termfile  source="static/snippets/cmdref-mode-menu.html" >}} 
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">SPI></span> m
-<span style="color:#bfa530">
-<span style="color:#bfa530">Mode selection</span></span>
- 1. <span style="color:#bfa530">HiZ</span>
- 2. <span style="color:#bfa530">UART</span>
- 3. <span style="color:#bfa530">I2C</span>
- 4. <span style="color:#bfa530">SPI</span>
- 5. <span style="color:#bfa530">LED</span>
- 6. <span style="color:#bfa530">DUMMY1</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Mode ></span> 1
-<span style="color:#bfa530">Mode:</span> HiZ
-<span style="color:#96cb59">HiZ></span> 
-{{< /term >}}
+The Bus Pirate starts in HiZ mode, a safe mode with all outputs disabled. The ```m``` command selects a bus mode. The Bus Pirate supports many different protocols, including I2C, SPI, UART, 1-Wire, and more. Each protocol has its own set of commands and options.
+- ```m``` - show the bus mode menu and change modes.
 
-Type ```m``` followed by ```enter``` to select a bus mode. HiZ is a safe mode with all pins set to high-impedance and all peripherals disabled.
+{{< termfile  source="static/snippets/cmdref-mode-short.html" >}} 
+
+An optional mode parameter can be specified to skip the mode menu. For example, ```m i2c``` selects I2C mode. 
+- ```m <mode>``` - change bus mode without showing the menu.
 
 ### **l/L** Set MSB/LSB first
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HiZ></span> l
-<span style="color:#bfa530"><span style="color:#bfa530">Bitorder:</span></span> MSB 0b<span style="color:#bfa530">1</span>0000000
-<span style="color:#96cb59">HiZ></span> L
-<span style="color:#bfa530"><span style="color:#bfa530">Bitorder:</span></span> LSB 0b0000000<span style="color:#bfa530">1</span>
-<span style="color:#96cb59">HiZ></span> 
-{{< /term >}}
+{{< termfile  source="static/snippets/cmdref-l.html" >}} 
 
-The l/L commands determines the [bit order](http://en.wikipedia.org/wiki/Most_significant_bit) for reading and writing bytes. 
+The l/L commands determine the [bit order](http://en.wikipedia.org/wiki/Most_significant_bit) for reading and writing bytes. 
+- ```l``` - most significant bit (MSB) first. This is the default setting.
+- ```L``` - least significant bit (LSB) first. 
 
+{{% alert context="info" %}}
 The current bit order configuration is displayed on the extended information screen using the ```i``` command while in a mode other than HiZ.
+{{% /alert %}}
 
 ### **o** Data output display format
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HiZ></span> o
-<span style="color:#bfa530">
-<span style="color:#bfa530">Number display format</span></span>
- <span style="color:#bfa530">Current setting: Auto</span>
- 1. <span style="color:#bfa530">Auto</span>
- 2. <span style="color:#bfa530">HEX</span>
- 3. <span style="color:#bfa530">DEC</span>
- 4. <span style="color:#bfa530">BIN</span>
- 5. <span style="color:#bfa530">ASCII</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Mode ></span> 1
-<span style="color:#bfa530">Mode:</span> Auto
-<span style="color:#96cb59">HiZ></span> 
-{{< /term >}}
+{{< termfile  source="static/snippets/cmdref-o.html" >}} 
 
-The Bus Pirate can display values as [hexadecimal](http://en.wikipedia.org/wiki/Hexadecimal), [decimal](http://en.wikipedia.org/wiki/Decimal), [binary](http://en.wikipedia.org/wiki/Binary_numeral_system) and a raw
-[ASCII](http://en.wikipedia.org/wiki/ASCII) byte. Change the setting in
-the data display format menu (o). The default display format is Auto.
+The Bus Pirate can display values as [hexadecimal](http://en.wikipedia.org/wiki/Hexadecimal), [decimal](http://en.wikipedia.org/wiki/Decimal), [binary](http://en.wikipedia.org/wiki/Binary_numeral_system) and raw
+[ASCII](http://en.wikipedia.org/wiki/ASCII) bytes. 
 
-- Auto display mode attempts to mirror user input formatting. Each value is displayed in the HEX/DEC/BIN format entered.
-- RAW display mode sends data to the terminal as raw bytes without any text conversion. This is useful for talking to ASCII serial interfaces that don't need further conversion.
+**Auto display** mode mirrors input formatting. Each value is displayed in the HEX/DEC/BIN format entered.
+
+Change the setting in the data display format menu with the ```o``` command. The default display format is Auto.
+
+- ```o``` - show the data display format menu.
+
+{{% alert context="info" %}}
+The current display format is shown on the extended information screen using the ```i``` command while in a mode other than HiZ.
+{{% /alert %}}
 
 ### **d** Display mode
+{{< termfile  source="static/snippets/.html" >}} 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> d
 <span style="color:#bfa530">Display selection
@@ -372,10 +204,19 @@ BIO7 FLOAT: 0/0.04V OK
 BIO HIGH TEST (SHOULD BE >3.0V)</span>
 {{< /term >}}
 
-Perform a factory self-test. The Bus Pirate is capable of twiddling pins and checking for hardware faults. See the Bus Pirate self-test guide for a complete list of tests and the problems they detect.
+Perform a factory self-test. The Bus Pirate is capable of twiddling pins and checking for hardware faults. See the [Bus Pirate self-test guide]({{< relref "/docs/tutorial-basics/self-test/">}}) for a complete list of tests and the problems they detect.
+
+- ```~``` - run the self-test.
+
+{{% alert context="danger" %}}
+Disconnect all wires and devices from the Bus Pirate before running the self-test. Any connected devices may be damaged or cause the test to fail. 
+{{% /alert %}}
+
+{{% alert context="info" %}}
+Self-test is only available in HiZ mode. If you are in a different mode, the Bus Pirate will prompt you to change to HiZ mode before running the test.
+{{% /alert %}}
 
 ### **#** Reset
-
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> #
 
@@ -384,170 +225,137 @@ VT100 compatible color mode? (Y/n)>
 
 Reset the Bus Pirate. 
 
+- ```#``` - reset the Bus Pirate.
+
+{{% alert context="info" %}}
 Depending on your serial terminal software you may need to reconnect to the Bus Pirate serial port. The latest versions of many terminal emulators, such as Tera Term, reconnect automatically.
+{{% /alert %}}
 
 ### **$** Jump to bootloader 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> $
+Jump to bootloader for firmware upgrades
+
+Bus Pirate 5 REV10
+Firmware download:
+https://forum.buspirate.com/t/bus-pirate-5-auto-build-main-branch/20/999999
+Hardware revision: 10
+Firmware file: bus_pirate5_rev10.uf2
+A USB disk named "RPI-RP2" will appear
+Drag a firmware file to the disk to upgrade
+Later Alligator!
 {{< /term >}}
 
-Activate the Bus Pirate bootloader for firmware updates. The bootloader appears as a USB disk drive connected to your computer. Drag a **.uf2** firmware file into the disk. After an update the Bus Pirate resets.
+Activate the Bus Pirate bootloader for firmware updates. The bootloader appears as a USB disk drive connected to your computer. Drag a **.uf2** firmware file into the disk. After an update the Bus Pirate resets. See [firmware downloads]({{< relref "/docs/downloads/">}}) and [upgrade instructions]({{< relref "/docs/tutorial-basics/firmware-update/">}}).
+
+- ```$``` - jump to bootloader mode.
 
 {{% alert context="info" %}}
-If the firmware update is interrupted and you find yourself locked out of the Bus Pirate terminal don't panic. Use the 2mm HEX key included with Bus Pirate 5 (or a paperclip) to press and hold the bootloader button on the bottom of the board. Plug in the USB cable while holding the button down. The bootloader with connect and you can try the update again. The bootloader is frozen in hardware and cannot be corrupted or overwritten.
+When jumping to bootloader mode, the Bus Pirate displays the hardware version, download link, and the name of the firmware file to use.
 {{% /alert %}}
 
 ## Utilities
 
+|Command|Description|
+|--------|-----------|
+|```w```/```W``` | Power supply (off/ON)
+|```v```/```V``` | Power supply voltage report (once/CONTINUOUS)
+|```p```/```P``` | Pull-up resistors (off/ON)
+|```g```/```G``` | Frequency generator (off/ON)
+|```f```/```F``` | Measure frequency (once/CONTINUOUS)
+|```=```X | Convert X to HEX/DEC/BIN number format
+|```\|``` X | Reverse bits in byte X
+|```a```/```A```/```@``` | Auxiliary pin control (low/HIGH/input)
+
+
 ### **w/W** Power supply (off/ON) 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">I2C></span> W
-<span style="color:#bfa530"><span style="color:#bfa530">Power supply
-Volts (0.80V-5.00V)</span></span>
-<span style="color:#96cb59">x to exit (3.30) ></span> 2.1
-<span style="color:#53a6e6">2.10</span>V<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">2.10</span></span>V
-Set current limit?
-y
+{{< termfile  source="static/snippets/cmdref-psuon-menu.html" >}} 
 
-<span style="color:#bfa530">Maximum current (0mA-500mA)</span>
-<span style="color:#96cb59">x to exit (100.00) ></span> 50
-<span style="color:#53a6e6">50.0</span>mA<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">50.0</span></span>mA
-
-<span style="color:#bfa530">Power supply:</span>Enabled
-<span style="color:#bfa530">
-Vreg output: <span style="color:#53a6e6">2.1</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">2.1</span></span>V<span style="color:#bfa530">, Current sense: <span style="color:#53a6e6">7.3</span></span>mA<span style="color:#bfa530">
-</span>
-<span style="color:#96cb59">I2C></span> 
-{{< /term >}}
-
-Bus Pirate 5 has a single 'Programmable Power Supply Unit' (PPSU) with several handy features:
+A 'Programmable Power Supply Unit' (PPSU) has several handy features:
 - 1-5volts adjustable output
 - 0-500mA current sense 
 - 0-500mA current limit with digital fuse
 - One-way valve to protect the PPSU when an external voltage is applied to the VREF/VOUT pin
 
-Uppercase ```W``` enables the onboard power supply unit. You will be prompted for the output voltage and an optional current limit.
+Uppercase ```W``` enables the onboard power supply unit. You will be prompted for the output voltage and an optional current limit. Default current limit is 300mA, or 0 for no current limit. 
+
+- ```W``` - Enable the power supply unit. Show interactive menu to set voltage and current limit.
+- ```W <voltage> <current limit>``` - Enable the power supply unit with voltage and current limit specified. 
+- ```W <voltage>``` - Enable the power supply unit with voltage specified. Current limit is set to 300mA.
+- ```w``` - Disable the power supply unit.
 
 Check the voltage and current in the live view statusbar if active, or show the power supply voltage report using the ```v``` command.
 
-{{% alert context="danger" %}}
-400mA is the rated maximum of the PPSU, but we added some headroom in the current limit to account for current spikes.
-
-The PPSU is capable of 0.8 to 5volts output. However, the maximum working range is limited to 1-5volts because of the Vgs of the P-channel MOSFET used in the one-way valve. Many will be capable of the full range, but some may not. The Bus Pirate 5 IO buffers are only rated to 1.65volts, so in practice this isn't an issue over the specified working range.
-{{% /alert %}}
-
 When the programmed current limit is exceeded the PPSU hardware fuse disables the power supply. The terminal colors invert repeatedly, an alarm bell will sound, an error message is shown and command execution is halted. Use the ```W``` command to restart the PPSU again.
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">SPI></span>w
-<span style="color:#bfa530"><span style="color:#bfa530">Power supply: </span></span>Disabled
-<span style="color:#96cb59">SPI></span> 
-{{< /term >}}
+{{% alert context="danger" %}}
+400mA is the rated maximum of the PPSU, but we added some headroom in the current limit to account for current spikes.
+{{% /alert %}}
+
+{{% alert context="info" %}}
+The PPSU is capable of 0.8 to 5volts output. However, the maximum working range is limited to 1-5volts because of the maximum Vgs of the P-channel MOSFET in the one-way valve. Many will be capable of the full range, but some may not. The Bus Pirate IO buffers are only rated to 1.65volts, so in practice this isn't an issue over the specified working range.
+{{% /alert %}}
+
+
+
+{{< termfile  source="static/snippets/cmdref-psuon-short.html" >}} 
+
+- ```W <voltage> <current limit>``` - Set the voltage and current limit. The voltage is in volts, the current limit is in mA. The current limit is optional, if not specified the default is 300mA, or use 0 for no current limit.
+
+{{< termfile  source="static/snippets/cmdref-psuoff.html" >}} 
 
 Lowercase ```w``` disables the PPSU.
+- ```w``` - Disable the power supply.
 
 ### **v/V** Power supply voltage report 
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-
-![](/images/docs/fw/cmd-v.png)
-
-{{< /term >}}
+![](/images/docs/fw/psu-statusbar1a.png) 
 
 The voltage report shows the current state of all the Bus Pirate pins and peripherals. This is a duplicate of the information shown on the live view statusbar.
 
-- The first line is the pin number and probe color. The colors also match the Bus Pirate LCD and the live view statusbar.
-- The second line is the pin function.
-- The third line shows the voltage measured
- on each pin. 
-
-Lowercase ```v``` displays a one time voltage measurement. Uppercase ```V``` displays a continuously updated voltage measurement, press any key to exit.
+- ```v``` - Show the power supply voltage report once.
+- ```V``` - Show the power supply voltage report, update continuously. Press any key to exit.
 
 ### **p/P** Pull-up resistors 
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">I2C></span> P
-<span style="color:#bfa530"><span style="color:#bfa530">Pull-up resistors:</span></span> Enabled (10Kohms @ <span style="color:#53a6e6">3.3</span>V)
+{{< termfile  source="static/snippets/cmdref-p.html" >}}
 
-<span style="color:#96cb59">I2C></span> p
-<span style="color:#bfa530"><span style="color:#bfa530">Pull-up resistors:</span></span> Disabled
+```p``` and ```P``` toggle the pull-up resistors off and on. Pull-up resistors are required for open collector/open drain bus types such as 1-Wire and I2C.
 
-<span style="color:#96cb59">I2C></span> 
-{{< /term >}}
+- ```P``` - Enable the pull-up resistors.
+- ```p``` - Disable the pull-up resistors.
 
-```p``` and ```P``` toggle the pull-up resistors off and on. Pull-up resistors are generally used with open collector/open drain bus types such as 1-Wire and I2C.
-
-The onboard pull-up resistors **are powered through the VREF/VOUT pin
-of the IO header**, either by the onboard power supply or an external voltage applied to the VREF/VOUT pin. 
+The onboard pull-up resistors **are powered through the VREF/VOUT pin of the IO header**, either by the onboard power supply or an external voltage applied to the VREF/VOUT pin. 
 
 {{% alert context="info" %}}
-A warning is displayed if there's no voltage on the VREF/VOUT pin. Check the voltage report ```v``` and verify that a voltage is present on VOUT/VREF.
+A warning is displayed if there's no voltage on the VREF/VOUT pin. Check the status bar or voltage report ```v``` to verify that a voltage is present on VOUT/VREF.
 {{% /alert %}}
 
 ### **g/G** Frequency generator
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">LED-()></span> G
-<span style="color:#bfa530"><span style="color:#bfa530">Generate frequency</span></span>
-<span style="color:#bfa530">Choose available pin:</span>
- 0. IO<span style="color:#53a6e6">0</span>
- 1. IO<span style="color:#53a6e6">1</span>
- 2. IO<span style="color:#53a6e6">2</span>
- 3. IO<span style="color:#53a6e6">3</span>
- 4. IO<span style="color:#53a6e6">4</span>
- 5. IO<span style="color:#53a6e6">5</span>
- 6. IO<span style="color:#53a6e6">6</span>
- 7. IO<span style="color:#53a6e6">7</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59"> ></span> 0
-<span style="color:#96cb59">Period or frequency (ns, us, ms, Hz, KHz or Mhz) ></span> 12.4KHz
-<span style="color:#bfa530">Frequency:</span> <span style="color:#53a6e6">12.400</span>KHz = <span style="color:#53a6e6">12400</span>Hz (<span style="color:#53a6e6">12.40</span>KHz)
-<span style="color:#bfa530">Period:</span> <span style="color:#53a6e6">80645</span>ns (<span style="color:#53a6e6">80.65</span>us)
-
-<span style="color:#bfa530">Actual frequency:</span> <span style="color:#53a6e6">12401</span>Hz (<span style="color:#53a6e6">12.40</span>KHz)
-<span style="color:#bfa530">Actual period:</span> <span style="color:#53a6e6">80640</span>ns (<span style="color:#53a6e6">80.64</span>us)
-
-<span style="color:#96cb59">Duty cycle (%) ></span> 35%
-<span style="color:#bfa530">Duty cycle:</span> <span style="color:#53a6e6">35.00</span>% = <span style="color:#53a6e6">28224</span>ns (<span style="color:#53a6e6">28.22</span>us)
-<span style="color:#bfa530">Actual duty cycle:</span> <span style="color:#53a6e6">28227</span>ns (<span style="color:#53a6e6">28.23</span>us)
-Divider: 16, Period: 10079, Duty: 3528
-
-<span style="color:#bfa530">Generate frequency:</span> Enabled on IO<span style="color:#53a6e6">0</span>
-
-<span style="color:#96cb59">LED-()></span>
-{{< /term >}}
+{{< termfile  source="static/snippets/cmdref-pwmon.html" >}} 
 
 Uppercase ```G``` displays the frequency generation menu. Choose an available pin and enter the period or frequency, including the units (ns, us, ms, Hz, KHz or Mhz). Enter a duty cycle as a percent, don't forget the ```%```. The Bus Pirate will find the closest match and generate a frequency on the pin. 
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
+- ```G``` - show the frequency generation menu.
+- ```g``` - disable frequency generator, show menu if multiple frequency generators are active.
+- ```g <pin>``` - disable frequency generator on \<pin>.
 
 ![](/images/docs/fw/cmd-freq.png)
 
-{{< /term >}}
-
 The frequency generator will be displayed in the live view statusbar and on the LCD with the label ***PWM***.
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">LED-()></span> g 0
-<span style="color:#bfa530">Generate frequency:</span> Disabled on IO<span style="color:#53a6e6">0</span>
-
-<span style="color:#96cb59">LED-()></span> 
-{{< /term >}}
-
-To stop the frequency generator on a single pin, use the lowercase ```g.X``` command where X is the pin number.
-
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">LED-()></span> g
-<span style="color:#bfa530">Generate frequency:</span> Disabled on IO<span style="color:#53a6e6">0</span>
-
-<span style="color:#96cb59">LED-()></span> 
-{{< /term >}}
-
-To stop frequency generation on all pins, use the lowercase ```g``` command without specifying a pin.
-
 {{% alert context="danger" %}}
-Not all pins will be available due to the PWM structure of the RP2040, and adjacent pairs must share the same frequency. There is also an issue with the PPSU using a PWM slice. This should all be solvable with the PIO, but for now the Bus Pirate will warn you about the limitations.
+Not all pins will be available due to the PWM structure of the Raspberry Pi chip used in the Bus Pirate, and adjacent pairs must share the same frequency. 
 {{% /alert %}}
+
+{{< termfile  source="static/snippets/cmdref-pwmalloff.html" >}} 
+
+- ```g``` - disable frequency generator, show menu if multiple frequency generators are active.
+
+{{< termfile  source="static/snippets/cmdref-pwmoff.html" >}} 
+
+- ```g <pin>``` - disable frequency generator on \<pin>.
 
 ### **f/F** Measure frequency
 
@@ -567,15 +375,24 @@ Not all pins will be available due to the PWM structure of the RP2040, and adjac
 <span style="color:#96cb59">LED-()></span> 
 {{< /term >}}
 
-```F``` displays the frequency measurement menu. Choose one of the available pins. 
+Frequency measurement is available on odd numbered pins (1,3,5,7). A frequency can be sampled once or continuously. 
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
+- ```F``` - show the frequency measurement menu, measure continuously and display in the status bar.
+- ```f``` - Disable continuous frequency measurement, show menu if multiple frequency generators are active.
+- ```F <pin>``` - measure the frequency and duty cycle on pin \<pin> continuously. Press any key to exit.
+- ```f <pin>``` - measure the frequency and duty cycle on pin \<pin> once.
 
-![](/images/docs/fw/cmd-freq.png)
-
-{{< /term >}}
+![](/images/docs/fw/cmd-freq.png) 
 
 The frequency will be measured continuously and displayed in the live view statusbar and LCD with the label **FREQ**.
+
+{{% alert context="danger" %}}
+Not all pins will be available due to the PWM structure of the Raspberry Pi chip used in the Bus Pirate, and adjacent pairs share the same PWM slice.
+{{% /alert %}} 
+
+{{< termfile  source="static/snippets/cmdref-freq-off.html" >}}
+
+- ```f``` - Disable continuous frequency measurement, show menu if multiple frequency generators are active.
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> f 7
@@ -583,7 +400,7 @@ The frequency will be measured continuously and displayed in the live view statu
 <span style="color:#96cb59">LED-()></span>
 {{< /term >}}
 
-Lowercase ```f X``` measures the frequency and duty cycle on pin X once.
+- ```f <pin>``` - measure the frequency and duty cycle on pin \<pin> once.
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> F 7
@@ -591,83 +408,1408 @@ Lowercase ```f X``` measures the frequency and duty cycle on pin X once.
 <span style="color:#bfa530">Frequency</span> IO<span style="color:#53a6e6">7</span>: <span style="color:#53a6e6">12.40</span>KHz <span style="color:#53a6e6">80.65</span>us (<span style="color:#53a6e6">12400</span>Hz), <span style="color:#bfa530">Duty cycle:</span> <span style="color:#53a6e6">35.0</span>%
 {{< /term >}}
 
-Uppercase ```F X``` continuously measures the frequency and duty cycle on pin X. Press any key to exit.
-
+- ```F <pin>``` - measure the frequency and duty cycle on pin \<pin> continuously. Press any key to exit.
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> f 6
 <span style="color:#bfa530">IO6 has no frequency measurement hardware!
 Freq. measure is currently only possible on odd pins (1,3,5,7).
-In the future we will fix this using the RP2040 PIO.
 </span>
 {{< /term >}}
 
-Only half of the RP2040 pins support frequency measurement. The Bus Pirate will warn you if hardware isn't available. To see which pins are currently available use the ```F``` command.
+Only half of the pins support frequency measurement. The Bus Pirate will warn you if hardware isn't available. To see which pins are currently available use the ```F``` command.
 
-{{% alert context="danger" %}}
-Not all pins will be available due to the PWM structure of the RP2040, and adjacent pairs share the same PWM slice. There is also an issue with the PPSU using a PWM slice. This should all be solvable with the PIO, but for now the Bus Pirate will warn you about the limitations.
-{{% /alert %}}
 
-### **=X** Convert X to HEX/DEC/BIN number format
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">I2C></span> = 0b110
-<span style="color:#bfa530"> </span>=0x<span style="color:#53a6e6">06</span> =6 =0b<span style="color:#53a6e6">0000</span>0110
-<span style="color:#96cb59">I2C></span> = 0x6
-<span style="color:#bfa530"> </span>=0x<span style="color:#53a6e6">06</span> =6 =0b<span style="color:#53a6e6">0000</span>0110
-<span style="color:#96cb59">I2C></span> = 6
-<span style="color:#bfa530"> </span>=0x<span style="color:#53a6e6">06</span> =6 =0b<span style="color:#53a6e6">0000</span>0110
-<span style="color:#96cb59">I2C></span> 
-{{< /term >}}
+### **=X** Convert to HEX/DEC/BIN number format
 
-Type ```=``` and enter a value to see the HEX/DEC/BIN equivalent. Base conversion command, available in all modes. 
+{{< termfile  source="static/snippets/cmdref-convert.html" >}} 
+
+Convert between HEX, DEC and BIN number formats easily. Type ```=``` followed by a number to see the HEX/DEC/BIN equivalent. 
+
+- ```= <number>``` - Display the HEX/DEC/BIN equivalent of \<number>.  
 
 {{% alert context="info" %}}
-To change the Bus Pirate output display format see the ```o``` command.
+To change the Bus Pirate output display format see the [```o``` command]({{% relref "/docs/command-reference/commands/#o-data-output-display-format" %}}).
 {{% /alert %}}
 
-### **| X** Reverse bits in byte X 
+### **| X** Reverse bits 
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">I2C></span> | 0b11110000
-<span style="color:#bfa530">|0x0F000000.32|0001700000000.32|0b00001111000000000000000000000000.32</span>
-<span style="color:#96cb59">I2C></span>
-{{< /term >}}
+{{< termfile  source="static/snippets/cmdref-reverse.html" >}} 
 
-Reverse bit order in byte X. Displays the HEX/DEC/BIN value of the reversed byte.
+Reverse bit order of a number. Displays the HEX/DEC/BIN value of the reversed number.
+
+- ```| <number>``` - Reverse the bits in \<number>. 
 
 {{% alert context="info" %}}
-To change the Bus Pirate read/write bit order see the ```l```/```L``` command.
+To change the Bus Pirate read/write bit order see the [```l```/```L``` command]({{% relref "/docs/command-reference/commands/#ll-set-msblsb-first" %}}).
+{{% /alert %}}
+
+### **a/A/@** Auxiliary pin control (low/HIGH/read)
+{{< termfile  source="static/snippets/cmdref-auxpin.html" >}} 
+
+Pins that are not assigned a function can be controlled from the command line.
+- ```a <pin>``` - set IO \<pin> low (0V).
+- ```A <pin>``` - set pin X high (VCC).
+- ```@ <pin>``` - set pin X to input (HiZ) and read the pin state. The pin state is reported as 0 or 1.
+
+{{% alert context="warning" %}}
+Pins already assigned a function, such as PWM or mode/protocol pins, cannot be changed with the a/A/@ commands. The Bus Pirate will report an error.
+{{% /alert %}}
+
+{{% alert context="info" %}}
+Commands a/A/@ are followed by a space and the pin number to control. This is different than syntax a/A/@  which use the ```a.<pin>``` notation.
+{{% /alert %}}
+
+## Disk Commands
+
+Linux-like commands are used to navigate the flash storage from the Bus Pirate command line. 
+
+| Command | Description | 
+|---|---|
+|```ls```|List files and directories|q
+|```cd```|Change directory|
+|```mkdir```|Make directory|
+|```rm```|Remove file or directory|
+|```cat```|Print file contents as text|
+|```hex```|Print file contents in HEX|
+|```format```|Format storage disk (FAT16)|
+|```label```|Get or set the disk label|
+
+These common commands are supported in the firmware as of this update, but always use ```help``` or ```?``` to see the latest commands available. Add -h to any command for extended help: ```hex -h```.
+
+### **ls** List directory contents
+
+{{< termfile  source="static/snippets/cmdref-disk-ls.html" >}}  
+
+List the contents of a directory in flash storage. 
+- ```ls``` - list the contents of the current directory. 
+- ```ls <directory>``` - ls followed by a directory name lists the contents of that directory.
+
+### **mkdir** Make directory
+
+{{< termfile  source="static/snippets/cmdref-disk-mkdir.html" >}} 
+
+Make a new directory at the current location in the flash storage. 
+- ```mkdir <directory>``` - create a new directory.
+
+### **cd** Change directory
+
+{{< termfile  source="static/snippets/cmdref-disk-cd.html" >}} 
+
+Change directory. 
+- ```cd <directory>``` - change to a subdirectory.
+- ```cd ..``` - change to the parent directory.
+
+### **rm** Remove file or directory
+{{< termfile  source="static/snippets/cmdref-disk-rm.html" >}} 
+
+Remove file or directory (if empty). 
+- ```rm <file | directory>``` - remove a file or empty directory.
+
+### **cat** Print file contents
+{{< termfile  source="static/snippets/cmdref-cat.html" >}} 
+
+Print the contents of a file. 
+- ```cat <file>``` 
+
+### **hex** Hex dump file
+{{< termfile  source="static/snippets/cmdref-hex.html" >}} 
+
+Print the content of a file in hexadecimal format.
+- ```hex <file>``` 
+
+### **label** Set disk label
+{{< termfile  source="static/snippets/cmdref-label.html" >}} 
+
+Set and get the disk label. 
+- ```label set <label>``` - set the disk label. The label can be up to 11 characters long and must not contain spaces or special characters.
+- ```label get``` - display the current disk label.
+
+
+### **format** Erase and format disk
+{{< termfile  source="static/snippets/cmdref-format.html" >}} 
+
+Erase the internal flash storage and format it with a FAT16 file system. **ALL DATA WILL BE LOST!**
+- ```format``` - format the entire flash storage, confirm twice. This will erase all files and directories on the disk.
+
+
+## Bus commands
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> [0x31 r:5]
+<span style="color:#bfa530">CS Select (0)</span>
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">31</span>
+<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span>
+<span style="color:#bfa530">CS Deselect (1)</span>
+<span style="color:#96cb59">SPI></span> 
+{{< /term >}}
+
+A simple bus commands are used to interact with devices in various protocols. Bus command characters have the same general function in each bus mode, such as ```r``` to read a byte of data.
+
+This example sends a bus start, the value 0x31, and then reads 5
+bytes, followed by bus stop. Up to 255 characters may be
+entered into the Bus Pirate terminal at once, press ```enter``` to execute the
+commands.
+
+{{% alert context="info" %}}
+**Bus commands must start with ```[```, ```{```, or ```>```.**
+{{% /alert %}}
+
+### **\{ or [** Bus START condition
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> [
+<span style="color:#bfa530">CS Select (0)</span>
+<span style="color:#96cb59">SPI></span>
+{{< /term >}}
+
+START commands generate a START condition (I2C), a RESET (1-Wire, LED), chip select (SPI) and have similar START type functions in most modes. A line beginning with START is interpreted as bus commands.
+
+- ```[``` - send the START condition for the currently selected bus mode.
+- ```{``` - send the alternate START condition for the currently selected bus mode.
+
+{{% alert context="info" %}}
+Lines beginning with ```[``` and ```{``` are interpreted as bus commands, data will be sent to the device in the current protocol selected with the [```m``` command]({{% relref "/docs/command-reference/commands/#m-set-bus-mode" %}}).
+{{% /alert %}}
+
+### **>** Execute bus commands (no START)
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> > 0x55 0xaa
+
+<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">55</span> 0x<span style="color:#53a6e6">AA</span> 
+<span style="color:#96cb59">SPI></span> 
+{{< /term >}}
+
+If you want to execute bus commands without sending a START, use the ```>``` bus command. Lines beginning with ```>``` are also executed as bus commands.
+
+- ```>``` - start a line with ```>``` to send bus commands without sending a START condition. 
+
+{{% alert context="info" %}}
+The ```>``` command is used to send syntax without sending a START command to the bus.
+{{% /alert %}}
+
+### **] or }** Bus STOP condition
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> >]
+<span style="color:#bfa530">CS Deselect (1)</span>
+<span style="color:#96cb59">SPI></span> 
+{{< /term >}}
+
+Many protocols have a STOP condition. In various modes ```]``` and ```}``` STOPs (I2C), deselects
+(SPI), or closes (UART).
+
+- ```]``` - send the STOP condition for the currently selected bus mode.
+- ```}``` - send the alternate STOP condition for the currently selected bus mode.
+
+### **r** Read byte 
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> >r
+<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span style="color:#53a6e6">00</span>
+<span style="color:#96cb59">SPI></span> 
+{{< /term >}}
+
+- ```r``` - read a byte from the bus. Use with the [repeat command]({{% relref "/docs/command-reference/commands/#-repeat-eg-r10" %}}) (r:1...255) for bulk reads.
+
+{{% alert context="info" %}}
+The ```>``` before ```r``` tells the Bus Pirate we want to send bus commands.
+{{% /alert %}}
+
+### **0b01** Write this binary value 
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> >0b01
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0b<span style="color:#53a6e6">0000</span>0001
+<span style="color:#96cb59">SPI></span> 
+{{< /term >}}
+
+[Binary](http://en.wikipedia.org/wiki/Binary_numeral_system) values are
+commonly used in electronics because the 1s and 0s correspond to
+register 'switches' that control various aspects of a device. When used as part of a bus command, the Bus Pirate will write the value in the currently selected bus protocol.
+
+Begin a binary number with ```0b```, followed by the bits. Padding 0's are not required,
+0b00000001=0b1. Can be used with the [repeat command]({{% relref "/docs/command-reference/commands/#-repeat-eg-r10" %}}) (0b110:1...255) for bulk writes.  
+
+- ```0b0``` - binary "0".
+- ```0b1``` - binary "1".
+- ```0b11111111``` - binary "255".
+
+{{% alert context="info" %}}
+The ```>``` before ```0b01``` tells the Bus Pirate we want to send bus commands.
+{{% /alert %}}
+
+### **0x01** Write this HEX value 
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> >0x01
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">01</span>
+<span style="color:#96cb59">SPI></span> 
+{{< /term >}}
+
+[Hexadecimal](http://en.wikipedia.org/wiki/Hexadecimal) values are base
+16 numbers that use a-f for the numbers 10-15, this format is very
+common in computers and electronics. When used as part of a bus command, the Bus Pirate will write the value in the currently selected bus protocol.
+
+Begin a hexadecimal number with ```0x``` or ```0h```, followed by the hex digits. A-F can be lowercase or uppercase letters. Padding 0's are not required, 0x05=0x5. Hexadecimal numbers can be used with the [repeat command]({{% relref "/docs/command-reference/commands/#-repeat-eg-r10" %}}) (0xff:1...255) for bulk writes.
+
+- ```0x0``` - hexadecimal "0".
+- ```0x1``` - hexadecimal "1".
+- ```0xff``` - hexadecimal "255".
+
+{{% alert context="info" %}}
+The ```>``` before ```0x01``` tells the Bus Pirate we want to send bus commands.
+{{% /alert %}}
+
+### **0-255** Write this decimal value
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> >1
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 1
+<span style="color:#96cb59">SPI></span>
+{{< /term >}}
+
+Any number not started with 0b, 0x or 0h is interpreted as a decimal value. [Decimal](http://en.wikipedia.org/wiki/Decimal) values are common base 10 numbers. Just enter the value, no special prefix is required. Decimal numbers can be used with the [repeat command]({{% relref "/docs/command-reference/commands/#-repeat-eg-r10" %}}) (10:1...255) for bulk writes.
+
+- ```0``` - decimal "0".
+- ```1``` - decimal "1".
+- ```255``` - decimal "255".
+
+{{% alert context="info" %}}
+The ```>``` before ```1``` tells the Bus Pirate we want to send bus commands.
+{{% /alert %}}
+
+### **"abc"** Write this ASCII string 
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> >"abc"
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 'a' 0x<span style="color:#53a6e6">61</span> 'b' 0x<span style="color:#53a6e6">62</span> 'c' 0x<span style="color:#53a6e6">63</span> 
+{{< /term >}}
+
+Characters enclosed in ```" "``` are sent to the bus as their [ASCII equivalent codes](https://en.wikipedia.org/wiki/ASCII). Useful for writing text strings when programming flash chips, interfacing UARTs, etc.
+
+- ```"abc"``` - Write the ASCII string "abc" to the bus, equivalent to 0x61 0x62 0x63.
+
+{{% alert context="info" %}}
+The ```>``` before ```"abc"``` tells the Bus Pirate we want to send bus commands.
+{{% /alert %}}
+
+### **```space```** Value delimiter
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> [1 2 3  rr]
+<span style="color:#bfa530">CS Select (0)</span>
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 1
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 2
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 3
+<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span style="color:#53a6e6">00</span>
+<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span style="color:#53a6e6">00</span>
+<span style="color:#bfa530">CS Deselect (1)</span>
+<span style="color:#96cb59">SPI></span>
+{{< /term >}}
+
+Use a space to separate numbers.
+
+- ``` ``` - space is used to separate numbers on the command line. 
+
+{{% alert context="info" %}}
+No delimiter is required between non-number commands.
+{{% /alert %}}
+
+### **d/D** Delay 1uS/MS 
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> >d
+<span style="color:#bfa530"><span style="color:#bfa530">Delay:</span></span> <span style="color:#53a6e6">1</span>us
+<span style="color:#96cb59">SPI></span> >d:10
+<span style="color:#bfa530"><span style="color:#bfa530">Delay:</span></span> <span style="color:#53a6e6">10</span>us
+<span style="color:#96cb59">SPI></span> >D
+<span style="color:#bfa530"><span style="color:#bfa530">Delay:</span></span> <span style="color:#53a6e6">1</span>ms
+<span style="color:#96cb59">SPI></span> >D:10
+<span style="color:#bfa530"><span style="color:#bfa530">Delay:</span></span> <span style="color:#53a6e6">10</span>ms
+<span style="color:#96cb59">SPI></span> 
+{{< /term >}}
+
+Delay in microseconds or milliseconds. Delays can be extended with the [repeat command]({{% relref "/docs/command-reference/commands/#-repeat-eg-r10" %}}) (d:1...255).
+
+- ```d``` - delays 1us.
+- ```d:10``` - delay 10us.
+- ```D``` - delays 1ms. 
+- ```D:10``` - delay 10ms.
+
+{{% alert context="info" %}}
+The ```>``` before ```d``` tells the Bus Pirate we want to send bus commands.
+{{% /alert %}}
+
+### **:** Repeat (e.g. r:10) 
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> [ 0x55:2 D:3 r:3]
+<span style="color:#bfa530">CS Select (0)</span>
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">55</span> 0x<span style="color:#53a6e6">55</span>
+<span style="color:#bfa530"><span style="color:#bfa530">Delay:</span></span> <span style="color:#53a6e6">2</span>ms
+<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span>
+<span style="color:#bfa530">CS Deselect (1)</span>
+<span style="color:#96cb59">SPI></span> 
+{{< /term >}}
+
+Many commands can be repeated by adding ```:```, followed by the number of times to repeat. To read five bytes, enter ```r:5```, etc. 
+
+- ```0x55:2``` - write 0x55 to the bus twice.
+- ```D:3``` - delay 3ms.
+- ```r:3``` - read 3 bytes from the bus.
+
+{{% alert context="info" %}}
+Repeat values can also be HEX/DEC/BIN formatted.
+{{% /alert %}}
+
+### **.** Specify number of bits to read/write 
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> >0x5a.4
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">0A</span>.4
+<span style="color:#96cb59">SPI></span>
+{{< /term >}}
+
+Write/read partial bytes (where enabled by hardware) using the ```.``` option. ```0x75.4``` will write 0x5 (4 bits) to the bus. 
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> >r.4
+<span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span style="color:#53a6e6">05</span>.4
+<span style="color:#96cb59">SPI></span>
+{{< /term >}}
+
+Read 4 bits from the bus.
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> >0x5432.12
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">04</span>32.12
+<span style="color:#96cb59">SPI></span>
+{{< /term >}}
+
+Write 12 bits of 0x5432 to the bus.
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> >0x5a.4:2
+<span style="color:#bfa530"><span style="color:#bfa530">TX:</span></span> 0x<span style="color:#53a6e6">0a</span>.4 0x<span style="color:#53a6e6">0a</span>.4
+<span style="color:#96cb59">SPI></span> 
+{{< /term >}}
+
+Partial write/reads can be combined with the repeat command.
+
+### **v** Measure voltage
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> > v.1 v.2 v.3
+
+<span style="color:#bfa530">Volts on IO1:</span> <span style="color:#53a6e6">3.2</span>V
+<span style="color:#bfa530">Volts on IO2:</span> <span style="color:#53a6e6">3.2</span>V
+<span style="color:#bfa530">Volts on IO3:</span> <span style="color:#53a6e6">3.2</span>V
+<span style="color:#96cb59">SPI></span> 
+{{< /term >}}
+
+It is possible to measure the voltage of any IO pin while executing bus commands.
+
+- ```v.<pin>``` - measure the voltage on IO pin \<pin>
+
+{{% alert context="info" %}}
+The ```>``` before ```v.1 v.2 v.3``` tells the Bus Pirate we want to send bus commands.
 {{% /alert %}}
 
 ### **a/A/@** Auxiliary pin control (low/HIGH/read)
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">UART></span> a 1
+<span style="color:#96cb59">UART></span> >a.1
 <span style="color:#bfa530">IO<span style="color:#53a6e6">1<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span style="color:#53a6e6">0</span>
 
-<span style="color:#96cb59">UART></span> A 1
+<span style="color:#96cb59">UART></span> >A.1
 <span style="color:#bfa530">IO<span style="color:#53a6e6">1<span style="color:#bfa530"> set to</span></span></span> OUTPUT: <span style="color:#53a6e6">1</span>
 
-<span style="color:#96cb59">UART></span> @ 1
+<span style="color:#96cb59">UART></span> >@.1
 <span style="color:#bfa530">IO<span style="color:#53a6e6">1<span style="color:#bfa530"> set to</span></span></span> INPUT: <span style="color:#53a6e6">0</span>
 
 <span style="color:#96cb59">UART></span>
 {{< /term >}}
 
-Sometimes it's useful to control a pin directly from the user terminal.
- ```a X```, ```A X``` and ```@ X``` set pin X low, high and input (HiZ). The ```@``` command also reads and reports the pin state.
+Sometimes it's useful to control IO pins directly when executing bus commands.
 
-{{% alert context="info" %}}
-Commands a/A/@ are followed by a space and the pin number to control. This is different than syntax a/A/@  which use the ```a.X``` notation.
+- ```a.<pin>``` - set \<pin> low (0V).
+- ```A.<pin>``` - set \<pin> high (VCC).
+- ```@.<pin>``` - set \<pin> to input (HiZ) and read the pin state. The pin state is reported as 0 or 1.
+
+{{% alert context="warning" %}}
+Pins already assigned a function, such as PWM or mode/protocol pins, cannot be changed with the a/A/@ commands. The Bus Pirate will report an error.
 {{% /alert %}}
 
 {{% alert context="info" %}}
-Pins already assigned a function cannot be changed with the a/A/@ commands. The Bus Pirate will report an error.
+Bus commands a/A/@ use the ```a.<pin>``` notation, the syntax is followed by a **.** and the pin number to control. This is different than the commands a/A/@, which are followed by a space and the pin number to control.
 {{% /alert %}}
 
 
-## Macros
+
+
+## HiZ
+
+-   **Bus:** High impedance (HiZ)
+-   **Connections:** none
+-   **Output type:** not allowed
+-   **Pull-up resistors:** not allowed
+-   **Maximum voltage:** 5 volts
+
+HiZ is the default Bus Pirate mode. It is a safe mode: all outputs and hardware are disabled. 
+
+To change into a protocol mode, use the [```m``` command]({{% relref "/docs/command-reference/commands/#m-set-bus-mode" %}}).
+
+{{% alert context="info" %}}
+HiZ is a safe mode. If something goes wrong with your target device, switch to safe mode to disable all outputs and hardware.
+{{% /alert %}}
+
+## 1-Wire
+
+-   **Bus:** [1-Wire](https://en.wikipedia.org/wiki/1-Wire)
+-   **Connections:** one data pin (OWD) and ground
+-   **Output type:** open drain/open collector
+-   **Pull-up resistors:** always required (2K - 10K ohms)
+-   **Maximum voltage:** 5volts
+
+1-Wire is a single wire bus for low speed interfaces.
+
+### Pull-up resistors
+
+1-Wire is an open-collector bus, it requires pull-up resistors to hold the
+data line high and create the data '1'. 1-Wire parts don't
+output high, they only pull low. Without pull-up resistors there can
+never be a '1'. 
+
+Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/commands/#pp-pull-up-resistors"%}}).
+
+{{% alert context="info" %}}
+- 1-Wire requires a pull-up resistor to hold the data line high.
+- 1-Wire parts don't output high, they only pull low.
+- Without pull-up resistors there can never be a '1'. 
+- Enable the Bus Pirate onboard pull-up resistors with the ```P``` command.
+{{% /alert %}}
+
+### Connections
+
+| Bus Pirate | Direction                     | Circuit | Description   |
+|------------|--------------------------|---------|---------------|
+| OWD       | <font size="+2">↔</font> | OWD     | 1-Wire Data   |
+| GND        | <font size="+2">⏚</font> | GND     | Signal Ground |
+
+### Bus commands
+
+|Command|Description|
+|-------|-----------|
+| \{ or [ | Issue 1-Wire reset, detect device presence. |
+| r       | Read one byte. (r:1…255 for bulk reads)|
+| 0b      | Write this binary value. Format is 0b00000000 for a byte, but partial bytes are also fine: 0b1001.|
+| 0x      | Write this HEX value. Format is 0x01. Partial bytes are fine: 0xA. A-F can be lower-case or capital letters. |
+| 0-255   | Write this decimal value. Any number not preceded by 0x or 0b is interpreted as a decimal value. |
+| ```space```| Value delimiter. Use a space to separate numbers. No delimiter is required between non-number values: \{0xa6 0 0 16 5 0b111 0xaF rrrr}. |
+
+{{% readfile "/_common/other-commands.md" %}}
+
+### scan
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">1-WIRE></span> scan
+<span style="color:#bfa530">
+1-Wire ROM search:
+1: 28 5c aa 13 0a 00 00 19
+</span>
+<span style="color:#96cb59">1-WIRE></span>
+{{< /term >}}
+
+```scan``` performs a 1-Wire ROM search to detect the ID of every connected 1-Wire device. The type of device is shown if the family ID is known.
+
+- ```scan``` - perform a 1-Wire ROM search.
+
+### ds18b20    
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">1-WIRE></span> ds18b20
+<span style="color:#bfa530">
+RX: 1a 01 00 00 7f ff 06 10 12
+Temperature: 17.625
+</span>
+<span style="color:#96cb59">1-WIRE></span>
+{{< /term >}}
+
+```ds18b20``` reads the temperature from a single [18B20 temperature sensor]({{% relref "/docs/devices/ds18b20" %}}). The temperature is displayed in Celsius.
+
+- ```ds18b20``` - read the temperature from a single DS18B20 device. 
+
+{{% alert context="warning" %}}
+The device is accessed with the skip ROM command, so it will only work with a single DS18B20 device connected.
+{{% /alert %}}
+
+
+## UART
+-   **Bus:** [UART](http://en.wikipedia.org/wiki/Serial_uart),
+    [MIDI](http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface)
+    (universal asynchronous receiver transmitter)
+-   **Connections:** two data pins (RX/TX) and ground
+-   **Output type:** push-pull (1.65-5volts). Powered by onboard supply or an external voltage on the VOUT/VREF pin
+-   **Maximum Voltage:** 5volts
+
+{{% alert context="warning" %}}
+UART is also known as the common PC serial port. The PC serial port
+operates at full RS232 voltage levels (-13volts to +13volts) though,
+which are not compatible with the Bus Pirate without an [RS232 adapter]({{% relref "/docs/overview/dual-rs232-adapter/" %}}).
+{{% /alert %}}
+
+### Connections
+| Bus Pirate | Direction                     | Circuit | Description   |
+|------------|--------------------------|---------|---------------|
+| TX       | <font size="+2">→</font> | RX    | Bus Pirate Transmit   |
+| RX        | <font size="+2">←</font> | TX     | Bus Pirate Receive  |
+| GND        | <font size="+2">⏚</font> | GND     | Signal Ground |
+
+Connect the Bus Pirate transmit pin (TX) to the UART device receive
+pin (RX). Connect the Bus Pirate receive pin (RX) to the UART
+device transmit pin (TX).
+
+### Configuration options
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#bfa530">UART speed</span>
+ 1200, 2400, 4800, 19200, 38400, 57600, 115200 etc
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">Baud (</span>115200*<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Data bits</span>
+ 5 to 8 bits
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">Bits (</span>8*<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Parity</span>
+ 1. <span style="color:#bfa530">None*</span>
+ 2. <span style="color:#bfa530">Even</span>
+ 3. <span style="color:#bfa530">Odd</span>
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">Parity (</span>1<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Stop bits</span>
+ 1. <span style="color:#bfa530">1*</span>
+ 2. <span style="color:#bfa530">2</span>
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">Bits (</span>1<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Actual speed: 115207 baud</span>
+<span style="color:#bfa530">Mode:</span> UART
+<span style="color:#96cb59">UART></span> 
+{{< /term >}}
+
+### Bus commands
+
+|Command| Description  |
+|---------|-------|
+| [      | Open UART, use ```r``` to read bytes. |
+| \{       | Open UART, display data as it arrives asynchronously. |
+| \] or } | Close UART.  |
+| r       | Check UART for byte, or fail if empty. (r:1…255 for bulk reads) |
+| 0b      | Write this binary value. Format is 0b00000000 for a byte, but partial bytes are also fine: 0b1001.|
+| 0x      | Write this HEX value. Format is 0x01. Partial bytes are fine: 0xA. A-F can be lower-case or capital letters. |
+| 0-255   | Write this decimal value. Any number not preceded by 0x or 0b is interpreted as a decimal value. |
+| ```space```| Value delimiter. Use a space to separate numbers. No delimiter is required between non-number values: \{0xa6 0 0 16 5 0b111 0xaF rrrr}. |
+
+{{% readfile "/_common/other-commands.md" %}}
+
+### bridge
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">UART></span> bridge -h
+usage:
+<span style="color:#bfa530">bridge	[-h(elp)] [-t(oolbar)]</span>
+<span style="color:#bfa530">Transparent UART bridge: bridge</span>
+<span style="color:#bfa530">Exit: press Bus Pirate button</span>
+
+<span style="color:#bfa530">open UART with raw data IO, usb to serial bridge mode</span>
+<span style="color:#96cb59">-t</span>	<span style="color:#bfa530">ENABLE toolbar while bridge is active (default: disabled)</span>
+<span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
+
+<span style="color:#96cb59">UART></span> 
+{{< /term >}} 
+
+Transparent UART ```bridge```. Bidirectional UART pass-through to interact with other serial devices from inside the Bus Pirate terminal. Press the Bus Pirate button to exit. 
+
+{{% alert context="info" %}}
+Use ```bridge -h``` to see the latest options and features.
+{{% /alert %}}
+
+### gps 
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">UART></span> gps -h
+usage:
+<span style="color:#bfa530">gps	[-h(elp)]</span>
+<span style="color:#bfa530">Decode GPS NMEA packets: gps</span>
+<span style="color:#bfa530">Exit: press any key</span>
+
+<span style="color:#bfa530">parse NMEA GPS data</span>
+<span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
+
+<span style="color:#96cb59">UART></span> 
+{{< /term >}}
+
+Most GPS modules output [NMEA sentences](https://gpsd.gitlab.io/gpsd/NMEA.html) through a serial UART. The ```gps``` command decodes common sentences using [minmea](https://github.com/kosma/minmea). The raw data and decoded data are printed in the terminal. Press any key to exit.
+
+{{% alert context="info" %}}
+Use ```gps -h``` to see the latest options and features.
+{{% /alert %}}
+
+### MIDI
+
+[MIDI](http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface)
+is a command set used by electronic (music) instruments. It travels over
+a standard serial UART configured for 31250bps/8/n/1.
+
+MIDI is a ring network, each node has an input and output socket. Each
+node passes messages to the next in the ring. The input and outputs are
+opto-isolated. The signaling is at 5volts, 5ma (current-based
+signaling). An adapter is required: [example
+1](https://www.compuphase.com/electronics/midi_rs232.htm), [example
+2](https://midi.org/specs).
+
+## HDUART
+
+-   **Bus:** Half-duplex [UART](http://en.wikipedia.org/wiki/Serial_uart),
+    [MIDI](http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface)
+    (universal asynchronous receiver transmitter), RX and TX on the same wire
+-   **Connections:** one data pin (RXTX) and ground
+-   **Output type:** open collector/open drain
+-   **Pull-up resistors:** always required (2K - 10K ohms)
+-   **Maximum Voltage:** 5volts
+
+{{% alert context="info" %}}
+Half-duplex UART is a common serial UART, but receive and transmit share a single data line. This is used to interface [mobile phone SIM cards and bank IC cards]({{% relref "/docs/devices/sim-bank-ic-cards/" %}}), among other devices.
+{{% /alert %}}
+
+
+### Connections
+| Bus Pirate | Direction                     | Circuit | Description   |
+|------------|--------------------------|---------|---------------|
+| RXTX       | <font size="+2">←→</font> | RXTX    | Bus Pirate Transmit and Receive   |
+| GND        | <font size="+2">⏚</font> | GND     | Signal Ground |
+
+### Configuration options
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#bfa530">UART speed</span>
+ 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200 etc
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">Baud (</span>115200*<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Data bits</span>
+ 5 to 8 bits
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">Bits (</span>8*<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Parity</span>
+ 1. <span style="color:#bfa530">None*</span>
+ 2. <span style="color:#bfa530">Even</span>
+ 3. <span style="color:#bfa530">Odd</span>
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">Parity (</span>1<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Stop bits</span>
+ 1. <span style="color:#bfa530">1*</span>
+ 2. <span style="color:#bfa530">2</span>
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">Bits (</span>1<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Mode:</span> HDPLXUART
+<span style="color:#96cb59">HDPLXUART></span> 
+{{< /term >}}
+
+### Pull-up resistors
+
+Half-duplex UART is an open-collector bus, it requires pull-up resistors to hold the data line high to create the data '1'. The Bus Pirate doesn't output high, it only pulls low. Without pull-up resistors there can never be a '1'. 
+
+Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/commands/#pp-pull-up-resistors" %}}).
+
+{{% alert context="info" %}}
+- Half-duplex UART requires pull-up resistors to hold the data line high.
+- Without pull-up resistors there can never be a '1'. 
+- Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/commands/#pp-pull-up-resistors" %}}).
+{{% /alert %}}
+
+### Bus commands
+
+|Command| Description  |
+|---------|-------|
+| [      | Open UART, use ```r``` to read bytes. |
+| \{       | Open UART, display data as it arrives asynchronously. |
+| \] or } | Close UART.  |
+| r       | Check UART for byte, or fail if empty. (r:1…255 for bulk reads) |
+| 0b      | Write this binary value. Format is 0b00000000 for a byte, but partial bytes are also fine: 0b1001.|
+| 0x      | Write this HEX value. Format is 0x01. Partial bytes are fine: 0xA. A-F can be lower-case or capital letters. |
+| 0-255   | Write this decimal value. Any number not preceded by 0x or 0b is interpreted as a decimal value. |
+| ```space```| Value delimiter. Use a space to separate numbers. No delimiter is required between non-number values: \{0xa6 0 0 16 5 0b111 0xaF rrrr}. |
+
+
+{{% readfile "/_common/other-commands.md" %}}
+
+### bridge
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">HDPLXUART></span> bridge -h
+usage:
+<span style="color:#bfa530">bridge	[-h(elp)]</span>
+<span style="color:#bfa530">Transparent UART bridge: bridge</span>
+<span style="color:#bfa530">Exit: press Bus Pirate button</span>
+
+<span style="color:#bfa530">open UART with raw data IO, usb to serial bridge mode</span>
+<span style="color:#96cb59">-t</span>	<span style="color:#bfa530">ENABLE toolbar while bridge is active (default: disabled)</span>
+<span style="color:#96cb59">-s</span>	<span style="color:#bfa530">Suppress local echo, don't echo back sent data</span>
+<span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
+
+<span style="color:#96cb59">HDPLXUART></span> 
+{{< /term >}} 
+ 
+Transparent UART ```bridge```. Bidirectional UART pass-through to interact with other serial devices from inside the Bus Pirate terminal. Press the Bus Pirate button to exit. Useful for reading SIM cards with [pySim](https://github.com/simula/pysim).
+
+{{% alert context="info" %}}
+Use ```bridge -h``` to see the latest options and features.
+{{% /alert %}}
+
+## I2C
+
+-   **Bus:** [I2C](http://en.wikipedia.org/wiki/I2c) (eye-squared-see or
+    eye-two-see)
+-   **Connections:** two data pins (SDA/SCL) and ground
+-   **Output type:** open drain/open collector
+-   **Pull-up resistors:** always required (2K - 10K ohms)
+-   **Maximum voltage:** 5volts
+
+{{% alert context="info" %}}
+I2C is a common 2-wire bus for low speed interfaces, generally 100KHz, 400KHz and sometimes 1MHz.
+{{% /alert %}}
+
+### Configuration options
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#bfa530">I2C speed</span>
+ 1KHz to 1000KHz
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">KHz (</span>400KHz*<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Data bits</span>
+ 1. <span style="color:#bfa530">8*</span>
+ 2. <span style="color:#bfa530">10</span>
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">Bits (</span>1<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Mode:</span> I2C
+<span style="color:#96cb59">I2C></span> 
+{{< /term >}}
+
+### Pull-up resistors
+
+I2C is an open-collector bus, it requires pull-up resistors to hold the
+clock and data lines high and create the data '1'. I2C parts don't
+output high, they only pull low, without pull-up resistors there can
+never be a '1'. This will cause common errors such as the I2C address
+scanner reporting a response at every address. 
+
+Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/commands/#pp-pull-up-resistors" %}}).
+
+{{% alert context="info" %}}
+- I2C requires pull-up resistors to hold the clock and data lines high.
+- I2C parts don't output high, they only pull low.
+- Without pull-up resistors there can never be a '1'. 
+- Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/commands/#pp-pull-up-resistors" %}}).
+{{% /alert %}}
+
+### Connections
+
+| Bus Pirate | Direction                     | Circuit | Description   |
+|------------|--------------------------|---------|---------------|
+| SDA       | <font size="+2">↔</font> | SDA     | Serial Data   |
+| SCL        | <font size="+2">→</font> | SCL     | Serial Clock  |
+| GND        | <font size="+2">⏚</font> | GND     | Signal Ground |
+
+### Bus commands
+
+|Command|Description|
+|-------|-----------|
+| \{ or [ | Issue (repeated) I2C start condition. |
+| ] or } | Issue I2C stop condition. |
+| r       | Read one byte, send ACK. (r:1…255 for bulk reads)|
+| 0b      | Write this binary value, check ACK. Format is 0b00000000 for a byte, but partial bytes are also fine: 0b1001.|
+| 0x      | Write this HEX value, check ACK. Format is 0x01. Partial bytes are fine: 0xA. A-F can be lower-case or capital letters. |
+| 0-255   | Write this decimal value, check ACK. Any number not preceded by 0x or 0b is interpreted as a decimal value. |
+| ```space```| Value delimiter. Use a space to separate numbers. No delimiter is required between non-number values: \{0xa6 0 0 16 5 0b111 0xaF rrrr}. |
+
+{{% readfile "/_common/other-commands.md" %}}
+
+### I2C address search scan
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">I2C></span> scan
+I2C address search:
+0x50 (0xA0 W) (0xA1 R)
+0x51 (0xA2 W) (0xA3 R)
+0x52 (0xA4 W) (0xA5 R)
+0x53 (0xA6 W) (0xA7 R)
+0x54 (0xA8 W) (0xA9 R)
+0x55 (0xAA W) (0xAB R)
+0x56 (0xAC W) (0xAD R)
+0x57 (0xAE W) (0xAF R)
+
+Found 16 addresses, 8 W/R pairs.
+
+<span style="color:#96cb59">I2C></span> 
+{{< /term >}}
+
+The ```scan``` command searches for I2C device addresses.
+
+You can find the [I2C](http://en.wikipedia.org/wiki/I%C2%B2C) address
+for most I2C-compatible chips in the datasheet. But what if you're
+working with an unknown chip, a dated chip with no datasheet or you're
+just too lazy to look it up?
+
+The Bus Pirate has a built-in address scanner that checks every possible I2C address for a
+response. This brute force method is a fast and easy way to see if any
+chips are responding, and to uncover undocumented access addresses.
+
+I2C chips respond to a 7bit address, so up to 128 devices can share the
+same two communication wires. An additional bit of the address
+determines if the operation is a write to the chip (0), or a read from
+the chip (1).
+
+#### Scanner details
+
+The ```scan``` command in I2C mode runs the address scanner.
+
+-   For I2C write addresses: the BP sends a start, the write address,
+    looks for an ACK, then sends a stop.
+-   For I2C read addresses: the BP sends a start, the read address,
+    looks for an ACK. If there is an ACK, it reads a byte and NACKs it.
+    Finally it sends a stop.
+
+When the I2C chip responds to the read address, it outputs data and will
+miss a stop condition sent immediately after the read address (bus
+contention). If the I2C chip misses the stop condition, the address
+scanner will see ghost addresses until the read ends randomly. By
+reading a byte after any read address that ACKs, we have a chance to
+NACK the read and properly end the I2C transaction.
+
+<!--
+
+## ACK/NACK management
+
+These examples read and write from the RAM of a DS1307 RTC chip.
+```
+I2C> [0xd1 rrrr]
+I2C START CONDITION
+WRITE: 0xD1 GOT ACK: YES**<<<read address** 
+READ: 0×07 ACK **<<<sent ACK*[ 
+READ: 0x06 ACK 
+READ: 0x05 ACK 
+READ: 0x04 NACK **<<<last read before STOP, sent NACK** 
+I2C STOP CONDITION 
+I2C>
+```
+I2C read operations must be ACKed
+or NACKed by the host (the Bus Pirate). The Bus Pirate automates this,
+but you should know a few rules about how it works.
+
+The I2C library doesn't ACK/NACK a read operation until the following
+command. If the next command is a STOP (or START) the Bus Pirate sends a
+NACK bit. On all other commands it sends an ACK bit. The terminal output
+displays the (N)ACK status. 
+```
+I2C> [0xd1 r:5] 
+I2C START CONDITION
+WRITE: 0xD1 GOT ACK: YES 
+BULK READ 0×05 BYTES: 
+0×07 ACK 0×06 ACK 0×05 ACK 0×04 ACK 0×03 NACK 
+I2C STOP CONDITION 
+I2C> 
+```
+Nothing changes for write commands because the slave ACKs to the Bus Pirate during
+writes. Here’s an example using the bulk read command (r:5).
+```
+I2C>[0xd1 r **<<<setup and read one byte** 
+I2C START CONDITION 
+WRITE: 0xD1 GOT ACK: YES 
+READ: 0x07 *(N)ACK PENDING **<<<no ACK sent yet** 
+I2C>r**<<<read another byte** 
+ACK**<<<ACK for previous byte** 
+READ: 0x06 *(N)ACK PENDING**<<<no ACK yet** 
+I2C>] **<<<STOP command** 
+NACK **<<<next command is STOP, so NACK** 
+I2C STOP CONDITION 
+I2C> 
+```
+A consequence of the
+delayed ACK/NACK system is that partial transactions will leave read
+operations incomplete.
+
+Here, we setup a read operation ([0xd1) and read a byte (r). Since the
+Bus Pirate has no way of knowing if the next operation will be another
+read (r) or a stop condition (]), it leaves the ninth bit hanging. The
+warning “*(N)ACK PENDING” alerts you to this state.
+
+Our next command is another read (r), so the Bus Pirate ACKs the
+previous read and gets another byte. Again, it leaves the (N)ACK bit
+pending until the next command.
+
+The final command is STOP (]). The Bus Pirate ends the read with a NACK
+and then sends the stop condition.
+-->
+
+## SPI
+
+-   **Bus:** [SPI](http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) (serial peripheral interface)
+-   **Connections:** four data pins (MOSI/MISO/CLOCK/CHIP_SELECT) and ground
+-   **Output type:** push-pull (1.65-5volts)
+-   **Maximum voltage:** 5volts
+
+{{% alert context="info" %}}
+SPI is a common 4 wire full duplex protocol. Separate connections for data-in and data-out allow communication to and from the controller at the same time. Multiple sub devices can share the bus, but each will need an individual Chip Select (CS) connection. Chip Select is generally active when low.
+{{% /alert %}} 
+
+### Connections
+
+| Bus Pirate | Direction                    | Circuit | Description          |
+|------------|--------------------------|---------|----------------------|
+| MOSI       | <font size="+2">→</font> | MOSI    | Master Out Sub In |
+| MISO       | <font size="+2">←</font> | MISO    | Master In Sub Out |
+| CS         | <font size="+2">→</font> | CS      | Chip Select          |
+| CLK        | <font size="+2">→</font> | CLK     | Clock signal         |
+| GND        | <font size="+2">⏚</font> | GND     | Signal Ground        |
+
+### Configuration options
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#bfa530">SPI speed</span>
+ 1 to 62500KHz
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">KHz (</span>100KHz*<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Data bits</span>
+ 4 to 8 bits
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">Bits (</span>8*<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Clock polarity</span>
+ 1. <span style="color:#bfa530">Idle LOW*</span>
+ 2. <span style="color:#bfa530">Idle HIGH</span>
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">Polarity (</span>1<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Clock phase</span>
+ 1. <span style="color:#bfa530">LEADING edge*</span>
+ 2. <span style="color:#bfa530">TRAILING edge</span>
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">Phase (</span>1<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Chip select</span>
+ 1. <span style="color:#bfa530">Active HIGH (CS)</span>
+ 2. <span style="color:#bfa530">Active LOW (/CS)*</span>
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">CS (</span>2<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Actual speed:</span> 122KHz
+<span style="color:#bfa530">Mode:</span> SPI
+<span style="color:#96cb59">SPI></span> 
+{{< /term >}}
+
+### Bus commands
+
+|Command|Description|
+|-------|--------------|
+| [ | Chip select (CS) active |
+| \{ | Chip Select (CS) active, show the SPI read byte while writing|
+| ] or } | Chip Select (CS) disable|
+| r    | Read one byte by sending dummy byte (0xff). (r:1…255 for bulk reads) |
+| 0b      | Write this binary value. Format is 0b00000000 for a byte, but partial bytes are also fine: 0b1001.|
+| 0x      | Write this HEX value. Format is 0x01. Partial bytes are fine: 0xA. A-F can be lower-case or capital letters. |
+| 0-255   | Write this decimal value. Any number not preceded by 0x or 0b is interpreted as a decimal value. |
+| ```space```| Value delimiter. Use a space to separate numbers. No delimiter is required between non-number values: \{0xa6 0 0 16 5 0b111 0xaF rrrr}. |
+
+{{% readfile "/_common/other-commands.md" %}}
+
+### flash 
+
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> flash init
+Probing:
+		Device ID	Manuf ID	Type ID		Capacity ID
+RESID (0xAB)	0x13
+REMSID (0x90)	0x13		0xef
+RDID (0x9F)			0xef		0x40		0x14
+
+Initializing SPI flash...
+Flash device manufacturer ID 0xEF, type ID 0x40, capacity ID 0x14
+SFDP V1.5, 0 parameter headers
+		Type		Ver.	Length	Address
+Table 0		JEDEC (0x00)	1.5	64B	0x000080
+JEDEC basic flash parameter table info:
+MSB-LSB  3    2    1    0
+[0001] 0xFF 0xF1 0x20 0xE5
+...
+[0009] 0x00 0x00 0xD8 0x10
+4 KB Erase is supported throughout the device (instruction 0x20)
+Write granularity is 64 bytes or larger
+Flash status register is non-volatile
+3-Byte only addressing
+Capacity is 1048576 Bytes
+Flash device supports 4KB block erase (instruction 0x20)
+Flash device supports 32KB block erase (instruction 0x52)
+Flash device supports 64KB block erase (instruction 0xD8)
+Found a Winbond  flash chip (1048576 bytes)
+Flash device reset success
+{{< /term >}}
+
+The ```flash``` command can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip and select the appropriate settings. Most modern flash chips contain SFDP tables that describe the chip capabilities. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back. 
+
+```flash```, ```flash init```, and ```flash probe``` provide various levels of details about a flash chip. The flash command tries three common methods to identify a flash chip (RESID, REMSID, RDID), then attempts to read the SFDP tables.  
+
+{{% alert context="info" %}}
+Use ```flash -h``` to see the latest options and features.
+{{% /alert %}}
+
+#### Read a flash chip
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> flash read -f example.bin
+Reading 1048576 bytes from flash to example.bin
+[-------C o o o o o]
+{{< /term >}}
+
+Read the contents of a flash chip to a file with the ```flash read``` command. The file name is specified with the ```-f``` flag.
+
+#### Write a flash chip
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> flash write -f example.bin -e -v
+Erasing 1048576 bytes
+[-----------------C]
+Writing 1048576 bytes from example.bin to flash
+[-----------------C]
+Verifying 1048576 bytes from example.bin to flash
+[-------c o o o o]
+{{< /term >}}
+
+Write a file to a flash chip with the ```flash write``` command. The file name is specified with the ```-f``` flag. Use the ```-e``` flag to erase the chip before writing, and the ```-v``` flag to verify the write.
+
+#### Verify a flash chip
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> flash verify -f example.bin
+Verifying 1048576 bytes from example.bin to flash
+[-------c o o o o]
+{{< /term >}}
+
+Verify the contents of a flash chip against a file with the ```flash verify``` command. The file name is specified with the ```-f``` flag.
+
+#### Test a flash chip
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> flash test
+Erasing 1048576 bytes
+[-----------------C]
+Writing 1048576 bytes to flash
+[-----------------C]
+Verifying 1048576 bytes
+[-------c o o o o]
+{{< /term >}}
+
+The ```flash test``` command erases the chip, writes dummy data, and verifies the write. This is a way to test a chip.
+
+#### Options and flags
+
+| Option | Description |
+|---------|-------------|
+| ```flash init``` | Reset and initialize flash chip. Default if no options given. |
+| ```flash probe``` | Probe flash chip for ID and SFDP info. |
+| ```flash erase``` | Erase flash chip. |
+| ```flash write``` | Write file to flash chip. Specify file with -f flag. Use -e flag to erase before write|
+| ```flash read``` | Read flash chip to file. Specify file with -f flag|
+| ```flash verify``` | Verify flash chip against file. Specify file with -f flag |
+| ```flash test``` | Erase and write full chip with dummy data, verify. |
+
+Options tell the flash command what to do.
+
+| Flag | Description |
+|------|-------------|
+| ```-f``` | File flag. File to write, read or verify. |
+| ```-e``` | Erase flag. Add erase before write. |
+| ```-v``` | Verify flag. Add verify after write or erase. |
+
+Flags pass file names and other settings.
+
+## 2-WIRE
+
+-   **Bus:** 2 wire bus with bidirectional data (SDA) line and a clock (SCL) line
+-   **Connections:** two data pins (SDA/SCL) and ground. An additional pin is reserved for RESET, and is controlled by the ```{```/```}``` commands.
+-   **Output type:** open drain/open collector
+-   **Pull-up resistors:** always required (2K - 10K ohms)
+-   **Maximum voltage:** 5volts
+
+{{% alert context="info" %}}
+2-wire is a generic 8bit protocol mode with a bidirectional data line (SDA) and a clock line (SCL). 2-wire can be used to interface with [SLE4442 smart cards]({{% relref "/docs/devices/sle4442/" %}}), half-duplex SPI devices and other 2 wire busses that don't use a full I2C implementation.
+{{% /alert %}}
+
+### Connections
+
+| Bus Pirate | Direction                     | Circuit | Description   |
+|------------|--------------------------|---------|---------------|
+| SDA       | <font size="+2">↔</font> | SDA     | Serial Data   |
+| SCL        | <font size="+2">→</font> | SCL     | Serial Clock  |
+| RST        | <font size="+2">→</font> | RST     | Reset signal for some devices  |
+| GND        | <font size="+2">⏚</font> | GND     | Signal Ground |
+
+### Configuration options
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#bfa530">2WIRE speed</span>
+ 1kHz to 1000kHz
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">kHz (</span>400kHz*<span style="color:#96cb59">) ></span> 20
+<span style="color:#bfa530">Mode:</span> 2WIRE
+<span style="color:#96cb59">2WIRE></span> 
+{{< /term >}}
+
+### Pull-up resistors
+
+2-Wire is an open-collector bus, it requires pull-up resistors to hold the
+clock and data lines high and create the data '1'. In 2-Wire mode, the Bus Pirate doesn't
+output high, it only pulls low. Without pull-up resistors there can
+never be a '1'. 
+
+Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/commands/#pp-pull-up-resistors" %}}).
+
+{{% alert context="info" %}}
+- 2-Wire requires pull-up resistors to hold the clock and data lines high.
+- Without pull-up resistors there can never be a '1'. 
+- Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/commands/#pp-pull-up-resistors" %}}).
+{{% /alert %}}
+
+### Bus commands
+
+|Command|Description|
+|-------|-----------|
+| [ | Issue I2C-style START condition. Some devices don't follow the I2C standard, but still use a similar START condition. |
+| ] | Issue I2C-style STOP condition. Some devices don't follow the I2C standard, but still use a similar STOP condition.|
+| \{ | RST/reset pin **high** |
+| } | RST/reset pin **low** |
+| r       | Read one byte. (r:1…255 for bulk reads)|
+| 0b      | Write this binary value. Format is 0b00000000 for a byte, but partial bytes are also fine: 0b1001.|
+| 0x      | Write this HEX value. Format is 0x01. Partial bytes are fine: 0xA. A-F can be lower-case or capital letters. |
+| 0-255   | Write this decimal value. Any number not preceded by 0x or 0b is interpreted as a decimal value. |
+| ```space```| Value delimiter. Use a space to separate numbers. No delimiter is required between non-number values: \{0xa6 0 0 16 5 0b111 0xaF rrrr}. |
+
+{{% readfile "/_common/other-commands.md" %}}
+
+### sle4442
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">2WIRE></span> sle4442 init
+--SLE44xx decoder--
+ATR: 0xa2 0x13 0x10 0x91
+Protocol Type: S 10
+Structure Identifier: General Purpose (Structure 1)
+Read: Read to end
+Data Units: 256
+Data Units Bits: 8
+Security memory: 0x07 0x00 0x00 0x00
+Remaining attempts: 3 (0x7)
+
+{{< /term >}}
+
+The ```sle4442``` command in the Bus Pirate's 2-WIRE mode automates the process of reading, writing and unlocking a [SLE4442 smart card]({{< relref "/docs/devices/sle4442" >}}).
+ 
+```sle4442``` and ```sle4442 init``` reset the card and decodes the Answer To Reset (ATR) response.
+
+{{% alert context="info" %}}
+Use ```sle4442 -h``` to see the latest options and features.
+{{% /alert %}}
+
+#### Dump SLE4442 card memory
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">2WIRE></span> sle4442 dump
+--SLE44xx decoder--
+ATR: 0xa2 0x13 0x10 0x91
+Protocol Type: S 10
+Structure Identifier: General Purpose (Structure 1)
+Read: Read to end
+Data Units: 256
+Data Units Bits: 8
+Security memory: 0x07 0x00 0x00 0x00
+Remaining attempts: 3 (0x7)
+Protection memory: 0xff 0xff 0xff 0xff
+Memory:
+0xa2 0x13 0x10 0x91 0xff 0xff 0x81 0x15 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xd2 0x76 0x00 0x00 0x04 0x00 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 
+{{< /term >}}
+
+```sle4442 dump``` reads and displays the main, security and protection memory areas.
+
+#### Unlock SLE4442 card with passcode
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">2WIRE></span> sle4442 unlock -p 0x123456
+--SLE44xx decoder--
+ATR: 0xa2 0x13 0x10 0x91
+Protocol Type: S 10
+Structure Identifier: General Purpose (Structure 1)
+Read: Read to end
+Data Units: 256
+Data Units Bits: 8
+Security memory: 0x07 0x12 0x34 0x56
+Remaining attempts: 3 (0x7)
+Unlocking with PSC: 0x123456
+Using free security bit: 0x03
+Card unlocked, security bits reset
+Security memory: 0x07 0x12 0x34 0x56
+Remaining attempts: 3 (0x7)
+
+{{< /term >}}
+
+```sle4442 unlock``` unlocks the card using the Programmable Security Code (PSC). Use the ```-p``` flag to specify the PSC. 
+
+{{% alert context="info" %}}
+New cards usually have a default PSC of 0xffffff.
+{{% /alert %}}
+
+#### Write data to SLE4442 card
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">2WIRE></span> sle4442 write -a 0xff -v 0x88
+--SLE44xx decoder--
+ATR: 0xa2 0x13 0x10 0x91
+Protocol Type: S 10
+Structure Identifier: General Purpose (Structure 1)
+Read: Read to end
+Data Units: 256
+Data Units Bits: 8
+Security memory: 0x07 0x12 0x34 0x56
+Remaining attempts: 3 (0x7)
+Writing 0x88 to 0xff
+
+{{< /term >}}
+
+```sle4442 write``` writes a single byte of data to the card. Specify the address with the ```-a``` flag and the data value with the ```-v``` flag.
+
+{{% alert context="warning" %}}
+The card must be unlocked before writing data.
+{{% /alert %}}
+
+#### Change SLE4442 passcode/PSC
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">2WIRE></span> sle4442 psc -p 0x123456 -n 0xffffff
+--SLE44xx decoder--
+ATR: 0xa2 0x13 0x10 0x91
+Protocol Type: S 10
+Structure Identifier: General Purpose (Structure 1)
+Read: Read to end
+Data Units: 256
+Data Units Bits: 8
+Security memory: 0x07 0x12 0x34 0x56
+Remaining attempts: 3 (0x7)
+Unlocking with PSC: 0x123456
+Using free security bit: 0x03
+Card unlocked, security bits reset
+Security memory: 0x07 0x12 0x34 0x56
+Remaining attempts: 3 (0x7)
+Updating with PSC: 0xFFFFFF
+PSC updated to: 0xFFFFFF
+Security memory: 0x07 0xff 0xff 0xff
+Remaining attempts: 3 (0x7)
+
+{{< /term >}}
+
+```sle4442 psc``` changes the Programmable Security Code (PSC). Use the ```-p``` flag to specify the current PSC and the ```-n``` flag to specify the new PSC.
+
+#### Options and flags
+
+|Option|Description|
+|------|-----------|
+|sle4442 init|Initialize and probe the card Answer To Reset|
+|sle4442 dump|Display main, security and protect memory|
+|sle4442 unlock|Unlock card with Programmable Security Code (PSC)|
+|sle4442 write|Write data to card (requires unlock)|
+|sle4442 erase|Erase data from range 0x32-0x255 (requires unlock)|
+|sle4442 psc|Change Programmable Security Code (PSC)|
+
+Options tell the SLE4442 command what to do.
+
+|Flag|Description|
+|------|-----------|
+|-a|Write address flag|
+|-v|Write value flag|
+|-p|Current Programmable Security Code (PSC) flag|
+|-n|New Programmable Security Code (PSC) flag|
+
+Flags pass file names and other settings to the command.
+
+## 3-WIRE
+## DIO
+## LED
+
+-   **Bus:** [WS2812/SK6812/'NeoPixel'](https://www.mouser.com/pdfDocs/WS2812B-2020_V10_EN_181106150240761.pdf) one wire, [APA102/SK9822](https://www.mouser.com/datasheet/2/737/APA102_2020_SMD_LED-2487271.pdf) two wire
+-   **Connections:** one or two data pins (SDO, SCL), and ground
+-   **Output type:** 1.65-5volts
+-   **Maximum voltage:** 5volts
+
+WS2812/SK6812 and APA102/SK9822 are common RGB LEDs with a one and two wire interface. 
+
+{{% alert context="danger" %}}
+LEDs are power hungry, up to 60mA each at full brightness. The programmable power supply is rated for 400mA maximum. The LEDs will need an external power supply when driving more than a few in a strip.
+{{% /alert %}}
+
+
+### Connections
+
+### WS2812/SK6812/'NeoPixel'
+
+| Bus Pirate | Direction       | Circuit | Description   |
+|------------|--------------------------|---------|---------------|
+| SDO       | <font size="+2">→</font> | DIN     | Serial Data Out   |
+| GND        | <font size="+2">⏚</font> | GND     | Signal Ground |
+
+### APA102/SK9822
+
+| Bus Pirate | Direction                     | Circuit | Description   |
+|------------|--------------------------|---------|---------------|
+| SDO       | <font size="+2">→</font> | SDI     | Serial Data Out   |
+| SCL        | <font size="+2">→</font> | CKI     | Serial Clock  |
+| GND        | <font size="+2">⏚</font> | GND     | Signal Ground |
+
+### Configuration options
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#bfa530">LED type</span>
+ 1. <span style="color:#bfa530">WS2812/SK6812/'NeoPixel' (single wire interface)*</span>
+ 2. <span style="color:#bfa530">APA102/SK9822 (clock and data interface)</span>
+ 3. <span style="color:#bfa530">Onboard LEDs (16 SK6812s)</span>
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">Type (</span>1<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Number of LEDs in the strip</span>
+ 1 to 10000
+ x. <span style="color:#bfa530">Exit</span>
+<span style="color:#96cb59">LEDs (</span>1*<span style="color:#96cb59">) ></span> 
+<span style="color:#bfa530">Mode:</span> LED
+<span style="color:#96cb59">LED-(WS2812)></span> 
+{{< /term >}}
+
+### Bus commands
+
+|Command|Description|
+|-------|--------------|
+| [ or \{ | Reset (APA102), Start Frame (WS2812) |
+| ] or } | End Frame (WS2812)|
+| 0b      | Write this binary value. Format is 0b00000000 for a byte, but partial bytes are also fine: 0b1001.|
+| 0x      | Write this HEX value. Format is 0x01. Partial bytes are fine: 0xA. A-F can be lower-case or capital letters. |
+| 0-255   | Write this decimal value. Any number not preceded by 0x or 0b is interpreted as a decimal value. |
+| ```space```| Value delimiter. Use a space to separate numbers. No delimiter is required between non-number values: \{0xa6 0 0 16 5 0b111 0xaF rrrr}. |
+
+{{% readfile "/_common/other-commands.md" %}}
+
+
+## INFRARED
+## JTAG
+
+
+## Scripting
+
+### **script**
+
+### **tutorial**
+
+### **button**
 
 Macros perform complex actions, like scanning for I2C addresses,
 interrogating a smart card or probing a JTAG chain. Macros are numbers
@@ -705,4 +1847,65 @@ Done.
 {{< /term >}}
 
 Execute a macro by typing the macro number between ```( )```.
+
+## Configuration files
+
+![](/images/docs/fw/json-config.png)
+
+Global and mode settings will be saved and reloaded from onboard NAND flash storage. The settings are saved in simple JSON files. Configuration files can be viewed and edited from the USB disk that appears when the Bus Pirate is connected to a computer.
+
+## Global settings
+```js
+{
+"terminal_language": 0,
+"terminal_ansi_color": 1,
+"terminal_ansi_statusbar": 0,
+"display_format": 0,
+"lcd_screensaver_active": 0,
+"lcd_timeout": 0,
+"led_effect": 1,
+"led_color": 0,
+"led_brightness": 10,
+"terminal_usb_enable": 1,
+"terminal_uart_enable": 0,
+"terminal_uart_number": 1,
+"debug_uart_enable": 0,
+"debug_uart_number": 0
+}
+```
+The variable names are self explanatory. The values correspond to the options in the configuration menu, minus one. 
+
+## UART settings
+```js
+{
+"baudrate": 115200,
+"data_bits": 8,
+"stop_bits": 1,
+"parity": 0
+}
+```
+## I2C settings
+```js
+{
+"baudrate": 400,
+"data_bits": 0
+}
+```
+## SPI settings
+```js
+{
+"baudrate": 100000,
+"data_bits": 8,
+"stop_bits": 0,
+"parity": 0,
+"cs_idle": 1
+}
+```
+## LED settings
+```js
+{
+"device": 2,
+"num_leds": 16
+}
+```
 

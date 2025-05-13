@@ -1,0 +1,161 @@
+m hiz
+# cmdref-format
+format
+y
+y
+#stop
+# cmdref-info
+i
+# stop
+rm bpi2c.bp
+# cmdref-defaults
+m i2c
+ 
+  
+# stop
+m hiz
+# cmdref-saved-options
+m i2c
+y
+# stop
+m hiz
+# cmdref-disk-ls
+ls
+# stop
+# cmdref-disk-mkdir
+mkdir test
+ls
+#stop
+# cmdref-disk-cd
+cd test
+ls
+# stop
+cd ..
+# cmdref-disk-rm
+ls
+rm test
+ls
+# stop
+# cmdref-cat
+cat bpi2c.bp
+# stop
+# cmdref-hex
+hex bpi2c.bp
+# stop
+# cmdref-label
+label set my_pirate
+label get
+# stop
+m hiz
+# cmdref-config
+c
+x
+# stop
+rm bpi2c.bp
+m i2c
+ 
+
+# cmdref-mode-menu
+m 
+1
+# stop
+m i2c
+y
+# cmdref-mode-short
+m hiz
+# stop
+rm bp2wire.bp
+m 2wire
+50
+# cmdref-l
+l
+L
+# stop
+# cmdref-o
+o
+1
+# stop
+# cmdref-psuon-menu
+W
+5
+50
+# stop
+# cmdref-psuon-short
+W 5 50
+# stop
+# cmdref-psuoff
+w
+# stop
+rm bpi2c.bp
+m i2c
+
+
+W 3.3
+# cmdref-p
+P
+p
+# stop
+# cmdref-help-psu
+W -h 
+# stop
+m dio
+W 3.3
+# cmdref-pwmon
+G
+0
+12.4khz
+35%
+# stop
+# cmdref-pwmoff
+g 0
+# stop
+G
+0
+12.4khz
+35%
+G
+2
+12.4khz
+35%
+G
+4
+12.4khz
+35%
+# cmdref-pwmalloff
+g
+4
+# stop
+g 0; g 2
+# cmdref-convert
+= 0b1100
+= 0x6
+= 6
+# stop
+# cmdref-reverse
+| 0b11110000
+#stop
+# cmdref-auxpin
+a 1
+A 1
+@ 1
+# stop
+F
+1
+F 
+3
+F
+5
+# cmdref-freq-off
+f
+1
+# stop
+f
+3
+f
+m infrared
+
+
+
+# cmdref-help-mode
+help mode
+# stop

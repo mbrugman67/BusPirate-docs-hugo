@@ -1,0 +1,9 @@
+[38;2;150;203;89mINFRARED-(RAW)>[0m&nbsp;help&nbsp;mode
+
+[38;2;150;203;89mINFRARED[38;2;191;165;48m&nbsp;mode&nbsp;commands:[0m
+[38;2;150;203;89mtest[38;2;191;165;48m	Test&nbsp;IR&nbsp;RX/TX&nbsp;Toy&nbsp;plank[0m
+[38;2;150;203;89mtvbgone[38;2;191;165;48m	TV-B-Gone,&nbsp;turn&nbsp;off&nbsp;many&nbsp;brands&nbsp;of&nbsp;TV[0m
+[38;2;150;203;89mirtx[38;2;191;165;48m	Transmit&nbsp;IR&nbsp;signals&nbsp;(aIR&nbsp;format)[0m
+[38;2;150;203;89mirrx[38;2;191;165;48m	Receive,&nbsp;record,&nbsp;retransmit&nbsp;IR&nbsp;signals&nbsp;(aIR&nbsp;format)[0m
+[0m
+[38;2;150;203;89mINFRARED-(RAW)>[0m&nbsp;

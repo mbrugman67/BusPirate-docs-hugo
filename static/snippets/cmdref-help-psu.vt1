@@ -1,0 +1,16 @@
+[38;2;150;203;89mI2C>[0m&nbsp;W&nbsp;-h
+usage:
+[38;2;191;165;48mw|W	&ltv>&nbsp;&lti>[0m
+[38;2;191;165;48mDisable:&nbsp;w[0m
+[38;2;191;165;48mEnable,&nbsp;with&nbsp;menu:&nbsp;W[0m
+[38;2;191;165;48mEnable&nbsp;5v,&nbsp;50mA&nbsp;limit:&nbsp;W&nbsp;5&nbsp;50[0m
+[38;2;191;165;48mEnable&nbsp;3.3v,&nbsp;300mA&nbsp;default&nbsp;limit:&nbsp;W&nbsp;3.3[0m
+[38;2;191;165;48mEnable&nbsp;3.3v,&nbsp;no&nbsp;limit:&nbsp;W&nbsp;3.3&nbsp;0[0m
+
+[38;2;191;165;48monboard&nbsp;power&nbsp;supply&nbsp;with&nbsp;programmable&nbsp;fuse[0m
+[38;2;150;203;89mw[0m	[38;2;191;165;48mDisable&nbsp;onboard&nbsp;power&nbsp;supply[0m
+[38;2;150;203;89mW[0m	[38;2;191;165;48mEnable&nbsp;onboard&nbsp;power&nbsp;supply,&nbsp;show&nbsp;configuration&nbsp;menu[0m
+[38;2;150;203;89m&ltv>[0m	[38;2;191;165;48mVoltage,&nbsp;0.8-5.0volts[0m
+[38;2;150;203;89m&lti>[0m	[38;2;191;165;48mCurrent&nbsp;limit,&nbsp;0-500mA[0m
+[0m
+[38;2;150;203;89mI2C>[0m&nbsp;
