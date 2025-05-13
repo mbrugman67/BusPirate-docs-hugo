@@ -693,9 +693,9 @@ Characters enclosed in ```" "``` are sent to the bus as their [ASCII equivalent 
 
 {{% alert context="info" %}}
 The ```>``` before ```"abc"``` tells the Bus Pirate we want to send bus commands.
-{{% /alert %}}
+{{% /alert %}} 
 
-### **```space```** Value delimiter
+### **space** Value delimiter
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [1 2 3  rr]
@@ -1736,7 +1736,38 @@ Options tell the SLE4442 command what to do.
 Flags pass file names and other settings to the command.
 
 ## 3-WIRE
+
+-   **Bus:** [SPI](http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus)-like bus with granular control of the clock and data lines
+-   **Connections:** four data pins (MOSI/MISO/CLOCK/CHIP_SELECT) and ground
+-   **Output type:** push-pull (1.65-5volts)
+-   **Maximum voltage:** 5volts
+
+{{% alert context="info" %}}
+3WIRE is like [SPI]({{% relref "/docs/command-reference/commands/#spi" %}}) with extra commmands to control the clock and data lines individually.
+{{% /alert %}} 
+
+### Connections
+
+| Bus Pirate | Direction                    | Circuit | Description          |
+|------------|--------------------------|---------|----------------------|
+| MOSI       | <font size="+2">→</font> | MOSI    | Master Out Sub In |
+| MISO       | <font size="+2">←</font> | MISO    | Master In Sub Out |
+| CS         | <font size="+2">→</font> | CS      | Chip Select          |
+| CLK        | <font size="+2">→</font> | CLK     | Clock signal         |
+| GND        | <font size="+2">⏚</font> | GND     | Signal Ground        |
+
 ## DIO
+
+-   **Bus:** DIO (digital input/output)
+-   **Connections:** all IOs available for use
+-   **Output type:** tristate (push-pull, high impedance) (1.65-5volts)
+-   **Maximum voltage:** 5volts
+
+{{% alert context="info" %}}
+DIO is a mode with no specific protocol. All the Bus Pirate pins are free for use as [input/ouputs]({{% relref "/docs/command-reference/commands/#aa-auxiliary-pin-control-lowhighread" %}}), [frequency generators]({{% relref "/docs/command-reference/commands/#gg-frequency-generator" %}}), [frequency measurement]({{% relref "/docs/command-reference/commands/#ff-measure-frequency" %}}), etc.
+{{% /alert %}} 
+
+
 ## LED
 
 -   **Bus:** [WS2812/SK6812/'NeoPixel'](https://www.mouser.com/pdfDocs/WS2812B-2020_V10_EN_181106150240761.pdf) one wire, [APA102/SK9822](https://www.mouser.com/datasheet/2/737/APA102_2020_SMD_LED-2487271.pdf) two wire
@@ -1800,7 +1831,66 @@ LEDs are power hungry, up to 60mA each at full brightness. The programmable powe
 
 
 ## INFRARED
+
+-   **Bus:** Infrared (IR) remote control (raw, RC5, NEC)
+-   **Connections:** one data pin (IR) and ground
+-   **Output type:** push-pull (1.65-5volts)
+-  **Maximum voltage:** 5volts
+
+{{% alert context="info" %}}
+Infrared is a mode for sending and receiving infrared signals. The Bus Pirate can send and receive  RC5 and NEC protocols, and raw IR signals. Compatible with the [IR Toy v3 plank]({{% relref "/docs/overview/infrared-toy-v3/" %}}).
+{{% /alert %}}
+
+### Connections
+
+| Bus Pirate | Direction                     | Circuit | Description   |
+|------------|--------------------------|---------|---------------|
+| LERN (IO1) | <font size="+2">←</font> | LEARNER      | 20-60kHz IR learner receiver  |
+| BARR (IO3) | <font size="+2">←</font> | 38K BARRIER      | 38kHz IR barrier receiver |
+| IRTX (IO4) | <font size="+2">→</font> | TRANSMIT      | IR transmitter LED |
+| 38K (IO5) |<font size="+2">←</font> | 38K DEMODULATOR      | 36-40kHz IR demodulator |
+| 56K (IO7) |<font size="+2">←</font> | 56K DEMODULATOR      | 56kHz IR demodulator |
+
+### Configuration options
+
+### Bus commands
+
+
+{{% readfile "/_common/other-commands.md" %}}
+
+### tvbgone
+
+{{% alert context="info" %}}
+TV-B-Gone, turn off many brands of TV
+{{% /alert %}}
+
+### irtx
+
+{{% alert context="info" %}}
+Transmit IR signals (aIR format)
+{{% /alert %}}
+
+### irrx
+
+{{% alert context="info" %}}
+Receive, record, retransmit IR signals (aIR format)
+{{% /alert %}}
+
 ## JTAG
+-   **Bus:** JTAG
+-   **Connections:** varries
+-   **Output type:** push-pull (1.65-5volts)
+-   **Maximum voltage:** 5volts
+
+{{% alert context="info" %}}
+JTAG mode is **NOT** for working directly with JTAG devices (yet!). JTAG mode hosts [blueTag](https://github.com/Aodrulez/blueTag), an open source JTAG and SWD pin finder.
+{{% /alert %}}
+
+### bluetag (pinout finder)
+
+{{% alert context="info" %}}
+Find JTAG and SWD pinouts
+{{% /alert %}}
 
 
 ## Scripting
@@ -1810,102 +1900,3 @@ LEDs are power hungry, up to 60mA each at full brightness. The programmable powe
 ### **tutorial**
 
 ### **button**
-
-Macros perform complex actions, like scanning for I2C addresses,
-interrogating a smart card or probing a JTAG chain. Macros are numbers
-entered inside ```( )```. Macro ```(0)``` always displays a list of macros available in the current bus mode.
-
-### **(0)** List mode macros 
-
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">I2C></span> (0)
-<span style="color:#bfa530"> 1. I2C Address search
-</span>
-<span style="color:#96cb59">I2C></span>
-{{< /term >}}
-
-Macro ```(0)``` always displays a list of macros available in the current bus mode.
-
-### **(#)** Run macro 
-
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">I2C></span> (1)
-<span style="color:#bfa530">
-I2C Bus Scan
-   0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F
-00 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
-10 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
-20 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
-30 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
-40 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
-50 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
-60 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
-70 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
-Done.
-</span>
-<span style="color:#96cb59">I2C></span>
-{{< /term >}}
-
-Execute a macro by typing the macro number between ```( )```.
-
-## Configuration files
-
-![](/images/docs/fw/json-config.png)
-
-Global and mode settings will be saved and reloaded from onboard NAND flash storage. The settings are saved in simple JSON files. Configuration files can be viewed and edited from the USB disk that appears when the Bus Pirate is connected to a computer.
-
-## Global settings
-```js
-{
-"terminal_language": 0,
-"terminal_ansi_color": 1,
-"terminal_ansi_statusbar": 0,
-"display_format": 0,
-"lcd_screensaver_active": 0,
-"lcd_timeout": 0,
-"led_effect": 1,
-"led_color": 0,
-"led_brightness": 10,
-"terminal_usb_enable": 1,
-"terminal_uart_enable": 0,
-"terminal_uart_number": 1,
-"debug_uart_enable": 0,
-"debug_uart_number": 0
-}
-```
-The variable names are self explanatory. The values correspond to the options in the configuration menu, minus one. 
-
-## UART settings
-```js
-{
-"baudrate": 115200,
-"data_bits": 8,
-"stop_bits": 1,
-"parity": 0
-}
-```
-## I2C settings
-```js
-{
-"baudrate": 400,
-"data_bits": 0
-}
-```
-## SPI settings
-```js
-{
-"baudrate": 100000,
-"data_bits": 8,
-"stop_bits": 0,
-"parity": 0,
-"cs_idle": 1
-}
-```
-## LED settings
-```js
-{
-"device": 2,
-"num_leds": 16
-}
-```
-
