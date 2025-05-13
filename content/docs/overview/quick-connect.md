@@ -20,17 +20,23 @@ KF141 is a popular quick connector block with sturdy spring retention clamps. Pr
 
 KF141-R is a right angle connector. Wires clamps are oriented to the front of the connector block. Pin names are silkscreened in bright orange to save time and hassle.
 
+- [Schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/kf141r-adapter)
+- [Development in the forum](https://forum.buspirate.com/t/kf141-quick-connector-adapter/90?u=ian)
+
 ## KF141-V vertical connector
 
 ![](/images/docs/fw/bp5-promo-7.jpg)
 
 KF141-V is a vertical connector. Wires clamps are oriented to the top of the connector block. Pin names are silkscreened in bright orange to save time and hassle.
 
+- [Schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/kf141v-adapter)
+- [Development in the forum](https://forum.buspirate.com/t/kf141-quick-connector-adapter/90?u=ian)
+
 ## Resources
 
 - [KF141-Right Angle Adapter Schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/kf141r-adapter)
 - [KF141-Vertical Adapter Schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/kf141v-adapter)
-- [KF141 Adapter Hardware Documentation]({{< relref "/docs/cables/kf141-quick-connect" >}})
+- [Development in the forum](https://forum.buspirate.com/t/kf141-quick-connector-adapter/90?u=ian)
 
 ## Get a Bus Pirate
 
