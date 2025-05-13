@@ -1,5 +1,5 @@
 +++
-weight = 70900
+weight = 50600
 title = 'Oscilloscope'
 +++
 
