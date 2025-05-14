@@ -3,6 +3,6 @@ Here's some other fun stuff you might enjoy.
 - [Cables]({{< relref "/docs/cables/cables/" >}}) and [Milled breadboard pins]({{< relref "/docs/cables/milled-pins" >}})
 - [Injection molded case]({{< relref "/docs/enclosure/injection-molded-shell" >}})
 - [Hardware users guide]({{< relref "/docs/overview/hardware" >}})
-- [Getting started]({{< relref "/docs/tutorial-basics/quick-setup" >}}) and [Command reference]({{< relref "/docs/command-reference/commands" >}})
+- [Getting started]({{< relref "/docs/tutorial-basics/quick-setup" >}}) and [Command reference]({{< relref "/docs/command-reference" >}})
 - [Firmware development]({{< relref "/docs/development/code" >}}) and [translation]({{< relref "/docs/development/translation" >}})
 - [Manufacturing resources]({{< relref "/docs/manufacturing" >}})

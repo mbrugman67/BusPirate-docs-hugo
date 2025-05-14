@@ -1,0 +1,16 @@
+m HiZ
+rm bp1wire.bp
+# ds18b20-cast.json
+m 1wire # m 1wire - enter 1-Wire mode
+W # W - enable power supply
+3.3
+100
+P # P - enable pull-up resistors
+scan # scan - search for devices
+[ 0xcc 0x4e 0x00 0x00 0b01111111 # Configure 12bit resolution
+[ 0xcc 0x44 D:800 # Start temperature measurement
+[ 0xcc 0xbe r:9 # Read temperature measurement
+[ 0xcc 0x4e 0x00 0x00 0b01111111 [ 0xcc 0x44 D:800 [0xcc 0xbe r:9 # Combined in a single line
+ds18b20 # ds18b20 - measure and convert to degrees C
+#stop
+

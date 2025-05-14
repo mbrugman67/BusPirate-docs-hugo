@@ -1,0 +1,31 @@
+m HiZ
+rm bp1wire.bp
+# ds18b20-setup
+m 1wire
+W
+3.3
+100
+P
+# stop
+# ds18b20-scan
+scan
+# stop
+# ds18b20-configure
+[ 0xcc 0x4e 0x00 0x00 0b01111111
+# stop
+# ds18b20-measure
+[ 0xcc 0x44 D:800
+# stop
+# ds18b20-read
+[ 0xcc 0xbe r:9
+# stop
+# ds18b20-calc 
+= 0x017b
+# stop
+# ds18b20-oneline
+[ 0xcc 0x4e 0x00 0x00 0b01111111 [ 0xcc 0x44 D:800 [0xcc 0xbe r:9
+# stop
+# ds18b20-command
+ds18b20
+#stop
+

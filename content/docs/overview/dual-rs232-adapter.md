@@ -144,7 +144,7 @@ Dual RS-232 adapter [schematic and PCB](https://github.com/DangerousPrototypes/B
 ## Resources
 
 - Dual RS-232 adapter [schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/)
-- [UART mode documentation]({{< relref "/docs/command-reference/uart-protocol" >}})
+- [UART mode documentation]({{< relref "/docs/command-reference/#uart" >}})
 - [Development thread](https://forum.buspirate.com/t/dual-rs232-db9-adapter-plank/484)
 0
 ## Get a Bus Pirate

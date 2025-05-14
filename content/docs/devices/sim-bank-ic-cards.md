@@ -5,7 +5,7 @@ title = 'Mobile SIMs & Bank IC Cards HDUART'
 
 ![](/images/docs/demo/sim-adapter.jpg)
 
-Mobile phone SIM cards and most bank IC cards will output some useful information in response to an Answer To Reset command. The Bus Pirate can interact with these cards in [Half-Duplex UART mode]({{< relref "/docs/command-reference/half-duplex-uart-protocol" >}}).
+Mobile phone SIM cards and most bank IC cards will output some useful information in response to an Answer To Reset command. The Bus Pirate can interact with these cards in [Half-Duplex UART mode]({{< relref "/docs/command-reference/#hduart" >}}).
 
 {{% alert context="info" %}}
 Mobile phone SIMs and bank IC cards are usually based on "Java Cards" that are specially programmed and have advanced cryptographic features to keep data secure. We're evaluating blank, programmable cards for future tutorials.

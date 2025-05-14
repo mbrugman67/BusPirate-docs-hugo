@@ -18,7 +18,7 @@ Common IC cards usually follow the [ISO 7816-3 standard](https://en.wikipedia.or
 ![](/images/docs/fw/sim-iccard-all.jpg)
 ## mini, micro, and nano SIM cards
 
-The top of the adapter has sockets for mini, micro, and nano SIM cards. Most [mobile phone SIM cards]({{< relref "/docs/devices/sim-bank-ic-cards" >}}) use a half-duplex serial UART interface, such as the Bus Pirate [HDPLXUART mode]({{< relref "/docs/command-reference/half-duplex-uart-protocol" >}}). 
+The top of the adapter has sockets for mini, micro, and nano SIM cards. Most [mobile phone SIM cards]({{< relref "/docs/devices/sim-bank-ic-cards" >}}) use a half-duplex serial UART interface, such as the Bus Pirate [HDPLXUART mode]({{< relref "/docs/command-reference/#hduart" >}}). 
 
 | Socket | Description |
 |--------|-------------|
@@ -32,9 +32,9 @@ We looked at a lot of sockets and decided these were the best bet. Complex socke
 ## Smart IC cards
 
 A KF-011C socket on the reverse accepts most ISO 7816-3 smart cards:
-- [SLE4442 IC cards]({{< relref "/docs/devices/sle4442" >}}) with passcode protection, supported by [2-Wire protocol mode]({{< relref "/docs/command-reference/2wire-protocol" >}})
-- [24C02/24C04/24C08/24C16 EEPROM cards]({{< relref "/docs/devices/24c02" >}}), supported by [I2C protocol mode]({{< relref "/docs/command-reference/i2c-protocol" >}})
-- [Bank cards, ID cards, and other smart cards]({{< relref "/docs/devices/sim-bank-ic-cards" >}}), supported by [HDPLXUART mode]({{< relref "/docs/command-reference/half-duplex-uart-protocol" >}})
+- [SLE4442 IC cards]({{< relref "/docs/devices/sle4442" >}}) with passcode protection, supported by [2-Wire protocol mode]({{< relref "/docs/command-reference/#2-wire" >}})
+- [24C02/24C04/24C08/24C16 EEPROM cards]({{< relref "/docs/devices/24c02" >}}), supported by [I2C protocol mode]({{< relref "/docs/command-reference/#i2c" >}})
+- [Bank cards, ID cards, and other smart cards]({{< relref "/docs/devices/sim-bank-ic-cards" >}}), supported by [HDPLXUART mode]({{< relref "/docs/command-reference/#hduart" >}})
 
 A card detect switch is connected to an LED on the top of the board. _CARD LED_ will light when a card is inserted.
 
@@ -68,10 +68,10 @@ SW1 and SW2 along the side of the adapter select the power (VCC) and ground (GND
 - [How to interface SLE4442 IC cards]({{< relref "/docs/devices/sle4442" >}})
 - [How to interface 24C02 EEPROM cards]({{< relref "/docs/devices/24c02" >}})
 - [How to interface SIM and bank cards]({{< relref "/docs/devices/sim-bank-ic-cards" >}})
-- [Half-duplex UART mode documentation]({{< relref "/docs/command-reference/half-duplex-uart-protocol" >}})
-- [2-Wire mode documentation]({{< relref "/docs/command-reference/2wire-protocol" >}})
-- [I2C mode documentation]({{< relref "/docs/command-reference/i2c-protocol" >}})
-- [sle4442 command documentation]({{< relref "/docs/command-reference/2wire-protocol#sle4442" >}})
+- [Half-duplex UART mode documentation]({{< relref "/docs/command-reference/#hduart" >}})
+- [2-Wire mode documentation]({{< relref "/docs/command-reference/#2-wire" >}})
+- [I2C mode documentation]({{< relref "/docs/command-reference/#i2c" >}})
+- [sle4442 command documentation]({{< relref "/docs/command-reference/#sle4442" >}})
 
 ## Get a Bus Pirate
 

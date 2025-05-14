@@ -1,5 +1,5 @@
 +++
-weight = 40100
+weight = 40190
 title = 'NOR Flash Chips SPI'
 +++
 
@@ -485,9 +485,9 @@ To confirm the data was written, we use the 'Read Data' instruction ```0x03``` o
 If the writing/reading process fails, check all connections. /HOLD & /WP pins must be connected to 3.3 volts.
 {{% /alert %}}
 
-## flash command
+## flash command 
 
-The [flash command]({{< relref "/docs/command-reference/spi-protocol#flash" >}}) can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip by reading the SFDP tables. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back.
+The [flash command]({{< relref "/docs/command-reference/#flash" >}}) can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip by reading the SFDP tables. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back.
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> flash init

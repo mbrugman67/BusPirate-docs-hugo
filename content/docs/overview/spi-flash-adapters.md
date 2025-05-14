@@ -125,7 +125,7 @@ SW1 and SW2 along the side of the adapter select the power (VCC) and ground (GND
 - LOTES SOP8 SPI Flash adapter [schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/flash-sop-lotes-rev3) 
 - WSON8 SPI Flash Adapter [schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/flash-wson-rev3)
 - DIP8 SPI Flash Adapter [schematic and PCB](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/flash-dip-rev3)
-- [flash command documentation]({{< relref "/docs/command-reference/spi-protocol#flash" >}})
+- [flash command documentation]({{< relref "/docs/command-reference/#flash" >}})
 - [How to interface common SPI flash chips]({{< relref "/docs/devices/spi-flash-chips" >}})
 
 ## Get a Bus Pirate

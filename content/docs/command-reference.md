@@ -1,5 +1,5 @@
 +++
-weight = 70100
+weight = 10010
 title = 'Command Reference'
 +++
 
@@ -32,7 +32,7 @@ If the Bus Pirate has just restarted you will be prompted to choose the terminal
 - VT100 mode - Supports color and a live view statusbar at the bottom of the terminal. This should be your first choice unless you specifically need the legacy ASCII mode.
 - ASCII mode - Legacy monochrome text only mode.
 
-The terminal mode can be changed from the [configuration menu]({{< relref "/docs/command-reference/commands/#c-configuration-options-menu">}}). Open the configuration menu with the ```c``` command followed by ```enter```. 
+The terminal mode can be changed from the [configuration menu]({{< relref "/docs/command-reference/#c-configuration-options-menu">}}). Open the configuration menu with the ```c``` command followed by ```enter```. 
 
 {{% alert context="info" %}}
 If you choose VT100 mode and see lots of garbage characters in the terminal, check that your terminal emulator has VT100 support and that VT100 support is enabled.
@@ -46,7 +46,7 @@ If you choose VT100 mode and see lots of garbage characters in the terminal, che
 The Bus Pirate has a simple Linux-like command line interface. Enter a command followed by optional parameters and then press ```enter``` to execute.
 
 ### HiZ mode
-The Bus Pirate always starts in high impedance mode (HiZ), a safe mode with all outputs disabled. HiZ mode intends to protect any connected devices from conditions beyond their specifications. From the HiZ prompt, a bus mode can be selected to use a specific protocol with the ```m``` [mode command]({{< relref "/docs/command-reference/commands/#m-set-bus-mode" >}}).
+The Bus Pirate always starts in high impedance mode (HiZ), a safe mode with all outputs disabled. HiZ mode intends to protect any connected devices from conditions beyond their specifications. From the HiZ prompt, a bus mode can be selected to use a specific protocol with the ```m``` [mode command]({{< relref "/docs/command-reference/#m-set-bus-mode" >}}).
 
 ### Terminal control
 
@@ -430,7 +430,7 @@ Convert between HEX, DEC and BIN number formats easily. Type ```=``` followed by
 - ```= <number>``` - Display the HEX/DEC/BIN equivalent of \<number>.  
 
 {{% alert context="info" %}}
-To change the Bus Pirate output display format see the [```o``` command]({{% relref "/docs/command-reference/commands/#o-data-output-display-format" %}}).
+To change the Bus Pirate output display format see the [```o``` command]({{% relref "/docs/command-reference/#o-data-output-display-format" %}}).
 {{% /alert %}}
 
 ### **| X** Reverse bits 
@@ -442,7 +442,7 @@ Reverse bit order of a number. Displays the HEX/DEC/BIN value of the reversed nu
 - ```| <number>``` - Reverse the bits in \<number>. 
 
 {{% alert context="info" %}}
-To change the Bus Pirate read/write bit order see the [```l```/```L``` command]({{% relref "/docs/command-reference/commands/#ll-set-msblsb-first" %}}).
+To change the Bus Pirate read/write bit order see the [```l```/```L``` command]({{% relref "/docs/command-reference/#ll-set-msblsb-first" %}}).
 {{% /alert %}}
 
 ### **a/A/@** Auxiliary pin control (low/HIGH/read)
@@ -570,7 +570,7 @@ START commands generate a START condition (I2C), a RESET (1-Wire, LED), chip sel
 - ```{``` - send the alternate START condition for the currently selected bus mode.
 
 {{% alert context="info" %}}
-Lines beginning with ```[``` and ```{``` are interpreted as bus commands, data will be sent to the device in the current protocol selected with the [```m``` command]({{% relref "/docs/command-reference/commands/#m-set-bus-mode" %}}).
+Lines beginning with ```[``` and ```{``` are interpreted as bus commands, data will be sent to the device in the current protocol selected with the [```m``` command]({{% relref "/docs/command-reference/#m-set-bus-mode" %}}).
 {{% /alert %}}
 
 ### **>** Execute bus commands (no START)
@@ -611,7 +611,7 @@ Many protocols have a STOP condition. In various modes ```]``` and ```}``` STOPs
 <span style="color:#96cb59">SPI></span> 
 {{< /term >}}
 
-- ```r``` - read a byte from the bus. Use with the [repeat command]({{% relref "/docs/command-reference/commands/#-repeat-eg-r10" %}}) (r:1...255) for bulk reads.
+- ```r``` - read a byte from the bus. Use with the [repeat command]({{% relref "/docs/command-reference/#-repeat-eg-r10" %}}) (r:1...255) for bulk reads.
 
 {{% alert context="info" %}}
 The ```>``` before ```r``` tells the Bus Pirate we want to send bus commands.
@@ -630,7 +630,7 @@ commonly used in electronics because the 1s and 0s correspond to
 register 'switches' that control various aspects of a device. When used as part of a bus command, the Bus Pirate will write the value in the currently selected bus protocol.
 
 Begin a binary number with ```0b```, followed by the bits. Padding 0's are not required,
-0b00000001=0b1. Can be used with the [repeat command]({{% relref "/docs/command-reference/commands/#-repeat-eg-r10" %}}) (0b110:1...255) for bulk writes.  
+0b00000001=0b1. Can be used with the [repeat command]({{% relref "/docs/command-reference/#-repeat-eg-r10" %}}) (0b110:1...255) for bulk writes.  
 
 - ```0b0``` - binary "0".
 - ```0b1``` - binary "1".
@@ -652,7 +652,7 @@ The ```>``` before ```0b01``` tells the Bus Pirate we want to send bus commands.
 16 numbers that use a-f for the numbers 10-15, this format is very
 common in computers and electronics. When used as part of a bus command, the Bus Pirate will write the value in the currently selected bus protocol.
 
-Begin a hexadecimal number with ```0x``` or ```0h```, followed by the hex digits. A-F can be lowercase or uppercase letters. Padding 0's are not required, 0x05=0x5. Hexadecimal numbers can be used with the [repeat command]({{% relref "/docs/command-reference/commands/#-repeat-eg-r10" %}}) (0xff:1...255) for bulk writes.
+Begin a hexadecimal number with ```0x``` or ```0h```, followed by the hex digits. A-F can be lowercase or uppercase letters. Padding 0's are not required, 0x05=0x5. Hexadecimal numbers can be used with the [repeat command]({{% relref "/docs/command-reference/#-repeat-eg-r10" %}}) (0xff:1...255) for bulk writes.
 
 - ```0x0``` - hexadecimal "0".
 - ```0x1``` - hexadecimal "1".
@@ -670,7 +670,7 @@ The ```>``` before ```0x01``` tells the Bus Pirate we want to send bus commands.
 <span style="color:#96cb59">SPI></span>
 {{< /term >}}
 
-Any number not started with 0b, 0x or 0h is interpreted as a decimal value. [Decimal](http://en.wikipedia.org/wiki/Decimal) values are common base 10 numbers. Just enter the value, no special prefix is required. Decimal numbers can be used with the [repeat command]({{% relref "/docs/command-reference/commands/#-repeat-eg-r10" %}}) (10:1...255) for bulk writes.
+Any number not started with 0b, 0x or 0h is interpreted as a decimal value. [Decimal](http://en.wikipedia.org/wiki/Decimal) values are common base 10 numbers. Just enter the value, no special prefix is required. Decimal numbers can be used with the [repeat command]({{% relref "/docs/command-reference/#-repeat-eg-r10" %}}) (10:1...255) for bulk writes.
 
 - ```0``` - decimal "0".
 - ```1``` - decimal "1".
@@ -731,7 +731,7 @@ No delimiter is required between non-number commands.
 <span style="color:#96cb59">SPI></span> 
 {{< /term >}}
 
-Delay in microseconds or milliseconds. Delays can be extended with the [repeat command]({{% relref "/docs/command-reference/commands/#-repeat-eg-r10" %}}) (d:1...255).
+Delay in microseconds or milliseconds. Delays can be extended with the [repeat command]({{% relref "/docs/command-reference/#-repeat-eg-r10" %}}) (d:1...255).
 
 - ```d``` - delays 1us.
 - ```d:10``` - delay 10us.
@@ -846,8 +846,55 @@ Pins already assigned a function, such as PWM or mode/protocol pins, cannot be c
 Bus commands a/A/@ use the ```a.<pin>``` notation, the syntax is followed by a **.** and the pin number to control. This is different than the commands a/A/@, which are followed by a space and the pin number to control.
 {{% /alert %}}
 
+### **^** Clock tick (limited)
+
+{{< termfile  source="static/snippets/.html" >}}
+
+{{% alert context="warning" %}}
+"Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as 2WIRE and 3WIRE.
+{{% /alert %}}
 
 
+
+### */* Clock high (limited)
+
+{{< termfile  source="static/snippets/.html" >}}
+
+{{% alert context="warning" %}}
+"Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as 2WIRE and 3WIRE.
+{{% /alert %}}
+
+### *\\* Clock low (limited)
+
+{{< termfile  source="static/snippets/.html" >}}
+
+{{% alert context="warning" %}}
+"Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as 2WIRE and 3WIRE.
+{{% /alert %}}
+
+### *_* Data low (limited)
+
+{{< termfile  source="static/snippets/.html" >}}
+
+{{% alert context="warning" %}}
+"Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as 2WIRE and 3WIRE.
+{{% /alert %}}
+
+### *-* Data high (limited)
+
+{{< termfile  source="static/snippets/.html" >}}
+
+{{% alert context="warning" %}}
+"Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as 2WIRE and 3WIRE.
+{{% /alert %}}
+
+### *.* Read data (limited)
+
+{{< termfile  source="static/snippets/.html" >}}
+
+{{% alert context="warning" %}}
+"Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as 2WIRE and 3WIRE.
+{{% /alert %}}
 
 ## HiZ
 
@@ -859,7 +906,7 @@ Bus commands a/A/@ use the ```a.<pin>``` notation, the syntax is followed by a *
 
 HiZ is the default Bus Pirate mode. It is a safe mode: all outputs and hardware are disabled. 
 
-To change into a protocol mode, use the [```m``` command]({{% relref "/docs/command-reference/commands/#m-set-bus-mode" %}}).
+To change into a protocol mode, use the [```m``` command]({{% relref "/docs/command-reference/#m-set-bus-mode" %}}).
 
 {{% alert context="info" %}}
 HiZ is a safe mode. If something goes wrong with your target device, switch to safe mode to disable all outputs and hardware.
@@ -882,7 +929,7 @@ data line high and create the data '1'. 1-Wire parts don't
 output high, they only pull low. Without pull-up resistors there can
 never be a '1'. 
 
-Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/commands/#pp-pull-up-resistors"%}}).
+Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/#pp-pull-up-resistors"%}}).
 
 {{% alert context="info" %}}
 - 1-Wire requires a pull-up resistor to hold the data line high.
@@ -913,33 +960,19 @@ Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% r
 
 ### scan
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">1-WIRE></span> scan
-<span style="color:#bfa530">
-1-Wire ROM search:
-1: 28 5c aa 13 0a 00 00 19
-</span>
-<span style="color:#96cb59">1-WIRE></span>
-{{< /term >}}
-
-```scan``` performs a 1-Wire ROM search to detect the ID of every connected 1-Wire device. The type of device is shown if the family ID is known.
+{{< termfile source="static/snippets/ds18b20-scan.html" >}}
 
 - ```scan``` - perform a 1-Wire ROM search.
 
+```scan``` performs a 1-Wire ROM search to detect the ID of every connected 1-Wire device. The type of device is shown if the family ID is known.
+
 ### ds18b20    
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">1-WIRE></span> ds18b20
-<span style="color:#bfa530">
-RX: 1a 01 00 00 7f ff 06 10 12
-Temperature: 17.625
-</span>
-<span style="color:#96cb59">1-WIRE></span>
-{{< /term >}}
-
-```ds18b20``` reads the temperature from a single [18B20 temperature sensor]({{% relref "/docs/devices/ds18b20" %}}). The temperature is displayed in Celsius.
+{{< termfile source="static/snippets/ds18b20-command.html" >}}
 
 - ```ds18b20``` - read the temperature from a single DS18B20 device. 
+
+```ds18b20``` reads the temperature from a single [18B20 temperature sensor]({{% relref "/docs/devices/ds18b20" %}}). The temperature is displayed in Celsius.
 
 {{% alert context="warning" %}}
 The device is accessed with the skip ROM command, so it will only work with a single DS18B20 device connected.
@@ -1120,12 +1153,12 @@ Half-duplex UART is a common serial UART, but receive and transmit share a singl
 
 Half-duplex UART is an open-collector bus, it requires pull-up resistors to hold the data line high to create the data '1'. The Bus Pirate doesn't output high, it only pulls low. Without pull-up resistors there can never be a '1'. 
 
-Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/commands/#pp-pull-up-resistors" %}}).
+Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/#pp-pull-up-resistors" %}}).
 
 {{% alert context="info" %}}
 - Half-duplex UART requires pull-up resistors to hold the data line high.
 - Without pull-up resistors there can never be a '1'. 
-- Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/commands/#pp-pull-up-resistors" %}}).
+- Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/#pp-pull-up-resistors" %}}).
 {{% /alert %}}
 
 ### Bus commands
@@ -1204,13 +1237,13 @@ output high, they only pull low, without pull-up resistors there can
 never be a '1'. This will cause common errors such as the I2C address
 scanner reporting a response at every address. 
 
-Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/commands/#pp-pull-up-resistors" %}}).
+Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/#pp-pull-up-resistors" %}}).
 
 {{% alert context="info" %}}
 - I2C requires pull-up resistors to hold the clock and data lines high.
 - I2C parts don't output high, they only pull low.
 - Without pull-up resistors there can never be a '1'. 
-- Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/commands/#pp-pull-up-resistors" %}}).
+- Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/#pp-pull-up-resistors" %}}).
 {{% /alert %}}
 
 ### Connections
@@ -1569,12 +1602,12 @@ clock and data lines high and create the data '1'. In 2-Wire mode, the Bus Pirat
 output high, it only pulls low. Without pull-up resistors there can
 never be a '1'. 
 
-Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/commands/#pp-pull-up-resistors" %}}).
+Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/#pp-pull-up-resistors" %}}).
 
 {{% alert context="info" %}}
 - 2-Wire requires pull-up resistors to hold the clock and data lines high.
 - Without pull-up resistors there can never be a '1'. 
-- Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/commands/#pp-pull-up-resistors" %}}).
+- Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% relref "/docs/command-reference/#pp-pull-up-resistors" %}}).
 {{% /alert %}}
 
 ### Bus commands
@@ -1590,6 +1623,16 @@ Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% r
 | 0x      | Write this HEX value. Format is 0x01. Partial bytes are fine: 0xA. A-F can be lower-case or capital letters. |
 | 0-255   | Write this decimal value. Any number not preceded by 0x or 0b is interpreted as a decimal value. |
 | ```space```| Value delimiter. Use a space to separate numbers. No delimiter is required between non-number values: \{0xa6 0 0 16 5 0b111 0xaF rrrr}. |
+| ^ | One clock tick, low to high to low transition. |
+| / | Set clock pin high. |
+| \ | Set clock pin low. |
+| _ | Set data pin low. |
+| - | Set data pin high. |
+| . | Read data pin. |
+
+{{% alert context="info" %}}
+2WIRE supports bitwise operations on the clock and data lines. The commands ```^```, ```/```, ```\```, ```_```, ```-``` and ```.``` control the clock and data lines directly. This is useful for some devices that require precise timing or specific signal patterns.
+{{% /alert %}}
 
 {{% readfile "/_common/other-commands.md" %}}
 
@@ -1743,7 +1786,7 @@ Flags pass file names and other settings to the command.
 -   **Maximum voltage:** 5volts
 
 {{% alert context="info" %}}
-3WIRE is like [SPI]({{% relref "/docs/command-reference/commands/#spi" %}}) with extra commmands to control the clock and data lines individually.
+3WIRE is like [SPI]({{% relref "/docs/command-reference/#spi" %}}) with extra commmands to control the clock and data lines individually.
 {{% /alert %}} 
 
 ### Connections
@@ -1756,6 +1799,33 @@ Flags pass file names and other settings to the command.
 | CLK        | <font size="+2">→</font> | CLK     | Clock signal         |
 | GND        | <font size="+2">⏚</font> | GND     | Signal Ground        |
 
+### Configuration options
+
+### Bus commands
+
+|Command|Description|
+|-------|-----------|
+|[| 	Chip select (CS) active|
+|{| 	Chip Select (CS) active, show the SPI read byte while writing|
+|] or }| 	Chip Select (CS) disable|
+| r       | Read one byte. (r:1…255 for bulk reads)|
+| 0b      | Write this binary value. Format is 0b00000000 for a byte, but partial bytes are also fine: 0b1001.|
+| 0x      | Write this HEX value. Format is 0x01. Partial bytes are fine: 0xA. A-F can be lower-case or capital letters. |
+| 0-255   | Write this decimal value. Any number not preceded by 0x or 0b is interpreted as a decimal value. |
+| ```space```| Value delimiter. Use a space to separate numbers. No delimiter is required between non-number values: \{0xa6 0 0 16 5 0b111 0xaF rrrr}. |
+| ^ | One clock tick, low to high to low transition. |
+| / | Set clock pin high. |
+| \ | Set clock pin low. |
+| _ | Set MOSI pin low. |
+| - | Set MOSI pin high. |
+| . | Read MISO pin. |
+
+{{% alert context="info" %}}
+3WIRE supports bitwise operations on the clock and data lines. The commands ```^```, ```/```, ```\```, ```_```, ```-``` and ```.``` control the clock and data lines directly. This is useful for some devices that require precise timing or specific signal patterns.
+{{% /alert %}}
+
+{{% readfile "/_common/other-commands.md" %}}
+
 ## DIO
 
 -   **Bus:** DIO (digital input/output)
@@ -1764,7 +1834,7 @@ Flags pass file names and other settings to the command.
 -   **Maximum voltage:** 5volts
 
 {{% alert context="info" %}}
-DIO is a mode with no specific protocol. All the Bus Pirate pins are free for use as [input/ouputs]({{% relref "/docs/command-reference/commands/#aa-auxiliary-pin-control-lowhighread" %}}), [frequency generators]({{% relref "/docs/command-reference/commands/#gg-frequency-generator" %}}), [frequency measurement]({{% relref "/docs/command-reference/commands/#ff-measure-frequency" %}}), etc.
+DIO is a mode with no specific protocol. All the Bus Pirate pins are free for use as [input/ouputs]({{% relref "/docs/command-reference/#aa-auxiliary-pin-control-lowhighread" %}}), [frequency generators]({{% relref "/docs/command-reference/#gg-frequency-generator" %}}), [frequency measurement]({{% relref "/docs/command-reference/#ff-measure-frequency" %}}), etc.
 {{% /alert %}} 
 
 

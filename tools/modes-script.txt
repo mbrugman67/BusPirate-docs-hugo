@@ -1,0 +1,11 @@
+m HiZ
+format
+y 
+y 
+c 
+x
+# mode-1wire-config
+m 1wire
+# stop
+m hiz 
+# mode-uart-config
