@@ -8,7 +8,7 @@ title = 'PulseView (Normal)'
 [Sigrok/PulseView](https://sigrok.org/wiki/Main_Page) is a popular open source logic analyzer GUI that runs on Windows, Linux, and Mac. The Bus Pirate supports Sigrok/PulseView through a SUMP protocol interface.
 
 - [Sigrok/PulseView download](https://sigrok.org/wiki/Downloads) (Linux, Mac)
-- [Special patched version for Windows](https://github.com/DangerousPrototypes/BusPirate5-firmware/releases/tag/custom-patch-PulseView-0.5.0-git-d00efc6-installer)
+- [Special patched version for Windows](https://github.com/DangerousPrototypes/BusPirate5-firmware/releases/tag/custom)
 
 The Bus Pirate can be [used as a logic analyzer in multiple ways]({{< relref "logicanalyzer" >}}). This page documents the SUMP compatible interface.
 

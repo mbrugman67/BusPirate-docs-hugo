@@ -1,13 +1,11 @@
 +++
-weight = 40190
+weight = 40310
 title = 'NOR Flash Chips SPI'
 +++
 
 ![](/images/docs/demo/spi-flash-pinout.png)
 
 Eight pin SPI flash chips are a cheap and easy way to add storage to your project. They're available in sizes from 1MB to 128MB, and can be used to store data, firmware, or even a filesystem. They're commonly found on PC motherboards for storing BIOS, FPGAs for storing bitstreams, and even the Bus Pirate for storing the firmware.
-
-
 
 {{% readfile "/_common/_footer/_footer-cart.md" %}}
 

@@ -1,5 +1,5 @@
 +++
-weight = 40900
+weight = 40120
 title = 'Mobile SIMs & Bank IC Cards HDUART'
 +++
 
