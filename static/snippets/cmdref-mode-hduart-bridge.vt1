@@ -1,0 +1,12 @@
+[38;2;150;203;89mHDUART>[0m&nbsp;bridge&nbsp;-h
+usage:
+[38;2;191;165;48mbridge	[-h(elp)][0m
+[38;2;191;165;48mTransparent&nbsp;UART&nbsp;bridge:&nbsp;bridge[0m
+[38;2;191;165;48mExit:&nbsp;press&nbsp;Bus&nbsp;Pirate&nbsp;button[0m
+
+[38;2;191;165;48mopen&nbsp;UART&nbsp;with&nbsp;raw&nbsp;data&nbsp;IO,&nbsp;usb&nbsp;to&nbsp;serial&nbsp;bridge&nbsp;mode[0m
+[38;2;150;203;89m-t[0m	[38;2;191;165;48mENABLE&nbsp;toolbar&nbsp;while&nbsp;bridge&nbsp;is&nbsp;active&nbsp;(default:&nbsp;disabled)[0m
+[38;2;150;203;89m-s[0m	[38;2;191;165;48mSuppress&nbsp;local&nbsp;echo,&nbsp;don't&nbsp;echo&nbsp;back&nbsp;sent&nbsp;data[0m
+[38;2;150;203;89m-h[0m	[38;2;191;165;48mGet&nbsp;additional&nbsp;help[0m
+[0m
+[38;2;150;203;89mHDUART>[0m&nbsp;

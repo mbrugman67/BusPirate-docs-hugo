@@ -83,6 +83,26 @@ W
 # cmdref-psuon-short
 W 5 50
 # stop
+P
+# cmdref-bitwise-tick
+>^
+# stop
+# cmdref-bitwise-clock-high
+>/
+# stop
+# cmdref-bitwise-clock-low
+>\
+# stop
+# cmdref-bitwise-data-high
+>-
+#stop
+# cmdref-bitwise-data-low
+>_
+# stop
+# cmdref-bitwise-data-read
+>.
+# stop
+p
 # cmdref-psuoff
 w
 # stop

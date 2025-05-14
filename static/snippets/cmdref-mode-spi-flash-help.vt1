@@ -1,0 +1,24 @@
+[38;2;150;203;89mSPI>[0m&nbsp;flash&nbsp;-h
+usage:
+[38;2;191;165;48mflash&nbsp;[init|probe|erase|write|read|verify|test]
+	[-f&nbsp;&ltfile>]&nbsp;[-e(rase)]&nbsp;[-v(verify)]&nbsp;[-h(elp)][0m
+[38;2;191;165;48mInitialize&nbsp;and&nbsp;probe:&nbsp;flash&nbsp;probe[0m
+[38;2;191;165;48mErase&nbsp;and&nbsp;program,&nbsp;with&nbsp;verify:&nbsp;flash&nbsp;write&nbsp;-f&nbsp;example.bin&nbsp;-e&nbsp;-v[0m
+[38;2;191;165;48mRead&nbsp;to&nbsp;file:&nbsp;flash&nbsp;read&nbsp;-f&nbsp;example.bin[0m
+[38;2;191;165;48mVerify&nbsp;with&nbsp;file:&nbsp;flash&nbsp;verify&nbsp;-f&nbsp;example.bin[0m
+[38;2;191;165;48mTest&nbsp;chip&nbsp;(full&nbsp;erase/write/verify):&nbsp;flash&nbsp;test[0m
+[38;2;191;165;48mForce&nbsp;dump:&nbsp;flash&nbsp;read&nbsp;-o&nbsp;-b&nbsp;&ltbytes>&nbsp;-f&nbsp;&ltfile>[0m
+
+[38;2;191;165;48mread,&nbsp;write&nbsp;and&nbsp;erase&nbsp;flash&nbsp;chips&nbsp;using&nbsp;SFDP&nbsp;info&nbsp;if&nbsp;available[0m
+[38;2;150;203;89minit[0m	[38;2;191;165;48mReset&nbsp;and&nbsp;initialize&nbsp;flash&nbsp;chip.&nbsp;Default&nbsp;if&nbsp;no&nbsp;options&nbsp;given.&nbsp;flash[0m
+[38;2;150;203;89mprobe[0m	[38;2;191;165;48mProbe&nbsp;flash&nbsp;chip&nbsp;for&nbsp;ID&nbsp;and&nbsp;SFDP&nbsp;info.&nbsp;flash&nbsp;probe[0m
+[38;2;150;203;89merase[0m	[38;2;191;165;48mErase&nbsp;flash&nbsp;chip.&nbsp;flash&nbsp;erase&nbsp;[-v(erify)][0m
+[38;2;150;203;89mwrite[0m	[38;2;191;165;48mWrite&nbsp;file&nbsp;to&nbsp;flash&nbsp;chip.&nbsp;flash&nbsp;write&nbsp;-f&nbsp;&ltfile>&nbsp;[-e(rase)]&nbsp;[-v(erify)][0m
+[38;2;150;203;89mread[0m	[38;2;191;165;48mRead&nbsp;flash&nbsp;chip&nbsp;to&nbsp;file.&nbsp;flash&nbsp;read&nbsp;-f&nbsp;&ltfile>[0m
+[38;2;150;203;89mverify[0m	[38;2;191;165;48mVerify&nbsp;flash&nbsp;chip&nbsp;against&nbsp;file.&nbsp;flash&nbsp;verify&nbsp;-f&nbsp;&ltfile>[0m
+[38;2;150;203;89mtest[0m	[38;2;191;165;48mErase&nbsp;and&nbsp;write&nbsp;full&nbsp;chip&nbsp;with&nbsp;dummy&nbsp;data,&nbsp;verify.&nbsp;flash&nbsp;test[0m
+[38;2;150;203;89m-f[0m	[38;2;191;165;48mFile&nbsp;flag.&nbsp;File&nbsp;to&nbsp;write,&nbsp;read&nbsp;or&nbsp;verify.&nbsp;flash&nbsp;verify&nbsp;-f&nbsp;&ltfile>[0m
+[38;2;150;203;89m-e[0m	[38;2;191;165;48mErase&nbsp;flag.&nbsp;Add&nbsp;erase&nbsp;before&nbsp;write.&nbsp;flash&nbsp;write&nbsp;-f&nbsp;&ltfile>&nbsp;-e[0m
+[38;2;150;203;89m-v[0m	[38;2;191;165;48mVerify&nbsp;flag.&nbsp;Add&nbsp;verify&nbsp;after&nbsp;write&nbsp;or&nbsp;erase.&nbsp;flash&nbsp;write&nbsp;-f&nbsp;&ltfile>&nbsp;-v[0m
+[0m
+[38;2;150;203;89mSPI>[0m&nbsp;

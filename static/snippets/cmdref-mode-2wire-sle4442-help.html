@@ -1,0 +1,27 @@
+<span style="color:rgb(150,203,89)">2WIRE></span>&nbsp;sle4442&nbsp;-h
+usage:
+<span style="color:rgb(191,165,48)">sle4442&nbsp;[init|dump|unlock|write|erase|psc]
+	[-a&nbsp;&ltaddress>]&nbsp;[-v&nbsp;&ltvalue>]&nbsp;[-p&nbsp;&ltcurrent&nbsp;psc>]&nbsp;[-n&nbsp;&ltnew&nbsp;psc>]&nbsp;[-h(elp)]</span>
+<span style="color:rgb(191,165,48)">Initialize&nbsp;and&nbsp;probe:&nbsp;sle4442&nbsp;init</span>
+<span style="color:rgb(191,165,48)">Dump&nbsp;contents:&nbsp;sle4442&nbsp;dump</span>
+<span style="color:rgb(191,165,48)">Unlock&nbsp;card:&nbsp;sle4442&nbsp;unlock&nbsp;-p&nbsp;0xffffff</span>
+<span style="color:rgb(191,165,48)">Write&nbsp;a&nbsp;value:&nbsp;sle4442&nbsp;write&nbsp;-a&nbsp;0xff&nbsp;-v&nbsp;0x55</span>
+<span style="color:rgb(191,165,48)">Erase&nbsp;memory:&nbsp;sle4442&nbsp;erase</span>
+<span style="color:rgb(191,165,48)">Update&nbsp;PSC:&nbsp;sle4442&nbsp;psc&nbsp;-p&nbsp;0xffffff&nbsp;-n&nbsp;0x000000</span>
+<span style="color:rgb(191,165,48)">Dump&nbsp;contents&nbsp;to&nbsp;file:&nbsp;sle4442&nbsp;dump&nbsp;-f&nbsp;dump.bin</span>
+<span style="color:rgb(191,165,48)">Dump&nbsp;format:&nbsp;DATA[0:255],SECMEM[256:259],PRTMEM[260:263]</span>
+
+<span style="color:rgb(191,165,48)">SLE4442&nbsp;smart&nbsp;card&nbsp;interface</span>
+<span style="color:rgb(150,203,89)">init</span>	<span style="color:rgb(191,165,48)">Initialize&nbsp;card&nbsp;with&nbsp;ISO7816-3&nbsp;ATR.&nbsp;Default&nbsp;action</span>
+<span style="color:rgb(150,203,89)">dump</span>	<span style="color:rgb(191,165,48)">Display&nbsp;main,&nbsp;security&nbsp;and&nbsp;protect&nbsp;memory</span>
+<span style="color:rgb(150,203,89)">unlock</span>	<span style="color:rgb(191,165,48)">Unlock&nbsp;card&nbsp;with&nbsp;Programmable&nbsp;Security&nbsp;Code&nbsp;(PSC)</span>
+<span style="color:rgb(150,203,89)">write</span>	<span style="color:rgb(191,165,48)">Write&nbsp;data&nbsp;to&nbsp;card&nbsp;(requires&nbsp;unlock)</span>
+<span style="color:rgb(150,203,89)">erase</span>	<span style="color:rgb(191,165,48)">Erase&nbsp;data&nbsp;from&nbsp;range&nbsp;0x32-0x255&nbsp;(requires&nbsp;unlock)</span>
+<span style="color:rgb(150,203,89)">psc</span>	<span style="color:rgb(191,165,48)">Change&nbsp;Programmable&nbsp;Security&nbsp;Code&nbsp;(PSC)</span>
+<span style="color:rgb(150,203,89)">-a</span>	<span style="color:rgb(191,165,48)">Write&nbsp;address&nbsp;flag</span>
+<span style="color:rgb(150,203,89)">-v</span>	<span style="color:rgb(191,165,48)">Write&nbsp;value&nbsp;flag</span>
+<span style="color:rgb(150,203,89)">-p</span>	<span style="color:rgb(191,165,48)">Current&nbsp;Programmable&nbsp;Security&nbsp;Code&nbsp;(PSC)&nbsp;flag</span>
+<span style="color:rgb(150,203,89)">-n</span>	<span style="color:rgb(191,165,48)">New&nbsp;Programmable&nbsp;Security&nbsp;Code&nbsp;(PSC)&nbsp;flag</span>
+<span style="color:rgb(150,203,89)">-f</span>	<span style="color:rgb(191,165,48)">Dump&nbsp;file&nbsp;name&nbsp;flag</span>
+
+<span style="color:rgb(150,203,89)">2WIRE></span>&nbsp;

@@ -1,6 +1,6 @@
 m HiZ
 rm bp1wire.bp
-# ds18b20-cast.json
+# ds18b20-cast
 m 1wire # m 1wire - enter 1-Wire mode
 W # W - enable power supply
 3.3

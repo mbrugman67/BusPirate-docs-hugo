@@ -1,0 +1,10 @@
+[38;2;150;203;89mUART>[0m&nbsp;gps&nbsp;-h
+usage:
+[38;2;191;165;48mgps	[-h(elp)][0m
+[38;2;191;165;48mDecode&nbsp;GPS&nbsp;NMEA&nbsp;packets:&nbsp;gps[0m
+[38;2;191;165;48mExit:&nbsp;press&nbsp;any&nbsp;key[0m
+
+[38;2;191;165;48mparse&nbsp;NMEA&nbsp;GPS&nbsp;data[0m
+[38;2;150;203;89m-h[0m	[38;2;191;165;48mGet&nbsp;additional&nbsp;help[0m
+[0m
+[38;2;150;203;89mUART>[0m&nbsp;

@@ -143,7 +143,7 @@ def main():
                                         print(f"Error closing file: {e}")
                                         quit(1)
                                 try:
-                                    asciinema_file = open(args.output + current_comment.strip(), "w")
+                                    asciinema_file = open(args.output + current_comment.strip()+'.json', "w")
                                     start_time = None
                                     timestamp = 0
                                     asciinema_file.write('{"version": 2, "width": 80, "height": 24, "timestamp": ' + str(time.time()) + ', "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}\n')

@@ -3,7 +3,7 @@ m hiz
 rm bpled.bp
 m led
 3
-# tut-power-supply.json
+# tut-power-supply
 W # W - enable PSU (interactive)
 5
 100
@@ -13,7 +13,7 @@ w # w - disable PSU
 # stop
 m hiz
 rm bpled.bp
-# tut-led.json
+# tut-led
 m # m - change to LED mode
 10
 3 # 3 - select onboard LEDs
@@ -31,7 +31,7 @@ m # m - change to LED mode
 m hiz
 m led
 y
-# tut-pull-io.json
+# tut-pull-io
 W 5 100 # W - enable power supply
 P # P - enable pull-up resistors
 a 0 # a - auxiliary pin low
@@ -41,7 +41,7 @@ p # p - disable pull-up resistors
 A 0 # A - auxiliary pin high
 # stop
 m hiz
-# tut-config-menu.json
+# tut-config-menu
 c # c - configuration menu
 5 # Change LED effect
 9 # Set LED to party mode
@@ -53,12 +53,12 @@ rm bpi2c.bp
 m i2c
 400 
 2
-# tut-self-test.json
+# tut-self-test
 m # m - change to HiZ mode
 1
 ~ # ~ - start self-test
 # stop
-# tut-usb-flash.json
+# tut-usb-flash
 ls # ls - list files
 mkdir temp # mkdir - make directory
 ls

@@ -1,0 +1,102 @@
+m HiZ
+rm bpuart.bp
+# cmdref-mode-uart-config
+m uart
+
+
+
+
+
+
+# stop
+# cmdref-mode-uart-bridge
+bridge -h
+# stop
+# cmdref-mode-uart-gps
+gps -h
+# stop
+# cmdref-mode-uart-glitch
+glitch -h
+# stop
+m hiz 
+rm bphduart.bp
+rm bphwuart.bp
+# cmdref-mode-hduart-config
+m hduart
+
+
+
+
+# stop
+# cmdref-mode-hduart-bridge
+bridge -h
+# stop
+m hiz
+rm bpi2c.bp
+# cmdref-mode-i2c-config
+m i2c
+
+
+#stop
+W 3.3
+# cmdref-mode-i2c-scan-help
+scan -h
+# stop
+# cmdref-mode-i2c-sniff-help
+sniff -h
+# stop
+# cmdref-mode-i2c-si7021-help
+si7021 -h
+# stop
+# cmdref-mode-i2c-ms5611-help
+ms5611 -h
+# stop
+# cmdref-mode-i2c-tsl2561-help
+tsl2561 -h
+# stop
+m hiz
+rm bpspi.bp
+# cmdref-mode-spi-config
+m spi
+
+
+
+
+
+# stop
+# cmdref-mode-spi-flash-help
+flash -h
+# stop
+m hiz
+rm bp2wire.bp
+# cmdref-mode-2wire-config
+m 2wire
+
+# stop
+# cmdref-mode-2wire-sle4442-help
+sle4442 -h
+# stop
+# cmdref-mode-2wire-sniff-help
+sniff -h
+# stop
+m hiz
+rm bp3wire.bp
+# cmdref-mode-3wire-config
+m 3wire
+
+
+# stop
+m hiz
+rm bpled.bp
+# cmdref-mode-led-config
+m led
+
+# stop
+m hiz
+rm bpirrxtx.bp
+# cmdref-mode-infrared-config
+m infrared
+
+
+
+#stop

@@ -1,6 +1,0 @@
-m HiZ
-rm bp1wire.bp
-# mode-1wire-config
-m 1wire
-# stop
-

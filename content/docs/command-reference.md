@@ -848,52 +848,62 @@ Bus commands a/A/@ use the ```a.<pin>``` notation, the syntax is followed by a *
 
 ### **^** Clock tick (limited)
 
-{{< termfile  source="static/snippets/.html" >}}
+{{< termfile  source="static/snippets/cmdref-bitwise-tick.html" >}}
+
+Send a single clock tick to the bus. The clock pin is set high (VCC) for a short time, then set low (0V).
 
 {{% alert context="warning" %}}
 "Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as 2WIRE and 3WIRE.
 {{% /alert %}}
-
-
 
 ### */* Clock high (limited)
 
-{{< termfile  source="static/snippets/.html" >}}
+{{< termfile  source="static/snippets/cmdref-bitwise-clock-high.html" >}}
+
+Set the clock pin high (VCC).
 
 {{% alert context="warning" %}}
-"Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as 2WIRE and 3WIRE.
+"Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as [2WIRE]({{% relref "/docs/command-reference/#2-wire" %}}) and [3WIRE]({{% relref "/docs/command-reference/#3-wire" %}}).
 {{% /alert %}}
 
-### *\\* Clock low (limited)
+### \\ Clock low (limited)
 
-{{< termfile  source="static/snippets/.html" >}}
+{{< termfile  source="static/snippets/cmdref-bitwise-clock-low.html" >}}
 
-{{% alert context="warning" %}}
-"Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as 2WIRE and 3WIRE.
-{{% /alert %}}
-
-### *_* Data low (limited)
-
-{{< termfile  source="static/snippets/.html" >}}
+Set the clock pin low (0V).
 
 {{% alert context="warning" %}}
-"Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as 2WIRE and 3WIRE.
+"Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as [2WIRE]({{% relref "/docs/command-reference/#2-wire" %}}) and [3WIRE]({{% relref "/docs/command-reference/#3-wire" %}}).
 {{% /alert %}}
 
 ### *-* Data high (limited)
 
-{{< termfile  source="static/snippets/.html" >}}
+{{< termfile  source="static/snippets/cmdref-bitwise-data-high.html" >}}
+
+Set the data pin high (VCC).
 
 {{% alert context="warning" %}}
-"Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as 2WIRE and 3WIRE.
+"Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as [2WIRE]({{% relref "/docs/command-reference/#2-wire" %}}) and [3WIRE]({{% relref "/docs/command-reference/#3-wire" %}}).
+{{% /alert %}}
+
+### *_* Data low (limited)
+
+{{< termfile  source="static/snippets/cmdref-bitwise-data-low.html" >}}
+
+Set the data pin low (0V).
+
+{{% alert context="warning" %}}
+"Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as [2WIRE]({{% relref "/docs/command-reference/#2-wire" %}}) and [3WIRE]({{% relref "/docs/command-reference/#3-wire" %}}).
 {{% /alert %}}
 
 ### *.* Read data (limited)
 
-{{< termfile  source="static/snippets/.html" >}}
+{{< termfile  source="static/snippets/cmdref-bitwise-data-read.html" >}}
+
+Read the current state of the data pin.
 
 {{% alert context="warning" %}}
-"Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as 2WIRE and 3WIRE.
+"Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as [2WIRE]({{% relref "/docs/command-reference/#2-wire" %}}) and [3WIRE]({{% relref "/docs/command-reference/#3-wire" %}}).
 {{% /alert %}}
 
 ## HiZ
@@ -1006,30 +1016,7 @@ device transmit pin (TX).
 
 ### Configuration options
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">UART speed</span>
- 1200, 2400, 4800, 19200, 38400, 57600, 115200 etc
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Baud (</span>115200*<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Data bits</span>
- 5 to 8 bits
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Bits (</span>8*<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Parity</span>
- 1. <span style="color:#bfa530">None*</span>
- 2. <span style="color:#bfa530">Even</span>
- 3. <span style="color:#bfa530">Odd</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Parity (</span>1<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Stop bits</span>
- 1. <span style="color:#bfa530">1*</span>
- 2. <span style="color:#bfa530">2</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Bits (</span>1<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Actual speed: 115207 baud</span>
-<span style="color:#bfa530">Mode:</span> UART
-<span style="color:#96cb59">UART></span> 
-{{< /term >}}
+{{< termfile source="static/snippets/cmdref-mode-uart-config.html" >}}
 
 ### Bus commands
 
@@ -1048,19 +1035,7 @@ device transmit pin (TX).
 
 ### bridge
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">UART></span> bridge -h
-usage:
-<span style="color:#bfa530">bridge	[-h(elp)] [-t(oolbar)]</span>
-<span style="color:#bfa530">Transparent UART bridge: bridge</span>
-<span style="color:#bfa530">Exit: press Bus Pirate button</span>
-
-<span style="color:#bfa530">open UART with raw data IO, usb to serial bridge mode</span>
-<span style="color:#96cb59">-t</span>	<span style="color:#bfa530">ENABLE toolbar while bridge is active (default: disabled)</span>
-<span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
-
-<span style="color:#96cb59">UART></span> 
-{{< /term >}} 
+{{< termfile source="static/snippets/cmdref-mode-uart-bridge.html" >}}
 
 Transparent UART ```bridge```. Bidirectional UART pass-through to interact with other serial devices from inside the Bus Pirate terminal. Press the Bus Pirate button to exit. 
 
@@ -1070,24 +1045,19 @@ Use ```bridge -h``` to see the latest options and features.
 
 ### gps 
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">UART></span> gps -h
-usage:
-<span style="color:#bfa530">gps	[-h(elp)]</span>
-<span style="color:#bfa530">Decode GPS NMEA packets: gps</span>
-<span style="color:#bfa530">Exit: press any key</span>
-
-<span style="color:#bfa530">parse NMEA GPS data</span>
-<span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
-
-<span style="color:#96cb59">UART></span> 
-{{< /term >}}
+{{< termfile source="static/snippets/cmdref-mode-uart-gps.html" >}}
 
 Most GPS modules output [NMEA sentences](https://gpsd.gitlab.io/gpsd/NMEA.html) through a serial UART. The ```gps``` command decodes common sentences using [minmea](https://github.com/kosma/minmea). The raw data and decoded data are printed in the terminal. Press any key to exit.
 
 {{% alert context="info" %}}
 Use ```gps -h``` to see the latest options and features.
 {{% /alert %}}
+
+### glitch
+
+{{< termfile source="static/snippets/cmdref-mode-uart-glitch.html" >}}
+
+A [glitch hacking](https://forum.buspirate.com/t/any-tutorial-about-glitching/765/89?u=ian) framework.
 
 ### MIDI
 
@@ -1125,29 +1095,7 @@ Half-duplex UART is a common serial UART, but receive and transmit share a singl
 
 ### Configuration options
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">UART speed</span>
- 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200 etc
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Baud (</span>115200*<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Data bits</span>
- 5 to 8 bits
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Bits (</span>8*<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Parity</span>
- 1. <span style="color:#bfa530">None*</span>
- 2. <span style="color:#bfa530">Even</span>
- 3. <span style="color:#bfa530">Odd</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Parity (</span>1<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Stop bits</span>
- 1. <span style="color:#bfa530">1*</span>
- 2. <span style="color:#bfa530">2</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Bits (</span>1<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Mode:</span> HDPLXUART
-<span style="color:#96cb59">HDPLXUART></span> 
-{{< /term >}}
+{{< termfile source="static/snippets/cmdref-mode-hduart-config.html" >}}
 
 ### Pull-up resistors
 
@@ -1179,20 +1127,7 @@ Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% r
 
 ### bridge
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HDPLXUART></span> bridge -h
-usage:
-<span style="color:#bfa530">bridge	[-h(elp)]</span>
-<span style="color:#bfa530">Transparent UART bridge: bridge</span>
-<span style="color:#bfa530">Exit: press Bus Pirate button</span>
-
-<span style="color:#bfa530">open UART with raw data IO, usb to serial bridge mode</span>
-<span style="color:#96cb59">-t</span>	<span style="color:#bfa530">ENABLE toolbar while bridge is active (default: disabled)</span>
-<span style="color:#96cb59">-s</span>	<span style="color:#bfa530">Suppress local echo, don't echo back sent data</span>
-<span style="color:#96cb59">-h</span>	<span style="color:#bfa530">Get additional help</span>
-
-<span style="color:#96cb59">HDPLXUART></span> 
-{{< /term >}} 
+{{< termfile source="static/snippets/cmdref-mode-hduart-bridge.html" >}}
  
 Transparent UART ```bridge```. Bidirectional UART pass-through to interact with other serial devices from inside the Bus Pirate terminal. Press the Bus Pirate button to exit. Useful for reading SIM cards with [pySim](https://github.com/simula/pysim).
 
@@ -1215,19 +1150,7 @@ I2C is a common 2-wire bus for low speed interfaces, generally 100KHz, 400KHz an
 
 ### Configuration options
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">I2C speed</span>
- 1KHz to 1000KHz
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">KHz (</span>400KHz*<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Data bits</span>
- 1. <span style="color:#bfa530">8*</span>
- 2. <span style="color:#bfa530">10</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Bits (</span>1<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Mode:</span> I2C
-<span style="color:#96cb59">I2C></span> 
-{{< /term >}}
+{{< termfile source="static/snippets/cmdref-mode-i2c-config.html" >}}
 
 ### Pull-up resistors
 
@@ -1294,6 +1217,8 @@ for most I2C-compatible chips in the datasheet. But what if you're
 working with an unknown chip, a dated chip with no datasheet or you're
 just too lazy to look it up?
 
+{{< termfile source="static/snippets/cmdref-mode-i2c-scan-help.html" >}}
+
 The Bus Pirate has a built-in address scanner that checks every possible I2C address for a
 response. This brute force method is a fast and easy way to see if any
 chips are responding, and to uncover undocumented access addresses.
@@ -1319,6 +1244,30 @@ contention). If the I2C chip misses the stop condition, the address
 scanner will see ghost addresses until the read ends randomly. By
 reading a byte after any read address that ACKs, we have a chance to
 NACK the read and properly end the I2C transaction.
+
+### sniff
+
+{{< termfile source="static/snippets/cmdref-mode-i2c-sniff-help.html" >}}
+
+Sniff I2C packets up to 500kHz.
+
+### si7021
+
+{{< termfile source="static/snippets/cmdref-mode-i2c-si7021-help.html" >}}
+
+Command to read temperature and humidity from a [SI7021 sensor]({{< relref "/docs/devices/si7021/">}}).
+
+### ms5611
+
+{{< termfile source="static/snippets/cmdref-mode-i2c-ms5611-help.html" >}}
+
+Command to read temperature and pressure from a MS5611 sensor.
+
+### tsl2561
+
+{{< termfile source="static/snippets/cmdref-mode-i2c-tsl2561-help.html" >}}
+
+Command to read light intensity from a [TSL2561 sensor]({{< relref "/docs/devices/tsl2561/">}}).
 
 <!--
 
@@ -1408,34 +1357,7 @@ SPI is a common 4 wire full duplex protocol. Separate connections for data-in an
 
 ### Configuration options
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">SPI speed</span>
- 1 to 62500KHz
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">KHz (</span>100KHz*<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Data bits</span>
- 4 to 8 bits
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Bits (</span>8*<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Clock polarity</span>
- 1. <span style="color:#bfa530">Idle LOW*</span>
- 2. <span style="color:#bfa530">Idle HIGH</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Polarity (</span>1<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Clock phase</span>
- 1. <span style="color:#bfa530">LEADING edge*</span>
- 2. <span style="color:#bfa530">TRAILING edge</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Phase (</span>1<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Chip select</span>
- 1. <span style="color:#bfa530">Active HIGH (CS)</span>
- 2. <span style="color:#bfa530">Active LOW (/CS)*</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">CS (</span>2<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Actual speed:</span> 122KHz
-<span style="color:#bfa530">Mode:</span> SPI
-<span style="color:#96cb59">SPI></span> 
-{{< /term >}}
+{{< termfile source="static/snippets/cmdref-mode-spi-config.html" >}}
 
 ### Bus commands
 
@@ -1454,6 +1376,11 @@ SPI is a common 4 wire full duplex protocol. Separate connections for data-in an
 
 ### flash 
 
+{{< termfile source="static/snippets/cmdref-mode-spi-flash-help.html" >}}
+
+The ```flash``` command can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip and select the appropriate settings. Most modern flash chips contain SFDP tables that describe the chip capabilities. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back. 
+
+#### Flash initialization
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> flash init
@@ -1484,8 +1411,6 @@ Flash device supports 64KB block erase (instruction 0xD8)
 Found a Winbond  flash chip (1048576 bytes)
 Flash device reset success
 {{< /term >}}
-
-The ```flash``` command can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip and select the appropriate settings. Most modern flash chips contain SFDP tables that describe the chip capabilities. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back. 
 
 ```flash```, ```flash init```, and ```flash probe``` provide various levels of details about a flash chip. The flash command tries three common methods to identify a flash chip (RESID, REMSID, RDID), then attempts to read the SFDP tables.  
 
@@ -1586,14 +1511,8 @@ Flags pass file names and other settings.
 
 ### Configuration options
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">2WIRE speed</span>
- 1kHz to 1000kHz
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">kHz (</span>400kHz*<span style="color:#96cb59">) ></span> 20
-<span style="color:#bfa530">Mode:</span> 2WIRE
-<span style="color:#96cb59">2WIRE></span> 
-{{< /term >}}
+{{< termfile source="static/snippets/cmdref-mode-2wire-config.html" >}}
+
 
 ### Pull-up resistors
 
@@ -1636,7 +1555,23 @@ Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% r
 
 {{% readfile "/_common/other-commands.md" %}}
 
+### sniffer
+
+{{< termfile source="static/snippets/cmdref-mode-2wire-sniff-help.html" >}}
+
+Sniff 8 bit I2C-like protocols that don't use an ACK/NAK bit, for example the SLE4442 smart card.
+
 ### sle4442
+
+{{< termfile source="static/snippets/cmdref-mode-2wire-sle4442-help.html" >}}
+
+The ```sle4442``` command in the Bus Pirate's 2-WIRE mode automates the process of reading, writing and unlocking a [SLE4442 smart card]({{< relref "/docs/devices/sle4442" >}}).
+
+{{% alert context="info" %}}
+Use ```sle4442 -h``` to see the latest options and features.
+{{% /alert %}}
+
+#### SLE4442 Answer to Reset (ATR)
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">2WIRE></span> sle4442 init
@@ -1651,14 +1586,8 @@ Security memory: 0x07 0x00 0x00 0x00
 Remaining attempts: 3 (0x7)
 
 {{< /term >}}
-
-The ```sle4442``` command in the Bus Pirate's 2-WIRE mode automates the process of reading, writing and unlocking a [SLE4442 smart card]({{< relref "/docs/devices/sle4442" >}}).
  
 ```sle4442``` and ```sle4442 init``` reset the card and decodes the Answer To Reset (ATR) response.
-
-{{% alert context="info" %}}
-Use ```sle4442 -h``` to see the latest options and features.
-{{% /alert %}}
 
 #### Dump SLE4442 card memory
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
@@ -1801,6 +1730,8 @@ Flags pass file names and other settings to the command.
 
 ### Configuration options
 
+{{< termfile source="static/snippets/cmdref-mode-3wire-config.html" >}}
+
 ### Bus commands
 
 |Command|Description|
@@ -1832,6 +1763,8 @@ Flags pass file names and other settings to the command.
 -   **Connections:** all IOs available for use
 -   **Output type:** tristate (push-pull, high impedance) (1.65-5volts)
 -   **Maximum voltage:** 5volts
+
+{{< asciicast src="/screencast/dio-use.json" poster="npt:0:24" terminalFontSize="medium" idleTimeLimit=2 autoPlay=false >}}
 
 {{% alert context="info" %}}
 DIO is a mode with no specific protocol. All the Bus Pirate pins are free for use as [input/ouputs]({{% relref "/docs/command-reference/#aa-auxiliary-pin-control-lowhighread" %}}), [frequency generators]({{% relref "/docs/command-reference/#gg-frequency-generator" %}}), [frequency measurement]({{% relref "/docs/command-reference/#ff-measure-frequency" %}}), etc.
@@ -1871,20 +1804,7 @@ LEDs are power hungry, up to 60mA each at full brightness. The programmable powe
 
 ### Configuration options
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#bfa530">LED type</span>
- 1. <span style="color:#bfa530">WS2812/SK6812/'NeoPixel' (single wire interface)*</span>
- 2. <span style="color:#bfa530">APA102/SK9822 (clock and data interface)</span>
- 3. <span style="color:#bfa530">Onboard LEDs (16 SK6812s)</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Type (</span>1<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Number of LEDs in the strip</span>
- 1 to 10000
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">LEDs (</span>1*<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Mode:</span> LED
-<span style="color:#96cb59">LED-(WS2812)></span> 
-{{< /term >}}
+{{< termfile source="static/snippets/cmdref-mode-led-config.html" >}}
 
 ### Bus commands
 
@@ -1922,6 +1842,8 @@ Infrared is a mode for sending and receiving infrared signals. The Bus Pirate ca
 | 56K (IO7) |<font size="+2">←</font> | 56K DEMODULATOR      | 56kHz IR demodulator |
 
 ### Configuration options
+
+{{< termfile source="static/snippets/cmdref-mode-infrared-config.html" >}}
 
 ### Bus commands
 

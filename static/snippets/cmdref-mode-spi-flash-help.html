@@ -1,0 +1,24 @@
+<span style="color:rgb(150,203,89)">SPI></span>&nbsp;flash&nbsp;-h
+usage:
+<span style="color:rgb(191,165,48)">flash&nbsp;[init|probe|erase|write|read|verify|test]
+	[-f&nbsp;&ltfile>]&nbsp;[-e(rase)]&nbsp;[-v(verify)]&nbsp;[-h(elp)]</span>
+<span style="color:rgb(191,165,48)">Initialize&nbsp;and&nbsp;probe:&nbsp;flash&nbsp;probe</span>
+<span style="color:rgb(191,165,48)">Erase&nbsp;and&nbsp;program,&nbsp;with&nbsp;verify:&nbsp;flash&nbsp;write&nbsp;-f&nbsp;example.bin&nbsp;-e&nbsp;-v</span>
+<span style="color:rgb(191,165,48)">Read&nbsp;to&nbsp;file:&nbsp;flash&nbsp;read&nbsp;-f&nbsp;example.bin</span>
+<span style="color:rgb(191,165,48)">Verify&nbsp;with&nbsp;file:&nbsp;flash&nbsp;verify&nbsp;-f&nbsp;example.bin</span>
+<span style="color:rgb(191,165,48)">Test&nbsp;chip&nbsp;(full&nbsp;erase/write/verify):&nbsp;flash&nbsp;test</span>
+<span style="color:rgb(191,165,48)">Force&nbsp;dump:&nbsp;flash&nbsp;read&nbsp;-o&nbsp;-b&nbsp;&ltbytes>&nbsp;-f&nbsp;&ltfile></span>
+
+<span style="color:rgb(191,165,48)">read,&nbsp;write&nbsp;and&nbsp;erase&nbsp;flash&nbsp;chips&nbsp;using&nbsp;SFDP&nbsp;info&nbsp;if&nbsp;available</span>
+<span style="color:rgb(150,203,89)">init</span>	<span style="color:rgb(191,165,48)">Reset&nbsp;and&nbsp;initialize&nbsp;flash&nbsp;chip.&nbsp;Default&nbsp;if&nbsp;no&nbsp;options&nbsp;given.&nbsp;flash</span>
+<span style="color:rgb(150,203,89)">probe</span>	<span style="color:rgb(191,165,48)">Probe&nbsp;flash&nbsp;chip&nbsp;for&nbsp;ID&nbsp;and&nbsp;SFDP&nbsp;info.&nbsp;flash&nbsp;probe</span>
+<span style="color:rgb(150,203,89)">erase</span>	<span style="color:rgb(191,165,48)">Erase&nbsp;flash&nbsp;chip.&nbsp;flash&nbsp;erase&nbsp;[-v(erify)]</span>
+<span style="color:rgb(150,203,89)">write</span>	<span style="color:rgb(191,165,48)">Write&nbsp;file&nbsp;to&nbsp;flash&nbsp;chip.&nbsp;flash&nbsp;write&nbsp;-f&nbsp;&ltfile>&nbsp;[-e(rase)]&nbsp;[-v(erify)]</span>
+<span style="color:rgb(150,203,89)">read</span>	<span style="color:rgb(191,165,48)">Read&nbsp;flash&nbsp;chip&nbsp;to&nbsp;file.&nbsp;flash&nbsp;read&nbsp;-f&nbsp;&ltfile></span>
+<span style="color:rgb(150,203,89)">verify</span>	<span style="color:rgb(191,165,48)">Verify&nbsp;flash&nbsp;chip&nbsp;against&nbsp;file.&nbsp;flash&nbsp;verify&nbsp;-f&nbsp;&ltfile></span>
+<span style="color:rgb(150,203,89)">test</span>	<span style="color:rgb(191,165,48)">Erase&nbsp;and&nbsp;write&nbsp;full&nbsp;chip&nbsp;with&nbsp;dummy&nbsp;data,&nbsp;verify.&nbsp;flash&nbsp;test</span>
+<span style="color:rgb(150,203,89)">-f</span>	<span style="color:rgb(191,165,48)">File&nbsp;flag.&nbsp;File&nbsp;to&nbsp;write,&nbsp;read&nbsp;or&nbsp;verify.&nbsp;flash&nbsp;verify&nbsp;-f&nbsp;&ltfile></span>
+<span style="color:rgb(150,203,89)">-e</span>	<span style="color:rgb(191,165,48)">Erase&nbsp;flag.&nbsp;Add&nbsp;erase&nbsp;before&nbsp;write.&nbsp;flash&nbsp;write&nbsp;-f&nbsp;&ltfile>&nbsp;-e</span>
+<span style="color:rgb(150,203,89)">-v</span>	<span style="color:rgb(191,165,48)">Verify&nbsp;flag.&nbsp;Add&nbsp;verify&nbsp;after&nbsp;write&nbsp;or&nbsp;erase.&nbsp;flash&nbsp;write&nbsp;-f&nbsp;&ltfile>&nbsp;-v</span>
+
+<span style="color:rgb(150,203,89)">SPI></span>&nbsp;

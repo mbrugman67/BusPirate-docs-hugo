@@ -1,0 +1,11 @@
+[38;2;150;203;89mUART>[0m&nbsp;glitch&nbsp;-h
+usage:
+[38;2;191;165;48mglitch	[-h(elp)]&nbsp;[-c(onfig)][0m
+[38;2;191;165;48mUART&nbsp;glitch&nbsp;generator.&nbsp;&nbsp;Note&nbsp;that&nbsp;times&nbsp;are&nbsp;in&nbsp;terms&nbsp;of&nbsp;nanoseconds&nbsp;*&nbsp;10;&nbsp;therefore,&nbsp;a&nbsp;setting&nbsp;of&nbsp;3&nbsp;=&nbsp;30ns[0m
+[38;2;191;165;48mExit:&nbsp;press&nbsp;Bus&nbsp;Pirate&nbsp;button[0m
+
+[38;2;191;165;48mUART&nbsp;glitcher[0m
+[38;2;150;203;89m-h[0m	[38;2;191;165;48mGet&nbsp;additional&nbsp;help[0m
+[38;2;150;203;89m-c[0m	[38;2;191;165;48mshow&nbsp;configuration&nbsp;info[0m
+[0m
+[38;2;150;203;89mUART>[0m&nbsp;

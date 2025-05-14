@@ -1,0 +1,27 @@
+[38;2;150;203;89m2WIRE>[0m&nbsp;sle4442&nbsp;-h
+usage:
+[38;2;191;165;48msle4442&nbsp;[init|dump|unlock|write|erase|psc]
+	[-a&nbsp;&ltaddress>]&nbsp;[-v&nbsp;&ltvalue>]&nbsp;[-p&nbsp;&ltcurrent&nbsp;psc>]&nbsp;[-n&nbsp;&ltnew&nbsp;psc>]&nbsp;[-h(elp)][0m
+[38;2;191;165;48mInitialize&nbsp;and&nbsp;probe:&nbsp;sle4442&nbsp;init[0m
+[38;2;191;165;48mDump&nbsp;contents:&nbsp;sle4442&nbsp;dump[0m
+[38;2;191;165;48mUnlock&nbsp;card:&nbsp;sle4442&nbsp;unlock&nbsp;-p&nbsp;0xffffff[0m
+[38;2;191;165;48mWrite&nbsp;a&nbsp;value:&nbsp;sle4442&nbsp;write&nbsp;-a&nbsp;0xff&nbsp;-v&nbsp;0x55[0m
+[38;2;191;165;48mErase&nbsp;memory:&nbsp;sle4442&nbsp;erase[0m
+[38;2;191;165;48mUpdate&nbsp;PSC:&nbsp;sle4442&nbsp;psc&nbsp;-p&nbsp;0xffffff&nbsp;-n&nbsp;0x000000[0m
+[38;2;191;165;48mDump&nbsp;contents&nbsp;to&nbsp;file:&nbsp;sle4442&nbsp;dump&nbsp;-f&nbsp;dump.bin[0m
+[38;2;191;165;48mDump&nbsp;format:&nbsp;DATA[0:255],SECMEM[256:259],PRTMEM[260:263][0m
+
+[38;2;191;165;48mSLE4442&nbsp;smart&nbsp;card&nbsp;interface[0m
+[38;2;150;203;89minit[0m	[38;2;191;165;48mInitialize&nbsp;card&nbsp;with&nbsp;ISO7816-3&nbsp;ATR.&nbsp;Default&nbsp;action[0m
+[38;2;150;203;89mdump[0m	[38;2;191;165;48mDisplay&nbsp;main,&nbsp;security&nbsp;and&nbsp;protect&nbsp;memory[0m
+[38;2;150;203;89munlock[0m	[38;2;191;165;48mUnlock&nbsp;card&nbsp;with&nbsp;Programmable&nbsp;Security&nbsp;Code&nbsp;(PSC)[0m
+[38;2;150;203;89mwrite[0m	[38;2;191;165;48mWrite&nbsp;data&nbsp;to&nbsp;card&nbsp;(requires&nbsp;unlock)[0m
+[38;2;150;203;89merase[0m	[38;2;191;165;48mErase&nbsp;data&nbsp;from&nbsp;range&nbsp;0x32-0x255&nbsp;(requires&nbsp;unlock)[0m
+[38;2;150;203;89mpsc[0m	[38;2;191;165;48mChange&nbsp;Programmable&nbsp;Security&nbsp;Code&nbsp;(PSC)[0m
+[38;2;150;203;89m-a[0m	[38;2;191;165;48mWrite&nbsp;address&nbsp;flag[0m
+[38;2;150;203;89m-v[0m	[38;2;191;165;48mWrite&nbsp;value&nbsp;flag[0m
+[38;2;150;203;89m-p[0m	[38;2;191;165;48mCurrent&nbsp;Programmable&nbsp;Security&nbsp;Code&nbsp;(PSC)&nbsp;flag[0m
+[38;2;150;203;89m-n[0m	[38;2;191;165;48mNew&nbsp;Programmable&nbsp;Security&nbsp;Code&nbsp;(PSC)&nbsp;flag[0m
+[38;2;150;203;89m-f[0m	[38;2;191;165;48mDump&nbsp;file&nbsp;name&nbsp;flag[0m
+[0m
+[38;2;150;203;89m2WIRE>[0m&nbsp;

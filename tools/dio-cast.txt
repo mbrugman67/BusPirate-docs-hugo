@@ -1,0 +1,23 @@
+m hiz
+c 
+3
+2
+x
+cls
+# dio-use
+m dio # m dio - enter DIO mode
+W 3.3 # W 3.3 - enable power supply
+G # G - enable frequency generator
+0
+100khz
+50%
+A 1; A 2 # A - auxiliary pins high
+a 1; a 2 # a - auxiliary pins low
+@ 1 # @ - auxiliary pin input, read
+P # P - pull-up resistors enable
+@ 1 # @ - read auxiliary pin again
+G # G - enable a second frequency generator
+5
+12mhz
+20%
+# stop
