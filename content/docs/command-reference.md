@@ -115,21 +115,23 @@ The latest help for commands and modes is available in the help menu. This will 
 |```~```| Self-test|
 |```#```| Reset|
 |```$```| Jump to bootloader|
+|```cls```| Clear and redraw terminal|
+|```ovrclk```| Overclock the CPU|
 
-### **i** Version information
+### ```i``` Version information
 {{< termfile  source="static/snippets/cmdref-info.html" >}} 
 
 Display the hardware, firmware, and microcontroller version information. If a mode is selected, additional information about the mode is displayed.
 - ```i``` - show the current version information.
 
-### **c** Configuration options menu
+### ```c``` Configuration options menu
 {{< termfile  source="static/snippets/cmdref-config.html" >}}
 
 Configure language, LED effects, terminal output and other options. On exit settings are saved to bpconfig.bp on the Bus Pirate flash storage.
 - ```c``` - show the configuration menu.
 - ```x``` - exit the configuration menu and save the current settings to flash storage.
 
-### **m** Set bus mode
+### ```m``` Set bus mode
 {{< termfile  source="static/snippets/cmdref-mode-menu.html" >}} 
 
 The Bus Pirate starts in HiZ mode, a safe mode with all outputs disabled. The ```m``` command selects a bus mode. The Bus Pirate supports many different protocols, including I2C, SPI, UART, 1-Wire, and more. Each protocol has its own set of commands and options.
@@ -140,7 +142,7 @@ The Bus Pirate starts in HiZ mode, a safe mode with all outputs disabled. The ``
 An optional mode parameter can be specified to skip the mode menu. For example, ```m i2c``` selects I2C mode. 
 - ```m <mode>``` - change bus mode without showing the menu.
 
-### **l/L** Set MSB/LSB first
+### ```l/L``` Set MSB/LSB first
 {{< termfile  source="static/snippets/cmdref-l.html" >}} 
 
 The l/L commands determine the [bit order](http://en.wikipedia.org/wiki/Most_significant_bit) for reading and writing bytes. 
@@ -151,7 +153,7 @@ The l/L commands determine the [bit order](http://en.wikipedia.org/wiki/Most_sig
 The current bit order configuration is displayed on the extended information screen using the ```i``` command while in a mode other than HiZ.
 {{% /alert %}}
 
-### **o** Data output display format
+### ```o``` Data output display format
 {{< termfile  source="static/snippets/cmdref-o.html" >}} 
 
 The Bus Pirate can display values as [hexadecimal](http://en.wikipedia.org/wiki/Hexadecimal), [decimal](http://en.wikipedia.org/wiki/Decimal), [binary](http://en.wikipedia.org/wiki/Binary_numeral_system) and raw
@@ -167,7 +169,7 @@ Change the setting in the data display format menu with the ```o``` command. The
 The current display format is shown on the extended information screen using the ```i``` command while in a mode other than HiZ.
 {{% /alert %}}
 
-### **d** Display mode
+### ```d``` Display mode
 {{< termfile  source="static/snippets/.html" >}} 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> d
@@ -183,7 +185,7 @@ The current display format is shown on the extended information screen using the
 1. Default: Pin labels and voltage
 2. Scope: Oscilloscope mode
 
-### **~** Self-test 
+### ```~``` Self-test 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> ~
 <span style="color:#bfa530">SELF TEST STARTING
@@ -216,7 +218,7 @@ Disconnect all wires and devices from the Bus Pirate before running the self-tes
 Self-test is only available in HiZ mode. If you are in a different mode, the Bus Pirate will prompt you to change to HiZ mode before running the test.
 {{% /alert %}}
 
-### **#** Reset
+### ```#``` Reset
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> #
 
@@ -231,7 +233,7 @@ Reset the Bus Pirate.
 Depending on your serial terminal software you may need to reconnect to the Bus Pirate serial port. The latest versions of many terminal emulators, such as Tera Term, reconnect automatically.
 {{% /alert %}}
 
-### **$** Jump to bootloader 
+### ```$``` Jump to bootloader 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> $
 Jump to bootloader for firmware upgrades
@@ -254,6 +256,22 @@ Activate the Bus Pirate bootloader for firmware updates. The bootloader appears 
 When jumping to bootloader mode, the Bus Pirate displays the hardware version, download link, and the name of the firmware file to use.
 {{% /alert %}}
 
+### ```cls``` Clear and redraw terminal
+{{< termfile  source="static/snippets/cmdref-cls.html" >}}
+
+- ```cls``` - clear the screen and redraw the status bar. 
+
+Useful when connecting to an already running Bus Pirate with a new terminal window.
+
+### ```ovrclk``` Overclock the CPU
+{{< termfile  source="static/snippets/cmdref-ovrclk.html" >}}
+
+- ```ovrclk [-m <MHz> | -k <kHz>] [-v <core mV>]``` - set the CPU clock speed and core voltage.
+
+{{% alert context="danger" %}}
+```ovrclk``` is disabled by default. It must be enabled at compile time. 
+{{% /alert %}}
+
 ## Utilities
 
 |Command|Description|
@@ -268,7 +286,7 @@ When jumping to bootloader mode, the Bus Pirate displays the hardware version, d
 |```a```/```A```/```@``` | Auxiliary pin control (low/HIGH/input)
 
 
-### **w/W** Power supply (off/ON) 
+### ```w/W``` Power supply (off/ON) 
 {{< termfile  source="static/snippets/cmdref-psuon-menu.html" >}} 
 
 A 'Programmable Power Supply Unit' (PPSU) has several handy features:
@@ -307,7 +325,7 @@ The PPSU is capable of 0.8 to 5volts output. However, the maximum working range 
 Lowercase ```w``` disables the PPSU.
 - ```w``` - Disable the power supply.
 
-### **v/V** Power supply voltage report 
+### ```v/V``` Power supply voltage report 
 
 ![](/images/docs/fw/psu-statusbar1a.png) 
 
@@ -316,7 +334,7 @@ The voltage report shows the current state of all the Bus Pirate pins and periph
 - ```v``` - Show the power supply voltage report once.
 - ```V``` - Show the power supply voltage report, update continuously. Press any key to exit.
 
-### **p/P** Pull-up resistors 
+### ```p/P``` Pull-up resistors 
 
 {{< termfile  source="static/snippets/cmdref-p.html" >}}
 
@@ -331,7 +349,7 @@ The onboard pull-up resistors **are powered through the VREF/VOUT pin of the IO 
 A warning is displayed if there's no voltage on the VREF/VOUT pin. Check the status bar or voltage report ```v``` to verify that a voltage is present on VOUT/VREF.
 {{% /alert %}}
 
-### **g/G** Frequency generator
+### ```g/G``` Frequency generator
 
 {{< termfile  source="static/snippets/cmdref-pwmon.html" >}} 
 
@@ -357,7 +375,7 @@ Not all pins will be available due to the PWM structure of the Raspberry Pi chip
 
 - ```g <pin>``` - disable frequency generator on \<pin>.
 
-### **f/F** Measure frequency
+### ```f/F``` Measure frequency
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">LED-()></span> F
@@ -421,7 +439,7 @@ Only half of the pins support frequency measurement. The Bus Pirate will warn yo
 
 
 
-### **=X** Convert to HEX/DEC/BIN number format
+### ```=X``` Convert to HEX/DEC/BIN number format
 
 {{< termfile  source="static/snippets/cmdref-convert.html" >}} 
 
@@ -433,7 +451,7 @@ Convert between HEX, DEC and BIN number formats easily. Type ```=``` followed by
 To change the Bus Pirate output display format see the [```o``` command]({{% relref "/docs/command-reference/#o-data-output-display-format" %}}).
 {{% /alert %}}
 
-### **| X** Reverse bits 
+### ```| X``` Reverse bits 
 
 {{< termfile  source="static/snippets/cmdref-reverse.html" >}} 
 
@@ -445,7 +463,7 @@ Reverse bit order of a number. Displays the HEX/DEC/BIN value of the reversed nu
 To change the Bus Pirate read/write bit order see the [```l```/```L``` command]({{% relref "/docs/command-reference/#ll-set-msblsb-first" %}}).
 {{% /alert %}}
 
-### **a/A/@** Auxiliary pin control (low/HIGH/read)
+### ```a/A/@``` Auxiliary pin control (low/HIGH/read)
 {{< termfile  source="static/snippets/cmdref-auxpin.html" >}} 
 
 Pins that are not assigned a function can be controlled from the command line.
@@ -461,6 +479,19 @@ Pins already assigned a function, such as PWM or mode/protocol pins, cannot be c
 Commands a/A/@ are followed by a space and the pin number to control. This is different than syntax a/A/@  which use the ```a.<pin>``` notation.
 {{% /alert %}}
 
+### ```logic``` Logic analyzer control
+
+![](/images/docs/fw/logic-command-nav.png)
+
+The ```logic``` command configures the logic analyzer core, and can display logic capture graphs directly in the terminal. It supports the "follow along" logic analyzer mode that triggers each time you send data to a bus. It eliminates the need setup triggers and arm a second tool for debugging. 
+
+The Bus Pirate can be [used as a logic analyzer in multiple ways]({{< relref "/docs/logic-analyzer/logicanalyzer" >}}):
+- [PulseView and the SUMP interface]({{< relref "/docs/logic-analyzer/pulseview-sump" >}})
+- [PulseView With the "follow along logic analyzer" interface]({{< relref "/docs/logic-analyzer/pulseview-fala" >}})
+- [Directly in the terminal with the ```logic``` command]({{< relref "/docs/logic-analyzer/logic-command" >}})
+
+{{< termfile  source="static/snippets/cmdref-logic.html" >}}
+
 ## Disk Commands
 
 Linux-like commands are used to navigate the flash storage from the Bus Pirate command line. 
@@ -475,10 +506,12 @@ Linux-like commands are used to navigate the flash storage from the Bus Pirate c
 |```hex```|Print file contents in HEX|
 |```format```|Format storage disk (FAT16)|
 |```label```|Get or set the disk label|
+|```dump```|Perform multiple reads with the ```r``` command, save to a file|
+|```image```|Display a bitmap image file on the LCD|
 
 These common commands are supported in the firmware as of this update, but always use ```help``` or ```?``` to see the latest commands available. Add -h to any command for extended help: ```hex -h```.
 
-### **ls** List directory contents
+### ```ls``` List directory contents
 
 {{< termfile  source="static/snippets/cmdref-disk-ls.html" >}}  
 
@@ -486,14 +519,14 @@ List the contents of a directory in flash storage.
 - ```ls``` - list the contents of the current directory. 
 - ```ls <directory>``` - ls followed by a directory name lists the contents of that directory.
 
-### **mkdir** Make directory
+### ```mkdir``` Make directory
 
 {{< termfile  source="static/snippets/cmdref-disk-mkdir.html" >}} 
 
 Make a new directory at the current location in the flash storage. 
 - ```mkdir <directory>``` - create a new directory.
 
-### **cd** Change directory
+### ```cd``` Change directory
 
 {{< termfile  source="static/snippets/cmdref-disk-cd.html" >}} 
 
@@ -501,25 +534,25 @@ Change directory.
 - ```cd <directory>``` - change to a subdirectory.
 - ```cd ..``` - change to the parent directory.
 
-### **rm** Remove file or directory
+### ```rm``` Remove file or directory
 {{< termfile  source="static/snippets/cmdref-disk-rm.html" >}} 
 
 Remove file or directory (if empty). 
 - ```rm <file | directory>``` - remove a file or empty directory.
 
-### **cat** Print file contents
+### ```cat``` Print file contents
 {{< termfile  source="static/snippets/cmdref-cat.html" >}} 
 
 Print the contents of a file. 
 - ```cat <file>``` 
 
-### **hex** Hex dump file
+### ```hex``` Hex dump file
 {{< termfile  source="static/snippets/cmdref-hex.html" >}} 
 
 Print the content of a file in hexadecimal format.
 - ```hex <file>``` 
 
-### **label** Set disk label
+### ```label``` Set disk label
 {{< termfile  source="static/snippets/cmdref-label.html" >}} 
 
 Set and get the disk label. 
@@ -527,14 +560,180 @@ Set and get the disk label.
 - ```label get``` - display the current disk label.
 
 
-### **format** Erase and format disk
+### ```format``` Erase and format disk
 {{< termfile  source="static/snippets/cmdref-format.html" >}} 
 
 Erase the internal flash storage and format it with a FAT16 file system. **ALL DATA WILL BE LOST!**
 - ```format``` - format the entire flash storage, confirm twice. This will erase all files and directories on the disk.
 
+### ```dump``` Dump read data to file
+{{< termfile  source="static/snippets/cmdref-dump.html" >}}
+
+- ```dump <bytes> <file>``` - read data using the current mode [```r``` bus command]({{< relref "/docs/command-reference/#r-read-byte">}}) and save it to a file.
+
+{{% alert context="info" %}}
+```dump``` is the equivalent of using the ```r``` command to read data from a device, but instead of displaying the data on the terminal, it saves it to a file.
+{{% /alert %}}
+
+This command is useful when you want to save data from a device to a file. While the Bus Pirate has commands to dump many chips, the ```dump``` command is a generic read command that can be used with any device.
+
+First, manually send the commands to put the target device in read mode. Then use the ```dump``` command to read the data and save it to a file. 
+
+### ```image``` Display bitmap image on LCD
+{{< termfile  source="static/snippets/cmdref-image.html" >}}
+
+- ```image <file>``` - shows the header info from ANY recognized BMP format (v1/2/3)
+- ```image <file> -d``` - draw the file content on the LCD. Checks if the file is the correct height/width and a supported pixel format (16bits/565, or 24bit/888)
+
+Load a bitmap image file and display it on the LCD. The Bus Pirate supports BMP format images. The image must be 128x64 pixels in size, and the pixel format must be 16bits/565 or 24bit/888. 
+
+## Software support
+
+The Bus Pirate has two USB serial ports. 
+- One is used for the command line terminal. 
+- The other supports support software running on a PC (binmode).
+
+"binmode" supports a variety of protocols and software. 
+
+- [SUMP logic analyzer protocol]({{% relref "/docs/binmode-reference/protocol-sump/"%}}) for [sigrok/PulseView]({{% relref "/docs/logic-analyzer/pulseview-sump/" %}})
+- [Binmode test framework](https://forum.buspirate.com/t/bbio2-binary-mode/219/10?u=ian)
+- Arduino CH32V003 SWIO
+- [Follow Along Logic Analyzer protocol]({{% relref "http://localhost:1313/docs/binmode-reference/protocol-faladata/" %}}) for [sigrok/PulseView]({{% relref "/docs/logic-analyzer/pulseview-fala/" %}})
+- [Legacy Binary Mode]({{% relref "/docs/binmode-reference/protocol-spi-legacy/" %}}) for [Flashrom]({{% relref "/docs/software/flashrom/" %}}) and [AVRdude]({{% relref "/docs/software/avrdude/"%}})
+- [aIR]({{% relref "/docs/binmode-reference/protocol-air/" %}}) for [AnalysIR]({{% relref "/docs/software/analysir/" %}}).
+
+### ```binmode``` Change binary mode 
+
+{{< termfile  source="static/snippets/cmdref-binmode.html" >}} 
+
+Use the ```binmode``` command see the currently supported binary modes and to select the active binmode.
+
+### **PulseView** logic analyzer
+
+![](/images/docs/fw/sigrok-capture.png)
+
+Two modes are available for the PulseView logic analyzer. The SUMP mode is the default and is compatible with the SUMP protocol. The FALADATA mode is a custom protocol for the Bus Pirate.
+
+### **AVRdude** AVR programmer
+
+![](/images/docs/fw/avrdudess.png)
+
+The Bus Pirate can serve as a programmer and dumper for AVR chips, using the command-line utility AVRDUDE. 
+
+For those who prefer a graphical user interface, AVRDUDESS offers a user-friendly front-end for AVRDUDE. Both tools together provide a powerful setup for working with AVR chips.
+
+### **Flashrom** flash programmer
+```bash
+flashrom.exe --progress -V -c "W25Q64JV-.Q" -p buspirate_spi:dev=COM54,serialspeed=115200,spispeed=1M -r flash_content.bin
+```
+
+The Bus Pirate can serve as a programmer and dumper for flash memory chips, using the command-line utility Flashrom.
+
+Flashrom is a versatile utility for identifying, reading, writing, verifying, and erasing flash chips on a wide range of devices—including mainboards, controller cards, and various programmer modules. It supports hundreds of flash chips, chipsets, and boards.
+
+### **AnalysIR** Infrared remote decoder
+
+
+## Scripting commands
+
+|Command | Description |
+|---|---|
+|```macro```| Load a set of macros|
+|```script```| Load a set of scripts|
+|```tutorial```| Run a script in tutorial mode|
+|```button```| Assign scripts to the button|
+|```pause```| Pause and wait for user input|
+
+{{% alert context="warning" %}}
+Scripting is possible, but still a bit buggy. Scripts can only inject commands into the command line, not prompts or menus. The up arrow (history) will often cause scripts to execute in a loop, it is best avoided.
+{{% /alert %}}
+
+```
+# Enable power supply
+W 3.3 50
+```
+This script works, everything is entered on the command line. 
+
+```
+# Show power supply menu
+W
+# Set 3.3 volts
+3.3
+# Set current limit to 50mA
+50
+```
+This script does not work. Scripts cannot answer menu prompts. 
+
+### ```macro``` Load a set of macros
+{{< termfile  source="static/snippets/cmdref-macro.html" >}}
+
+### ```script``` Load a set of scripts
+{{< termfile  source="static/snippets/cmdref-script.html" >}}
+
+### ```tutorial``` Run a script in tutorial mode
+{{< termfile  source="static/snippets/cmdref-tutorial.html" >}}
+
+### ```button``` Assign scripts to the button
+{{< termfile  source="static/snippets/cmdref-button.html" >}}
+
+Scripts can be assigned to the Bus Pirate button.
+
+### ```pause``` Pause and wait for user input
+{{< termfile  source="static/snippets/cmdref-pause.html" >}}
+
+- ```pause``` - pause and wait for user input. Press any key to continue.
+
+Pause and wait for user input. Useful for pausing during a script or macro.
+
+## Developer commands
+
+|Command | Description |
+|---|---|
+|```bug```| Replicate a silicon bug|
+|```otpdump```| Dump the OTP memory|
+|```dummy```| Template for new commands|
+
+A set of command useful or used during development. These commands are not intended for end users, but are available in the firmware.
+
+### ```bug```
+{{< termfile  source="static/snippets/cmdref-bug.html" >}}
+
+- ```bug <errata>``` - replicate a silicon bug in the Raspberry Pi Chip. 
+
+This command is used for testing and debugging purposes.
+
+### ```otpdump```
+{{< termfile  source="static/snippets/cmdref-otpdump.html" >}}
+
+- ```otpdump``` - dump the OTP memory of the Raspberry Pi chip.
+
+Valid only on RP2350 or later chips with OTP memory (Bus Pirate 6+).
+
+### ```dummy```
+{{< termfile  source="static/snippets/cmdref-dummy.html" >}}
+
+```dummy``` is a template that demonstrates how to create a new command.
+
+If you want to add a new command to the Bus Pirate firmware, you can use this template as a starting point. 
 
 ## Bus commands
+
+|Command | Description | Command| Description|
+|---|---|---|---|
+|```[```/```{```| Bus START condition|```^```| Clock pin tick|
+|```>```| Execute bus commands (no START)|```/```| Clock pin high|
+|```]```/```}```| Bus STOP condition|```\```| Clock pin low|
+|```r```| Read byte|```-```|Data pin high|
+|```0b01```| Write this binary value|```_```|Data pin low|
+|```0x01```| Write this HEX value|```.```|Read data pin|
+|```0d01```| Write this DEC value|
+|```"abc"```| Write this ASCII string|
+|``` ```| Value delimiter|
+|```d```/```D```| Delay (us/ms)|
+|```:```| Repeat command|
+|```.```| Specify bits to read/write|
+|```v.<pin>```| Read voltage on \<pin>|
+|```a.<pin>```/```A.<pin>```/```@.<pin>```| Auxillary pin control (low/HIGH/input) |
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [0x31 r:5]
@@ -556,7 +755,7 @@ commands.
 **Bus commands must start with ```[```, ```{```, or ```>```.**
 {{% /alert %}}
 
-### **\{ or [** Bus START condition
+### ```[ or {``` Bus START condition
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [
@@ -573,7 +772,7 @@ START commands generate a START condition (I2C), a RESET (1-Wire, LED), chip sel
 Lines beginning with ```[``` and ```{``` are interpreted as bus commands, data will be sent to the device in the current protocol selected with the [```m``` command]({{% relref "/docs/command-reference/#m-set-bus-mode" %}}).
 {{% /alert %}}
 
-### **>** Execute bus commands (no START)
+### ```>``` Execute bus commands (no START)
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> > 0x55 0xaa
@@ -590,7 +789,7 @@ If you want to execute bus commands without sending a START, use the ```>``` bus
 The ```>``` command is used to send syntax without sending a START command to the bus.
 {{% /alert %}}
 
-### **] or }** Bus STOP condition
+### ```] or }``` Bus STOP condition
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> >]
@@ -604,7 +803,8 @@ Many protocols have a STOP condition. In various modes ```]``` and ```}``` STOPs
 - ```]``` - send the STOP condition for the currently selected bus mode.
 - ```}``` - send the alternate STOP condition for the currently selected bus mode.
 
-### **r** Read byte 
+### ```r``` Read byte 
+
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> >r
 <span style="color:#bfa530"><span style="color:#bfa530">RX:</span></span> 0x<span style="color:#53a6e6">00</span>
@@ -617,7 +817,7 @@ Many protocols have a STOP condition. In various modes ```]``` and ```}``` STOPs
 The ```>``` before ```r``` tells the Bus Pirate we want to send bus commands.
 {{% /alert %}}
 
-### **0b01** Write this binary value 
+### ```0b01``` Write this binary value 
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> >0b01
@@ -640,7 +840,7 @@ Begin a binary number with ```0b```, followed by the bits. Padding 0's are not r
 The ```>``` before ```0b01``` tells the Bus Pirate we want to send bus commands.
 {{% /alert %}}
 
-### **0x01** Write this HEX value 
+### ```0x01``` Write this HEX value 
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> >0x01
@@ -662,7 +862,7 @@ Begin a hexadecimal number with ```0x``` or ```0h```, followed by the hex digits
 The ```>``` before ```0x01``` tells the Bus Pirate we want to send bus commands.
 {{% /alert %}}
 
-### **0-255** Write this decimal value
+### ```0-255``` Write this decimal value
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> >1
@@ -680,7 +880,7 @@ Any number not started with 0b, 0x or 0h is interpreted as a decimal value. [Dec
 The ```>``` before ```1``` tells the Bus Pirate we want to send bus commands.
 {{% /alert %}}
 
-### **"abc"** Write this ASCII string 
+### ```"abc"``` Write this ASCII string 
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> >"abc"
@@ -695,7 +895,7 @@ Characters enclosed in ```" "``` are sent to the bus as their [ASCII equivalent 
 The ```>``` before ```"abc"``` tells the Bus Pirate we want to send bus commands.
 {{% /alert %}} 
 
-### **space** Value delimiter
+### ```space``` Value delimiter
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [1 2 3  rr]
@@ -717,7 +917,7 @@ Use a space to separate numbers.
 No delimiter is required between non-number commands.
 {{% /alert %}}
 
-### **d/D** Delay 1uS/MS 
+### ```d/D``` Delay 1uS/MS 
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> >d
@@ -742,7 +942,7 @@ Delay in microseconds or milliseconds. Delays can be extended with the [repeat c
 The ```>``` before ```d``` tells the Bus Pirate we want to send bus commands.
 {{% /alert %}}
 
-### **:** Repeat (e.g. r:10) 
+### ```:``` Repeat (e.g. r:10) 
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> [ 0x55:2 D:3 r:3]
@@ -764,7 +964,7 @@ Many commands can be repeated by adding ```:```, followed by the number of times
 Repeat values can also be HEX/DEC/BIN formatted.
 {{% /alert %}}
 
-### **.** Specify number of bits to read/write 
+### ```.``` Specify number of bits to read/write 
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> >0x5a.4
@@ -798,7 +998,7 @@ Write 12 bits of 0x5432 to the bus.
 
 Partial write/reads can be combined with the repeat command.
 
-### **v** Measure voltage
+### ```v``` Measure voltage
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> > v.1 v.2 v.3
@@ -817,7 +1017,7 @@ It is possible to measure the voltage of any IO pin while executing bus commands
 The ```>``` before ```v.1 v.2 v.3``` tells the Bus Pirate we want to send bus commands.
 {{% /alert %}}
 
-### **a/A/@** Auxiliary pin control (low/HIGH/read)
+### ```a/A/@``` Auxiliary pin control (low/HIGH/read)
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">UART></span> >a.1
@@ -846,7 +1046,7 @@ Pins already assigned a function, such as PWM or mode/protocol pins, cannot be c
 Bus commands a/A/@ use the ```a.<pin>``` notation, the syntax is followed by a **.** and the pin number to control. This is different than the commands a/A/@, which are followed by a space and the pin number to control.
 {{% /alert %}}
 
-### **^** Clock tick (limited)
+### ```^``` Clock pin tick (limited)
 
 {{< termfile  source="static/snippets/cmdref-bitwise-tick.html" >}}
 
@@ -856,7 +1056,7 @@ Send a single clock tick to the bus. The clock pin is set high (VCC) for a short
 "Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as 2WIRE and 3WIRE.
 {{% /alert %}}
 
-### */* Clock high (limited)
+### */* Clock pin high (limited)
 
 {{< termfile  source="static/snippets/cmdref-bitwise-clock-high.html" >}}
 
@@ -866,7 +1066,7 @@ Set the clock pin high (VCC).
 "Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as [2WIRE]({{% relref "/docs/command-reference/#2-wire" %}}) and [3WIRE]({{% relref "/docs/command-reference/#3-wire" %}}).
 {{% /alert %}}
 
-### \\ Clock low (limited)
+### \\ Clock pin low (limited)
 
 {{< termfile  source="static/snippets/cmdref-bitwise-clock-low.html" >}}
 
@@ -876,7 +1076,7 @@ Set the clock pin low (0V).
 "Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as [2WIRE]({{% relref "/docs/command-reference/#2-wire" %}}) and [3WIRE]({{% relref "/docs/command-reference/#3-wire" %}}).
 {{% /alert %}}
 
-### *-* Data high (limited)
+### *-* Data pin high (limited)
 
 {{< termfile  source="static/snippets/cmdref-bitwise-data-high.html" >}}
 
@@ -886,7 +1086,7 @@ Set the data pin high (VCC).
 "Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as [2WIRE]({{% relref "/docs/command-reference/#2-wire" %}}) and [3WIRE]({{% relref "/docs/command-reference/#3-wire" %}}).
 {{% /alert %}}
 
-### *_* Data low (limited)
+### *_* Data pin low (limited)
 
 {{< termfile  source="static/snippets/cmdref-bitwise-data-low.html" >}}
 
@@ -896,7 +1096,7 @@ Set the data pin low (0V).
 "Bitwise" commands provide low-level control over the clock and data pins, allowing precise manipulation of their states. These commands are only available in specific modes, such as [2WIRE]({{% relref "/docs/command-reference/#2-wire" %}}) and [3WIRE]({{% relref "/docs/command-reference/#3-wire" %}}).
 {{% /alert %}}
 
-### *.* Read data (limited)
+### *.* Read data pin (limited)
 
 {{< termfile  source="static/snippets/cmdref-bitwise-data-read.html" >}}
 
@@ -1883,12 +2083,3 @@ JTAG mode is **NOT** for working directly with JTAG devices (yet!). JTAG mode ho
 {{% alert context="info" %}}
 Find JTAG and SWD pinouts
 {{% /alert %}}
-
-
-## Scripting
-
-### **script**
-
-### **tutorial**
-
-### **button**

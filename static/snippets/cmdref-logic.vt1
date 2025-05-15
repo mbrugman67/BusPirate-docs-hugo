@@ -1,0 +1,28 @@
+[38;2;150;203;89mHiZ>[0m&nbsp;logic&nbsp;-h
+usage:
+[38;2;191;165;48mlogic&nbsp;analyzer&nbsp;usage[0m
+[38;2;191;165;48mlogic	[start|stop|hide|show|nav][0m
+[38;2;191;165;48m	[-i]&nbsp;[-g]&nbsp;[-o&nbsp;oversample]&nbsp;[-f&nbsp;frequency]&nbsp;[-d&nbsp;debug][0m
+[38;2;191;165;48mstart&nbsp;logic&nbsp;analyzer:&nbsp;logic&nbsp;start[0m
+[38;2;191;165;48mstop&nbsp;logic&nbsp;analyzer:&nbsp;logic&nbsp;stop[0m
+[38;2;191;165;48mhide&nbsp;logic&nbsp;analyzer:&nbsp;logic&nbsp;hide[0m
+[38;2;191;165;48mshow&nbsp;logic&nbsp;analyzer:&nbsp;logic&nbsp;show[0m
+[38;2;191;165;48mnavigate&nbsp;logic&nbsp;analyzer:&nbsp;logic&nbsp;nav[0m
+[38;2;191;165;48mconfigure&nbsp;logic&nbsp;analyzer:&nbsp;logic&nbsp;-i&nbsp;-o&nbsp;8&nbsp;-f&nbsp;1000000&nbsp;-d&nbsp;0[0m
+[38;2;191;165;48mundocumented:&nbsp;set&nbsp;base&nbsp;pin&nbsp;(0=bufdir,&nbsp;8=bufio)&nbsp;-b:&nbsp;logic&nbsp;-b&nbsp;8[0m
+
+[38;2;191;165;48mlogic&nbsp;analyzer&nbsp;control[0m
+[38;2;150;203;89mstart[0m	[38;2;191;165;48mstart&nbsp;logic&nbsp;analyzer[0m
+[38;2;150;203;89mstop[0m	[38;2;191;165;48mstop&nbsp;logic&nbsp;analyzer[0m
+[38;2;150;203;89mhide[0m	[38;2;191;165;48mhide&nbsp;logic&nbsp;graph[0m
+[38;2;150;203;89mshow[0m	[38;2;191;165;48mshow&nbsp;logic&nbsp;graph[0m
+[38;2;150;203;89mnav[0m	[38;2;191;165;48mnavigate&nbsp;logic&nbsp;graph&nbsp;with&nbsp;arrow&nbsp;keys,&nbsp;x&nbsp;to&nbsp;exit[0m
+[38;2;150;203;89m-i[0m	[38;2;191;165;48mshow&nbsp;configuration&nbsp;info[0m
+[38;2;150;203;89m-o[0m	[38;2;191;165;48mset&nbsp;oversample&nbsp;rate,&nbsp;multiplies&nbsp;the&nbsp;sample&nbsp;frequency[0m
+[38;2;150;203;89m-f[0m	[38;2;191;165;48mset&nbsp;sample&nbsp;frequency&nbsp;in&nbsp;Hz[0m
+[38;2;150;203;89m-0[0m	[38;2;191;165;48mset&nbsp;character&nbsp;used&nbsp;for&nbsp;low&nbsp;in&nbsp;graph&nbsp;(ex:_)[0m
+[38;2;150;203;89m-1[0m	[38;2;191;165;48mset&nbsp;character&nbsp;used&nbsp;for&nbsp;high&nbsp;in&nbsp;graph&nbsp;(ex:*)[0m
+[38;2;150;203;89m-d[0m	[38;2;191;165;48mset&nbsp;debug&nbsp;level:&nbsp;0-2[0m
+[38;2;150;203;89m-h[0m	[38;2;191;165;48mGet&nbsp;additional&nbsp;help[0m
+[0m
+[38;2;150;203;89mHiZ>[0m&nbsp;

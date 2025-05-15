@@ -1,0 +1,11 @@
+[38;2;150;203;89mHiZ>[0m&nbsp;image&nbsp;-h
+usage:
+[38;2;191;165;48mRead&nbsp;BMP&nbsp;info&nbsp;and&nbsp;display&nbsp;image&nbsp;file&nbsp;on&nbsp;LCD[0m
+[38;2;191;165;48mUsage:&nbsp;image&nbsp;&ltfile>&nbsp;[-d]&nbsp;[-h][0m
+[38;2;191;165;48mRead&nbsp;info:&nbsp;image&nbsp;example.bmp[0m
+[38;2;191;165;48mDraw&nbsp;on&nbsp;display:&nbsp;image&nbsp;example.bmp&nbsp;-d[0m
+[38;2;191;165;48mRead&nbsp;formats:&nbsp;BITMAPINFOHEADER&nbsp;V1&nbsp;(40Bytes),&nbsp;V2&nbsp;(52B),&nbsp;V3&nbsp;(54B)[0m
+[38;2;191;165;48mDraw&nbsp;formats:&nbsp;16-bit&nbsp;(565)&nbsp;and&nbsp;24-bit&nbsp;bitmaps,&nbsp;240x320&nbsp;pixels[0m
+[38;2;150;203;89m-h[0m	[38;2;191;165;48mGet&nbsp;additional&nbsp;help[0m
+[0m
+[38;2;150;203;89mHiZ>[0m&nbsp;

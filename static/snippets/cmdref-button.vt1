@@ -1,0 +1,17 @@
+[38;2;150;203;89mHiZ>[0m&nbsp;button&nbsp;-h
+usage:
+[38;2;191;165;48mbutton&nbsp;[short|long]&nbsp;[-f&nbsp;&ltfile>]&nbsp;[-d&nbsp;(hiDe&nbsp;comments)]&nbsp;[-e(xit&nbsp;on&nbsp;error)]&nbsp;[-h(elp)][0m
+[38;2;191;165;48mAssign&nbsp;script&nbsp;file&nbsp;to&nbsp;short&nbsp;button&nbsp;press:&nbsp;button&nbsp;short&nbsp;-f&nbsp;example.scr[0m
+[38;2;191;165;48mAssign&nbsp;script&nbsp;file&nbsp;to&nbsp;long&nbsp;button&nbsp;press:&nbsp;button&nbsp;long&nbsp;-f&nbsp;example.scr[0m
+[38;2;191;165;48mExit&nbsp;script&nbsp;on&nbsp;error&nbsp;option:&nbsp;button&nbsp;short&nbsp;example.scr&nbsp;-e[0m
+[38;2;191;165;48mDefault&nbsp;script&nbsp;files&nbsp;are&nbsp;'button.scr'&nbsp;and&nbsp;'buttlong.scr'&nbsp;in&nbsp;the&nbsp;root&nbsp;directory[0m
+
+[38;2;191;165;48mAssign&nbsp;script&nbsp;file&nbsp;to&nbsp;button&nbsp;press[0m
+[38;2;150;203;89mshort[0m	[38;2;191;165;48mAssign&nbsp;script&nbsp;file&nbsp;to&nbsp;short&nbsp;button&nbsp;press[0m
+[38;2;150;203;89mlong[0m	[38;2;191;165;48mAssign&nbsp;script&nbsp;file&nbsp;to&nbsp;long&nbsp;button&nbsp;press[0m
+[38;2;150;203;89m-f[0m	[38;2;191;165;48mScript&nbsp;file&nbsp;to&nbsp;assign&nbsp;to&nbsp;button&nbsp;press[0m
+[38;2;150;203;89m-d[0m	[38;2;191;165;48mHide&nbsp;comments[0m
+[38;2;150;203;89m-e[0m	[38;2;191;165;48mExit&nbsp;script&nbsp;on&nbsp;error[0m
+[38;2;150;203;89m-h[0m	[38;2;191;165;48mGet&nbsp;additional&nbsp;help[0m
+[0m
+[38;2;150;203;89mHiZ>[0m&nbsp;

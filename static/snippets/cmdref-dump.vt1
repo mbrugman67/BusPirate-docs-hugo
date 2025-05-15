@@ -1,0 +1,9 @@
+[38;2;150;203;89mHiZ>[0m&nbsp;dump&nbsp;-h
+usage:
+[38;2;191;165;48mdump[0m
+[38;2;191;165;48mFirst,&nbsp;manually&nbsp;setup&nbsp;a&nbsp;read&nbsp;from&nbsp;the&nbsp;device[0m
+[38;2;191;165;48mThen,&nbsp;run&nbsp;this&nbsp;command&nbsp;to&nbsp;read&nbsp;X&nbsp;bytes&nbsp;to&nbsp;a&nbsp;file[0m
+[38;2;191;165;48mRead&nbsp;X&nbsp;bytes&nbsp;to&nbsp;a&nbsp;file:&nbsp;dump&nbsp;256&nbsp;example.bin[0m
+[38;2;150;203;89m[0m	[38;2;191;165;48mON[0m
+[0m
+[38;2;150;203;89mHiZ>[0m&nbsp;

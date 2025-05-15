@@ -1,0 +1,23 @@
+<span style="color:rgb(150,203,89)">HiZ></span>&nbsp;macro&nbsp;-h
+usage:
+<span style="color:rgb(191,165,48)">macro&nbsp;&lt#>
+	[-f&nbsp;&ltfile>]&nbsp;[-a]&nbsp;[-l]&nbsp;[-h(elp)]</span>
+<span style="color:rgb(191,165,48)">Load&nbsp;macros:&nbsp;macro&nbsp;-f&nbsp;&ltfile></span>
+<span style="color:rgb(191,165,48)">List&nbsp;macros:&nbsp;macro&nbsp;-l</span>
+<span style="color:rgb(191,165,48)">Run&nbsp;macro&nbsp;1:&nbsp;macro&nbsp;1</span>
+<span style="color:rgb(191,165,48)">Macro&nbsp;1&nbsp;help:&nbsp;macro&nbsp;1&nbsp;-h</span>
+<span style="color:rgb(191,165,48)">Macro&nbsp;system&nbsp;help:&nbsp;macro&nbsp;-h</span>
+<span style="color:rgb(191,165,48)">List&nbsp;macro&nbsp;files:&nbsp;macro&nbsp;-a</span>
+<span style="color:rgb(191,165,48)"></span>
+<span style="color:rgb(191,165,48)">Macro&nbsp;files:</span>
+<span style="color:rgb(191,165,48)">&nbsp;Macros&nbsp;are&nbsp;stored&nbsp;in&nbsp;text&nbsp;files&nbsp;with&nbsp;the&nbsp;.mcr&nbsp;extension</span>
+<span style="color:rgb(191,165,48)">&nbsp;Lines&nbsp;starting&nbsp;with&nbsp;'#'&nbsp;are&nbsp;comments</span>
+<span style="color:rgb(191,165,48)">&nbsp;Lines&nbsp;starting&nbsp;with&nbsp;'#!'&nbsp;are&nbsp;macro&nbsp;usage&nbsp;instructions</span>
+<span style="color:rgb(191,165,48)">&nbsp;Every&nbsp;macro&nbsp;line&nbsp;includes&nbsp;an&nbsp;id&nbsp;(>0),&nbsp;a&nbsp;separator&nbsp;':',&nbsp;and&nbsp;bus&nbsp;syntax</span>
+<span style="color:rgb(191,165,48)">Example:</span>
+<span style="color:rgb(191,165,48)">&nbsp;#&nbsp;This&nbsp;is&nbsp;my&nbsp;example&nbsp;macro&nbsp;file</span>
+<span style="color:rgb(191,165,48)">&nbsp;#!&nbsp;Read&nbsp;5&nbsp;bytes&nbsp;from&nbsp;an&nbsp;I2C&nbsp;EEPROM</span>
+<span style="color:rgb(191,165,48)">&nbsp;1:[0xa0&nbsp;0][0xa1&nbsp;r:5]</span>
+<span style="color:rgb(150,203,89)"></span>	<span style="color:rgb(191,165,48)">ON</span>
+
+<span style="color:rgb(150,203,89)">HiZ></span>&nbsp;

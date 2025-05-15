@@ -1,4 +1,8 @@
 m hiz
+c
+3
+1
+x
 # cmdref-format
 format
 y
@@ -7,6 +11,10 @@ y
 # cmdref-info
 i
 # stop
+# cmdref-binmode
+binmode
+# stop
+x
 rm bpi2c.bp
 # cmdref-defaults
 m i2c
@@ -178,4 +186,116 @@ m infrared
 
 # cmdref-help-mode
 help mode
+# stop
+m hiz
+# cmdref-macro
+macro -h
+# stop
+# cmdref-script
+script -h
+# stop
+# cmdref-tutorial
+tutorial -h 
+# stop
+# cmdref-button
+button -h
+# stop
+# cmdref-pause
+pause -h
+# stop
+# cmdref-bug
+bug -h
+# stop
+# cmdref-otpdump
+otpdump -h
+# stop
+# cmdref-dummy
+dummy -h
+# stop
+# cmdref-image
+image -h
+# stop
+# cmdref-dump
+dump -h
+# stop
+# cmdref-ovrclk
+ovrclk -h
+# stop
+# cmdref-logic
+logic -h
+# stop
+# cmdref-cls
+cls -h
+# stop
+
+rm bpspi.bp
+m spi
+
+
+
+
+
+W 3.3
+# cmdref-bd-overview
+[0x31 r:5]
+# stop
+# cmdref-bd-start
+[
+# stop
+# cmdref-bd-execute
+> 0x55 0xaa
+# stop
+# cmdref-bd-stop
+>]
+# stop
+# cmdref-bd-read
+>r
+>r:3
+# stop
+# cmdref-bd-bin
+>0b01
+>0b01:3
+# stop
+# cmdref-bd-hex
+>0x01
+>0x01:3
+# stop
+# cmdref-bd-dec
+>1
+>1:3
+# stop
+# cmdref-bd-string
+>"abd"
+# stop
+# cmdref-bd-space
+[1 2 3  rr]
+# stop
+# cmdref-bd-delay
+>d
+>d:10
+>D 
+>D:10
+# stop
+# cmdref-bd-repeat
+[ 0x55:2 D:3 r:3]
+# stop
+# cmdref-bd-write4
+>0x5a.4
+# stop
+# cmdref-bd-read4
+>r.4
+# stop
+# cmdref-bd-write12
+>0x5432.12
+# stop
+# cmdref-bd-writerepeat
+>0x5a.4:2
+# stop
+# cmdref-bd-v 
+> v.1 v.2 v.3
+# stop
+# cmdref-bd-a 
+>a.1
+>A.1
+>@.1
 # stop

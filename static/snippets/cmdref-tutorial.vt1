@@ -1,0 +1,17 @@
+[38;2;150;203;89mHiZ>[0m&nbsp;tutorial&nbsp;-h
+usage:
+[38;2;191;165;48mtutorial&nbsp;&ltfile>&nbsp;[-h(elp)][0m
+[38;2;191;165;48mRun&nbsp;tutorial:&nbsp;tutorial&nbsp;example.tut[0m
+[38;2;191;165;48m[0m
+[38;2;191;165;48mTutorial&nbsp;files:[0m
+[38;2;191;165;48mTutorial&nbsp;files&nbsp;are&nbsp;stored&nbsp;in&nbsp;text&nbsp;files&nbsp;with&nbsp;the&nbsp;.tut&nbsp;extension[0m
+[38;2;191;165;48mLines&nbsp;starting&nbsp;with&nbsp;'#'&nbsp;are&nbsp;comments[0m
+[38;2;191;165;48mOther&nbsp;lines&nbsp;are&nbsp;inserted&nbsp;into&nbsp;the&nbsp;command&nbsp;prompt[0m
+[38;2;191;165;48mExample:[0m
+[38;2;191;165;48m#&nbsp;This&nbsp;is&nbsp;my&nbsp;example&nbsp;tutorial&nbsp;file[0m
+[38;2;191;165;48m#&nbsp;The&nbsp;'pause'&nbsp;command&nbsp;waits&nbsp;for&nbsp;any&nbsp;key&nbsp;press[0m
+[38;2;191;165;48mpause[0m
+[38;2;191;165;48m#&nbsp;Did&nbsp;it&nbsp;pause?[0m
+[38;2;150;203;89m[0m	[38;2;191;165;48mON[0m
+[0m
+[38;2;150;203;89mHiZ>[0m&nbsp;
