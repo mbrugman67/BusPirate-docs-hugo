@@ -1,0 +1,17 @@
+[38;2;150;203;89mHiZ>[0m&nbsp;m&nbsp;led
+
+[38;2;191;165;48mMode:[0m&nbsp;LED
+[38;2;191;165;48mLED&nbsp;type[0m
+&nbsp;1.&nbsp;[38;2;191;165;48mWS2812/SK6812/'NeoPixel'&nbsp;(single&nbsp;wire&nbsp;interface)*[0m
+&nbsp;2.&nbsp;[38;2;191;165;48mAPA102/SK9822&nbsp;(clock&nbsp;and&nbsp;data&nbsp;interface)[0m
+&nbsp;3.&nbsp;[38;2;191;165;48mOnboard&nbsp;LEDs&nbsp;(18&nbsp;SK6812s)[0m
+&nbsp;x.&nbsp;[38;2;191;165;48mExit[0m
+[38;2;150;203;89mType&nbsp;([0m1[38;2;150;203;89m)&nbsp;>[0m&nbsp;1[0m
+[38;2;150;203;89mLED-(WS2812)>[0m&nbsp;W&nbsp;5
+[38;2;83;166;230m5.00[0mV[38;2;191;165;48m&nbsp;requested,&nbsp;closest&nbsp;value:&nbsp;[38;2;83;166;230m5.00[0mV
+[38;2;83;166;230m300.0[0mmA[38;2;191;165;48m&nbsp;requested,&nbsp;closest&nbsp;value:&nbsp;[38;2;83;166;230m300.0[0mmA
+
+[38;2;191;165;48mPower&nbsp;supply:[0mEnabled
+[38;2;191;165;48mVreg&nbsp;output:&nbsp;[38;2;83;166;230m5.0[0mV[38;2;191;165;48m,&nbsp;Vref/Vout&nbsp;pin:&nbsp;[38;2;83;166;230m5.0[0mV[38;2;191;165;48m,&nbsp;Current:&nbsp;[38;2;83;166;230m2.6[0mmA[38;2;191;165;48m
+[0m[0m
+[38;2;150;203;89mLED-(WS2812)>[0m&nbsp;

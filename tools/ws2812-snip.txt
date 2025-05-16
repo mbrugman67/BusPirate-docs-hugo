@@ -1,0 +1,24 @@
+m hiz
+c
+3
+1
+x
+rm bpled.bp
+# ws2812-setup
+m led
+1
+W 5
+# stop
+# ws2812-rgb
+[ 0xff0000 0x00ff00 0x0000ff
+# ws2812-purple
+[ 0x00FFFF:3
+# ws2812-cycle
+[0xff0000:3  D:500 [0x00ff00:3 D:500 [0x0000ff:3
+# stop
+# ws2812-white
+[ 0xffffff:3 
+# stop
+# ws2812-off
+[ 0x000000:3 
+# stop

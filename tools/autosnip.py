@@ -146,8 +146,26 @@ def main():
                             if html_file is not None:
                                 print("File already open. Closing it first.")
                                 try:
-                                    # convert to HTML then save
-                                    html_file.write('[' + str(round(time.time() - start_time, 6)+2) + ', "o", ""]\n')
+                                    #remove beginning empty lines
+                                    output = re.sub(r"^\s*\n", "", output) # remove empty lines at the beginning
+                                    output = output.replace(" ", "&nbsp;") # replace spaces with &nbsp;
+                                    #remove unprinted character \x03
+                                    output = output.replace("\x03", "")
+                                    output = output.replace("\x07", "") # bell
+                                    output = output.replace("\x0d", "") # remove backspace characters
+                                    # The converter, which was ported to PYTHON from JS by Copilot, 
+                                    # is not accept the raw vt100 input in our variable.
+                                    # It needs to be written to a file first, then read back in.
+                                    # This is a workaround for the converter to work.
+                                    converter = AnsiToHtml()
+                                    html_file.write(output)
+                                    html_file.close()      
+                                    html_file = open(current_filename + '.vt1', "r", encoding="utf-8")                     
+                                    vt100_in = html_file.read()
+                                    html_output = converter.to_html(vt100_in)
+                                    html_file.close()
+                                    html_file = open(current_filename + '.html', "w", encoding="utf-8")
+                                    html_file.write(html_output)
                                     html_file.close()
                                     html_file = None
                                 except Exception as e:

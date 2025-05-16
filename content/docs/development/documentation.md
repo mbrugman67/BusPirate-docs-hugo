@@ -6,7 +6,7 @@ This page describes how to write documentation for the Bus Pirate firmware. The 
 
 - This site is built using [Hugo](https://gohugo.io/documentation/), a static site generator, with the [Lotus Docs theme](https://lotusdocs.dev/).
 - [autosnip](https://github.com/DangerousPrototypes/BusPirate-docs-hugo/blob/main/tools/autosnip.py) is a Python script that automatically generates the terminal output for the documentation.
-- [autodoc](https://github.com/DangerousPrototypes/BusPirate-docs-hugo/blob/main/tools/autodoc.py) is a Python script that captures terminal screencasts to use with the [asciinema player](https://docs.asciinema.org/manual/player/).
+- [autocast](https://github.com/DangerousPrototypes/BusPirate-docs-hugo/blob/main/tools/autocast.py) is a Python script that captures terminal screencasts to use with the [asciinema player](https://docs.asciinema.org/manual/player/).
 
 Why scripts? The goal is to automate documentation updates when the firmware changes. 
 
@@ -149,7 +149,7 @@ Use the ```termfile``` short code to display the file in the documentation. The 
 
 ascinema is a terminal screencast tool that can be used to record and share terminal sessions. It replays VT100 output in a web browser, so it is much lighter weight than a video file.
 
-### Write an autodoc script
+### Write an autocast script
 
 ```
 rm bpled.bp
@@ -166,15 +166,15 @@ w # w - disable PSU
 m hiz
 ```
 
-autodoc.py is a Python script that captures terminal screencasts to use with the asciinema player. It uses a dead simple script format. Each line is a command to send to the Bus Pirate, then the script waits for the prompt to return before sending the next command. 
+autocast.py is a Python script that captures terminal screencasts to use with the asciinema player. It uses a dead simple script format. Each line is a command to send to the Bus Pirate, then the script waits for the prompt to return before sending the next command. 
 
 ```
-# tut-power-supply.json
+# tut-power-supply
 ```
 
 As above, the # character followed by a file name begins capturing and ```# stop``` ends. The script above will save output to files in the ```/static/screencast/``` directory.
 
-**NOTE: DO include the file extension in the name this time.**
+**NOTE: DO NOT include the file extension in the name.**
 
 ```
 W # W - enable PSU (interactive)
@@ -185,7 +185,7 @@ Text after # following a command is saved as a marker in the screencast. Please 
 ### Capture Terminal Output
 
 ```shell
-python autodoc.py -p COM34 -i commands.txt -d
+python autocast.py -p COM34 -i commands.txt -d
 ```
 
 - ```-p``` specifies the Bus Pirate serial port.

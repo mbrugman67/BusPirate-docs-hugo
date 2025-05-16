@@ -1,0 +1,24 @@
+m hiz
+c
+3
+1
+x
+rm bpled.bp
+# apa102-setup
+m led
+2
+W 5
+# stop
+# apa102-rgb
+[0xffff0000 0xff00ff00 0xff0000ff ]
+# apa102-purple
+[0xffff00ff:3 ]
+# apa102-cycle
+[0xffff0000:3] D:500 [0xff00ff00:3] D:500 [0xff0000ff:3]
+# stop
+# apa102-white
+[0xffffffff:3]
+# stop
+# apa102-off
+[0xff000000:3]
+# stop

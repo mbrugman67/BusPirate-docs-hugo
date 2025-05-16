@@ -1,0 +1,17 @@
+m hiz
+c
+3
+2
+x
+cls
+rm bpled.bp
+# apa102-demo
+m led # m led - enter LED mode
+2 # choose APA102
+W 5 # W 5 - enable 5 volt power supply
+[0xffff0000 0xff00ff00 0xff0000ff ] # Set first 3 LEDs to blue, green and red
+[0xffff00ff:3 ] # Set 3 leds to purple
+[0xffff0000:3] D:500 [0xff00ff00:3] D:500 [0xff0000ff:3] # Cycle three LEDs blue->green->red
+[0xffffffff:3] # Set 3 LEDs to white
+[0xff000000:3] # Turn off 3 LEDs
+# stop

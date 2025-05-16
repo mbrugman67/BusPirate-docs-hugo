@@ -695,21 +695,21 @@ Pause and wait for user input. Useful for pausing during a script or macro.
 
 A set of command useful or used during development. These commands are not intended for end users, but are available in the firmware.
 
-### ```bug```
+### ```bug``` Replicate silicon bugs
 {{< termfile  source="static/snippets/cmdref-bug.html" >}}
 
 - ```bug <errata>``` - replicate a silicon bug in the Raspberry Pi Chip. 
 
 This command is used for testing and debugging purposes.
 
-### ```otpdump```
+### ```otpdump``` Dump OTP memory (BP 6+)
 {{< termfile  source="static/snippets/cmdref-otpdump.html" >}}
 
 - ```otpdump``` - dump the OTP memory of the Raspberry Pi chip.
 
 Valid only on RP2350 or later chips with OTP memory (Bus Pirate 6+).
 
-### ```dummy```
+### ```dummy``` New command template
 {{< termfile  source="static/snippets/cmdref-dummy.html" >}}
 
 ```dummy``` is a template that demonstrates how to create a new command.
@@ -1168,7 +1168,7 @@ Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% r
 
 {{% readfile "/_common/other-commands.md" %}}
 
-### scan
+### ```scan``` 1-Wire address search
 
 {{< termfile source="static/snippets/ds18b20-scan.html" >}}
 
@@ -1176,7 +1176,7 @@ Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% r
 
 ```scan``` performs a 1-Wire ROM search to detect the ID of every connected 1-Wire device. The type of device is shown if the family ID is known.
 
-### ds18b20    
+### ```ds18b20``` Read temperature
 
 {{< termfile source="static/snippets/ds18b20-command.html" >}}
 
@@ -1187,6 +1187,9 @@ Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% r
 {{% alert context="warning" %}}
 The device is accessed with the skip ROM command, so it will only work with a single DS18B20 device connected.
 {{% /alert %}}
+
+### Device demos
+- [DS18B20 Temperature Sensor]({{% relref "/docs/devices/ds18b20" %}})
 
 
 ## UART
@@ -1233,7 +1236,7 @@ device transmit pin (TX).
 
 {{% readfile "/_common/other-commands.md" %}}
 
-### bridge
+### ```bridge``` USB to serial bridge
 
 {{< termfile source="static/snippets/cmdref-mode-uart-bridge.html" >}}
 
@@ -1243,7 +1246,7 @@ Transparent UART ```bridge```. Bidirectional UART pass-through to interact with 
 Use ```bridge -h``` to see the latest options and features.
 {{% /alert %}}
 
-### gps 
+### ```gps``` Decoding GPS NMEA sentences
 
 {{< termfile source="static/snippets/cmdref-mode-uart-gps.html" >}}
 
@@ -1253,7 +1256,7 @@ Most GPS modules output [NMEA sentences](https://gpsd.gitlab.io/gpsd/NMEA.html) 
 Use ```gps -h``` to see the latest options and features.
 {{% /alert %}}
 
-### glitch
+### ```glitch``` Glitch hacking framework
 
 {{< termfile source="static/snippets/cmdref-mode-uart-glitch.html" >}}
 
@@ -1271,6 +1274,9 @@ opto-isolated. The signaling is at 5volts, 5ma (current-based
 signaling). An adapter is required: [example
 1](https://www.compuphase.com/electronics/midi_rs232.htm), [example
 2](https://midi.org/specs).
+
+### Device demos
+- [NMEA GPS module]({{% relref "/docs/devices/nmea-gps/" %}})
 
 ## HDUART
 
@@ -1325,7 +1331,7 @@ Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% r
 
 {{% readfile "/_common/other-commands.md" %}}
 
-### bridge
+### ```bridge``` USB to serial bridge
 
 {{< termfile source="static/snippets/cmdref-mode-hduart-bridge.html" >}}
  
@@ -1334,6 +1340,9 @@ Transparent UART ```bridge```. Bidirectional UART pass-through to interact with 
 {{% alert context="info" %}}
 Use ```bridge -h``` to see the latest options and features.
 {{% /alert %}}
+
+### Device demos
+- [Mobile SIMs & Bank IC Cards]({{% relref "/docs/devices/sim-bank-ic-cards/" %}})
 
 ## I2C
 
@@ -1391,7 +1400,7 @@ Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% r
 
 {{% readfile "/_common/other-commands.md" %}}
 
-### I2C address search scan
+### ```scan``` I2C address search
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">I2C></span> scan
@@ -1445,30 +1454,35 @@ scanner will see ghost addresses until the read ends randomly. By
 reading a byte after any read address that ACKs, we have a chance to
 NACK the read and properly end the I2C transaction.
 
-### sniff
+### ```sniff``` I2C bus sniffer
 
 {{< termfile source="static/snippets/cmdref-mode-i2c-sniff-help.html" >}}
 
 Sniff I2C packets up to 500kHz.
 
-### si7021
+### ```si7021``` Read temperature and humidity
 
 {{< termfile source="static/snippets/cmdref-mode-i2c-si7021-help.html" >}}
 
 Command to read temperature and humidity from a [SI7021 sensor]({{< relref "/docs/devices/si7021/">}}).
 
-### ms5611
+### ```ms5611``` Read temperature and pressure
 
 {{< termfile source="static/snippets/cmdref-mode-i2c-ms5611-help.html" >}}
 
 Command to read temperature and pressure from a MS5611 sensor.
 
-### tsl2561
+### ```tsl2561``` Read light intensity
 
 {{< termfile source="static/snippets/cmdref-mode-i2c-tsl2561-help.html" >}}
 
 Command to read light intensity from a [TSL2561 sensor]({{< relref "/docs/devices/tsl2561/">}}).
 
+### Device demos
+- [24C02 Smart IC Card]({{% relref "/docs/devices/24c02/" %}})
+- [SI7021, HTU21, SHT21 Humidity & Temperature]({{% relref "/docs/devices/si7021/" %}})
+- [AT24C256 EEPROM]({{% relref "/docs/devices/at24c256/" %}})
+- [TSL2561 LUX Sensor]({{% relref "/docs/devices/tsl2561/" %}})
 <!--
 
 ## ACK/NACK management
@@ -1574,7 +1588,7 @@ SPI is a common 4 wire full duplex protocol. Separate connections for data-in an
 
 {{% readfile "/_common/other-commands.md" %}}
 
-### flash 
+### ```flash``` Read/Write/Erase common flash chips
 
 {{< termfile source="static/snippets/cmdref-mode-spi-flash-help.html" >}}
 
@@ -1688,6 +1702,10 @@ Options tell the flash command what to do.
 
 Flags pass file names and other settings.
 
+### Device demos
+- [NOR Flash Memory]({{% relref "/docs/devices/spi-flash-chips/" %}})
+- [W25Q64 NOR FLASH]({{% relref "/docs/devices/w25q64/" %}})
+
 ## 2-WIRE
 
 -   **Bus:** 2 wire bus with bidirectional data (SDA) line and a clock (SCL) line
@@ -1755,13 +1773,13 @@ Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% r
 
 {{% readfile "/_common/other-commands.md" %}}
 
-### sniffer
+### ```sniff``` 2WIRE bus sniffer
 
 {{< termfile source="static/snippets/cmdref-mode-2wire-sniff-help.html" >}}
 
 Sniff 8 bit I2C-like protocols that don't use an ACK/NAK bit, for example the SLE4442 smart card.
 
-### sle4442
+### ```sle4442``` Work with SLE4442 smart cards
 
 {{< termfile source="static/snippets/cmdref-mode-2wire-sle4442-help.html" >}}
 
@@ -1907,6 +1925,9 @@ Options tell the SLE4442 command what to do.
 
 Flags pass file names and other settings to the command.
 
+### Device demos
+- [SLE4442 Smart Card]({{% relref "/docs/devices/sle4442/" %}})
+
 ## 3-WIRE
 
 -   **Bus:** [SPI](http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus)-like bus with granular control of the clock and data lines
@@ -2010,8 +2031,8 @@ LEDs are power hungry, up to 60mA each at full brightness. The programmable powe
 
 |Command|Description|
 |-------|--------------|
-| [ or \{ | Reset (APA102), Start Frame (WS2812) |
-| ] or } | End Frame (WS2812)|
+| [ or \{ | Reset (APA102: low for >280us), Start Frame (WS2812: 0x00000000) |
+| ] or } | End Frame (WS2812: 0xffffffff)|
 | 0b      | Write this binary value. Format is 0b00000000 for a byte, but partial bytes are also fine: 0b1001.|
 | 0x      | Write this HEX value. Format is 0x01. Partial bytes are fine: 0xA. A-F can be lower-case or capital letters. |
 | 0-255   | Write this decimal value. Any number not preceded by 0x or 0b is interpreted as a decimal value. |
@@ -2019,7 +2040,12 @@ LEDs are power hungry, up to 60mA each at full brightness. The programmable powe
 
 {{% readfile "/_common/other-commands.md" %}}
 
+### Device demos
 
+- [Onboard SK6812 LED demo]({{% relref "/docs/tutorial-basics/leds-demo/" %}})
+- [WS2812/SK6812/'NeoPixel' LED strip demo]({{% relref "/docs/devices/ws2812-sk6812-neopixel/" %}})
+- [APA102/SK9822 LED strip demo]({{% relref "/docs/devices/apa102-sk9822/" %}}) 
+ 
 ## INFRARED
 
 -   **Bus:** Infrared (IR) remote control (raw, RC5, NEC)
@@ -2050,23 +2076,27 @@ Infrared is a mode for sending and receiving infrared signals. The Bus Pirate ca
 
 {{% readfile "/_common/other-commands.md" %}}
 
-### tvbgone
+### ```tvbgone```
 
 {{% alert context="info" %}}
 TV-B-Gone, turn off many brands of TV
 {{% /alert %}}
 
-### irtx
+### ```irtx```
 
 {{% alert context="info" %}}
 Transmit IR signals (aIR format)
 {{% /alert %}}
 
-### irrx
+### ```irrx```
 
 {{% alert context="info" %}}
 Receive, record, retransmit IR signals (aIR format)
 {{% /alert %}}
+
+### Device demos
+
+- [Infrared Remote Controls]({{% relref "/docs/devices/infrared-remote-control/" %}})
 
 ## JTAG
 -   **Bus:** JTAG
@@ -2078,8 +2108,11 @@ Receive, record, retransmit IR signals (aIR format)
 JTAG mode is **NOT** for working directly with JTAG devices (yet!). JTAG mode hosts [blueTag](https://github.com/Aodrulez/blueTag), an open source JTAG and SWD pin finder.
 {{% /alert %}}
 
-### bluetag (pinout finder)
+### ```bluetag``` JTAG & SWD pinout finder
 
 {{% alert context="info" %}}
 Find JTAG and SWD pinouts
 {{% /alert %}}
+
+### Device demos
+- [JTAG & SWD pinout finder]({{% relref "/docs/devices/jtag-swd-pin-finder/" %}})
