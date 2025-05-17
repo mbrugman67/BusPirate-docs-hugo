@@ -1,6 +1,6 @@
 +++
 weight = 120400
-title = 'Injection Molded Shell'
+title = 'Injection Molded Shell v1'
 +++
 
 ![](/images/docs/enclosure/enclosure-top.jpg)
@@ -48,7 +48,7 @@ Bolts should be finger tight. Over tightening bolts may pull the insert nut out 
 {{% /alert %}}
 
 {{% alert context="info" %}}
-The 3D printable versions of the enclosure work with standard 8mm DIN7991 bolts, only the injection molded version specifies 7mm bolts. 8mm bolts will work, but some heads may sit fully flush with the front of the case. 
+The 3D printable versions of the enclosure work with standard 8mm DIN7991 bolts, only the injection molded version specifies 7mm bolts. 8mm bolts will work, but some heads may not sit fully flush with the front of the case. 
 {{% /alert %}}
 
 ### The Plug

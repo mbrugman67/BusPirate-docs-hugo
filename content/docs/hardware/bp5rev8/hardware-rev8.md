@@ -312,9 +312,9 @@ Bus Pirate 5 is used through a serial terminal. The optional VT100 mode supports
 
 ## Interactive BOM
 
-![](/images/docs/hw/bp5rev8/bp5rev8/bp5-bom-rev8.png)
+[![](/images/docs/hw/bp5rev8/bp5rev8/bp5-bom-rev8.png)](/images/docs/hw/bp5rev8/bp5r8-interactive-bom.html)
 
-[Bus Pirate 5 REV8 interactive BOM](pathname:///bp5-rev8-bom.html). Created with [Interactive HTML BOM plugin](https://github.com/openscopeproject/InteractiveHtmlBom) for [KiCad](https://www.kicad.org/).
+[Bus Pirate 5 REV8 interactive BOM](/images/docs/hw/bp5rev8/bp5r8-interactive-bom.html). Created with [Interactive HTML BOM plugin](https://github.com/openscopeproject/InteractiveHtmlBom) for [KiCad](https://www.kicad.org/).
 
 ## Get a Bus Pirate
  

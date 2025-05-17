@@ -48,7 +48,7 @@ This is the user guide for Bus Pirate 5. See the [hardware documentation]({{< re
 A beautiful 240x320 pixel color IPS (all angle viewing) LCD acts as a pin label, while also showing the voltage on each pin and the current consumption of the programmable power supply unit
 
 ## Main connector
-![](/images/docs/fw/bp5-connectors.jpg)
+![](/images/docs/hw/bp6rev2/connectors.jpg)
 
 2.54mm 10 pin connector - A keyed locking connector that works just as well with common jumper wires and 2.54mm 'DuPont' style connectors.
 

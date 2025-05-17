@@ -53,45 +53,45 @@ The Bus Pirate is designed to eliminate the frustrating parts of hacking and har
 
 <div class="img-center">
 
-![](/images/docs/hw/bp6rev2/bp5-rev10-3d-bottom.jpg)
+![](/images/docs/hw/bp6rev2/6r2-pcb-top.jpg)
 
 </div>
 
 ## RP2350 **\*\*New in 6\*\***
-[![](/images/docs/hw/bp6rev2/bp5rev10-micro-rp2040.jpg)](/images/docs/hw/bp6rev2/buspirate-5-rev10a-schematic.pdf)
+[![](/images/docs/hw/bp6rev2/rp2350-cct.jpg)](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf)
 
-It's like the RP2350 was designed for a Bus Pirate. Two ARM cores, cheap external flash storage  - and the PIO state machines are a true hardware interface to just about any esoteric protocol. No more bit-banged software libraries!
+It's like Raspberry Pi chips are designed for a Bus Pirate. Two ARM cores, cheap external flash storage  - and the PIO state machines are a true hardware interface to just about any esoteric protocol. No more bit-banged software libraries!
 
-The [RP2040]({{< relref "../bp5rev10/components/chips/#microcontroller-rp2040-qfn-56" >}}) (U103) has a built-in bootloader that appears as a USB disk drive - just drag a firmware file into the drive to update the Bus Pirate. The bootloader is locked in ROM, there's no chance of accidentally erasing or corrupting it. What a happy little chip!
+The RP2350 (U103) has a built-in bootloader that appears as a USB disk drive - just drag a firmware file into the drive to update the Bus Pirate. The bootloader is locked in ROM, there's no chance of accidentally erasing or corrupting it. What a happy little chip!
 
 We paired the RP2350 with a [128Mbit flash chip]({{< relref "../bp5rev10/components/chips/#flash-128mbit-spi-soic8-208mil" >}}) (U102), the maximum supported. There should be plenty of room to add features for years to come. All that space has already paid off with features like multi-language support in a single firmware release and integrated device demos.
 
 ### More Pins! 
-RP2350B has 18 more IO pins than the RP2040. The extra pins allow us to remove the [74HC595 shift registers]({{< relref "docs/hardware/bp5rev10/hardware/#output-expander" >}}) used on Bus Pirate 5, making room for some features on the PCB.
+RP2350B has 18 more IO pins than the RP2040 used in Bus Pirate 5. The extra pins allow us to remove the [74HC595 shift registers]({{< relref "docs/hardware/bp5rev10/hardware/#output-expander" >}}) used on Bus Pirate 5, making room for some new features on the PCB.
 
 ## ADC Expander
 
-[![](/images/docs/hw/bp6rev2/bp5rev10-adc-expand.jpg)](/images/docs/hw/bp6rev2/buspirate-5-rev10a-schematic.pdf)
+[![](/images/docs/hw/bp6rev2/bp5rev10-adc-expand.jpg)](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf)
 
 Live voltage measurement on every pin was an absolute feature requirement for Bus Pirate 5+. We want to to see whats happening at a glance, not perform bizarre and uncomfortable acrobatics with multimeter probes. 
 
-RP2350 doesn't have enough analog to digital converter inputs for all the measurement points we need, so we added a 16 channel [CD4067 analog mux]({{< relref "../bp5rev10/components/chips/#cd4067-analog-mux-tssop-24" >}}) (U402). The mux connects the IO pins, the programmable power supply and various test points to a single RP2040/RP2350 ADC pin. All those 510R series input resistors are intended to limit back powering to tolerable levels (10mA).
+RP2350 doesn't have enough analog to digital converter inputs for all the measurement points we need, so we added a 16 channel [CD4067 analog mux]({{< relref "../bp5rev10/components/chips/#cd4067-analog-mux-tssop-24" >}}) (U402). The mux connects the IO pins, the programmable power supply and various test points to a single RP2350 ADC pin. All those 510R series input resistors are intended to limit back powering to tolerable levels (10mA).
 
 An [op-amp]({{< relref "../bp5rev10/components/analog/#op-amp-rail-to-rail-sot-23-5" >}}) (U404) buffers the mux output and feeds a divide by two [10K resistor]({{< relref "../bp5rev10/components/passives/#resistors-1-0402" >}}) (R406/R407) pair. This allows the 3.3volt ADC to measure signals up to 6.6volts, however in practice the maximum voltage can not exceed the USB power supply (~5volts) without damaging other components.
 
-![](/images/docs/hw/bp6rev2/bp5rev10-io-opamp-buf.png)
+[![](/images/docs/hw/bp6rev2/bp5rev10-io-opamp-buf.png)](](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf))
 
-A user [reported a periodic glitch](https://forum.buspirate.com/t/periodic-glitch-on-both-sda-and-scl-lines-for-i2c-mode/94/6?u=ian) on the REV8 preview board IO pins. It is especially noticeable on open collector bus types with pull-up resistors when the adjacent pin is grounded. The analog mux has some capacitance that causes the pin voltage to sag after switching channels. The final hardware adds [quad op-amps]({{< relref "../bp5rev10/components/analog/#quad-op-amp-rail-to-rail-tssop-14" >}}) (U504, U505) as a buffer between the IO pins and mux, which solves the glitch issue.
+[Quad op-amps]({{< relref "../bp5rev10/components/analog/#quad-op-amp-rail-to-rail-tssop-14" >}}) (U504, U505) act as a high impedance buffer between the IO pins and analog mux.
 
 Op-amps are pretty delicate, and tend to die if a voltage is connected while they're not powered. Fortunately, most op-amp inputs are rated for +/-0.3volts-0.5volts from the power supply rails. We take advantage of this to limit the maximum powered-down voltage using a [Schottky diode]({{< relref "../bp5rev10/components/passives/#dual-schottky-diode-bas40-sot-523" >}}) (D500, D501, D502, D503, D504) with a very low forward voltage (0.2volts @ 0.05mA) and a high value (100K) current limiting resistor (RN317, RN318). Care must be taken to choose a Shottky with low reverse current, many cheap diodes are leakier than you expect and will cause a voltage offset on floating pins.
 
 ## 8 IO Units
 
-[![](/images/docs/hw/bp6rev2/bp5rev10-buffers.jpg)](/images/docs/hw/bp6rev2/buspirate-5-rev10a-schematic.pdf)
+[![](/images/docs/hw/bp6rev2/bp5rev10-buffers.jpg)](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf)
 
 ### 1.2-5volt Buffers
 
-[![](/images/docs/hw/bp6rev2/buffer-detail.png)](/images/docs/hw/bp6rev2/buspirate-5-rev10a-schematic.pdf)
+[![](/images/docs/hw/bp6rev2/buffer-detail.png)](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf)
 
 IO pins are fitted with [74LVC1T45 bidirectional buffers]({{< relref "../bp5rev10/components/chips/#74lvc1t45-bi-directional-buffer-sc70-6sot363" >}}), we call this chip 'the bulldozer'. Half of the buffer is powered at 3.3volts to interface the RP2350. The other half is powered from the VREF/VOUT pin at 1.2-5volts to interface with the outside world. 74LVC1T45 has great specs for hacking, like 5.5volt tolerant pins and a feature that disables everything when either half of the buffer is unpowered.
 
@@ -112,15 +112,23 @@ At least four manufacturers make a 74LVC1T45 with slightly different specificati
 
 |Hardware Revision|Buffer Chip|
 |-|-|
-|5 REV8| Texas Instruments|
-|5 REV10| WuXi I-Core|
-|6|WuXi I-Core|
+|5 REV 8| Texas Instruments|
+|5 REV 10| WuXi I-Core|
+|6 REV 2|WuXi I-Core|
 
 Production Bus Pirates are fitted with buffers made by WuXi I-Core, a Chinese domestically manufactured part that operates at 1.2-5volts.
 
+### Look Behind Buffer **\*\*New in 6\*\***
+
+[![](/images/docs/hw/bp6rev2/74lvc8t245.png)](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf)
+
+The RP2350B has 18 additional IO pins. We buffered 8 of them and connected them to the main IO pins. Now we have an integrated logic analyzer that can "look behind" the individual IO buffers to see whats actually happening in the real world.
+
+A 74LVC8T245 buffer chip shifts the input to 3.3volts for the RP2350B. The capture side of the buffer is powered from the VREF/VOUT pin, and works from 1.2volts to 5volts. The 74LVC8T245 is specified for partial power-down applications, and is disabled when either power supply is off.
+
 ### Toggleable Pull-up Resistors
 
-[![](/images/docs/hw/bp6rev2/bp5rev10-pullup.png)](/images/docs/hw/bp6rev2/buspirate-5-rev10a-schematic.pdf)
+[![](/images/docs/hw/bp6rev2/bp5rev10-pullup.png)](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf)
 
 Each IO pin has a toggleable [10K pull-up resistor]({{< relref "../bp5rev10/components/passives/#resistor-arrays-5-0402x4-convex" >}}). Onboard pull-ups are controlled by eight [SI2301]({{< relref "../bp5rev10/components/transistors-fets/#pmos-fet-2a-vgs-1-volts-sot-523" >}}) PFETs with a very low (<1volt) gate threshold voltage. Pull-ups are powered through the VOUT/VREF pin.
 
@@ -159,14 +167,9 @@ A secondary [1mm 9 pin connector]({{< relref "../bp5rev10/components/connectors/
 The 1mm 9 pin connector mates with 'SH' style cables.
 {{% /alert %}}
 
-### Look Behind Buffer **\*\*New in 6\*\***
-The RP2350B has 18 additional IO pins. We used 8 IOs to add a second connection point to the main buffer pins. Now we can "look behind" the main buffer to see whats actually happening on the pins, an always running logic analyzer.
-
-A 74LVC8T245 buffer chip shifts the input to 3.3volts for the RP2350B. The capture side of the buffer is powered from the VREF/VOUT pin, and works from 1.2volts to 5volts. The 74LVC8T245 is specified for partial power-down applications, and is disabled when either power supply is off.
-
 ## Programmable Power Supply Unit
 
-[![](/images/docs/hw/bp6rev2/bp5rev10a-ppsu.png)](/images/docs/hw/bp6rev2/buspirate-5-rev10a-schematic.pdf)
+[![](/images/docs/hw/bp6rev2/bp5rev10a-ppsu.png)](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf)
 
 The bulldozer IO buffers run from 1.2 to 5volts, they need a power supply to match. The programmable power supply unit is another killer feature of the Bus Pirate. 
 - 1-5volts adjustable output, 400mA max
@@ -176,7 +179,7 @@ The bulldozer IO buffers run from 1.2 to 5volts, they need a power supply to mat
 
 ### Adjustable Output 1 to 5volts
 
-[![](/images/docs/hw/bp6rev2/bp5rev10-vreg.png)](/images/docs/hw/bp6rev2/buspirate-5-rev10a-schematic.pdf)
+[![](/images/docs/hw/bp6rev2/bp5rev10-vreg.png)](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf)
 
 The heart of the programmable power supply is a 0.8 to 5volt [adjustable output voltage regulator]({{< relref "../bp5rev10/components/voltage-regulators/#adjustable-ldo-vreg-with-08v-to-50v-output-sot-23-5" >}}) (U403). Normally fixed resistor values set the output voltage of an adjustable regulator, but we've given it programmable output [by margining](https://e2e.ti.com/blogs_/archives/b/precisionhub/posts/give-your-voltage-regulator-the-margin-it-deserves) the feedback pin with a pulse width modulator. The PWM output of the RP2350 is filtered through a 10K resistor (R414) and 100nF capacitor (C415), then buffered with an op-amp (U603).
 
@@ -206,7 +209,7 @@ A common 1.25V-5V adjustable regulator can be used with the correct resistor val
 
 ### Current Sense
 
-[![](/images/docs/hw/bp6rev2/bp5rev10-isense.png)](/images/docs/hw/bp6rev2/buspirate-5-rev10a-schematic.pdf)
+[![](/images/docs/hw/bp6rev2/bp5rev10-isense.png)](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf)
 
 Current consumption can be used as a proxy to debug a circuit. Is there a short? Is this chip even running? This is certainly evident in the Shenzhen mobile phone repair markets where current meters taped into cardboard boxes are the go-to tool for diagnosing iPhone motherboard failures. 
 
@@ -222,7 +225,7 @@ Production Bus Pirates use an 'A' graded op-amp with lower maximum input offset 
 
 ### Programmable 0-500mA Current Limit
 
-[![](/images/docs/hw/bp6rev2/bp5rev10-ilimit.jpg)](/images/docs/hw/bp6rev2/buspirate-5-rev10a-schematic.pdf)
+[![](/images/docs/hw/bp6rev2/bp5rev10-ilimit.jpg)](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf)
 
 Since we've already got current consumption scaled to a 0-3.3volt output signal, wouldn't it be cheeky to pop a comparator behind it to make a programmable fuse? 
 
@@ -242,7 +245,7 @@ There you have it, a programmable fuse with just a couple extra parts.
 
 ### Backflow Prevention
 
-[![](/images/docs/hw/bp6rev2/bp5rev10a-backflow.png)](/images/docs/hw/bp6rev2/buspirate-5-rev10a-schematic.pdf)
+[![](/images/docs/hw/bp6rev2/bp5rev10a-backflow.png)](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf)
 
 A [backflow prevention switch](https://www.electro-tech-online.com/articles/simple-inexpensive-ideal-diode-mosfet-circuits.817/) helps protect all the little analog bits when an external voltage is applied to the VOUT/VREF pin. A [closely matched PNP pair]({{< relref "../bp5rev10/components/transistors-fets/#dual-pnp-transistor-matched-pair-sot-363sc-70-6" >}}) (Q401A/B) creates a current mirror that controls a [P-channel MOSFET]({{< relref "../bp5rev10/components/transistors-fets/#pmos-fet-2a-vgs-2-volts-sot-23" >}}) (Q402) high-side switch. When the voltage on VREF/VOUT is greater than the voltage in the PPSU, the PFET turns off. 
 
@@ -265,7 +268,7 @@ R408/R409 are two 33K resistors instead of a single resistor. This was done to r
 
 ## 1Gbit NAND Flash
 
-[![](/images/docs/hw/bp6rev2/bp5rev10-nand-flash.png)](/images/docs/hw/bp6rev2/buspirate-5-rev10a-schematic.pdf)
+[![](/images/docs/hw/bp6rev2/bp5rev10-nand-flash.png)](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf)
 
 A [1 Gbit NAND flash chip]({{< relref "../bp5rev10/components/chips/#nand-flash-1gbit-spi-updfn-8" >}}) is connected to the RP2350 via an SPI bus shared with the LCD and 74HC595 IO expanders. NAND flash is cheap and commonly used in removable storage, but it's also messy and prone to error. Bad block detection/marking and wear leveling all need to be managed in the RP2350 or the chip will die an untimely death.
 
@@ -279,7 +282,7 @@ NAND flash appears as a readable and writable USB disk drive, however the speed 
 
 ## LCD
 
-[![](/images/docs/hw/bp6rev2/lcd.png)](/images/docs/hw/bp6rev2/buspirate-5-rev10a-schematic.pdf)
+[![](/images/docs/hw/bp6rev2/lcd.png)](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf)
 
 A beautiful 240x320 pixel color [IPS (all angle viewing) LCD]({{< relref "../bp5rev10/components/leds/#lcd-20-ips-lcd-240x320-st7789v-with-spi-interface-qt200h1201" >}}) acts as a pin label, displays the voltage on each pin and shows the current consumption of the programmable power supply unit. The LCD shares an SPI bus with the NAND flash and 74HC595 IO expanders. The display is already FCC certified, which doesn't exempt us from certification, but a bad LCD can spray radiation all over the spectrum causing us to fail.
 
@@ -289,7 +292,7 @@ The LCD background image is a bitmap converted to a C byte array and included in
 
 ## 18 RGB LEDs
 
-[![](/images/docs/hw/bp6rev2/bp5rev10-leds.jpg)](/images/docs/hw/bp6rev2/buspirate-5-rev10a-schematic.pdf)
+[![](/images/docs/hw/bp6rev2/bp5rev10-leds.jpg)](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf)
 
 It's customary to have an indicator LED, so to check that box we added 18 [SK6812 RGB LEDs]({{< relref "../bp5rev10/components/leds/#led-sk6812-mini-e-led6028--3528" >}}). SK6812s are controlled by a time-based protocol that can be a real pain to work with, but the RP2350 PIO module makes it a breeze. The LEDs are powered directly from USB voltage (~5volts), and require a 5volt input signal. The RP2350 3.3volt output is converted to 5volts using one pin of the 74HCT245 level shifter.
 
@@ -309,25 +312,21 @@ If you go hardware hacking, be aware that it is possible to far exceed the limit
 
 <div class="img-center">
 
-![](/images/docs/hw/bp6rev2/bp5rev10-3d-top.jpg)
+![](/images/docs/hw/bp6rev2/button-cct.png)
 
 </div>
 
 18 party LEDs, but just [one button]({{< relref "../bp5rev10/components/switches/#spst-33x33mm-15mmh" >}})! The button is scriptable and automates repetitive tasks such as production firmware programming. It's also used to escape from modes where the Bus Pirate would otherwise need to be reset, such as a transparent UART bridge.
 
-{{% alert context="info" %}}
-Previous revisions had three buttons (up/ok/down) to control a menu on the LCD. However, those revisions used a DAC chip to set the voltage and current of the programmable power supply unit. This DAC was a casualty of the supply chain crisis so we re-rolled the board to use RP2350 PWMs instead. This change gobbled up the button pins, though we managed to reclaim one by detecting over current through the analog mux instead of an RP2350 interrupt pin.
-{{% /alert %}}
-
 ## Interactive BOM
 
-[![](/images/docs/hw/bp6rev2/bp5-bom-rev10.png)](pathname:///bp5-rev10a-bom.html)
+[![](/images/docs/hw/bp6rev2/bp6r2-interactive-bom.png)](/images/docs/hw/bp6rev2/bp6r2-interactive-bom.html)
 
-- [Interactive BOM](pathname:///bp5-rev10a-bom.html). Created with [Interactive HTML BOM plugin](https://github.com/openscopeproject/InteractiveHtmlBom) for [KiCad](https://www.kicad.org/).
-- [Schematic](/images/docs/hw/bp6rev2/buspirate-5-rev10a-schematic.pdf) (PDF)
-- [Component placement](/images/docs/hw/bp6rev2/buspirate-5-rev10a-placement.pdf) (PDF)
+- [Interactive BOM](/images/docs/hw/bp6rev2/bp6r2-interactive-bom.html). Created with [Interactive HTML BOM plugin](https://github.com/openscopeproject/InteractiveHtmlBom) for [KiCad](https://www.kicad.org/).
+- [Schematic](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf) (PDF)
+- [Component placement](/images/docs/hw/bp6rev2/bp6r2-pcb-placement) (PDF)
 
-## Get a Bus Pirate
+## Get a Bus Pirate 6
  
 {{% readfile "/_common/_footer/_footer-get.md" %}}
 

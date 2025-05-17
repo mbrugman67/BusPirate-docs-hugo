@@ -323,9 +323,9 @@ Previous revisions had three buttons (up/ok/down) to control a menu on the LCD. 
 
 ## Interactive BOM
 
-[![](/images/docs/hw/bp5rev10/bp5-bom-rev10.png)](pathname:///bp5-rev10a-bom.html)
+[![](/images/docs/hw/bp5rev10/bp5-bom-rev10.png)](/images/docs/hw/bp5rev10/bp5r10a-interactive-bom.html)
 
-- [Interactive BOM](pathname:///bp5-rev10a-bom.html). Created with [Interactive HTML BOM plugin](https://github.com/openscopeproject/InteractiveHtmlBom) for [KiCad](https://www.kicad.org/).
+- [Interactive BOM](/images/docs/hw/bp5rev10/bp5r10a-interactive-bom.html). Created with [Interactive HTML BOM plugin](https://github.com/openscopeproject/InteractiveHtmlBom) for [KiCad](https://www.kicad.org/).
 - [Schematic](/images/docs/hw/bp5rev10/buspirate-5-rev10a-schematic.pdf) (PDF)
 - [Component placement](/images/docs/hw/bp5rev10/buspirate-5-rev10a-placement.pdf) (PDF)
 
