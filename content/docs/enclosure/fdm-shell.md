@@ -10,6 +10,8 @@ title = 'FDM Shell (3D print)'
 |Top shell  ||1  | |Clear PET-G material  |
 |Bottom shell||1||Clear PET-G material|
 
+- Enclosure OpenSCAD and STL files are available in the [Bus Pirate hardware repository](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/enclosure).
+
 Top and bottom enclosure 3D printed in clear/transparent PET-G filament. 
 
 For large volumes it will be better to injection mold the case. The open source case will probably improve and evolve over the first few productions, so we designed it to be 3D printed in small batches at the beginning (if possible).

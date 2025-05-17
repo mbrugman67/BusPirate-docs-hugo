@@ -6,6 +6,9 @@ title = 'Injection Molded Shell v1'
 ![](/images/docs/enclosure/enclosure-top.jpg)
 
 ## Components
+
+Enclosure OpenSCAD and STL files are available in the [Bus Pirate hardware repository](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/enclosure).
+
 ### Polypropylene Shell
 
 ![](/images/docs/enclosure/case-pp-final.jpg)

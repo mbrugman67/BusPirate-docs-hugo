@@ -6,6 +6,8 @@ title = 'SLA Shell (3D print)'
 ## SLA 3D printed shell
 ![SLA printed case made](/images/docs/enclosure/slav10.jpg)
 
+Enclosure OpenSCAD and STL files are available in the [Bus Pirate hardware repository](https://github.com/DangerousPrototypes/BusPirate5-hardware/tree/main/enclosure).
+
 |**Reference**  |**Value**|**Quantity**|**Rating**  |**Note**|
 |-|-|-|-|-|
 |Top shell  ||1  ||Clear SLA epoxy  |
