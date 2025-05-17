@@ -1,0 +1,16 @@
+m hiz
+c
+3
+1
+x
+rm bpjtag.bp
+# bluetag-setup
+m jtag 
+W 3.3
+# bluetag-help
+bluetag -h
+# bluetag-jtag
+bluetag jtag -c 8 # run bluetag JTAG scan 
+# bluetag-swd
+bluetag swd -c 8 # run bluetag SWD scan
+# stop

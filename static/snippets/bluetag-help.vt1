@@ -1,0 +1,21 @@
+[38;2;150;203;89mJTAG>[0m&nbsp;bluetag&nbsp;-h
+usage:
+[38;2;191;165;48mbluetag&nbsp;[jtag|swd]&nbsp;[-c&nbsp;&ltchannels>]&nbsp;[-v(ersion)]&nbsp;[-d(isable&nbsp;pulsing)][0m
+[38;2;191;165;48mblueTag&nbsp;interactive&nbsp;interface:&nbsp;bluetag[0m
+[38;2;191;165;48mJTAG&nbsp;scan,&nbsp;6&nbsp;channels:&nbsp;bluetag&nbsp;jtag&nbsp;-c&nbsp;6[0m
+[38;2;191;165;48mSWD&nbsp;scan,&nbsp;4&nbsp;channels:&nbsp;bluetag&nbsp;swd&nbsp;-c&nbsp;4[0m
+[38;2;191;165;48mShow&nbsp;version:&nbsp;bluetag&nbsp;-v[0m
+[38;2;191;165;48mDisable&nbsp;JTAG&nbsp;pin&nbsp;pulsing:&nbsp;bluetag&nbsp;jtag&nbsp;-c&nbsp;6&nbsp;-d[0m
+[38;2;191;165;48m[0m
+[38;2;191;165;48mblueTag&nbsp;by&nbsp;@Aodrulez&nbsp;https://github.com/Aodrulez/blueTag[0m
+
+[38;2;191;165;48mblueTAG&nbsp;options[0m
+[38;2;150;203;89mjtag[0m	[38;2;191;165;48mScan&nbsp;for&nbsp;JTAG&nbsp;pins[0m
+[38;2;150;203;89mswd[0m	[38;2;191;165;48mScan&nbsp;for&nbsp;SWD&nbsp;pins[0m
+
+[38;2;191;165;48mFlags[0m
+[38;2;150;203;89m-c[0m	[38;2;191;165;48mNumber&nbsp;of&nbsp;channels&nbsp;to&nbsp;scan&nbsp;(starting&nbsp;from&nbsp;IO0)[0m
+[38;2;150;203;89m-v[0m	[38;2;191;165;48mShow&nbsp;version[0m
+[38;2;150;203;89m-d[0m	[38;2;191;165;48mDisable&nbsp;pin&nbsp;pulsing&nbsp;(JTAG&nbsp;mode)[0m
+[0m
+[38;2;150;203;89mJTAG>[0m&nbsp;

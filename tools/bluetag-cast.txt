@@ -1,0 +1,13 @@
+m hiz
+c
+3
+2
+x
+  rm bpjtag.bp
+# bluetag-jtag-demo
+m jtag # m jtag - enter JTAG mode
+W 3.3 # W 3.3 - enable 3.3 volt power supply
+bluetag -h # View bluetag command line help
+bluetag jtag -c 8 # run bluetag JTAG scan 
+bluetag swd -c 8 # run bluetag SWD scan
+# stop
