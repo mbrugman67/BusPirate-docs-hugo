@@ -70,7 +70,8 @@
                             </div>
 
                     </main>
-                            {{- partialCached (printf "%s/%s" ($.Scratch.Get "pathName") "footer.html") . -}}
+                            {{- partial (printf "%s/%s" ($.Scratch.Get "pathName") "footer.html") . -}}
+                            {{- partialCached (printf "%s/%s" ($.Scratch.Get "pathName") "footer/footer-scripts.html") . -}}
             </div>
         </div>
 
