@@ -45,7 +45,9 @@
       font-family: var(--bs-font-sans-serif);
       font-size: 17px;
       color: white;
-      text-wrap: wrap;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
 
       padding: 1rem !important;
       margin: 0rem !important;
@@ -55,6 +57,7 @@
       code {
         padding: 0rem !important;
         background-color: var(--terminal-content-bg) !important;
+        text-wrap: wrap;
 
       }
 

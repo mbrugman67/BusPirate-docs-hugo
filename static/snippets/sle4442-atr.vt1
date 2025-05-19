@@ -1,0 +1,8 @@
+[38;2;150;203;89m2WIRE>[0m&nbsp;}&nbsp;{&nbsp;^&nbsp;}&nbsp;&nbsp;r:4
+
+RST&nbsp;LOW
+RST&nbsp;HIGH
+[38;2;191;165;48mTick&nbsp;clock:[0m&nbsp;[38;2;83;166;230m1[0m
+RST&nbsp;LOW
+[38;2;191;165;48mRX:[0m&nbsp;0x[38;2;83;166;230mA2[0m&nbsp;0x[38;2;83;166;230m13[0m&nbsp;0x[38;2;83;166;230m10[0m&nbsp;0x[38;2;83;166;230m91[0m&nbsp;
+[38;2;150;203;89m2WIRE>[0m&nbsp;

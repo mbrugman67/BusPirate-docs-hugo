@@ -1,0 +1,17 @@
+[38;2;150;203;89m2WIRE>[0m&nbsp;sle4442&nbsp;unlock&nbsp;-p&nbsp;0xffffff
+--SLE44xx&nbsp;decoder--
+ATR:&nbsp;0xa2&nbsp;0x13&nbsp;0x10&nbsp;0x91
+Protocol&nbsp;Type:&nbsp;S&nbsp;10
+Structure&nbsp;Identifier:&nbsp;General&nbsp;Purpose&nbsp;(Structure&nbsp;1)
+Read:&nbsp;Read&nbsp;to&nbsp;end
+Data&nbsp;Units:&nbsp;256
+Data&nbsp;Units&nbsp;Bits:&nbsp;8
+Security&nbsp;memory:&nbsp;0x07&nbsp;0x00&nbsp;0x00&nbsp;0x00
+Remaining&nbsp;attempts:&nbsp;3&nbsp;(0x7)
+Unlocking&nbsp;with&nbsp;PSC:&nbsp;0xFFFFFF
+Using&nbsp;free&nbsp;security&nbsp;bit:&nbsp;0x03
+Card&nbsp;unlocked,&nbsp;security&nbsp;bits&nbsp;reset
+Security&nbsp;memory:&nbsp;0x07&nbsp;0xff&nbsp;0xff&nbsp;0xff
+Remaining&nbsp;attempts:&nbsp;3&nbsp;(0x7)
+[0m
+[38;2;150;203;89m2WIRE>[0m&nbsp;
