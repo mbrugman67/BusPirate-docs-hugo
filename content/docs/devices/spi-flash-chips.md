@@ -1,6 +1,6 @@
 +++
 weight = 40310
-title = 'NOR Flash Chips SPI'
+title = 'W25QXXX NOR Flash Chips SPI'
 +++
 
 ![](/images/docs/demo/spi-flash-pinout.png)
@@ -202,16 +202,16 @@ We've tried three ID commands that don't give us a ton of useful information. Th
 
 The read SFDP table command includes a 4 byte address where the chip will start reading inside the tables. If SFDP tables are present, the first 4 bytes will contain the signature 'SFDP'.
 
- |Byte|Value|Description|
-    |---|---|---|
-    |0|0x50|'P'|
-    |1|0x44|'D'|
-    |2|0x46|'F'|
-    |3|0x53|'S'|
-    |4|0x05|Minor revision number|
-    |5|0x01|Major revision number|
-    |6|0x00|Number of parameter headers (+1)|
-    |7|0xFF|End of parameter headers|
+|Byte|Value|Description|
+|---|---|---|
+|0|0x50|'P'|
+|1|0x44|'D'|
+|2|0x46|'F'|
+|3|0x53|'S'|
+|4|0x05|Minor revision number|
+|5|0x01|Major revision number|
+|6|0x00|Number of parameter headers (+1)|
+|7|0xFF|End of parameter headers|
 
 The first four bytes here are the SFDP signature: 0x50 0x44 0x46 0x53. This is the ASCII representation of 'PDFS'. Values are stored in big-endian format, so reverse that to get `SFDP`.
 
