@@ -41,75 +41,38 @@ It's possible to gently solder wires on to each pad of the chip, but SIM and sma
 A [smart IC card and SIM card adapter]({{< relref "/docs/overview/sim-iccard-adapter" >}}) is available for Bus Pirate 5 with the correct connections already set. The adapter accepts most ISO 7816-3 smart cards and mini/micro/nano SIM cards. 
 {{% /alert %}} 
 
+## See it in action
+
+{{< asciicast src="/screencast/sim-cast.json" poster="npt:0:16" terminalFontSize="medium" idleTimeLimit=2 >}}
+
 ## Setup
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HiZ></span> m
+{{< termfile source="static/snippets/sim-setup.html" >}}
 
-<span style="color:#bfa530">Mode selection</span>
- 1. <span style="color:#bfa530">HiZ</span>
-...
- 4. <span style="color:#bfa530">HDPLXUART</span>
-...
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Mode ></span> 4
+Mobile SIM cards and bank IC cards use a [half-duplex UART]({{< relref "/docs/command-reference/#hduart">}}) interface, data travels both directions on a single wire. 
+- ```m hduart``` - select half-duplex UART with the [mode]({{< relref "/docs/command-reference/#m-set-bus-mode">}}), or just ```m``` to list all modes
+- ```9600``` - **9600** baud
+- ```8``` - **8** data bits
+- ```2``` - **Even** parity
+- ```2``` - **2** stop bits
 
-<span style="color:#bfa530">UART speed</span>
- 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200 etc
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Baud (</span>115200*<span style="color:#96cb59">) ></span> 9600
-<span style="color:#bfa530">Data bits</span>
- 5 to 8 bits
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Bits (</span>8*<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Parity</span>
- 1. <span style="color:#bfa530">None*</span>
- 2. <span style="color:#bfa530">Even</span>
- 3. <span style="color:#bfa530">Odd</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Parity (</span>1<span style="color:#96cb59">) ></span> 2
-<span style="color:#bfa530">Stop bits</span>
- 1. <span style="color:#bfa530">1*</span>
- 2. <span style="color:#bfa530">2</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Bits (</span>1<span style="color:#96cb59">) ></span> 2
-<span style="color:#bfa530">Mode:</span> HDPLXUART
-<span style="color:#96cb59">HDPLXUART></span> 
-{{< /term >}}
+{{% alert context="info" %}}
+The SIM card baud rate depends on the clock signal frequency we provide to the card. We'll calculate the required clock frequency for 9600 baud later.
+{{% /alert %}}
 
-Mobile SIM cards and bank IC cards use a half-duplex UART interface, data travels both directions on a single wire. 
-- Use the ```m``` mode command and select **HDPLXUART**
-- Set the baud rate to **9600**
-- Set the data bits to **8**
-- Set the parity to **Even**
-- Set the stop bits to **2**
-
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HDPLXUART></span> W 3.3
-<span style="color:#53a6e6">3.30</span>V<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">3.30</span></span>V
-<span style="color:#bfa530">Current limit:</span>Disabled
-
-<span style="color:#bfa530">Power supply:</span>Enabled
-<span style="color:#bfa530">Vreg output: <span style="color:#53a6e6">3.3</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">3.2</span></span>V<span style="color:#bfa530">, Current: <span style="color:#53a6e6">3.4</span></span>mA<span style="color:#bfa530">
-</span>
-<span style="color:#96cb59">HDPLXUART></span> 
-{{< /term >}}
+{{< termfile source="static/snippets/sim-power.html" >}}
 
 Most SIM cards will work fine at 3.3volts.
-- ```W 3.3``` - Enable the onboard power supply at 3.3 volts
+- ```W 3.3``` - Enable the [onboard power supply]({{< relref "/docs/command-reference/#ww-power-supply-offon" >}}) at 3.3 volts
 
 {{% alert context="danger" %}}
 Most SIM cards will be okay with 3.3 volts, but some cards may use 2.5 or 1.8 volts. If the SIM or card is valuable, consider starting at a lower voltage and check the power requirements coded in the ATR response.
 {{% /alert %}}
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HDPLXUART></span> P
-<span style="color:#bfa530">Pull-up resistors:</span> Enabled (10K ohms @ <span style="color:#53a6e6">3.3</span>V)
-<span style="color:#96cb59">HDPLXUART></span> 
-{{< /term >}}
+{{< termfile source="static/snippets/sim-pullup.html" >}}
 
 Half-duplex UART is an open collector output bus. The Bus Pirate and the SIM can only pull the line low to 0 (ground). A pull-up resistor is needed to pull the line high to 1 (5 volts). The Bus Pirate has built-in pull-up resistors that can be enabled with the ```P``` command.
-- ```P``` - Enable the onboard pull-up resistors.
+- ```P``` - Enable the [onboard pull-up resistors]({{< relref "/docs/command-reference/#pp-pull-up-resistors">}}).
 
 {{% alert context="warning" %}} 
 Be sure to enable the pull-up resistors. The data line will never go high without them and you'll read only 0s.
@@ -126,37 +89,14 @@ A continuous clock signal applied to C3/CLK drives the SIM's microcontroller. Af
 
 At 9600 baud the clock frequency should be 9600 * 372 =3.5712MHz.
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HDPLXUART></span> G 
-<span style="color:#bfa530">Generate frequency</span>
-<span style="color:#bfa530">Choose available pin:</span>
- 1. IO<span style="color:#53a6e6">1</span>
-...
- 7. IO<span style="color:#53a6e6">7</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59"> ></span> 1
-<span style="color:#96cb59">Period or frequency (ns, us, ms, Hz, kHz or Mhz) ></span> 3.5712mhz
-<span style="color:#bfa530">Frequency:</span> <span style="color:#53a6e6">3.571</span>MHz = <span style="color:#53a6e6">3571200</span>Hz (<span style="color:#53a6e6">3.57</span>MHz)
-<span style="color:#bfa530">Period:</span> <span style="color:#53a6e6">280</span>ns (<span style="color:#53a6e6">280.02</span>ns)
+{{< termfile source="static/snippets/sim-clock.html" >}}
 
-<span style="color:#bfa530">Actual frequency:</span> <span style="color:#53a6e6">3571428</span>Hz (<span style="color:#53a6e6">3.57</span>MHz)
-<span style="color:#bfa530">Actual period:</span> <span style="color:#53a6e6">280</span>ns (<span style="color:#53a6e6">280.00</span>ns)
-
-<span style="color:#96cb59">Duty cycle (%) ></span> 50%
-<span style="color:#bfa530">Duty cycle:</span> <span style="color:#53a6e6">50.00</span>% = <span style="color:#53a6e6">140</span>ns (<span style="color:#53a6e6">140.00</span>ns)
-<span style="color:#bfa530">Actual duty cycle:</span> <span style="color:#53a6e6">148</span>ns (<span style="color:#53a6e6">148.24</span>ns)
-Divider: 16, Period: 34, Duty: 18
-
-<span style="color:#bfa530">Generate frequency:</span> Enabled on IO<span style="color:#53a6e6">1</span>
-
-<span style="color:#96cb59">HDPLXUART></span>
-{{< /term >}}
 
 The Bus Pirate PWM can generate a clock frequency on the IO1/CLK pin.
-- ```G``` - Start a frequency generator
-- **1** - Select IO1/CLK pin
-- **3.5712mhz** - Set the output frequency
-- **50%** - Set the duty cycle
+- ```G``` - Start a [frequency generator]({{< relref "/docs/command-reference/#gg-frequency-generator" >}}) on the IO1/CLK pin
+- ```1``` - Select IO1/CLK pin
+- ```3.5712mhz``` - Set the output frequency
+- ```50%``` - Set the duty cycle
 
 {{% alert context="info" %}}
 Don't forget to type the units (Hz, kHz, MHz) when setting the frequency, and % when setting the duty cycle.
@@ -169,15 +109,15 @@ SIM and bank IC cards use the asynchronous ATR standard. This is different than 
 {{% /alert %}}
 
 ### Open UART
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HDPLXUART></span> [
 
-UART OPEN (ASYNC READ)
-<span style="color:#96cb59">HDPLXUART></span> 
-{{< /term >}}
+{{< termfile source="static/snippets/sim-open-uart.html" >}}
 
 First, ensure the UART is open and printing data values as they arrive.
-- ```[``` - open UART for async data
+- ```[``` - [open UART]({{< relref "/docs/command-reference/#bus-commands-3">}}) for async data
+
+{{% alert context="warning" %}}
+Many SIM cards will respond as soon as they have power and a clock signal, even before the next step. You can see a portion of the ATR response here as soon as we open the UART.
+{{% /alert %}}
 
 ### Send ATR and get response
 
@@ -191,7 +131,7 @@ IO<span style="color:#53a6e6">2<span style="color:#bfa530"> set to</span></span>
 {{< /term >}}
 
 
-To perform the ATR command, pull the RESET pin low and then release it high.
+To perform the ATR command, pull the RESET pin low and then release it high with the [auxiliary pin commands]({{< relref "/docs/command-reference/#aa-auxiliary-pin-control-lowhighread">}}).
 - ```a 2``` - pull the reset pin low
 - ```@ 2``` - make the reset pin input, allow the pull-up resistor to hold it high
 

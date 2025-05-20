@@ -1319,9 +1319,10 @@ Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% r
 
 |Command| Description  |
 |---------|-------|
-| [      | Open UART, use ```r``` to read bytes. |
-| \{       | Open UART, display data as it arrives asynchronously. |
-| \] or } | Close UART.  |
+| [      | Open UART, display data as it arrives asynchronously. |
+| ]      | Close UART.  |
+| {       | RST pin (IO2) high |
+|  } | RST pin (IO2) low  |
 | r       | Check UART for byte, or fail if empty. (r:1…255 for bulk reads) |
 | 0b      | Write this binary value. Format is 0b00000000 for a byte, but partial bytes are also fine: 0b1001.|
 | 0x      | Write this HEX value. Format is 0x01. Partial bytes are fine: 0xA. A-F can be lower-case or capital letters. |

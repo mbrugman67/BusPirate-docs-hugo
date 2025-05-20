@@ -1,7 +1,7 @@
 [38;2;150;203;89m2WIRE>[0m&nbsp;sle4442&nbsp;-h
 usage:
 [38;2;191;165;48msle4442&nbsp;[init|dump|unlock|write|erase|psc]
-	[-a&nbsp;&ltaddress>]&nbsp;[-v&nbsp;&ltvalue>]&nbsp;[-p&nbsp;&ltcurrent&nbsp;psc>]&nbsp;[-n&nbsp;&ltnew&nbsp;psc>]&nbsp;[-h(elp)][0m
+	[-a&nbsp;&ltaddress>]&nbsp;[-v&nbsp;&ltvalue>]&nbsp;[-p&nbsp;&ltcurrent&nbsp;psc>]&nbsp;[-n&nbsp;&ltnew&nbsp;psc>]&nbsp;[-f&nbsp;&ltdump&nbsp;file>]&nbsp;[-h(elp)][0m
 [38;2;191;165;48mInitialize&nbsp;and&nbsp;probe:&nbsp;sle4442&nbsp;init[0m
 [38;2;191;165;48mDump&nbsp;contents:&nbsp;sle4442&nbsp;dump[0m
 [38;2;191;165;48mUnlock&nbsp;card:&nbsp;sle4442&nbsp;unlock&nbsp;-p&nbsp;0xffffff[0m

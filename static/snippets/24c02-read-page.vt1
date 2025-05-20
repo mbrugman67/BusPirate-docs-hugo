@@ -1,0 +1,8 @@
+[38;2;150;203;89mI2C>[0m&nbsp;[0xa1&nbsp;r:8]
+
+I2C&nbsp;START
+[38;2;191;165;48mTX:[0m&nbsp;0x[38;2;83;166;230mA1[0m&nbsp;ACK&nbsp;
+[38;2;191;165;48mRX:[0m&nbsp;0x[38;2;83;166;230m12[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m34[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m56[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m78[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m9A[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230mBC[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230mDE[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230mF0[0m&nbsp;NACK&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+I2C&nbsp;STOP
+[38;2;150;203;89mI2C>[0m&nbsp;

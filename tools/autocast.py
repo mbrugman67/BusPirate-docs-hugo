@@ -37,7 +37,7 @@ def parse_arguments():
 
 def read_commands(input_file):
     with open(input_file, "r") as file:
-        return [line.strip() for line in file if line.strip()]
+        return [line.strip() for line in file] # if line.strip()
 
 def main():
     args = parse_arguments()
@@ -173,11 +173,16 @@ def main():
                     else:
                         current_command = line
 
-                    send_queue.extend(current_command)
-                    state = STATE_SEND_COMMAND
-                    delay_time = 0
+                    if current_command is not "":
+                        send_queue.extend(current_command.strip())
+                        state = STATE_SEND_COMMAND
+                        delay_time = 0
+                    else:
+                        state = STATE_EXECUTE_COMMAND
+                        delay_time = current_time + 1.0
+                        
                     if args.debug:
-                        print(f"Queueing command: {current_command.strip()}")
+                        print(f"Queueing command: '{current_command}'")
                 else:
                     state = STATE_END
 

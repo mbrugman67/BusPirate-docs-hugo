@@ -1,0 +1,22 @@
+m hiz
+c
+3
+2
+x
+rm bphduart.bp
+# sim-cast
+m hduart # m hduart - select HDUART mode
+9600 # 9600 baud 
+8 # 8 data bits
+2 # Even parity
+2 # 2 stop bits
+W 3.3 # W 3.3 - set power supply to 3.3V
+P # P - enable pull-up resistors
+G # G - generate frequency
+1 # IO pin 1
+3.5712mhz # 3.5712MHz frequency
+50% # 50% duty cycle
+[ # [ - open UART
+ 
+a 2; @ 2 # IO2 pin low, then input/high
+# stop

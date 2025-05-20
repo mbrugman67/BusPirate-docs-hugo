@@ -18,6 +18,5 @@ usage:
 [38;2;191;165;48m&nbsp;#&nbsp;This&nbsp;is&nbsp;my&nbsp;example&nbsp;macro&nbsp;file[0m
 [38;2;191;165;48m&nbsp;#!&nbsp;Read&nbsp;5&nbsp;bytes&nbsp;from&nbsp;an&nbsp;I2C&nbsp;EEPROM[0m
 [38;2;191;165;48m&nbsp;1:[0xa0&nbsp;0][0xa1&nbsp;r:5][0m
-[38;2;150;203;89m[0m	[38;2;191;165;48mON[0m
 [0m
 [38;2;150;203;89mHiZ>[0m&nbsp;

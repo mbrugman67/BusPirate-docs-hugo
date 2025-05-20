@@ -74,10 +74,10 @@ Don't forget a ground connection, even if the strip is powered by an external su
 
 {{< termfile source="static/snippets/ws2812-setup.html" >}}
 
-Setup is easy, enter LED mode and enable a 5 volt power supply.
+Setup is easy, enter [LED mode]({{< relref "/docs/command-reference/#led">}}) and enable a 5 volt power supply.
 
-- ```m led``` - set the Bus Pirate to LED mode, choose WS2812 as the interface type
-- ```W 5``` - enable a 5 volt power supply to power the Bus Pirate buffers
+- ```m led``` - set the Bus Pirate to LED [mode]({{< relref "/docs/command-reference/#m-set-bus-mode">}}), choose WS2812 as the interface type
+- ```W 5``` - set the [onboard power supply]({{< relref "/docs/command-reference/#ww-power-supply-offon" >}}) to 5 volts to power the Bus Pirate buffers
 
 {{% alert context="info" %}}
 Even if the LEDs are powered by an external supply, the Bus Pirate buffers must be powered or the data signal will not be sent.

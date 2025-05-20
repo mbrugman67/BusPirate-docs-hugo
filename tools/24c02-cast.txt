@@ -1,0 +1,32 @@
+rm bpi2c.bp
+m i2c
+100
+1
+W 5
+P
+[0xa0 0x00 0xff:8]
+[0xa0 0x08 0xff:8]
+m hiz
+c
+3
+2
+x
+rm bpi2c.bp
+# 24c02-cast
+m i2c # m i2c - enter I2C mode
+100 # 100kHz I2C speed
+1 # Disable clock stretching
+W 5 # W 5 - enable 5 volt power supply
+P # P - enable pull-up resistors
+scan # scan - scan for I2C devices
+[0xa0 0x09 0x12] # Write 0x12 to address 0x09
+[0xa0 0x9] # Set address pointer to 0x09
+[0xa1 r] # Read 1 byte from address 0x09
+[0xa0 0 0x12 0x34 0x56 0x78 0x9a 0xbc 0xde 0xf0] # Write one page of 8 bytes starting at address 0
+[0xa0 0x00] # Set the address pointer back to 0
+[0xa1 r:8] # Read one page of 8 bytes
+[0xa0 0x00] # Set the address pointer back to 0
+[0xa1 r:256] # Read all 256 bytes
+# stop
+[0xa0 0x00 0xff:8] 
+[0xa0 0x08 0xff:8]
