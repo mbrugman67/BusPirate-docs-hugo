@@ -5,7 +5,7 @@ title = 'JTAG & SWD Pin Finder JTAG'
 
 ![](/images/docs/demo/bluetag-setup.jpg) 
 
-[blueTag](https://github.com/Aodrulez/blueTag) is an open source JTAG and SWD pin finder integrated into the Bus Pirate firmware. It can identify the JTAG/SWD pins on a target device by sending a series of test signals and analyzing the responses. 
+[blueTag]({{< relref "/docs/command-reference/#bluetag-jtag--swd-pinout-finder">}}) is an open source JTAG and SWD pin finder integrated into the Bus Pirate firmware. It can identify the JTAG/SWD pins on a target device by sending a series of test signals and analyzing the responses. 
 
 In this demo we'll scan two target devices:
 - A Xilinx CPLD development board from AliExpress with no documentation.
@@ -43,8 +43,10 @@ Try to avoid connecting IO pins to ground or power pins on the JTAG or SWD port.
 
 {{< termfile source="static/snippets/bluetag-setup.html" >}}
 
-- ```m jtag``` - set the Bus Pirate to JTAG mode.
-- ```W <voltage>``` - enable an appropriate power supply to probe the target device JTAG/SWD pins.
+[JTAG mode]({{< relref "/docs/command-reference/#jtag">}}) hosts the blueTag command. Enter JTAG mode with the ```m``` command and enable an appropriate power supply with the ```W``` command.
+
+- ```m jtag``` - set the Bus Pirate to JTAG [mode]({{< relref "/docs/command-reference/#m-set-bus-mode" >}}).
+- ```W <voltage>``` - enable an appropriate [power supply]({{< relref "/docs/command-reference/#ww-power-supply-offon" >}}) to probe the target device JTAG/SWD pins.
 
 Both the Xilinx CPLD dev board and the RP2040 PICO board we're probing are 3.3volt devices. We set the power supply to 3.3volts for this demo, but your target device may require a different voltage. 
 
