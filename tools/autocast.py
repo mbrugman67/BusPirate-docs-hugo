@@ -173,14 +173,14 @@ def main():
                     else:
                         current_command = line
 
-                    if current_command is not "":
+                    if current_command != "":
                         send_queue.extend(current_command.strip())
                         state = STATE_SEND_COMMAND
                         delay_time = 0
                     else:
                         state = STATE_EXECUTE_COMMAND
                         delay_time = current_time + 1.0
-                        
+
                     if args.debug:
                         print(f"Queueing command: '{current_command}'")
                 else:

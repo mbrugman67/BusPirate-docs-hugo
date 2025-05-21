@@ -29,89 +29,64 @@ Connect the Bus Pirate to the SPI flash chip as shown in the table above. Don't 
 ![](/images/docs/demo/flash-adapter-all.jpg)
 
 {{% alert context="info" %}}
-SPI [flash adapters for SOP8, WSON8, and DIP8 chips]({{< relref "/docs/overview/spi-flash-adapters" >}}) are available for Bus Pirate 5. Connect SPI flash chips to the Bus Pirate quickly and easily.
+SPI [flash adapters for SOP8, WSON8, and DIP8 chips]({{< relref "/docs/overview/spi-flash-adapters" >}}) are available for Bus Pirate 5 and up. Connect SPI flash chips to the Bus Pirate quickly and easily.
 {{% /alert %}}
+
+| Package | Chip |Capacity|
+|---------|-----|------|
+| DIP8 | Winbond [W25Q80BV](https://www.winbond.com/hq/support/documentation/levelOne.jsp?__locale=en&DocNo=DA00-W25Q80DV) |8Mbit|
+| SOP8 | Winbond [W25Q80DV](https://www.winbond.com/hq/support/documentation/levelOne.jsp?__locale=en&DocNo=DA00-W25Q80DV) |8Mbit|
+| WSON8 | Winbond [W25Q64CV](https://www.winbond.com/hq/support/documentation/levelOne.jsp?__locale=en&DocNo=DA00-W25Q64CV) |64Mbit|
+
+Flash adapter boards include a sample chip so you can get started right away. This demo uses the chips included with the adapters. The datasheets are linked above.
+
+
+## See it in action
+
+{{< asciicast src="/screencast/nor-flash-cast2.json" poster="npt:0:50" terminalFontSize="medium" idleTimeLimit=2 >}}
 
 ## Setup
 
-While some flash chips have an impressive top speed of 104MHz, it's unreliable at high speeds because of the length of the Bus Pirate cable and other factors. We're going to be very conservative and operate at:
-- 3V3, 100kHz.
-- Max current: 50ma.
+{{< termfile source="static/snippets/nor-setup.html" >}}
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HiZ></span> m
+The most common NOR flash chips have an [**SPI**]({{< relref "/docs/command-reference/#spi" >}}) interface. Flash chips are generally capable of 104MHz, but due to the adapter, cable length, breadboard, and other factors, we'll use a low low speed of 100kHz.
 
-<span style="color:#bfa530">Mode selection</span>
- 1. <span style="color:#bfa530">HiZ</span>
- 2. <span style="color:#bfa530">1-WIRE</span>
- 3. <span style="color:#bfa530">UART</span>
- 4. <span style="color:#bfa530">I2C</span>
- 5. <span style="color:#bfa530">SPI</span>
- 6. <span style="color:#bfa530">LED</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Mode ></span> 5
+- ```m spi``` - change to **SPI** [mode]({{< relref "/docs/command-reference/#m-set-bus-mode" >}}), or just hit ```m``` to select from the menu.
+- ```100``` - set SPI speed to 100kHz.
+- Hit ```enter``` to select the default values for the other options  (8 data bits, idle low, leading edge, CS active low)
 
-<span style="color:#bfa530">SPI speed</span>
- 1 to 62500KHz
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">KHz (</span>100KHz*<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Data bits</span>
- 4 to 8 bits
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Bits (</span>8*<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Clock polarity</span>
- 1. <span style="color:#bfa530">Idle LOW*</span>
- 2. <span style="color:#bfa530">Idle HIGH</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Polarity (</span>1<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Clock phase</span>
- 1. <span style="color:#bfa530">LEADING edge*</span>
- 2. <span style="color:#bfa530">TRAILING edge</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">Phase (</span>1<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Chip select</span>
- 1. <span style="color:#bfa530">Active HIGH (CS)</span>
- 2. <span style="color:#bfa530">Active LOW (/CS)*</span>
- x. <span style="color:#bfa530">Exit</span>
-<span style="color:#96cb59">CS (</span>2<span style="color:#96cb59">) ></span> 
-<span style="color:#bfa530">Actual speed:</span> 122KHz
-<span style="color:#bfa530">Mode:</span> SPI
-<span style="color:#96cb59">SPI></span> W
-<span style="color:#bfa530">Power supply
-Volts (0.80V-5.00V)</span>
-<span style="color:#96cb59">x to exit (3.30) ></span> 
-<span style="color:#53a6e6">3.30</span>V<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">3.30</span></span>V
-Set current limit?
-y
+### Power supply
 
-<span style="color:#bfa530">Maximum current (0mA-500mA)</span>
-<span style="color:#96cb59">x to exit (100.00) ></span> 50
-<span style="color:#53a6e6">50.0</span>mA<span style="color:#bfa530"> requested, closest value: <span style="color:#53a6e6">50.0</span></span>mA
+![](/images/docs/demo/nor-datasheet-operating-range.png)
 
-<span style="color:#bfa530">Power supply:</span>Enabled
-<span style="color:#bfa530">
-Vreg output: <span style="color:#53a6e6">3.3</span></span>V<span style="color:#bfa530">, Vref/Vout pin: <span style="color:#53a6e6">3.3</span></span>V<span style="color:#bfa530">, Current sense: <span style="color:#53a6e6">5.8</span></span>mA<span style="color:#bfa530">
-</span>
-<span style="color:#96cb59">SPI></span> 
-{{< /term >}}
+According to the datasheet, the W25QxxxV series of chips can operate at 2.5 to 3.6 volts, with a slightly higher minimum voltage for speeds above 80MHz.
 
-- Use the ```m``` mode command and select **SPI**
-- Configure SPI for **100kHz** and **8bits** of data, hit enter to accept the defaults
-- Enable the onboard power supply with the ```W``` command, and configure it for **3.3volts** output. 
-- Select a current limit of at least **50mA**.
+Image source: [datasheet](https://www.winbond.com/hq/support/documentation/levelOne.jsp?__locale=en&DocNo=DA00-W25Q80DV)
+
+{{< termfile source="static/snippets/nor-power.html" >}}
+
+Let's set the Bus Pirate to power the chip at 3.3volts, a very common voltage for modern SPI devices.
+
+- ```W 3.3``` - enable the [onboard power supply]({{< relref "/docs/command-reference/#ww-power-supply-offon" >}}) at 3.3 volts.
 
 ### WP and HOLD pins
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">SPI></span> P
-<span style="color:#bfa530">Pull-up resistors:</span> Enabled (10K ohms @ <span style="color:#53a6e6">3.3</span>V)
-<span style="color:#96cb59">SPI></span> 
-{{< /term >}}
 
-Most SPI flash chips have a write protect pin (WP) that prevents accidental writes, and a hold pin (HOLD) that pauses the chip. The HOLD pin must be held high or the chip won't respond. WP must be held high or the chip will be read only. Often the chip will not respond if is WP is left floating, so be sure to hold it high (write enabled) or low (write disabled).
+![](/images/docs/demo/nor-datasheet-pinout.png)
 
-Two ways to correctly hold the WP and HOLD pins high for normal chip operation:
-- ```P``` - Enable pull-up resistors to hold the pins high 
+Most SPI flash chips have a **write protect pin** (WP) that prevents accidental writes, and a **hold pin** (HOLD) that pauses the chip. 
+
+- **HOLD** must be held high or the chip won't respond. 
+- **WP** must be held high or the chip will be read only. 
+
+{{% alert context="warning" %}}
+Often the chip will not respond if is WP is left floating, so be sure to hold it high (write enabled) or low (write disabled).
+{{% /alert %}}
+
+{{< termfile source="static/snippets/nor-pullup.html" >}}
+
+Set HOLD (IO2) and WP (IO3) high with the [auxiliary pin commands]({{< relref "http://localhost:1313/docs/command-reference/#aa-auxiliary-pin-control-lowhighread">}}).
+
 - ```A 2; A 3``` - Use Auxiliary pin control to set IO2 and IO3 high 
 
 {{% alert context="warning" %}}
@@ -119,6 +94,12 @@ Ensure WP and HOLD pins are held high or the chip may not respond.
 {{% /alert %}}
 
 ## Identify the chip
+
+|Device|Manufacturer ID|Device ID| JEDEC ID|
+|---|---|---|---|
+|W25Q80BV|0xEF|0x13|0xEF 0x40 0x14|
+|W25Q80DV|0xEF|0x13|0xEF 0x40 0x14|
+|W25Q64CV|0xEF|0x16|0xEF 0x40 0x17| 
 
 SPI flash chip commands are loosely standardized on some historical trends, but each manufacturer tends to add their own extensions. 
 
@@ -128,79 +109,122 @@ We'll try to use the most common commands, but not all chips will respond to all
 
 ### Reset ID
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">SPI></span> [0xb9] D:10 [0xab 0x00:3 r]
+![](/images/docs/demo/nor-datasheet-resetid.png)
 
-CS Enabled
-<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">B9</span> 
-<span style="color:#bfa530">Delay:</span> 10ms
-<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">AB</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 
-<span style="color:#bfa530">RX:</span> 0x<span style="color:#53a6e6">EF</span> 
-CS Disabled
-<span style="color:#96cb59">SPI></span>
-{{< /term >}}
+The **Reset ID** is available immediately after the chip is reset. Write instruction ```0xAB``` and three dummy bytes, then read the one byte reset ID. 
+1. CS pin is pulled low
+2. Send the instruction ```0xAB```
+3. Send three dummy bytes ```0x00```
+4. Read the reset ID/device ID byte
+5. CS pin is pulled high
 
-The 'Reset ID' command ```0xAB``` is used to read the device ID of the flash chip immediately after reset. The command is followed by a single byte response.
+{{% alert context="info" %}}
+The chip must be reset before reading the reset ID. This is done with the **Power Down** instruction ```0xB9```, followed by a delay of 10ms.
+{{% /alert %}}
 
-- ```[0xb9]``` - Reset the SPI flash chip
-- ```D:10``` - Delay 10ms
-- ```[0xab 0x00:3 r]``` - Send the 'Reset ID' command ```0xAB``` followed by three byte dummy bytes ```0x00:3```. ```r``` to read a one byte response.
+{{< termfile source="static/snippets/nor-resetid.html" >}}
 
-The response ```0x13``` is the device ID of the flash chip. There's no standard, and about the only way to find it is through datasheets. This is primarily a way for a device to determine which flash chip is present among several known variants.
+Let's reset the chip and read the reset ID.
+
+- ```[``` - Start of SPI transaction. Lowers the [CS pin to ground]({{< relref "/docs/command-reference/#bus-commands-5" >}}).
+- ```0xb9``` - [Write]({{< relref "/docs/command-reference/#0x01-write-this-hex-value">}}) the **Power Down instruction**.
+- ```]``` - End of SPI transaction. Raises the CS pin to 3.3volts.
+- ```D:10``` - [Delay]({{< relref "/docs/command-reference/#dd-delay-1usms">}}) 10ms. 
+- ```[``` - Start of SPI transaction. Lowers the CS pin to ground.
+- ```0xab``` - Write the **Reset ID instruction**.
+- ```0x00:3``` - Write three dummy bytes using the [repeat command]({{< relref "/docs/command-reference/#-repeat-eg-r10">}}).
+- ```r``` - [Read]({{< relref "/docs/command-reference/#r-read-byte">}}) a one byte response.
+- ```]``` - End of SPI transaction. Raises the CS pin to 3.3volts.
+
+
+The response ```0x13``` (or ```0x16``` for W25Q64) is the *reset ID* of the flash chip. 
+
+{{% alert context="info" %}}
+Reset ID is primarily a way for a device to determine which flash chip is present among several known options. There's no standard, and about the only way to find it is by digging through datasheets. 
+{{% /alert %}}
 
 ### Read Electronic Manufacturer ID
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">SPI></span> [0x90 0x00:3 r:2]
+![](/images/docs/demo/nor-datasheet-emid.png)
 
-CS Enabled
-<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">90</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 
-<span style="color:#bfa530">RX:</span> 0x<span style="color:#53a6e6">13</span> 0x<span style="color:#53a6e6">EF</span> 
-CS Disabled
-<span style="color:#96cb59">SPI></span>
-{{< /term >}}
+The **Read Electronic Manufacturer ID** instruction ```0x90``` returns a one byte *manufacturer ID* and a one byte *device ID*. 
+1. CS pin is pulled low
+2. Write the Read Electronic Manufacturer ID instruction ```0x90```
+3. Write the 24 bit (3 byte) address ```0x000000```
+4. Read the Manufacturer ID and Device ID bytes
+5. CS pin is pulled high
 
-The 'Read Electronic Manufacturer ID' command ```0x90``` is used to read the device ID and manufacturer ID of the flash chip. The command is followed by a two byte response.
+{{< termfile source="static/snippets/nor-remid.html" >}}
 
-- ```[0x90 0x00:3 r:2]``` - Send the 'Read Electronic Manufacturer ID' command ```0x90``` followed by three byte dummy bytes ```0x00:3```. ```r:2``` to read a two byte response.
+The Read Electronic Manufacturer ID does not require a reset, we can issue this command at any time. 
 
-The response ```0x13``` is the device ID of the flash chip, same as the Reset ID command.
+- ```[``` - Start of SPI transaction. Lowers the CS pin to ground.
+- ```0x90``` - Write the **Read Electronic Manufacturer ID** instruction.
+- ```0x00:3``` - Write the 24 bit (3 byte) address 0x000000.
+- ```r:2``` - Read two bytes of data. The first byte is the *manufacturer ID*, the second byte is the *device ID*.
+- ```]``` - End of SPI transaction. Raises the CS pin to 3.3volts.
 
-```0xEF``` is the manufacturer ID: Winbond. The manufacturer ID is a unique value assigned to each manufacturer - except they ran out of IDs and started duplicating ages ago so [it's not super useful](https://www.basicinputoutput.com/2023/11/jedec-manufacturer-ids-are-mess.html). [JEDEC maintains a list of IDs](https://www.jedec.org/document_search?search_api_views_fulltext=JEP106) (free but agreement required) that can help narrow it down somewhat.
+```0xEF``` is the manufacturer ID: Winbond. ```0x13``` (or ```0x16``` for W25Q64) is the device ID of the flash chip, same as the Reset ID command.
+
+{{% alert context="warning" %}}
+The manufacturer ID is a unique value assigned to each manufacturer - except they ran out of IDs and started duplicating ages ago so [it's not super useful](https://www.basicinputoutput.com/2023/11/jedec-manufacturer-ids-are-mess.html). [JEDEC maintains a list of IDs](https://www.jedec.org/document_search?search_api_views_fulltext=JEP106) (free but agreement required) that can help narrow it down somewhat.
+{{% /alert %}}
+
+{{% alert context="info" %}}
+Like the Reset ID, the Electronic Manufacturer ID is primarily a way for a device to determine which flash chip is present among several known options. There's no standard, and about the only way to find it is by digging through datasheets. 
+{{% /alert %}}
 
 ### Read JEDEC ID
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">SPI></span> [0x9F r:3]
+![](/images/docs/demo/nor-datasheet-jedecid.png)
 
-CS Enabled
-<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">9F</span> 
-<span style="color:#bfa530">RX:</span> 0x<span style="color:#53a6e6">EF</span> 0x<span style="color:#53a6e6">40</span> 0x<span style="color:#53a6e6">14</span> 
-CS Disabled
-<span style="color:#96cb59">SPI></span>
-{{< /term >}}
+The **Read JEDEC ID** instruction ```0x9F``` returns a three byte response. The first byte of the response is the *Manufacturer ID*. Winbond uses the second byte as a *memory type ID* and the third byte as a *capacity ID*, but this varies by manufacturer.
+1. CS pin is pulled low
+2. Write the Read JEDEC ID instruction ```0x9F```
+4. Read the manufacturer ID, Memory Type ID and Capacity ID bytes
+5. CS pin is pulled high
 
-The 'Read JEDEC ID' command ```0x9F``` is used to read the manufacturer ID, memory type ID, and capacity ID of the flash chip. The command is followed by a three byte response.
+{{< termfile source="static/snippets/nor-jedecid.html" >}}
 
-- ```[0x9F r:3]``` - Send the 'Read JEDEC ID' command ```0x9F```. ```r:3``` to read a three byte response.
+Unlike the previous two ID instructions, the Read JEDEC ID command does not require (dummy) address bytes. The instruction is executed and the response is returned immediately.
+- ```[``` - Start of SPI transaction. Lowers the CS pin to ground.
+- ```0x9F``` - Write the Read JEDEC ID instruction.
+- ```r:3``` - Read three bytes of data. The first byte is the *manufacturer ID*, the second byte is the *memory type ID*, and the third byte is the *capacity ID*.
+- ```]``` - End of SPI transaction. Raises the CS pin to 3.3volts.
 
-The manufacturer ID is 0xEF, the memory type ID is 0x40, and the capacity ID is 0x14. Manufactures use different systems to encode memory type and capacity ID for each chip. There is no universal standard for these values, and they can vary between manufacturers and even between different chips from the same manufacturer.
+The manufacturer ID is ```0xEF```: Winbond. Memory type ID is ```0x40```, and the capacity ID is ```0x14``` (or ```0x17``` for W25Q64). 
+
+{{% alert context="warning" %}}
+Manufactures use different systems to encode memory type and capacity ID for each chip. There is no universal standard for these values, and they can vary between manufacturers and even between different chips from the same manufacturer.
+{{% /alert %}}
 
 ### Read SFDP tables 
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">SPI></span> [0x5A 0x00:4 r:8]
+![](/images/docs/demo/nor-datasheet-sfdp.png)
 
-CS Enabled
-<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">5A</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 
-<span style="color:#bfa530">RX:</span> 0x<span style="color:#53a6e6">50</span> 0x<span style="color:#53a6e6">44</span> 0x<span style="color:#53a6e6">46</span> 0x<span style="color:#53a6e6">53</span> 0x<span style="color:#53a6e6">05</span> 0x<span style="color:#53a6e6">01</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">FF</span> 
-{{< /term >}}
+{{% alert context="info" %}}
+We've tried three ID commands that don't give us a ton of useful information. Eventually flash manufacturers got together and designed a standard system to describe the chip, its specifications and the instructions to access it: Serial Flash Discoverable Parameters (SFDP) tables.  
+{{% /alert %}}
 
-We've tried three ID commands that don't give us a ton of useful information. The Serial Flash Discoverable Parameters (SFDP) tables are a newer standard that provides a lot more information about the flash chip.
+The **Read SFDP tables** instruction ```0x5A``` returns up to 256 bytes of data. 
+1. CS pin is pulled low
+2. Write the Read SFDP instruction ```0x5A```
+3. Write the 3 byte address ```0x00000000``` that indicates where we want to being reading within the 256 byte SFDP table
+4. Write one dummy byte ```0x00```
+5. Read the SFDP table header (8 bytes)
+6. CS pin is pulled high
 
-- ```[0x5A 0x00:4 r:8]``` - Send the 'Read SFDP' command ```0x5A``` followed by four address bytes ```0x00:4```. ```r:8``` to read 8 bytes from address 0x00.
+{{% alert context="warning" %}}
+SFDP tables are not always present, especially in older flash chips (in through hole DIP packages). If the chip does not support SFDP, the response will be 0xFF.
+{{% /alert %}}
 
-The read SFDP table command includes a 4 byte address where the chip will start reading inside the tables. If SFDP tables are present, the first 4 bytes will contain the signature 'SFDP'.
+{{< termfile source="static/snippets/nor-sfdp.html" >}}
+
+Send the 'Read SFDP' command ```0x5A``` followed by three address bytes ```0x00:3``` and a dummy byte ```0x00```. Finally, read the 8 byte SFDP header ```r:8```.
+
+- ```[0x5A 0x00:3 0x00 r:8]``` - Read the SFDP header. 
+
+The first four bytes of the response are the *SFDP signature* (0x50 0x44 0x46 0x53), so we now know the chip supports SFDP. If the response is all 0xff, the chip does not support SFDP.
 
 |Byte|Value|Description|
 |---|---|---|
@@ -211,273 +235,180 @@ The read SFDP table command includes a 4 byte address where the chip will start 
 |4|0x05|Minor revision number|
 |5|0x01|Major revision number|
 |6|0x00|Number of parameter headers (+1)|
-|7|0xFF|End of parameter headers|
+|7|0xFF|End of parameter header|
 
 The first four bytes here are the SFDP signature: 0x50 0x44 0x46 0x53. This is the ASCII representation of 'PDFS'. Values are stored in big-endian format, so reverse that to get `SFDP`.
 
+The next byte is the *minor revision number* (0x05), followed by the *major revision number* (0x01). This is a JEDEC v1.5 SFDP table. The *number of parameter headers* byte (0x00) plus 1 = 1 available Headers. The table ends with 0xFF.
+
 {{% alert context="info" %}}
-Use the Bus Pirate ```=``` command to convert numerical values to ASCII: ```= 0x50```
+{{< termfile source="static/snippets/nor-sfdp-convert.html" >}}
+Use the Bus Pirate [```=``` command]({{< relref "/docs/command-reference/#x-convert-to-hexdecbin-number-format">}}) to convert numerical values to ASCII: ```= 0x50```
 {{% /alert %}}
 
-The next byte is the minor revision number (0x05), followed by the major revision number (0x01). This is a JEDEC v1.5 SFDP table. The number of parameter headers byte (0x00) plus 1 = 1 available Headers. The table ends with 0xFF.
-
-If we continue retrieving SFDP tables we can find useful information like the chip capacity, acceptable voltage range, and even commands for controlling the chip. Retrieving and decoding the full SFDP table is beyond the scope of this intro guide, but you can [see the full process step by step](https://forum.buspirate.com/t/spi-flash-goodness/200?u=ian) when we developed the ```flash``` read/write/erase command.
+{{% alert context="info" %}}
+If we continue retrieving SFDP tables we'll find useful information like the chip capacity, acceptable voltage range and even commands for controlling the chip. Retrieving and decoding the full SFDP table is beyond the scope of this guide, but you can [see the step by step process](https://forum.buspirate.com/t/spi-flash-goodness/200?u=ian) when we developed the ```flash``` command.
+{{% /alert %}}
 
 ## Write 256 bytes
 
-We will write 256 ASCII characters 'i' (0x69) at the memory address 0x00. Following this, we will read the content to verify that the bytes have been correctly written.
+Finally, we can actually write some data to the chip. This is a multiple step process.
+1. **Enable writes** - The chip must be put into write mode before any write or erase commands will be accepted.
+2. **Erase sector** - A sector (4096 bytes) must be erased before writing.
+3. **Enable writes** - The chip must be put into write mode before any write or erase commands will be accepted.
+4. **Write data page** - Write a page of data (256 bytes) to the chip.
+5. **Read data** - Read the data back to verify it was written correctly.
 
 ### Enable writes
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">SPI></span> [0x06]
+![](/images/docs/demo/nor-datasheet-writeen.png)
 
-CS Enabled
-<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">06</span> 
-CS Disabled
-<span style="color:#96cb59">SPI></span> 
-{{< /term >}}
+The **Write Enable** instruction ```0x06``` must be sent before write and erase commands will be accepted. This prevents accidental erasures or overwrites of your valuable data. 
+1. CS pin is pulled low
+2. Write the Write Enable instruction ```0x06```
+3. CS pin is pulled high
 
-The 'Write Enable' command ```0x06``` must be sent before write and erase commands will be accepted. This prevents accidental erasures or overwrites of your valuable data. This command must be sent before any write, erase or configuration command.
+{{% alert context="warning" %}}
+This command must be sent immediately before any write, erase or configuration command.
+{{% /alert %}}
+
+{{< termfile source="static/snippets/nor-write-enable.html" >}}
 
 - ```[``` - Start of SPI transaction. Lowers the CS pin to ground.
 - ```0x06``` - Write Enable instruction.
 - ```]``` - End of SPI transaction. Raises the CS pin to 3.3volts.
 
 ### Verify write enable
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">SPI></span> [0x05 r:1]
 
-CS Enabled
-<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">05</span> 
-<span style="color:#bfa530">RX:</span> 0x<span style="color:#53a6e6">02</span> 
-CS Disabled
-<span style="color:#96cb59">SPI></span> 
-{{< /term >}}
+![](/images/docs/demo/nor-datasheet-status-register.png)
 
-|S7|S6|S5|S4|S3|S2|S1|S0|
-|---|---|---|---|---|---|---|---|
-|SRP0|SEC|TB|BP2|BP1|BP0|WEL|BUSY|
+The **Read Status Register** instruction ```0x05``` can be used to verify that the 'Write Enable' instruction was correctly received. The status register is a single byte that contains several flags.
+1. CS pin is pulled low
+2. Write the Read Status Register instruction ```0x05```
+3. Read the status register byte
+4. CS pin is pulled high
 
-Read Status Register ```0x05``` is used to verify the 'Write Enable' instruction ```0x06``` was correctly received. 
+{{< termfile source="static/snippets/nor-write-enable-verify.html" >}}
+
+Let's read and decode the status register.
 
 - ```[``` - Start of SPI transaction. Lowers the CS pin to ground.
 - ```0x05``` - Read Status Register instruction.
-- ```r:1``` - Read 1 byte.
+- ```r``` - Read 1 byte.
 - ```]``` - End of SPI transaction. Raises the CS pin to 3.3volts.
 
-Response ```0x02``` indicates that the write enable bit (S1) is set to 1 (0x02=0b00000010).  
+The status register value is ```0x02```.
+
+{{< termfile source="static/snippets/nor-status-register-convert.html" >}}
+
+We can convert the status register value to binary to see which bits are set using the Bus Pirate [```=``` convert command]({{< relref "/docs/command-reference/#x-convert-to-hexdecbin-number-format" >}}). 
+
+![](/images/docs/demo/nor-datasheet-sr-bits.png)
+
+We're interested in bit S1, the write enable latch (WEL). WEL is set to 1 when the Write Enable instruction is received. WEL is 1 (0b00000010) so we're ready to write some data!
 
 ### Erase sector
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">SPI></span> [0x06]
+![](/images/docs/demo/nor-datasheet-erase-sector.png)
 
-CS Enabled
-<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">06</span> 
-CS Disabled
-<span style="color:#96cb59">SPI></span> [0x20 0x00 0x00 0x00]
+Flash works by flipping 1s in the memory to 0. Writing a location twice will simply flip more bits from 1 to 0, but will not flip 0 to 1. The erase sector command ```0x20``` is used to flip all bits in a 4096 byte sector from 0 to 1, then we can write new data. 
+1. CS pin is pulled low
+2. Write the Sector Erase instruction ```0x20```
+3. Write the 3 byte address of the first byte in the sector to erase
+4. CS pin is pulled high
 
-CS Enabled
-<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">20</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 
-CS Disabled
-<span style="color:#96cb59">SPI></span> 
-{{< /term >}}
+The erase sector command is followed by a three byte address of the location to begin erasing 4096 bytes. It's not possible to erase across sector boundaries. The 4096 byte sectors are 'aligned' in bocks. The first sector begins at 0, the next at 4096, the next at 8192 and so on. 
 
-Flash works by flipping 1s in the memory to 0. Writing a location twice will simply flip more bits from 1 to 0, but will not flip 0 to 1. The erase sector command ```0x20``` is used to flip all bits in a 4000 byte sector from 0 to 1, after which we can write new data. 
+{{% alert context="warning" %}}
+Sector erase resets all bits to 1 in a 4096 byte sector. It is not possible to erase just a single byte in most NOR flash chips. It's part of what makes them so cheap! 
+{{% /alert %}}
 
-The erase sector command is followed by a three byte address of the location to begin erasing 4000 bytes. It's not possible to begin erasing just anywhere. The 4000 byte sectors are 'aligned' in bocks. The first sector begins at 0, the next at 4000, the next at 8000 and so on. We'll erase the first sector from 0 to 3999.
+{{< termfile source="static/snippets/nor-erase-sector.html" >}}
 
-A write enable command must be sent before the erase sector command will be accepted. 
+We'll erase the first sector from byte 0 to byte 4095. A write enable command must be sent before the erase sector command will be accepted. 
 
-- ```[``` - Start of SPI transaction. Lowers the CS pin to ground.
-- ```0x06``` - Write Enable instruction.
-- ```]``` - End of SPI transaction. Raises the CS pin to 3.3volts.
+- ```[0x06]``` - Write Enable instruction (see [Enable Writes]({{< relref "/docs/devices/spi-flash-chips/#enable-writes">}})).
 - ```[``` - Start of SPI transaction. Lowers the CS pin to ground.
 - ```0x20``` - Erase Sector instruction.
 - ```0x00 0x00 0x00``` - Address 0x00.
 - ```]``` - End of SPI transaction. Raises the CS pin to 3.3volts.
 
-{{% alert context="info" %}}
-Flash needs to be erased before it can be rewritten. Flash is erased in sectors, blocks or the entire chip. 
-{{% /alert %}}
+### Verify erase sector 
 
-### Verify erase sector
+![](/images/docs/demo/nor-datasheet-read.png)
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">SPI></span> [0x03 0x00 0x00 0x00 r:256]
+The **Read Data** instruction ```0x03``` can be used to verify that the sector has been erased. The read data command is followed by a three byte address where we'll start reading. 
+1. CS pin is pulled low
+2. Write the Read Data instruction ```0x03```
+3. Write the 3 byte address of the first byte to read
+4. Read data, up to the full size of the flash chip
+5. CS pin is pulled high
 
-CS Enabled
-<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">03</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 
-<span style="color:#bfa530">RX:</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 0x<span style="color:#53a6e6">FF</span> 
-    
-CS Disabled
-<span style="color:#96cb59">SPI></span> 
-{{< /term >}}
+{{< termfile source="static/snippets/nor-verify-erase.html" >}}
 
-We'll use the read data command ```0x03``` to verify that the sector has been erased to all 1s (0xff). The command is followed by a three byte address of the location to begin reading 256 bytes. We'll read the first 256 bytes from address 0x00.
+We'll read the first 256 bytes from address 0x000000, all the bytes should be erased and set to 0xFF.
 
 - ```[``` - Start of SPI transaction. Lowers the CS pin to ground.
 - ```0x03``` - Read Data instruction.
-- ```0x00 0x00 0x00``` - Address 0x00.
+- ```0x00 0x00 0x00``` - Start reading at address 0x000000.
 - ```r:256``` - Read 256 bytes.
 - ```]``` - End of SPI transaction. Raises the CS pin to 3.3volts.
 
+The 256 bytes read are all 0xFF, the sector was successfully erased. 
+
 ### Enable writes and verify
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">SPI></span> [0x06]
+{{< termfile source="static/snippets/nor-write-enable-verify-2.html" >}}
 
-CS Enabled
-<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">06</span> 
-CS Disabled
-<span style="color:#96cb59">SPI></span> [0x05 r:1]
+Use the [write enable]({{< relref "/docs/devices/spi-flash-chips/#enable-writes">}}) instruction ```0x06``` to enable writes. Verify the write enable bit is set to 1 (0x02=0b00000010) using the [read status register]({{< relref "/docs/devices/spi-flash-chips/#verify-write-enable">}}) instruction ```0x05```. We can do this all on a single line.
 
-CS Enabled
-<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">05</span> 
-<span style="color:#bfa530">RX:</span> 0x<span style="color:#53a6e6">02</span> 
-<span style="color:#96cb59">SPI></span>
-CS Disabled
-{{< /term >}}
-
-Use the write enable command ```0x06``` to enable writes. Verify the write enable bit is set to 1 (0x02=0b00000010) using the read status register command ```0x05```.
+- ```[0x06] [0x05 r]``` - Write Enable instruction followed by Read Status Register instruction. The response is the status register byte.
+- ```= 0x02``` - Convert the [status register value]({{< relref "/docs/devices/spi-flash-chips/#verify-write-enable">}}) to binary. The write enable latch bit (0b00000010) should be set to 1.
 
 ### Write data
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">SPI></span> [0x02 0x00 0x00 0x00 0x69:256]
+![](/images/docs/demo/nor-datasheet-write.png)
 
-CS Enabled
-<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">02</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-CS Disabled
-<span style="color:#96cb59">SPI></span> 
-{{< /term >}}
+The **Page Program** instruction ```0x02``` is used to write data to the flash chip. The smallest unit of data that can be written is a page, which is 256 bytes. 
+
+1. CS pin is pulled low
+2. Write the Page Program instruction ```0x02```
+3. Write the 3 byte address of the first location to write
+4. Write 256 bytes of data
+5. CS pin is pulled high
+
+{{% alert context="danger" %}}
+The smallest unit of data that can be written is a page, which is 256 bytes. The smallest unit of data that can be erased is a sector, which is 4096 bytes. It is not possible to write or erase a single byte in most NOR flash chips. Juggling these constraints can be tricky!
+{{% /alert %}}
+
+
+{{< termfile source="static/snippets/nor-write.html" >}}
 
 Use the page program command ```0x02``` to write 256 bytes of data to address 0x00. The command is followed by a three byte address of the location to begin writing 256 bytes ```0x00 0x00 0x00```. The data to be written ```i``` (0x69) follows the address. 
 
+- ```[0x06]``` - Write Enable instruction (see [Enable Writes]({{< relref "/docs/devices/spi-flash-chips/#enable-writes">}})).
 - ```[``` - Start of SPI transaction. Lowers the CS pin to ground.
 - ```0x02``` - Page Program instruction.    
-- ```0x00 0x00 0x00``` - Address to begin writing: 0x00.
-- ```0x69:256``` - Write 256 bytes of data. The data to be written is ```i``` (0x69).
+- ```0x00 0x00 0x00``` - Address to begin writing: 0x000000.
+- ```0xAA:256``` - Write 256 bytes of ```0xAA```.
 - ```]``` - End of SPI transaction. Raises the CS pin to 3.3volts.
 
 {{% alert context="danger" %}}
-The write enable command ```0x06``` must be send before writing data to the chip. Write up to 256 bytes at a time. If more than 256 bytes are sent, the internal buffer will circle back to the beginning of the page and overwrite previously sent data.
+Write up to 256 bytes at a time. If more than 256 bytes are sent, the internal buffer will circle back to the beginning of the page and overwrite previously sent data.
 {{% /alert %}}
 
 ## Read data
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">SPI></span> [0x03 0x00 0x00 0x00 r:256]
+{{< termfile source="static/snippets/nor-read.html" >}}
 
-CS Enabled
-<span style="color:#bfa530">TX:</span> 0x<span style="color:#53a6e6">03</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 0x<span style="color:#53a6e6">00</span> 
-<span style="color:#bfa530">RX:</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 0x<span style="color:#53a6e6">69</span> 
-    
-CS Disabled
-<span style="color:#96cb59">SPI></span> 
-{{< /term >}}
-
-To confirm the data was written, we use the 'Read Data' instruction ```0x03``` once again. 
+Use the [**Read Data**]({{< relref "/docs/devices/spi-flash-chips/#verify-erase-sector">}}) instruction ```0x03``` once again to confirm the page was filled with ```0xA0```.  
 
 - ```[``` - Start of SPI transaction. Lowers the CS pin to ground.
 - ```0x03``` - Read Data instruction.
 - ```0x00 0x00 0x00``` - Address to begin reading: 0x00.
 - ```r:256``` - Read 256 bytes of data.
 - ```]``` - End of SPI transaction. Raises the CS pin to 3.3volts.
+
+All 256 bytes read are ```0xAA```, the page was successfully written.
 
 {{% alert context="info" %}}
 If the writing/reading process fails, check all connections. /HOLD & /WP pins must be connected to 3.3 volts.
