@@ -22,9 +22,9 @@ A 2; A 3 # WP and HOLD pins high for normal operation
 # nor-jedecid
 [0x9F r:3] # Read JEDEC ID
 # nor-sfdp
-[0x5A 0x00:4 r:8] # Read SFDP tables
+[0x5A 0x00:3 0x00 r:8] # Read SFDP tables
 # nor-sfdp-convert
-= 0x50 # Convert HEX to ASCII
+= 0x53 # Convert HEX to ASCII
 # nor-write-enable
 [0x06] # Enable writes
 # nor-write-enable-verify

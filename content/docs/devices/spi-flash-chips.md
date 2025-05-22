@@ -40,7 +40,6 @@ SPI [flash adapters for SOP8, WSON8, and DIP8 chips]({{< relref "/docs/overview/
 
 Flash adapter boards include a sample chip so you can get started right away. This demo uses the chips included with the adapters. The datasheets are linked above.
 
-
 ## See it in action
 
 {{< asciicast src="/screencast/nor-flash-cast2.json" poster="npt:0:50" terminalFontSize="medium" idleTimeLimit=2 >}}
@@ -224,33 +223,31 @@ Send the 'Read SFDP' command ```0x5A``` followed by three address bytes ```0x00:
 
 - ```[0x5A 0x00:3 0x00 r:8]``` - Read the SFDP header. 
 
-The first four bytes of the response are the *SFDP signature* (0x50 0x44 0x46 0x53), so we now know the chip supports SFDP. If the response is all 0xff, the chip does not support SFDP.
+The first four bytes of the response are the *SFDP signature* (0x53 0x46 0x44 0x50), so we now know the chip supports SFDP. If the response is all 0xff, the chip does not support SFDP.
 
 |Byte|Value|Description|
 |---|---|---|
-|0|0x50|'P'|
-|1|0x44|'D'|
-|2|0x46|'F'|
-|3|0x53|'S'|
+|0|0x53|'S'|
+|1|0x46|'F'|
+|2|0x44|'D'|
+|3|0x50|'P'|
 |4|0x05|Minor revision number|
 |5|0x01|Major revision number|
 |6|0x00|Number of parameter headers (+1)|
 |7|0xFF|End of parameter header|
 
-The first four bytes here are the SFDP signature: 0x50 0x44 0x46 0x53. This is the ASCII representation of 'PDFS'. Values are stored in big-endian format, so reverse that to get `SFDP`.
-
 The next byte is the *minor revision number* (0x05), followed by the *major revision number* (0x01). This is a JEDEC v1.5 SFDP table. The *number of parameter headers* byte (0x00) plus 1 = 1 available Headers. The table ends with 0xFF.
 
 {{% alert context="info" %}}
 {{< termfile source="static/snippets/nor-sfdp-convert.html" >}}
-Use the Bus Pirate [```=``` command]({{< relref "/docs/command-reference/#x-convert-to-hexdecbin-number-format">}}) to convert numerical values to ASCII: ```= 0x50```
+Use the Bus Pirate [```=``` command]({{< relref "/docs/command-reference/#x-convert-to-hexdecbin-number-format">}}) to convert numerical values to ASCII: ```= 0x53```
 {{% /alert %}}
 
 {{% alert context="info" %}}
 If we continue retrieving SFDP tables we'll find useful information like the chip capacity, acceptable voltage range and even commands for controlling the chip. Retrieving and decoding the full SFDP table is beyond the scope of this guide, but you can [see the step by step process](https://forum.buspirate.com/t/spi-flash-goodness/200?u=ian) when we developed the ```flash``` command.
 {{% /alert %}}
 
-## Write 256 bytes
+## Write 256 bytes 
 
 Finally, we can actually write some data to the chip. This is a multiple step process.
 1. **Enable writes** - The chip must be put into write mode before any write or erase commands will be accepted.
@@ -416,7 +413,9 @@ If the writing/reading process fails, check all connections. /HOLD & /WP pins mu
 
 ## flash command 
 
-The [flash command]({{< relref "/docs/command-reference/#flash" >}}) can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip by reading the SFDP tables. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back.
+{{< asciicast src="/screencast/nor-flash-command.json" poster="npt:0:50" terminalFontSize="medium" idleTimeLimit=2 >}}
+
+The [flash command]({{< relref "/docs/command-reference/#flash-readwriteerase-common-flash-chips" >}}) can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip by reading the SFDP tables. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back.
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">SPI></span> flash init
