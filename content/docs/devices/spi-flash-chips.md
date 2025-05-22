@@ -413,7 +413,7 @@ If the writing/reading process fails, check all connections. /HOLD & /WP pins mu
 
 ## flash command 
 
-{{< asciicast src="/screencast/nor-flash-command.json" poster="npt:0:50" terminalFontSize="medium" idleTimeLimit=2 >}}
+{{< asciicast src="/screencast/nor-flash-command.json" poster="npt:1:08" terminalFontSize="medium" idleTimeLimit=2 >}}
 
 The [flash command]({{< relref "/docs/command-reference/#flash-readwriteerase-common-flash-chips" >}}) can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip by reading the SFDP tables. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back.
 

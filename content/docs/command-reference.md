@@ -1591,9 +1591,11 @@ SPI is a common 4 wire full duplex protocol. Separate connections for data-in an
 
 ### ```flash``` Read/Write/Erase common flash chips
 
-{{< termfile source="static/snippets/cmdref-mode-spi-flash-help.html" >}}
+{{< asciicast src="/screencast/nor-flash-command.json" poster="npt:1:08" terminalFontSize="medium" idleTimeLimit=2 >}}
 
 The ```flash``` command can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip and select the appropriate settings. Most modern flash chips contain SFDP tables that describe the chip capabilities. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back. 
+
+{{< termfile source="static/snippets/cmdref-mode-spi-flash-help.html" >}}
 
 #### Flash initialization
 

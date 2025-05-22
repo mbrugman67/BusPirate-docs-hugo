@@ -1,0 +1,22 @@
+m hiz
+c
+3
+2
+x
+rm bpspi.bp
+# nor-flash-command
+m spi # m spi - enter SPI mode
+10000 # 10MHz SPI speed
+8 # 8 bit mode
+1 # Idle high
+1 # Sample on leading edge
+2 # Chip select active low
+W 3.3 # W 3.3 - enable 3.3 volt power supply
+A 2; A 3 # WP and HOLD pins high for normal operation
+flash -h # flash -h - show help
+flash init # flash init - initialize, show flash properties
+flash read -f example.bin # dump flash to file example.bin
+flash write -f example.bin -e -v # write example.bin to flash, erase before writing, verify after writing
+flash verify -f example.bin # verify example.bin against flash
+flash test # Erase, program, and verify a test pattern
+# stop
