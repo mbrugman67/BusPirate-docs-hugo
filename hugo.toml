@@ -37,9 +37,8 @@ title = 'Bus Pirate Documentation'
     [params.asciinema.defaults]
         autoPlay = true
         loop = true
-        fit = "none"
+        fit = "width"
         idleTimeLimit = 2
-        terminalFontSize = "medium"
         controls = "auto"
         cols = 80
         rows = 24

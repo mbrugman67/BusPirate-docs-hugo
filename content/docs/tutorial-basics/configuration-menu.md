@@ -3,7 +3,7 @@ weight = 30600
 title = 'Configuration Menu'
 +++
 
-{{< asciicast src="/screencast/tut-config-menu.json" poster="npt:0:14" terminalFontSize="medium" idleTimeLimit=2 >}}    
+{{< asciicast src="/screencast/tut-config-menu.json" poster="npt:0:14"  idleTimeLimit=2 >}}    
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 <span style="color:#96cb59">HiZ></span> c

@@ -3,7 +3,7 @@ weight = 30300
 title = 'Blink Some LEDs'
 +++
  
-{{< asciicast src="/screencast/tut-led.json" poster="npt:0:14" terminalFontSize="medium" idleTimeLimit=2 >}}
+{{< asciicast src="/screencast/tut-led.json" poster="npt:0:14"  idleTimeLimit=2 >}}
 
 ## SK6812 RGB LEDs
 

@@ -3,7 +3,7 @@ weight = 30400
 title = 'Programmable Power Supply'
 +++
 
-{{< asciicast src="/screencast/tut-power-supply.json" poster="npt:0:14" terminalFontSize="medium" idleTimeLimit=2 >}}
+{{< asciicast src="/screencast/tut-power-supply.json" poster="npt:0:14"  idleTimeLimit=2 >}}
 
 The Bus Pirate has a 'Programmable Power Supply Unit' (PPSU) that can power devices from the VOUT/VREF pin of the main connector.
 

@@ -145,7 +145,7 @@ Use the ```termfile``` short code to display the file in the documentation. The 
 
 ## asciinema Screencasts
 
-{{< asciicast src="/screencast/tut-power-supply.json" poster="npt:0:14" terminalFontSize="medium" idleTimeLimit=2 >}}
+{{< asciicast src="/screencast/tut-power-supply.json" poster="npt:0:14"  idleTimeLimit=2 >}}
 
 ascinema is a terminal screencast tool that can be used to record and share terminal sessions. It replays VT100 output in a web browser, so it is much lighter weight than a video file.
 

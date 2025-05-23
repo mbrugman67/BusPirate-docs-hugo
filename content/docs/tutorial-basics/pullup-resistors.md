@@ -3,7 +3,7 @@ weight = 30500
 title = 'Pull-up Resistors and IO'
 +++
 
-{{< asciicast src="/screencast/tut-pull-io.json" poster="npt:0:14" terminalFontSize="medium" idleTimeLimit=2 >}}
+{{< asciicast src="/screencast/tut-pull-io.json" poster="npt:0:14"  idleTimeLimit=2 >}}
 
 Protocols such as I2C and 1-Wire use open collector outputs for two way communication on a single data wire. In this type of protocol there is no 1/high level without a pull-up resistor. The pull-up resistor connects to a voltage that "pulls" the wire high. Devices use their output to ground the wire and pull it low.
 

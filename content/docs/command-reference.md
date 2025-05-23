@@ -1591,7 +1591,7 @@ SPI is a common 4 wire full duplex protocol. Separate connections for data-in an
 
 ### ```flash``` Read/Write/Erase common flash chips
 
-{{< asciicast src="/screencast/nor-flash-command.json" poster="npt:1:08" terminalFontSize="medium" idleTimeLimit=2 >}}
+{{< asciicast src="/screencast/nor-flash-command.json" poster="npt:1:08"  idleTimeLimit=2 >}}
 
 The ```flash``` command can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip and select the appropriate settings. Most modern flash chips contain SFDP tables that describe the chip capabilities. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back. 
 
@@ -1784,7 +1784,7 @@ Sniff 8 bit I2C-like protocols that don't use an ACK/NAK bit, for example the SL
 
 ### ```sle4442``` Work with SLE4442 smart cards
 
-{{< asciicast src="/screencast/sle4442-command-cast.json" poster="npt:0:18" terminalFontSize="medium" idleTimeLimit=2 >}}
+{{< asciicast src="/screencast/sle4442-command-cast.json" poster="npt:0:18"  idleTimeLimit=2 >}}
 
 The ```sle4442``` command in the Bus Pirate's 2-WIRE mode automates the process of reading, writing and unlocking a [SLE4442 smart card]({{< relref "/docs/devices/sle4442" >}}).
 
@@ -1928,7 +1928,7 @@ Flags pass file names and other settings to the command.
 -   **Output type:** tristate (push-pull, high impedance) (1.65-5volts)
 -   **Maximum voltage:** 5volts
 
-{{< asciicast src="/screencast/dio-use.json" poster="npt:0:24" terminalFontSize="medium" idleTimeLimit=2 autoPlay=false >}}
+{{< asciicast src="/screencast/dio-use.json" poster="npt:0:24"  idleTimeLimit=2 autoPlay=false >}}
 
 {{% alert context="info" %}}
 DIO is a mode with no specific protocol. All the Bus Pirate pins are free for use as [input/ouputs]({{% relref "/docs/command-reference/#aa-auxiliary-pin-control-lowhighread" %}}), [frequency generators]({{% relref "/docs/command-reference/#gg-frequency-generator" %}}), [frequency measurement]({{% relref "/docs/command-reference/#ff-measure-frequency" %}}), etc.
@@ -2053,7 +2053,7 @@ JTAG mode is **NOT** for working directly with JTAG devices (yet!). JTAG mode ho
 
 ### ```bluetag``` JTAG & SWD pinout finder
 
-{{< asciicast src="/screencast/bluetag-jtag-demo.json" poster="npt:0:23" terminalFontSize="medium" idleTimeLimit=2 autoPlay=false >}}
+{{< asciicast src="/screencast/bluetag-jtag-demo.json" poster="npt:0:23"  idleTimeLimit=2 autoPlay=false >}}
 
 [blueTag](https://github.com/Aodrulez/blueTag) is an open source JTAG and SWD pin finder integrated into the Bus Pirate firmware. It can identify the JTAG/SWD pins on a target device by sending a series of test signals and analyzing the responses. 
 

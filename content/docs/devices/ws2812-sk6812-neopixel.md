@@ -85,7 +85,7 @@ Even if the LEDs are powered by an external supply, the Bus Pirate buffers must 
 
 ## See it in action
 
-{{< asciicast src="/screencast/ws2812-demo.json" poster="npt:0:16" terminalFontSize="medium" idleTimeLimit=2 >}} 
+{{< asciicast src="/screencast/ws2812-demo.json" poster="npt:0:16"  idleTimeLimit=2 >}} 
 
 ## Green, red, blue
 

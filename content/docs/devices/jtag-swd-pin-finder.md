@@ -18,7 +18,7 @@ We connected both boards at the same time to different Bus Pirate IO pins. blueT
 
 ## See it in action
 
-{{< asciicast src="/screencast/bluetag-jtag-demo.json" poster="npt:0:23" terminalFontSize="medium" idleTimeLimit=2 autoPlay=false >}}
+{{< asciicast src="/screencast/bluetag-jtag-demo.json" poster="npt:0:23"  idleTimeLimit=2 autoPlay=false >}}
 
 ## Connections
 - Connect the Bus Pirate IO pins to the suspected JTAG/SWD pins on the target device. 

@@ -43,7 +43,7 @@ A [smart IC card and SIM card adapter]({{< relref "/docs/overview/sim-iccard-ada
 
 ## See it in action
 
-{{< asciicast src="/screencast/sim-cast.json" poster="npt:0:16" terminalFontSize="medium" idleTimeLimit=2 >}}
+{{< asciicast src="/screencast/sim-cast.json" poster="npt:0:16"  idleTimeLimit=2 >}}
 
 ## Setup
 
