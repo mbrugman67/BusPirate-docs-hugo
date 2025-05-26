@@ -1,0 +1,17 @@
+m hiz
+c
+3
+2
+x
+rm bpi2c.bp
+# si7021-cast
+m i2c # m i2c - enter I2C mode
+400 # 400kHz I2C speed
+1 # Disable clock stretching
+W 3.3 # W 3.3 - enable 3.3 volt power supply
+[0x80 0xf5] D:23 [0x81 r:2] # Measure humidity
+[0x80 0xf3] D:100 [0x81 r:2] # Measure temperature
+[0x80 0xfa 0xf0] [0x81 r:8] # Read serial number
+[0x80 0xfc 0xc9] [0x81 r:6]
+[0x80 0x84 0xb8] [0x81 r] # Read firmware version
+# stop
