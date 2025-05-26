@@ -1463,7 +1463,7 @@ Sniff I2C packets up to 500kHz.
 
 ### ```si7021``` Read temperature and humidity
 
-{{< termfile source="static/snippets/cmdref-mode-i2c-si7021-help.html" >}}
+{{< termfile source="static/snippets/si7021-command.html" >}}
 
 Command to read temperature and humidity from a [SI7021 sensor]({{< relref "/docs/devices/si7021/">}}).
 

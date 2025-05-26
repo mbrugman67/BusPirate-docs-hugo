@@ -17,14 +17,13 @@ scan # scan - scan for I2C devices
 # si7021-read-config
 [0x80 0xe7[0x81 r] # Read configuration register
 # si7021-config-convert
-= 0x3a 
+= 0x3a # Convert configuration register to binary
+# si7021-write-config
+[0x80 0xe6 0b00111010] # Write configuration register
 # si7021-humidity
-[0x80 0xf5] D:23 [0x81 r:2] # Measure humidity
+[0x80 0xf5] D:23 [0x81 r:2] # Measure humidity, get result
 # si7021-temperature
-[0x80 0xf3] D:100 [0x81 r:2] # Measure temperature
-# si7021-serial
-[0x80 0xfa 0xf0] [0x81 r:8] # Read serial number
-[0x80 0xfc 0xc9] [0x81 r:6]
-# si7021-firmware-version
-[0x80 0x84 0xb8] [0x81 r] # Read firmware version
+[0x80 0xe0 [ 0x81 r:2] # Get previous temperature measurement
+# si7021-command
+si7021 # si7021 - Measure and convert temperature and humidity
 # stop

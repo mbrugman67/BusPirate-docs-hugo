@@ -6,6 +6,6 @@ I2C&nbsp;STOP
 [38;2;191;165;48mDelay:[0m&nbsp;[38;2;83;166;230m23[0mms
 I2C&nbsp;START
 [38;2;191;165;48mTX:[0m&nbsp;0x[38;2;83;166;230m81[0m&nbsp;ACK&nbsp;
-[38;2;191;165;48mRX:[0m&nbsp;0x[38;2;83;166;230m77[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230mA6[0m&nbsp;NACK&nbsp;
+[38;2;191;165;48mRX:[0m&nbsp;0x[38;2;83;166;230m98[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m62[0m&nbsp;NACK&nbsp;
 I2C&nbsp;STOP
 [38;2;150;203;89mI2C>[0m&nbsp;
