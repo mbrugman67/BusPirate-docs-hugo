@@ -1475,7 +1475,7 @@ Command to read temperature and pressure from a MS5611 sensor.
 
 ### ```tsl2561``` Read light intensity
 
-{{< termfile source="static/snippets/cmdref-mode-i2c-tsl2561-help.html" >}}
+{{< termfile source="static/snippets/tsl2561-command.html" >}}
 
 Command to read light intensity from a [TSL2561 sensor]({{< relref "/docs/devices/tsl2561/">}}).
 

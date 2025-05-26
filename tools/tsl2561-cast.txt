@@ -1,0 +1,25 @@
+m hiz
+c
+3
+2
+x
+rm bpi2c.bp
+# tsl2561-cast
+m i2c # m i2c - enter I2C mode
+400 # 400kHz I2C speed
+1 # Disable clock stretching
+W 3.3 # W 3.3 - enable 3.3 volt power supply
+P # P - enable pull-up resistors
+scan # scan - scan for I2C devices
+[0b01110010 0b11100000] # Select control register 0x00
+[0b01110010 3] # Start device command
+[0b01110011 r] # Confirm start command
+[0b01110010 0b11100001] # Select timing register 0x01
+[0b01110010 0b00000010] # Write timing register
+[0b01110010 0b11101100] # Select data 0 low register 0x0C
+[0b01110011 r:4] # Read data registers
+[0b01110010 0b11101010] # Select ID register 0x0A
+[0b01110011 r] # Read ID register
+= 0x50 # Convert ID register to binary
+tsl2561 # tsl2561 - Measure and convert light intensity
+#stop

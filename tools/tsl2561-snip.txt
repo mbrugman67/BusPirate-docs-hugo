@@ -1,0 +1,40 @@
+m hiz
+c
+3
+1
+x
+rm bpi2c.bp
+# tsl2561-setup
+m i2c # m i2c - enter I2C mode
+400 # 400kHz I2C speed
+1 # Disable clock stretching
+# tsl2561-power
+W 3.3 # W 3.3 - enable 3.3 volt power supply
+# tsl2561-pullup
+P # P - enable pull-up resistors
+# tsl2561-scan
+scan # scan - scan for I2C devices
+# tsl2561-select-control-register
+[0b01110010 0b11100000] # Select control register 0x00
+# tsl2561-start-command
+[0b01110010 3] # Start device command
+# stop
+>D:1000 # Wait for 1 second to allow the device to start
+# tsl2561-confirm-start
+[0b01110011 r] # Confirm start command
+# tsl2561-select-timing-register
+[0b01110010 0b11100001] # Select timing register 0x01
+# tsl2561-write-timing
+[0b01110010 0b00000010] # Write timing register
+# tsl2561-select-data0low 
+[0b01110010 0b11101100] # Select data 0 low register 0x0C
+# tsl2561-read-data
+[0b01110011 r:4] # Read data registers
+# tsl2561-select-id-register
+[0b01110010 0b11101010] # Select ID register 0x0A
+# tsl2561-read-id-register
+[0b01110011 r] # Read ID register
+= 0x50 # Convert ID register to binary
+# tsl2561-command
+tsl2561 # tsl2561 - Measure and convert light intensity
+#stop
