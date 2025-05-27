@@ -115,8 +115,8 @@ The latest help for commands and modes is available in the help menu. This will 
 |```o```| Data output display format|
 |```d```| Display mode|
 |```~```| Self-test|
-|```#```| Reset|
-|```$```| Jump to bootloader|
+|```reboot```| Reboot the Bus Pirate|
+|```$```| Jump to bootloader for updates|
 |```cls```| Clear and redraw terminal|
 |```ovrclk```| Overclock the CPU|
 
@@ -220,16 +220,16 @@ Disconnect all wires and devices from the Bus Pirate before running the self-tes
 Self-test is only available in HiZ mode. If you are in a different mode, the Bus Pirate will prompt you to change to HiZ mode before running the test.
 {{% /alert %}}
 
-### ```#``` Reset
+### ```reboot``` Reboot
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">HiZ></span> #
+<span style="color:#96cb59">HiZ></span> reboot
 
 VT100 compatible color mode? (Y/n)>
 {{< /term >}}
 
-Reset the Bus Pirate. 
+Reboot the Bus Pirate. 
 
-- ```#``` - reset the Bus Pirate.
+- ```reboot``` - reboot the Bus Pirate.
 
 {{% alert context="info" %}}
 Depending on your serial terminal software you may need to reconnect to the Bus Pirate serial port. The latest versions of many terminal emulators, such as Tera Term, reconnect automatically.
