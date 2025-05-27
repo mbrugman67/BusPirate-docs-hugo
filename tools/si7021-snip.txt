@@ -12,6 +12,8 @@ m i2c # m i2c - enter I2C mode
 W 3.3 # W 3.3 - enable 3.3 volt power supply
 # si7021-pullup
 P # P - enable pull-up resistors
+# stop
+>D:1000 # Wait for 1 second to allow the device to start
 # si7021-scan
 scan # scan - scan for I2C devices
 # si7021-read-config
