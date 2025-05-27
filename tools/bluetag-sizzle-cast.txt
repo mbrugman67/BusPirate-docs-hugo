@@ -1,0 +1,12 @@
+m hiz
+c
+3
+2
+x
+rm bpjtag.bp
+# bluetag-sizzle
+m jtag # JTAG and SWD pin finder
+W 3.3 
+bluetag jtag -c 8 
+bluetag swd -c 8
+# stop

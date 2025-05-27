@@ -1,0 +1,15 @@
+m hiz
+c
+3
+2
+x
+rm bp1wire.bp
+# 1wire-sizzle
+m 1wire # 1-Wire scan, read device
+W 
+3.3
+100
+P 
+scan 
+ds18b20
+#stop

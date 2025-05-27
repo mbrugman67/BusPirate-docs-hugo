@@ -1,0 +1,20 @@
+m hiz
+c
+3
+2
+x
+rm bpi2c.bp
+o
+5
+# i2c-sizzle
+m i2c # I2C scan, read and write EEPROM
+100 
+1 
+W 3.3
+P 
+scan 
+[0xa0 0x00 "Hello!"] 
+[0xa0 0x00 [ 0xa1 r:6]
+# stop
+o
+1

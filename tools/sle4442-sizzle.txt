@@ -1,0 +1,16 @@
+m hiz
+c
+3
+2
+x
+rm bp2wire.bp
+# sle4442-sizzle
+m 2wire # Read and write SLE4442 IC cards
+20 
+W 5 
+P 
+L 
+} { ^ }  r:4 
+sle4442 
+sle4442 dump 
+# stop

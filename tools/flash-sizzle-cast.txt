@@ -1,0 +1,17 @@
+m hiz
+c
+3
+2
+x
+rm bpspi.bp
+# flash-sizzle-cast
+m spi # erase, write, verify SPI flash chip
+10000 
+8 
+1 
+1 
+2 
+W 3.3 
+A 2; A 3 
+flash write -f example.bin -e -v 
+# stop

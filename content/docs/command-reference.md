@@ -13,7 +13,9 @@ It's always best to use the [latest firmware]({{< relref "/docs/downloads" >}}).
 
 ## User terminal
 
-![](/images/docs/fw/cmd-toolbar.png)
+<!-- ![](/images/docs/fw/cmd-toolbar.png)-->
+
+{{< asciicast src="/sizzle/sizzle-cast.json" poster="npt:1:23"  idleTimeLimit=2 >}}
 
 Connect to the Bus Pirate command line with your [favorite serial terminal software]({{< relref "/docs/tutorial-basics/quick-setup/" >}}). On Windows we like the latest version of [Tera Term](https://ttssh2.osdn.jp/index.html.en).
 

@@ -15,7 +15,9 @@ Can't get a chip to work? Is it the circuit, code, bad part or a burned out pin?
 
 ## VT100 terminal interface
 
-![](/images/docs/fw/teraterm-done.png)
+<!-- ![](/images/docs/fw/teraterm-done.png) -->
+
+{{< asciicast src="/sizzle/sizzle-cast.json" poster="npt:1:23"  idleTimeLimit=2 >}}
 
 VT100 terminal emulation supports color and a live statusbar view of the voltage and functions on each pin. Type simple commands into the terminal, the Bus Pirate translates them into popular serial protocols and displays the response. Learn how a chip works without touching a line of code.
 
