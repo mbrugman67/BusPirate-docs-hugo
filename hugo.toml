@@ -71,11 +71,11 @@ title = 'Bus Pirate Documentation'
 
  
 [[menu.footer]]
-    name  = "Distributors"
+    name  = "Get a Bus Pirate"
     weight = 10
 
 [[menu.footer]]
-    name = "Get Bus Pirate"
+    name = "Find a Distributor"
     url = "https://buspirate.com/get"
     parent = "Distributors"
 
