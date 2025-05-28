@@ -90,7 +90,7 @@ title = 'Bus Pirate Documentation'
 
 [[menu.footer]]
     name = "Downloads"
-    url = "http://localhost:1313/docs/downloads/"
+    url = "https://docs.buspirate.com/docs/downloads/"
     parent = "Quick Links"    
 
 [[menu.footer]]
