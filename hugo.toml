@@ -80,6 +80,11 @@ title = 'Bus Pirate Documentation'
     parent = "Distributors"
 
 [[menu.footer]]
+    name = "All Bus Pirate Hardware"
+    url = "https://dirtypcbs.com/store/designer/browse/ian"
+    parent = "Distributors"    
+
+[[menu.footer]]
     name = "Quick Links"
     weight = 20
 
