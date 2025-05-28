@@ -98,33 +98,3 @@ $code-block-padding-top: {{ if eq .Site.Params.docs.prism true -}}0{{ else }}1.2
     color: var(--primary);
   }
 }
-
-
-.sidebar-wrapper {
-  .sidebar-content {
-    height: auto !important;
-    max-height: calc(100vh - 150px) !important;
-    min-height: 100px;
-    overflow-y: auto !important;
-  }
-}
-
-.layout-spacing {
-  min-height: calc(100vh - 350px) !important;
-}
-
-footer {
-  position: relative;
-  z-index: 10;
-  margin-top: 60px;
-  width: 100%;
-  display: block;
-  clear: both;
-}
-
-.page-content {
-  position: relative;
-  min-height: 100vh;
-  padding-bottom: 120px; 
-}
-

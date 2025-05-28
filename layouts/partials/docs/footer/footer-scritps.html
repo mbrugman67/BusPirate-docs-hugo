@@ -1,3 +1,0 @@
-
-{{ $sidebarScript := resources.Get "docs/js/sidebar-fix.js" | minify | fingerprint }}
-<script src="{{ $sidebarScript.RelPermalink }}"></script>
