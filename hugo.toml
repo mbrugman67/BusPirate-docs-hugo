@@ -75,23 +75,23 @@ title = 'Bus Pirate Documentation'
     weight = 10
 
 [[menu.footer]]
-    name = "Dirty PCBs"
-    url = "https://dirtypcbs.com/store/browse/bus-pirate"
+    name = "Get Bus Pirate"
+    url = "https://buspirate.com/get"
     parent = "Distributors"
 
 [[menu.footer]]
-    name = "Docs"
+    name = "Quick Links"
     weight = 20
 
 [[menu.footer]]
-    name = "Hardware"
-    url = "https://hardware.buspirate.com/"
-    parent = "Docs"
+    name = "Documentation"
+    url = "https://docs.buspirate.com/"
+    parent = "Quick Links"
 
 [[menu.footer]]
-    name = "Firmware"
-    url = "https://firmware.buspirate.com/"
-    parent = "Docs"
+    name = "Downloads"
+    url = "http://localhost:1313/docs/downloads/"
+    parent = "Quick Links"    
 
 [[menu.footer]]
     name = "Community"
@@ -103,13 +103,43 @@ title = 'Bus Pirate Documentation'
     parent = "Community"
 
 [[menu.footer]]
+    name = "Mastodon"
+    url = "https://mastodon.social/@buspirate"
+    parent = "Community"
+
+[[menu.footer]]
+    name = "BlueSky"
+    url = "https://bsky.app/profile/buspirate.bsky.social"
+    parent = "Community"
+
+[[menu.footer]]
+    name = "Instagram"
+    url = "https://www.instagram.com/dangerousprototypes/"
+    parent = "Community"
+
+[[menu.footer]]
+    name = "X (Twitter)"
+    url = "https://twitter.com/dangerousproto"
+    parent = "Community"    
+
+[[menu.footer]]
     name = "More"
     weight = 40
 
 [[menu.footer]]
     name = "Blog"
     url = "https://buspirate.com/"
-    parent = "More"    
+    parent = "More"  
+
+[[menu.footer]]
+    name = "Contact"
+    url = "https://buspirate.com/contact"
+    parent = "More"
+
+[[menu.footer]]
+    name = "GitHub"
+    url = "https://github.com/DangerousPrototypes"
+    parent = "More"
 
 
 [markup.goldmark.renderer]
