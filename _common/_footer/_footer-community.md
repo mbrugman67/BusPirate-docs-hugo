@@ -3,4 +3,4 @@
 - [Mastodon](https://mastodon.social/@buspirate)
 - [Instagram](https://www.instagram.com/dangerousprototypes)
 - [BlueSky](https://bsky.app/profile/buspirate.bsky.social)
-- [Twitter](https://twitter.com/dangerousproto)
+- [X (Twitter)](https://twitter.com/dangerousproto)
