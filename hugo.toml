@@ -77,12 +77,12 @@ title = 'Bus Pirate Documentation'
 [[menu.footer]]
     name = "Find a Distributor"
     url = "https://buspirate.com/get"
-    parent = "Distributors"
+    parent = "Get a Bus Pirate"
 
 [[menu.footer]]
     name = "All Bus Pirate Hardware"
     url = "https://dirtypcbs.com/store/designer/browse/ian"
-    parent = "Distributors"    
+    parent = "Get a Bus Pirate"    
 
 [[menu.footer]]
     name = "Quick Links"
