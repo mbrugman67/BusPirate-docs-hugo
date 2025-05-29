@@ -69,12 +69,23 @@ Our approach is to use large "waist" bands typically wrapped around bento box ta
 |**EAN**|**Contents**|**Note**|
 |-|-|-|
 |6098403367367|Bus Pirate 5 REV10 with enclosure|Active|
-|6098403367374|Probe Cable Kit REV0|Active|
-|6098403367381|Auxiliary Cable Kit REV0|Active|
-|TBD|Auxiliary Cable Kit REV1|Pending|
-|6098403367398|Bus Pirate 5 REV8 (preview, PCB only)|EOL|
+|6098403367374|Probe Cable Kit|Active|
+|6098403367381|Auxiliary Cable Kit|Active|
+|6098403368326|Auxiliary Cable only|Active|
+|9173380023202|KF141 Quick Connect Adapter RIGHT ANGLE|Active|
+|9173380023219|KF141 Quick Connect Adapter VERTICAL|Active|
+|6098403368333|RPi Pico VERTICAL silkscreen header set|Active|
+|6098403368340|RPi Pico RIGHT ANGLE silkscreen header set|Active|
+|6098403368357|DIP8 SPI flash adapter|Active|
+|9173380023141|SOP8 SPI flash adapter|Active|
+|9173380023158|WSON8 SPI flash adapter|Active|
+|9173380023165|SIM and Smart IC card adapter|Active|
+|9173380023172|Infrared RX/TX adapter|Active|
+|9173380023189|Dual RS232 adapter|Active|
+|9173380023196|Serial Word Cable Survival Kit|Active|
+|6098403367398|Bus Pirate 5 REV8 (preview, PCB only)|End of Life|
 
-An EAN (Europe, 13 digits) or SKU (USA, 12 digits) is required for sales in online retail giants, but is also helps all involved to track inventory. We purchased a block of EAN numbers from a bulk reseller.
+An EAN (Europe, 13 digits) or UPC (USA, 12 digits) is required for sales in online retail giants, but is also helps all involved to track inventory. We purchased a block of EAN numbers from a bulk reseller.
 
 ## Get a Bus Pirate
  
