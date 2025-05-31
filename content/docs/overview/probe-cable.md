@@ -28,7 +28,7 @@ A high quality probe cable to connect the Bus Pirate to test hooks, milled bread
 
 |Pin|Color|Label|Description|
 |-|-|-|-|
-|1|Red|VOUT/VREF|Supplies 1-5volts up to 400mA with resetable fuse (VOUT) **OR** connects an external voltage source to the Bus Pirate IO interface|
+|1|Red|VOUT/VREF|Supplies 1-5volts up to 300mA with resetable fuse (VOUT) **OR** connects an external voltage source to the Bus Pirate IO interface|
 |2-9|Various|IO0 - IO7|Buffered IO pins with voltage measurement and optional 10K pull-up resistors|
 |10|Black|GND| Ground pin|
 

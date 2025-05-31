@@ -56,7 +56,7 @@ A beautiful 240x320 pixel color IPS (all angle viewing) LCD acts as a pin label,
 
 |Pin|Label|Description|
 |-|-|-|
-|1|VOUT/VREF|Pin supplies 1-5volts up to 400mA with current limit and resetable fuse (VOUT) **OR** connects an external voltage source to the Bus Pirate IO interface|
+|1|VOUT/VREF|Pin supplies 1-5volts up to 300mA with current limit and resetable fuse (VOUT) **OR** connects an external voltage source to the Bus Pirate IO interface|
 |2-9|IO0 - IO7|Buffered IO pins 1.2-5volt output with voltage measurement and optional 10K pull-up resistors|
 |10|GND| Ground pin|
 

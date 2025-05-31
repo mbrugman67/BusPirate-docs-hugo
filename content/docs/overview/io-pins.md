@@ -8,7 +8,7 @@ title = 'IO Pin Descriptions'
 ## Main connector pinout
 |Pin|Name      | Description|
 |----|----------|------------|
-|1| **Voltage Out/Voltage Reference** (VOUT/VREF)|1-5volt 400mA onboard power supply output **-or-** external reference voltage to power the buffers.|
+|1| **Voltage Out/Voltage Reference** (VOUT/VREF)|1-5volt 300mA onboard power supply output **-or-** external reference voltage to power the buffers.|
 |2-9|**Input/Output** (IO0-IO7)|8 IO pins with 1.65-5volt buffers, analog voltage measurement, frequency generation, frequency measurement*, toggleable 10K pull-up resistor |
 |10|**Ground** (GND)|Ground, connect to ground of test circuit.|
 
@@ -23,7 +23,7 @@ title = 'IO Pin Descriptions'
 | **Master In Sub Out** (MISO/RX) | Used with protocols that have a dedicated data-input, such as SPI and UART.|
 | **Chip select** (CS)           | An output used to activate the serial interface in SPI-like protocols. *```[``` and ```]``` control a dedicated CS pin, but you can use ```a.X``` and ```A.X``` to take manual control of any available pin*.|
 | **Auxiliary** (AUX) | Used as an output or input from the Bus Pirate terminal interface with the A, a, and @ commands. It's useful for protocols that require an additional signal, such as a reset.   |
-| **Voltage Out/Voltage Reference** (VOUT/VREF)|1-5volt, 400mA onboard power supply output **-or-** external reference voltage to power the buffers.|
+| **Voltage Out/Voltage Reference** (VOUT/VREF)|1-5volt, 300mA onboard power supply output **-or-** external reference voltage to power the buffers.|
 |**Ground** (GND)|Ground, connect to ground of test circuit.|
 
 ## Bus Pirate RP2040 pin map

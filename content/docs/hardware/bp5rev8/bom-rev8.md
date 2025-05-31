@@ -52,7 +52,7 @@ REV 8 was produced in a small prototype production batch (August 2023) and an in
 | DIODES(美台)| BCM857| SOT-363/SC-70-6 |Dual PNP matched pair| 3000|SZLCSC|
 | CBI (创基)| MMDT3906| SOT-363/SC-70-6 |Dual PNP| 3000|CBI (创基)|
 | MICRONE(南京微盟) | ME6211A33PG-N | SOT-89-3|3.3V VREG| 1000|Navia|
-| DIODES(美台)| AP2127K-ADJTRG1| SOT-23-5|0.8V-5.5V 400mA VREG| 3000|Navia|
+| DIODES(美台)| AP2127K-ADJTRG1| SOT-23-5|0.8V-5.5V 300mA VREG| 3000|Navia|
 | Gainsil(聚洵) | GS6001-TR | SOT-23-5|R2R op-amp| 3000|Navia|
 | RUNIC(润石) | RS8901XF| SOT-23-5|Comparator| 3000|Navia|
 | Raspberry Pi| RP2040| QFN-56||500|SZLCSC|

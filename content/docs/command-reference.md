@@ -309,7 +309,7 @@ Check the voltage and current in the live view statusbar if active, or show the 
 When the programmed current limit is exceeded the PPSU hardware fuse disables the power supply. The terminal colors invert repeatedly, an alarm bell will sound, an error message is shown and command execution is halted. Use the ```W``` command to restart the PPSU again.
 
 {{% alert context="danger" %}}
-400mA is the rated maximum of the PPSU, but we added some headroom in the current limit to account for current spikes.
+300mA is the rated maximum of the PPSU, but we added some headroom in the current limit to account for current spikes.
 {{% /alert %}}
 
 {{% alert context="info" %}}
@@ -1947,7 +1947,7 @@ DIO is a mode with no specific protocol. All the Bus Pirate pins are free for us
 WS2812/SK6812 and APA102/SK9822 are common RGB LEDs with a one and two wire interface. 
 
 {{% alert context="danger" %}}
-LEDs are power hungry, up to 60mA each at full brightness. The programmable power supply is rated for 400mA maximum. The LEDs will need an external power supply when driving more than a few in a strip.
+LEDs are power hungry, up to 60mA each at full brightness. The programmable power supply is rated for 300mA maximum. The LEDs will need an external power supply when driving more than a few in a strip.
 {{% /alert %}}
 
 

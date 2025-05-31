@@ -7,7 +7,7 @@ title = 'Programmable Power Supply'
 
 The Bus Pirate has a 'Programmable Power Supply Unit' (PPSU) that can power devices from the VOUT/VREF pin of the main connector.
 
-- 1-5volts adjustable output, 400mA max
+- 1-5volts adjustable output, 300mA max
 - 0-500mA current sense 
 - 0-500mA current limit with digital fuse
 - Backflow prevention to protect the PPSU when an external voltage is applied to the VREF/VOUT pin
@@ -87,7 +87,7 @@ Check the voltage and current in the live view statusbar if active, or show the 
 - The last line shows that VOUT currently measures 5.0 volts, and all IO pins measure 0 volts.
 
 {{% alert context="warning" %}}
-400mA is the rated maximum of the PPSU, but we added some headroom in the current limit to account for current spikes.
+300mA is the rated maximum of the PPSU, but we added some headroom in the current limit to account for current spikes.
 {{% /alert %}}
 
 ## Current limit

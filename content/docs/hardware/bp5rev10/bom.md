@@ -63,7 +63,7 @@ REV10 started as a [BOM cleanup](https://forum.buspirate.com/t/analog-parts-note
 | DIODES(美台)| BCM857| SOT-363/SC-70-6 |Dual PNP matched pair| 3000|SZLCSC|
 | YXC (扬兴晶振) | X322512MSB4SI| 3225| 12MHz ±10ppm 20pF| 3000|Navia|
 | MICRONE(南京微盟) | ME6211A33PG-N | SOT-89-3|3.3V VREG| 1000|Navia|
-| DIODES(美台)| AP2127K-ADJTRG1| SOT-23-5|0.8V-5.5V 400mA VREG| 3000|Navia|
+| DIODES(美台)| AP2127K-ADJTRG1| SOT-23-5|0.8V-5.5V 300mA VREG| 3000|Navia|
 | Gainsil(聚洵) | LMV321 | SOT-23-5|R2R op-amp| 3000|Gainsil(聚洵)|Part, Footprint, Manuf|
 | Gainsil(聚洵) | LMV321A (GS321A) | SOT-23-5|R2R op-amp A grade| 3000|Gainsil(聚洵)|Part, Footprint, Manuf|
 | Gainsil(聚洵) | LMV324 (GS324MT)| TSSOP-14 |R2R op-amp x 4| 3000|Gainsil(聚洵)|New|

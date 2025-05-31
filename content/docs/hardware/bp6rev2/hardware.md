@@ -25,7 +25,7 @@ The Bus Pirate is designed to eliminate the frustrating parts of hacking and har
 - **Bulldozer buffered IO** - 1.2 to 5volt direct interfacing with 8 bidirectional buffered IOs
 - **Voltage measurement extravaganza** - The Bus Pirate displays voltage readings for every pin, right on its vibrant LCD screen and in the terminal statusbar
 - **Current measurement** - Get a reality check by monitoring current use in real time
-- **Programmable power supply** - 1 to 5volt output, 400mA max, for powering all kinds of devices
+- **Programmable power supply** - 1 to 5volt output, 300mA max, for powering all kinds of devices
 - **Programmable current limit** - A 0 to 500mA programmable hardware fuse sets current limits that keep your projects safe and sane
 - **A big colorful display** - Keep track of pin assignments, voltages and current
 - **Color terminal and statusbar** - VT100 terminal emulation for that modern 1970s feel
@@ -144,7 +144,7 @@ The main IO header uses a 2.54mm 10 pin [TJC8A/HX25418 connector]({{< relref "..
 
 |Pin|Label|Description|
 |-|-|-|
-|1|VOUT/VREF|Pin supplies 1-5volts up to 400mA with current limit and resetable fuse (VOUT) **OR** connects an external voltage source to the Bus Pirate IO interface (VREF)|
+|1|VOUT/VREF|Pin supplies 1-5volts up to 300mA with current limit and resetable fuse (VOUT) **OR** connects an external voltage source to the Bus Pirate IO interface (VREF)|
 |2-9|IO0 - IO7|Buffered 1.2-5volt IO pins with voltage measurement and optional 10K pull-up resistors|
 |10|GND| Ground pin|
 
@@ -172,7 +172,7 @@ The 1mm 9 pin connector mates with 'SH' style cables.
 [![](/images/docs/hw/bp6rev2/bp5rev10a-ppsu.png)](/images/docs/hw/bp6rev2/bp6r2-schematic.pdf)
 
 The bulldozer IO buffers run from 1.2 to 5volts, they need a power supply to match. The programmable power supply unit is another killer feature of the Bus Pirate. 
-- 1-5volts adjustable output, 400mA max
+- 1-5volts adjustable output, 300mA max
 - 0-500mA current sense 
 - 0-500mA current limit with digital fuse
 - Backflow prevention to protect the PPSU when an external voltage is applied to the VREF/VOUT pin
@@ -192,7 +192,7 @@ We worked with two regulators during development: MCP1824 from Microchip, and AP
 {{% /alert %}}
 
 {{% alert context="danger" %}}
-400mA is the rated maximum of the voltage regulator, but we added some headroom in the current limit circuit to account for current spikes.
+300mA is the rated maximum of the voltage regulator, but we added some headroom in the current limit circuit to account for current spikes.
 {{% /alert %}}
 
 |**Part**  |**Ideal Value**|||**Closest Value**|
@@ -240,7 +240,7 @@ A [PFET]({{< relref "../bp5rev10/components/transistors-fets/#pmos-fet-2a-vgs-2-
 There you have it, a programmable fuse with just a couple extra parts. 
 
 {{% alert context="danger" %}}
-400mA is the rated maximum of the voltage regulator, but we added some headroom in the current limit circuit to account for current spikes.
+300mA is the rated maximum of the voltage regulator, but we added some headroom in the current limit circuit to account for current spikes.
 {{% /alert %}}
 
 ### Backflow Prevention
