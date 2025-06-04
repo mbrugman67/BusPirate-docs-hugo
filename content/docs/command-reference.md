@@ -1354,11 +1354,28 @@ Use ```bridge -h``` to see the latest options and features.
 -   **Connections:** two data pins (SDA/SCL) and ground
 -   **Output type:** open drain/open collector
 -   **Pull-up resistors:** always required (2K - 10K ohms)
--   **Maximum voltage:** 5volts
+-   **Maximum voltage:** 1.2 to 5 volts
+-  **Common speed:** 100kHz, 400kHz, 1MHz
 
-{{% alert context="info" %}}
-I2C is a common 2-wire bus for low speed interfaces, generally 100KHz, 400KHz and sometimes 1MHz.
-{{% /alert %}}
+### I2C Protocol Overview
+
+![](/images/docs/fw/i2c-pulseview.png)
+
+I2C (Inter-Integrated Circuit) is a 2-wire protocol used for communication between devices. It uses two lines: **SDA** (data) and **SCL** (clock). The protocol supports multiple devices on the same bus, with each device identified by a unique 7-bit address.
+
+#### **Start and Stop Conditions**
+   - ```S``` - Each transaction begins with a **start condition** by pulling SDA low while SCL remains high.
+   - ```P``` - Each transaction ends with a **stop condition** by releasing SDA high while SCL remains high.
+   - ```Sr``` - A **repeat start condition** starts a new transaction with the same device, without sending a stop condition. It can be replaced with a stop condition followed by a start condition, but the repeat start is more efficient.
+
+#### **Byte Transmission**
+   - Data is transmitted 8 bits at a time, starting with the most significant bit (MSB).
+   - ```A```/```N``` - After each byte there is a 9th **ACK**/**NACK** bit. The receiver sends an **ACK** (acknowledge) by pulling SDA low or a **NACK** (not acknowledge) by leaving SDA high. NACK is typically used to tell a chip that we are done reading data from it. 
+
+#### **Addressing**
+   - The first byte sent after a start condition contains the 7-bit device address and a **read/write bit**. In the logic analyzer trace the 7-bit address is 0b1010000 (0x50).
+     - ```W``` - `0` for write operations (0b1010000`0` = 0xA0).
+     - ```R``` - `1` for read operations (0b1010000`1` = 0xA1).
 
 ### Configuration options
 
