@@ -28,10 +28,20 @@ A 9 pin cable connects the Bus Pirate auxiliary connector to external tools like
 - 9pin 1.0mm 'SH' female connector to 9 x 1pin 2.54mm 'DuPont' female connectors
 - 30AWG super soft and flexible premium silicone coated wire. The inner strands are very fine tinned copper. The silicone coating has a very nice feel, and is tolerant of high heat and chemicals.
 
-|Pin|Color|Label|Description|
-|-|-|-|-|
-|1-8|Grey|IO0 - IO7|Buffered IO pins with voltage measurement and optional 10K pull-up resistors|
-|9|Black|GND|Ground pin|
+Each auxiliary cable connects to a corresponding buffered IO pin, featuring voltage measurement capabilities and optional 10K pull-up resistors.
+
+| Cable | Connector Color  | Connection Details |
+|-------|------------------|---------------------|
+| 1     | Orange           | IO1                |
+| 2     | Yellow           | IO2                |
+| 3     | Green            | IO3                |
+| 4     | Blue             | IO4                |
+| 5     | Purple           | IO5                |
+| 6     | Brown            | IO6                |
+| 7     | Grey             | IO7                |
+| 8     | White            | IO8                |
+| 9     | Black            | Ground (GND)       |
+
 
 Resources:
 
