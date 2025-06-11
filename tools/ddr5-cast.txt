@@ -1,0 +1,26 @@
+m hiz
+c
+3
+2
+x
+rm bpi2c.bp
+# ddr5-reg-cast
+m i2c # m i2c - enter I2C mode
+400 # 400kHz I2C speed
+1 # Disable clock stretching
+W 5 # W 5 - enable 5 volt power supply
+P # P - enable pull-up resistors
+scan # scan - scan for I2C devices
+[0xa0 0b00000000 [ 0xa1 r:128]
+[0xa0 0x00 [ 0xa1 r:2]
+[0xa0 0x24 [ 0xa1 r:1 ]
+[0xa0 0x24 0b00]
+[0xa0 0x31 [ 0xa1 r:2 ]
+= 0b000101010
+[ 0xa0 0x0c [ 0xa1 r:2 ]
+= 0x03ff
+[0xa0 0x30 [ 0xa1 r:1 ]
+= 0x04
+[0xa0 0x0b 0b00000000]
+[0xa0 0x0b [ 0xa1 r:1 ]
+# stop
