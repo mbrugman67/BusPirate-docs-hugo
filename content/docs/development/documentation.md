@@ -155,7 +155,7 @@ ascinema is a terminal screencast tool that can be used to record and share term
 rm bpled.bp
 m led
 3
-# tut-power-supply.json
+# tut-power-supply
 W # W - enable PSU (interactive)
 5
 100

@@ -1480,6 +1480,124 @@ NACK the read and properly end the I2C transaction.
 
 Sniff I2C packets up to 500kHz.
 
+### ```ddr5``` Probe, read, write, unlock DDR5 SDRAM modules
+{{< asciicast src="/screencast/ddr5-command-cast.json" poster="npt:0:41"  idleTimeLimit=2 >}}
+
+The ```ddr5``` command can probe, read, write, and unlock the SPD hub chip in DDR5 flash modules (UDIMM, SODIMM). This command can unlock SPD chips, backup SPD data and restore corrupted SPD tables. It can also be used to search for, and replicate, hidden entries unscrupulous manufacturers use to lock equipment to proprietary RAM modules.
+
+{{< termfile source="static/snippets/ddr5-command-help.html" >}}
+
+{{% alert context="info" %}}
+Use ```ddr5 -h``` to see the latest options and features.
+{{% /alert %}}
+
+#### DDR5 probe
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;ddr5&nbsp;probe
+Device&nbsp;Type:&nbsp;0x5118
+Device&nbsp;Revision:&nbsp;1.4
+Vendor&nbsp;ID:&nbsp;0x8632&nbsp;(Montage&nbsp;Technology&nbsp;Group)
+Write&nbsp;Protection&nbsp;for&nbsp;NVM&nbsp;Blocks:&nbsp;0x3FFF
+...
+SPD&nbsp;EEPROM&nbsp;JEDEC&nbsp;Manufacturing&nbsp;Information&nbsp;blocks&nbsp;8-9:
+&nbsp;&nbsp;Module&nbsp;Manuf.&nbsp;Code:&nbsp;0x859B&nbsp;(Crucial&nbsp;Technology)
+&nbsp;&nbsp;Module&nbsp;Manuf.&nbsp;Location:&nbsp;0x00
+&nbsp;&nbsp;Module&nbsp;Manuf.&nbsp;Date:&nbsp;22Y/04W
+&nbsp;&nbsp;Module&nbsp;Serial&nbsp;Number:&nbsp;0xE6FFB785
+&nbsp;&nbsp;Module&nbsp;Part&nbsp;Number:&nbsp;CT8G48C40U5.M4A1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+....
+{{< /term >}}
+
+```ddr5 probe``` identifies the DDR5 SPD chip and displays its type, revision, vendor ID, and write protection status. It also reads the JEDEC manufacturing information blocks to display stored information about the memory configure and manufacturer. 
+
+The probe command also searches the Manufacture Specific Data block and End User Programmable blocks for hidden information. This will discover EXPO (AMD) and XMP (Intel) overclock profiles, as well as hidden information that unscrupulous manufacturers use to lock equipment to proprietary RAM modules.
+
+#### DDR5 dump
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;ddr5&nbsp;dump
+Device&nbsp;Type:&nbsp;0x5118
+
+EEPROM&nbsp;Block&nbsp;0:
+&nbsp;0x30&nbsp;0x10&nbsp;0x12&nbsp;0x02&nbsp;0x04&nbsp;0x00&nbsp;0x40&nbsp;0x42&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0xA0&nbsp;0x01&nbsp;0x07&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0xA0&nbsp;0x01&nbsp;0xF2&nbsp;0x03&nbsp;0x7A&nbsp;0x0D&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x80&nbsp;0x3E&nbsp;0x80&nbsp;0x3E&nbsp;0x80&nbsp;0x3E&nbsp;0x00&nbsp;0x7D&nbsp;0x80&nbsp;0xBB&nbsp;0x30&nbsp;0x75&nbsp;0x27&nbsp;0x01&nbsp;0xA0&nbsp;0x00&nbsp;0x82&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0xD4&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0xD4&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0xD4&nbsp;0x00
+...
+EEPROM&nbsp;Block&nbsp;15:
+&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;
+{{< /term >}}
+
+The ```ddr5 dump``` command displays the contents of a DDR5 SPD chip EEPROM/non-volatile memory in the terminal. It reads the chip and prints the contents of each 64-byte block.
+
+#### DDR5 read to file
+
+{{< termfile source="static/snippets/ddr5-command-read.html" >}}
+
+Read the contents of a DDR5 SPD chip and save to a file with the ```ddr5 read``` command. The file name is specified with the ```-f``` flag.
+
+#### DDR5 verify against file
+
+{{< termfile source="static/snippets/ddr5-command-verify.html" >}}
+
+Verify the contents of a DDR5 SPD chip against a file with the ```ddr5 verify``` command. The file name is specified with the ```-f``` flag. This command reads the chip and compares it to the file, reporting the location of any differences.
+
+#### DDR5 write from file
+
+{{< termfile source="static/snippets/ddr5-command-write.html" >}}
+
+Write a file to a DDR5 SPD chip with the ```ddr5 write``` command. The file name is specified with the ```-f``` flag. 
+
+{{% alert context="info" %}}
+During write the command will unlock the block protection bits. When the write is complete, the write protection bits will be restored to the original state.  
+{{% /alert %}} 
+
+{{% alert context="danger" %}}
+The ```ddr5 write``` command will overwrite the contents of the DDR5 SPD chip. Use with caution, as it can corrupt the SPD data and render the RAM module unusable. Always make a backup with the ```ddr5 read``` command before writing to the chip.
+{{% /alert %}}
+
+#### DDR5 lock/unlock block
+
+{{< termfile source="static/snippets/ddr5-command-lock.html" >}}
+
+Lock or unlock a block in the DDR5 SPD chip with the ```ddr5 lock``` and ```ddr5 unlock``` commands. The block number is specified with the ```-b``` flag (0-15). Each block is 64 bytes in size.
+
+{{% alert context="info" %}}
+In order to unlock blocks the module's HSA pin **must** be connected to ground. This is required to unlock the block protection bits in the DDR5 SPD chip. See the [DDR5 SPD demo]({{% relref "/docs/devices/ddr5/#connections" %}}) for more details.
+{{% /alert %}}
+
+#### DDR5 crc check
+{{< termfile source="static/snippets/ddr5-command-crc.html" >}}
+
+Calculate or verify the CRC of the JEDEC blocks 0-7 in a DDR5 SPD dump file with the ```ddr5 crc``` command. The file name is specified with the ```-f``` flag. This command reads the specified file and calculates the CRC for the first 8 blocks, reporting any discrepancies.
+
+{{% alert context="info" %}}
+To verify the CRC on a DDR5 SPD chip instead of a file, use the ```ddr5 probe``` command. It will automatically calculate and verify the CRC for the first 8 blocks of the SPD chip.
+{{% /alert %}}
+
+
+#### DDR5 Options and flags
+
+|Option|Description|
+|------|-----------|
+|```ddr5 probe```|Probe DDR5 SPD chip for ID and NVM/EEPROM status.|
+|```ddr5 dump```|Display DDR5 SPD NVM contents in the terminal.|
+|```ddr5 read```|Read DDR5 SPD NVM to a file. Specify file with -f flag.|
+|```ddr5 write```|Write file to DDR5 SPD NVM. Specify file with -f flag.|
+|```ddr5 verify```|Verify DDR5 SPD NVM against file. Specify file with -f flag.|
+|```ddr5 lock```|Lock DDR5 SPD NVM block (64 bytes per block). Specify block with -b flag.|
+|```ddr5 unlock```|Unlock DDR5 SPD NVM block. Specify block with -b flag.|
+|```ddr5 crc```|Calculate/verify CRC of JEDEC blocks 0-7 in a file. Specify file with -f flag.|
+
+Options tell the flash command what to do.
+
+|Flag|Description|
+|-----|-----------|
+|```-f```|File flag. Specify a file to write, read, verify or check CRC.|
+|```-b```|Block flag. Specify a DDR5 SPD NVM block to lock or unlock (0 - 15).|
+|```-h```|Show help for Bus Pirate commands and modes.|
+
+Flags pass file names and other settings.
+
 ### ```si7021``` Read temperature and humidity
 
 {{< termfile source="static/snippets/si7021-command.html" >}}
@@ -1702,7 +1820,7 @@ Verifying 1048576 bytes
 
 The ```flash test``` command erases the chip, writes dummy data, and verifies the write. This is a way to test a chip.
 
-#### Options and flags
+#### Flash Options and flags
 
 | Option | Description |
 |---------|-------------|

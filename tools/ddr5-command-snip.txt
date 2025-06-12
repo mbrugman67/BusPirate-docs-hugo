@@ -1,0 +1,30 @@
+m hiz
+c
+3
+1
+x
+rm bpi2c.bp
+m i2c # m i2c - enter I2C mode
+400 # 400kHz I2C speed
+1 # Disable clock stretching
+W 5 # W 5 - enable 5 volt power supply
+P # P - enable pull-up resistors
+# ddr5-command-help
+ddr5 -h
+# ddr5-command-probe
+ddr5 probe
+# ddr5-command-dump
+ddr5 dump
+# ddr5-command-read
+ddr5 read -f ddr5.bin
+# ddr5-command-write
+ddr5 write -f ddr5.bin
+# ddr5-command-verify
+ddr5 verify -f ddr5.bin
+# ddr5-command-lock
+ddr5 unlock -b 9
+#stop
+ddr5 lock -b 9
+# ddr5-command-crc
+ddr5 crc -f ddr5.bin
+# stop

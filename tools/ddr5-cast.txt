@@ -4,7 +4,7 @@ c
 2
 x
 rm bpi2c.bp
-# ddr5-reg-cast
+# ddr5-cast
 m i2c # m i2c - enter I2C mode
 400 # 400kHz I2C speed
 1 # Disable clock stretching
@@ -13,18 +13,19 @@ P # P - enable pull-up resistors
 scan # scan - scan for I2C devices
 [0xa0 0b00000000 [ 0xa1 r:128] # Dump SPD hub registers
 [0xa0 0x00 [ 0xa1 r:2] # Read JEDEC 5118 device type
-[0xa0 0x24 [ 0xa1 r:1 ] # Read temperature sensor resolution
+[0xa0 0x24 [ 0xa1 r] # Read temperature sensor resolution
 [0xa0 0x24 0b00] # Set 9-bit temp. sensor resolution
 [0xa0 0x31 [ 0xa1 r:2 ] # Read temp. sensor
 [0xa0 0x0c [ 0xa1 r:2 ] # Read block protection bits
-= 0x03ff # Convert block bits from HEX to binary
-[0xa0 0x30 [ 0xa1 r:1 ] # Read device status register
+= 0xff # Convert block bits from HEX to binary
+= 0x03 
+[0xa0 0x30 [ 0xa1 r] # Read device status register
 = 0x04 # Convert device status from HEX to binary
 [0xa0 0x0b 0b00000000] # Set legacy device mode, page 0
-[0xa0 0x0b [ 0xa1 r:1 ] # Read back device status to confirm
+[0xa0 0x0b [ 0xa1 r ] # Read back device status to confirm
 [0xa0 0x0b 0x00] # Set legacy device mode, page 0
 [0xa0 0b10000000 [ 0xa1 r:4 ] # Read first 4 bytes of NVM
-[0xa0 0x0b 0x04] # Set legacy device more, page 4
+[0xa0 0x0b 0x04] # Set legacy device mode, page 4
 [0xa0 0b10000000 [ 0xa1 r:2 ] # Read module manuf. JEDEC ID
 [0xa0 0x83 [ 0xa1 r:2 ] # Read module manuf. date (Week/Year)
 [0xa0 0x85 [ 0xa1 r:4 ] # Read module serial number
@@ -36,13 +37,18 @@ o # Change output back to auto
 [0xa0 0xa8 [ 0xa1 r:2 ] # Read DRAM manuf. JEDEC ID
 [0xa0 0xab [ 0xa1 r:85 ] # Check manuf. specific data area
 [0xa0 0x0c 0xff 0x3f] # Write protect blocks 0-13
-[0xa0 0x30 [ 0xa1 r:1 ] # Check for write complete
+[0xa0 0x30 [ 0xa1 r] # Check for write complete
 = 0x04 # Convert device status from HEX to binary
 [0xa0 0x0c [ 0xa1 r:2 ] # Verify block protection bits
 [0xa0 0x0b 0x07] # Set legacy device mode, page 7 (blocks 14 & 15)
 [0xa0 0b10000000 [ 0xa1 r:16 ] # Read 16 bytes of NVM from block 14
 [0xa0 0b10000000 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15] # Write 16 bytes of NVM
 [0xa0 0b10000000 [ 0xa1 r:16 ] # Read back 16 bytes of NVM from block 14
-[0xa0 0x3c [ 0xa1 r:2 ] # Read PMIC manuf. JEDEC ID
+[0x90 0x00 [0x91 r:64] # Dump PMIC registers
+[0x90 0x3c [0x91 r:2] # Read PMIC manuf. JEDEC ID
 # stop
+[0xa0 0x0b 0x07] # page 7 (blocks 14 & 15)
+[0xa0 0b10000000 0x00:16] # Write 16 bytes of NVM
+> D:100
 [0xa0 0x0c 0xff 0x03] # Restore block protection bits 0-5
+> D:100

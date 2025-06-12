@@ -1,0 +1,6 @@
+[38;2;150;203;89mI2C>[0m&nbsp;ddr5&nbsp;verify&nbsp;-f&nbsp;ddr5.bin
+Verifying&nbsp;SPD&nbsp;NVM&nbsp;against&nbsp;file:&nbsp;ddr5.bin
+Device&nbsp;Type:&nbsp;0x5118
+Success&nbsp;:)
+[0m
+[38;2;150;203;89mI2C>[0m&nbsp;

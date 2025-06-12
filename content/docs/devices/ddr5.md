@@ -1,10 +1,9 @@
 +++
-weight = 40910
-title = 'DDR5 SDRAM module'
+weight = 40212
+title = 'DDR5 SDRAM module I2C'
 +++  
 
-<!--![](/images/docs/demo/24c02-adapter.jpg)-->
-
+![](/images/docs/demo/ddr5-plank-temp.jpg)
 
 
 - DDR5 SDRAM modules are the memory sticks used in computers and laptops. 
@@ -45,15 +44,15 @@ This demo was made possible by several resources:
 
 **HSA** sets the SPD and PMIC I2C address. Motherboards accept multiple DDR5 modules, so each module needs a unique I2C address. A pull-down resistor connected to the HSA pin sets the last four bits of the base I2C address (0x50). When **HSA** is connected to ground the module goes into a special *offline service mode* that allows us to change write protected portions of the EEPROM. 
 
+**PWR_EN** enables the DDR5 module power supply when connected to 3.3 volts.
+
+**PWR_GOOD** is an open drain output signal from the PMIC. If the power is stable this pin will float, but if the supply is interrupted it will pull low. This might be useful for diagnosing a faulty DDR5 module power supply.
+
 **BULK_VIN** is the single 5 volt power supply for the SDP hub and PMIC, which generates a precision ~1.1 volt supply for the DDR memory chips. 
 
 {{% alert context="warning" %}}
 There are multiple **BULK_VIN** and **GND** pins on a DDR5 module, but only one of each needs to be connected to access the SPD hub.
 {{% /alert %}}
-
-**PWR_EN** enables the DDR5 module power supply when connected to 3.3 volts.
-
-**PWR_GOOD** is an open drain output signal from the PMIC. If the power is stable this pin will float, but if the supply is interrupted it will pull low. This might be useful for diagnosing a faulty DDR5 module power supply.
 
 {{% alert context="danger" %}}
 The DDR5 HSDA and HSCL pins **must** be no more than 3.3 volts, but the DDR5 module is powered by 5 volts! 
@@ -65,13 +64,9 @@ The DDR5 HSDA and HSCL pins **must** be no more than 3.3 volts, but the DDR5 mod
  
 ## DDR5 adapter board
 
-//image
+![](/images/docs/demo/ddr5-plank-temp.jpg)
 
-{{% readfile "/_common/_footer/_footer-cart.md" %}}
-
-Soldering wires directly to a DDR5 module will probably render it unusable. Get a spare socket or adapter from your favorite supplier.
-
-Alternatively, the DDR5 adapter plank makes it easy to work with DDR5 UDIMM and SODIMM modules:
+Soldering wires directly to a DDR5 module will probably render it unusable. Get a spare socket or adapter from your favorite supplier. Alternatively, the DDR5 adapter plank makes it easy to work with DDR5 UDIMM and SODIMM modules:
 - 288 pin DDR5 UDIMM socket for standard desktop memory modules
 - 262 pin DDR5 SODIMM socket for laptop memory modules
 - Accepts a single 5 volt power supply
@@ -79,18 +74,31 @@ Alternatively, the DDR5 adapter plank makes it easy to work with DDR5 UDIMM and 
 - A level shifter ensures the I2C pins HSDA and HSCL are never more than 3.3 volts
 - HSA is pulled to ground to put the module in offline mode
 
+The DDR5 adapter plank is ready to use. 
+
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
+
+### Adapter Connections
 |Bus Pirate|DDR5 adapter plank|Description|
 |-|-|-|
-|VOUT|
+|VOUT|BULK_VIN|5 volt power supply for the DDR5 module|
+|SDA (IO0)|HSDA|Level translated I2C Data|
+|SCL (IO1)|HSCL|Level translated I2C Clock|
+|GND|GND|Common ground for the DDR5 module and the Bus Pirate|
 
-{{% alert context="info" %}}
-A [smart IC card and SIM card adapter]({{< relref "/docs/overview/sim-iccard-adapter" >}}) is available for Bus Pirate 5 with the correct connections already set. The adapter accepts most ISO 7816-3 smart cards and mini/micro/nano SIM cards. 
-{{% /alert %}} 
+Connect the Bus Pirate to the DDR5 adapter plank as shown above. Four connection are all you need.  
 
+When inserting a DDR5 module into the adapter plank, **hold the bottom of the PCB with both hands and press the module firmly into the socket**. The retaining clips should click into place. 
+
+{{% alert context="warning" %}}
+
+
+**Be sure to adequately support the bottom of the PCB. Pressing without support will bend the PCB and break solder joints**. 
+{{% /alert %}}   
 
 ## See it in action
 
-{{< asciicast src="/screencast/ddr5-cast.json" poster="npt:0:22"  idleTimeLimit=2 >}}
+{{< asciicast src="/screencast/ddr5-cast.json" poster="npt:2:26"  idleTimeLimit=2 >}}
 
 ## Setup
 
@@ -635,9 +643,9 @@ Let's grab the JEDEC ID from registers 0x3C and 0x3D.
 In a stunning coincidence, the JEDEC ID is 0x8A8C, which matches the Richtek RTQ5119A PMIC datasheet in the screenshot above.
 
 ## ```ddr5``` Command
-{{< termfile source="static/snippets/ddr5-command.html" >}}
+{{< asciicast src="/screencast/ddr5-command-cast.json" poster="npt:0:41"  idleTimeLimit=2 >}}
 
-All of this and more is automated by the ```ddr5``` command. It can read, write, verify, dump, lock and unlock the SPD hub non-volatile memory, decode the registers and even read the temperature sensor. 
+All of this demo and more is automated by the [```ddr5``` command]({{< relref "/docs/command-reference/#ddr5-probe-read-write-unlock-ddr5-sdram-modules">}}). It can read, write, verify, dump, lock and unlock the SPD hub non-volatile memory, decode the registers and even read the temperature sensor. Learn about the ```ddr5``` command in the [command reference]({{< relref "/docs/command-reference/#ddr5-probe-read-write-unlock-ddr5-sdram-modules">}}).
 
 ## Get a Bus Pirate
 

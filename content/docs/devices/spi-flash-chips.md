@@ -415,39 +415,7 @@ If the writing/reading process fails, check all connections. /HOLD & /WP pins mu
 
 {{< asciicast src="/screencast/nor-flash-command.json" poster="npt:1:08"  idleTimeLimit=2 >}}
 
-The [flash command]({{< relref "/docs/command-reference/#flash-readwriteerase-common-flash-chips" >}}) can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip by reading the SFDP tables. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back.
-
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">SPI></span> flash init
-Probing:
-		Device ID	Manuf ID	Type ID		Capacity ID
-RESID (0xAB)	0x13
-REMSID (0x90)	0x13		0xef
-RDID (0x9F)			0xef		0x40		0x14
-
-Initializing SPI flash...
-Flash device manufacturer ID 0xEF, type ID 0x40, capacity ID 0x14
-SFDP V1.5, 0 parameter headers
-		Type		Ver.	Length	Address
-Table 0		JEDEC (0x00)	1.5	64B	0x000080
-JEDEC basic flash parameter table info:
-MSB-LSB  3    2    1    0
-[0001] 0xFF 0xF1 0x20 0xE5
-...
-[0009] 0x00 0x00 0xD8 0x10
-4 KB Erase is supported throughout the device (instruction 0x20)
-Write granularity is 64 bytes or larger
-Flash status register is non-volatile
-3-Byte only addressing
-Capacity is 1048576 Bytes
-Flash device supports 4KB block erase (instruction 0x20)
-Flash device supports 32KB block erase (instruction 0x52)
-Flash device supports 64KB block erase (instruction 0xD8)
-Found a Winbond  flash chip (1048576 bytes)
-Flash device reset success
-{{< /term >}}
-
-```flash```, ```flash init```, and ```flash probe``` provide various levels of details about a flash chip. The flash command tries three common methods to identify a flash chip (RESID, REMSID, RDID), then attempts to read the SFDP tables.  
+The [flash command]({{< relref "/docs/command-reference/#flash-readwriteerase-common-flash-chips" >}}) can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip by reading the SFDP tables. If a chip doesn't have SFDP tables, the driver has a database of common chips to fall back on. 
 
 ## Get a Bus Pirate
 

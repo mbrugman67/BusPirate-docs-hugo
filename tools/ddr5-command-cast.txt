@@ -1,0 +1,22 @@
+m hiz
+c
+3
+2
+x
+rm bpi2c.bp
+# ddr5-command-cast
+m i2c # m i2c - enter I2C mode
+400 # 400kHz I2C speed
+1 # Disable clock stretching
+W 5 # W 5 - enable 5 volt power supply
+P # P - enable pull-up resistors
+ddr5 -h # ddr5 -h - show help
+ddr5 probe # Scan for DDR5 device info
+ddr5 dump # Dump DDR5 SPD data to console
+ddr5 read -f ddr5.bin # read DDR5 SPD data to file
+ddr5 write -f ddr5.bin # write DDR5 SPD data from file
+ddr5 verify -f ddr5.bin  # verify DDR5 SPD data against file
+ddr5 unlock -b 9 # unlock block 9
+ddr5 lock -b 9   # lock block 9
+ddr5 crc -f ddr5.bin  # calculate/verify CRC for DDR5 SPD data file
+# stop

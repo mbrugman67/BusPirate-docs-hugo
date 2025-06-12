@@ -1,0 +1,29 @@
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;ddr5&nbsp;-h
+usage:
+<span style="color:rgb(191,165,48)">ddr5&nbsp;[probe|dump|write|read|verify|lock|unlock|crc]
+	[-f&nbsp;&ltfile>]&nbsp;[-b&nbsp;&ltblock&nbsp;number>]&nbsp;[-h(elp)]</span>
+<span style="color:rgb(191,165,48)">Probe&nbsp;DDR5&nbsp;SPD:&nbsp;ddr5&nbsp;probe</span>
+<span style="color:rgb(191,165,48)">Show&nbsp;DDR5&nbsp;SPD&nbsp;NVM&nbsp;contents:&nbsp;ddr5&nbsp;dump</span>
+<span style="color:rgb(191,165,48)">Write&nbsp;SPD&nbsp;NVM&nbsp;from&nbsp;file,&nbsp;verify:&nbsp;ddr5&nbsp;write&nbsp;-f&nbsp;example.bin</span>
+<span style="color:rgb(191,165,48)">Read&nbsp;SPD&nbsp;NVM&nbsp;to&nbsp;file,&nbsp;verify:&nbsp;ddr5&nbsp;read&nbsp;-f&nbsp;example.bin</span>
+<span style="color:rgb(191,165,48)">Verify&nbsp;against&nbsp;file:&nbsp;ddr5&nbsp;verify&nbsp;-f&nbsp;example.bin</span>
+<span style="color:rgb(191,165,48)">Show&nbsp;NVM&nbsp;block&nbsp;lock&nbsp;status:&nbsp;ddr5&nbsp;lock&nbsp;-or-&nbsp;ddr5&nbsp;unlock</span>
+<span style="color:rgb(191,165,48)">Lock&nbsp;a&nbsp;NVM&nbsp;block&nbsp;0-15:&nbsp;ddr5&nbsp;lock&nbsp;-b&nbsp;0</span>
+<span style="color:rgb(191,165,48)">Unlock&nbsp;a&nbsp;NVM&nbsp;block&nbsp;0-15:&nbsp;ddr5&nbsp;unlock&nbsp;-b&nbsp;0</span>
+<span style="color:rgb(191,165,48)">Check/generate&nbsp;CRC&nbsp;for&nbsp;JEDEC&nbsp;blocks&nbsp;0-7:&nbsp;ddr5&nbsp;crc&nbsp;-f&nbsp;example.bin</span>
+<span style="color:rgb(191,165,48)">DDR5&nbsp;write&nbsp;file&nbsp;**MUST**&nbsp;be&nbsp;exactly&nbsp;1024&nbsp;bytes&nbsp;long</span>
+
+<span style="color:rgb(191,165,48)">read,&nbsp;write&nbsp;and&nbsp;probe&nbsp;DDR5&nbsp;SPD&nbsp;chips</span>
+<span style="color:rgb(150,203,89)">probe</span>	<span style="color:rgb(191,165,48)">Show&nbsp;DDR5&nbsp;SPD&nbsp;chip&nbsp;and&nbsp;NVM/EEPROM&nbsp;status</span>
+<span style="color:rgb(150,203,89)">dump</span>	<span style="color:rgb(191,165,48)">Display&nbsp;DDR5&nbsp;SPD&nbsp;NVM&nbsp;contents</span>
+<span style="color:rgb(150,203,89)">write</span>	<span style="color:rgb(191,165,48)">Write&nbsp;file&nbsp;to&nbsp;DDR5&nbsp;SPD&nbsp;NVM</span>
+<span style="color:rgb(150,203,89)">read</span>	<span style="color:rgb(191,165,48)">Read&nbsp;DDR5&nbsp;SPD&nbsp;NVM&nbsp;to&nbsp;a&nbsp;file</span>
+<span style="color:rgb(150,203,89)">verify</span>	<span style="color:rgb(191,165,48)">Verify&nbsp;DDR5&nbsp;SPD&nbsp;NVM&nbsp;against&nbsp;file</span>
+<span style="color:rgb(150,203,89)">lock</span>	<span style="color:rgb(191,165,48)">Lock&nbsp;DDR5&nbsp;SPD&nbsp;NVM&nbsp;block&nbsp;(64&nbsp;bytes&nbsp;per&nbsp;block)</span>
+<span style="color:rgb(150,203,89)">unlock</span>	<span style="color:rgb(191,165,48)">Unlock&nbsp;DDR5&nbsp;SPD&nbsp;NVM&nbsp;block</span>
+<span style="color:rgb(150,203,89)">crc</span>	<span style="color:rgb(191,165,48)">Calculate/verify&nbsp;CRC&nbsp;of&nbsp;JEDEC&nbsp;blocks&nbsp;0-7&nbsp;in&nbsp;a&nbsp;file</span>
+<span style="color:rgb(150,203,89)">-f</span>	<span style="color:rgb(191,165,48)">File&nbsp;flag.&nbsp;Speficy&nbsp;a&nbsp;file&nbsp;to&nbsp;write,&nbsp;read,&nbsp;verify&nbsp;or&nbsp;check&nbsp;CRC</span>
+<span style="color:rgb(150,203,89)">-b</span>	<span style="color:rgb(191,165,48)">Block&nbsp;flag.&nbsp;Speficy&nbsp;a&nbsp;DDR5&nbsp;SPD&nbsp;NVM&nbsp;block&nbsp;to&nbsp;lock&nbsp;or&nbsp;unlock&nbsp;(0&nbsp;-&nbsp;15)</span>
+<span style="color:rgb(150,203,89)">-h</span>	<span style="color:rgb(191,165,48)">help&nbsp;for&nbsp;Bus&nbsp;Pirate&nbsp;commands&nbsp;and&nbsp;modes</span>
+
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;
