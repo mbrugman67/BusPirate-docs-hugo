@@ -1,0 +1,17 @@
+[38;2;150;203;89mI2C>[0m&nbsp;[0x90&nbsp;0x00&nbsp;[0x91&nbsp;r:64]
+
+I2C&nbsp;START
+[38;2;191;165;48mTX:[0m&nbsp;0x[38;2;83;166;230m90[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;
+I2C&nbsp;REPEATED&nbsp;START
+[38;2;191;165;48mTX:[0m&nbsp;0x[38;2;83;166;230m91[0m&nbsp;ACK&nbsp;
+[38;2;191;165;48mRX:[0m&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m02[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m2C[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m20[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m04[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m05[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m60[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m60[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m60[0m&nbsp;ACK&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;0x[38;2;83;166;230m89[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m78[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m63[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m78[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m67[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m78[0m&nbsp;ACK&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;0x[38;2;83;166;230m63[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m90[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m9A[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m42[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m20[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m22[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m04[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m5A[0m&nbsp;ACK&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m80[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m04[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m0E[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m12[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m8A[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m8C[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m00[0m&nbsp;NACK&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+I2C&nbsp;STOP
+[38;2;150;203;89mI2C>[0m&nbsp;

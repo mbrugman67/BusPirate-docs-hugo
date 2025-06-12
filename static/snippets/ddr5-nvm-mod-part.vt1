@@ -1,0 +1,16 @@
+[38;2;150;203;89mI2C>[0m&nbsp;[0xa0&nbsp;0x89&nbsp;[&nbsp;0xa1&nbsp;r:30&nbsp;]
+
+I2C&nbsp;START
+[38;2;191;165;48mTX:[0m&nbsp;0x[38;2;83;166;230mA0[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m89[0m&nbsp;ACK&nbsp;
+I2C&nbsp;REPEATED&nbsp;START
+[38;2;191;165;48mTX:[0m&nbsp;0x[38;2;83;166;230mA1[0m&nbsp;ACK&nbsp;
+[38;2;191;165;48mRX:[0m&nbsp;'C'&nbsp;0x[38;2;83;166;230m43[0m&nbsp;ACK&nbsp;'T'&nbsp;0x[38;2;83;166;230m54[0m&nbsp;ACK&nbsp;'8'&nbsp;0x[38;2;83;166;230m38[0m&nbsp;ACK&nbsp;'G'&nbsp;0x[38;2;83;166;230m47[0m&nbsp;ACK&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;'4'&nbsp;0x[38;2;83;166;230m34[0m&nbsp;ACK&nbsp;'8'&nbsp;0x[38;2;83;166;230m38[0m&nbsp;ACK&nbsp;'C'&nbsp;0x[38;2;83;166;230m43[0m&nbsp;ACK&nbsp;'4'&nbsp;0x[38;2;83;166;230m34[0m&nbsp;ACK&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;'0'&nbsp;0x[38;2;83;166;230m30[0m&nbsp;ACK&nbsp;'U'&nbsp;0x[38;2;83;166;230m55[0m&nbsp;ACK&nbsp;'5'&nbsp;0x[38;2;83;166;230m35[0m&nbsp;ACK&nbsp;'.'&nbsp;0x[38;2;83;166;230m2E[0m&nbsp;ACK&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;'M'&nbsp;0x[38;2;83;166;230m4D[0m&nbsp;ACK&nbsp;'4'&nbsp;0x[38;2;83;166;230m34[0m&nbsp;ACK&nbsp;'A'&nbsp;0x[38;2;83;166;230m41[0m&nbsp;ACK&nbsp;'1'&nbsp;0x[38;2;83;166;230m31[0m&nbsp;ACK&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;'&nbsp;'&nbsp;0x[38;2;83;166;230m20[0m&nbsp;ACK&nbsp;'&nbsp;'&nbsp;0x[38;2;83;166;230m20[0m&nbsp;ACK&nbsp;'&nbsp;'&nbsp;0x[38;2;83;166;230m20[0m&nbsp;ACK&nbsp;'&nbsp;'&nbsp;0x[38;2;83;166;230m20[0m&nbsp;ACK&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;'&nbsp;'&nbsp;0x[38;2;83;166;230m20[0m&nbsp;ACK&nbsp;'&nbsp;'&nbsp;0x[38;2;83;166;230m20[0m&nbsp;ACK&nbsp;'&nbsp;'&nbsp;0x[38;2;83;166;230m20[0m&nbsp;ACK&nbsp;'&nbsp;'&nbsp;0x[38;2;83;166;230m20[0m&nbsp;ACK&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;'&nbsp;'&nbsp;0x[38;2;83;166;230m20[0m&nbsp;ACK&nbsp;'&nbsp;'&nbsp;0x[38;2;83;166;230m20[0m&nbsp;ACK&nbsp;'&nbsp;'&nbsp;0x[38;2;83;166;230m20[0m&nbsp;ACK&nbsp;'&nbsp;'&nbsp;0x[38;2;83;166;230m20[0m&nbsp;ACK&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;'&nbsp;'&nbsp;0x[38;2;83;166;230m20[0m&nbsp;ACK&nbsp;'&nbsp;'&nbsp;0x[38;2;83;166;230m20[0m&nbsp;NACK&nbsp;
+I2C&nbsp;STOP
+[38;2;150;203;89mI2C>[0m&nbsp;

@@ -1,48 +1,84 @@
 m hiz
 c
 3
-2
+1
 x
 rm bpi2c.bp
-# ddr5-reg-cast
+# ddr5-setup
 m i2c # m i2c - enter I2C mode
 400 # 400kHz I2C speed
 1 # Disable clock stretching
+# ddr5-w
 W 5 # W 5 - enable 5 volt power supply
+# ddr5-p
 P # P - enable pull-up resistors
+# ddr5-scan
 scan # scan - scan for I2C devices
+# ddr5-reg-dump
 [0xa0 0b00000000 [ 0xa1 r:128] # Dump SPD hub registers
+# ddr5-mr01
 [0xa0 0x00 [ 0xa1 r:2] # Read JEDEC 5118 device type
-[0xa0 0x24 [ 0xa1 r:1 ] # Read temperature sensor resolution
+# ddr5-mr36
+[0xa0 0x24 [ 0xa1 r] # Read temperature sensor resolution
+# ddr5-update-mr36
 [0xa0 0x24 0b00] # Set 9-bit temp. sensor resolution
+# ddr5-read-mr49
 [0xa0 0x31 [ 0xa1 r:2 ] # Read temp. sensor
+# ddr5-read-mr12
 [0xa0 0x0c [ 0xa1 r:2 ] # Read block protection bits
-= 0x03ff # Convert block bits from HEX to binary
-[0xa0 0x30 [ 0xa1 r:1 ] # Read device status register
+= 0xff # Convert block bits from HEX to binary
+= 0x03 
+# ddr5-read-status
+[0xa0 0x30 [ 0xa1 r] # Read device status register
 = 0x04 # Convert device status from HEX to binary
+# ddr5-set-legacy-mode
 [0xa0 0x0b 0b00000000] # Set legacy device mode, page 0
-[0xa0 0x0b [ 0xa1 r:1 ] # Read back device status to confirm
+[0xa0 0x0b [ 0xa1 r ] # Read back device status to confirm
+# ddr5-nvm-key-bytes
 [0xa0 0x0b 0x00] # Set legacy device mode, page 0
 [0xa0 0b10000000 [ 0xa1 r:4 ] # Read first 4 bytes of NVM
-[0xa0 0x0b 0x04] # Set legacy device more, page 4
+# ddr5-nvm-mod-jedec
+[0xa0 0x0b 0x04] # Set legacy device mode, page 4
 [0xa0 0b10000000 [ 0xa1 r:2 ] # Read module manuf. JEDEC ID
+# ddr5-nvm-mod-date
 [0xa0 0x83 [ 0xa1 r:2 ] # Read module manuf. date (Week/Year)
+# ddr5-nvm-mod-serial
 [0xa0 0x85 [ 0xa1 r:4 ] # Read module serial number
+# ddr5-nvw-mod-toascii
 o # Change output format to ASCII
 5
+# ddr5-nvm-mod-part
 [0xa0 0x89 [ 0xa1 r:30 ] # Read module part number (ASCII)
+# ddr5-nvm-mod-toauto
 o # Change output back to auto
 1
+# ddr5-nvm-dram-jedec
 [0xa0 0xa8 [ 0xa1 r:2 ] # Read DRAM manuf. JEDEC ID
+# ddr5-nvm-manuf-specific-data
 [0xa0 0xab [ 0xa1 r:85 ] # Check manuf. specific data area
+# ddr5-nvm-write-protect
 [0xa0 0x0c 0xff 0x3f] # Write protect blocks 0-13
-[0xa0 0x30 [ 0xa1 r:1 ] # Check for write complete
+# stop
+>D:100
+# ddr5-nvm-wp-write-complete
+[0xa0 0x30 [ 0xa1 r] # Check for write complete
 = 0x04 # Convert device status from HEX to binary
+# ddr5-nvm-wp-verify
 [0xa0 0x0c [ 0xa1 r:2 ] # Verify block protection bits
+# ddr5-nvm-blank-check
 [0xa0 0x0b 0x07] # Set legacy device mode, page 7 (blocks 14 & 15)
 [0xa0 0b10000000 [ 0xa1 r:16 ] # Read 16 bytes of NVM from block 14
+# ddr5-write-nvm
 [0xa0 0b10000000 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15] # Write 16 bytes of NVM
+# ddr5-nvm-write-verify
 [0xa0 0b10000000 [ 0xa1 r:16 ] # Read back 16 bytes of NVM from block 14
-[0xa0 0x3c [ 0xa1 r:2 ] # Read PMIC manuf. JEDEC ID
+# ddr5-dump-pmic
+[0x90 0x00 [0x91 r:64] # Dump PMIC registers
+# ddr5-pmic-jedec
+[0x90 0x3c [0x91 r:2] # Read PMIC manuf. JEDEC ID
 # stop
+[0xa0 0x0b 0x07] # page 7 (blocks 14 & 15)
+[0xa0 0b10000000 0x00:16] # Write 16 bytes of NVM
+> D:100
 [0xa0 0x0c 0xff 0x03] # Restore block protection bits 0-5
+> D:100

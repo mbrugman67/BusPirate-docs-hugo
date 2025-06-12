@@ -11,9 +11,21 @@ title = 'DDR5 SDRAM module'
 - SPD, or Serial Presence Detect, is a small EEPROM chip on the module that stores information about the memory, such as its size, speed, and timings.
 - From SODIMMs to DDR1-DDR5 modules have had SPD chips
 
+{{% alert context="warning" %}}
+If you only want to backup or restore the SPD data without all the technical details, skip to the [```ddr5``` command]({{< relref "/docs/devices/ddr5/#ddr5-command">}}).
+{{% /alert %}}
+
 ![](/images/docs/demo/ddr5-datasheet-front-view.png)
 
 - DDR5 is a major evolution of memory module design. While previous RAM modules had a simple EEPROM, DDR5 has a "SPD hub" chip that contains EEPROM memory but also temperature monitoring/alarms. The SPD hub in turn configures the PMIC (Power Management IC) that generates the voltages used to supply the memory ships. DDR5 ram ragulates its own voltages from a 5 volt supply, giving more granuality and control over the memory power supply. 
+
+## Resources
+
+This demo was made possible by several resources:
+- UniIC [SCA08GU04M1F1C-48B UDIMM](https://www.unisemicon.com/uploadfile/2023/0228/20230228015919223.pdf) and [SCA32GS13M1F1C-48B SODIMM](https://www.unisemicon.com/uploadfile/2023/0228/20230228104504760.pdf) for DDR5 module pinout and connections
+- ABLIC [S-34HTS08AB](https://www.ablic.com/en/doc/datasheet/dimm_serial_eeprom_spd/S34HTS08AB_E.pdf) for the SPD hub interface and registers
+- [JEDEC JESD400-5C](https://www.jedec.org/system/files/docs/JESD400-5C.pdf) for the SPD hub non-volatile memory organization and contents
+- Richtek [RTQ5119A](https://www.richtek.com/assets/product_file/RTQ5119A/DSQ5119A-02.pdf) for PMIC interface and registers
 
 ## Connections
 
@@ -21,37 +33,55 @@ title = 'DDR5 SDRAM module'
 
 |Bus Pirate|DDR5 UDIMM (288 pins)|DDR5 SODIMM (262 pins)|Description|   
 |-|-|-|-|
-|SDA (IO0)|HSDA (5)|HSDA (6)|I2C Data (3.3volt)|
-|SCL (IO1)|HSCL (4)|HSCL (4)|I2C Clock (3.3volt)|
-|--|PWR_EN(151)|PWR_EN (8)|Power Enable, connect to 3.3 volts|
-|--|HSA (148)|HSA (2)|Host Sideband Address, connect to ground for address 0|
-|--|BULK_VIN (1)|BULK_VIN (1)|Bulk Voltage Input, connect to 5 volts|
+|SDA (IO0)|HSDA (5)|HSDA (6)|I2C Data (3.3volt) **must be level translated**|
+|SCL (IO1)|HSCL (4)|HSCL (4)|I2C Clock (3.3volt) **must be level translated**|
+|VOUT (5 volts)|BULK_VIN (3)|BULK_VIN (1)|Bulk Voltage Input, connect to 5 volts|
 |GND|GND (150)|GND(9)|Ground|
+|--|PWR_EN(151)|PWR_EN (8)|Power Enable, connect to 3.3 volts|
+|--|HSA (148)|HSA (2)|Host Sideband Address, connect to ground for address 0 (Offline Mode)|
 |--|PWR_GOOD (147)|PWR_GOOD (7)|Power Good, optional (low for error)|
 
-- Which pins
--table for UDIMM SODIMM
-- not all power or supply need to be connected
+**HSDA** and **HSCL** are the I2C data and clock pins. 
 
-**HSDA** and **HSCL** are the I2C bus pins. **PWR_EN** enables the DDR5 module power supply when connected to 3.3 volts.
+**HSA** sets the SPD and PMIC I2C address. Motherboards accept multiple DDR5 modules, so each module needs a unique I2C address. A pull-down resistor connected to the HSA pin sets the last four bits of the base I2C address (0x50). When **HSA** is connected to ground the module goes into a special *offline service mode* that allows us to change write protected portions of the EEPROM. 
 
-Motherboards can accept multiple DDR5 modules, so each module needs a unique I2C address. A pull-down resistor connected to the HSA pin sets the last four bits of the base I2C address (0x50). When **HSA** is connected to ground the module goes into a special service mode that allows us to override write protected portions of the EEPROM. 
+**BULK_VIN** is the single 5 volt power supply for the SDP hub and PMIC, which generates a precision ~1.1 volt supply for the DDR memory chips. 
 
-**BULK_VIN** is the single 5 volt power supply for the SDP hub and PMIC, which generates a precision ~1.1 volt supply for the DDR memory chips. There are multiple BULK_VIN and **GND** pins on the module, but only one if each needs to be connected to access the SPD hub.
+{{% alert context="warning" %}}
+There are multiple **BULK_VIN** and **GND** pins on a DDR5 module, but only one of each needs to be connected to access the SPD hub.
+{{% /alert %}}
+
+**PWR_EN** enables the DDR5 module power supply when connected to 3.3 volts.
 
 **PWR_GOOD** is an open drain output signal from the PMIC. If the power is stable this pin will float, but if the supply is interrupted it will pull low. This might be useful for diagnosing a faulty DDR5 module power supply.
 
 {{% alert context="danger" %}}
 The DDR5 HSDA and HSCL pins **must** be no more than 3.3 volts, but the DDR5 module is powered by 5 volts! 
-- Run Bus Pirate at 3.3 volts and power BULK_VIN with an external 5 volt supply.
-- Run the Bus Pirate IO at 5 volts and use a 3.3 volt level shifter to connect the HSDA and HSCL pins.
+- Use the DDR5 plank which has a 3.3 volt regulator and level shifters for the I2C pins. The Bus Pirate VOUT should be 5 volts, the plank takes care of the rest. 
+- Bus Pirate VOUT set to 3.3 volts, power I2C pins **and** BULK_VIN from the 3.3 volt VOUT supply. This seems to work but the PWR_GOOD indicator will show a power supply fault.
+- Bus Pirate VOUT at 3.3 volts to power the I2C pins, power BULK_VIN from an external 5 volt supply. Don't forget to connect the common ground pins of each supply and the DDR5 module.
 {{% /alert %}}
 
+ 
 ## DDR5 adapter board
+
+//image
 
 {{% readfile "/_common/_footer/_footer-cart.md" %}}
 
-It's possible to gently solder wires on to each pad of the chip, but a KF-011C (or similar) smart card socket is useful if you don't want to destroy the card.
+Soldering wires directly to a DDR5 module will probably render it unusable. Get a spare socket or adapter from your favorite supplier.
+
+Alternatively, the DDR5 adapter plank makes it easy to work with DDR5 UDIMM and SODIMM modules:
+- 288 pin DDR5 UDIMM socket for standard desktop memory modules
+- 262 pin DDR5 SODIMM socket for laptop memory modules
+- Accepts a single 5 volt power supply
+- A 3.3 volt regulator supplies the I2C and PWR_EN pins
+- A level shifter ensures the I2C pins HSDA and HSCL are never more than 3.3 volts
+- HSA is pulled to ground to put the module in offline mode
+
+|Bus Pirate|DDR5 adapter plank|Description|
+|-|-|-|
+|VOUT|
 
 {{% alert context="info" %}}
 A [smart IC card and SIM card adapter]({{< relref "/docs/overview/sim-iccard-adapter" >}}) is available for Bus Pirate 5 with the correct connections already set. The adapter accepts most ISO 7816-3 smart cards and mini/micro/nano SIM cards. 
@@ -64,30 +94,30 @@ A [smart IC card and SIM card adapter]({{< relref "/docs/overview/sim-iccard-ada
 
 ## Setup
 
-{{< termfile source="static/snippets/24c02-setup.html" >}}
+{{< termfile source="static/snippets/ddr5-setup.html" >}}
 
-24C02 IC cards use the common and friendly [I2C interface]({{< relref "/docs/command-reference/#i2c" >}}). Speeds under 100kHz should work with most cards, though speed demons might try up to 400kHz.
+The DDR5 SPD hub uses the common and friendly [I2C interface]({{< relref "/docs/command-reference/#i2c" >}}). Speeds of 100kHz, 400kHz, and 1MHz are supported.
 
 - ```m i2c``` - change to [**I2C**]({{< relref "/docs/command-reference/#i2c" >}}) [mode]({{< relref "/docs/command-reference/#m-set-bus-mode" >}}).
-- ```100``` - configure I2C for **100kHz**.
+- ```400``` - configure I2C for **400kHz**.
 - ```1``` - disable clock stretching.
-
-{{% alert context="info" %}}
-Original I2C EEPROM cards were slow and highly limited by early EEPROM technology. The new cards available today generally use more modern EEPROM devices, but there's no way to know exactly what modern features it may have unless the manufacturer provides a datasheet. Even a datasheet is no guarantee that the chip used in the card will match.
-{{% /alert %}}
 
 ### Power supply
 
-{{< termfile source="static/snippets/24c02-power.html" >}}
+{{< termfile source="static/snippets/ddr5-w.html" >}}
 
-This is old tech - it needs a 5 volt power supply.
+DDR5 modules need a 5 volt BULK_VIN power supply, **but remember that the I2C pins HSDA and HSCL must be no more than 3.3 volts**. We're using the DDR5 adapter plank which has a 3.3 volt regulator and level shifters for the I2C pins. The Bus Pirate VOUT should be 5 volts, the plank takes care of the rest.
 
 - ```W 5``` - enable the [onboard power supply]({{< relref "/docs/command-reference/#ww-power-supply-offon" >}}) at 5 volts.
 
-### Pull-up resistors
-{{< termfile source="static/snippets/24c02-pullup.html" >}}
+{{% alert context="danger" %}}
+Refer to the [power supply requirements]({{< relref "/docs/devices/ddr5/#connections">}}) above to avoid damaging your DDR5 module. The DDR5 module is powered by 5 volts, but the I2C pins HSDA and HSCL must be no more than 3.3 volts. 
+{{% /alert %}}
 
-I2C is an open collector output bus, the Bus Pirate and the 24C02 can only pull the line low to 0 (ground). A pull-up resistor is needed to pull the line high to 1 (5 volts). The Bus Pirate has built-in pull-up resistors that can be enabled with the ```P``` command.
+### Pull-up resistors
+{{< termfile source="static/snippets/ddr5-p.html" >}}
+
+I2C is an open collector output bus, the Bus Pirate and the SPD chip can only pull the line low to 0 (ground). A pull-up resistor is needed to pull the line high to 1 (5 volts). The Bus Pirate has built-in pull-up resistors that can be enabled with the ```P``` command.
 - ```P``` - Enable the [onboard pull-up resistors]({{< relref "/docs/command-reference/#pp-pull-up-resistors">}}).
 
 {{% alert context="warning" %}} 
@@ -98,18 +128,20 @@ Be sure to enable the pull-up resistors. The data line will never go high withou
 
 ![](/images/docs/demo/ddr5-datasheet-address.png)
 
-{{< termfile source="static/snippets/24c02-scan.html" >}}
+The DDR5 SPD hub has a base I2C address of 0x50. Bits 3 to 1 of the address are set by the HSA pin, which is pulled low to ground in this demo (0b000). This gives us a final I2C address of 0x50 (0xA0 write, 0xA1 read).
 
-Let's see if we can find the card I2C address. We could look in the datasheet, or we can be lazy and run an I2C [address scan]({{< relref "/docs/command-reference/#scan-i2c-address-search">}}).
+Image source: ABLIC [S-34HTS08AB](https://www.ablic.com/en/doc/datasheet/dimm_serial_eeprom_spd/S34HTS08AB_E.pdf) datasheet.
+
+{{< termfile source="static/snippets/ddr5-scan.html" >}}
+
+Let's see if we can find the I2C address with the I2C [address scan]({{< relref "/docs/command-reference/#scan-i2c-address-search">}}).
 - ```scan``` - Scan the I2C bus for devices
 
-The scanner found an I2C device at address 0x50 (0xA0 write, 0xA1 read). That's the 24C02 EEPROM.
+The scanner found an I2C device at address 0x50 (0xA0 write, 0xA1 read). That's the SPD hub chip. The second device at 0x48 (0x90 write, 0x91 read) is the [PMIC (Power Management IC)]({{< relref "/docs/devices/ddr5/#power-management-ic">}}) that generates the voltages for the DDR5 memory chips. 
 
 {{% alert context="info" %}} 
 If the scanner doesn't find the device, ensure the power supply is enabled ```W 5``` and the pull-up resistors are enabled ```P```. Also check that slide switches SW1 and SW2 select VOUT and GND respectively.
 {{% /alert %}}
-
-
 
 ## SPD Hub Memory Areas
 
@@ -120,18 +152,21 @@ The SPD hub has two different memory areas:
 - **Non-Volatile Memory** - 1024 byte EEPROM that stores JEDEC 5118 standard SPD data such as the memory size, speed, and timings.
 
 Accessing the SPD hub follows the common I2C pattern of setting the address pointer, then reading or writing data. **Here's the trick**: the MemReg bit (bit 7) of the register address determines which memory area to access. 
-- If MemReg is 0, the registers are accessed
-- If MemReg is 1, the non-volatile memory is accessed
+- **0b```0```xxxxxxx** - If MemReg is 0, the registers are accessed. The lower 7 bits select register byte 0-127.
+- **0b```1```xxxxxxx** - If MemReg is 1, the EEPROM/NVM is accessed. The lower 7 bits select byte 0-127 in the current NVM page (0-7).
 
+{{% alert context="info" %}}
+Screenshots for the SPD hub IC sourced from ABLIC [S-34HTS08AB](https://www.ablic.com/en/doc/datasheet/dimm_serial_eeprom_spd/S34HTS08AB_E.pdf) datasheet.
+{{% /alert %}}
 
 ## SPD Hub Registers
 ![](/images/docs/demo/ddr5-datasheet-regmap.png)
 
-Let's look a the registers first. We can read out all 128 bytes with a single I2C transaction. 
+Here's a list of registers in the SPD hub. There's 128 bytes total, but a lot of them are reserved for future use.
 
-{{< termfile source="static/snippets/.html" >}}
+{{< termfile source="static/snippets/ddr5-reg-dump.html" >}}
 
-We'll start reading at address 0, with MemReg set to 0 to access the registers. The write and read command **must** be separated by an I2C repeated start, the address pointer will reset to 0 after any STOP bit.
+We can dump all 128 bytes with a single I2C transaction. We'll start reading at address 0, with MemReg set to 0 to access the registers. The write and read command **must** be separated by an I2C repeated start, the address pointer will reset to 0 after any STOP bit.
 
 - ```[``` - I2C START bit
 - ```0xa0``` - I2C address and write bit
@@ -150,11 +185,15 @@ Let's break it down and look at a few of the interesting registers.
 Register 0 and 1 contain the device type, 0x5118 for SPD5 hub with temperature sensor. The designers were being cute - 5118 is the JEDEC standard number for DDR5 SPD hubs.
 
 {{< termfile source="static/snippets/ddr5-mr01.html" >}}
+
+Reading two bytes starting at register 0 (0x00) gives us the device type.
 - ```[ 0xa0 0x00 [ 0xa1 r:2 ]``` - Read the first two registers.
+
+The device type is 0x5118, we have a DDR5 SPD hub with temperature sensor.
 
 ### Temperature Sensor
 
-Hold on! Reading the temperature is quite the ride.
+Hang on tight! Reading the temperature is quite the ride, [skip if you like]({{< relref "/docs/devices/ddr5/#eeprom-block-protection-bits">}}).
 1. Read the temperature sensor resolution from register 36 (0x24).
 2. Read the temperature from register 49 and 50 (0x31, 0x32).
 3. Shift some bits around.
@@ -165,9 +204,9 @@ Hold on! Reading the temperature is quite the ride.
 
 First we need to know the currently configured temperature sensor resolution. This is stored in register 36 (0x24). 
 
-{{< termfile source="static/snippets/ddr5-mr24.html" >}}
+{{< termfile source="static/snippets/ddr5-mr36.html" >}}
 
-- ```[ 0xa0 0x24 [ 0xa1 r:1 ]``` - Read the temperature sensor resolution from register 36 (0x24).
+- ```[ 0xa0 0x24 [ 0xa1 r ]``` - Read the temperature sensor resolution from register 36 (0x24).
 
 Register 36 is currently 0x00, so each bit of the temperature reading is 0.5 degrees Celsius.
 
@@ -183,8 +222,8 @@ Use the [```=``` convert format command]({{< relref "/docs/command-reference/#x-
 Is your default resolution something other than 9 bits? Let's change it to 9 bits so it matches this demo.
 {{% /alert %}}
 
+{{< termfile source="static/snippets/ddr5-update-mr36.html" >}}
 
-{{< termfile source="static/snippets/ddr5-mr24-write.html" >}}
 Write 0b00 to register 36 (0x24) to set the temperature sensor resolution to 9 bits (0.5 degrees Celsius per bit).
 - ```[ 0xa0 0x24 0b00]``` - Write the temperature sensor resolution to register 36 (0x24).
 
@@ -195,7 +234,17 @@ You can repeat the [previous step]({{< relref "/docs/devices/ddr5/#temperature-s
 
 Registers 49 and 50 (0x31, 0x32) contain the current temperature sensor measurement.
 
-{{< termfile source="static/snippets/ddr5-mr4950.html" >}}
+{{< term >}}
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;[0xa0&nbsp;0x31&nbsp;[&nbsp;0xa1&nbsp;r:2&nbsp;]
+
+I2C&nbsp;START
+<span style="color:rgb(191,165,48)">TX:</span>&nbsp;0x<span style="color:rgb(83,166,230)">A0</span>&nbsp;ACK&nbsp;0x<span style="color:rgb(83,166,230)">31</span>&nbsp;ACK&nbsp;
+I2C&nbsp;REPEATED&nbsp;START
+<span style="color:rgb(191,165,48)">TX:</span>&nbsp;0x<span style="color:rgb(83,166,230)">A1</span>&nbsp;ACK&nbsp;
+<span style="color:rgb(191,165,48)">RX:</span>&nbsp;0x<span style="color:rgb(83,166,230)">54</span>&nbsp;ACK&nbsp;0x<span style="color:rgb(83,166,230)">01</span>&nbsp;NACK&nbsp;
+I2C&nbsp;STOP
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;
+{{</ term >}}
 
 - ```[ 0xa0 0x31 [ 0xa1 r:2 ]``` - Read the temperature from registers 49 and 50 (0x31, 0x32).
 
@@ -230,23 +279,20 @@ The next three sections are SPD registers that control how the EEPROM/Non-Volati
 
 The SPD EEPROM is made up of 16 block of 64 bytes each. Each block can be protected by setting the corresponding bit in register 12 and 13 from 0 to 1.
 
-{{< termfile source="static/snippets/ddr5-mr1213.html" >}}
+{{< termfile source="static/snippets/ddr5-read-mr12.html" >}}
 
 Read register 12 and 13 (0x0C, 0x0D) to see the current block protection configuration.
 - ```[ 0xa0 0x0c [ 0xa1 r:2 ]``` - Read the block protection bits from registers 12 and 13 (0x0C, 0x0D).
 
 The JEDEC standard directs that manufacturers protect blocks 0 to 9, though some don't lock 8 and 9. 
 
-- 0x03 0xFF = 0b0000'0011'1111'1111, so blocks 0 to 9 are protected.
+- **0xFF** = 0b1111'1111, blocks 7 to 0 are protected.
+- **0x03** = 0b0000'0011, blocks 9 to 8 are protected.
 
-To write protect additional blocks, set the corresponding bit in register 12 and 13 to 1. For example write 0xFF 0xFF to write protect all blocks: 
-
-- ```[0xa0 0x0c 0xff 0xff]``` - Write protect all blocks.
-
-It is always possible to protect new blocks, but **write protection cannot be disabled (change 1 to 0) unless the module is in offline mode, with the HSA pin connected to ground**. 
+To write protect additional blocks, set the corresponding bit in register 12 and 13 to 1. For example write 0xFF 0xFF to write protect all blocks. **Don't do this without first backing up the EEPROM**!
 
 {{% alert context="warning" %}}
-Write protection cannot be disabled unless the module is in offline mode, with the HSA pin connected to ground.
+It is always possible to protect new blocks, but **write protection cannot be disabled (change 1 to 0) unless the module is in offline mode, with the HSA pin connected to ground**. 
 {{% /alert %}}
 
 ### Device Status Register
@@ -254,9 +300,9 @@ Write protection cannot be disabled unless the module is in offline mode, with t
 
 The Device Status register (48, 0x30) has two especially useful bits. 
 
-{{< termfile source="static/snippets/ddr5-mr1213.html" >}}
+{{< termfile source="static/snippets/ddr5-read-status.html" >}}
 
-- ```[0xa0 0x30 [ 0xa1 r:1 ]``` - Read the device status register from register 48 (0x30).
+- ```[0xa0 0x30 [ 0xa1 r ]``` - Read the device status from register 48 (0x30).
 
 Device status is 0x04 = 0b0000'0100. Let's decipher the bits with the datasheet.
 
@@ -264,25 +310,34 @@ Device status is 0x04 = 0b0000'0100. Let's decipher the bits with the datasheet.
 
 Bit 2 is set to 1, indicating the module is in **offline mode**. This means the HSA pin is connected to ground and we can remove write protection from the EEPROM blocks. 
 
-Bit 3 is set to 0, indicating that there is no write operation in progress. Writing to the EEPROM **and** updating the block protection registers take time, so the SPD hub sets this bit to 1 while a write is in progress.
+Bit 3 is set to 0, indicating that there is no write operation in progress. Writing to the EEPROM **and** updating the block protection registers take time, the SPD hub sets this bit to 1 while a write is in progress.
 
 ### Legacy Mode and Page Setting
 
 ![](/images/docs/demo/ddr5-datasheet-mr11.png)
 
-Our final stop on the tour of registers is the Legacy Mode Device Configuration register (11, 0x0B). Bit 3 controls how we select where in the EEPROM to read and write when the [MemReg bit]({{< relref "/docs/devices/ddr5/#spd-hub-memory-areas">}}) is high.
+Our final stop on the tour of registers is the Legacy Mode Device Configuration register (11, 0x0B). Bit 3 controls how we select where to read and write in the EEPROM when the [MemReg bit]({{< relref "/docs/devices/ddr5/#spd-hub-memory-areas">}}) is high.
+
+#### 1 Byte Address Mode
 
 ![](/images/docs/demo/ddr5-datasheet-1byteadd.png)
 
-The EEPROM is divided into 8 pages of 128 bytes. In **Legacy Mode** (register 11 bit 3 = 0) when MemReg bit is 1 in the byte following the write address, the lower seven bits select byte 0-127 in the EEPROM page (Blk_Addr[0] + Address[5:0]). Bits 2:0 in the Legacy Mode Device Configuration register select page 0-7. 
+The EEPROM is divided into 8 pages of 128 bytes. In **Legacy Mode** (register 11 bit 3 = 0) when MemReg bit is 1:
 
-Two transaction are needed to change between pages. 
+- The lower seven bits select byte 0-127 in the EEPROM page (Blk_Addr[0] + Address[5:0]).
+- Bits 2:0 in the Legacy Mode Device Configuration register select page 0-7. 
+
+Two transactions are needed to change between pages. 
 1. A write to the Legacy Mode Device Configuration register to set the page. 
 2. A write to the EEPROM with the MemReg bit set to 1 and the lower 7 bits set to the byte address within the page. 
 
+#### 2 Byte Address Mode
+
 ![](/images/docs/demo/ddr5-datasheet-2byteadd.png)
 
-The EEPROM is divided into 8 pages of 128 bytes. In **2 Byte Addressing mode** (register 11 bit 3 = 1) when the MemReg bit is 1 in the byte following the write address, the lower seven bits select bytes 0-127 in the EEPROM  (Blk_Addr[0] + Address[5:0]). A second address byte selects page 0-7 (Blk_Addr[4:1]).
+The EEPROM is divided into 8 pages of 128 bytes. In **2 Byte Addressing mode** (register 11 bit 3 = 1) when the MemReg bit is 1:
+- The lower seven bits select bytes 0-127 in the EEPROM  (Blk_Addr[0] + Address[5:0]). 
+- A second address byte selects page 0-7 (Blk_Addr[4:1]).
 
 {{% alert context="warning" %}}
 Non-Legacy Mode is easier to use because the page is selected with a second address byte. **However**, if the Legacy Mode configuration is wrong the second byte can be interpreted as data and will be accidentally written to the EEPROM. We're going to stick with legacy mode for the added safety.
@@ -293,12 +348,12 @@ This description is only partly accurate. Technically when MemReg is 1 bit 6 is 
 {{% /alert %}}
 
 
-{{< termfile source="static/snippets/ddr5-mr11.html" >}}
+{{< termfile source="static/snippets/ddr5-set-legacy-mode.html" >}}
 
 Legacy Mode addressing should be enabled by default, but let's configure and verify it anyway.
 
 - ```[0xa0 0x0b 0b00000000]``` - Set the Legacy Mode Device Configuration register to 0, enabling legacy mode and setting the page to 0.
-- ```[0xa0 0x0b [ 0xa1 r:1 ]``` - Read the Legacy Mode Device Configuration register to verify it was set correctly.
+- ```[0xa0 0x0b [ 0xa1 r ]``` - Read the Legacy Mode Device Configuration register to verify it was set correctly.
 
 Now we have the tools to read and write the SPD hub non-volatile memory. 
 
@@ -323,9 +378,9 @@ Normally we like to provide screenshots of actual datasheets to explain how devi
 
 This is a simplified table of the SPD hub non-volatile memory organization. 
 
-### Read Key Bytes
+### Key Bytes
 
-{{< termfile source="static/snippets/ddr5-read-key.html" >}}
+{{< termfile source="static/snippets/ddr5-nvm-key-bytes.html" >}}
 
 The first four bytes are key to identifying a DDR5 module. First we need to set the Legacy Page address to 0, then the location to read inside page 0 with the MemReg bit set to 1. 
 - ```[0xa0 0x0b 0x00]``` - Set Legacy Mode page pointer to page 0.
@@ -340,17 +395,17 @@ The first four bytes are key to identifying a DDR5 module. First we need to set 
 |0010|UDIMM|
 |0011|SODIMM|
 
-The upper four bits are used to indicate hybrid module types, which we won't cover here.
+The upper four bits of byte 3 are used to indicate hybrid module types, which we won't cover here.
 
 **Byte 0 bits 4 to 6 (0x30 = 0b0```011```'000) encode the EEPROM size**. This should be 011 for DDR5 SDP5112, 1024 bytes total.
 
-**Byte 1 (0x10 = 0b0001'0000) encode the SPD revision**. The high four bits are the major revision, the low four bits are the minor revision. 0x10 is revision 1.0.
+**Byte 1 (0x10 = 0b0001'0000) encodes the SPD revision**. The high four bits are the major revision, the low four bits are the minor revision. 0x10 is revision 1.0.
 
 {{% alert context="info" %}}
 After the key bytes there is information about the SDRAM chips on the module: capacity, organization, speed, timings, etc. See the [JEDEC JESD400-5C](https://www.jedec.org/document_search?search_api_views_fulltext=JESD400-5C) standard for all the juicy details.
 {{% /alert %}}
 
-### Read Manufacturer Info
+### Manufacturer Info
 
 | Byte Number | Address   | Description                        | 
 |-------------|-----------|---------------------------------------------|
@@ -368,7 +423,7 @@ The manufacturer information is stored in block 8 and 9, equivalent to page 4.
 {{% /alert %}}
 
 #### Module Manufacturer JEDEC ID
-{{< termfile source="static/snippets/ddr5-read-manufacturer.html" >}}
+{{< termfile source="static/snippets/ddr5-nvm-mod-jedec.html" >}}
 
 First we need to set the Legacy Page address to 4, then we can read the manufacturer JEDEC ID from the non-volatile memory.
 - ```[0xa0 0x0b 0x04]``` - Set Legacy Mode page pointer to page 4.
@@ -377,7 +432,8 @@ First we need to set the Legacy Page address to 4, then we can read the manufact
 0x859B is the JEDEC ID for Crucial Technology. JEDEC maintains a list, but it's easier to find it with a web search. 
 
 #### Module Manufacture Date
-{{< termfile source="static/snippets/ddr5-read-manufacturer.html" >}}
+{{< termfile source="static/snippets/ddr5-nvm-mod-date.html" >}}
+
 Read the module manufacturing date from registers 515 and 516 (0x203, 0x204). The date is encoded as a year and week number.
 - ```[0xa0 0x0b 0x04]``` - Set Legacy Mode page pointer to page 4.
 - ```[0xa0 0x83 [ 0xa1 r:2 ]``` - Read the module manufacturing date.
@@ -389,7 +445,8 @@ At this stage we'll stop writing the MemReg and address values in binary, and in
 {{% /alert %}}
 
 #### Module Serial Number
-{{< termfile source="static/snippets/ddr5-read-manufacturer.html" >}}
+{{< termfile source="static/snippets/ddr5-nvm-mod-serial.html" >}}
+
 Read the module serial number from registers 517 to 520 (0x205 to 0x208). The serial number is a 32-bit value.
 - ```[0xa0 0x0b 0x04]``` - Set Legacy Mode page pointer to page 4.
 - ```[0xa0 0x85 [ 0xa1 r:4 ]``` - Read the module serial number.
@@ -397,25 +454,28 @@ Read the module serial number from registers 517 to 520 (0x205 to 0x208). The se
 0xE6FFB785 is the serial number, and it matches the serial printed on the module under the QR code.
 
 #### Module Part Number
-{{< termfile source="static/snippets/ddr5-read-manufacturer.html" >}}
-
+{{< termfile source="static/snippets/ddr5-nvw-mod-toascii.html" >}}
 
 {{% alert context="warning" %}}
 The part number is a string of ASCII characters, so we'll change the Bus Pirate [output format]({{< relref "/docs/command-reference/#o-data-output-display-format">}}) to ASCII (type ```o```, choose ASCII).
 {{% /alert %}}
 
-The part number is an 30 character ASCII text string starting at register 521 (0x209). 
+{{< termfile source="static/snippets/ddr5-nvm-mod-part.html" >}}
+
+The part number is a 30 character ASCII text string starting at register 521 (0x209). 
 - ```[0xa0 0x0b 0x04]``` - Set Legacy Mode page pointer to page 4.
 - ```[0xa0 0x89 [ 0xa1 r:30 ]``` - Read the module part number.
 
 The part number string is "CT8G48C40U5.M4A1".
+
+{{< termfile source="static/snippets/ddr5-nvm-mod-toauto.html" >}}
 
 {{% alert context="warning" %}}
 Change the Bus Pirate [output format]({{< relref "/docs/command-reference/#o-data-output-display-format">}}) back to AUTO before continuing (type ```o```, choose AUTO).
 {{% /alert %}}
 
 #### DRAM Manufacturer JEDEC ID
-{{< termfile source="static/snippets/ddr5-read-manufacturer.html" >}}
+{{< termfile source="static/snippets/ddr5-nvm-dram-jedec.html" >}}
 
 There is a second JEDEC ID specifically to encode the DRAM chip manufacturer. We can grab this from registers 552 and 553 (0x228, 0x229).
 - ```[0xa0 0x0b 0x04]``` - Set Legacy Mode page pointer to page 4.
@@ -424,7 +484,8 @@ There is a second JEDEC ID specifically to encode the DRAM chip manufacturer. We
 0x802C is the JEDEC ID for Micron Technology. Again, easiest to find with a web search.
 
 #### Manufacturer Specific Data
-{{< termfile source="static/snippets/ddr5-read-manufacturer.html" >}}
+{{< termfile source="static/snippets/ddr5-nvm-manuf-specific-data.html" >}}
+
 The last section is manufacturer specific data. This is a free area that can be used for anything the manufacturer wants, so it varies widely between manufacturers. It may contain additional overclocking profiles in EXPO (AMD) or XMP (Intel) format, it may also contain special keys that unscrupulous manufacturers use to lock a system to their specific brand of RAM module.
 - ```[0xa0 0x0b 0x04]``` - Set Legacy Mode page pointer to page 4.
 - ```[0xa0 0xab [ 0xa1 r:85 ]``` - Read the manufacturer specific data from registers 555 to 637 (0x22B to 0x27D).
@@ -444,8 +505,8 @@ Before writing to the SPD hub non-volatile memory, make sure you have a [backup 
 We're going to write a 16 byte page in the End User Programmable area of the SPD hub non-volatile memory, block 15. Despite the name, manufacturers do use this area to store overclocking profiles and other data. **It is NOT safe to write in this area**.
 
 ### Unlock NVM Block Protection
+{{< termfile source="static/snippets/ddr5-nvm-write-protect.html" >}}
 
-{{< termfile source="static/snippets/ddr5-unlock-nvm.html" >}}
 According to the JEDEC standard, the End User Programmable area is not write protected by default. Let's update the [EEPROM Block Protection Bits]({{< relref "/docs/devices/ddr5/#eeprom-block-protection-bits">}}) to make sure block 14 & 15 are not write protected.
 
 - ```[0xa0 0x0c 0xff 0x3f]``` - Write protect all blocks except block 14 & 15.
@@ -453,11 +514,10 @@ According to the JEDEC standard, the End User Programmable area is not write pro
 Writing 0xff (0b1111'1111) to register 12 (0x0C) write protects block 7-0. The next byte 0x7f (0b0011'1111) programs register 13 to protect blocks 8-13, while leaving blocks 14 & 15 unprotected. 
 
 #### Poll For Write Operation to Complete
-
-{{< termfile source="static/snippets/ddr5-unlock-nvm.html" >}}
+{{< termfile source="static/snippets/ddr5-nvm-wp-write-complete.html" >}}
 
 Block protection is a persistent non-volatile setting that sticks even after power off. The SPD hub will take a few milliseconds to write the new block protection settings. We need to check in on our friend from earlier, the [Device Status Register]({{< relref "/docs/devices/ddr5/#device-status-register">}}), to see when the write is complete.
-- ```[0xa0 0x30 [ 0xa1 r:1 ]``` - Read the device status register to check if the write operation is complete.
+- ```[0xa0 0x30 [ 0xa1 r ]``` - Read the device status register to check if the write operation is complete.
 
 Bit 3 is set to 0 (0x04 = 0b0000'```0```100), indicating the write operation is complete. The block protection bits are now set to protect all blocks except block 15.
 
@@ -467,7 +527,7 @@ Since we're typing these commands manually, the write opertion is complete by th
 
 ##### Verify Write Protection Bits
 
-{{< termfile source="static/snippets/ddr5-unlock-nvm.html" >}}
+{{< termfile source="static/snippets/ddr5-nvm-wp-verify.html" >}}
 
 Let's verify the block protection bits are set correctly. We can read registers 12 and 13 (0x0C, 0x0D) to check the current block protection configuration.
 - ```[0xa0 0x0c [ 0xa1 r:2 ]``` - Read the block protection bits from registers 12 and 13 (0x0C, 0x0D).
@@ -488,11 +548,11 @@ Before writing to the SPD hub non-volatile memory, make sure you have a [backup 
 In this step we will read 16 bytes **before** writing to verify it is empty. If you see anything other then 0x00s then **ABSOLUTLY DO NOT WRITE TO THAT LOCATION**. It is likely that area is already programmed with some data, and writing to it will make the module unbootable or unusable.
 {{% /alert %}}
 
-{{< termfile source="static/snippets/ddr5-read-nvm.html" >}}
+{{< termfile source="static/snippets/ddr5-nvm-blank-check.html" >}}
 
 First let's read the target block to make sure it is empty. We'll read the 16 bytes starting from byte 0 of block 14 (page 7).
 - ```[0xa0 0x0b 0x07]``` - Set Legacy Mode page pointer to page 7 (block 14 & 15).
-- ```[0xa0 0b10000000 [ 0xa1 r:16 ]``` - Read the 16 bytes from the non-volatile memory.
+- ```[0xa0 0b10000000 [ 0xa1 r:16 ]``` - Read 16 bytes from non-volatile memory.
 
 Every byte should be 0x00 if the bytes are empty.
 
@@ -500,27 +560,79 @@ Every byte should be 0x00 if the bytes are empty.
 If you see anything other than 0x00s, then **ABSOLUTELY DO NOT WRITE TO THAT LOCATION**. It is likely that area is already programmed with some data, and writing to it will make the module unbootable or unusable.
 {{% /alert %}}
 
-### Write 16 Byte Page
+### Write 16 Bytes
 
 {{< termfile source="static/snippets/ddr5-write-nvm.html" >}}
 
 The EEPROM is written 16 bytes at a time. Each write page must also be aligned to a 16 byte boundary, so the address of the first byte of the write page must be 0, 16, 32, etc. We'll write 16 bytes of data to the non-volatile memory beginning at byte 0 of block 14.
 - ```[0xa0 0x0b 0x07]``` - Set Legacy Mode page pointer to page 7 (block 14 & 15).
-- ```[0xa0 0b10000000 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]```
+- ```[0xa0 0b10000000 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]``` - Write 16 bytes.
 
 {{% alert context="info" %}}
-Again, if you were writing a script or program to automate this, you would need to poll the [Device Status Register]({{< relref "/docs/devices/ddr5/#device-status-register">}}) until bit 3 is 0 to ensure the write operation is complete. We're moving slow enough that the write is complete by the next step.
+If you were writing a script or program to automate this, you would need to poll the [Device Status Register]({{< relref "/docs/devices/ddr5/#device-status-register">}}) until bit 3 is 0 to ensure the write operation is complete. We're moving slow enough that the write is complete by the next step.
 {{% /alert %}}
 
-### Verify 16 Byte Page
+### Verify 16 Bytes
 
-{{< termfile source="static/snippets/ddr5-verify-nvm.html" >}}  
+{{< termfile source="static/snippets/ddr5-nvm-write-verify.html" >}}  
 
 Finally! let's read back the 16 byte page we just wrote to verify it was written correctly.
 - ```[0xa0 0x0b 0x07]``` - Set Legacy Mode page pointer to page 7 (block 14 & 15).
 - ```[0xa0 0b10000000 [ 0xa1 r:16 ]``` - Read the 16 byte page from the non-volatile memory.
 
 The read data should match the data we wrote: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15.
+
+## Power management IC
+![](/images/docs/demo/ddr5-datasheet-unisemicon-pmic.png)
+
+Remember the second set of I2C addresses we found in the I2C address scan? The second device is the power management IC (PMIC) that generates voltages used by the SRAM chips. 
+
+The SPD **hub** is a hub because it contains the JEDEC SPD data for using the module, configures the PMIC and passes data through to the PMIC. 
+
+The PWR_EN and PWR_GOOD pin on the DDR5 module are actually connected to pins on the PMIC. PWR_GOOD is called CAMP (Control And Monitor Port), an open drain output. PWR_GOOD/CAMP is an input when the voltage is normal, and pulls low when the voltage is out of range. 
+
+{{% alert context="warning" %}}
+On complex DDR5 modules, like DDR5 RDIMMs for servers, there are even more chips that are controlled by the SPD hub. 
+{{% /alert %}}
+
+{{% alert context="info" %}}
+Screenshots for the PMIC sourced from Richtek [RTQ5119A](https://www.richtek.com/assets/product_file/RTQ5119A/DSQ5119A-02.pdf) datasheet.
+{{% /alert %}}
+
+### PMIC Memory Areas
+
+![](/images/docs/demo/ddr5-datasheet-unisemicon-regmap.png)
+
+There doesn't really apear to anything super interesting in the PMIC registers to poke at. It's mostly used by the SPD hub to configure PMIC voltage and current levels, power sequencing, and other power management features. 
+
+{{% alert context="info" %}}
+The DIMM Vendor area has a region password protected by a 16 bit password that seems ripe for a fun brute force attack. Not sure to what end though.
+{{% /alert %}}
+
+### Dump PMIC Registers
+
+{{< termfile source="static/snippets/ddr5-dump-pmic.html" >}} 
+
+We can dump the PMIC registers just like we did with the SPD hub registers. The PMIC appears to have 256 bytes of registers, but let's just dump the first 64.
+- ```[ 0x90 0x00 [ 0x91 r:64 ]``` - Read the first 64 bytes of PMIC registers from byte 0.
+
+You can see that there's something in there. Most of the higher addresses have limited access and seem to return 0x00 without some kind of additional configuration.
+
+## PMIC JEDEC Vendor ID
+![](/images/docs/demo/ddr5-datasheet-unisemicon-jedec.png)
+
+This PMIC datasheet shows a JEDEC ID at register 0x3C and 0x3D.
+
+{{% alert context="info" %}}
+PMIC registers are also defined by a JEDEC standard, but you can get a free and friendly version in the datasheet for the [Richtek RTQ5119A](https://www.richtek.com/assets/product_file/RTQ5119A/DSQ5119A-02.pdf). 
+{{% /alert %}}
+
+{{< termfile source="static/snippets/ddr5-pmic-jedec.html" >}}
+
+Let's grab the JEDEC ID from registers 0x3C and 0x3D.
+- ```[0xa0 0x3c [ 0xa1 r:2 ]``` - Read the PMIC JEDEC vendor ID from registers 0x3C and 0x3D.
+
+In a stunning coincidence, the JEDEC ID is 0x8A8C, which matches the Richtek RTQ5119A PMIC datasheet in the screenshot above.
 
 ## ```ddr5``` Command
 {{< termfile source="static/snippets/ddr5-command.html" >}}
