@@ -1,6 +1,7 @@
 +++
 weight = 40212
 title = 'DDR5 SDRAM module I2C'
+katex = true
 +++  
 
 ![](/images/docs/demo/ddr5-plank-temp.jpg)
@@ -277,7 +278,14 @@ Put it all together:
 - 0b```0'001```0'1010 - The four bits from the high byte.
 - 0b0'001```0'1010``` - The five bits from the low byte.
 
-Converting from binary to decimal gives us 0b0'0010'1010 = 42. Multiply by the resolution multiplier of 0.5 degrees Celsius per bit to get 21 degrees Celsius. The sign bit is 0, so the temperature is a positive value. 
+Converting from binary to decimal gives us 0b0'0010'1010 = 42. 
+
+$$\text{Temp} = \left(\text{Multiplier} \times \text{value}\right)$$
+$$\text{Temp} = \left(0.5 \times \text{value}\right)$$
+$$\text{Temp} = \left(0.5 \times 42\right)$$
+$$\text{Temp} = 21 \text{c}\%$$
+
+Multiply by the resolution multiplier of 0.5 degrees Celsius per bit to get 21 degrees Celsius. The sign bit is 0, so the temperature is a positive value. 
 
 ### EEPROM Block Protection Bits
 {{% alert context="info" %}}
