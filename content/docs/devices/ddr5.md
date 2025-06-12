@@ -73,6 +73,7 @@ Soldering wires directly to a DDR5 module will probably render it unusable. Get 
 - A 3.3 volt regulator supplies the I2C and PWR_EN pins
 - A level shifter ensures the I2C pins HSDA and HSCL are never more than 3.3 volts
 - HSA is pulled to ground to put the module in offline mode
+- PWR_GOOD is connected to an LED indicator that lights when the PMIC reports a voltage error
 
 The DDR5 adapter plank is ready to use. 
 
