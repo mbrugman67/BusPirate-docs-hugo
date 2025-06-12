@@ -31,25 +31,24 @@ This demo was made possible by several resources:
 
 ![](/images/docs/demo/ddr5-connection.png)
 
-|Bus Pirate|DDR5 UDIMM (288 pins)|DDR5 SODIMM (262 pins)|Description|   
-|-|-|-|-|
-|SDA (IO0)|HSDA (5)|HSDA (6)|I2C Data (3.3volt) **must be level translated**|
-|SCL (IO1)|HSCL (4)|HSCL (4)|I2C Clock (3.3volt) **must be level translated**|
-|VOUT (5 volts)|BULK_VIN (3)|BULK_VIN (1)|Bulk Voltage Input, connect to 5 volts|
-|GND|GND (150)|GND(9)|Ground|
-|--|PWR_EN(151)|PWR_EN (8)|Power Enable, connect to 3.3 volts|
-|--|HSA (148)|HSA (2)|Host Sideband Address, connect to ground for address 0 (Offline Mode)|
-|--|PWR_GOOD (147)|PWR_GOOD (7)|Power Good, optional (low for error)|
+|DDR5 UDIMM (288 pins)|DDR5 SODIMM (262 pins)|Description|   
+|-|-|-|
+|HSDA (5)|HSDA (6)|I2C Data (3.3volt) **must be level shifted**|
+|HSCL (4)|HSCL (4)|I2C Clock (3.3volt) **must be level shifted**|
+|PWR_EN(151)|PWR_EN (8)|Power Enable, connect to 3.3 volts|
+|HSA (148)|HSA (2)|Host Sideband Address, connect to ground for address 0 (Offline Mode)|
+|PWR_GOOD (147)|PWR_GOOD (7)|Power Good, optional (low for error)|
+|BULK_VIN (3)|BULK_VIN (1)|Bulk Voltage Input, connect to 5 volts|
+|GND (150)|GND(9)|Ground|
 
-**HSDA** and **HSCL** are the I2C data and clock pins. 
+We only need to connect a few pins to access the SPD hub on a DDR5 module. The rest of the pins are used for power, data, and control signals.
 
-**HSA** sets the SPD and PMIC I2C address. Motherboards accept multiple DDR5 modules, so each module needs a unique I2C address. A pull-down resistor connected to the HSA pin sets the last four bits of the base I2C address (0x50). When **HSA** is connected to ground the module goes into a special *offline service mode* that allows us to change write protected portions of the EEPROM. 
-
-**PWR_EN** enables the DDR5 module power supply when connected to 3.3 volts.
-
-**PWR_GOOD** is an open drain output signal from the PMIC. If the power is stable this pin will float, but if the supply is interrupted it will pull low. This might be useful for diagnosing a faulty DDR5 module power supply.
-
-**BULK_VIN** is the single 5 volt power supply for the SDP hub and PMIC, which generates a precision ~1.1 volt supply for the DDR memory chips. 
+- **HSDA** and **HSCL** are the I2C data and clock pins. While the DDR5 module is powered by 5 volts, the I2C pins must be no more than 3.3 volts. Use a level shifter to connect these pins if needed. 
+- **HSA** sets the SPD and PMIC I2C address. Motherboards accept multiple DDR5 modules, so each module needs a unique I2C address. A pull-down resistor connected to the HSA pin sets the last four bits of the base I2C address (0x50). When HSA is connected to ground the module goes into a special *offline service mode* that allows us to change write protected portions of the EEPROM. 
+- **PWR_EN** enables the DDR5 module power supply when connected to 3.3 volts.
+- **PWR_GOOD** is an open drain output signal from the PMIC. If the power is stable this pin will float, but if the supply is interrupted it will pull low. This might be useful for diagnosing a faulty DDR5 module power supply.
+- **BULK_VIN** is the single 5 volt power supply for the SDP hub and PMIC. There are multiple BULK_VIN pins on a DDR5 module, but only one needs to be connected to access the SPD hub. 
+- **GND** is the ground pin. There are multiple GND pins on a DDR5 module, but only one needs to be connected to access the SPD hub.
 
 {{% alert context="warning" %}}
 There are multiple **BULK_VIN** and **GND** pins on a DDR5 module, but only one of each needs to be connected to access the SPD hub.
