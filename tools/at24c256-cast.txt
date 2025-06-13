@@ -1,0 +1,16 @@
+m hiz
+rm bpi2c.bp
+# at24c256-cast
+m i2c # m i2c - enter I2C mode
+100 # 100kHz I2C speed
+1 # Disable clock stretching
+W 5 50 # W 5 - enable 5 volt power supply
+P # P - enable pull-up resistors
+scan # scan - scan for I2C devices
+[0xa0 0x00 0x69 0x41 0x42 0x43] # Write 'A'(0x41) 'B'(0x42) 'C'(0x43) to address 0x69, 0x6A, 0x6B
+[0xa0 0x00 0x69] # Set address pointer to 0x69
+[0xa1 r:3] # Read 3 bytes from address 0x69
+w # w - disable PSU
+# stop
+m hiz
+

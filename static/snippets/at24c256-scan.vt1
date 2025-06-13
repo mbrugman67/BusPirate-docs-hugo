@@ -1,0 +1,8 @@
+[38;2;150;203;89mI2C>[0m&nbsp;scan
+I2C&nbsp;address&nbsp;search:
+[38;2;0;0;0;48;2;179;175;175m0x50&nbsp;(0xA0&nbsp;W)&nbsp;(0xA1&nbsp;R)[0m
+0x58&nbsp;(0xB0&nbsp;W)&nbsp;(0xB1&nbsp;R)
+[0m
+Found&nbsp;4&nbsp;addresses,&nbsp;2&nbsp;W/R&nbsp;pairs.
+[0m
+[38;2;150;203;89mI2C>[0m&nbsp;
