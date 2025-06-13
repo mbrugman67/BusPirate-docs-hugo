@@ -6,18 +6,27 @@ katex = true
 
 ![](/images/docs/demo/ddr5-plank-temp.jpg)
 
+DDR SDRAM modules are the memory sticks used in computers and laptops. DDR modules have a small EEPROM chip programmed with Serial Presence Detect (SPD) data. Motherboards use SPD data to configure DDR RAM and optimize performance. 
 
-- DDR5 SDRAM modules are the memory sticks used in computers and laptops. 
-- SPD, or Serial Presence Detect, is a small EEPROM chip on the module that stores information about the memory, such as its size, speed, and timings.
-- From SODIMMs to DDR1-DDR5 modules have had SPD chips
+DDR5 is the current latest DDR RAM standard. It has a much more complex SPD system than previous DDR versions, with integrated temperature monitoring and power management. We can use the Bus Pirate to learn about the DDR5 SPD system, and rescue modules with corrupted SPD data.
 
 {{% alert context="warning" %}}
 If you only want to backup or restore the SPD data without all the technical details, skip to the [```ddr5``` command]({{< relref "/docs/devices/ddr5/#ddr5-command">}}).
 {{% /alert %}}
 
-![](/images/docs/demo/ddr5-datasheet-front-view.png)
+![](/images/docs/demo/ddr5-datasheet-uniic-udimm-lg.png)
 
-- DDR5 is a major evolution of memory module design. While previous RAM modules had a simple EEPROM, DDR5 has a "SPD hub" chip that contains EEPROM memory but also temperature monitoring/alarms. The SPD hub in turn configures the PMIC (Power Management IC) that generates the voltages used to supply the memory ships. DDR5 ram ragulates its own voltages from a 5 volt supply, giving more granuality and control over the memory power supply. 
+DDR1 to DDR4 modules had a simple I2C EEPROM chip that stored configuration information used by the motherboard. Aside from a little storage, the modules were pretty dumb. DDR5 has several new components that make it a much smarter, more active device. 
+
+The **SPD hub** chip (U_HUB) has 1024 bytes of EEPROM memory to store configuration settings, but it also does much more. 
+- 1024 bytes of non-volatile memory for storing SPD data
+- Temperature sensor with 4 levels of temperature alarms and error management features
+- Configures the PMIC (Power Management IC) that supplies power to the memory chips
+- I2C interface for reading and writing the SPD data
+
+The **PMIC** (U_PMIC) is a sophisticated onboard power supply system for the RAM chips. In previous versions of DDR RAM the motherboard supplied all the voltages the memory chips need. The PMIC uses a single 5 volt supply to produce all the other voltages the memory chips use. The PMIC has much more control over the RAM power supply and quality, which decreases the effect of motherboard power supply noise on the memory chips. The PMIC also has an I2C interface. 
+
+Image source: [UniIC SCA08GU04M1F1C-48B UDIMM datasheet](https://www.unisemicon.com/uploadfile/2023/0228/20230228015919223.pdf)
 
 ## Resources
 
@@ -26,6 +35,21 @@ This demo was made possible by several resources:
 - ABLIC [S-34HTS08AB](https://www.ablic.com/en/doc/datasheet/dimm_serial_eeprom_spd/S34HTS08AB_E.pdf) for the SPD hub interface and registers
 - [JEDEC JESD400-5C](https://www.jedec.org/system/files/docs/JESD400-5C.pdf) for the SPD hub non-volatile memory organization and contents
 - Richtek [RTQ5119A](https://www.richtek.com/assets/product_file/RTQ5119A/DSQ5119A-02.pdf) for PMIC interface and registers
+
+## Warning and Disclaimer
+
+**Follow this guide at your own risk.** Don't experiment with expensive high capacity, high speed, overclocker-special DDR5. We picked up cheap 8GB sticks from an e-Waste recycler, and we don't care if they get damaged.
+
+{{% alert context="danger" %}}
+THE SOFTWARE, HARDWARE, AND TUTORIAL ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE, HARDWARE, AND TUTORIAL OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE, HARDWARE, AND TUTORIAL.
+{{% /alert %}}
+
 
 ## Connections
 

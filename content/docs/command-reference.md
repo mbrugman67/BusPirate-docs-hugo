@@ -1483,7 +1483,9 @@ Sniff I2C packets up to 500kHz.
 ### ```ddr5``` Probe, read, write, unlock DDR5 SDRAM modules
 {{< asciicast src="/screencast/ddr5-command-cast.json" poster="npt:0:41"  idleTimeLimit=2 >}}
 
-The ```ddr5``` command can probe, read, write, and unlock the SPD hub chip in DDR5 flash modules (UDIMM, SODIMM). This command can unlock SPD chips, backup SPD data and restore corrupted SPD tables. It can also be used to search for, and replicate, hidden entries unscrupulous manufacturers use to lock equipment to proprietary RAM modules.
+The ```ddr5``` command can probe, read, write, and unlock the SPD hub chip in [DDR5 SDRAM computer memory modules]({{< relref "/docs/devices/ddr5">}}) (UDIMM, SODIMM). 
+- Unlock SPD chips, backup SPD data and restore corrupted SPD tables. 
+- Search for, and replicate, hidden entries unscrupulous manufacturers use to lock equipment to proprietary RAM modules.
 
 {{< termfile source="static/snippets/ddr5-command-help.html" >}}
 
@@ -1621,6 +1623,7 @@ Command to read light intensity from a [TSL2561 sensor]({{< relref "/docs/device
 - [SI7021, HTU21, SHT21 Humidity & Temperature]({{% relref "/docs/devices/si7021/" %}})
 - [AT24C256 EEPROM]({{% relref "/docs/devices/at24c256/" %}})
 - [TSL2561 LUX Sensor]({{% relref "/docs/devices/tsl2561/" %}})
+- [DDR5 SDRAM modules]({{< relref "/docs/devices/ddr5">}})
 <!--
 
 ## ACK/NACK management
