@@ -104,7 +104,7 @@ The latest help for commands and modes is available in the help menu. This will 
 
 - ```<command> -h``` - show command specific help. For example, ```W -h``` shows help for the ```W``` command.
 
-## Configuration 
+## Basic commands 
 
 |Command | Description |
 |---|---|
