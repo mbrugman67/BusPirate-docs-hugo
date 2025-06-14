@@ -1,3 +1,9 @@
 {
-    "search.useIgnoreFiles": false
+    "search.useIgnoreFiles": false,
+    "markdown.editor.filePaste.copyIntoWorkspace": "mediaFiles",
+    "markdown.editor.filePaste.enabled": "smart",
+    "markdown.copyFiles.destination": {
+        "*.md": "/assets/images/docs/${documentBaseName}/",
+        //"*.md": "/content/docs/${documentRelativeFilePath}/${documentBaseName}/"
+    }
 }
