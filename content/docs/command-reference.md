@@ -765,10 +765,12 @@ commands.
 <span style="color:#96cb59">SPI></span>
 {{< /term >}}
 
-START commands generate a START condition (I2C), a RESET (1-Wire, LED), chip select (SPI) and have similar START type functions in most modes. A line beginning with START is interpreted as bus commands.
+START commands generate a START condition (I2C), a RESET (1-Wire, LED), chip select (SPI) and have similar START type functions in most modes. A line beginning with START is interpreted as bus commands. 
 
 - ```[``` - send the START condition for the currently selected bus mode.
 - ```{``` - send the alternate START condition for the currently selected bus mode.
+
+Check the protocol documentation below to see what START and alternate START do in each mode. [In SPI mode]({{< relref "/docs/command-reference/#bus-commands-5">}}), for example, ```[``` selects a chip, while ```{``` selects the chip and displays each byte received when data is written (write with read mode).
 
 {{% alert context="info" %}}
 Lines beginning with ```[``` and ```{``` are interpreted as bus commands, data will be sent to the device in the current protocol selected with the [```m``` command]({{% relref "/docs/command-reference/#m-set-bus-mode" %}}).
@@ -1719,7 +1721,7 @@ SPI is a common 4 wire full duplex protocol. Separate connections for data-in an
 |Command|Description|
 |-------|--------------|
 | [ | Chip select (CS) active |
-| \{ | Chip Select (CS) active, show the SPI read byte while writing|
+| \{ | Chip Select (CS) active, show the SPI read byte while writing (full duplex/write with read mode)|
 | ] or } | Chip Select (CS) disable|
 | r    | Read one byte by sending dummy byte (0xff). (r:1…255 for bulk reads) |
 | 0b      | Write this binary value. Format is 0b00000000 for a byte, but partial bytes are also fine: 0b1001.|
