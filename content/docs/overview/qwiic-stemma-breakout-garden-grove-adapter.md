@@ -45,10 +45,14 @@ Breakout Garden is a dual row PCB edge connector. The connections on each side a
 | Gravity   | JST PH 4P | 2.0mm |JST: S4B-PH-SM4-TB, Generic: HC-PH-4AWT|
 | Breakout Garden | PCB edge slot conn. 2 x 5P | 2.54mm |ED10BGFBK|
 
+## Thanks!
+
+A huge thank you to Funcan, kd7eir, grymoire, and henrygab for testing the various connectors with genuine breakout boards! 
+
 ## Resources
 
 -  [schematic and PCB]()
-- [Development thread]()
+- [Development thread](https://forum.buspirate.com/t/qwiic-stemma-qt-breakout-garden-grove-plank/1177)
 
 ## Get a Bus Pirate
 
