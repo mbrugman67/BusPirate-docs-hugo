@@ -7,6 +7,43 @@ title = 'Qwiic, Stemma (3P/4P/QT), Breakout Garden, Grove I2C Adapter'
 This is a placeholder for a future plank. 
 {{% /alert %}}
 
+## I2C Breakout Standards
+
+- Adafruit Industries: [Stemma 3P, Stemma 4P (I2C), Stemma QT](https://learn.adafruit.com/introducing-adafruit-stemma-qt/technical-specs)
+- SparkFun Electronics: [Qwiic](https://www.sparkfun.com/qwiic)
+- Seeed Studio: [Grove](https://wiki.seeedstudio.com/Grove_System/)
+- DFRobot: [Gravity](https://www.dfrobot.com/gravity)
+- Pimoroni: [Breakout Garden](https://shop.pimoroni.com/collections/breakout-garden)
+
+{{% alert context="info" %}}
+Adafruit's Stemma 3P is a single signal connector, not an I2C connector. 
+{{% /alert %}}
+
+## Pinout Table
+
+|Pin| Stemma 3P| Stemma 4P |Stemma QT| Qwiic | Grove | Gravity | Breakout Garden |
+|---|---|---|---|---|---|---|---|
+|1  |SIGNAL        |   SCL     |GND    |   GND |   GND | SDA       |   V+|
+|2  |V+         |   SDA     |V+     |   V+  |   V+  | SCL       |   SDA|
+|3  |GND       |   VOUT    |SDA    |   SDA |   SDA | GND       |   SCL|
+|4  |--         |   GND     |SCL    |   SCL |   SCL | V+        |   --|
+|5  |--         |   --      |--     |   --  |   --  | --        |   GND|
+
+{{% alert context="info" %}}
+Breakout Garden is a dual row PCB edge connector. The connections on each side are mirrored so boards can be inserted in both directions. The table above shows the pinout for a single row on one side.
+{{% /alert %}}
+
+## Connector Types
+
+|Standard | Connector | Pitch | Example Part Number |
+|---|---|---|---|
+| Stemma 3P | JST PH 3P | 2.0mm |JST: S3B-PH-SM4-TB, Generic: HC-PH-3AWT|
+| Stemma 4P | JST PH 4P | 2.0mm |JST: S4B-PH-SM4-TB, Generic: HC-PH-4AWT|
+| Stemma QT | JST SH 4P | 1.0mm |JST: SM04B-SRSS-TB, Generic: HC-1.0-4PWT|
+| Qwiic     | JST SH 4P | 1.0mm |JST: SM04B-SRSS-TB, Generic: HC-1.0-4PWT|
+| Grove     | "HY" 4P | 2.0mm |HY-4P, HY2.0-4P-SMD, A2008WR-S-4P|
+| Gravity   | JST PH 4P | 2.0mm |JST: S4B-PH-SM4-TB, Generic: HC-PH-4AWT|
+| Breakout Garden | PCB edge slot conn. 2 x 5P | 2.54mm |ED10BGFBK|
 
 ## Resources
 
