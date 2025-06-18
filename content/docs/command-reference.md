@@ -1749,7 +1749,6 @@ Looking for something like SPI, but with individual control over the clock and d
 - The master controls the clock and initiates all communication.
 
 #### Bus Pirate SPI syntax
-<!-- show example terminal output -->
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
 {{< /term >}}
