@@ -1363,7 +1363,7 @@ Use ```bridge -h``` to see the latest options and features.
 
 ![](/images/docs/fw/i2c-pulseview.png)
 
-I2C (Inter-Integrated Circuit) is a 2-wire protocol used for communication between devices. It uses two lines: **SDA** (data) and **SCL** (clock). The protocol supports multiple devices on the same bus, with each device identified by a unique 7-bit address.
+**I2C (Inter-Integrated Circuit)** is a 2-wire protocol used for communication between devices. It uses two lines: **SDA** (data) and **SCL** (clock). The protocol supports multiple devices on the same bus, with each device identified by a unique 7-bit address.
 
 #### **Start and Stop Conditions**
    - ```S``` - Each transaction begins with a **start condition** by pulling SDA low while SCL remains high.
@@ -1378,6 +1378,22 @@ I2C (Inter-Integrated Circuit) is a 2-wire protocol used for communication betwe
    - The first byte sent after a start condition contains the 7-bit device address and a **read/write bit**. In the logic analyzer trace the 7-bit address is 0b1010000 (0x50).
      - ```W``` - `0` for write operations (0b1010000`0` = 0xA0).
      - ```R``` - `1` for read operations (0b1010000`1` = 0xA1).
+
+#### **Bus Pirate I2C syntax**
+<!-- show example terminal output -->
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+{{< /term >}}
+{{% alert context="info" %}}
+```[0xA0 0x00 [0xA1 r]``` is the Bus Pirate syntax for this I2C transaction:
+- ```[``` - I2C start condition
+- ```0xA0``` - Write the device address `0xA0`, which is the 7-bit address `0x50` with the write/read bit cleared (0).
+- ```0x00``` - Write the command `0x00`, which is often used to select a register or command.
+- ```[``` - I2C repeat start condition.
+- ```0xA1``` - Write the device address `0xA1`, which is the 7-bit address `0x50` with the write/read bit set (1).
+- ```r``` - Read one byte from SDA, which will be the data from the device.
+- ```]``` - I2C stop condition.
+{{% /alert %}}
 
 ### Configuration options
 
@@ -1701,6 +1717,50 @@ and then sends the stop condition.
 {{% alert context="info" %}}
 SPI is a common 4 wire full duplex protocol. Separate connections for data-in and data-out allow communication to and from the controller at the same time. Multiple sub devices can share the bus, but each will need an individual Chip Select (CS) connection. Chip Select is generally active when low.
 {{% /alert %}} 
+
+{{% alert context="warning" %}}
+Looking for something like SPI, but with individual control over the clock and data pins? Check out [3WIRE]({{< relref "/docs/command-reference/#3-wire">}}) and [2WIRE]({{< relref "/docs/command-reference/#2-wire">}}) mode.
+{{% /alert %}}
+
+### SPI Protocol Overview
+
+![alt text](/images/docs/command-reference/image-4.png)
+
+**SPI (Serial Peripheral Interface)** is a synchronous serial communication protocol commonly used for short-distance communication between a master device and one or more sub devices. SPI uses four main lines: **SCLK** (clock), **MOSI** (Master Out Sub In), **MISO** (Master In Sub Out), and **CS** (Chip Select).
+
+#### Communication Sequence
+
+- **CS (Chip Select)**: Communication begins when the master pulls the CS line low, selecting the sub device.
+- **Master Transmission**: The master sends one or more bytes over MOSI. In this example, the master writes `0x9F`.
+- **Data Response**: After receiving data, the sub device can respond by sending data back over MISO. In this sequence, the sub device responds with `0xEF`, `0x40`, and `0x14`.
+- **CS High**: Communication ends when the master releases the CS line (sets it high).
+
+#### Data Flow Example
+
+1. **CS goes low** to select the device.
+2. **Master writes** `0x9F` (command) on MOSI.
+3. **Sub device responds** with `0xEF`, `0x40`, `0x41` on MISO, one bit per clock cycle.
+4. **CS goes high** to end the transaction.
+
+#### Notes
+
+- SPI is full-duplex: data can be sent and received simultaneously.
+- There is no addressing on the bus; each device is selected individually using its CS line.
+- The master controls the clock and initiates all communication.
+
+#### Bus Pirate SPI syntax
+<!-- show example terminal output -->
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+{{< /term >}}
+
+{{% alert context="info" %}}
+```[0x9f r:3]``` is the Bus Pirate syntax for this SPI transaction:
+- ```[``` - CS low (active).
+- ```0x9f``` - Write the command `0x9F` on MOSI.
+- ```r:3``` - Read 3 bytes from MISO, which are `0xEF`, `0x40`, and `0x14`.
+- ```]``` - CS high (inactive).
+{{% /alert %}}
 
 ### Connections
 
@@ -2077,14 +2137,14 @@ DIO is a mode with no specific protocol. All the Bus Pirate pins are free for us
 {{% /alert %}} 
 
 
-## LED
+## LED - WS2812/SK6812/'NeoPixel'
 
--   **Bus:** [WS2812/SK6812/'NeoPixel'](https://www.mouser.com/pdfDocs/WS2812B-2020_V10_EN_181106150240761.pdf) one wire, [APA102/SK9822](https://www.mouser.com/datasheet/2/737/APA102_2020_SMD_LED-2487271.pdf) two wire
--   **Connections:** one or two data pins (SDO, SCL), and ground
+-   **Bus:** [WS2812/SK6812/'NeoPixel'](https://www.mouser.com/pdfDocs/WS2812B-2020_V10_EN_181106150240761.pdf) one wire
+-   **Connections:** one data pin (SDO), and ground
 -   **Output type:** 1.65-5volts
 -   **Maximum voltage:** 5volts
 
-WS2812/SK6812 and APA102/SK9822 are common RGB LEDs with a one and two wire interface. 
+WS2812/SK6812 are common RGB LEDs with a one wire interface. 
 
 {{% alert context="danger" %}}
 LEDs are power hungry, up to 60mA each at full brightness. The programmable power supply is rated for 300mA maximum. The LEDs will need an external power supply when driving more than a few in a strip.
@@ -2093,14 +2153,48 @@ LEDs are power hungry, up to 60mA each at full brightness. The programmable powe
 
 ### Connections
 
-### WS2812/SK6812/'NeoPixel'
-
 | Bus Pirate | Direction       | Circuit | Description   |
 |------------|--------------------------|---------|---------------|
 | SDO       | <font size="+2">→</font> | DIN     | Serial Data Out   |
 | GND        | <font size="+2">⏚</font> | GND     | Signal Ground |
 
-### APA102/SK9822
+### Configuration options
+
+{{< termfile source="static/snippets/cmdref-mode-led-config.html" >}}
+
+### Bus commands
+
+|Command|Description|
+|-------|--------------|
+| [ or \{ | Reset (low for >280us)|
+| ] or } | --|
+| 0b      | Write this binary value. Format is 0b00000000 for a byte, but partial bytes are also fine: 0b1001.|
+| 0x      | Write this HEX value. Format is 0x01. Partial bytes are fine: 0xA. A-F can be lower-case or capital letters. |
+| 0-255   | Write this decimal value. Any number not preceded by 0x or 0b is interpreted as a decimal value. |
+| ```space```| Value delimiter. Use a space to separate numbers. No delimiter is required between non-number values: \{0xa6 0 0 16 5 0b111 0xaF rrrr}. |
+
+{{% readfile "/_common/other-commands.md" %}}
+
+### Device demos
+
+- [Onboard SK6812 LED demo]({{% relref "/docs/tutorial-basics/leds-demo/" %}})
+- [WS2812/SK6812/'NeoPixel' LED strip demo]({{% relref "/docs/devices/ws2812-sk6812-neopixel/" %}})
+
+## LED - APA102/SK9822
+
+-   **Bus:** [APA102/SK9822](https://www.mouser.com/datasheet/2/737/APA102_2020_SMD_LED-2487271.pdf) two wire
+-   **Connections:** two data pins (SDO, SCL), and ground
+-   **Output type:** 1.65-5volts
+-   **Maximum voltage:** 5volts
+
+APA102/SK9822 are common RGB LEDs with a two wire interface. 
+
+{{% alert context="danger" %}}
+LEDs are power hungry, up to 60mA each at full brightness. The programmable power supply is rated for 300mA maximum. The LEDs will need an external power supply when driving more than a few in a strip.
+{{% /alert %}}
+
+
+### Connections
 
 | Bus Pirate | Direction                     | Circuit | Description   |
 |------------|--------------------------|---------|---------------|
@@ -2116,8 +2210,8 @@ LEDs are power hungry, up to 60mA each at full brightness. The programmable powe
 
 |Command|Description|
 |-------|--------------|
-| [ or \{ | Reset (APA102: low for >280us), Start Frame (WS2812: 0x00000000) |
-| ] or } | End Frame (WS2812: 0xffffffff)|
+| [ or \{ | Start Frame (0x00000000) |
+| ] or } | End Frame (0xffffffff)|
 | 0b      | Write this binary value. Format is 0b00000000 for a byte, but partial bytes are also fine: 0b1001.|
 | 0x      | Write this HEX value. Format is 0x01. Partial bytes are fine: 0xA. A-F can be lower-case or capital letters. |
 | 0-255   | Write this decimal value. Any number not preceded by 0x or 0b is interpreted as a decimal value. |
@@ -2127,15 +2221,13 @@ LEDs are power hungry, up to 60mA each at full brightness. The programmable powe
 
 ### Device demos
 
-- [Onboard SK6812 LED demo]({{% relref "/docs/tutorial-basics/leds-demo/" %}})
-- [WS2812/SK6812/'NeoPixel' LED strip demo]({{% relref "/docs/devices/ws2812-sk6812-neopixel/" %}})
 - [APA102/SK9822 LED strip demo]({{% relref "/docs/devices/apa102-sk9822/" %}}) 
  
-## INFRARED
+## INFRARED - RAW
 
--   **Bus:** Infrared (IR) remote control (raw, RC5, NEC)
--   **Connections:** one data pin (IR) and ground
--   **Output type:** push-pull (1.65-5volts)
+-   **Bus:** Infrared (IR) signals (raw)
+-   **Connections:** one transmit pin, one receive pin and ground
+-   **Output type:** open drain input, push-pull ouput (1.65-5volts)
 -  **Maximum voltage:** 5volts
 
 {{% alert context="info" %}}
@@ -2158,7 +2250,6 @@ Infrared is a mode for sending and receiving infrared signals. The Bus Pirate ca
 
 ### Bus commands
 
-
 {{% readfile "/_common/other-commands.md" %}}
 
 ### ```tvbgone```
@@ -2178,6 +2269,76 @@ Transmit IR signals (aIR format)
 {{% alert context="info" %}}
 Receive, record, retransmit IR signals (aIR format)
 {{% /alert %}}
+
+### Device demos
+
+- [Infrared Remote Controls]({{% relref "/docs/devices/infrared-remote-control/" %}})
+
+
+## INFRARED - NEC
+
+-   **Bus:** NEC Infrared (IR) remote control protocol
+-   **Connections:** one transmit pin, one receive pin and ground
+-   **Output type:** open drain input, push-pull ouput (1.65-5volts)
+-  **Maximum voltage:** 5volts
+
+{{% alert context="info" %}}
+Infrared is a mode for sending and receiving infrared signals. The Bus Pirate can send and receive  RC5 and NEC protocols, and raw IR signals. Compatible with the [IR Toy v3 plank]({{% relref "/docs/overview/infrared-toy-v3/" %}}).
+{{% /alert %}}
+
+### Connections
+
+| Bus Pirate | Direction                     | Circuit | Description   |
+|------------|--------------------------|---------|---------------|
+| BARR (IO3) | <font size="+2">←</font> | 38K BARRIER      | 38kHz IR barrier receiver |
+| IRTX (IO4) | <font size="+2">→</font> | TRANSMIT      | IR transmitter LED |
+| 38K (IO5) |<font size="+2">←</font> | 38K DEMODULATOR      | 36-40kHz IR demodulator |
+| 56K (IO7) |<font size="+2">←</font> | 56K DEMODULATOR      | 56kHz IR demodulator |
+<!-- | LERN (IO1) | <font size="+2">←</font> | LEARNER      | 20-60kHz IR learner receiver  |-->
+
+### Configuration options
+
+{{< termfile source="static/snippets/cmdref-mode-infrared-config.html" >}}
+
+### Bus commands
+
+{{% readfile "/_common/other-commands.md" %}}
+
+
+### Device demos
+
+- [Infrared Remote Controls]({{% relref "/docs/devices/infrared-remote-control/" %}})
+
+
+## INFRARED - RC5
+
+-   **Bus:** RC5 Infrared (IR) remote control protocol
+-   **Connections:** one transmit pin, one receive pin and ground
+-   **Output type:** open drain input, push-pull ouput (1.65-5volts)
+-  **Maximum voltage:** 5volts
+
+{{% alert context="info" %}}
+Infrared is a mode for sending and receiving infrared signals. The Bus Pirate can send and receive  RC5 and NEC protocols, and raw IR signals. Compatible with the [IR Toy v3 plank]({{% relref "/docs/overview/infrared-toy-v3/" %}}).
+{{% /alert %}}
+
+### Connections
+
+| Bus Pirate | Direction                     | Circuit | Description   |
+|------------|--------------------------|---------|---------------|
+| BARR (IO3) | <font size="+2">←</font> | 38K BARRIER      | 38kHz IR barrier receiver |
+| IRTX (IO4) | <font size="+2">→</font> | TRANSMIT      | IR transmitter LED |
+| 38K (IO5) |<font size="+2">←</font> | 38K DEMODULATOR      | 36-40kHz IR demodulator |
+| 56K (IO7) |<font size="+2">←</font> | 56K DEMODULATOR      | 56kHz IR demodulator |
+<!-- | LERN (IO1) | <font size="+2">←</font> | LEARNER      | 20-60kHz IR learner receiver  |-->
+
+### Configuration options
+
+{{< termfile source="static/snippets/cmdref-mode-infrared-config.html" >}}
+
+### Bus commands
+
+
+{{% readfile "/_common/other-commands.md" %}}
 
 ### Device demos
 

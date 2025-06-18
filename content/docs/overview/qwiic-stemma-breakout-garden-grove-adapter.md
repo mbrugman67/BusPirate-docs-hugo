@@ -7,6 +7,12 @@ title = 'Qwiic, Stemma (3P/4P/QT), Breakout Garden, Grove I2C Adapter'
 This is a placeholder for a future plank. 
 {{% /alert %}}
 
+One fabulous I2C quick connect adapter to rule them all! The quick connect adapter combines the most popular I2C breakout standards in one Bus Pirate compatible plank.
+
+I2C is a simple communication protocol used by many sensors and devices. Over the years, manufacturers created "standard" connections for I2C breakout boards for quick solder-free prototyping. All have the same basic four connections: power (V+), ground (GND), I2C Serial Data (SDA), and I2C Serial Clock (SCL). However, the pinout and connector types vary. 
+
+
+
 ## I2C Breakout Standards
 
 - Adafruit Industries: [Stemma 3P, Stemma 4P (I2C), Stemma QT](https://learn.adafruit.com/introducing-adafruit-stemma-qt/technical-specs)
