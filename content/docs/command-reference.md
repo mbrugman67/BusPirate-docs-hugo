@@ -1380,20 +1380,21 @@ Use ```bridge -h``` to see the latest options and features.
      - ```R``` - `1` for read operations (0b1010000`1` = 0xA1).
 
 #### **Bus Pirate I2C syntax**
-<!-- show example terminal output -->
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-{{< /term >}}
+{{< termfile source="static/snippets/cmdref-i2c-example.html" >}}
+
 {{% alert context="info" %}}
-```[0xA0 0x00 [0xA1 r]``` is the Bus Pirate syntax for this I2C transaction:
+```[0xA0 0x00 [0xA1 r]``` is the Bus Pirate syntax for the I2C example above.
+{{% /alert %}}
+
 - ```[``` - I2C start condition
 - ```0xA0``` - Write the device address `0xA0`, which is the 7-bit address `0x50` with the write/read bit cleared (0).
-- ```0x00``` - Write the command `0x00`, which is often used to select a register or command.
+- ```0x00``` - Write the command `0x00`, which is often used to select a register or address.
 - ```[``` - I2C repeat start condition.
 - ```0xA1``` - Write the device address `0xA1`, which is the 7-bit address `0x50` with the write/read bit set (1).
 - ```r``` - Read one byte from SDA, which will be the data from the device.
 - ```]``` - I2C stop condition.
-{{% /alert %}}
+
 
 ### Configuration options
 
@@ -1750,16 +1751,17 @@ Looking for something like SPI, but with individual control over the clock and d
 
 #### Bus Pirate SPI syntax
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-{{< /term >}}
+{{< termfile source="static/snippets/nor-jedecid.html" >}}
 
 {{% alert context="info" %}}
-```[0x9f r:3]``` is the Bus Pirate syntax for this SPI transaction:
+```[0x9f r:3]``` is the Bus Pirate syntax for the SPI example above.
+{{% /alert %}}
+
 - ```[``` - CS low (active).
 - ```0x9f``` - Write the command `0x9F` on MOSI.
 - ```r:3``` - Read 3 bytes from MISO, which are `0xEF`, `0x40`, and `0x14`.
 - ```]``` - CS high (inactive).
-{{% /alert %}}
+
 
 ### Connections
 
