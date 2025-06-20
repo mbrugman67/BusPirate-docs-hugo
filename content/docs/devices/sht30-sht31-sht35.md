@@ -4,9 +4,9 @@ title = 'SHT30, SHT31 and SHT35 Humidity & Temperature I2C'
 katex = true
 +++
 
-![](/images/docs/demo/si7021.jpg)
+![](/images/docs/sht30-sht31-sht35/sht3x.jpg)
 
-SHT30, SHT31 and SHT35 measure temperature (-40 to 125C) and humidity (0-100%). They're a significant upgrade to the previous [SHT2x]({{< relref "/docs/devices/si7021/">}}) series, with a wider temperature and humidity range, higher accuracy, and a simpler interface.
+[SHT30, SHT31 and SHT35](https://sensirion.com/media/documents/213E6A3B/63A5A569/Datasheet_SHT3x_DIS.pdf) measure temperature (-40 to 125C) and humidity (0-100%). They're a significant upgrade to the previous [SHT2x]({{< relref "/docs/devices/si7021/" >}}) series, with a wider temperature and humidity range, higher accuracy, and a simpler interface.
 
 | Feature | SHT30           | SHT31                | SHT35                | SHT2x Series         |
 |-------------|-------------|----------------------|----------------------|----------------------|
@@ -84,7 +84,7 @@ Be sure to enable the pull-up resistors. Without them, the clock data line will 
 We need the correct I2C address to talk to the sensor. We could look in the datasheet, or we can run the handy [I2C address scanner]({{< relref "/docs/command-reference/#scan-i2c-address-search">}}).
 - ```scan``` - Scan the I2C bus for devices
 
-The scanner found an I2C device at address 0x40 (0x80 write, 0x81 read). 0x00 is usually a "general call" address which addresses all devices sharing the bus, we'll ignore that for now.
+The scanner found an I2C device at address 0x44 (0x88 write, 0x89 read). 0x00 is usually a "general call" address which addresses all devices sharing the bus, we'll ignore that for now.
 
 {{% alert context="info" %}} 
 If the scanner doesn't find the device, ensure the power supply is enabled ```W 3.3``` and the pull-up resistors are enabled ```P```.
@@ -124,7 +124,7 @@ Triggering a humidity measurement follows the typical I2C transaction pattern: w
 Let's break down this diagram from the datasheet into three steps: start the measurement, poll for completion, and read the result.
 
 Start the measurement:
-1. **S** - Begin with an I2C START bit
+1. **S** - Begin with an [I2C START bit]({{< relref "/docs/command-reference/#i2c-protocol-overview">}})
 2. **I2C Address + W** - Send the SHT3x write address (0x88)
 3. **Command MSB/LSB** - Send the two byte measurement command for the desired repeatability
 4. **P** - End with an I2C STOP bit
@@ -136,9 +136,9 @@ Poll for measurement complete (or just delay according to the table):
 
 When the chip ACKs its read address the measurement is complete, we can read the result:
 1. **S** - Begin with an I2C START bit
-5. **I2C Address + R, ACK** - Send the SI7021 read address (0x81)
-6. **Temperature MSB/LSB + CRC** - Read the two byte humidity measurement and checksum byte.
-7. **Humidity MSB/LSB + CRC** - Read the two byte temperature measurement and checksum byte.
+5. **I2C Address + R, ACK** - Send the SHT3x read address (0x81)
+6. **Temperature MSB/LSB + CRC** - Read the two byte temperature measurement and checksum byte.
+7. **Humidity MSB/LSB + CRC** - Read the two byte humidity measurement and checksum byte.
 7. **P** - End with an I2C STOP bit
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
