@@ -1,0 +1,15 @@
+m hiz
+c
+3
+2
+x
+rm bpi2c.bp
+# sht3x-cast
+m i2c # m i2c - enter I2C mode
+400 # 400kHz speed
+1 # No clock stretching
+W 3.3 # Set voltage to 3.3V
+P # Enable pull-ups
+scan # Scan for the I2C address
+[0x88 0x24 0x00] D:15 [0x89 r:6] # One-shot measurement command
+# stop
