@@ -16,7 +16,7 @@ scan # Scan for the I2C address
 [0x52 0b10010010 [0x53 r] # Read device ID register
 [0x52 0b10000000 0b1] D:3 [0x52 0b10000000 0b11] # Set Power ON bit, then the RGBC enable
 [0x52 0b10001111 0b10] # Set control register to 0b10 (16x gain)
-[0x52 0x10000011 0xff] # Set wait time register to 0xff (minimum wait time)
+[0x52 0b10000011 0xff] # Set wait time register to 0xff (minimum wait time)
 [0x52 0b10000001 0x00] # Set ALS time register to 0x00 (maximum integration time)
 [0x52 0b10010100 [0x53 r:8] # Read color data from the device
 # stop
