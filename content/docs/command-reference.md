@@ -1623,7 +1623,7 @@ Flags pass file names and other settings.
 
 {{< termfile source="static/snippets/tcs3472x-command.html" >}}
 
-Command to read color data from a [TCS3472 color sensor]({{< relref "/docs/devices/tcs3472x/">}}) and display the RGB values on the Bus Pirate LEDs.
+Command to read color data from a [TCS3472 color sensor]({{< relref "/docs/devices/tcs3472x/#tsc3472-command">}}) and display the RGB values on the Bus Pirate LEDs.
 
 |Flag|Description|
 |-|-|
