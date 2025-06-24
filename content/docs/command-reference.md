@@ -1630,6 +1630,10 @@ Command to read color data from a [TCS3472 color sensor]({{< relref "/docs/devic
 |-g|Set the gain to 1x, 4x, 16x, or 60x. Default is 16x.|
 |-i|Set the number of integration cycles to 1-256. Default is 256.|
 
+{{% alert context="info" %}}
+The upper byte of red, blue and green measurements are sent to the Bus Pirate LEDs. The lower byte is disgarded. If the LEDs don't seem to be lighting, try increasing the gain to 60x with the ```-g``` flag.
+{{% /alert %}}
+
 ### ```si7021``` Read temperature and humidity
 
 {{< termfile source="static/snippets/si7021-command.html" >}}
