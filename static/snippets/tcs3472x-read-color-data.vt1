@@ -5,7 +5,7 @@ I2C&nbsp;START
 [38;2;191;165;48mTX:[0m&nbsp;0b[38;2;83;166;230m1001[0m0100[0m&nbsp;ACK&nbsp;
 I2C&nbsp;REPEATED&nbsp;START
 [38;2;191;165;48mTX:[0m&nbsp;0x[38;2;83;166;230m53[0m&nbsp;ACK&nbsp;
-[38;2;191;165;48mRX:[0m&nbsp;0x[38;2;83;166;230mFF[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230mFF[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230mAE[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230mA2[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m67[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m32[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m60[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m27[0m&nbsp;NACK&nbsp;
+[38;2;191;165;48mRX:[0m&nbsp;0x[38;2;83;166;230m0A[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m53[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m78[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m1B[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m0F[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m1C[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230mD1[0m&nbsp;ACK&nbsp;0x[38;2;83;166;230m14[0m&nbsp;NACK&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
 I2C&nbsp;STOP
 [38;2;150;203;89mI2C>[0m&nbsp;

@@ -1619,6 +1619,17 @@ Options tell the flash command what to do.
 
 Flags pass file names and other settings.
 
+### ```tcs3472``` Read color sensor, show on LEDs
+
+{{< termfile source="static/snippets/tcs3472x-command.html" >}}
+
+Command to read color data from a [TCS3472 color sensor]({{< relref "/docs/devices/tcs3472x/">}}) and display the RGB values on the Bus Pirate LEDs.
+
+|Flag|Description|
+|-|-|
+|-g|Set the gain to 1x, 4x, 16x, or 60x. Default is 16x.|
+|-i|Set the number of integration cycles to 1-256. Default is 256.|
+
 ### ```si7021``` Read temperature and humidity
 
 {{< termfile source="static/snippets/si7021-command.html" >}}
@@ -1639,10 +1650,14 @@ Command to read light intensity from a [TSL2561 sensor]({{< relref "/docs/device
 
 ### Device demos
 - [24C02 Smart IC Card]({{% relref "/docs/devices/24c02/" %}})
-- [SI7021, HTU21, SHT21 Humidity & Temperature]({{% relref "/docs/devices/si7021/" %}})
-- [AT24C256 EEPROM]({{% relref "/docs/devices/at24c256/" %}})
-- [TSL2561 LUX Sensor]({{% relref "/docs/devices/tsl2561/" %}})
+- [TCS3472x Color Sensor]({{% relref "/docs/devices/tcs3472x/" %}})
 - [DDR5 SDRAM modules]({{< relref "/docs/devices/ddr5">}})
+- [AT24C256 EEPROM]({{% relref "/docs/devices/at24c256/" %}})
+- [SHT3x]({{% relref "/docs/devices/sht30-sht31-sht35/" %}}) and [SHT4x]({{% relref "/docs/devices/sht40-sht41-sht43-sht45/" %}}) Temperature & Humidity Sensors
+- [MB85RC256V FRAM]({{% relref "/docs/devices/mb85rc256v/" %}})
+- [SI7021, HTU21, SHT21 Humidity & Temperature]({{% relref "/docs/devices/si7021/" %}})
+- [TSL2561 LUX Sensor]({{% relref "/docs/devices/tsl2561/" %}})
+
 <!--
 
 ## ACK/NACK management
