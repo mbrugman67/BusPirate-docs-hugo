@@ -12,4 +12,6 @@ W 3.3 # Set voltage to 3.3V
 P # Enable pull-ups
 scan # Scan for the I2C address
 [0x88 0x24 0x00] D:15 [0x89 r:6] # One-shot measurement command
+sht3x -h # Show help for sht3x command
+sht3x # sht3x command to read temperature and humidity
 # stop

@@ -19,4 +19,8 @@ scan # Scan for the I2C address
 # sht3x-convert
 = 0x654f
 = 0xbc7e
+# sht3x-command-help
+sht3x -h
+# sht3x-command
+sht3x
 # stop

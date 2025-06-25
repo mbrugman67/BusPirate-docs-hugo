@@ -219,6 +219,12 @@ Access the serial number with the 0x89 command:
 
 The result is:  0x13 0x51 0x8D 0xD4 0x4F 0xD5
 
+## ```sht4x``` Command
+
+{{< termfile source="static/snippets/sht4x-command.html" >}}
+
+The ```sht4x``` command automates everything we've covered here. It triggers a measurement with the high repeatability command, waits for the maximum time (8.3ms), then reads the result.
+
 ## Get a Bus Pirate
 
 {{% readfile "/_common/_footer/_footer-get.md" %}}

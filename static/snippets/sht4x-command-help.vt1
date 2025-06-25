@@ -1,0 +1,9 @@
+[38;2;150;203;89mI2C>[0m&nbsp;sht4x&nbsp;-h
+SHT40/41/43/45&nbsp;Temperature&nbsp;and&nbsp;Humidity&nbsp;Sensor&nbsp;Demo
+usage:
+[38;2;191;165;48msht4x&nbsp;[-h(elp)][0m
+[38;2;191;165;48m-&nbsp;read&nbsp;SHT4x&nbsp;series&nbsp;temperature&nbsp;and&nbsp;humidity&nbsp;sensors[0m
+[38;2;191;165;48m-&nbsp;1.08-3.3&nbsp;volt&nbsp;device,&nbsp;pull-up&nbsp;resistors&nbsp;required[0m
+[38;2;191;165;48mRead&nbsp;SHT4x:&nbsp;sht4x[0m
+[0m
+[38;2;150;203;89mI2C>[0m&nbsp;

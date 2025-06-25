@@ -1,0 +1,6 @@
+[38;2;150;203;89mI2C>[0m&nbsp;sht3x
+SHT30/31/35&nbsp;Temperature&nbsp;and&nbsp;Humidity&nbsp;Sensor&nbsp;Demo
+Temperature:&nbsp;25.07&nbsp;°C&nbsp;(0x66&nbsp;0x81)
+Humidity:&nbsp;78.37&nbsp;%&nbsp;(0xC8&nbsp;0xA2)
+[0m
+[38;2;150;203;89mI2C>[0m&nbsp;

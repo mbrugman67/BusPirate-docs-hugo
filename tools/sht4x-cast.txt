@@ -13,4 +13,6 @@ P # Enable pull-ups
 scan # Scan for the I2C address
 [0x88 0xfd] D:9 [0x89 r:6] # High repeatability measurement command
 [0x88 0x89][0x89 r:6] # Read serial number
+sht4x -h # Show help for sht4x command
+sht4x # sht4x command to read temperature and humidity
 # stop

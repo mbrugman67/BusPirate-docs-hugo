@@ -1634,11 +1634,22 @@ Command to read color data from a [TCS3472 color sensor]({{< relref "/docs/devic
 The upper byte of red, blue and green measurements are sent to the Bus Pirate LEDs. The lower byte is disgarded. If the LEDs don't seem to be lighting, try increasing the gain to 60x with the ```-g``` flag.
 {{% /alert %}}
 
+### ```sht4x``` Read temperature and humidity
+
+{{< termfile source="static/snippets/sht4x-command.html" >}}
+
+Read temperature and humidity from a [SHT40/41/43/45 sensor]({{< relref "/docs/devices/sht40-sht41-sht43-sht45/">}}).
+
+### ```sht3x``` Read temperature and humidity
+
+{{< termfile source="static/snippets/sht3x-command.html" >}}
+Read temperature and humidity from a [SHT30/31/35 sensor]({{< relref "/docs/devices/sht30-sht31-sht35/">}}).
+
 ### ```si7021``` Read temperature and humidity
 
 {{< termfile source="static/snippets/si7021-command.html" >}}
 
-Command to read temperature and humidity from a [SI7021 sensor]({{< relref "/docs/devices/si7021/">}}).
+Command to read temperature and humidity from a [SHT21/SI7021/HTU21 sensor]({{< relref "/docs/devices/si7021/">}}).
 
 ### ```ms5611``` Read temperature and pressure
 

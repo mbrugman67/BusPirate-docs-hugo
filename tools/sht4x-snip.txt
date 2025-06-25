@@ -21,4 +21,8 @@ scan # Scan for the I2C address
 = 0x91a3
 # sht4x-serial
 [0x88 0x89][0x89 r:6] # Read serial number
+# sht4x-command-help
+sht4x -h
+# sht4x-command
+sht4x
 # stop

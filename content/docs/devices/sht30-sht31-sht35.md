@@ -220,6 +220,10 @@ $$\text{RH\\%} = 73.5$$
 
 A balmy 24C with 73.5% relative humidity, hopefully it rains and cools off soon!
 
+## ```sht3x``` Command
+{{< termfile source="static/snippets/sht3x-command.html" >}}
+
+The ```sht3x``` command automates everything we just did, from setup to reading the temperature and humidity. It uses the high repeatability measurement command with clock stretching disabled, waits for the measurement to complete, and reads the result.
 
 ## Get a Bus Pirate
 
