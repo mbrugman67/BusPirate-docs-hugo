@@ -13,10 +13,10 @@ The Bus Pirate can be used to trigger glitching attacks based on UART serial tim
 For this demo, the Bus Pirate will be used to trigger a power glitching attack against an Arduino Uno.  The Arduino's software has a UART that is used to enter a password; this password will by bypassed by a power glitch.  A custom circuit on a Bus Pirate Blank Plank is used to perform the actual power glitch against the Arduino.
 
 {{% alert context="info" %}}
-The Bus Pirate is used to time and trigger the "glitching" activity; actual external electrical interface to the target and/or glitching tool is required.  This may be in the form of a separte device, custom plank, breadboarding, or circuit board.
+The Bus Pirate is used to time and trigger the "glitching" activity; actual external electrical interface to the target and/or glitching tool is required.  This may be in the form of a separate device, custom plank, breadboarding, or circuit board.
 {{% /alert %}}
 
-{{% readfile "/_common/_footer/_footer-get.md" %}}
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ## Connections
 
@@ -96,7 +96,7 @@ In operation, the glitching attack sequence goes like this:
 - Send the "password enter" character from Bus Pirate to target over UART.  This is configurable, typically a `return` or `newline` character
 - Wait for a configured delay.  This is time is based on the timing obtained from the logic analyzer
 - Turn on the glitch trigger output `IO0`.  Leave the output on for the configured time, then turn it back off.  This is typically a very short time when power glitching
-- Read the UART characters comming back from the target.  Parse the return string, looking for a particualy character as an indication of success.  For example, if the target responds with "Please enter password", the presense of the the letter "P" is an indication the glitch failed.  This character is configurable.
+- Read the UART characters coming back from the target.  Parse the return string, looking for a particular character as an indication of success.  For example, if the target responds with "Please enter password", the presence of the the letter "P" is an indication the glitch failed.  This character is configurable.
 - Wait an additional delay to allow components to cool, EMP blaster to recharge, etc.
 - If the glitch did not succeed, start at the beginning.
 
@@ -112,7 +112,7 @@ The configuration can be set based on the approximate timing from the logic anal
   - `Glitch output on time` - how long to turn the output on.  This is also in nanoseconds * 10, so a value of 7 is 70 nanoseconds, .070 microseconds. 
   - `Glitch cycle delay` - a fixed amount of time to wait between cycles; this value is in milliseconds
   - `Normal response character` - the ASCII value of a character that would normally be seen if the target did *not* glitch; what the user would normally see if the password entered was not correct.  If the target responds with "Please enter password" for a bad password attempt, a good value would be `P` - ASCII 80
-  - `Number of glitch attempts` - the number of tries before giving up.  Note that the actual number of attemps will be 5 times this number, allowing for glitch time variation
+  - `Number of glitch attempts` - the number of tries before giving up.  Note that the actual number of attempts will be 5 times this number, allowing for glitch time variation
   - `Bypass 'READY' input checking` - by default, the glitcher will wait until input `IO1` is "high" before starting each glitch sequence.  This is used to make sure the glitching hardware is ready.  If there is no need to check for "ready", set this value to `1` to disable the check.
 
 ## Perform the Glitch Attack
@@ -186,7 +186,7 @@ void loop() {
 * until it is found.
 *
 * This method may seem strange, and even
-* a bit contrived, but it is somethine that
+* a bit contrived, but it is something that
 * I pulled almost exactly from a consumer
 * IoT device.
 *
