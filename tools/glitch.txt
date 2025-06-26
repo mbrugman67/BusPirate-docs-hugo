@@ -1,0 +1,5 @@
+# glitch-cast
+
+glitch # enter UART glitch mode
+y # "yes" to accept glitch parameters
+# stop
