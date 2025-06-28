@@ -1,0 +1,45 @@
+m hiz
+c
+3
+1
+x
+rm bpi2c.bp
+m i2c
+400
+1
+W 3.3
+P
+eeprom erase -d 24x02
+[0xa0 0x60 "Hello!"]
+>D:1000
+m hiz
+rm bpi2c.bp
+# i2c-eeprom-command-setup
+m i2c
+400
+1
+# i2c-eeprom-command-power
+W 3.3
+# i2c-eeprom-command-pullup
+P 
+# i2c-eeprom-command-scan
+scan
+# i2c-eeprom-command-list
+eeprom list # List available EEPROM devices
+# i2c-eeprom-command-dump
+eeprom dump -d 24x02 # Dump the EEPROM contents
+# i2c-eeprom-command-dump-partial
+eeprom dump -d 24x02 -s 0x50 -b 64 # Dump starting from address 0x50, 64 bytes
+# i2c-eeprom-command-read
+eeprom read -d 24x02 -f eeprom.bin -v # Read the EEPROM contents to a file, verify
+# i2c-eeprom-command-write
+eeprom write -d 24x02 -f eeprom.bin -v # Write the contents of eeprom.bin to the EEPROM, verify
+# i2c-eeprom-command-verify
+eeprom verify -d 24x02 -f eeprom.bin # Verify EEPROM contents against file eeprom.bin
+# i2c-eeprom-command-erase
+eeprom erase -d 24x02 -v # Erase the EEPROM, verify
+# i2c-eeprom-command-test
+eeprom test -d 24x02 # Test the EEPROM functionality
+# i2c-eeprom-command-help
+eeprom -h # Show help, device list for eeprom command
+# stop

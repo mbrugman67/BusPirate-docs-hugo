@@ -1,0 +1,13 @@
+[38;2;150;203;89mI2C>[0m&nbsp;eeprom&nbsp;dump&nbsp;-d&nbsp;24x02&nbsp;-s&nbsp;0x50&nbsp;-b&nbsp;64
+24X02:&nbsp;256&nbsp;bytes,&nbsp;&nbsp;0&nbsp;block&nbsp;select&nbsp;bits,&nbsp;1&nbsp;byte&nbsp;address,&nbsp;8&nbsp;byte&nbsp;pages
+
+Start&nbsp;address:&nbsp;0x00000050,&nbsp;end&nbsp;address:&nbsp;0x0000008F,&nbsp;total&nbsp;bytes:&nbsp;64
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;00&nbsp;01&nbsp;02&nbsp;03&nbsp;04&nbsp;05&nbsp;06&nbsp;07&nbsp;08&nbsp;09&nbsp;0A&nbsp;0B&nbsp;0C&nbsp;0D&nbsp;0E&nbsp;0F
+---------------------------------------------------------
+00000050:&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;&nbsp;|................|
+00000060:&nbsp;48&nbsp;65&nbsp;6C&nbsp;6C&nbsp;6F&nbsp;21&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;&nbsp;|Hello!..........|
+00000070:&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;&nbsp;|................|
+00000080:&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;&nbsp;|................|
+[0m
+[38;2;150;203;89mI2C>[0m&nbsp;

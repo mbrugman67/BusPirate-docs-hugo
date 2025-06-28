@@ -13,6 +13,6 @@
       <div class="header-bar"></div>
     </div>
   </div>
-  <pre class="highlight">{{ with $source | readFile }}{{ $snippet := . }}{{ $snippet | safeHTML }}{{ end }}</pre>
+  <pre class="highlight" style="font-family: monospace !important;">{{ with $source | readFile }}{{ $snippet := . }}{{ $snippet | safeHTML }}{{ end }}</pre>
   </pre>
 </div>

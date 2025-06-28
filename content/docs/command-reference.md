@@ -1264,7 +1264,7 @@ Use ```gps -h``` to see the latest options and features.
 
 {{< termfile source="static/snippets/cmdref-mode-uart-glitch.html" >}}
 
-A [glitch hacking](https://forum.buspirate.com/t/any-tutorial-about-glitching/765/89?u=ian) framework.
+A [glitch hacking]({{< relref "/docs/devices/uart-glitch-command/">}}) framework.
 
 ### MIDI
 
@@ -1498,6 +1498,202 @@ NACK the read and properly end the I2C transaction.
 {{< termfile source="static/snippets/cmdref-mode-i2c-sniff-help.html" >}}
 
 Sniff I2C packets up to 500kHz.
+
+
+### ```eeprom``` Read, write, erase, verify, test, dump I2C EEPROMs
+
+{{< asciicast src="/screencast/i2c-eeprom-command-cast.json" poster="npt:0:58"  idleTimeLimit=2 >}}
+
+```eeprom``` is a command to read, write, erase, verify, test and dump common 24x I2C EEPROMs. 
+
+{{% alert context="info" %}}
+You do need to specify the device type, there is no non-destructive autodetect method for I2C EEPROMs.
+{{% /alert %}}
+
+
+#### I2C EEPROM list supported devices
+
+{{< term  >}}
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;eeprom&nbsp;list
+{{< /term>}}
+
+- ```eeprom list``` - list all EEPROM devices supported by the ```eeprom``` command
+
+|Device|Size|Size (bytes)|Page Size|Address Bytes|Block Select Bits|Block Select Bit Offset|
+|---|---|---|---|---|---|---|
+|[24xM02](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/AT24CM02-2-Mbit-I2C-Serial-EEPROM-DS20006197.pdf)|256 KB|262144|256|2|2|0|
+|[24xM01](https://ww1.microchip.com/downloads/en/DeviceDoc/AT24CM01-I2C-Compatible-Two-Wire-Serial-EEPROM-Data-Sheet-20006170A.pdf)|128 KB|131072|256|2|1|0|
+|[24x1026](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA1026-24FC1026-24LC1026-1024-Kbit-I2C-Serial-EEPROM-DS20002270.pdf)|128 KB|131072|128|2|1|0|   
+|[24x102*5*](https://ww1.microchip.com/downloads/en/devicedoc/21941b.pdf)|128 KB|131072|128|2|1|3|
+|[24x512](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA512-24LC512-24FC512-512-Kbit-I2C-Serial-EEPROM-DS20001754.pdf)|64 KB|65536|128|2|0|0|
+|[24x256](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA256-24LC256-24FC256-256K-I2C-Serial-EEPROM-DS20001203.pdf)|32 KB|32768|64|2|0|0|
+|[24x128](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA128-24LC128-24FC128-128-Kbit-I2C-Serial-EEPROM-DS20001191.pdf)|16 KB|16384|64|2|0|0|
+|[24x64](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA64-24FC64-24LC64-64-Kbit-I2C-Serial-EEPROM-DS20001189.pdf)|8 KB|8192|32|2|0|0|
+|[24x32](https://ww1.microchip.com/downloads/en/DeviceDoc/21072G.pdf)|4 KB|4096|32|2|0|0|
+|[24x16](https://ww1.microchip.com/downloads/en/DeviceDoc/20002213B.pdf)|2 KB|2048|16|1|3|0|
+|[24x08](https://ww1.microchip.com/downloads/en/devicedoc/21710k.pdf)|1 KB|1024|16|1|2|0|
+|[24x04](https://ww1.microchip.com/downloads/en/DeviceDoc/21708K.pdf)|512 B|512|16|1|1|0|
+|[24x02](https://ww1.microchip.com/downloads/en/devicedoc/21709c.pdf)|256 B|256|8|1|0|0|
+|[24x01](https://ww1.microchip.com/downloads/en/devicedoc/21711j.pdf)|128 B|128|8|1|0|0|
+
+{{% alert context="info" %}}
+24x chips have a variety of part numbers, but tend to operate in the same way. Often a manufacturer specific part number indicates a different voltage range or upgraded features. AT24C, 24C, 24LC, 24AA, 24FC are all generally part of same basic 24x family of chips. 
+{{% /alert %}}  
+
+{{% alert context="danger" %}}
+The default I2C address for most 24x chips is 0x50, but many have pins for setting a different address. The ```eeprom``` command uses 0x50 by default, but you can specify a different I2C address with the ```-a``` flag.
+{{% /alert %}}
+
+##### Chip voltage requirements
+
+|24xx Family|Minimum Voltage|Maximum Voltage|Notes|
+|---|---|---|---|
+|AT24C|2.7V|5.5V|400kHz max|
+|24C|2.7V|5.5V|400kHz max|
+|24LC|2.5V|5.5V|400kHz max|
+|24AA|1.7V|5.5V|400kHz max|
+|24FC|1.8V|5.5V|1MHz max|
+
+Before using the ```eeprom``` command, you'll need to enable a power supply with the [```W``` command]({{< relref "/docs/command-reference/#ww-power-supply-offon">}}) and pull-up resistors with the [```P``` command]({{< relref "/docs/command-reference/#pp-pull-up-resistors">}}).
+
+{{% alert context="danger" %}}
+**Most EEPROMs should be fine with a 3.3 volt power supply, but if possible check the datasheet to be sure!**
+{{% /alert %}}
+
+#### I2C EEPROM dump to terminal
+
+{{< termfile source="static/snippets/i2c-eeprom-command-dump-partial.html" >}}
+
+Display the contents of an I2C EEPROM in the terminal. 
+- ```dump -d <device>``` - display EEPROM contents
+- ```dump -d <device> -s <start>``` - display EEPROM contents, starting at address `<start>`
+- ```dump -d <device> -s <start> -b <bytes>``` - display a specific range of bytes, starting at address `<start>` and reading `<bytes>` bytes
+
+#### I2C EEPROM read to file
+{{< term  >}}
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;eeprom&nbsp;read&nbsp;-d&nbsp;24x02&nbsp;-f&nbsp;eeprom.bin&nbsp;-v
+24X02:&nbsp;256&nbsp;bytes,&nbsp;&nbsp;0&nbsp;block&nbsp;select&nbsp;bits,&nbsp;1&nbsp;byte&nbsp;address,&nbsp;8&nbsp;byte&nbsp;pages
+
+Read:&nbsp;Reading&nbsp;EEPROM&nbsp;to&nbsp;file&nbsp;eeprom.bin...
+Progress:&nbsp;[###########################]&nbsp;100.00%
+Read&nbsp;complete
+Read&nbsp;verify...
+Progress:&nbsp;[###########################]&nbsp;100.00%
+Read&nbsp;verify&nbsp;complete
+Success&nbsp;:)
+
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;
+{{< /term>}}
+
+Read the contents of an I2C EEPROM and save it to a file.
+- ```read -d <device> -f <file>``` - read EEPROM contents to file `<file>`
+- ```read -d <device> -f <file> -v``` - read EEPROM contents to file `<file>`, verify the read operation
+
+#### I2C EEPROM write from file
+{{< term  >}}
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;eeprom&nbsp;write&nbsp;-d&nbsp;24x02&nbsp;-f&nbsp;eeprom.bin&nbsp;-v
+24X02:&nbsp;256&nbsp;bytes,&nbsp;&nbsp;0&nbsp;block&nbsp;select&nbsp;bits,&nbsp;1&nbsp;byte&nbsp;address,&nbsp;8&nbsp;byte&nbsp;pages
+
+Write:&nbsp;Writing&nbsp;EEPROM&nbsp;from&nbsp;file&nbsp;eeprom.bin...
+Progress:&nbsp;[###########################]&nbsp;100.00%
+Write&nbsp;complete
+Write&nbsp;verify...
+Progress:&nbsp;[###########################]&nbsp;100.00%
+Write&nbsp;verify&nbsp;complete
+Success&nbsp;:)
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;
+{{< /term>}}
+Write the contents of a file to an I2C EEPROM.
+- ```write -d <device> -f <file>``` - write EEPROM from file `<file>`
+- ```write -d <device> -f <file> -v``` - write EEPROM from file `<file>`, verify the write operation
+
+#### I2C EEPROM verify against file
+{{< term  >}}
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;eeprom&nbsp;verify&nbsp;-d&nbsp;24x02&nbsp;-f&nbsp;eeprom.bin
+24X02:&nbsp;256&nbsp;bytes,&nbsp;&nbsp;0&nbsp;block&nbsp;select&nbsp;bits,&nbsp;1&nbsp;byte&nbsp;address,&nbsp;8&nbsp;byte&nbsp;pages
+
+Verify:&nbsp;Verifying&nbsp;EEPROM&nbsp;contents&nbsp;against&nbsp;file&nbsp;eeprom.bin...
+Progress:&nbsp;[###########################]&nbsp;100.00%
+Verify&nbsp;complete
+Success&nbsp;:)
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;
+{{< /term>}}
+Verify the contents of an I2C EEPROM match a file.
+- ```verify -d <device> -f <file>``` - verify EEPROM contents against file `<file>`
+
+#### I2C EEPROM erase
+{{< term  >}}
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;eeprom&nbsp;erase&nbsp;-d&nbsp;24x02&nbsp;-v
+24X02:&nbsp;256&nbsp;bytes,&nbsp;&nbsp;0&nbsp;block&nbsp;select&nbsp;bits,&nbsp;1&nbsp;byte&nbsp;address,&nbsp;8&nbsp;byte&nbsp;pages
+
+Erase: Writing 0xFF to all bytes...
+Progress:&nbsp;[###########################]&nbsp;100.00%
+Erase&nbsp;complete
+Erase&nbsp;verify...
+Progress:&nbsp;[###########################]&nbsp;100.00%
+Erase&nbsp;verify&nbsp;complete
+Success&nbsp;:)
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;
+{{< /term>}}
+
+Erase the contents of an I2C EEPROM, writing 0xFF to all bytes.
+- ```erase -d <device>``` - erase EEPROM contents
+- ```erase -d <device> -v``` - erase EEPROM contents, verify the erase operation
+#### I2C EEPROM test
+{{< term  >}}
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;eeprom&nbsp;test&nbsp;-d&nbsp;24x02
+24X02:&nbsp;256&nbsp;bytes,&nbsp;&nbsp;0&nbsp;block&nbsp;select&nbsp;bits,&nbsp;1&nbsp;byte&nbsp;address,&nbsp;8&nbsp;byte&nbsp;pages
+
+Erase:&nbsp;Writing&nbsp;0xFF&nbsp;to&nbsp;all&nbsp;bytes...
+Progress:&nbsp;[###########################]&nbsp;100.00%
+Erase&nbsp;complete
+Erase&nbsp;verify...
+Progress:&nbsp;[###########################]&nbsp;100.00%
+Erase&nbsp;verify&nbsp;complete
+
+Test:&nbsp;Writing&nbsp;alternating&nbsp;patterns
+Writing&nbsp;0xAA&nbsp;0x55...
+Progress:&nbsp;[###########################]&nbsp;100.00%
+Write&nbsp;complete
+Write&nbsp;verify...
+Progress:&nbsp;[###########################]&nbsp;100.00%
+Write&nbsp;verify&nbsp;complete
+Writing&nbsp;0x55&nbsp;0xAA...
+Progress:&nbsp;[###########################]&nbsp;100.00%
+Write&nbsp;complete
+Write&nbsp;verify...
+Progress:&nbsp;[###########################]&nbsp;100.00%
+Write&nbsp;verify&nbsp;complete
+Success&nbsp;:)
+
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;
+{{< /term>}}
+Test I2C EEPROM functionality. Erase the EEPROM to 0xff and verify the erase. Then write alternating patterns of 0xAA and 0x55, verifying each write operation. Any stuck bits should be detected during the test.
+- ```test -d <device>``` - test EEPROM functionality
+
+#### I2C EEPROM options and flags
+|Option|Description|
+|---|---|
+|```eeprom list```|List all supported EEPROM devices|
+|```eeprom dump```|Dump EEPROM contents to terminal|
+|```eeprom read```|Read EEPROM contents to file|
+|```eeprom write```|Write EEPROM from file|
+|```eeprom verify```|Verify EEPROM contents against file|
+|```eeprom erase```|Erase EEPROM contents, writing 0xFF to all bytes|
+|```eeprom test```|Test EEPROM functionality, erase and write alternating patterns|
+
+Options tell the ```eeprom``` command what to do.
+
+|Flag|Description|
+|---|---|
+|```-d <device>```|Specify the EEPROM device type, e.g. 24x02|
+|```-f <file>```|Specify the file for read, write and verify|
+|```-s <start>```|Specify the start address for dump and read operations|
+|```-b <bytes>```|Specify the number of bytes to read for dump operations|
+|```-v```|Verify the read or write operation|
+|```-a```|Specify an alternate I2C address (0x50 default)|
+|```-h```|Show help for the ```eeprom``` command|
+
 
 ### ```ddr5``` Probe, read, write, unlock DDR5 SDRAM modules
 {{< asciicast src="/screencast/ddr5-command-cast.json" poster="npt:0:41"  idleTimeLimit=2 >}}
