@@ -414,7 +414,7 @@ Normally we like to provide screenshots of actual datasheets to explain how devi
 | 7     | 448-509    | 0x1C0-0x1FD    | Reserved                              |
 | 7     | 510-511    | 0x1FE-0x1FF    | CRC for bytes 0-509                              |
 | 8-9   | 512-639    | 0x200-0x27F    | Manufacturer Information                        |
-| 10-15 | 640-1023    | 0x280-0x2FF    | End User Programmable                            |
+| 10-15 | 640-1023    | 0x280-0x3FF    | End User Programmable                            |
 
 This is a simplified table of the SPD hub non-volatile memory organization. 
 

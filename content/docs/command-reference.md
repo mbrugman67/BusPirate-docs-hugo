@@ -1694,6 +1694,7 @@ Options tell the ```eeprom``` command what to do.
 |```-a```|Specify an alternate I2C address (0x50 default)|
 |```-h```|Show help for the ```eeprom``` command|
 
+Flags pass file names and other settings.
 
 ### ```ddr5``` Probe, read, write, unlock DDR5 SDRAM modules
 {{< asciicast src="/screencast/ddr5-command-cast.json" poster="npt:0:41"  idleTimeLimit=2 >}}
@@ -2235,7 +2236,7 @@ Use ```sle4442 -h``` to see the latest options and features.
 
 ```sle4442 dump``` reads and displays the main, security and protection memory areas. The card **does not** need to be unlocked to read the contents. The passcode is only required to write to the card.
 - ```sle4442 dump``` - read and display the main, security and protection memory areas
-
+- ```sle4442 dump -f <file name>``` - read and save the main, security and protection memory areas to a file
 
 #### Unlock SLE4442 card with passcode
 
@@ -2269,6 +2270,12 @@ The card must be unlocked before writing data.
 
 - ```sle4442 psc -p <current_psc> -n <new_psc>``` - change the PSC
 
+#### Write protection memory
+
+Write the protection bits in the SLE4442 card with the ```sle4442 protect``` command. Use the ```-v``` flag to specify the protection bits. The protection bits are a 32-bit value where each bit corresponds to a specific memory area.
+
+- ```sle4442 protect -v 0xffffffff``` sets the write protection bits in the SLE4442 card. Use the ```-v``` flag to specify the protection bits.
+
 #### Options and flags
 
 {{< termfile source="static/snippets/cmdref-mode-2wire-sle4442-help.html" >}}
@@ -2280,11 +2287,12 @@ Use ```sle4442 -h``` to see the latest options and features.
 |Option|Description|
 |------|-----------|
 |sle4442 init|Initialize and probe the card Answer To Reset|
-|sle4442 dump|Display main, security and protect memory|
+|sle4442 dump|Display main, security and protect memory, optional save to file|
 |sle4442 unlock|Unlock card with Programmable Security Code (PSC)|
 |sle4442 write|Write data to card (requires unlock)|
 |sle4442 erase|Erase data from range 0x32-0x255 (requires unlock)|
 |sle4442 psc|Change Programmable Security Code (PSC)|
+|sle4442 protect|Set write protection bits in the card|
 
 Options tell the SLE4442 command what to do.
 
@@ -2294,6 +2302,7 @@ Options tell the SLE4442 command what to do.
 |-v|Write value flag|
 |-p|Current Programmable Security Code (PSC) flag|
 |-n|New Programmable Security Code (PSC) flag|
+|-f|File flag, specify a file to save the memory dump|
 
 Flags pass file names and other settings to the command.
 
