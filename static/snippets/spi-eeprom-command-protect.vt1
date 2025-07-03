@@ -1,0 +1,9 @@
+[38;2;150;203;89mSPI>[0m&nbsp;eeprom&nbsp;protect&nbsp;-d&nbsp;25x020
+25X020:&nbsp;256&nbsp;bytes,&nbsp;&nbsp;0&nbsp;block&nbsp;select&nbsp;bits,&nbsp;1&nbsp;byte&nbsp;address,&nbsp;8&nbsp;byte&nbsp;pages
+
+Status&nbsp;Register:&nbsp;0x00
+Write&nbsp;Pin&nbsp;ENable&nbsp;(WPEN):&nbsp;Disabled
+Block&nbsp;Protect&nbsp;Bits&nbsp;(BP1,&nbsp;BP0):&nbsp;0,&nbsp;0
+Protection&nbsp;range:&nbsp;None
+[0m
+[38;2;150;203;89mSPI>[0m&nbsp;

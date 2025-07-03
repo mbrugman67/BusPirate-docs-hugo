@@ -1,0 +1,12 @@
+[38;2;150;203;89mSPI>[0m&nbsp;eeprom&nbsp;read&nbsp;-d&nbsp;25x020&nbsp;-f&nbsp;eeprom.bin&nbsp;-v
+25X020:&nbsp;256&nbsp;bytes,&nbsp;&nbsp;0&nbsp;block&nbsp;select&nbsp;bits,&nbsp;1&nbsp;byte&nbsp;address,&nbsp;8&nbsp;byte&nbsp;pages
+
+Read:&nbsp;Reading&nbsp;EEPROM&nbsp;to&nbsp;file&nbsp;eeprom.bin...
+Progress:&nbsp;[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;0.00%Progress:&nbsp;[##################################################]&nbsp;100.00%
+Read&nbsp;complete
+Read&nbsp;verify...
+Progress:&nbsp;[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;0.00%Progress:&nbsp;[##################################################]&nbsp;100.00%
+Read&nbsp;verify&nbsp;complete
+Success&nbsp;:)
+[0m
+[38;2;150;203;89mSPI>[0m&nbsp;

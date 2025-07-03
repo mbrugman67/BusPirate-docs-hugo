@@ -1,0 +1,37 @@
+<span style="color:rgb(150,203,89)">SPI></span>&nbsp;eeprom&nbsp;-h
+usage:
+<span style="color:rgb(191,165,48)">eeprom&nbsp;[dump|erase|write|read|verify|test|list|protect]
+	[-d&nbsp;&ltdevice>]&nbsp;[-f&nbsp;&ltfile>]&nbsp;[-v(verify)]&nbsp;[-s&nbsp;&ltstart&nbsp;address>]&nbsp;[-b&nbsp;&ltbytes>]&nbsp;[-t(test)]&nbsp;[-p&nbsp;&ltprotection&nbsp;blocks>]&nbsp;[-w&nbsp;&ltWPEN>]&nbsp;[-h(elp)]
+<span style="color:rgb(191,165,48)">List&nbsp;available&nbsp;EEPROM&nbsp;devices:</span></span>&nbsp;eeprom&nbsp;list
+<span style="color:rgb(191,165,48)">Display&nbsp;contents:</span>&nbsp;eeprom&nbsp;dump&nbsp;-d&nbsp;25x020
+<span style="color:rgb(191,165,48)">Display&nbsp;16&nbsp;bytes&nbsp;starting&nbsp;at&nbsp;address&nbsp;0x60:</span>&nbsp;eeprom&nbsp;dump&nbsp;-d&nbsp;25x020&nbsp;-s&nbsp;0x60&nbsp;-b&nbsp;16
+<span style="color:rgb(191,165,48)">Erase,&nbsp;verify:</span>&nbsp;eeprom&nbsp;erase&nbsp;-d&nbsp;25x020&nbsp;-v
+<span style="color:rgb(191,165,48)">Write&nbsp;from&nbsp;file,&nbsp;verify:</span>&nbsp;eeprom&nbsp;write&nbsp;-d&nbsp;25x020&nbsp;-f&nbsp;example.bin&nbsp;-v
+<span style="color:rgb(191,165,48)">Read&nbsp;to&nbsp;file,&nbsp;verify:</span>&nbsp;eeprom&nbsp;read&nbsp;-d&nbsp;25x020&nbsp;-f&nbsp;example.bin&nbsp;-v
+<span style="color:rgb(191,165,48)">Verify&nbsp;against&nbsp;file:</span>&nbsp;eeprom&nbsp;verify&nbsp;-d&nbsp;25x020&nbsp;-f&nbsp;example.bin
+<span style="color:rgb(191,165,48)">Test&nbsp;chip&nbsp;(full&nbsp;erase/write/verify):</span>&nbsp;eeprom&nbsp;test&nbsp;-d&nbsp;25x020
+<span style="color:rgb(191,165,48)">Probe&nbsp;Status&nbsp;Register&nbsp;block&nbsp;protection:</span>&nbsp;eeprom&nbsp;protect&nbsp;-d&nbsp;25x020
+<span style="color:rgb(191,165,48)">Test&nbsp;for&nbsp;chip&nbsp;block&nbsp;protection&nbsp;features:</span>&nbsp;eeprom&nbsp;protect&nbsp;-d&nbsp;25x020&nbsp;-t
+<span style="color:rgb(191,165,48)">Disable&nbsp;all&nbsp;block&nbsp;protection&nbsp;bits&nbsp;(BP1,&nbsp;BP0):</span>&nbsp;eeprom&nbsp;protect&nbsp;-d&nbsp;25x020&nbsp;-p&nbsp;0b00
+<span style="color:rgb(191,165,48)">Disable&nbsp;Write&nbsp;Pin&nbsp;ENable&nbsp;(WPEN):</span>&nbsp;eeprom&nbsp;protect&nbsp;-d&nbsp;25x020&nbsp;-w&nbsp;0
+
+<span style="color:rgb(191,165,48)">read,&nbsp;write&nbsp;and&nbsp;erase&nbsp;25XX&nbsp;series&nbsp;SPI&nbsp;EEPROM&nbsp;chips</span>
+<span style="color:rgb(150,203,89)">dump</span>	<span style="color:rgb(191,165,48)">Show&nbsp;contents</span>
+<span style="color:rgb(150,203,89)">erase</span>	<span style="color:rgb(191,165,48)">Erase&nbsp;chip</span>
+<span style="color:rgb(150,203,89)">write</span>	<span style="color:rgb(191,165,48)">Write&nbsp;file&nbsp;to&nbsp;chip</span>
+<span style="color:rgb(150,203,89)">read</span>	<span style="color:rgb(191,165,48)">Read&nbsp;chip&nbsp;to&nbsp;file</span>
+<span style="color:rgb(150,203,89)">verify</span>	<span style="color:rgb(191,165,48)">Verify&nbsp;chip&nbsp;against&nbsp;file</span>
+<span style="color:rgb(150,203,89)">test</span>	<span style="color:rgb(191,165,48)">Erase&nbsp;and&nbsp;write&nbsp;chip&nbsp;with&nbsp;dummy&nbsp;data,&nbsp;verify</span>
+<span style="color:rgb(150,203,89)">list</span>	<span style="color:rgb(191,165,48)">List&nbsp;supported&nbsp;EEPROM&nbsp;devices</span>
+<span style="color:rgb(150,203,89)">protect</span>	<span style="color:rgb(191,165,48)">Show&nbsp;chip&nbsp;write&nbsp;protect&nbsp;status</span>
+<span style="color:rgb(150,203,89)">-d</span>	<span style="color:rgb(191,165,48)">Specify&nbsp;the&nbsp;EEPROM&nbsp;device</span>
+<span style="color:rgb(150,203,89)">-f</span>	<span style="color:rgb(191,165,48)">File&nbsp;to&nbsp;write,&nbsp;read&nbsp;or&nbsp;verify</span>
+<span style="color:rgb(150,203,89)">-v</span>	<span style="color:rgb(191,165,48)">Verify&nbsp;after&nbsp;read,&nbsp;write&nbsp;or&nbsp;erase</span>
+<span style="color:rgb(150,203,89)">-s</span>	<span style="color:rgb(191,165,48)">Dump&nbsp;start&nbsp;address</span>
+<span style="color:rgb(150,203,89)">-b</span>	<span style="color:rgb(191,165,48)">Bytes&nbsp;to&nbsp;dump</span>
+<span style="color:rgb(150,203,89)">-t</span>	<span style="color:rgb(191,165,48)">Test&nbsp;for&nbsp;write&nbsp;protection&nbsp;features</span>
+<span style="color:rgb(150,203,89)">-p</span>	<span style="color:rgb(191,165,48)">Set&nbsp;Block&nbsp;Protection&nbsp;bits&nbsp;(0b00-0b11,&nbsp;0-3)</span>
+<span style="color:rgb(150,203,89)">-w</span>	<span style="color:rgb(191,165,48)">Set&nbsp;Write&nbsp;Protect&nbsp;ENable&nbsp;pin&nbsp;off/on&nbsp;(0/1)</span>
+<span style="color:rgb(150,203,89)">-h</span>	<span style="color:rgb(191,165,48)">Get&nbsp;additional&nbsp;help</span>
+
+<span style="color:rgb(150,203,89)">SPI></span>&nbsp;

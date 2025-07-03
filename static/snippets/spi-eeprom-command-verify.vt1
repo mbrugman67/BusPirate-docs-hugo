@@ -1,0 +1,8 @@
+[38;2;150;203;89mSPI>[0m&nbsp;eeprom&nbsp;verify&nbsp;-d&nbsp;25x020&nbsp;-f&nbsp;eeprom.bin
+25X020:&nbsp;256&nbsp;bytes,&nbsp;&nbsp;0&nbsp;block&nbsp;select&nbsp;bits,&nbsp;1&nbsp;byte&nbsp;address,&nbsp;8&nbsp;byte&nbsp;pages
+
+Verify:&nbsp;Verifying&nbsp;EEPROM&nbsp;contents&nbsp;against&nbsp;file&nbsp;eeprom.bin...
+Progress:&nbsp;[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;0.00%Progress:&nbsp;[##################################################]&nbsp;100.00%
+Verify&nbsp;complete
+[0m
+[38;2;150;203;89mSPI>[0m&nbsp;

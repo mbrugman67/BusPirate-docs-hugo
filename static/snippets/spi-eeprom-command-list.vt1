@@ -1,0 +1,24 @@
+[38;2;150;203;89mSPI>[0m&nbsp;eeprom&nbsp;list
+
+Available&nbsp;EEPROM&nbsp;devices:
+Device	|Bytes	|Page&nbsp;Size	|Addr&nbsp;Bytes	|Blk&nbsp;Sel&nbsp;Bits	|kHz&nbsp;max
+25X010	|128	|8		|1		|0		|10000
+25X020	|256	|8		|1		|0		|10000
+25X040	|512	|8		|1		|1		|10000
+25X080	|1024	|16		|2		|0		|10000
+25X160	|2048	|16		|2		|0		|10000
+25X320	|4096	|32		|2		|0		|10000
+25X640	|8192	|32		|2		|0		|10000
+25X128	|16384	|64		|2		|0		|10000
+25X256	|32768	|64		|2		|0		|10000
+25X512	|65536	|128		|2		|0		|10000
+25X1024	|131072	|256		|3		|0		|10000
+25XM01	|131072	|256		|3		|0		|10000
+25XM02	|262144	|256		|3		|0		|5000
+25XM04	|524288	|256		|3		|0		|8000
+
+
+Compatible&nbsp;with&nbsp;most&nbsp;common&nbsp;25X&nbsp;SPI&nbsp;EEPROMs:&nbsp;AT25,&nbsp;25C/LC/AA/CS,&nbsp;25XX-A/B/C/D&nbsp;etc.
+3.3volts&nbsp;is&nbsp;suitable&nbsp;for&nbsp;most&nbsp;devices.
+[0m
+[38;2;150;203;89mSPI>[0m&nbsp;

@@ -1,0 +1,46 @@
+m hiz
+c
+3
+1
+x
+rm bpspi.bp
+# spi-eeprom-command-setup
+m spi
+100
+8
+1
+1
+2
+# spi-eeprom-command-power
+W 3.3
+# spi-eeprom-command-pullup
+P
+# spi-eeprom-command-list
+eeprom list # List available EEPROM devices
+# stop
+eeprom protect -d 25x020 -p 0b00 # Set EEPROM protection
+# spi-eeprom-command-test
+eeprom test -d 25x020 # Test the EEPROM functionality
+# spi-eeprom-command-dump
+eeprom dump -d 25x020 # Dump the EEPROM contents
+# spi-eeprom-command-dump-partial
+eeprom dump -d 25x020 -s 0x06 -b 32 # Dump starting from address 0x06,  bytes
+# spi-eeprom-command-read
+eeprom read -d 25x020 -f eeprom.bin -v # Read the EEPROM contents to a file, verify
+# spi-eeprom-command-write
+eeprom write -d 25x020 -f eeprom.bin -v # Write the contents of eeprom.bin to the EEPROM, verify
+# spi-eeprom-command-verify
+eeprom verify -d 25x020 -f eeprom.bin # Verify EEPROM contents against file eeprom.bin
+# spi-eeprom-command-erase
+eeprom erase -d 25x020 -v # Erase the EEPROM, verify
+# spi-eeprom-command-protect
+eeprom protect -d 25x020 # Show EEPROM protection status
+# spi-eeprom-command-protect-test
+eeprom protect -d 25x020 -t # Test EEPROM protection functionality
+# spi-eeprom-command-protect-set
+eeprom protect -d 25x020 -p 0b11 # Set EEPROM protection
+# stop
+eeprom protect -d 25x020 -p 0b00 # Set EEPROM protection
+# spi-eeprom-command-help
+eeprom -h # Show help, device list for eeprom command
+# stop

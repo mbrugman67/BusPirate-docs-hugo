@@ -9,6 +9,7 @@ m i2c
 1
 W 3.3
 P
+>D:500
 eeprom erase -d 24x02
 [0xa0 0x60 "Hello!"]
 >D:1000

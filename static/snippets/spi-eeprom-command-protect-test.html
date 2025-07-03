@@ -1,0 +1,24 @@
+<span style="color:rgb(150,203,89)">SPI></span>&nbsp;eeprom&nbsp;protect&nbsp;-d&nbsp;25x020&nbsp;-t
+25X020:&nbsp;256&nbsp;bytes,&nbsp;&nbsp;0&nbsp;block&nbsp;select&nbsp;bits,&nbsp;1&nbsp;byte&nbsp;address,&nbsp;8&nbsp;byte&nbsp;pages
+
+Status&nbsp;Register:&nbsp;0x00
+Write&nbsp;Pin&nbsp;ENable&nbsp;(WPEN):&nbsp;Disabled
+Block&nbsp;Protect&nbsp;Bits&nbsp;(BP1,&nbsp;BP0):&nbsp;0,&nbsp;0
+Protection&nbsp;range:&nbsp;None
+
+Testing&nbsp;support&nbsp;for&nbsp;Write&nbsp;Protect&nbsp;blocks&nbsp;(BP0,&nbsp;BP1)&nbsp;and&nbsp;Write&nbsp;Pin&nbsp;ENable&nbsp;(WPEN)
+
+Disabling&nbsp;write&nbsp;protect:&nbsp;0x00,&nbsp;OK
+
+Testing&nbsp;for&nbsp;BP0,&nbsp;BP1,&nbsp;WPEN...wrote:&nbsp;0x8C,&nbsp;read:&nbsp;0x0C
+BP0:&nbsp;Present
+BP1:&nbsp;Present
+WPEN:&nbsp;Not&nbsp;detected
+
+Restoring&nbsp;original&nbsp;status&nbsp;register:&nbsp;0x00...Done&nbsp;:)
+Status&nbsp;Register:&nbsp;0x00
+Write&nbsp;Pin&nbsp;ENable&nbsp;(WPEN):&nbsp;Disabled
+Block&nbsp;Protect&nbsp;Bits&nbsp;(BP1,&nbsp;BP0):&nbsp;0,&nbsp;0
+Protection&nbsp;range:&nbsp;None
+
+<span style="color:rgb(150,203,89)">SPI></span>&nbsp;

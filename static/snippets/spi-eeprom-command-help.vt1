@@ -1,0 +1,37 @@
+[38;2;150;203;89mSPI>[0m&nbsp;eeprom&nbsp;-h
+usage:
+[38;2;191;165;48meeprom&nbsp;[dump|erase|write|read|verify|test|list|protect]
+	[-d&nbsp;&ltdevice>]&nbsp;[-f&nbsp;&ltfile>]&nbsp;[-v(verify)]&nbsp;[-s&nbsp;&ltstart&nbsp;address>]&nbsp;[-b&nbsp;&ltbytes>]&nbsp;[-t(test)]&nbsp;[-p&nbsp;&ltprotection&nbsp;blocks>]&nbsp;[-w&nbsp;&ltWPEN>]&nbsp;[-h(elp)]
+[38;2;191;165;48mList&nbsp;available&nbsp;EEPROM&nbsp;devices:[0m&nbsp;eeprom&nbsp;list
+[38;2;191;165;48mDisplay&nbsp;contents:[0m&nbsp;eeprom&nbsp;dump&nbsp;-d&nbsp;25x020
+[38;2;191;165;48mDisplay&nbsp;16&nbsp;bytes&nbsp;starting&nbsp;at&nbsp;address&nbsp;0x60:[0m&nbsp;eeprom&nbsp;dump&nbsp;-d&nbsp;25x020&nbsp;-s&nbsp;0x60&nbsp;-b&nbsp;16
+[38;2;191;165;48mErase,&nbsp;verify:[0m&nbsp;eeprom&nbsp;erase&nbsp;-d&nbsp;25x020&nbsp;-v
+[38;2;191;165;48mWrite&nbsp;from&nbsp;file,&nbsp;verify:[0m&nbsp;eeprom&nbsp;write&nbsp;-d&nbsp;25x020&nbsp;-f&nbsp;example.bin&nbsp;-v
+[38;2;191;165;48mRead&nbsp;to&nbsp;file,&nbsp;verify:[0m&nbsp;eeprom&nbsp;read&nbsp;-d&nbsp;25x020&nbsp;-f&nbsp;example.bin&nbsp;-v
+[38;2;191;165;48mVerify&nbsp;against&nbsp;file:[0m&nbsp;eeprom&nbsp;verify&nbsp;-d&nbsp;25x020&nbsp;-f&nbsp;example.bin
+[38;2;191;165;48mTest&nbsp;chip&nbsp;(full&nbsp;erase/write/verify):[0m&nbsp;eeprom&nbsp;test&nbsp;-d&nbsp;25x020
+[38;2;191;165;48mProbe&nbsp;Status&nbsp;Register&nbsp;block&nbsp;protection:[0m&nbsp;eeprom&nbsp;protect&nbsp;-d&nbsp;25x020
+[38;2;191;165;48mTest&nbsp;for&nbsp;chip&nbsp;block&nbsp;protection&nbsp;features:[0m&nbsp;eeprom&nbsp;protect&nbsp;-d&nbsp;25x020&nbsp;-t
+[38;2;191;165;48mDisable&nbsp;all&nbsp;block&nbsp;protection&nbsp;bits&nbsp;(BP1,&nbsp;BP0):[0m&nbsp;eeprom&nbsp;protect&nbsp;-d&nbsp;25x020&nbsp;-p&nbsp;0b00
+[38;2;191;165;48mDisable&nbsp;Write&nbsp;Pin&nbsp;ENable&nbsp;(WPEN):[0m&nbsp;eeprom&nbsp;protect&nbsp;-d&nbsp;25x020&nbsp;-w&nbsp;0
+[0m
+[38;2;191;165;48mread,&nbsp;write&nbsp;and&nbsp;erase&nbsp;25XX&nbsp;series&nbsp;SPI&nbsp;EEPROM&nbsp;chips[0m
+[38;2;150;203;89mdump[0m	[38;2;191;165;48mShow&nbsp;contents[0m
+[38;2;150;203;89merase[0m	[38;2;191;165;48mErase&nbsp;chip[0m
+[38;2;150;203;89mwrite[0m	[38;2;191;165;48mWrite&nbsp;file&nbsp;to&nbsp;chip[0m
+[38;2;150;203;89mread[0m	[38;2;191;165;48mRead&nbsp;chip&nbsp;to&nbsp;file[0m
+[38;2;150;203;89mverify[0m	[38;2;191;165;48mVerify&nbsp;chip&nbsp;against&nbsp;file[0m
+[38;2;150;203;89mtest[0m	[38;2;191;165;48mErase&nbsp;and&nbsp;write&nbsp;chip&nbsp;with&nbsp;dummy&nbsp;data,&nbsp;verify[0m
+[38;2;150;203;89mlist[0m	[38;2;191;165;48mList&nbsp;supported&nbsp;EEPROM&nbsp;devices[0m
+[38;2;150;203;89mprotect[0m	[38;2;191;165;48mShow&nbsp;chip&nbsp;write&nbsp;protect&nbsp;status[0m
+[38;2;150;203;89m-d[0m	[38;2;191;165;48mSpecify&nbsp;the&nbsp;EEPROM&nbsp;device[0m
+[38;2;150;203;89m-f[0m	[38;2;191;165;48mFile&nbsp;to&nbsp;write,&nbsp;read&nbsp;or&nbsp;verify[0m
+[38;2;150;203;89m-v[0m	[38;2;191;165;48mVerify&nbsp;after&nbsp;read,&nbsp;write&nbsp;or&nbsp;erase[0m
+[38;2;150;203;89m-s[0m	[38;2;191;165;48mDump&nbsp;start&nbsp;address[0m
+[38;2;150;203;89m-b[0m	[38;2;191;165;48mBytes&nbsp;to&nbsp;dump[0m
+[38;2;150;203;89m-t[0m	[38;2;191;165;48mTest&nbsp;for&nbsp;write&nbsp;protection&nbsp;features[0m
+[38;2;150;203;89m-p[0m	[38;2;191;165;48mSet&nbsp;Block&nbsp;Protection&nbsp;bits&nbsp;(0b00-0b11,&nbsp;0-3)[0m
+[38;2;150;203;89m-w[0m	[38;2;191;165;48mSet&nbsp;Write&nbsp;Protect&nbsp;ENable&nbsp;pin&nbsp;off/on&nbsp;(0/1)[0m
+[38;2;150;203;89m-h[0m	[38;2;191;165;48mGet&nbsp;additional&nbsp;help[0m
+[0m
+[38;2;150;203;89mSPI>[0m&nbsp;

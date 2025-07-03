@@ -1,0 +1,29 @@
+m hiz
+c
+3
+2
+x
+rm bpspi.bp
+# spi-eeprom-command-cast
+m spi # Enable SPI mode
+100 
+8 
+1 
+1 
+2 # CS active low
+W 3.3 # W 3.3 - enable 3.3 volt power supply
+P # P - enable pull-up resistors to hold WP and HOLD pins high
+eeprom list # List available EEPROM devices
+eeprom test -d 25x020 # Test the EEPROM functionality
+eeprom dump -d 25x020 # Dump the EEPROM contents
+eeprom dump -d 25x020 -s 0x06 -b 32 # Dump starting from address 0x06, 32 bytes
+eeprom read -d 25x020 -f eeprom.bin -v # Read the EEPROM contents to a file, verify
+eeprom write -d 25x020 -f eeprom.bin -v # Write the contents of eeprom.bin to the EEPROM, verify
+eeprom verify -d 25x020 -f eeprom.bin # Verify EEPROM contents against file eeprom.bin
+eeprom erase -d 25x020 -v # Erase the EEPROM, verify
+eeprom protect -d 25x020 # Show EEPROM protection status
+eeprom protect -d 25x020 -t # Test EEPROM protection functionality
+eeprom protect -d 25x020 -p 0b11 # Enable write block protection
+eeprom protect -d 25x020 -p 0b00 # Disable write block protection
+eeprom -h # Show help, device list for eeprom command
+# stop

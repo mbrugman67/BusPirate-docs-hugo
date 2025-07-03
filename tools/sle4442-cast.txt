@@ -40,6 +40,7 @@ P # P - enable pull-up resistors
 L # L - set Least Significant Bit first
 sle4442 init # Initialize the SLE4442 card, read ATR
 sle4442 dump # Dump the card contents
+sle4442 dump -s 0x02 -b 20 # Dump starting from address 0x02, 20 bytes
 sle4442 unlock -p 0xffffff # Unlock the card with the default passcode
 sle4442 write -a 0xff -v 0x88 # Write 0x88 to address 0xff
 sle4442 psc -p 0xffffff -n 0x123456 # Set new passcode

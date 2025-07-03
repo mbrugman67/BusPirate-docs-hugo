@@ -1,0 +1,35 @@
+m hiz
+c
+3
+1
+x
+rm bp1wire.bp
+# 1wire-eeprom-command-setup
+m 1wire
+# 1wire-eeprom-command-power
+W 5
+# 1wire-eeprom-command-pullup
+P 
+# 1wire-eeprom-command-scan
+scan
+# 1wire-eeprom-command-list
+eeprom list # List available EEPROM devices
+# 1wire-eeprom-command-test
+eeprom test -d ds2431 # Test the EEPROM functionality
+# 1wire-eeprom-command-dump
+eeprom dump -d ds2431 # Dump the EEPROM contents
+# 1wire-eeprom-command-dump-partial
+eeprom dump -d ds2431 -s 0x06 -b 32 # Dump starting from address 0x06,  bytes
+# 1wire-eeprom-command-read
+eeprom read -d ds2431 -f eeprom.bin -v # Read the EEPROM contents to a file, verify
+# 1wire-eeprom-command-write
+eeprom write -d ds2431 -f eeprom.bin -v # Write the contents of eeprom.bin to the EEPROM, verify
+# 1wire-eeprom-command-verify
+eeprom verify -d ds2431 -f eeprom.bin # Verify EEPROM contents against file eeprom.bin
+# 1wire-eeprom-command-erase
+eeprom erase -d ds2431 -v # Erase the EEPROM, verify
+# 1wire-eeprom-command-protect
+eeprom protect -d ds2431 # Show EEPROM protection status
+# 1wire-eeprom-command-help
+eeprom -h # Show help, device list for eeprom command
+# stop

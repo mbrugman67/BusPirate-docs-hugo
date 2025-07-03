@@ -5,9 +5,9 @@ Start&nbsp;address:&nbsp;0x00000050,&nbsp;end&nbsp;address:&nbsp;0x0000008F,&nbs
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;00&nbsp;01&nbsp;02&nbsp;03&nbsp;04&nbsp;05&nbsp;06&nbsp;07&nbsp;08&nbsp;09&nbsp;0A&nbsp;0B&nbsp;0C&nbsp;0D&nbsp;0E&nbsp;0F
 ---------------------------------------------------------
-00000050:&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;&nbsp;|................|
-00000060:&nbsp;48&nbsp;65&nbsp;6C&nbsp;6C&nbsp;6F&nbsp;21&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;&nbsp;|Hello!..........|
-00000070:&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;&nbsp;|................|
-00000080:&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;&nbsp;|................|
+00000050:&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;[0m|................[0m|
+00000060:&nbsp;[38;2;83;166;230m48&nbsp;65&nbsp;6C&nbsp;6C&nbsp;6F&nbsp;21&nbsp;[0mFF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;[0m|[38;2;191;165;48mHello![0m..........[0m|
+00000070:&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;[0m|................[0m|
+00000080:&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;FF&nbsp;[0m|................[0m|
 [0m
 [38;2;150;203;89mI2C>[0m&nbsp;
