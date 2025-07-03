@@ -1,0 +1,24 @@
+m hiz
+c
+3
+1
+x
+rm bp2wire.bp
+m 2wire
+20
+W 5
+P 
+L
+# sle4442-cmd-init
+sle4442 init # Initialize the SLE4442 card, read ATR
+# sle4442-cmd-dump
+sle4442 dump # Dump the card contents
+# sle4442-cmd-unlock
+sle4442 unlock -p 0xffffff # Unlock the card with the default passcode
+# sle4442-cmd-write
+sle4442 write -a 0xff -v 0x88 # Write 0x88 to address 0xff
+# sle4442-cmd-psc-set
+sle4442 psc -p 0xffffff -n 0x123456 # Set new passcode
+# stop
+sle4442 write -a 0xff -v 0xff
+sle4442 psc -p 0x123456 -n 0xffffff

@@ -17,7 +17,9 @@ sle4442 dump # Dump the card contents
 sle4442 dump -s 0x02 -b 20 # Dump starting from address 0x02, 20 bytes
 sle4442 unlock -p 0xffffff # Unlock the card with the default passcode
 sle4442 write -a 0xff -v 0x88 # Write 0x88 to address 0xff
+sle4442 dump -s 0xf0 # Dump starting from address 0xf0 to the end
 sle4442 psc -p 0xffffff -n 0x123456 # Set new passcode
+sle4442 -h # Show help for sle4442 command
 # stop
 sle4442 write -a 0xff -v 0xff
 sle4442 psc -p 0x123456 -n 0xffffff

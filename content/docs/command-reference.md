@@ -1334,6 +1334,9 @@ Show the write protection status of the EEPROM.
 - ```eeprom protection -d <device>``` - show the protection status of the EEPROM 
 
 #### 1-Wire EEPROM options and flags
+
+{{< termfile source="static/snippets/1wire-eeprom-command-help.html" >}}
+
 |Option|Description|
 |---|---|
 |```eeprom list```|List all supported EEPROM devices|
@@ -1855,6 +1858,9 @@ Test I2C EEPROM functionality. Erase the EEPROM to 0xff and verify the erase. Th
 - ```eeprom test -d <device>``` - test EEPROM functionality
 
 #### I2C EEPROM options and flags
+
+{{< termfile source="static/snippets/i2c-eeprom-command-help.html" >}}
+
 |Option|Description|
 |---|---|
 |```eeprom list```|List all supported EEPROM devices|
@@ -1886,12 +1892,6 @@ The ```ddr5``` command can probe, read, write, and unlock the SPD hub chip in [D
 - Unlock SPD chips, backup SPD data and restore corrupted SPD tables. 
 - Search for, and replicate, hidden entries unscrupulous manufacturers use to lock equipment to proprietary RAM modules.
 
-{{< termfile source="static/snippets/ddr5-command-help.html" >}}
-
-{{% alert context="info" %}}
-Use ```ddr5 -h``` to see the latest options and features.
-{{% /alert %}}
-
 #### DDR5 probe
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
@@ -1916,25 +1916,19 @@ The probe command also searches the Manufacture Specific Data block and End User
 
 #### DDR5 dump
 
-{{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:rgb(150,203,89)">I2C></span>&nbsp;ddr5&nbsp;dump
-Device&nbsp;Type:&nbsp;0x5118
-
-EEPROM&nbsp;Block&nbsp;0:
-&nbsp;0x30&nbsp;0x10&nbsp;0x12&nbsp;0x02&nbsp;0x04&nbsp;0x00&nbsp;0x40&nbsp;0x42&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0xA0&nbsp;0x01&nbsp;0x07&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0xA0&nbsp;0x01&nbsp;0xF2&nbsp;0x03&nbsp;0x7A&nbsp;0x0D&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x80&nbsp;0x3E&nbsp;0x80&nbsp;0x3E&nbsp;0x80&nbsp;0x3E&nbsp;0x00&nbsp;0x7D&nbsp;0x80&nbsp;0xBB&nbsp;0x30&nbsp;0x75&nbsp;0x27&nbsp;0x01&nbsp;0xA0&nbsp;0x00&nbsp;0x82&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0xD4&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0xD4&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0xD4&nbsp;0x00
-...
-EEPROM&nbsp;Block&nbsp;15:
-&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00
-<span style="color:rgb(150,203,89)">I2C></span>&nbsp;
-{{< /term >}}
+{{< termfile source="static/snippets/ddr5-command-dump-partial.html" >}}
 
 The ```ddr5 dump``` command displays the contents of a DDR5 SPD chip EEPROM/non-volatile memory in the terminal. It reads the chip and prints the contents of each 64-byte block.
+- ```ddr5 dump``` - display the contents of the DDR5 SPD chip in the terminal
+- ```ddr5 dump -s <start>``` - display the contents of the DDR5 SPD chip, starting at address `<start>`
+- ```ddr5 dump -s <start> -b <bytes>``` - display a specific range of bytes, starting at address `<start>` and reading `<bytes>` bytes
 
 #### DDR5 read to file
 
 {{< termfile source="static/snippets/ddr5-command-read.html" >}}
 
 Read the contents of a DDR5 SPD chip and save to a file with the ```ddr5 read``` command. The file name is specified with the ```-f``` flag.
+- ```ddr5 read -f <file>``` - read the contents of the DDR5 SPD chip to file `<file>`
 
 #### DDR5 verify against file
 
@@ -1942,11 +1936,14 @@ Read the contents of a DDR5 SPD chip and save to a file with the ```ddr5 read```
 
 Verify the contents of a DDR5 SPD chip against a file with the ```ddr5 verify``` command. The file name is specified with the ```-f``` flag. This command reads the chip and compares it to the file, reporting the location of any differences.
 
+- ```ddr5 verify -f <file>``` - verify the contents of the DDR5 SPD chip against the file `<file>`
+
 #### DDR5 write from file
 
 {{< termfile source="static/snippets/ddr5-command-write.html" >}}
 
 Write a file to a DDR5 SPD chip with the ```ddr5 write``` command. The file name is specified with the ```-f``` flag. 
+- ```ddr5 write -f <file>``` - write the contents of `<file>` to the DDR5 SPD chip
 
 {{% alert context="info" %}}
 During write the command will unlock the block protection bits. When the write is complete, the write protection bits will be restored to the original state.  
@@ -1961,6 +1958,8 @@ The ```ddr5 write``` command will overwrite the contents of the DDR5 SPD chip. U
 {{< termfile source="static/snippets/ddr5-command-lock.html" >}}
 
 Lock or unlock a block in the DDR5 SPD chip with the ```ddr5 lock``` and ```ddr5 unlock``` commands. The block number is specified with the ```-b``` flag (0-15). Each block is 64 bytes in size.
+- ```ddr5 lock -b <block>``` - lock the specified block in the DDR5 SPD chip
+- ```ddr5 unlock -b <block>``` - unlock the specified block in the DDR5 SPD chip
 
 {{% alert context="info" %}}
 In order to unlock blocks the module's HSA pin **must** be connected to ground. This is required to unlock the block protection bits in the DDR5 SPD chip. See the [DDR5 SPD demo]({{% relref "/docs/devices/ddr5/#connections" %}}) for more details.
@@ -1970,6 +1969,7 @@ In order to unlock blocks the module's HSA pin **must** be connected to ground. 
 {{< termfile source="static/snippets/ddr5-command-crc.html" >}}
 
 Calculate or verify the CRC of the JEDEC blocks 0-7 in a DDR5 SPD dump file with the ```ddr5 crc``` command. The file name is specified with the ```-f``` flag. This command reads the specified file and calculates the CRC for the first 8 blocks, reporting any discrepancies.
+- ```ddr5 crc -f <file>``` - calculate CRC for the first 8 blocks of the DDR5 SPD chip dump file `<file>`
 
 {{% alert context="info" %}}
 To verify the CRC on a DDR5 SPD chip instead of a file, use the ```ddr5 probe``` command. It will automatically calculate and verify the CRC for the first 8 blocks of the SPD chip.
@@ -1977,6 +1977,11 @@ To verify the CRC on a DDR5 SPD chip instead of a file, use the ```ddr5 probe```
 
 
 #### DDR5 Options and flags
+{{< termfile source="static/snippets/ddr5-command-help.html" >}}
+
+{{% alert context="info" %}}
+Use ```ddr5 -h``` to see the latest options and features.
+{{% /alert %}}
 
 |Option|Description|
 |------|-----------|
@@ -1993,9 +1998,11 @@ Options tell the flash command what to do.
 
 |Flag|Description|
 |-----|-----------|
-|```-f```|File flag. Specify a file to write, read, verify or check CRC.|
-|```-b```|Block flag. Specify a DDR5 SPD NVM block to lock or unlock (0 - 15).|
-|```-h```|Show help for Bus Pirate commands and modes.|
+|```-f```|File flag. Specify a file to write, read, verify or check CRC|
+|```-b```|Block flag. Specify a DDR5 SPD NVM block to lock or unlock (0 - 15)|
+|```-s```|Start address flag. Specify the dump start address|
+|```-b```|Bytes flag. Specify the number of bytes to dump|
+|```-h```|Show help for Bus Pirate commands and modes|
 
 Flags pass file names and other settings.
 
@@ -2512,6 +2519,8 @@ Many chips support block protection bits, fewer support the WPEN bit. To test wh
 - ```eeprom protect -d <device> -t``` - test the write protection features of the EEPROM. 
 
 #### SPI EEPROM options and flags
+{{< termfile source="static/snippets/spi-eeprom-command-help.html" >}}
+
 |Option|Description|
 |---|---|
 |```eeprom list```|List all supported EEPROM devices|
@@ -2645,6 +2654,7 @@ Use ```sle4442 -h``` to see the latest options and features.
 
 ```sle4442 dump``` reads and displays the main, security and protection memory areas. The card **does not** need to be unlocked to read the contents. The passcode is only required to write to the card.
 - ```sle4442 dump``` - read and display the main, security and protection memory areas
+- ```sle4442 dump -s 0x06 -b 32``` - read and display the main memory area starting at address 0x06, reading 32 bytes
 - ```sle4442 dump -f <file name>``` - read and save the main, security and protection memory areas to a file
 
 #### Unlock SLE4442 card with passcode
@@ -2712,6 +2722,8 @@ Options tell the SLE4442 command what to do.
 |-p|Current Programmable Security Code (PSC) flag|
 |-n|New Programmable Security Code (PSC) flag|
 |-f|File flag, specify a file to save the memory dump|
+|-s|Start address for memory dump|
+|-b|Number of bytes in memory dump|
 
 Flags pass file names and other settings to the command.
 

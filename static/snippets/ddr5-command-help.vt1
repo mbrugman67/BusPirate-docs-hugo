@@ -1,18 +1,19 @@
 [38;2;150;203;89mI2C>[0m&nbsp;ddr5&nbsp;-h
 usage:
 [38;2;191;165;48mddr5&nbsp;[probe|dump|write|read|verify|lock|unlock|crc]
-	[-f&nbsp;&ltfile>]&nbsp;[-b&nbsp;&ltblock&nbsp;number>]&nbsp;[-h(elp)][0m
-[38;2;191;165;48mProbe&nbsp;DDR5&nbsp;SPD:&nbsp;ddr5&nbsp;probe[0m
-[38;2;191;165;48mShow&nbsp;DDR5&nbsp;SPD&nbsp;NVM&nbsp;contents:&nbsp;ddr5&nbsp;dump[0m
-[38;2;191;165;48mWrite&nbsp;SPD&nbsp;NVM&nbsp;from&nbsp;file,&nbsp;verify:&nbsp;ddr5&nbsp;write&nbsp;-f&nbsp;example.bin[0m
-[38;2;191;165;48mRead&nbsp;SPD&nbsp;NVM&nbsp;to&nbsp;file,&nbsp;verify:&nbsp;ddr5&nbsp;read&nbsp;-f&nbsp;example.bin[0m
-[38;2;191;165;48mVerify&nbsp;against&nbsp;file:&nbsp;ddr5&nbsp;verify&nbsp;-f&nbsp;example.bin[0m
-[38;2;191;165;48mShow&nbsp;NVM&nbsp;block&nbsp;lock&nbsp;status:&nbsp;ddr5&nbsp;lock&nbsp;-or-&nbsp;ddr5&nbsp;unlock[0m
-[38;2;191;165;48mLock&nbsp;a&nbsp;NVM&nbsp;block&nbsp;0-15:&nbsp;ddr5&nbsp;lock&nbsp;-b&nbsp;0[0m
-[38;2;191;165;48mUnlock&nbsp;a&nbsp;NVM&nbsp;block&nbsp;0-15:&nbsp;ddr5&nbsp;unlock&nbsp;-b&nbsp;0[0m
-[38;2;191;165;48mCheck/generate&nbsp;CRC&nbsp;for&nbsp;JEDEC&nbsp;blocks&nbsp;0-7:&nbsp;ddr5&nbsp;crc&nbsp;-f&nbsp;example.bin[0m
-[38;2;191;165;48mDDR5&nbsp;write&nbsp;file&nbsp;**MUST**&nbsp;be&nbsp;exactly&nbsp;1024&nbsp;bytes&nbsp;long[0m
-
+	[-f&nbsp;&ltfile>]&nbsp;[-b&nbsp;&ltblock&nbsp;number>|&ltbytes>]&nbsp;[-s&nbsp;&ltstart&nbsp;address>]&nbsp;[-h(elp)]
+[38;2;191;165;48mProbe&nbsp;DDR5&nbsp;SPD:[0m&nbsp;ddr5&nbsp;probe
+[38;2;191;165;48mShow&nbsp;DDR5&nbsp;SPD&nbsp;NVM&nbsp;contents:[0m&nbsp;ddr5&nbsp;dump
+[38;2;191;165;48mShow&nbsp;32&nbsp;bytes&nbsp;starting&nbsp;at&nbsp;address&nbsp;0x50:[0m&nbsp;ddr5&nbsp;dump&nbsp;-s&nbsp;0x50&nbsp;-b&nbsp;32
+[38;2;191;165;48mWrite&nbsp;SPD&nbsp;NVM&nbsp;from&nbsp;file,&nbsp;verify:[0m&nbsp;ddr5&nbsp;write&nbsp;-f&nbsp;example.bin
+[38;2;191;165;48mRead&nbsp;SPD&nbsp;NVM&nbsp;to&nbsp;file,&nbsp;verify:[0m&nbsp;ddr5&nbsp;read&nbsp;-f&nbsp;example.bin
+[38;2;191;165;48mVerify&nbsp;against&nbsp;file:[0m&nbsp;ddr5&nbsp;verify&nbsp;-f&nbsp;example.bin
+[38;2;191;165;48mShow&nbsp;NVM&nbsp;block&nbsp;lock&nbsp;status:[0m&nbsp;ddr5&nbsp;lock&nbsp;-or-&nbsp;ddr5&nbsp;unlock
+[38;2;191;165;48mLock&nbsp;a&nbsp;NVM&nbsp;block&nbsp;0-15:[0m&nbsp;ddr5&nbsp;lock&nbsp;-b&nbsp;0
+[38;2;191;165;48mUnlock&nbsp;a&nbsp;NVM&nbsp;block&nbsp;0-15:[0m&nbsp;ddr5&nbsp;unlock&nbsp;-b&nbsp;0
+[38;2;191;165;48mCheck/generate&nbsp;CRC&nbsp;for&nbsp;JEDEC&nbsp;blocks&nbsp;0-7:[0m&nbsp;ddr5&nbsp;crc&nbsp;-f&nbsp;example.bin
+[38;2;191;165;48mDDR5&nbsp;write&nbsp;file&nbsp;**MUST**&nbsp;be&nbsp;exactly&nbsp;1024&nbsp;bytes&nbsp;long
+[0m
 [38;2;191;165;48mread,&nbsp;write&nbsp;and&nbsp;probe&nbsp;DDR5&nbsp;SPD&nbsp;chips[0m
 [38;2;150;203;89mprobe[0m	[38;2;191;165;48mShow&nbsp;DDR5&nbsp;SPD&nbsp;chip&nbsp;and&nbsp;NVM/EEPROM&nbsp;status[0m
 [38;2;150;203;89mdump[0m	[38;2;191;165;48mDisplay&nbsp;DDR5&nbsp;SPD&nbsp;NVM&nbsp;contents[0m
@@ -23,6 +24,8 @@ usage:
 [38;2;150;203;89munlock[0m	[38;2;191;165;48mUnlock&nbsp;DDR5&nbsp;SPD&nbsp;NVM&nbsp;block[0m
 [38;2;150;203;89mcrc[0m	[38;2;191;165;48mCalculate/verify&nbsp;CRC&nbsp;of&nbsp;JEDEC&nbsp;blocks&nbsp;0-7&nbsp;in&nbsp;a&nbsp;file[0m
 [38;2;150;203;89m-f[0m	[38;2;191;165;48mFile&nbsp;flag.&nbsp;Speficy&nbsp;a&nbsp;file&nbsp;to&nbsp;write,&nbsp;read,&nbsp;verify&nbsp;or&nbsp;check&nbsp;CRC[0m
+[38;2;150;203;89m-s[0m	[38;2;191;165;48mDump&nbsp;start&nbsp;address[0m
+[38;2;150;203;89m-b[0m	[38;2;191;165;48mBytes&nbsp;to&nbsp;dump[0m
 [38;2;150;203;89m-b[0m	[38;2;191;165;48mBlock&nbsp;flag.&nbsp;Speficy&nbsp;a&nbsp;DDR5&nbsp;SPD&nbsp;NVM&nbsp;block&nbsp;to&nbsp;lock&nbsp;or&nbsp;unlock&nbsp;(0&nbsp;-&nbsp;15)[0m
 [38;2;150;203;89m-h[0m	[38;2;191;165;48mhelp&nbsp;for&nbsp;Bus&nbsp;Pirate&nbsp;commands&nbsp;and&nbsp;modes[0m
 [0m

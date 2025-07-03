@@ -15,6 +15,8 @@ ddr5 -h
 ddr5 probe
 # ddr5-command-dump
 ddr5 dump
+# ddr5-command-dump-partial
+ddr5 dump -s 0x280 -b 39
 # ddr5-command-read
 ddr5 read -f ddr5.bin
 # ddr5-command-write

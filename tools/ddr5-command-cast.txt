@@ -13,6 +13,7 @@ P # P - enable pull-up resistors
 ddr5 -h # ddr5 -h - show help
 ddr5 probe # Scan for DDR5 device info
 ddr5 dump # Dump DDR5 SPD data to console
+ddr5 dump -s 0x280 -b 39 # Dump DDR5 SPD data starting from address 0x280, 39 bytes
 ddr5 read -f ddr5.bin # read DDR5 SPD data to file
 ddr5 write -f ddr5.bin # write DDR5 SPD data from file
 ddr5 verify -f ddr5.bin  # verify DDR5 SPD data against file

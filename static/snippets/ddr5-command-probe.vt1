@@ -7,23 +7,9 @@ Device&nbsp;Capability&nbsp;-&nbsp;Hub&nbsp;Support:&nbsp;1
 Write&nbsp;Recovery&nbsp;Time&nbsp;Capability:&nbsp;3ms
 I2C&nbsp;Legacy&nbsp;Mode&nbsp;Address&nbsp;Pointer&nbsp;Mode:&nbsp;1&nbsp;byte&nbsp;address
 I2C&nbsp;Legacy&nbsp;Mode&nbsp;Address&nbsp;Pointer:&nbsp;page&nbsp;0
-Write&nbsp;Protection&nbsp;for&nbsp;NVM&nbsp;Blocks:&nbsp;0x3FFF
-&nbsp;&nbsp;Block&nbsp;0:&nbsp;Protected
-&nbsp;&nbsp;Block&nbsp;1:&nbsp;Protected
-&nbsp;&nbsp;Block&nbsp;2:&nbsp;Protected
-&nbsp;&nbsp;Block&nbsp;3:&nbsp;Protected
-&nbsp;&nbsp;Block&nbsp;4:&nbsp;Protected
-&nbsp;&nbsp;Block&nbsp;5:&nbsp;Protected
-&nbsp;&nbsp;Block&nbsp;6:&nbsp;Protected
-&nbsp;&nbsp;Block&nbsp;7:&nbsp;Protected
-&nbsp;&nbsp;Block&nbsp;8:&nbsp;Protected
-&nbsp;&nbsp;Block&nbsp;9:&nbsp;Protected
-&nbsp;&nbsp;Block&nbsp;10:&nbsp;Protected
-&nbsp;&nbsp;Block&nbsp;11:&nbsp;Protected
-&nbsp;&nbsp;Block&nbsp;12:&nbsp;Protected
-&nbsp;&nbsp;Block&nbsp;13:&nbsp;Protected
-&nbsp;&nbsp;Block&nbsp;14:&nbsp;Unprotected
-&nbsp;&nbsp;Block&nbsp;15:&nbsp;Unprotected
+Write&nbsp;Protection&nbsp;for&nbsp;NVM&nbsp;Blocks:&nbsp;0xFF&nbsp;0x03
+Block&nbsp;&nbsp;&nbsp;|00|01|02|03|04|05|06|07|08|09|0A|0B|0C|0D|0E|0F|
+Current&nbsp;|L&nbsp;|L&nbsp;|L&nbsp;|L&nbsp;|L&nbsp;|L&nbsp;|L&nbsp;|L&nbsp;|L&nbsp;|L&nbsp;|U&nbsp;|U&nbsp;|U&nbsp;|U&nbsp;|U&nbsp;|U&nbsp;|
 Device&nbsp;Configuration&nbsp;-&nbsp;Host&nbsp;&&nbsp;Local&nbsp;Interface&nbsp;IO:&nbsp;0x00
 Device&nbsp;Configuration:&nbsp;0x00
 Interrupt&nbsp;Configurations:&nbsp;0x00
@@ -32,7 +18,7 @@ Device&nbsp;Status&nbsp;-&nbsp;Write&nbsp;Protect&nbsp;Override:&nbsp;Enabled
 Temp&nbsp;Sensor:&nbsp;Enabled
 TS&nbsp;Resolution:&nbsp;9&nbsp;bits
 TS&nbsp;Hysteresis&nbsp;Width:&nbsp;0x00
-TS&nbsp;Current&nbsp;Sensed&nbsp;Temperature:&nbsp;0x0164&nbsp;(22.0c)
+TS&nbsp;Current&nbsp;Sensed&nbsp;Temperature:&nbsp;0x01A8&nbsp;(26.5c)
 TS&nbsp;Temperature&nbsp;High&nbsp;Limit:&nbsp;0x0370&nbsp;(55.0c)
 TS&nbsp;Temperature&nbsp;Low&nbsp;Limit:&nbsp;0x0000&nbsp;(0.0c)
 TS&nbsp;Critical&nbsp;Temperature&nbsp;High&nbsp;Limit:&nbsp;0x0550&nbsp;(85.0c)
@@ -73,18 +59,43 @@ SPD&nbsp;EEPROM&nbsp;JEDEC&nbsp;Manufacturing&nbsp;Information&nbsp;blocks&nbsp;
 &nbsp;&nbsp;DRAM&nbsp;Stepping:&nbsp;0x41
 
 Searching&nbsp;Manuf.&nbsp;Specific&nbsp;Data&nbsp;area&nbsp;block&nbsp;9:
+Found&nbsp;data&nbsp;at&nbsp;0x22B:&nbsp;19&nbsp;bytes
+Start&nbsp;address:&nbsp;0x00000220,&nbsp;end&nbsp;address:&nbsp;0x0000023F,&nbsp;total&nbsp;bytes:&nbsp;32
 
-@&nbsp;0x22B:&nbsp;0x34&nbsp;0x35&nbsp;0x31&nbsp;0x30&nbsp;0x39&nbsp;0x30&nbsp;0x34&nbsp;0x38&nbsp;0x31&nbsp;0x39&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;00&nbsp;01&nbsp;02&nbsp;03&nbsp;04&nbsp;05&nbsp;06&nbsp;07&nbsp;08&nbsp;09&nbsp;0A&nbsp;0B&nbsp;0C&nbsp;0D&nbsp;0E&nbsp;0F
+---------------------------------------------------------
+00000220:&nbsp;[38;2;94;94;94m20&nbsp;20&nbsp;20&nbsp;20&nbsp;20&nbsp;20&nbsp;20&nbsp;57&nbsp;80&nbsp;2C&nbsp;41&nbsp;[38;2;83;166;230m34&nbsp;35&nbsp;31&nbsp;30&nbsp;39&nbsp;[0m|[38;2;94;94;94m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;W.,A[38;2;191;165;48m45109[0m|
+00000230:&nbsp;[38;2;83;166;230m30&nbsp;34&nbsp;38&nbsp;31&nbsp;39&nbsp;[0m00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;[38;2;94;94;94m00&nbsp;00&nbsp;[0m|[38;2;191;165;48m04819[0m.........[38;2;94;94;94m..[0m|
+
 
 Searching&nbsp;End&nbsp;User&nbsp;Programmable&nbsp;Area&nbsp;blocks&nbsp;10-15:
+Found&nbsp;data&nbsp;at&nbsp;0x280:&nbsp;39&nbsp;bytes
+Start&nbsp;address:&nbsp;0x00000280,&nbsp;end&nbsp;address:&nbsp;0x000002AF,&nbsp;total&nbsp;bytes:&nbsp;48
 
-@&nbsp;0x280:&nbsp;0x0C&nbsp;0x4A&nbsp;0x30&nbsp;0x01&nbsp;0x01&nbsp;0x80&nbsp;0xB3&nbsp;0x01&nbsp;0x02&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x34&nbsp;0x38&nbsp;0x30&nbsp;0x30&nbsp;0x20&nbsp;0x43&nbsp;0x4C&nbsp;0x34&nbsp;0x30&nbsp;0x20&nbsp;0x20&nbsp;0x20&nbsp;0x20&nbsp;0x20&nbsp;0x20&nbsp;0x20&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;00&nbsp;01&nbsp;02&nbsp;03&nbsp;04&nbsp;05&nbsp;06&nbsp;07&nbsp;08&nbsp;09&nbsp;0A&nbsp;0B&nbsp;0C&nbsp;0D&nbsp;0E&nbsp;0F
+---------------------------------------------------------
+00000280:&nbsp;[38;2;83;166;230m0C&nbsp;4A&nbsp;30&nbsp;01&nbsp;01&nbsp;80&nbsp;B3&nbsp;01&nbsp;02&nbsp;[0m00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;[38;2;83;166;230m34&nbsp;38&nbsp;[0m|.[38;2;191;165;48mJ0[0m...........[38;2;191;165;48m48[0m|
+00000290:&nbsp;[38;2;83;166;230m30&nbsp;30&nbsp;20&nbsp;43&nbsp;4C&nbsp;34&nbsp;30&nbsp;20&nbsp;20&nbsp;20&nbsp;20&nbsp;20&nbsp;20&nbsp;20&nbsp;[0m00&nbsp;00&nbsp;[0m|[38;2;191;165;48m00&nbsp;CL40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0m..[0m|
+000002A0:&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;[38;2;94;94;94m00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;[0m|.......[38;2;94;94;94m.........[0m|
 
-@&nbsp;0x2BE:&nbsp;0x25&nbsp;0x34&nbsp;0x30&nbsp;0x22&nbsp;0x22&nbsp;0x00&nbsp;0x22&nbsp;0xA0&nbsp;0x01&nbsp;0x7A&nbsp;0x0D&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x41&nbsp;0x80&nbsp;0x3E&nbsp;0x80&nbsp;0x3E&nbsp;0x00&nbsp;0x7D&nbsp;0x80&nbsp;0xBB&nbsp;0x30&nbsp;0x72&nbsp;0x27&nbsp;0x01&nbsp;0xA0&nbsp;0x00&nbsp;0x82&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00
+Found&nbsp;data&nbsp;at&nbsp;0x2BE:&nbsp;41&nbsp;bytes
+Start&nbsp;address:&nbsp;0x000002B0,&nbsp;end&nbsp;address:&nbsp;0x000002EF,&nbsp;total&nbsp;bytes:&nbsp;64
 
-@&nbsp;0x2FB:&nbsp;0x03&nbsp;0x02&nbsp;0x00&nbsp;0xA2&nbsp;0x3E&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;00&nbsp;01&nbsp;02&nbsp;03&nbsp;04&nbsp;05&nbsp;06&nbsp;07&nbsp;08&nbsp;09&nbsp;0A&nbsp;0B&nbsp;0C&nbsp;0D&nbsp;0E&nbsp;0F
+---------------------------------------------------------
+000002B0:&nbsp;[38;2;94;94;94m00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;[38;2;83;166;230m25&nbsp;34&nbsp;[0m|[38;2;94;94;94m..............[38;2;191;165;48m%4[0m|
+000002C0:&nbsp;[38;2;83;166;230m30&nbsp;22&nbsp;22&nbsp;[0m00&nbsp;[38;2;83;166;230m22&nbsp;A0&nbsp;01&nbsp;7A&nbsp;0D&nbsp;[0m00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;[38;2;83;166;230m41&nbsp;80&nbsp;[0m|[38;2;191;165;48m0""[0m.[38;2;191;165;48m"[0m..[38;2;191;165;48mz[0m......[38;2;191;165;48mA[0m.[0m|
+000002D0:&nbsp;[38;2;83;166;230m3E&nbsp;80&nbsp;3E&nbsp;[0m00&nbsp;[38;2;83;166;230m7D&nbsp;80&nbsp;BB&nbsp;30&nbsp;72&nbsp;27&nbsp;01&nbsp;A0&nbsp;[0m00&nbsp;[38;2;83;166;230m82&nbsp;[0m00&nbsp;00&nbsp;[0m|[38;2;191;165;48m>[0m.[38;2;191;165;48m>[0m.[38;2;191;165;48m}[0m..[38;2;191;165;48m0r'[0m......[0m|
+000002E0:&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;[38;2;94;94;94m00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;[0m|.......[38;2;94;94;94m.........[0m|
 
-@&nbsp;0x381:&nbsp;0x01&nbsp;0x02&nbsp;0x03&nbsp;0x04&nbsp;0x05&nbsp;0x06&nbsp;0x07&nbsp;0x08&nbsp;0x09&nbsp;0x0A&nbsp;0x0B&nbsp;0x0C&nbsp;0x0D&nbsp;0x0E&nbsp;0x0F&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00&nbsp;0x00
+Found&nbsp;data&nbsp;at&nbsp;0x2FB:&nbsp;14&nbsp;bytes
+Start&nbsp;address:&nbsp;0x000002F0,&nbsp;end&nbsp;address:&nbsp;0x0000030F,&nbsp;total&nbsp;bytes:&nbsp;32
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;00&nbsp;01&nbsp;02&nbsp;03&nbsp;04&nbsp;05&nbsp;06&nbsp;07&nbsp;08&nbsp;09&nbsp;0A&nbsp;0B&nbsp;0C&nbsp;0D&nbsp;0E&nbsp;0F
+---------------------------------------------------------
+000002F0:&nbsp;[38;2;94;94;94m00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;[38;2;83;166;230m03&nbsp;02&nbsp;[0m00&nbsp;[38;2;83;166;230mA2&nbsp;3E&nbsp;[0m|[38;2;94;94;94m...............[38;2;191;165;48m>[0m|
+00000300:&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;[38;2;94;94;94m00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;00&nbsp;[0m|.........[38;2;94;94;94m.......[0m|
+
 
 [0m
 [38;2;150;203;89mI2C>[0m&nbsp;
