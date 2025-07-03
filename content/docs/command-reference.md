@@ -1292,6 +1292,12 @@ Write the contents of a file to an EEPROM.
 - ```eeprom write -d <device> -f <file>``` - write EEPROM from file `<file>`
 - ```eeprom write -d <device> -f <file> -v``` - write EEPROM from file `<file>`, verify the write operation
 
+{{% alert context="danger" %}}
+If the **file is bigger than the EEPROM**, only the first bytes of the file will be written to the EEPROM. The rest of the file will be ignored.
+
+If the **file is smaller than the EEPROM**, the full file will be written to the EEPROM, and the rest of the EEPROM will be left unchanged. The eeprom command will read the target page from the EEPROM, write the new data to the page, and then write the full page back to the EEPROM. This is done to avoid writing partial pages, which some devices cannot handle.
+{{% /alert %}}
+
 #### 1-Wire EEPROM verify against file
 {{< term  >}}
 <span style="color:rgb(150,203,89)">1WIRE></span>&nbsp;eeprom&nbsp;verify&nbsp;-d&nbsp;ds2431&nbsp;-f&nbsp;eeprom.bin
@@ -1305,6 +1311,12 @@ Verify&nbsp;complete
 {{< /term>}}
 Verify the contents of an EEPROM match a file.
 - ```eeprom verify -d <device> -f <file>``` - verify EEPROM contents against file `<file>`
+
+{{% alert context="danger" %}}
+If the **file is bigger than the EEPROM**, only the first bytes of the file will be verified against the EEPROM. The rest of the file will be ignored.
+
+If the **file is smaller than the EEPROM**, the full file will be verified against the EEPROM, and the rest of the EEPROM will be ignored.
+{{% /alert %}}
 
 #### 1-Wire EEPROM erase
 {{< term  >}}
@@ -1823,6 +1835,12 @@ Write the contents of a file to an I2C EEPROM.
 - ```eeprom write -d <device> -f <file>``` - write EEPROM from file `<file>`
 - ```eeprom write -d <device> -f <file> -v``` - write EEPROM from file `<file>`, verify the write operation
 
+{{% alert context="danger" %}}
+If the **file is bigger than the EEPROM**, only the first bytes of the file will be written to the EEPROM. The rest of the file will be ignored.
+
+If the **file is smaller than the EEPROM**, the full file will be written to the EEPROM, and the rest of the EEPROM will be left unchanged. The eeprom command will read the target page from the EEPROM, write the new data to the page, and then write the full page back to the EEPROM. This is done to avoid writing partial pages, which some devices cannot handle.
+{{% /alert %}}
+
 #### I2C EEPROM verify against file
 {{< term  >}}
 <span style="color:rgb(150,203,89)">I2C></span>&nbsp;eeprom&nbsp;verify&nbsp;-d&nbsp;24x02&nbsp;-f&nbsp;eeprom.bin
@@ -1836,6 +1854,12 @@ Success&nbsp;:)
 {{< /term>}}
 Verify the contents of an I2C EEPROM match a file.
 - ```eeprom verify -d <device> -f <file>``` - verify EEPROM contents against file `<file>`
+
+{{% alert context="danger" %}}
+If the **file is bigger than the EEPROM**, only the first bytes of the file will be verified against the EEPROM. The rest of the file will be ignored.
+
+If the **file is smaller than the EEPROM**, the full file will be verified against the EEPROM, and the rest of the EEPROM will be ignored.
+{{% /alert %}}
 
 #### I2C EEPROM erase
 {{< term  >}}
@@ -2462,6 +2486,12 @@ Write the contents of a file to an EEPROM.
 - ```eeprom write -d <device> -f <file>``` - write EEPROM from file `<file>`
 - ```eeprom write -d <device> -f <file> -v``` - write EEPROM from file `<file>`, verify the write operation
 
+{{% alert context="danger" %}}
+If the **file is bigger than the EEPROM**, only the first bytes of the file will be written to the EEPROM. The rest of the file will be ignored.
+
+If the **file is smaller than the EEPROM**, the full file will be written to the EEPROM, and the rest of the EEPROM will be left unchanged. The eeprom command will read the target page from the EEPROM, write the new data to the page, and then write the full page back to the EEPROM. This is done to avoid writing partial pages, which some devices cannot handle.
+{{% /alert %}}
+
 #### SPI EEPROM verify against file
 {{< term  >}}
 <span style="color:rgb(150,203,89)">SPI></span>&nbsp;eeprom&nbsp;verify&nbsp;-d&nbsp;25x020&nbsp;-f&nbsp;eeprom.bin
@@ -2475,6 +2505,12 @@ Verify&nbsp;complete
 {{< /term>}}
 Verify the contents of an EEPROM match a file.
 - ```eeprom verify -d <device> -f <file>``` - verify EEPROM contents against file `<file>`
+
+{{% alert context="danger" %}}
+If the **file is bigger than the EEPROM**, only the first bytes of the file will be verified against the EEPROM. The rest of the file will be ignored.
+
+If the **file is smaller than the EEPROM**, the full file will be verified against the EEPROM, and the rest of the EEPROM will be ignored.
+{{% /alert %}}
 
 #### SPI EEPROM erase
 {{< term  >}}
