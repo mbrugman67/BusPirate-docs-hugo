@@ -1389,6 +1389,7 @@ Always check the latest options and flags with ```eeprom -h``` to see the most u
 |```-f <file>```|Specify the file for read, write and verify|
 |```-s <start>```|Specify the start address for dump and read operations|
 |```-b <bytes>```|Specify the number of bytes to read for dump operations|
+|```-q```|Dump quiet mode, no address or ASCII columns. Useful for copying HEX values to a HEX editor.|
 |```-v```|Verify the read or write operation|
 |```-h```|Show help for the ```eeprom``` command|
 
@@ -1908,6 +1909,7 @@ Options tell the ```eeprom``` command what to do.
 |```-f <file>```|Specify the file for read, write and verify|
 |```-s <start>```|Specify the start address for dump and read operations|
 |```-b <bytes>```|Specify the number of bytes to read for dump operations|
+|```-q```|Dump quiet mode, no address or ASCII columns. Useful for copying HEX values to a HEX editor.|
 |```-v```|Verify the read or write operation|
 |```-a```|Specify an alternate I2C address (0x50 default)|
 |```-h```|Show help for the ```eeprom``` command|
@@ -2030,6 +2032,7 @@ Options tell the flash command what to do.
 |```-b```|Block flag. Specify a DDR5 SPD NVM block to lock or unlock (0 - 15)|
 |```-s```|Start address flag. Specify the dump start address|
 |```-b```|Bytes flag. Specify the number of bytes to dump|
+|```-q```|Dump quiet mode, no address or ASCII columns. Useful for copying HEX values to a HEX editor.|
 |```-h```|Show help for Bus Pirate commands and modes|
 
 Flags pass file names and other settings.
@@ -2572,6 +2575,7 @@ Always check the latest options and flags with ```eeprom -h``` to see the most u
 |```-f <file>```|Specify the file for read, write and verify|
 |```-s <start>```|Specify the start address for dump and read operations|
 |```-b <bytes>```|Specify the number of bytes to read for dump operations|
+|```-q```|Dump quiet mode, no address or ASCII columns. Useful for copying HEX values to a HEX editor.|
 |```-v```|Verify the read or write operation|
 |```-p <value>```|Update the block protection bits, 0b00-0b11 valid|
 |```-w <value>```|Update the Write Pin ENable (WPEN) bit, 0 to disable, 1 to enable|
@@ -2752,6 +2756,7 @@ Options tell the SLE4442 command what to do.
 |-f|File flag, specify a file to save the memory dump|
 |-s|Start address for memory dump|
 |-b|Number of bytes in memory dump|
+|-q|Memory dump quiet mode, no address or ASCII columns. Useful for copying HEX values to a HEX editor.|
 
 Flags pass file names and other settings to the command.
 
