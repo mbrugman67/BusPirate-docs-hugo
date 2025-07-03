@@ -1886,7 +1886,7 @@ Options tell the ```eeprom``` command what to do.
 Flags pass file names and other settings.
 
 ### ```ddr5``` Probe, read, write, unlock DDR5 SDRAM modules
-{{< asciicast src="/screencast/ddr5-command-cast.json" poster="npt:0:41"  idleTimeLimit=2 >}}
+{{< asciicast src="/screencast/ddr5-command-cast.json" poster="npt:0:22"  idleTimeLimit=2 >}}
 <br/>
 The ```ddr5``` command can probe, read, write, and unlock the SPD hub chip in [DDR5 SDRAM computer memory modules]({{< relref "/docs/devices/ddr5">}}) (UDIMM, SODIMM). 
 - Unlock SPD chips, backup SPD data and restore corrupted SPD tables. 
@@ -1915,7 +1915,6 @@ SPD&nbsp;EEPROM&nbsp;JEDEC&nbsp;Manufacturing&nbsp;Information&nbsp;blocks&nbsp;
 The probe command also searches the Manufacture Specific Data block and End User Programmable blocks for hidden information. This will discover EXPO (AMD) and XMP (Intel) overclock profiles, as well as hidden information that unscrupulous manufacturers use to lock equipment to proprietary RAM modules.
 
 #### DDR5 dump
-
 {{< termfile source="static/snippets/ddr5-command-dump-partial.html" >}}
 
 The ```ddr5 dump``` command displays the contents of a DDR5 SPD chip EEPROM/non-volatile memory in the terminal. It reads the chip and prints the contents of each 64-byte block.
