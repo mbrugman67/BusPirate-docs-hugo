@@ -542,18 +542,6 @@ Change directory.
 Remove file or directory (if empty). 
 - ```rm <file | directory>``` - remove a file or empty directory.
 
-### ```cat``` Print file contents
-{{< termfile  source="static/snippets/cmdref-cat.html" >}} 
-
-Print the contents of a file. 
-- ```cat <file>``` 
-
-### ```hex``` Hex dump file
-{{< termfile  source="static/snippets/cmdref-hex.html" >}} 
-
-Print the content of a file in hexadecimal format.
-- ```hex <file>``` 
-
 ### ```label``` Set disk label
 {{< termfile  source="static/snippets/cmdref-label.html" >}} 
 
@@ -588,6 +576,47 @@ First, manually send the commands to put the target device in read mode. Then us
 - ```image <file> -d``` - draw the file content on the LCD. Checks if the file is the correct height/width and a supported pixel format (16bits/565, or 24bit/888)
 
 Load a bitmap image file and display it on the LCD. The Bus Pirate supports BMP format images. The image must be 128x64 pixels in size, and the pixel format must be 16bits/565 or 24bit/888. 
+
+### ```cat``` Print file contents
+{{< termfile  source="static/snippets/cmdref-cat.html" >}} 
+
+Print the contents of a file. 
+- ```cat <file>``` 
+
+### ```hex``` Hex dump file
+{{< termfile  source="static/snippets/hex-cmd-dump.html" >}} 
+Print the content of a file in hexadecimal format.
+- ```hex <file>``` 
+
+{{% alert context="info" %}}
+HEX values 0x00 and 0xFF are printed in white, over values are printed in blue. Printable ACSII characters are yellow, non printable characters are white. 
+{{% /alert %}}
+
+#### HEX dump part of a file
+{{< termfile  source="static/snippets/hex-cmd-dump-partial.html" >}} 
+
+```-s <start address>``` and ```-b <bytes>``` options can be used to print a part of the file in hexadecimal format.
+- ```hex <file> -s <start address> -b <bytes>```
+
+{{% alert context="info" %}}
+The HEX display always aligns to a 16 byte boundary. Leading and trailing bytes you didn't request are dark grey.
+{{% /alert %}}
+
+#### HEX dump quiet flag
+{{< termfile  source="static/snippets/hex-cmd-dump-quiet.html" >}} 
+
+Many HEX editor tools allow you to paste HEX values directly. The ```-q``` option suppresses the header and footer, so you can copy multiple lines from the terminal and paste the output directly into a HEX editor.
+- ```hex <file> -q``` - print the file in HEX format without the header and footer.
+
+#### HEX command options
+
+{{< termfile  source="static/snippets/hex-cmd-help.html" >}}
+
+|Flag | Description |
+|---|---|
+|```-s <start address>```| Start address to read from. Default is 0x00.|
+|```-b <bytes>```| Number of bytes to read. Default is all.|
+|```-q```| Quiet mode, no address or ASCII columns. Useful for copying HEX values to a HEX editor.|
 
 ## Software support
 
