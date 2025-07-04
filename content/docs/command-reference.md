@@ -2585,7 +2585,7 @@ Many SPI EEPROMS have some sort of write protection configured through the statu
 
 BP1 and BP0 generally protect the upper 1/4, 1/2, or all of the EEPROM. 
 
-The WPEN bit is a Write Pin ENable bit that overrides the physical write protect pin. If the WPEN bit is 0, it overrides the physical write protect pin, allowing writes to the EEPROM even if the WP pin is held low.
+The WPEN bit overrides the physical write protect pin. If the WPEN bit is 0 writes are allowed even if the WP pin is held low.
 
 {{% alert context="danger" %}}
 **Sometimes write protection is irreversible**. This is pretty rare, but we've seen one or two chips with this non-standard feature that otherwise work like a normal 25X chip. This does not apply to the 25X chips from Atmel/Microchip, which all have reversible write protection, but you might find it on some rarer chips. Always consult the datasheet if possible, or just leave the protection bits alone. 
@@ -2595,8 +2595,15 @@ The WPEN bit is a Write Pin ENable bit that overrides the physical write protect
 #### SPI EEPROM update protection bits
 {{< termfile source="static/snippets/spi-eeprom-command-protect-set.html" >}}
 Update the block protection bits of the EEPROM. Protected blocks cannot be written to until the protection is removed.
-- ```eeprom protect -d <device> -b <bits>``` - write the block protection bits of the EEPROM. `<bits>` is a 2-bit value where bit 0 protects the first block, bit 1 protects the second block. For example, `-b 0b11` protects both blocks.
-- ```eeprom protect -d <device> -w <value>``` - write the Write Pin ENable (WPEN) bit. If the WPEN bit is set, it overrides the physical write protect pin. For example, `-w 0` disables the WPEN bit, allowing writes to the EEPROM even if the pin is held high.
+- ```eeprom protect -d <device> -b <bits>``` - write the block protection bits of the EEPROM. `<bits>` is a 2-bit value (BP1, BP0) and protects memory regions according to the table below. For example `-b 0b11` protects the whole EEPROM, `-b 0b01` protects the upper 1/4 of the EEPROM, and `-b 0b00` disables all protection.
+- ```eeprom protect -d <device> -w <value>``` - write the Write Pin ENable (WPEN) bit. If the WPEN bit is 0, it overrides the physical write protect pin. For example, `-w 0` disables the WPEN bit, allowing writes to the EEPROM even if the pin is held high.
+
+|BP1|BP0|Protected Range|
+|---|---|----------------|
+|0|0|No protection|
+|0|1|Upper 1/4|
+|1|0|Upper 1/2|
+|1|1|All|
 
 {{% alert context="info" %}}
 Many chips support block protection bits, fewer support the WPEN bit. To test what features a chip supports, use the ```-t``` flag to proble the write protect features. 
