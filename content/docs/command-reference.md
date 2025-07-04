@@ -2569,6 +2569,29 @@ Test I2C EEPROM functionality. Erase the EEPROM to 0xff and verify the erase. Th
 Show the write protection status of the EEPROM.
 - ```eeprom protection -d <device>``` - show the protection status of the EEPROM 
 
+##### BP1, BP0, and WPEN bits
+|7|6|5|4|3|2|1|0|
+|---|---|---|---|---|---|---|---|
+|WPEN|X|X|X|BP1|BP0|WEL|WIP|
+
+Many SPI EEPROMS have some sort of write protection configured through the status register. 25X EEPROMs generally have two block protection bits (BP1, BP0) that disable writes to a memory range. The write protection can be reversed by clearing the protection bits.
+
+|BP1|BP0|Protected Range|
+|---|---|----------------|
+|0|0|No protection|
+|0|1|Upper 1/4|
+|1|0|Upper 1/2|
+|1|1|All|
+
+BP1 and BP0 generally protect the upper 1/4, 1/2, or all of the EEPROM. 
+
+The WPEN bit is a Write Pin ENable bit that overrides the physical write protect pin. If the WPEN bit is 0, it overrides the physical write protect pin, allowing writes to the EEPROM even if the WP pin is held low.
+
+{{% alert context="danger" %}}
+**Sometimes write protection is irreversible**. This is pretty rare, but we've seen one or two chips with this non-standard feature that otherwise work like a normal 25X chip. This does not apply to the 25X chips from Atmel/Microchip, which all have reversible write protection, but you might find it on some rarer chips. Always consult the datasheet if possible, or just leave the protection bits alone. 
+{{% /alert %}}
+
+
 #### SPI EEPROM update protection bits
 {{< termfile source="static/snippets/spi-eeprom-command-protect-set.html" >}}
 Update the block protection bits of the EEPROM. Protected blocks cannot be written to until the protection is removed.
