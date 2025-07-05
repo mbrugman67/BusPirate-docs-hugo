@@ -46,8 +46,11 @@
       font-size: 17px;
       color: white;
       overflow-x: auto;
-      white-space: pre-wrap;
-      word-wrap: break-word;
+      /*white-space: pre-wrap;*/
+      /*white-space: nowrap;*/
+      word-wrap:none;
+      overflow-x:scroll;
+
 
       padding: 1rem !important;
       margin: 0rem !important;

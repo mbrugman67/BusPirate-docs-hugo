@@ -2585,7 +2585,7 @@ Many SPI EEPROMS have some sort of write protection configured through the statu
 
 BP1 and BP0 generally protect the upper 1/4, 1/2, or all of the EEPROM. 
 
-The WPEN bit overrides the physical write protect pin. If the WPEN bit is 0 writes are allowed even if the WP pin is held low.
+The WPEN bit overrides the physical write protect pin. If the WPEN bit is 0, writes are allowed even if the WP pin is held low.
 
 {{% alert context="danger" %}}
 **Sometimes write protection is irreversible**. This is pretty rare, but we've seen one or two chips with this non-standard feature that otherwise work like a normal 25X chip. This does not apply to the 25X chips from Atmel/Microchip, which all have reversible write protection, but you might find it on some rarer chips. Always consult the datasheet if possible, or just leave the protection bits alone. 
