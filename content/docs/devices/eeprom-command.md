@@ -1,6 +1,6 @@
 +++
 weight = 40999
-title = 'SPI EEPROM Command'
+title = 'Identify Serial EEPROM, Flash and FRAM chips'
 katex = true
 +++
 
@@ -8,221 +8,167 @@ katex = true
 This is a placeholder for documentation in progress. 
 {{% /alert %}}
 
-### ```eeprom``` Read, write, erase, verify, test, dump SPI EEPROMs
+## Types of Serial EEPROMs supported
 
-{{< asciicast src="/screencast/i2c-eeprom-command-cast.json" poster="npt:0:58"  idleTimeLimit=2 >}}
+|Type|Part Number*|Ex. Part Num.|Example Manufacturers|
+|-|-|-|-|
+|SPI Flash|25Qnnn|W25Q128|Winbond, Micron, GigaDevice, PUYA|
+|SPI EEPROM|25xnnn, 95xnnn|25LC040|Microchip, Atmel, STMicroelectronics|
+|I2C EEPROM|24xnnn|24LC20|Microchip, Atmel, STMicroelectronics|   
+|Microwire EEPROM|93xnn|AT93C46|Microchip, Atmel, STMicroelectronics|
+|1-Wire EEPROM|243n|DS2341, GX2341|Dallas/Maxim, GX|
+|SPI FRAM|FM25xnnn, MB85Xnnn|FM25CL64B, MB85RS512|Ramxeed (Fujitsu), Infineon, ROHM |
+|I2C FRAM|FM24xnnn, MB85Xnnn|FM24CL64B, MB85RC64|Ramxeed (Fujitsu), Infineon, ROHM |
 
-```eeprom``` is a command to read, write, erase, verify, test and dump common 25x SPI EEPROMs. 
+*n = device size in Kbits, usually.
 
-{{% alert context="info" %}}
-You do need to specify the device type, there is no non-destructive autodetect method for I2C EEPROMs.
-{{% /alert %}}
+## SPI Flash Chips
 
+SPI Flash chips use NOR memory, which is cheap, fast, and small. There are several trade offs though:
+1. They are not byte-addressable, data must be read in whole pages (usually 256 bytes) at a time, even if you only want the last byte or two.
+2. Whole sectors of 4K, 8K or 64K must be erased at once. 
 
-#### SPI EEPROM list supported devices
+To update existing data, you must first read all the data in the erase sector, modify it in RAM, erase the whole 4K sector, and then write it back to the flash memory. 
 
-{{< term  >}}
-<span style="color:rgb(150,203,89)">I2C></span>&nbsp;eeprom&nbsp;list
-{{< /term>}}
+- Write cycles: 100,000-1,000,000
+- Data retention: 10-25 years
 
-- ```eeprom list``` - list all EEPROM devices supported by the ```eeprom``` command
+### Identifying SPI Flash chips
+A really common SPI Flash chip is the Winbond W25Qnnn series. 
+- Labeled with the Winbond logo
+- W25Qnnn part number. 
 
+The "nnn" part of the name indicates the size of the chip in Mbits, so W25Q128 is a 128Mbit chip (16 Mbytes).
 
-| Product(s)                       | Density   | Size (bytes)| Page Size (Bytes) |Address Bytes| Block Select Bits |
+Most recent SPI flash chips have their characteristics stored in JEDEC standard **SFDP** (Serial Flash Discoverable Parameters) format. The ```flash``` command in SPI mode will automatically read the SFDP data and display the chip characteristics, including the manufacturer, size, erase sector size, and other parameters.
+
+If SFDP data isn't available, the ```flash``` command has a database of known chips and can identify them by their JEDEC ID.
+
+### Working with SPI Flash chips
+The ```flash``` command in SPI mode can probe, read, write, erase, verify and test most SPI flash chips. 
+
+## SPI EEPROM Chips
+Unlike Flash (NOR) memory, EEPROM memory is byte-addressable and can be written to one byte at a time. 
+- **Size**: 128 bytes to 4 Mbit (512 Kbytes)
+- **Read**: Byte addressable, can read any byte in the chip.
+- **Write**: 1 byte up to the page size (8 to 256 bytes, depending on chip) at a time.
+- **Erase**: No separate erase process is needed, bytes are erased individually before writing.
+- **Cost**: EEPROM is generally more expensive than NOR Flash memory.
+- **Write cycles**: 1,000,000+
+- **Data retention**: 100-200 years
+
+### Identifying SPI EEPROM chips
+SPI EEPROM chips are usually labeled with a part number starting with "25" or "95". The "25" series is more common and includes chips like AT25C020, 25LC040, 25AA080, etc. The "95" series is STM's name for their 25x compatible EEPROMs, just substitute the same sized 25x part, e.g. 25LC040 is equivalent to 95LC040.
+
+| Device                      | Density   | Size (bytes)| Page Size (Bytes) |Address Bytes| Block Select Bits |B.S. Offset|
 |-----------------------------------|-----------|------------|------|-------------------|----------|-------|
-| [AT25010B](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/AT25010B-AT25020B-AT25040B-1-2-4-Kbit-SPI-Serial-EEPROM-Industrial-Grade-DS20006251.pdf)| 1 Kbit    | 128       | 8   | 1|0|
-| [25AA/LC010A](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA010A-25LC010A-1-Kbit-SPI-Bus-Serial-EEPROM-20001832J.pdf)| 1 Kbit    | 128        | 16              | 1  |0|
-| [AT25020B](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/AT25010B-AT25020B-AT25040B-1-2-4-Kbit-SPI-Serial-EEPROM-Industrial-Grade-DS20006251.pdf)| 2 Kbit    | 256   | 8 | 1  |0|
-| [25AA/LC020A](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA020A-25LC020A-2-Kbit-SPI-Bus-Serial-EEPROM-20001833H.pdf), [25AA02UID](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/20005205A.pdf) (32 bit ID, 0XC0 locked, location 0xFA-0xFF)), [25AA02E64/48](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/25AA02E48-25AA02E64-2K-SPI-Bus-Serial-EEPROM-DataSheet_DS20002123G.pdf)(64 or 48 bit EUI-x Node Address, 0XC0 locked, location 0xFA-0xFF or 0xF8 to 0xFF)| 2 Kbit    | 256 | 16 | 1 |0|
-| [AT25040B](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/AT25010B-AT25020B-AT25040B-1-2-4-Kbit-SPI-Serial-EEPROM-Industrial-Grade-DS20006251.pdf)        | 4 Kbit    | 512        | 8     | 1          |opcode 0x02 bit 3|
-| [25AA/LC040A](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA040A-25LC040A4-Kbit-SPI-Bus-Serial-EEPROM-20001827J.pdf) | 4 Kbit    | 512        | 16              | 1         |opcode 0x02 bit 3|
-| [25AA/LC080C](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25LCXXXX-8K-256K-SPI-Serial-EEPROM-High-Temp-Family-Data-Sheet-DS20002131.pdf) | 8 Kbit    | 1024   | 16   | 2   |0|
-| [AT25080B](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/AT25080B-AT25160B-8-16-Kbit-SPI-Serial-EEPROM-Industrial-Grade-Data-Sheet-DS20006244.pdf), [25AA/LC080D](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/8-Kbit-SPI-Bus-Serial-EEPROM-20002151C.pdf) | 8 Kbit    | 1024        | 32             | 2          |0|
-|[25AA/LC160C](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA160CD-25LC160CD-16-Kbit-SPI-Bus-Serial-EEPROM-20002150C.pdf)| 16 Kbit   | 2048        | 16   | 2   |0|
-|[AT25160B](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/AT25080B-AT25160B-8-16-Kbit-SPI-Serial-EEPROM-Industrial-Grade-Data-Sheet-DS20006244.pdf), [25AA/LC160D](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA160CD-25LC160CD-16-Kbit-SPI-Bus-Serial-EEPROM-20002150C.pdf)| 16Kbit  | 2048        | 32   | 2   | 0|
-| [25CS320](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25CS320-32-Kbit-SPI-Serial-EEPROM-DS20006923.pdf) (ECC), [AT25320B](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/AT25320B-AT25640B-32-64-Kbit_SPI-Serial_EEPROM-Data-Sheet-DS20005993.pdf), [25AA/LC320A](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA320A-25LC320A-32K-SPI-Bus-Serial-EEPROM-20001828H.pdf)| 32 Kbit   | 4096 | 32   | 2  | 0|
-| [25CS640](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25CS640-64-Kbit-SPI-Serial-EEPROM-128-Bit-Serial-Number-Enhanced-Write-Protection-DS20005943.pdf), [AT25640B](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/AT25320B-AT25640B-32-64-Kbit_SPI-Serial_EEPROM-Data-Sheet-DS20005993.pdf), [25AA/LC640A](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA640A-25LC640A-64K-SPI-Bus-Serial-EEPROM-20001830G.pdf)  | 64 Kbit   | 8192        | 32                | 2          |0|
-| [AT25128B](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/AT25128B-AT25256B-128-256-Kbit-SPI-Serial-EEPROM-Industrial-Grade-Data-Sheet-DS20006193.pdf), [25AA/LC128](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA128-25LC128-128K-SPI-Bus-Serial-EEPROM-20001831G.pdf)           | 128 Kbit  | 16384         | 64                | 2             |0|
-| [AT25256B](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/AT25128B-AT25256B-128-256-Kbit-SPI-Serial-EEPROM-Industrial-Grade-Data-Sheet-DS20006193.pdf), [25LC256](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25LCXXXX-8K-256K-SPI-Serial-EEPROM-High-Temp-Family-Data-Sheet-DS20002131.pdf), [25AA256](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA256-25LC256-256K-SPI-Bus-Serial-EEPROM-20001822J.pdf)| 256 Kbit  | 32768        | 64                | 2          | 0|
-| [AT25512](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/AT25512-SPI-Serial-EEPROM-512-Kbits-%2865%2C536x8%29-20006218B.pdf), [25LC512](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25LC512-512-Kbit-SPI-Bus-Serial-EEPROM-Data-Sheet-20002065.pdf), [25AA512](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA512-512-Kbit-SPI-Bus-Serial-EEPROM-Data-Sheet.pdf) | 512 Kbit  | 65536 | 128 |2| 0 |
-| [AT25M01](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/AT25M01-SPI-Serial-EEPROM-Data-Sheet-20006226A.pdf), [25LC1024](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25LC1024-1-Mbit-SPI-Bus-Serial-EEPROM-20002064E.pdf), [25AA1024](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/1-Mbit-SPI-Bus-Serial-EEPROM-Data-Sheet-20001836K.pdf)| 1 Mbit | 131072  |  256 | 3  | 0  |
-| [AT25M02](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/AT25M02-SPI-Serial-EEPROM-Data-Sheet-20006230A.pdf)| 2 Mbit    |262144 | 256         | 3       |0            |
-| [25CSM04](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25CSM04-4-Mbit-SPI-Serial-EEPROM-with-128-Bit-Serial-Number-and-Enhanced-Write-Protection-20005817D.pdf) | 4 Mbit  |524288| 256  |3       | 0             |
-
-
-## Registers
-
-![alt text](/images/docs/eeprom-command/image.png)
-
-## Status Register
-
-![alt text](/images/docs/eeprom-command/image-1.png)
-
-The status register bit 0 indicates a write is in progress, bit 1 indicates if the write enable latch is set (data can be written to the memory or status register).
-
-### Write protection blocks
-
-![alt text](/images/docs/eeprom-command/image-2.png)
-
-Many, but not all, EEPROMs have a write protection block feature. This allows you to protect a portion of the EEPROM from being written to, even if the write enable latch is set. The block select bits are used to select which block is protected: none (0b00), the upper 1/4 (0b01), the upper 1/2 (0b10), or the entire EEPROM (0b11).
-
-![alt text](/images/docs/eeprom-command/image-3.png)
-
-Fewer devices have a WPEN bit that disables the Write Protect (WP) pin. When WPEN is 0, the WP pin is ignored. When WPEN is 1, the WP pin is used to control write protection. If the WP pin is high, the EEPROM is write protected. If the WP pin is low, the EEPROM can be written to.
-
-We can test which bits are available in a chip by writing 0x00 to the status register, then writing 0b10001100, enabling all the protection bits. If the chip supports WPEN or BPx bits, they will be set to 1 after the write. If they are not supported, they will remain 0.
+| [25X010](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA010A-25LC010A-1-Kbit-SPI-Bus-Serial-EEPROM-20001832J.pdf)| 1 Kbit    | 128        | 8(AT)/16              | 1  |0|
+| [25X020](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA020A-25LC020A-2-Kbit-SPI-Bus-Serial-EEPROM-20001833H.pdf)| 2 Kbit    | 256 | 8(AT)/16 | 1 |0|
+| [25X040](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA040A-25LC040A4-Kbit-SPI-Bus-Serial-EEPROM-20001827J.pdf) | 4 Kbit    | 512        | 8(AT)/16              | 1         |1|3|
+| [25X080](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/8-Kbit-SPI-Bus-Serial-EEPROM-20002151C.pdf) | 8 Kbit    | 1024   | 16/32(AT,STM)   | 2   |0|
+|[25X160](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA160CD-25LC160CD-16-Kbit-SPI-Bus-Serial-EEPROM-20002150C.pdf)| 16 Kbit   | 2048        | 16/32(AT,STM)   | 2   |0|
+|[25X320](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA320A-25LC320A-32K-SPI-Bus-Serial-EEPROM-20001828H.pdf)| 32 Kbit   | 4096 | 32   | 2  | 0|
+|[25X640](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA640A-25LC640A-64K-SPI-Bus-Serial-EEPROM-20001830G.pdf)  | 64 Kbit   | 8192        | 32                | 2          |0|
+|[25X128](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA128-25LC128-128K-SPI-Bus-Serial-EEPROM-20001831G.pdf)           | 128 Kbit  | 16384         | 64                | 2             |0|
+|[25X256](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25LCXXXX-8K-256K-SPI-Serial-EEPROM-High-Temp-Family-Data-Sheet-DS20002131.pdf)| 256 Kbit  | 32768        | 64                | 2          | 0|
+|[25X512](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25LC512-512-Kbit-SPI-Bus-Serial-EEPROM-Data-Sheet-20002065.pdf) | 512 Kbit  | 65536 | 128 |2| 0 |
+| [25XM01](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/AT25M01-SPI-Serial-EEPROM-Data-Sheet-20006226A.pdf), [25X1024](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25LC1024-1-Mbit-SPI-Bus-Serial-EEPROM-20002064E.pdf)| 1 Mbit | 131072  |  256 | 3  | 0  |
+| [25XM02](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/AT25M02-SPI-Serial-EEPROM-Data-Sheet-20006230A.pdf)| 2 Mbit    |262144 | 256         | 3       |0            |
+| [25XM04](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25CSM04-4-Mbit-SPI-Serial-EEPROM-with-128-Bit-Serial-Number-and-Enhanced-Write-Protection-20005817D.pdf) | 4 Mbit  |524288| 256/512(STM)  |3       | 0             |
 
 {{% alert context="info" %}}
-24x chips have a variety of part numbers, but tend to operate in the same way. Often a manufacturer specific part number indicates a different voltage range or upgraded features. AT24C, 24C, 24LC, 24AA, 24FC are all generally part of same basic 24x family of chips. 
+25x/95x chips have a variety of part numbers, but tend to operate in the same way. Often a manufacturer specific part number indicates a different voltage range or upgraded features. AT25, 25LC, 25AA, 25CS and M95 are all part of same basic 25x family of chips. 
 {{% /alert %}}  
 
-##### Chip voltage requirements
+### Chip voltage requirements
 
-|24xx Family|Minimum Voltage|Maximum Voltage|Notes|
+|25x/95x Family|Minimum Voltage|Maximum Voltage|
 |---|---|---|---|
-|AT24C|2.7V|5.5V|400kHz max|
-|24C|2.7V|5.5V|400kHz max|
-|24LC|2.5V|5.5V|400kHz max|
-|24AA|1.7V|5.5V|400kHz max|
-|24FC|1.8V|5.5V|1MHz max|
+|AT25|1.8V|5.5V|
+|25LC|2.5V|5.5V|
+|25AA|1.8V|5.5V|
+|25CS|1.7V|5.5V|
+|M95|2.5V|5.5V|
 
-Before using the ```eeprom``` command, you'll need to enable a power supply with the [```W``` command]({{< relref "/docs/command-reference/#ww-power-supply-offon">}}) and pull-up resistors with the [```P``` command]({{< relref "/docs/command-reference/#pp-pull-up-resistors">}}).
-
-{{% alert context="danger" %}}
-**Most EEPROMs should be fine with a 3.3 volt power supply, but if possible check the datasheet to be sure!**
+{{% alert context="info" %}}
+3.3 volts is a good voltage to use with most 25x/95x chips, but a few chips may have a lower maximum voltage. Always check the datasheet for the specific chip you are using if possible.
 {{% /alert %}}
 
-#### I2C EEPROM dump to terminal
+### Working with SPI EEPROM chips
+The [```eeprom``` command]({{< relref "/docs/command-reference/#eeprom-read-write-erase-verify-test-dump-spi-eeproms">}}) in SPI mode can probe, read, write, erase, verify and test most SPI EEPROM chips.
 
-{{< termfile source="static/snippets/i2c-eeprom-command-dump-partial.html" >}}
+## I2C EEPROM Chips
+I2C EEPROM chips are also byte-addressable and can be written to one byte at a time. The I2C bus is much slower than the SPI bus, but the internal EEPROM memory has similar write times.
+- Write cycles: 1,000,000+
+- Data retention: 10-25 years
 
-Display the contents of an I2C EEPROM in the terminal. 
-- ```dump -d <device>``` - display EEPROM contents
-- ```dump -d <device> -s <start>``` - display EEPROM contents, starting at address `<start>`
-- ```dump -d <device> -s <start> -b <bytes>``` - display a specific range of bytes, starting at address `<start>` and reading `<bytes>` bytes
+### Identifying I2C EEPROM chips
+I2C EEPROM chips are usually labeled with a part number starting with "24". The "24" series includes chips like 24LC02, 24LC04, AT2402 etc. The "24" series is the most common I2C EEPROM series.
 
-#### I2C EEPROM read to file
-{{< term  >}}
-<span style="color:rgb(150,203,89)">I2C></span>&nbsp;eeprom&nbsp;read&nbsp;-d&nbsp;24x02&nbsp;-f&nbsp;eeprom.bin&nbsp;-v
-24X02:&nbsp;256&nbsp;bytes,&nbsp;&nbsp;0&nbsp;block&nbsp;select&nbsp;bits,&nbsp;1&nbsp;byte&nbsp;address,&nbsp;8&nbsp;byte&nbsp;pages
+### Working with I2C EEPROM chips
+The ```eeprom``` command in I2C mode can probe, read, write, erase, verify and test most I2C EEPROM chips.
 
-Read:&nbsp;Reading&nbsp;EEPROM&nbsp;to&nbsp;file&nbsp;eeprom.bin...
-Progress:&nbsp;[###########################]&nbsp;100.00%
-Read&nbsp;complete
-Read&nbsp;verify...
-Progress:&nbsp;[###########################]&nbsp;100.00%
-Read&nbsp;verify&nbsp;complete
-Success&nbsp;:)
+## Microwire EEPROM Chips
+Microwire EEPROM chips are ancient technology that persists today. Microwire EEPROMs are also byte-addressable and can be written to one byte at a time. They use a funky version of SPI and have a drastically different pinout.
 
-<span style="color:rgb(150,203,89)">I2C></span>&nbsp;
-{{< /term>}}
+- Write cycles: 1,000,000+
+- Data retention: 10-25 years
 
-Read the contents of an I2C EEPROM and save it to a file.
-- ```read -d <device> -f <file>``` - read EEPROM contents to file `<file>`
-- ```read -d <device> -f <file> -v``` - read EEPROM contents to file `<file>`, verify the read operation
+### Identifying Microwire EEPROM chips
+Microwire EEPROM chips are usually labeled with a part number starting with "93". The "93" series includes chips like 93C46, 93C56, 93C66, etc. The "93" series is the most common Microwire EEPROM series.
 
-#### I2C EEPROM write from file
-{{< term  >}}
-<span style="color:rgb(150,203,89)">I2C></span>&nbsp;eeprom&nbsp;write&nbsp;-d&nbsp;24x02&nbsp;-f&nbsp;eeprom.bin&nbsp;-v
-24X02:&nbsp;256&nbsp;bytes,&nbsp;&nbsp;0&nbsp;block&nbsp;select&nbsp;bits,&nbsp;1&nbsp;byte&nbsp;address,&nbsp;8&nbsp;byte&nbsp;pages
+### Working with Microwire EEPROM chips
+The ```eeprom``` command in SPI mode can probe, read, write, erase, verify and test most Microwire EEPROM chips.
 
-Write:&nbsp;Writing&nbsp;EEPROM&nbsp;from&nbsp;file&nbsp;eeprom.bin...
-Progress:&nbsp;[###########################]&nbsp;100.00%
-Write&nbsp;complete
-Write&nbsp;verify...
-Progress:&nbsp;[###########################]&nbsp;100.00%
-Write&nbsp;verify&nbsp;complete
-Success&nbsp;:)
-<span style="color:rgb(150,203,89)">I2C></span>&nbsp;
-{{< /term>}}
-Write the contents of a file to an I2C EEPROM.
-- ```write -d <device> -f <file>``` - write EEPROM from file `<file>`
-- ```write -d <device> -f <file> -v``` - write EEPROM from file `<file>`, verify the write operation
+## 1-Wire EEPROM Chips
+1-Wire EEPROM chips are a unique type of EEPROM that uses the 1-Wire protocol. They are also byte-addressable but they must be written to one page (8 or 32 bytes) at a time. They 1-Wire is even slower than I2C, but can be useful in low-power applications.
 
-#### I2C EEPROM verify against file
-{{< term  >}}
-<span style="color:rgb(150,203,89)">I2C></span>&nbsp;eeprom&nbsp;verify&nbsp;-d&nbsp;24x02&nbsp;-f&nbsp;eeprom.bin
-24X02:&nbsp;256&nbsp;bytes,&nbsp;&nbsp;0&nbsp;block&nbsp;select&nbsp;bits,&nbsp;1&nbsp;byte&nbsp;address,&nbsp;8&nbsp;byte&nbsp;pages
+- Write cycles: 1,000,000+
+- Data retention: 10-25 years
+### Identifying 1-Wire EEPROM chips
+1-Wire EEPROM chips are usually labeled with a part number starting with "243". The "243" series includes chips like DS2431, DS2432, GX2341, etc. The "243" series is the most common 1-Wire EEPROM series.
+### Working with 1-Wire EEPROM chips
+The ```eeprom``` command in 1-Wire mode can probe, read, write, erase, verify and test most 1-Wire EEPROM chips.
+## SPI FRAM Chips
+SPI FRAM chips are a type of non-volatile memory that uses ferroelectric RAM technology. They are faster than EEPROM and Flash, and can be written to one byte at a time. They have a very high endurance and can be used in applications that require frequent writes.
+- Write cycles: 10^15+
+- Data retention: 100+ years
+### Identifying SPI FRAM chips
+SPI FRAM chips are usually labeled with a part number starting with "FM25" or "MB85". The "FM25" series includes chips like FM25CL64B, FM25L04B, etc. The "MB85" series is Infineon's name for their FRAM chips, e.g. MB85RS512.        
+### Working with SPI FRAM chips
+The ```fram``` command in SPI mode can probe, read, write, erase, verify and test most SPI FRAM chips.
+## I2C FRAM Chips
+I2C FRAM chips are similar to SPI FRAM chips, but use the I2C protocol. They are also faster than EEPROM and Flash, and can be written to one byte at a time. They have a very high endurance and can be used in applications that require frequent writes.
+- Write cycles: 10^15+
+- Data retention: 100+ years
+### Identifying I2C FRAM chips
+I2C FRAM chips are usually labeled with a part number starting with "FM24" or "MB85". The "FM24" series includes chips like FM24CL64B, FM24L04B, etc. The "MB85" series is Infineon's name for their FRAM chips, e.g. MB85RC64.        
+### Working with I2C FRAM chips
+The ```fram``` command in I2C mode can probe, read, write, erase, verify and test most I2C FRAM chips.
 
-Verify:&nbsp;Verifying&nbsp;EEPROM&nbsp;contents&nbsp;against&nbsp;file&nbsp;eeprom.bin...
-Progress:&nbsp;[###########################]&nbsp;100.00%
-Verify&nbsp;complete
-Success&nbsp;:)
-<span style="color:rgb(150,203,89)">I2C></span>&nbsp;
-{{< /term>}}
-Verify the contents of an I2C EEPROM match a file.
-- ```verify -d <device> -f <file>``` - verify EEPROM contents against file `<file>`
 
-#### I2C EEPROM erase
-{{< term  >}}
-<span style="color:rgb(150,203,89)">I2C></span>&nbsp;eeprom&nbsp;erase&nbsp;-d&nbsp;24x02&nbsp;-v
-24X02:&nbsp;256&nbsp;bytes,&nbsp;&nbsp;0&nbsp;block&nbsp;select&nbsp;bits,&nbsp;1&nbsp;byte&nbsp;address,&nbsp;8&nbsp;byte&nbsp;pages
 
-Erase: Writing 0xFF to all bytes...
-Progress:&nbsp;[###########################]&nbsp;100.00%
-Erase&nbsp;complete
-Erase&nbsp;verify...
-Progress:&nbsp;[###########################]&nbsp;100.00%
-Erase&nbsp;verify&nbsp;complete
-Success&nbsp;:)
-<span style="color:rgb(150,203,89)">I2C></span>&nbsp;
-{{< /term>}}
 
-Erase the contents of an I2C EEPROM, writing 0xFF to all bytes.
-- ```erase -d <device>``` - erase EEPROM contents
-- ```erase -d <device> -v``` - erase EEPROM contents, verify the erase operation
-#### I2C EEPROM test
-{{< term  >}}
-<span style="color:rgb(150,203,89)">I2C></span>&nbsp;eeprom&nbsp;test&nbsp;-d&nbsp;24x02
-24X02:&nbsp;256&nbsp;bytes,&nbsp;&nbsp;0&nbsp;block&nbsp;select&nbsp;bits,&nbsp;1&nbsp;byte&nbsp;address,&nbsp;8&nbsp;byte&nbsp;pages
 
-Erase:&nbsp;Writing&nbsp;0xFF&nbsp;to&nbsp;all&nbsp;bytes...
-Progress:&nbsp;[###########################]&nbsp;100.00%
-Erase&nbsp;complete
-Erase&nbsp;verify...
-Progress:&nbsp;[###########################]&nbsp;100.00%
-Erase&nbsp;verify&nbsp;complete
+|Device|Size|Bytes|Organization|Dummy bits|Address|Total bits|
+|-|-|-|-|-|-|-|
+|93x46A|1Kbit|128|x8 only|0|7bits|10|
+|93x46B|1Kbit|128|x16 only|0|6bits|9|
+|93x46C/E|1Kbit|128|x8 or x16|0|7 or 6bits|10 or 9|
+|93x56A|2Kbit|256|x8 only|1|8bits|12|
+|93x56B|2Kbit|256|x16 only|1|7bits|11|
+|93x56C|2Kbit|256|x8 or x16|1|8 or 7bits|12 or 11|
+|93x66A|4Kbit|512|x8 only|0|9bits|12|
+|93x66B|4Kbit|512|x16 only|0|8bits|11|
+|93x66C|4Kbit|512|x8 or x16||10 or 9bits|12 or 11|
+|93x76A|8Kbit|1024|x8 only|1|10bits|14|
+|93x76B|8Kbit|1024|x16 only|1|9bits|13|
+|93x76-/C|8Kbit|1024|x8 or x16|1|10 or 9bits|14 or 13|
+|93x86A|16Kbit|2048|x8 only|0|11bits|14|
+|93x86B|16Kbit|2048|x16 only|0|10bits|13|
+|93x86-/C|16Kbit|2048|x8 or x16|0|11 or 10bits|14 or 13|
 
-Test:&nbsp;Writing&nbsp;alternating&nbsp;patterns
-Writing&nbsp;0xAA&nbsp;0x55...
-Progress:&nbsp;[###########################]&nbsp;100.00%
-Write&nbsp;complete
-Write&nbsp;verify...
-Progress:&nbsp;[###########################]&nbsp;100.00%
-Write&nbsp;verify&nbsp;complete
-Writing&nbsp;0x55&nbsp;0xAA...
-Progress:&nbsp;[###########################]&nbsp;100.00%
-Write&nbsp;complete
-Write&nbsp;verify...
-Progress:&nbsp;[###########################]&nbsp;100.00%
-Write&nbsp;verify&nbsp;complete
-Success&nbsp;:)
+*x8 or x16 bits is selected by the ORG pin. If ORG is low, the device is x8, if ORG is high, the device is x16.*
 
-<span style="color:rgb(150,203,89)">I2C></span>&nbsp;
-{{< /term>}}
-Test I2C EEPROM functionality. Erase the EEPROM to 0xff and verify the erase. Then write alternating patterns of 0xAA and 0x55, verifying each write operation. Any stuck bits should be detected during the test.
-- ```test -d <device>``` - test EEPROM functionality
 
-#### I2C EEPROM options and flags
-|Option|Description|
-|---|---|
-|```eeprom list```|List all supported EEPROM devices|
-|```eeprom dump```|Dump EEPROM contents to terminal|
-|```eeprom read```|Read EEPROM contents to file|
-|```eeprom write```|Write EEPROM from file|
-|```eeprom verify```|Verify EEPROM contents against file|
-|```eeprom erase```|Erase EEPROM contents, writing 0xFF to all bytes|
-|```eeprom test```|Test EEPROM functionality, erase and write alternating patterns|
-
-Options tell the ```eeprom``` command what to do.
-
-|Flag|Description|
-|---|---|
-|```-d <device>```|Specify the EEPROM device type, e.g. 24x02|
-|```-f <file>```|Specify the file for read, write and verify|
-|```-s <start>```|Specify the start address for dump and read operations|
-|```-b <bytes>```|Specify the number of bytes to read for dump operations|
-|```-v```|Verify the read or write operation|
-|```-a```|Specify an alternate I2C address (0x50 default)|
-|```-h```|Show help for the ```eeprom``` command|
 
