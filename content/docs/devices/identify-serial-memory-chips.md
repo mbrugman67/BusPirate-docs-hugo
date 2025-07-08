@@ -13,13 +13,13 @@ Documentation still in progress. Todo:
 
 |Type|Part Number*|Ex. Part Num.|Example Manufacturers|
 |-|-|-|-|
-|[SPI Flash]({{< relref "/docs/devices/eeprom-command/#spi-flash-memory">}})|25Qnnn|W25Q128|Winbond, Micron, GigaDevice, PUYA|
-|[SPI EEPROM]({{< relref "/docs/devices/eeprom-command/#spi-flash-memory">}})|25xnnn, 95xnnn|25LC040, AT25040|Microchip, Atmel, STMicroelectronics|
-|[I2C EEPROM]({{< relref "/docs/devices/eeprom-command/#spi-flash-memory">}})|24xnnn|24LC20, AT24C02|Microchip, Atmel, STMicroelectronics|   
-|[1-Wire EEPROM]({{< relref "/docs/devices/eeprom-command/#identifying-1-wire-eeprom-chips">}})|243n|DS2341, GX2341, DS24B33|Dallas/Maxim, GX|
-|[Microwire EEPROM]({{< relref "/docs/devices/eeprom-command/#identifying-microwire-eeprom-chips">}})|93xnn|AT93C46, 93LC56C|Microchip, Atmel, STMicroelectronics|
-|[SPI FRAM]({{< relref "/docs/devices/eeprom-command/#identifying-spi-fram-chips">}})|FM25xnnn, MB85Xnnn|FM25CL64B, MB85RS512|Ramxeed (Fujitsu), Infineon, ROHM |
-|[I2C FRAM]({{< relref "/docs/devices/eeprom-command/#identifying-i2c-fram-chips">}})|FM24xnnn, MB85Xnnn|FM24CL64B, MB85RC64|Ramxeed (Fujitsu), Infineon, ROHM |
+|[SPI Flash]({{< relref "/docs/devices/identify-serial-memory-chips/#spi-flash-memory">}})|25Qnnn|W25Q128|Winbond, Micron, GigaDevice, PUYA|
+|[SPI EEPROM]({{< relref "/docs/devices/identify-serial-memory-chips/#spi-flash-memory">}})|25xnnn, 95xnnn|25LC040, AT25040|Microchip, Atmel, STMicroelectronics|
+|[I2C EEPROM]({{< relref "/docs/devices/identify-serial-memory-chips/#spi-flash-memory">}})|24xnnn|24LC20, AT24C02|Microchip, Atmel, STMicroelectronics|   
+|[1-Wire EEPROM]({{< relref "/docs/devices/identify-serial-memory-chips/#identifying-1-wire-eeprom-chips">}})|243n|DS2341, GX2341, DS24B33|Dallas/Maxim, GX|
+|[Microwire EEPROM]({{< relref "/docs/devices/identify-serial-memory-chips/#identifying-microwire-eeprom-chips">}})|93xnn|AT93C46, 93LC56C|Microchip, Atmel, STMicroelectronics|
+|[SPI FRAM]({{< relref "/docs/devices/identify-serial-memory-chips/#identifying-spi-fram-chips">}})|FM25xnnn, MB85Xnnn|FM25CL64B, MB85RS512|Ramxeed (Fujitsu), Infineon, ROHM |
+|[I2C FRAM]({{< relref "/docs/devices/identify-serial-memory-chips/#identifying-i2c-fram-chips">}})|FM24xnnn, MB85Xnnn|FM24CL64B, MB85RC64|Ramxeed (Fujitsu), Infineon, ROHM |
 
 *n = device size in Kbits, usually.
 
