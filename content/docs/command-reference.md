@@ -1223,6 +1223,11 @@ Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% r
 
 - ```eeprom list``` - list all EEPROM devices supported by the ```eeprom``` command
 
+| Device  | Size| Bytes | Page Size | Addr Bytes | Blk Sel Bits | kHz max |
+|---------|-----|--|-----------|------------|--------------|---------|
+| [DS2431](https://www.analog.com/media/en/technical-documentation/data-sheets/DS2431.pdf)  | 1K |128   | 8         | 2          | 0            | 16      |
+| [DS24B33](https://www.analog.com/media/en/technical-documentation/data-sheets/ds24b33.pdf)  | 4K |512   | 32        | 2          | 0          | 16      |
+
 {{% alert context="info" %}}
 There are only two widely used 1-Wire EEPROM: DS2431+ (1Kbit) and DS24B33 (4Kbit). There is also a clone of the DS2431+ called GX3421.
 {{% /alert %}}
@@ -1747,20 +1752,20 @@ You do need to specify the device type, there is no non-destructive autodetect m
 
 |Device|Size|Size (bytes)|Page Size|Address Bytes|Block Select Bits|Block Select Bit Offset|
 |---|---|---|---|---|---|---|
-|[24xM02](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/AT24CM02-2-Mbit-I2C-Serial-EEPROM-DS20006197.pdf)|256 KB|262144|256|2|2|0|
-|[24xM01](https://ww1.microchip.com/downloads/en/DeviceDoc/AT24CM01-I2C-Compatible-Two-Wire-Serial-EEPROM-Data-Sheet-20006170A.pdf)|128 KB|131072|256|2|1|0|
-|[24x1026](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA1026-24FC1026-24LC1026-1024-Kbit-I2C-Serial-EEPROM-DS20002270.pdf)|128 KB|131072|128|2|1|0|   
-|[24x102*5*](https://ww1.microchip.com/downloads/en/devicedoc/21941b.pdf)|128 KB|131072|128|2|1|3|
-|[24x512](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA512-24LC512-24FC512-512-Kbit-I2C-Serial-EEPROM-DS20001754.pdf)|64 KB|65536|128|2|0|0|
-|[24x256](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA256-24LC256-24FC256-256K-I2C-Serial-EEPROM-DS20001203.pdf)|32 KB|32768|64|2|0|0|
-|[24x128](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA128-24LC128-24FC128-128-Kbit-I2C-Serial-EEPROM-DS20001191.pdf)|16 KB|16384|64|2|0|0|
-|[24x64](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA64-24FC64-24LC64-64-Kbit-I2C-Serial-EEPROM-DS20001189.pdf)|8 KB|8192|32|2|0|0|
-|[24x32](https://ww1.microchip.com/downloads/en/DeviceDoc/21072G.pdf)|4 KB|4096|32|2|0|0|
-|[24x16](https://ww1.microchip.com/downloads/en/DeviceDoc/20002213B.pdf)|2 KB|2048|16|1|3|0|
-|[24x08](https://ww1.microchip.com/downloads/en/devicedoc/21710k.pdf)|1 KB|1024|16|1|2|0|
-|[24x04](https://ww1.microchip.com/downloads/en/DeviceDoc/21708K.pdf)|512 B|512|16|1|1|0|
-|[24x02](https://ww1.microchip.com/downloads/en/devicedoc/21709c.pdf)|256 B|256|8|1|0|0|
-|[24x01](https://ww1.microchip.com/downloads/en/devicedoc/21711j.pdf)|128 B|128|8|1|0|0|
+|[24x01](https://ww1.microchip.com/downloads/en/devicedoc/21711j.pdf)|1 Kbit|128|8|1|0||
+|[24x02](https://ww1.microchip.com/downloads/en/devicedoc/21709c.pdf)|2 Kbit|256|8|1|0||
+|[24x04](https://ww1.microchip.com/downloads/en/DeviceDoc/21708K.pdf)|4 Kbit|512|16|1|1|0|
+|[24x08](https://ww1.microchip.com/downloads/en/devicedoc/21710k.pdf)|8 Kbit|1024|16|1|2|0|
+|[24x16](https://ww1.microchip.com/downloads/en/DeviceDoc/20002213B.pdf)|16 Kbit|2048|16|1|3|0|
+|[24x32](https://ww1.microchip.com/downloads/en/DeviceDoc/21072G.pdf)|32 Kbit|4096|32|2|0||
+|[24x64](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA64-24FC64-24LC64-64-Kbit-I2C-Serial-EEPROM-DS20001189.pdf)|64Kbit|8192|32|2|0||
+|[24x128](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA128-24LC128-24FC128-128-Kbit-I2C-Serial-EEPROM-DS20001191.pdf)|128 Kbit|16384|64|2|0||
+|[24x256](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA256-24LC256-24FC256-256K-I2C-Serial-EEPROM-DS20001203.pdf)|256 Kbit|32768|64|2|0||
+|[24x512](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA512-24LC512-24FC512-512-Kbit-I2C-Serial-EEPROM-DS20001754.pdf)|512 Kbit|65536|128|2|0||
+|[24x102*5*](https://ww1.microchip.com/downloads/en/devicedoc/21941b.pdf)|1 Mbit|131072|128|2|1|3|
+|[24x1026](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA1026-24FC1026-24LC1026-1024-Kbit-I2C-Serial-EEPROM-DS20002270.pdf)|1 Mbit|131072|128|2|1|0|   
+|[24xM01](https://ww1.microchip.com/downloads/en/DeviceDoc/AT24CM01-I2C-Compatible-Two-Wire-Serial-EEPROM-Data-Sheet-20006170A.pdf)|1 Mbit|131072|256|2|1|0|
+|[24xM02](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/AT24CM02-2-Mbit-I2C-Serial-EEPROM-DS20006197.pdf)|2 Mbit|262144|256|2|2|0|
 
 {{% alert context="info" %}}
 24x chips have a variety of part numbers, but tend to operate in the same way. Often a manufacturer specific part number indicates a different voltage range or upgraded features. AT24C, 24C, 24LC, 24AA, 24FC are all generally part of same basic 24x family of chips. 
