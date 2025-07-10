@@ -5,7 +5,9 @@ title = 'Bus Pirate Hardware'
 
 ![](/images/docs/fw/bp5rev10-cover-angle.jpg)
 
-Bus Pirate 5 is the latest edition of the universal serial interface trusted by hackers since 2008.
+Bus Pirate is the universal serial interface tool trusted by hackers since 2008.
+
+What can the Bus Pirate do? Probe and debug serial protocols like [I2C]({{< relref "/docs/command-reference/#i2c">}}), [SPI]({{< relref "/docs/command-reference/#spi">}}), [UART]({{< relref "/docs/command-reference/#uart">}}), [1-Wire]({{< relref "/docs/command-reference/#1-wire">}}) and more - without writing code! Read and write [Flash memory]({{< relref "/docs/command-reference/#flash-readwriteerase-common-flash-chips">}}), [24x/25x/93x/95x EEPROMs]({{< relref "/docs/command-reference/#eeprom-read-write-erase-verify-test-dump-i2c-eeproms">}}), [DDR5 SPD]({{< relref "/docs/devices/ddr5/">}}), [smart cards]({{< relref "/docs/devices/sle4442/">}}), and [FRAM]({{< relref "/docs/devices/identify-serial-memory-chips/#fram-memory">}}). Several types of [logic analyzer support]({{< relref "/docs/logic-analyzer/logicanalyzer/">}}), and a [low speed oscilloscope]({{< relref "/docs/scope/">}}). Discover [JTAG and SWD debug ports]({{< relref "/docs/devices/jtag-swd-pin-finder/">}}). [Sniff I2C]({{< relref "/docs/command-reference/#sniff-i2c-bus-sniffer">}}) and other busses. Glitch hack an [Arduino]({{< relref "/docs/devices/uart-glitch-command/">}}). [Record]({{< relref "/docs/command-reference/#irrx">}}) and [playback]({{< relref "/docs/command-reference/#irtx">}}) infrared remote control signals, also works with [AnalysIR software]({{< relref "/docs/software/analysir/">}}). Control common serial LEDs like [WS2812, SK6812]({{< relref "/docs/devices/ws2812-sk6812-neopixel/">}}), and [APA102]({{< relref "/docs/devices/apa102-sk9822/">}}), and read [RGB color sensors]({{< relref "/docs/devices/tcs3472x/">}}). Works with [FlashRom]({{< relref "/docs/software/flashrom/">}}) and [AVRDUDE]({{< relref "/docs/software/avrdude/">}}). Nearly constant [firmware releases]({{< relref "/docs/downloads/">}}) and updates.
 
 Can't get a chip to work? Is it the circuit, code, bad part or a burned out pin? The Bus Pirate sends commands over common serial protocols (1-Wire, I2C, SPI, UART, MIDI, serial LEDs, etc) so you can get to know a chip before prototyping. Updated with tons of new features, talking to chips and probing interfaces is more fun than ever!
 
@@ -23,7 +25,7 @@ VT100 terminal emulation supports color and a live statusbar view of the voltage
 
 ## Specifications
 
-- Raspberry Pi RP2040 with 128Mbit program flash
+- Raspberry Pi RP chip paired with 128Mbit program flash
 - 8 powerful IO pins - Support multiple protocols from 1.2-5volts. Analog voltage measurement and optional 10K pull-ups on all pins
 - 1-5volt output power supply - 0-500mA current limit, current sense, resettable fuse and protection circuit
 - 1Gbit NAND flash - Store settings and files. Appears as a USB drive.
@@ -32,7 +34,7 @@ VT100 terminal emulation supports color and a live statusbar view of the voltage
 - Just one button - 18 party LEDs but just one button!
 - 1-Wire, I2C, SPI, UART, MIDI, serial LEDs supported, more to come!
 
-Bus Pirate 5 is the universal serial interface tool designed by hackers, for hackers. It's crammed full of hardware and firmware features to make probing chips pleasant and easy.
+Bus Pirate is the universal serial interface tool designed by hackers, for hackers. It's crammed full of hardware and firmware features to make probing chips pleasant and easy.
 
 ### Get a Bus Pirate
  
