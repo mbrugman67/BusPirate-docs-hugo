@@ -3,7 +3,7 @@ weight = 10010
 title = 'Command Reference'
 +++
 
-{{< termfile source="static/snippets/cmdref-info.html" >}}
+{{< asciicast src="/sizzle/sizzle-cast.json" poster="npt:1:23"  idleTimeLimit=2 >}}
 
 The Bus Pirate is a versatile debugging and development tool for working with various communication protocols like I2C, SPI, UART, and more. It acts as a bridge between a computer and embedded devices, allowing users to talk to chips without writing code. It is especially useful for prototyping, testing, and reverse engineering hardware.
 
@@ -15,7 +15,7 @@ It's always best to use the [latest firmware]({{< relref "/docs/downloads" >}}).
 
 <!-- ![](/images/docs/fw/cmd-toolbar.png)-->
 
-{{< asciicast src="/sizzle/sizzle-cast.json" poster="npt:1:23"  idleTimeLimit=2 >}}
+{{< termfile source="static/snippets/cmdref-info.html" >}}
 
 Connect to the Bus Pirate command line with your [favorite serial terminal software]({{< relref "/docs/tutorial-basics/quick-setup/" >}}). On Windows we like the latest version of [Tera Term](https://ttssh2.osdn.jp/index.html.en).
 
@@ -1225,11 +1225,11 @@ Enable the Bus Pirate onboard pull-up resistors with the [```P``` command]({{% r
 
 | Device  | Size| Bytes | Page Size | Addr Bytes | Blk Sel Bits | kHz max |
 |---------|-----|--|-----------|------------|--------------|---------|
-| [DS2431](https://www.analog.com/media/en/technical-documentation/data-sheets/DS2431.pdf)  | 1K |128   | 8         | 2          | 0            | 16      |
+| [DS2431](https://www.analog.com/media/en/technical-documentation/data-sheets/DS2431.pdf)/GX2431  | 1K |128   | 8         | 2          | 0            | 16      |
 | [DS24B33](https://www.analog.com/media/en/technical-documentation/data-sheets/ds24b33.pdf)  | 4K |512   | 32        | 2          | 0          | 16      |
 
 {{% alert context="info" %}}
-There are only two widely used 1-Wire EEPROM: DS2431+ (1Kbit) and DS24B33 (4Kbit). There is also a clone of the DS2431+ called GX3421.
+There are only two widely used 1-Wire EEPROM: DS2431+ (1Kbit) and DS24B33 (4Kbit). There is also a clone of the DS2431+ called GX2431.
 {{% /alert %}}
 
 {{% alert context="danger" %}}
@@ -1386,7 +1386,7 @@ Show the write protection status of the EEPROM.
 |Option|Description|
 |---|---|
 |```eeprom list```|List all supported EEPROM devices|
-|```eeprom dump```|Dump EEPROM contents to terminal|
+|```eeprom dump```|Dump EEPROM contents to terminal.Space to continue, x to exit.|
 |```eeprom read```|Read EEPROM contents to file|
 |```eeprom write```|Write EEPROM from file|
 |```eeprom verify```|Verify EEPROM contents against file|
@@ -1404,10 +1404,11 @@ Always check the latest options and flags with ```eeprom -h``` to see the most u
 |---|---|
 |```-d <device>```|Specify the EEPROM device type, e.g. 24x02|
 |```-f <file>```|Specify the file for read, write and verify|
-|```-s <start>```|Specify the start address for dump and read operations|
+|```-v```|Verify the read or write operation|
+|```-s <start>```|Specify the start address for dump operations|
 |```-b <bytes>```|Specify the number of bytes to read for dump operations|
 |```-q```|Dump quiet mode, no address or ASCII columns. Useful for copying HEX values to a HEX editor.|
-|```-v```|Verify the read or write operation|
+|```-c```|Dump: disable paging, display all data in one go.|
 |```-h```|Show help for the ```eeprom``` command|
 
 Flags pass file names and other settings.
@@ -1923,7 +1924,7 @@ Test I2C EEPROM functionality. Erase the EEPROM to 0xff and verify the erase. Th
 |Option|Description|
 |---|---|
 |```eeprom list```|List all supported EEPROM devices|
-|```eeprom dump```|Dump EEPROM contents to terminal|
+|```eeprom dump```|Dump EEPROM contents to terminal. Space to continue, x to exit.|
 |```eeprom read```|Read EEPROM contents to file|
 |```eeprom write```|Write EEPROM from file|
 |```eeprom verify```|Verify EEPROM contents against file|
@@ -1936,11 +1937,12 @@ Options tell the ```eeprom``` command what to do.
 |---|---|
 |```-d <device>```|Specify the EEPROM device type, e.g. 24x02|
 |```-f <file>```|Specify the file for read, write and verify|
-|```-s <start>```|Specify the start address for dump and read operations|
-|```-b <bytes>```|Specify the number of bytes to read for dump operations|
-|```-q```|Dump quiet mode, no address or ASCII columns. Useful for copying HEX values to a HEX editor.|
 |```-v```|Verify the read or write operation|
 |```-a```|Specify an alternate I2C address (0x50 default)|
+|```-s <start>```|Specify the start address for dump operations|
+|```-b <bytes>```|Specify the number of bytes to read for dump operations|
+|```-q```|Dump quiet mode, no address or ASCII columns. Useful for copying HEX values to a HEX editor.|
+|```-c```|Dump: disable paging, display all data in one go.|
 |```-h```|Show help for the ```eeprom``` command|
 
 Flags pass file names and other settings.
@@ -2277,10 +2279,10 @@ The ```flash``` command can read, write, and erase common SPI flash memory chips
 
 {{< termfile source="static/snippets/cmdref-mode-spi-flash-help.html" >}}
 
-#### Flash initialization
+#### Flash probe
 
 {{< term "Bus Pirate [/dev/ttyS0]" >}}
-<span style="color:#96cb59">SPI></span> flash init
+<span style="color:#96cb59">SPI></span> flash probe
 Probing:
 		Device ID	Manuf ID	Type ID		Capacity ID
 RESID (0xAB)	0x13
@@ -2309,10 +2311,29 @@ Found a Winbond  flash chip (1048576 bytes)
 Flash device reset success
 {{< /term >}}
 
-```flash```, ```flash init```, and ```flash probe``` provide various levels of details about a flash chip. The flash command tries three common methods to identify a flash chip (RESID, REMSID, RDID), then attempts to read the SFDP tables.  
+```flash probe``` searches the flash chip for any identifying information. The flash command tries three common methods to identify a flash chip (RESID, REMSID, RDID), then attempts to read the SFDP tables.  
 
 {{% alert context="info" %}}
 Use ```flash -h``` to see the latest options and features.
+{{% /alert %}}
+
+#### Dump a flash chip
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">SPI></span> flash dump -s 0x10 -b 32
+          00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F  0123456789ABCDEF
+----------------------------------------------------------|----------------|
+00000010: 75 61 67 65 22 3A 20 30 2C 0A 22 74 65 72 6D 69 |uage": 0,."termi|
+00000020: 6E 61 6C 5F 61 6E 73 69 5F 63 6F 6C 6F 72 22 3A |nal_ansi_color":|
+{{< /term >}}
+
+Dump the contents of a flash chip to the terminal with the ```flash dump``` command.
+- ```-s <start address>``` - Optional: specify the dump start address
+- ```-b <bytes>``` - Optional: specify the number of bytes to dump
+
+One screen of data is displayed at a time. Press space to continue to the next screen, or 'x' to exit. 
+{{% alert context="info" %}}
+Disable paging with the ```-c``` flag to display all data in one go. Use the ```-q``` flag to disable the address and ASCII columns, which is useful for copying HEX values to a HEX editor.
 {{% /alert %}}
 
 #### Read a flash chip
@@ -2367,8 +2388,8 @@ The ```flash test``` command erases the chip, writes dummy data, and verifies th
 
 | Option | Description |
 |---------|-------------|
-| ```flash init``` | Reset and initialize flash chip. Default if no options given. |
 | ```flash probe``` | Probe flash chip for ID and SFDP info. |
+|```flash dump``` | Dump flash chip contents to terminal. Space to continue, x to exit. |
 | ```flash erase``` | Erase flash chip. |
 | ```flash write``` | Write file to flash chip. Specify file with -f flag. Use -e flag to erase before write|
 | ```flash read``` | Read flash chip to file. Specify file with -f flag|
@@ -2382,6 +2403,10 @@ Options tell the flash command what to do.
 | ```-f``` | File flag. File to write, read or verify. |
 | ```-e``` | Erase flag. Add erase before write. |
 | ```-v``` | Verify flag. Add verify after write or erase. |
+|```-s <start>```|Specify the start address for dump operations|
+|```-b <bytes>```|Specify the number of bytes to read for dump operations|
+|```-q```|Dump quiet mode, no address or ASCII columns. Useful for copying HEX values to a HEX editor.|
+|```-c```|Dump: disable paging, display all data in one go.|
 
 Flags pass file names and other settings.
 
@@ -2626,7 +2651,7 @@ Many chips support block protection bits, fewer support the WPEN bit. To test wh
 |Option|Description|
 |---|---|
 |```eeprom list```|List all supported EEPROM devices|
-|```eeprom dump```|Dump EEPROM contents to terminal|
+|```eeprom dump```|Dump EEPROM contents to terminal. Space to continue, x to exit.|
 |```eeprom read```|Read EEPROM contents to file|
 |```eeprom write```|Write EEPROM from file|
 |```eeprom verify```|Verify EEPROM contents against file|
@@ -2644,13 +2669,14 @@ Always check the latest options and flags with ```eeprom -h``` to see the most u
 |---|---|
 |```-d <device>```|Specify the EEPROM device type, e.g. 24x02|
 |```-f <file>```|Specify the file for read, write and verify|
-|```-s <start>```|Specify the start address for dump and read operations|
-|```-b <bytes>```|Specify the number of bytes to read for dump operations|
-|```-q```|Dump quiet mode, no address or ASCII columns. Useful for copying HEX values to a HEX editor.|
 |```-v```|Verify the read or write operation|
 |```-p <value>```|Update the block protection bits, 0b00-0b11 valid|
 |```-w <value>```|Update the Write Pin ENable (WPEN) bit, 0 to disable, 1 to enable|
 |```-t```|Test the write protection features of the EEPROM|
+|```-s <start>```|Specify the start address for dump operations|
+|```-b <bytes>```|Specify the number of bytes to read for dump operations|
+|```-q```|Dump quiet mode, no address or ASCII columns. Useful for copying HEX values to a HEX editor.|
+|```-c```|Dump: disable paging, display all data in one go.|
 |```-h```|Show help for the ```eeprom``` command|
 
 Flags pass file names and other settings.
