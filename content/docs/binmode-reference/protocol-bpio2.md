@@ -17,6 +17,35 @@ The Bus Pirate BPIO2 protocol is a flat buffer interface designed for simple and
 
 [Flat Buffers](https://flatbuffers.dev/) automatically create "tooling" to for most common languages and compilers. This means you can easily integrate the BPIO2 protocol into your projects without needing to write extensive parsing or serialization code.
 
+## Debugging
+
+{{< term>}}
+[BPIO] Flatbuffer length: 64
+[BPIO] Flatbuffer received, length: 64
+[BPIO] Packet Type: 3
+[Data Request] Start main condition: true
+[Data Request] Start alternate condition: false
+[Data Request] Data write vector is present
+[Data Request] Data write vector length: 2
+[Data Request] Data write: 0xA0 0x00
+[Data Request] Bytes to read: 16
+[Data Request] Stop main condition: true
+[Data Request] Stop alternate condition: false
+[Data Request] Protocol request
+[I2C] Performing transaction
+{{</ term>}}
+
+
+{{% alert context="danger" %}}
+BPIO2 can display detailed debugging data in the Bus Pirate terminal. Enable this by setting ```"bpio_debug_enable":1``` in your BPCONFIG.BP JSON file on the Bus Pirate internal storage. **The reboot the Bus Pirate for this to take effect.**
+{{% /alert %}}
+
+The Bus Pirate firmware will print debugging information to the terminal when BPIO2 requests are processed. This can help you understand how the protocol works and troubleshoot any issues.
+
+{{% alert context="warning" %}}
+If you don't have a BPCONFIG.BP file, type configuration command ```c``` in the Bus Pirate terminal. At the prompt type x to exit, the configuration file will be created.
+{{% /alert %}}
+
 ## Flat Buffers
 
 {{% alert context="info" %}}
