@@ -17,6 +17,12 @@ The Bus Pirate BPIO2 protocol is a flat buffer interface designed for simple and
 
 [Flat Buffers](https://flatbuffers.dev/) automatically create "tooling" to for most common languages and compilers. This means you can easily integrate the BPIO2 protocol into your projects without needing to write extensive parsing or serialization code.
 
+## Why BPIO2?
+
+Bus Pirate v3.x has a **BBIO** interface, an abbreviation for **Bit Bang Input/Output**. The interface was originally designed for simple bit-banging only, other protocols were hacked in later. 
+
+We *could* call this BBIO2, but it's in no way similar to the original BBIO interface and it's only marginally for bit-banging. Instead, we call it BPIO2 meaning the second generation of Bus Pirate I/O.
+
 ## Debugging
 
 {{< term>}}
