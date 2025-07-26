@@ -159,9 +159,7 @@ The [```eeprom``` command]({{< relref "/docs/command-reference/#eeprom-read-writ
 | Device  | Size| Bytes | Page Size | Addr Bytes | Blk Sel Bits | kHz max |
 |---------|-----|--|-----------|------------|--------------|---------|
 | [DS2431](https://www.analog.com/media/en/technical-documentation/data-sheets/DS2431.pdf)**  | 1K |128   | 8         | 2          | 0            | 16      |
-| [DS24B33](https://www.analog.com/media/en/technical-documentation/data-sheets/ds24b33.pdf)  | 4K |512   | 32        | 2          | 0          | 16      |
-
-<br/>
+| [DS24B33](https://www.analog.com/media/en/technical-documentation/data-sheets/ds24b33.pdf)**  | 4K |512   | 32        | 2          | 0          | 16      |
 
 **Tested devices
 
