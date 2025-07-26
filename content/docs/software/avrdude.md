@@ -15,7 +15,7 @@ For those who prefer a graphical user interface, AVRDUDESS offers a user-friendl
 In this demo we'll program the ATmega32U4 chip found on the Arduino Leonardo through the ICSP header. 
 
 {{% alert context="warning" %}}
-Always connect the AVR target board via USB — it usually works better than powering it only from the Bus Pirate.
+Always power the AVR target board externally (e.g., via USB) — it usually works better than powering it only from the Bus Pirate.
 {{% /alert %}}
 
 ## Connections
