@@ -14,8 +14,8 @@ Documentation still in progress. Todo:
 |Type|Part Number*|Ex. Part Num.|Example Manufacturers|
 |-|-|-|-|
 |[SPI Flash]({{< relref "/docs/devices/identify-serial-memory-chips/#spi-flash-memory">}})|25Qnnn|W25Q128|Winbond, Micron, GigaDevice, PUYA|
-|[SPI EEPROM]({{< relref "/docs/devices/identify-serial-memory-chips/#spi-flash-memory">}})|25xnnn, 95xnnn|25LC040, AT25040|Microchip, Atmel, STMicroelectronics|
-|[I2C EEPROM]({{< relref "/docs/devices/identify-serial-memory-chips/#spi-flash-memory">}})|24xnnn|24LC20, AT24C02|Microchip, Atmel, STMicroelectronics|   
+|[SPI EEPROM]({{< relref "/docs/devices/identify-serial-memory-chips/#identifying-spi-eeprom-chips">}})|25xnnn, 95xnnn|25LC040, AT25040|Microchip, Atmel, STMicroelectronics|
+|[I2C EEPROM]({{< relref "/docs/devices/identify-serial-memory-chips/#identifying-i2c-eeprom-chips">}})|24xnnn|24LC20, AT24C02|Microchip, Atmel, STMicroelectronics|   
 |[1-Wire EEPROM]({{< relref "/docs/devices/identify-serial-memory-chips/#identifying-1-wire-eeprom-chips">}})|243n|DS2341, GX2341, DS24B33|Dallas/Maxim, GX|
 |[Microwire EEPROM]({{< relref "/docs/devices/identify-serial-memory-chips/#identifying-microwire-eeprom-chips">}})|93xnn|AT93C46, 93LC56C|Microchip, Atmel, STMicroelectronics|
 |[SPI FRAM]({{< relref "/docs/devices/identify-serial-memory-chips/#identifying-spi-fram-chips">}})|FM25xnnn, MB85Xnnn|FM25CL64B, MB85RS512|Ramxeed (Fujitsu), Infineon, ROHM |
@@ -67,18 +67,20 @@ The [```eeprom``` command]({{< relref "/docs/command-reference/#eeprom-read-writ
 | Device                      | Density   | Size (bytes)| Page Size (Bytes) |Address Bytes| Block Select Bits |B.S. Offset|
 |-----------------------------------|-----------|------------|------|-------------------|----------|-------|
 | [25X010](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA010A-25LC010A-1-Kbit-SPI-Bus-Serial-EEPROM-20001832J.pdf)| 1 Kbit    | 128        | 8(AT)/16              | 1  |0|
-| [25X020](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA020A-25LC020A-2-Kbit-SPI-Bus-Serial-EEPROM-20001833H.pdf)| 2 Kbit    | 256 | 8(AT)/16 | 1 |0|
-| [25X040](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA040A-25LC040A4-Kbit-SPI-Bus-Serial-EEPROM-20001827J.pdf) | 4 Kbit    | 512        | 8(AT)/16              | 1         |1|3|
+| [25X020](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA020A-25LC020A-2-Kbit-SPI-Bus-Serial-EEPROM-20001833H.pdf)**| 2 Kbit   | 256 | 8(AT)/16 | 1 |0|
+| [25X040](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA040A-25LC040A4-Kbit-SPI-Bus-Serial-EEPROM-20001827J.pdf)** | 4 Kbit    | 512        | 8(AT)/16              | 1         |1|3|
 | [25X080](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/8-Kbit-SPI-Bus-Serial-EEPROM-20002151C.pdf) | 8 Kbit    | 1024   | 16/32(AT,STM)   | 2   |0|
 |[25X160](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA160CD-25LC160CD-16-Kbit-SPI-Bus-Serial-EEPROM-20002150C.pdf)| 16 Kbit   | 2048        | 16/32(AT,STM)   | 2   |0|
-|[25X320](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA320A-25LC320A-32K-SPI-Bus-Serial-EEPROM-20001828H.pdf)| 32 Kbit   | 4096 | 32   | 2  | 0|
-|[25X640](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA640A-25LC640A-64K-SPI-Bus-Serial-EEPROM-20001830G.pdf)  | 64 Kbit   | 8192        | 32                | 2          |0|
-|[25X128](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA128-25LC128-128K-SPI-Bus-Serial-EEPROM-20001831G.pdf)           | 128 Kbit  | 16384         | 64                | 2             |0|
-|[25X256](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25LCXXXX-8K-256K-SPI-Serial-EEPROM-High-Temp-Family-Data-Sheet-DS20002131.pdf)| 256 Kbit  | 32768        | 64                | 2          | 0|
-|[25X512](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25LC512-512-Kbit-SPI-Bus-Serial-EEPROM-Data-Sheet-20002065.pdf) | 512 Kbit  | 65536 | 128 |2| 0 |
-| [25XM01](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/AT25M01-SPI-Serial-EEPROM-Data-Sheet-20006226A.pdf), [25X1024](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25LC1024-1-Mbit-SPI-Bus-Serial-EEPROM-20002064E.pdf)| 1 Mbit | 131072  |  256 | 3  | 0  |
+|[25X320](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA320A-25LC320A-32K-SPI-Bus-Serial-EEPROM-20001828H.pdf)**| 32 Kbit   | 4096 | 32   | 2  | 0|
+|[25X640](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA640A-25LC640A-64K-SPI-Bus-Serial-EEPROM-20001830G.pdf)**  | 64 Kbit   | 8192        | 32                | 2          |0|
+|[25X128](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25AA128-25LC128-128K-SPI-Bus-Serial-EEPROM-20001831G.pdf)**          | 128 Kbit  | 16384         | 64                | 2             |0|
+|[25X256](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25LCXXXX-8K-256K-SPI-Serial-EEPROM-High-Temp-Family-Data-Sheet-DS20002131.pdf)**| 256 Kbit  | 32768        | 64                | 2          | 0|
+|[25X512](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25LC512-512-Kbit-SPI-Bus-Serial-EEPROM-Data-Sheet-20002065.pdf)** | 512 Kbit  | 65536 | 128 |2| 0 |
+| [25XM01](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/AT25M01-SPI-Serial-EEPROM-Data-Sheet-20006226A.pdf), [25X1024](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25LC1024-1-Mbit-SPI-Bus-Serial-EEPROM-20002064E.pdf)**| 1 Mbit | 131072  |  256 | 3  | 0  |
 | [25XM02](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/AT25M02-SPI-Serial-EEPROM-Data-Sheet-20006230A.pdf)| 2 Mbit    |262144 | 256         | 3       |0            |
 | [25XM04](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25CSM04-4-Mbit-SPI-Serial-EEPROM-with-128-Bit-Serial-Number-and-Enhanced-Write-Protection-20005817D.pdf) | 4 Mbit  |524288| 256/512(STM)  |3       | 0             |
+
+**Tested devices
 
 {{% alert context="info" %}}
 25x/95x chips have a variety of part numbers, but tend to operate in the same way. Often a manufacturer specific part number indicates a different voltage range or upgraded features. AT25, 25LC, 25AA, 25CS and M95 are all part of same basic 25x family of chips. 
@@ -108,7 +110,7 @@ The [```eeprom``` command]({{< relref "/docs/command-reference/#eeprom-read-writ
 |Device|Size|Size (bytes)|Page Size|Address Bytes|Block Select Bits|Block Select Bit Offset|
 |---|---|---|---|---|---|---|
 |[24x01](https://ww1.microchip.com/downloads/en/devicedoc/21711j.pdf)|1 Kbit|128|8|1|0||
-|[24x02](https://ww1.microchip.com/downloads/en/devicedoc/21709c.pdf)|2 Kbit|256|8|1|0||
+|[24x02](https://ww1.microchip.com/downloads/en/devicedoc/21709c.pdf)**|2 Kbit|256|8|1|0||
 |[24x04](https://ww1.microchip.com/downloads/en/DeviceDoc/21708K.pdf)|4 Kbit|512|16|1|1|0|
 |[24x08](https://ww1.microchip.com/downloads/en/devicedoc/21710k.pdf)|8 Kbit|1024|16|1|2|0|
 |[24x16](https://ww1.microchip.com/downloads/en/DeviceDoc/20002213B.pdf)|16 Kbit|2048|16|1|3|0|
@@ -121,6 +123,8 @@ The [```eeprom``` command]({{< relref "/docs/command-reference/#eeprom-read-writ
 |[24x1026](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA1026-24FC1026-24LC1026-1024-Kbit-I2C-Serial-EEPROM-DS20002270.pdf)|1 Mbit|131072|128|2|1|0|   
 |[24xM01](https://ww1.microchip.com/downloads/en/DeviceDoc/AT24CM01-I2C-Compatible-Two-Wire-Serial-EEPROM-Data-Sheet-20006170A.pdf)|1 Mbit|131072|256|2|1|0|
 |[24xM02](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/AT24CM02-2-Mbit-I2C-Serial-EEPROM-DS20006197.pdf)|2 Mbit|262144|256|2|2|0|
+
+**Tested devices
 
 {{% alert context="info" %}}
 24x chips have a variety of part numbers, but tend to operate in the same way. Often a manufacturer specific part number indicates a different voltage range or upgraded features. AT24C, 24C, 24LC, 24AA, 24FC are all generally part of same basic 24x family of chips. 
@@ -154,12 +158,15 @@ The [```eeprom``` command]({{< relref "/docs/command-reference/#eeprom-read-writ
 
 | Device  | Size| Bytes | Page Size | Addr Bytes | Blk Sel Bits | kHz max |
 |---------|-----|--|-----------|------------|--------------|---------|
-| [DS2431](https://www.analog.com/media/en/technical-documentation/data-sheets/DS2431.pdf)  | 1K |128   | 8         | 2          | 0            | 16      |
+| [DS2431](https://www.analog.com/media/en/technical-documentation/data-sheets/DS2431.pdf)**  | 1K |128   | 8         | 2          | 0            | 16      |
 | [DS24B33](https://www.analog.com/media/en/technical-documentation/data-sheets/ds24b33.pdf)  | 4K |512   | 32        | 2          | 0          | 16      |
 
 <br/>
+
+**Tested devices
+
 {{% alert context="info" %}}
-There are only two widely used 1-Wire EEPROM: DS2431+ (1Kbit) and DS24B33 (4Kbit). There is also a clone of the DS2431+ called GX3421.
+There are only two widely used 1-Wire EEPROM: DS2431+ (1Kbit) and DS24B33 (4Kbit). There is also a clone of the DS2431+ called GX2431.
 {{% /alert %}}
 
 #### 1-Wire EEPROM voltage requirements
