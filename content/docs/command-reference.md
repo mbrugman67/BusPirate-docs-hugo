@@ -1371,7 +1371,8 @@ Success&nbsp;:)
 
 <span style="color:rgb(150,203,89)">1WIRE></span>&nbsp;
 {{< /term>}}
-Test I2C EEPROM functionality. Erase the EEPROM to 0xff and verify the erase. Then write alternating patterns of 0xAA and 0x55, verifying each write operation. Any stuck bits should be detected during the test.
+
+Test EEPROM functionality. Erase the EEPROM to 0xff and verify the erase. Then write alternating patterns of 0xAA and 0x55, verifying each write operation. Any stuck bits should be detected during the test.
 - ```test -d <device>``` - test EEPROM functionality
 
 #### 1-Wire EEPROM show protection status
@@ -1750,6 +1751,10 @@ You do need to specify the device type, there is no non-destructive autodetect m
 {{< /term>}}
 
 - ```eeprom list``` - list all EEPROM devices supported by the ```eeprom``` command
+
+{{% alert context="info" %}}
+See [Indentifying I2C EEPROM Chips]({{< relref "/docs/devices/identify-serial-memory-chips/#identifying-i2c-eeprom-chips">}}) for more information on chip markings, power requirements, and other details.
+{{% /alert %}}
 
 |Device|Size|Size (bytes)|Page Size|Address Bytes|Block Select Bits|Block Select Bit Offset|
 |---|---|---|---|---|---|---|
@@ -2277,6 +2282,10 @@ Looking for something like SPI, but with individual control over the clock and d
 <br/>
 The ```flash``` command can read, write, and erase common SPI flash memory chips directly in the Bus Pirate terminal. The [Serial Flash Universal Driver](https://github.com/armink/SFUD) at the heart of the flash command attempts to identify the flash chip and select the appropriate settings. Most modern flash chips contain SFDP tables that describe the chip capabilities. If a chip doesn't have SFDP tables, the driver has a database of common chips on which to fall back. 
 
+{{% alert context="info" %}}
+See [Indentifying SPI Flash Chips]({{< relref "/docs/devices/identify-serial-memory-chips/#spi-flash-memory">}}) for more information on chip markings, power requirements, and other details.
+{{% /alert %}}
+
 {{< termfile source="static/snippets/cmdref-mode-spi-flash-help.html" >}}
 
 #### Flash probe
@@ -2414,7 +2423,7 @@ Flags pass file names and other settings.
 
 {{< asciicast src="/screencast/spi-eeprom-command-cast.json" poster="npt:1:01"  idleTimeLimit=2 >}}
 <br/>
-```eeprom``` is a command to read, write, erase, verify, test and dump common SPI EEPROMs. 
+```eeprom``` is a command to read, write, erase, verify, test and dump common SPI and Microwire EEPROMs. 
 
 {{% alert context="info" %}}
 You do need to specify the device type, there is no non-destructive autodetect method for SPI EEPROMs.
@@ -2430,6 +2439,10 @@ You do need to specify the device type, there is no non-destructive autodetect m
 
 {{% alert context="info" %}}
 **25x** (Microchip), **AT25x** (fmr. Atmel) and **M95x** (STM) are all compatible SPI EEPROMs. There are slight feature differences, but they all use the same command set. **If you have a STM 95x EEPROM, specify the equivalent 25X device.**
+
+**93x** are Microwire EEPROMs, which use a older variant of the SPI protocol. They are also compatible with the SPI ```eeprom``` command.
+
+See [Indentifying SPI EEPROM Chips]({{< relref "/docs/devices/identify-serial-memory-chips/#identifying-spi-eeprom-chips">}}) and [Identifying Microwire EEPROMs]({{< relref "/docs/devices/identify-serial-memory-chips/#identifying-microwire-eeprom-chips">}}) for more information on chip markings, power requirements, and other details.
 {{% /alert %}}
 
 | Device                      | Density   | Size (bytes)| Page Size (Bytes) |Address Bytes| Block Select Bits |B.S. Offset|
@@ -2448,9 +2461,15 @@ You do need to specify the device type, there is no non-destructive autodetect m
 | [25XM02](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/AT25M02-SPI-Serial-EEPROM-Data-Sheet-20006230A.pdf)| 2 Mbit    |262144 | 256         | 3       |0            |
 | [25XM04](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25CSM04-4-Mbit-SPI-Serial-EEPROM-with-128-Bit-Serial-Number-and-Enhanced-Write-Protection-20005817D.pdf) | 4 Mbit  |524288| 256/512(STM)  |3       | 0             |
 
-{{% alert context="info" %}}
+<br/>
+
+{{% alert context="danger" %}}
 25x/95x chips have a variety of part numbers, but tend to operate in the same way. Often a manufacturer specific part number indicates a different voltage range or upgraded features. AT25, 25LC, 25AA, 25CS and M95 are all part of same basic 25x family of chips. 
 {{% /alert %}}  
+
+{{% alert context="info" %}}
+**93x** are Microwire EEPROMs, which use a older variant of the SPI protocol. They are also compatible with the SPI ```eeprom``` command.
+{{% /alert %}}
 
 ##### Chip voltage requirements
 

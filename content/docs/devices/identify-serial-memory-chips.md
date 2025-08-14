@@ -315,6 +315,10 @@ The [```eeprom``` command]({{< relref "/docs/command-reference/#eeprom-read-writ
 
 <br/>
 
+**Chip Select pin**
+
+The chip select pin is active high, which is different than most SPI devices. 
+
 **ORG pin**
 
 The ORG pin is used to select the addressing mode of the chip. It is only present on "C" part numbers.
@@ -324,10 +328,6 @@ The ORG pin is used to select the addressing mode of the chip. It is only presen
 {{% alert context="info" %}}
 To determine the addressing mode of a "C" part number, you can measure the ORG pin with a multimeter. If it is connected to ground, the chip is in 8-bit mode. If it is connected to VCC, the chip is in 16-bit mode.
 {{% /alert %}}
-
-**Chip Select pin**
-
-The chip select pin is active high, which is different than most SPI devices. 
 
 Image source: [Microchip 93xx46 datasheet](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/93AA46A-B-C-93LC46A-B-C-93C46A-B-C-1-Kbit-Microwire-Compatible-Serial-EEPROM-Data-Sheet-DS20001749.pdf)
 
