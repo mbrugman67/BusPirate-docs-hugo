@@ -47,6 +47,41 @@ If SFDP data isn't available, the ```flash``` command has a database of known ch
 The [```flash``` command]({{< relref "/docs/command-reference/#flash-readwriteerase-common-flash-chips" >}}) in SPI mode can probe, read, write, erase, verify and test most SPI flash chips. 
 {{% /alert %}}
 
+#### SPI Flash pinout
+
+![alt text](/images/docs/identify-serial-memory-chips/image-2.png)
+
+|Pin|Name|Description||Pin|Name|Description|
+|---|---|---|---|---|---|---|
+|1|CS|SPI Chip Select (active low)||8|VCC|Power supply|
+|2|SO|SPI Serial Out (MISO)||7|HOLD|Hold (active low)*|
+|3|WP|Write Protect (active low)*||6|SCK|SPI Serial Clock|
+|4|GND|Ground||5|SI|SPI Serial In (MOSI)|
+
+<br/>
+
+**Write protect pin**
+
+The write protect pin is optional, and may not be present on all chips. If it is present, it is used to protect the chip from being written to. If the pin is connected to ground, the chip can be written to. If the pin is connected to VCC, the chip is write protected and cannot be written to.
+
+**Hold pin**
+
+The hold pin is also optional, and may not be present on all chips. If it is present, it is used to pause the chip's operation without resetting it. If the pin is connected to ground, the chip will pause its operation until the pin is released.
+
+Image source: [Winbond W25Q128JV datasheet](https://www.winbond.com/hq/support/documentation/downloadV2022.jsp?__locale=en&xmlPath=/support/resources/.content/item/DA00-W25Q128JV.html&level=1)
+
+#### SPI Flash voltage requirements
+
+|Family|Minimum Voltage|Maximum Voltage|
+|---|---|---|
+|W25Q|2.7V|3.6V|
+
+<br/>
+
+{{% alert context="info" %}}
+Most SPI Flash chips will work at 3.3V, but some newer chips may have a lower maximum voltage. Always check the datasheet for the specific chip you are using if possible.
+{{% /alert %}}
+
 ## EEPROM memory
 Unlike Flash (NOR) memory, EEPROM memory is byte-addressable and can be written to one byte at a time. 
 - **Size**: 1Kbit to 4 Mbit (128B - 512K)
@@ -85,6 +120,30 @@ The [```eeprom``` command]({{< relref "/docs/command-reference/#eeprom-read-writ
 {{% alert context="info" %}}
 25x/95x chips have a variety of part numbers, but tend to operate in the same way. Often a manufacturer specific part number indicates a different voltage range or upgraded features. AT25, 25LC, 25AA, 25CS and M95 are all part of same basic 25x family of chips. 
 {{% /alert %}}  
+
+#### SPI EEPROM pinout
+
+![alt text](/images/docs/identify-serial-memory-chips/image-3.png)
+
+|Pin|Name|Description||Pin|Name|Description|
+|---|---|---|---|---|---|---|
+|1|CS|SPI Chip Select (active low)||8|VCC|Power supply|
+|2|SO|SPI Serial Out (MISO)||7|HOLD|Hold (active low)*|
+|3|WP|Write Protect (active low)*||6|SCK|SPI Serial Clock|
+|4|GND|Ground||5|SI|SPI Serial In (MOSI)|
+
+<br/>
+
+**Write protect pin**
+
+The write protect pin is optional, and may not be present on all chips. If it is present, it is used to protect the chip from being written to. If the pin is connected to ground, the chip can be written to. If the pin is connected to VCC, the chip is write protected and cannot be written to.
+
+**Hold pin**
+
+The hold pin is also optional, and may not be present on all chips. If it is present, it is used to pause the chip's operation without resetting it. If the pin is connected to ground, the chip will pause its operation until the pin is released.
+
+
+Image source: [Microchip 25x512 datasheet](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/25LC512-512-Kbit-SPI-Bus-Serial-EEPROM-Data-Sheet-20002065.pdf)
 
 #### SPI EEPROM voltage requirements
 
@@ -129,6 +188,30 @@ The [```eeprom``` command]({{< relref "/docs/command-reference/#eeprom-read-writ
 {{% alert context="info" %}}
 24x chips have a variety of part numbers, but tend to operate in the same way. Often a manufacturer specific part number indicates a different voltage range or upgraded features. AT24C, 24C, 24LC, 24AA, 24FC are all generally part of same basic 24x family of chips. 
 {{% /alert %}} 
+
+#### I2C EEPROM pinout
+![alt text](/images/docs/identify-serial-memory-chips/image-4.png)
+
+|Pin|Name|Description||Pin|Name|Description|
+|---|---|---|---|---|---|---|
+|1|A0|Address select pin 0*||8|VCC|Power supply|
+|2|A1|Address select pin 1*||7|WP|Write protect*|
+|3|A2|Address select pin 2*||6|SCL|I2C Clock line|
+|4|GND|Ground||5|SDA|I2C Data line|
+
+<br/>
+
+**Address select pins**
+
+These pins are optional, and may not be present on all chips. If they are present, they are used to select the I2C address of the chip. The address is 7 bits, with the last bit being the read/write bit. The address is determined by the state of these pins, e.g. A0=0, A1=0, A2=0 gives 7-bit address 0x50, A0=1, A1=0, A2=0 gives address 0x51, etc.
+
+**Write protect pin**
+
+The write protect pin is also optional, and may not be present on all chips. If it is present, it is used to protect the chip from being written to. If the pin is connected to ground, the chip can be written to. If the pin is connected to VCC, the chip is write protected and cannot be written to.
+
+
+Image source: [Microchip 24x512 datasheet](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA512-24LC512-24FC512-512-Kbit-I2C-Serial-EEPROM-DS20001754.pdf)
+
 
 #### I2C EEPROM voltage requirements
 
@@ -184,21 +267,15 @@ Microwire EEPROM chips are ancient technology that persists today. Microwire EEP
 Microwire EEPROM chips are usually labeled with a part number starting with "93". The "93" series includes chips like 93C46A, 93C56B, 93C66C, etc. 
 
 {{% alert context="danger" %}}
-93x is available with 8 bit or 16 bit addressing. "A" part numbers are 8 bit, "B" part numbers are 16 bit. The "C" part numbers can be either, depending on the state of the ORG pin.
+93x is available with 8 bit or 16 bit addressing. 
+- In 8 bit mode the memory appears as an array of 8 bit bytes. Each write operation writes one 8 bit byte. 
+- In 16 bit mode the memory appears as an array of 16 bit words. Each write operation writes two 8 bit bytes. 
+
+"A" part numbers are 8 bit, "B" part numbers are 16 bit. "C" part numbers can be either, depending on the [state of the ORG pin]({{< relref "/docs/devices/identify-serial-memory-chips/#microwire-eeprom-pinout">}}).
 {{% /alert %}}
 
-![alt text](/images/docs/eeprom-command/image-4.png)
-
-For 93xxxC chips, the ORG pin determines the addressing mode:
-- **LOW/GROUND**: 8-bit addressing
-- **HIGH/VCC**: 16-bit addressing
-
-Find and measure the ORG pin with a multimeter to determine the addressing mode. The most common pinout is the example on the right (PDIP/SIOC), though a rarer "rotated pinout" version seems to exist.
-
-Image source: [Microchip 93xx46 datasheet](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/93AA46A-B-C-93LC46A-B-C-93C46A-B-C-1-Kbit-Microwire-Compatible-Serial-EEPROM-Data-Sheet-DS20001749.pdf)
-
 {{% alert context="info" %}}
-The ```eeprom``` command in SPI mode can probe, read, write, erase, verify and test most Microwire EEPROM chips.
+The [```eeprom``` command]({{< relref "/docs/command-reference/#eeprom-read-write-erase-verify-test-dump-spi-eeproms">}}) in SPI mode can probe, read, write, erase, verify and test most Microwire EEPROM chips.
 {{% /alert %}}
 
 |Device|Size|Bytes|Organization|Dummy bits|Address|Total bits|
@@ -224,6 +301,35 @@ The ```eeprom``` command in SPI mode can probe, read, write, erase, verify and t
 {{% alert context="warning" %}}
 **For "C" devices, x8 or x16 bits is selected by the ORG pin. If ORG is low, the device is x8, if ORG is high, the device is x16.**
 {{% /alert %}}
+
+#### Microwire EEPROM pinout
+
+![alt text](/images/docs/identify-serial-memory-chips/image-5.png)
+
+|Pin|Name|Description||Pin|Name|Description|
+|---|---|---|---|---|---|---|
+|1|CS|SPI Chip Select (active **HIGH**)||8|VCC|Power supply|
+|2|CLK|SPI Clock||7|NC|Not Connected|
+|3|DI|SPI Data In (MOSI)||6|ORG|Address mode*|
+|4|DO|SPI Data Out (MISO)||5|GND|Ground|
+
+<br/>
+
+**ORG pin**
+
+The ORG pin is used to select the addressing mode of the chip. It is only present on "C" part numbers.
+
+- **LOW/GROUND**: 8-bit addressing
+- **HIGH/VCC**: 16-bit addressing
+{{% alert context="info" %}}
+To determine the addressing mode of a "C" part number, you can measure the ORG pin with a multimeter. If it is connected to ground, the chip is in 8-bit mode. If it is connected to VCC, the chip is in 16-bit mode.
+{{% /alert %}}
+
+**Chip Select pin**
+
+The chip select pin is active high, which is different than most SPI devices. 
+
+Image source: [Microchip 93xx46 datasheet](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/93AA46A-B-C-93LC46A-B-C-93C46A-B-C-1-Kbit-Microwire-Compatible-Serial-EEPROM-Data-Sheet-DS20001749.pdf)
 
 #### Microwire EEPROM voltage requirements
 |Family|Minimum Voltage|Maximum Voltage|
