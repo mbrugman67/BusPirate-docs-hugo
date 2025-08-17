@@ -9,6 +9,10 @@ Documentation still in progress. Todo:
 - Photographs of common chip markings
 {{% /alert %}}
 
+The Bus Pirate ```eeprom``` and ```flash``` commands can read, write, erase, verify and test many common serial memory chips: SPI Flash (25Q), SPI EEPROM (25x, 95x), I2C EEPROM (24x), 1-Wire EEPROM, Microwire EEPROM (93x), SPI FRAM and I2C FRAM.
+
+This page will help you identify the type of serial memory chip you have, the pinout, and the voltage requirements.
+
 ## Types of Serial memory supported
 
 |Type|Part Number*|Ex. Part Num.|Example Manufacturers|
@@ -288,7 +292,7 @@ The [```eeprom``` command]({{< relref "/docs/command-reference/#eeprom-read-writ
 |[93x56C](https://www.st.com/resource/en/datasheet/m93c46-w.pdf)**|2Kbit|256|x8 or x16|1|8 or 7bits|12 or 11|
 |[93x66A](https://www.st.com/resource/en/datasheet/m93c46-w.pdf)**|4Kbit|512|x8 only|0|9bits|12|
 |[93x66B](https://www.st.com/resource/en/datasheet/m93c46-w.pdf)**|4Kbit|512|x16 only|0|8bits|11|
-|[93x66C](https://www.st.com/resource/en/datasheet/m93c46-w.pdf)**|4Kbit|512|x8 or x16||10 or 9bits|12 or 11|
+|[93x66C](https://www.st.com/resource/en/datasheet/m93c46-w.pdf)**|4Kbit|512|x8 or x16|0|10 or 9bits|12 or 11|
 |[93x76A](https://www.st.com/resource/en/datasheet/m93c46-w.pdf)|8Kbit|1024|x8 only|1|10bits|14|
 |[93x76B](https://www.st.com/resource/en/datasheet/m93c46-w.pdf)|8Kbit|1024|x16 only|1|9bits|13|
 |[93x76-/C](https://www.st.com/resource/en/datasheet/m93c46-w.pdf)|8Kbit|1024|x8 or x16|1|10 or 9bits|14 or 13|
