@@ -31,6 +31,13 @@ We *could* call this BBIO2, but it's in no way similar to the original BBIO1 int
 
 ## Python Library
 
+[Download the BPIO2 Python library and examples](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface/python).
+- `/` - BPIO2 client for Python, demos and examples
+- `/bpio/` - BPIO2 generated flat buffer tooling for Python
+- `/flatbuffers/` - Flat buffer library for Python
+
+
+
 ### Install
 
 In addition to Python 3 or later, pyserial and COBS are required to use the BPIO2 library. You can install them using pip:
@@ -582,7 +589,7 @@ flatcc -a bpio2.fbs
 
 To generate C tooling, use the [flatcc](https://github.com/dvidelabs/flatcc) compiler. This is the version we use to generate C tooling for the Bus Pirate firmware.
 
-#### Other languages tooling
+#### Other language tooling
 ```
 flatc --python bpio.fbs
 ```
