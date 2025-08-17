@@ -31,7 +31,7 @@ We *could* call this BBIO2, but it's in no way similar to the original BBIO1 int
 
 ## Python Library
 
-[Download the BPIO2 Python library and examples](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface/python).
+[Download the BPIO2 Python library and examples](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface/tree/main/python):
 - `/` - BPIO2 client for Python, demos and examples
 - `/bpio/` - BPIO2 generated flat buffer tooling for Python
 - `/flatbuffers/` - Flat buffer library for Python
@@ -519,8 +519,7 @@ True
 >>> result = ow.transfer(write_data=[0xCC, 0x44])  # Skip ROM + convert
 >>> # Wait for conversion...
 >>> result = ow.transfer(write_data=[0xCC, 0xBE], read_bytes=9)  # Read data
->>> temp_data = result['data_read']
->>> print(f"Temperature data: {[hex(b) for b in temp_data[:2]]}")
+>>> print(f"Temperature data: {[hex(b) for b in result[:2]]}")
 Temperature data: ['0x50', '0x05']
 ```
 
