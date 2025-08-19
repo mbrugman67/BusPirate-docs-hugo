@@ -9,9 +9,7 @@ toc = true
 weight = 80505
 +++
 
-{{% alert context="danger" %}}
-Work in progress documenting the BPIO2 protocol.
-{{% /alert %}}
+![alt text](/images/docs/protocol-bpio2/f33267dd266389489198f64e70e020669f340f66.png)
 
 The Bus Pirate BPIO2 binmode is a [FlatBuffers](https://flatbuffers.dev/) interface designed for simple and complete control of the Bus Pirate hardware from an application or script. It allows for sending and receiving data in a structured format, enabling various operations such as reading and writing to GPIO pins, controlling peripherals, and more.
 
@@ -218,7 +216,7 @@ Other hardware can be configured at the same time as the mode change, for exampl
 | `led_color` | [uint32] | - | LED colors in RGB format (0xRRGGBB) |
 | `print_string` | string | - | String to print on terminal |
 
-### Mode Getter Methods
+### Mode Get Methods
 
 Each mode class inherits getter methods from the BPIOBase class to query Bus Pirate status information. These methods provide access to specific hardware and firmware details without needing to parse the full status dictionary.
 
@@ -305,7 +303,7 @@ IO directions: 00000000
 
 All getter methods return `None` if there is an error or if the Bus Pirate is not properly configured.
 
-### Mode Setter Methods
+### Mode Set Methods
 
 Each mode class inherits setter methods from the BPIOBase class to configure Bus Pirate hardware settings. These methods allow you to modify individual configuration parameters without needing to reconfigure the entire mode.
 
