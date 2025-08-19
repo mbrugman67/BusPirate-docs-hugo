@@ -15,11 +15,11 @@ Work in progress documenting the BPIO2 protocol.
 
 The Bus Pirate BPIO2 binmode is a [FlatBuffers](https://flatbuffers.dev/) interface designed for simple and complete control of the Bus Pirate hardware from an application or script. It allows for sending and receiving data in a structured format, enabling various operations such as reading and writing to GPIO pins, controlling peripherals, and more.
 
-Pre-compiled BPIO2 FlatBuffer "tooling" is available for 15 common languages. This means you can easily integrate the BPIO2 protocol into your projects without needing to write extensive parsing or serialization code.
+Pre-compiled BPIO2 FlatBuffer "tooling" is available for [a bunch](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface) of common languages. This means you can easily integrate the BPIO2 protocol into your projects without needing to write extensive parsing or serialization code.
 
 - [Python Library](#python-library) - A demonstration library for interacting with BPIO2 
 - [Debugging](#debugging) - Display BPIO2 debug information in the Bus Pirate terminal
-- [FlatBuffer Tooling Download](#flat-buffer-tooling-download) - Download precompiled FlatBuffer tooling for BPIO2 in 15 languages
+- [FlatBuffer Tooling Download](#flat-buffer-tooling-download) - Download precompiled FlatBuffer tooling for BPIO2
 - [Compile your own tooling](#compiling-your-own-tooling) - How to generate your own tooling from the BPIO2 schema
 - [Schema](#schema) - Explanation of the low level flatbuffer tables used in BPIO2
 
@@ -51,7 +51,9 @@ Be sure to configure BPIO2 as the binmode before using it. Type `binmode` in the
 BPIO2 is now available on the second serial port (the one not used by the terminal).
 
 {{% alert context="danger" %}}
-Nothing working? Be sure the BPIO2 binmode is selected.
+**Nothing working?**
+- Be sure the BPIO2 binmode is selected 
+- Connect to the second serial port (not the terminal serial port).
 {{% /alert %}}
 
 ## Python Library
@@ -86,20 +88,23 @@ StatusResponse:
   Hardware version: 5 REV10
   Firmware version: 0.0
   Firmware git hash: unknown
-  Firmware date: Aug 14 2025 14:11:17
+  Firmware date: Aug 19 2025 13:07:05
   Available modes: HiZ, 1WIRE, UART, HDUART, I2C, SPI, 2WIRE, 3WIRE, DIO, LED, INFRARED, JTAG
-  Current mode: 1WIRE
+  Current mode: I2C
   Mode bit order: MSB
-  Pin labels: ON, OWD, , , , , , , , GND
+  Pin labels: ON, SDA, SCL, , , , , , , GND
+  Mode max packet size: 640 bytes
+  Mode max write size: 512 bytes
+  Mode max read size: 512 bytes
   Number of LEDs: 18
   Pull-up resistors enabled: True
   Power supply enabled: True
   PSU set voltage: 3299 mV
   PSU set current: 300 mA
-  PSU measured voltage: 3295 mV
-  PSU measured current: 6 mA
+  PSU measured voltage: 3300 mV
+  PSU measured current: 3 mA
   PSU over current error: No
-  IO ADC values (mV): 2321, 2309, 2320, 2320, 2341, 2338, 2339, 2347
+  IO ADC values (mV): 3312, 3316, 3312, 3304, 3300, 3291, 3280, 3285
   IO directions: IO0:IN, IO1:IN, IO2:IN, IO3:IN, IO4:IN, IO5:IN, IO6:IN, IO7:IN
   IO values: IO0:HIGH, IO1:HIGH, IO2:HIGH, IO3:HIGH, IO4:HIGH, IO5:HIGH, IO6:HIGH, IO7:HIGH
   Disk size: 97.69779205322266 MB
@@ -122,31 +127,35 @@ The ```error``` field will be populated if there is an error in the request. If 
 
 ```python 
 >>> print(status)
-{'error': None, 
-'hardware_version_major': 5, 
-'hardware_version_minor': 10, 
-'firmware_version_major': 0, 
-'firmware_version_minor': 0, 
-'firmware_git_hash': 'unknown', 
-'firmware_date': 'Aug 14 2025 14:11:17', 
-'modes_available': ['HiZ', '1WIRE', 'UART', 'HDUART', 'I2C', 'SPI', '2WIRE', '3WIRE', 'DIO', 'LED', 'INFRARED', 'JTAG'], 
-'mode_current': '1WIRE', 
-'mode_pin_labels': ['ON', 'OWD', '', '', '', '', '', '', '', 'GND'], 
-'mode_bitorder_msb': True, 
-'psu_enabled': True, 
-'psu_set_mv': 3299, 
-'psu_set_ma': 300, 
-'psu_measured_mv': 3300, 
-'psu_measured_ma': 3, 
-'psu_current_error': False, 
-'pullup_enabled': True, 
-'pullx_config': 0, 
-'adc_mv': [3279, 3287, 3303, 3316, 3314, 3304, 3300, 3295], 
-'io_direction': 0, 
-'io_value': 255, 
-'disk_size_mb': 97.69779205322266, 
-'disk_used_mb': 0.0, 
-'led_count': 18}
+{
+   'error':None,
+   'version_hardware_major':5,
+   'version_hardware_minor':10,
+   'version_firmware_major':0,
+   'version_firmware_minor':0,
+   'version_firmware_git_hash':'unknown',
+   'version_firmware_date':'Aug 19 2025 13:07:05',
+   'modes_available':['HiZ','1WIRE','UART','HDUART','I2C','SPI','2WIRE','3WIRE','DIO','LED','INFRARED','JTAG'],
+   'mode_current':'I2C',
+   'mode_pin_labels':['ON','SDA','SCL','','','','','','','GND'],
+   'mode_bitorder_msb':True,
+   'mode_max_packet_size':640,
+   'mode_max_write':512,
+   'mode_max_read':512,
+   'psu_enabled':True,
+   'psu_set_mv':3299,
+   'psu_set_ma':300,
+   'psu_measured_mv':3329,
+   'psu_measured_ma':2,
+   'psu_current_error':False,
+   'pullup_enabled':True,
+   'adc_mv':[3320,3269,3267,3266,3283,3306,3309,3319],
+   'io_direction':0,
+   'io_value':255,
+   'disk_size_mb':97.69779205322266,
+   'disk_used_mb':0.0,
+   'led_count':18
+}
 ```
 
 ### Mode Change
@@ -171,7 +180,7 @@ i2c.configure(speed=400000, pullup_enable=True, psu_enable=True, psu_voltage_mv=
 
 The `configure()` function accepts arguments for the mode configuration and other hardware settings. Here we set the I2C speed to 400kHz, enable pull-ups, and set the power supply for 3.3volt with no current limit. The method returns `True` if the configuration was successful, or `False` if there was an error.
 
-Mode configuration arguments are generic for all modes, and correspond to the FlatBuffer mode configuration table names:
+Mode configuration arguments are generic for all modes, and correspond to the FlatBuffer [mode configuration table]({{< relref "/docs/binmode-reference/protocol-bpio2/#modeconfiguration" >}}) names:
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -189,7 +198,7 @@ Mode configuration arguments are generic for all modes, and correspond to the Fl
 | `tx_modulation` | uint32 | - | TX modulation frequency for INFRARED mode |
 | `rx_sensor` | uint8 | - | RX sensor configuration for INFRARED mode|
 
-Other hardware can be configured at the same time as the mode change, for example power supply, and pull-up resistors. The parameters are also identical to the FlatBuffer configuration request table names:
+Other hardware can be configured at the same time as the mode change, for example power supply, and pull-up resistors. The parameters are also identical to the FlatBuffer [configuration request table]({{< relref "/docs/binmode-reference/protocol-bpio2/#configuration-3">}}) names:
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -232,12 +241,12 @@ The mode ```get_status()``` method returns a dictionary with all status informat
 
 | Method | Returns | Description |
 |--------|---------|-------------|
-| `get_hardware_version_major()` | int | Hardware version major number |
-| `get_hardware_version_minor()` | int | Hardware revision number |
-| `get_firmware_version_major()` | int | Firmware version major number |
-| `get_firmware_version_minor()` | int | Firmware version minor number |
-| `get_firmware_git_hash()` | string | Git hash of the firmware build |
-| `get_firmware_date()` | string | Date and time of firmware build |
+| `get_version_hardware_major()` | int | Hardware version major number |
+| `get_version_hardware_minor()` | int | Hardware revision number |
+| `get_version_firmware_major()` | int | Firmware version major number |
+| `get_version_firmware_minor()` | int | Firmware version minor number |
+| `get_version_firmware_git_hash()` | string | Git hash of the firmware build |
+| `get_version_firmware_date()` | string | Date and time of firmware build |
 
 #### Mode Information
 
@@ -247,6 +256,10 @@ The mode ```get_status()``` method returns a dictionary with all status informat
 | `get_mode_current()` | string | Name of the currently active mode |
 | `get_mode_pin_labels()` | list | Array of pin labels for current mode |
 | `get_mode_bitorder_msb()` | bool | Current bit order (True for MSB first) |
+| `get_mode_max_packet_size()` | int | Maximum FlatBuffers packet size for the current mode |
+| `get_mode_max_write()` | int | Maximum number of bytes that can be written in one operation |
+| `get_mode_max_read()` | int | Maximum number of bytes that can be read in one operation |
+
 
 #### Power Supply Status
 
@@ -264,7 +277,6 @@ The mode ```get_status()``` method returns a dictionary with all status informat
 | Method | Returns | Description |
 |--------|---------|-------------|
 | `get_pullup_enabled()` | bool | Whether pull-up resistors are enabled |
-| `get_pullx_config()` | int | Pull-x configuration for BP7+ |
 | `get_adc_mv()` | list | ADC measurements for each IO pin in mV |
 | `get_io_direction()` | int | IO pin directions bitmask (1=output, 0=input) |
 | `get_io_value()` | int | IO pin values bitmask (1=high, 0=low) |
@@ -281,7 +293,7 @@ The mode ```get_status()``` method returns a dictionary with all status informat
 
 ```python
 >>> i2c = BPIOI2C(client)
->>> print(f"Hardware: {i2c.get_hardware_version_major()}.{i2c.get_hardware_version_minor()}")
+>>> print(f"Hardware: {i2c.get_version_hardware_major()}.{i2c.get_version_hardware_minor()}")
 Hardware: 5.10
 >>> print(f"Current mode: {i2c.get_mode_current()}")
 Current mode: I2C
@@ -292,11 +304,6 @@ IO directions: 00000000
 ```
 
 All getter methods return `None` if there is an error or if the Bus Pirate is not properly configured.
-
-#### Remove Pull-x for now
-#### max (packet size)
-#### Query to increase speed and reduce packet size
-
 
 ### Mode Setter Methods
 
@@ -352,6 +359,8 @@ For IO operations, use bitmasks to specify which pins to modify. For example, to
 | `set_print_string(string)` | `string` (str) | Print string on Bus Pirate terminal |
 | `set_hardware_bootloader()` | None | Enter bootloader mode |
 | `set_hardware_reset()` | None | Perform hardware reset of the device |
+| `set_hardware_selftest()` | None | Perform self-test of the Bus Pirate hardware |
+
 
 #### Usage Examples
 
@@ -879,9 +888,7 @@ table ModeConfiguration {
   rx_sensor:uint8; // RX sensor for INFRARED mode 
 }
 ```
-A ModeConfiguration table must be provided when changing modes.
-
-The `mode_configuration` field of the ConfigurationRequest is a `ModeConfiguration` table that contains mode settings such as speed. 
+A ModeConfiguration table must be provided when changing modes. Pass the name of the mode in the `mode` field of the ConfigurationRequest, and include a `ModeConfiguration` table in the `mode_configuration` field.
 
 #### ConfigurationResponse
 
