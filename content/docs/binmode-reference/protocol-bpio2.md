@@ -1,6 +1,6 @@
 +++
 title = "BPIO2 FlatBuffers Interface"
-description = "Bus Pirate FlatBuffers Interface (BPIO2) protocol documentation"
+description = "Bus Pirate FlatBuffers interface (BPIO2) documentation"
 icon = "article"
 date = "2023-05-22T00:27:57+01:00"
 lastmod = "2023-05-22T00:27:57+01:00"
@@ -13,7 +13,7 @@ weight = 80505
 
 The Bus Pirate BPIO2 binmode is a [FlatBuffers](https://flatbuffers.dev/) interface designed for simple and complete control of the Bus Pirate hardware from an application or script. It allows for sending and receiving data in a structured format, enabling various operations such as reading and writing to GPIO pins, controlling peripherals, and more.
 
-Pre-compiled BPIO2 FlatBuffer "tooling" is available for [a bunch](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface) of common languages. This means you can easily integrate the BPIO2 protocol into your projects without needing to write extensive parsing or serialization code.
+Pre-compiled BPIO2 FlatBuffer "tooling" is available for [a bunch](https://github.com/DangerousPrototypes/BusPirate-BPIO2-flatbuffer-interface) of common languages. This means you can easily integrate the BPIO2 protocol into your projects without needing to write extensive parsing or serialization code.
 
 - [Python Library](#python-library) - A demonstration library for interacting with BPIO2 
 - [Debugging](#debugging) - Display BPIO2 debug information in the Bus Pirate terminal
@@ -56,7 +56,7 @@ BPIO2 is now available on the second serial port (the one not used by the termin
 
 ## Python Library
 
-[Download the BPIO2 Python library and examples](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface/tree/main/python):
+[Download the BPIO2 Python library and examples](https://github.com/DangerousPrototypes/BusPirate-BPIO2-flatbuffer-interface/tree/main/python):
 - `/` - Example Python scripts for BPIO2
 - `/pybpio/` - Python library for BPIO2
 - `/tooling/` - FlatBuffer generated Python tooling
@@ -602,7 +602,7 @@ If you don't have a BPCONFIG.BP file, type configuration command ```c``` in the 
 ## FlatBuffers Tooling Download
 
 Download precompiled FlatBuffer tooling, required includes, and demo libraries from the BPIO2 repo.
-- [Download BPIO2 FlatBuffer Tooling and Libraries](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface/tree/main)
+- [Download BPIO2 FlatBuffer Tooling and Libraries](https://github.com/DangerousPrototypes/BusPirate-BPIO2-flatbuffer-interface/tree/main)
 
 
 {{% alert context="info" %}}
@@ -611,7 +611,7 @@ Most people won't need to interact with the FlatBuffer tooling directly. Ideally
 
 ### Compile your own tooling
 
-To generate your own tooling from the BPIO2 schema, you can use a FlatBuffers compiler with [bpio2.fbs](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface/blob/main/bpio.fbs).
+To generate your own tooling from the BPIO2 schema, you can use a FlatBuffers compiler with [bpio2.fbs](https://github.com/DangerousPrototypes/BusPirate-BPIO2-flatbuffer-interface/blob/main/bpio.fbs).
 
 #### C language tooling
 
@@ -826,7 +826,7 @@ modes_available = [status_resp.ModesAvailable(i).decode('utf-8') for i in range(
 print(f"  Available modes: {', '.join(modes_available)}")
 
 ```
-The [complete example](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface/blob/main/python/pybpio/docs_demo.py) is available in the BPIO2 FlatBuffers repo.
+The [complete example](https://github.com/DangerousPrototypes/BusPirate-BPIO2-flatbuffer-interface/blob/main/python/pybpio/docs_demo.py) is available in the BPIO2 FlatBuffers repo.
 
 See [flatc](https://flatbuffers.dev/quick_start/) for language-specific usage instructions.
 
@@ -974,7 +974,7 @@ config_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
 if config_resp.Error():
     print(f"Configuration error: {config_resp.Error().decode('utf-8')}")
 ```
-The [complete example](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface/blob/main/python/pybpio/docs_demo.py) is available in the BPIO2 FlatBuffers repo.
+The [complete example](https://github.com/DangerousPrototypes/BusPirate-BPIO2-flatbuffer-interface/blob/main/python/pybpio/docs_demo.py) is available in the BPIO2 FlatBuffers repo.
 
 See [flatc](https://flatbuffers.dev/quick_start/) for language-specific usage instructions.
 
@@ -1084,7 +1084,7 @@ The `DataResponse` table contains an `error` string that will be populated if th
       print(f"Data read: {' '.join(f'{b:02x}' for b in data_bytes)}")
 ```
 
-The [complete example](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface/blob/main/python/pybpio/docs_demo.py) is available in the BPIO2 FlatBuffers repo.
+The [complete example](https://github.com/DangerousPrototypes/BusPirate-BPIO2-flatbuffer-interface/blob/main/python/pybpio/docs_demo.py) is available in the BPIO2 FlatBuffers repo.
 
 See [flatc](https://flatbuffers.dev/quick_start/) for language-specific usage instructions.
 
@@ -1129,6 +1129,6 @@ if response_contents_type == ResponsePacketContents.ResponsePacketContents.Error
     print(f"Error: {error_resp.Error().decode('utf-8')}")
 ```
 
-The [complete example](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface/blob/main/python/pybpio/docs_demo.py) is available in the BPIO2 FlatBuffers repo.
+The [complete example](https://github.com/DangerousPrototypes/BusPirate-BPIO2-flatbuffer-interface/blob/main/python/pybpio/docs_demo.py) is available in the BPIO2 FlatBuffers repo.
 
 See [flatc](https://flatbuffers.dev/quick_start/) for language-specific usage instructions.
