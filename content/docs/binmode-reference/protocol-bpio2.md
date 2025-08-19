@@ -29,6 +29,31 @@ Bus Pirate v3.x has a **BBIO1** interface, an abbreviation for **Bit Bang Input/
 
 We *could* call this BBIO2, but it's in no way similar to the original BBIO1 interface and it's only marginally for bit-banging. Instead, we call it BPIO2 meaning the second generation of Bus Pirate I/O.
 
+### Configure BPIO2 binmode
+
+{{< term>}}
+SPI> binmode
+
+Select binary mode
+ 1. SUMP logic analyzer
+ 2. BPIO2 flatbuffer interface
+ 3. Arduino CH32V003 SWIO
+ 4. Follow along logic analyzer
+ 5. Legacy Binary Mode for Flashrom and AVRdude (EXPERIMENTAL)
+ 6. IRMAN IR decoder (LIRC, etc)
+ 7. AIR capture (AnalysIR, etc)
+ x. Exit
+ > 2
+{{</ term>}}
+
+Be sure to configure BPIO2 as the binmode before using it. Type `binmode` in the Bus Pirate terminal, and select the BPIO2 flatbuffer interface. Optionally save BPIO2 as the default binmode when prompted.
+
+BPIO2 is now available on the second serial port (the one not used by the terminal).
+
+{{% alert context="danger" %}}
+Nothing working? Be sure the BPIO2 binmode is selected.
+{{% /alert %}}
+
 ## Python Library
 
 [Download the BPIO2 Python library and examples](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface/tree/main/python):
@@ -600,7 +625,7 @@ For C++, C#, Dart, Go, Java, JavaScript, Kotlin, Lobster, Lua, PHP, Python, Rust
 Javasscript tooling was deprecated in flatc. Transpile the TypeScript tooling to JavaScript using the TypeScript compiler.
 {{% /alert %}}
 
-#### FlatBuffers Includes
+### FlatBuffers Includes
 
 In addition to the generated tooling, you will need to include the FlatBuffers support library for your language. Check the /include/ folder in the BPIO2 repository for the required files.
 
@@ -629,6 +654,46 @@ There is a table for mode configuration:
 Finally, there is an *ErrorResponse* table that is used to return error messages when a request fails.
 - *ErrorResponse* - Contains an error message if a request fails.
 
+### Request & Response Packets
+- *RequestPacket* is the outermost table/wrapper for requests sent to the Bus Pirate.
+- *ResponsePacket* is the outermost table/wrapper for responses sent by the Bus Pirate
+
+#### RequestPacket
+
+```flatbuffer
+union RequestPacketContents { StatusRequest, ConfigurationRequest, DataRequest}
+
+table RequestPacket {
+  version_major:uint8=2;
+  version_minor:uint8=0;
+  contents:RequestPacketContents;
+}
+```
+
+RequestPacket has a single field, `contents`, which contains one of the request tables (StatusRequest, ConfigurationRequest, DataRequest). This packet is sent from the host to the Bus Pirate.
+
+{{% alert context="info" %}}
+The `version_major` and `version_minor` fields are used to indicate the version of the protocol being used, currently 2.0. Minor version increments will remain compatible, while major version increments may introduce breaking changes.
+{{% /alert %}}
+
+#### ResponsePacket
+
+```flatbuffer
+union ResponsePacketContents { ErrorResponse, StatusResponse, ConfigurationResponse, DataResponse}
+
+table ResponsePacket{
+  version_major:uint8=2;
+  version_minor:uint8=0;
+  contents:ResponsePacketContents;
+}
+```
+
+ResponsePacket has a single field, `contents`, which contains one of the response tables (ErrorResponse, StatusResponse, ConfigurationResponse, DataResponse). This packet is sent from the Bus Pirate to the host in response to a RequestPacket.
+
+{{% alert context="info" %}}
+The `version_major` and `version_minor` fields are used to indicate the version of the protocol being used, currently 2.0. Minor version increments will remain compatible, while major version increments may introduce breaking changes.
+{{% /alert %}}
+
 ### Status
 - The **StatusRequest** is used to query the current status of the Bus Pirate.
 - The **StatusResponse** contains the requested status information.
@@ -648,21 +713,6 @@ StatusRequest has a single field, `query`, which is an array of `StatusRequestTy
 {{% alert context="info" %}}
 If no `query` is specified, all status information is returned.
 {{% /alert %}} 
-
-##### Python Example
-```python
-# Create the query vector BEFORE starting the StatusRequest table
-StatusRequest.StartQueryVector(builder, 1)
-builder.PrependUint8(StatusRequestTypes.StatusRequestTypes.All)
-query_vector = builder.EndVector()
-
-# Create a StatusRequest
-StatusRequest.Start(builder)
-StatusRequest.AddQuery(builder, query_vector)
-status_request = StatusRequest.End(builder)
-```
-
-See [flatc](https://flatbuffers.dev/quick_start/) for language-specific usage instructions.
 
 #### StatusResponse
 
@@ -702,24 +752,74 @@ table StatusResponse {
 
 Depending on the query parameters, all of some of the fields in the `StatusResponse` will be populated. If an error occurs, the `error` field will contain a message describing the error.
 
-##### Python Example
+#### Python Example
+
 ```python
-#test packet type and error field
-contents_type = resp_packet.ContentsType()
-if contents_type != ResponsePacketContents.ResponsePacketContents.StatusResponse:
-    print(f"Expected StatusResponse, got {contents_type}")
-    return None
+"""Send a StatusRequest packet and return the response"""
+"""Wrap contents in a RequestPacket"""
+
+# Create a flatbuffers builder
+builder = flatbuffers.Builder(1024)
+
+# Create the query vector BEFORE starting the StatusRequest table
+StatusRequest.StartQueryVector(builder, 1)
+builder.PrependUint8(StatusRequestTypes.StatusRequestTypes.All)
+query_vector = builder.EndVector()
+
+# Create a StatusRequest
+StatusRequest.Start(builder)
+StatusRequest.AddQuery(builder, query_vector) # Add the query vector
+status_request = StatusRequest.End(builder)
+
+# Create a RequestPacket
+RequestPacket.Start(builder)
+RequestPacket.AddContentsType(builder, RequestPacketContents.RequestPacketContents.StatusRequest) # Add the StatusRequest type
+RequestPacket.AddContents(builder, status_request) # Add the StatusRequest
+request_packet = RequestPacket.End(builder)
+
+# Finish the builder and get the data
+builder.Finish(request_packet)
+data = builder.Output()
+
+# COBS encode request and send to the serial port
+resp_data = self.send_and_receive(data)
+
+# Check for the response
+if not resp_data:
+    return False
+
+# Decode ResponsePacket
+resp_packet = ResponsePacket.ResponsePacket.GetRootAsResponsePacket(resp_data, 0)
+response_contents_type = resp_packet.ContentsType()
+
+# Check for ErrorResponse
+if response_contents_type == ResponsePacketContents.ResponsePacketContents.ErrorResponse:
+    error_resp = ErrorResponse.ErrorResponse()
+    error_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
+    print(f"Error: {error_resp.Error().decode('utf-8')}")
+    return False
+
+# Confirm the response type matches expected
+if response_contents_type != ResponsePacketContents.ResponsePacketContents.StatusResponse:
+    print(f"Unexpected response type: {response_contents_type}")
+    return False
+
+# Decode StatusResponse
 status_resp = StatusResponse.StatusResponse()
 status_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
-print("StatusResponse:")
 
-# Print hardware and firmware versions, test if fields are present
-print(f"  Hardware version: {status_resp.HardwareVersionMajor()} REV{status_resp.HardwareVersionMinor()}")
-print(f"  Firmware version: {status_resp.FirmwareVersionMajor()}.{status_resp.FirmwareVersionMinor()}")
-print(f"  Firmware git hash: {status_resp.FirmwareGitHash().decode('utf-8')}")
-print(f"  Firmware date: {status_resp.FirmwareDate().decode('utf-8')}")
+# Print hardware and firmware versions
+print(f"  Hardware version: {status_resp.VersionHardwareMajor()} REV{status_resp.VersionHardwareMinor()}")
+print(f"  Firmware version: {status_resp.VersionFirmwareMajor()}.{status_resp.VersionFirmwareMinor()}")
+print(f"  Firmware git hash: {status_resp.VersionFirmwareGitHash().decode('utf-8')}")
+print(f"  Firmware date: {status_resp.VersionFirmwareDate().decode('utf-8')}")
+
+# Print available modes
+modes_available = [status_resp.ModesAvailable(i).decode('utf-8') for i in range(status_resp.ModesAvailableLength())]
+print(f"  Available modes: {', '.join(modes_available)}")
 
 ```
+The [complete example](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface/blob/main/python/pybpio/docs_demo.py) is available in the BPIO2 FlatBuffers repo.
 
 See [flatc](https://flatbuffers.dev/quick_start/) for language-specific usage instructions.
 
@@ -760,8 +860,7 @@ The `ConfigurationRequest` table allows you to set various parameters for the Bu
 Requests are processed in the order they are listed in the table. This means a single request can be used to enable a mode, set the power supply voltage, enable pull-up resistors, and configure pin directions in one go.
 {{% /alert %}}
 
-##### Mode Configuration
-The `mode_configuration` field is a `ModeConfiguration` table that contains mode-specific settings. This allows you to configure different modes, such as I2C, SPI, UART, etc.
+#### ModeConfiguration
 
 ```flatbuffer
 table ModeConfiguration {
@@ -780,13 +879,10 @@ table ModeConfiguration {
   rx_sensor:uint8; // RX sensor for INFRARED mode 
 }
 ```
-A ModeConfiguration table must be provided for the requested mode.
+A ModeConfiguration table must be provided when changing modes.
 
-##### Python Example
-```python
-```
+The `mode_configuration` field of the ConfigurationRequest is a `ModeConfiguration` table that contains mode settings such as speed. 
 
-See [flatc](https://flatbuffers.dev/quick_start/) for language-specific usage instructions.
 #### ConfigurationResponse
 
 ```flatbuffer
@@ -797,9 +893,84 @@ table ConfigurationResponse{
 
 The `ConfigurationResponse` table contains an `error` string that will be populated if there is an error during the configuration process. If the configuration is successful, the `error` field will be empty.
 
-##### Python Example
+#### Python Example
 ```python
+"""Create a BPIO ConfigurationRequest packet"""
+builder = flatbuffers.Builder(1024)
+
+# Create a mode string
+mode_string = builder.CreateString("SPI")
+
+# Create a ModeConfiguration
+ModeConfiguration.Start(builder)
+ModeConfiguration.AddSpeed(builder, 1000000)
+ModeConfiguration.AddChipSelectIdle(builder, True)
+ModeConfiguration.AddClockPhase(builder, False)
+ModeConfiguration.AddClockPolarity(builder, False)
+ModeConfiguration.AddDataBits(builder, 8)
+mode_config = ModeConfiguration.End(builder)
+
+# Set the LED colors
+led_colors = [0xFF0000, 0x00FF00, 0x0000FF, 0xFFFF00, 0xFF00FF, 0x00FFFF] * 3
+ConfigurationRequest.StartLedColorVector(builder, len(led_colors))
+for color in reversed(led_colors):
+    builder.PrependUint32(color)
+led_color_vector = builder.EndVector()    
+
+# Create the ConfigurationRequest
+ConfigurationRequest.Start(builder)
+ConfigurationRequest.AddMode(builder, mode_string)
+ConfigurationRequest.AddModeConfiguration(builder, mode_config)
+ConfigurationRequest.AddPsuEnable(builder, True)
+ConfigurationRequest.AddPsuSetMv(builder, 3300)
+ConfigurationRequest.AddPsuSetMa(builder, 300)
+ConfigurationRequest.AddPullupEnable(builder, True)
+ConfigurationRequest.AddLedColor(builder, led_color_vector) 
+config_request = ConfigurationRequest.End(builder)
+
+# Create a RequestPacket
+RequestPacket.Start(builder)
+RequestPacket.AddContentsType(builder, RequestPacketContents.RequestPacketContents.ConfigurationRequest) # Add the ConfigRequest type
+RequestPacket.AddContents(builder, config_request) # Add the ConfigRequest
+request_packet = RequestPacket.End(builder)
+
+# Finish the builder and get the data
+builder.Finish(request_packet)
+data = builder.Output()
+
+# COBS encode request and send to the serial port
+resp_data = self.send_and_receive(data)
+
+# Check for the response
+if not resp_data:
+    return False
+
+# Decode ResponsePacket
+resp_packet = ResponsePacket.ResponsePacket.GetRootAsResponsePacket(resp_data, 0)
+response_contents_type = resp_packet.ContentsType()
+
+# Check for ErrorResponse
+if response_contents_type == ResponsePacketContents.ResponsePacketContents.ErrorResponse:
+    error_resp = ErrorResponse.ErrorResponse()
+    error_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
+    print(f"Error: {error_resp.Error().decode('utf-8')}")
+    return False
+
+# Confirm the response type matches expected
+if response_contents_type != ResponsePacketContents.ResponsePacketContents.ConfigurationResponse:
+    print(f"Unexpected response type: {response_contents_type}")
+    return False        
+
+# Decode ConfigurationResponse
+config_resp = ConfigurationResponse.ConfigurationResponse()
+config_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
+
+# Print the error message if any
+if config_resp.Error():
+    print(f"Configuration error: {config_resp.Error().decode('utf-8')}")
 ```
+The [complete example](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface/blob/main/python/pybpio/docs_demo.py) is available in the BPIO2 FlatBuffers repo.
+
 See [flatc](https://flatbuffers.dev/quick_start/) for language-specific usage instructions.
 
 ### Data
@@ -832,11 +1003,6 @@ The goal is to do a complete transaction in a single request, such as writing an
 |stop_main|`]`|Any mode specific "stop condition": I2C STOP, SPI Chip Deselect, etc.|
 |stop_alt|`}`|Any mode specific "alternate stop condition": currently unused.|
 
-##### Python Example
-```python
-```
-See [flatc](https://flatbuffers.dev/quick_start/) for language-specific usage instructions.
-
 #### DataResponse
 
 ```flatbuffer
@@ -848,11 +1014,87 @@ table DataResponse {
 
 The `DataResponse` table contains an `error` string that will be populated if there is an error during the data transaction. If the transaction is successful, the `data_read` field will contain the data read from the device.
 
-##### Python Example
+####  Python Example
 ```python
+  """Create a BPIO DataRequest packet"""
+  builder = flatbuffers.Builder(1024)
+
+  # Define the data to write
+  data_write = [0x9F]
+  data_write_vector = builder.CreateByteVector(bytes(data_write))
+
+  # Create a DataRequest
+  DataRequest.Start(builder)
+  DataRequest.AddStartMain(builder, True)
+  DataRequest.AddDataWrite(builder, data_write_vector)
+  DataRequest.AddBytesRead(builder, 3)
+  DataRequest.AddStopMain(builder, True)
+  data_request = DataRequest.End(builder)
+
+  # Create a RequestPacket
+  RequestPacket.Start(builder)
+  RequestPacket.AddContentsType(builder, RequestPacketContents.RequestPacketContents.DataRequest) # Add the DataRequest type
+  RequestPacket.AddContents(builder, data_request) # Add the DataRequest
+  request_packet = RequestPacket.End(builder)
+
+  # Finish the builder and get the data
+  builder.Finish(request_packet)
+  data = builder.Output()
+
+  # COBS encode request and send to the serial port
+  resp_data = self.send_and_receive(data)
+
+  # Check for the response
+  if not resp_data:
+      return False        
+
+  # Decode ResponsePacket
+  resp_packet = ResponsePacket.ResponsePacket.GetRootAsResponsePacket(resp_data, 0)
+  response_contents_type = resp_packet.ContentsType()
+
+  # Check for ErrorResponse
+  if response_contents_type == ResponsePacketContents.ResponsePacketContents.ErrorResponse:
+      error_resp = ErrorResponse.ErrorResponse()
+      error_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
+      print(f"Error: {error_resp.Error().decode('utf-8')}")
+      return False
+
+  # Confirm the response type matches expected
+  if response_contents_type != ResponsePacketContents.ResponsePacketContents.DataResponse:
+      print(f"Unexpected response type: {response_contents_type}")
+      return False     
+
+  # Decode DataResponse
+  data_resp = DataResponse.DataResponse()
+  data_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
+  
+  # Print the error message if any
+  if data_resp.Error():
+      print(f"Data request error: {data_resp.Error().decode('utf-8')}")
+      return False
+
+  # Return data read, if any
+  if data_resp.DataReadLength() > 0:
+      data_bytes = data_resp.DataReadAsNumpy()
+      print(f"Data read: {' '.join(f'{b:02x}' for b in data_bytes)}")
 ```
 
+The [complete example](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface/blob/main/python/pybpio/docs_demo.py) is available in the BPIO2 FlatBuffers repo.
+
 See [flatc](https://flatbuffers.dev/quick_start/) for language-specific usage instructions.
+
+#### I2C DataRequest
+
+Start, stop, write and read can all be done individually, or as a complete I2C write/read transaction. I2C data requests have a few special considerations:
+
+- If `start_main` is true, the Bus Pirate will send a start condition 
+- In a full transaction the first byte of `data_write` is used as the **8 bit**  I2C address. The I2C Read/Write bit is set and cleared automatically.
+- If `start_main` is true and `data_write` has more than one byte (the I2C address), the Bus Pirate will send the first byte as the I2C address and write the rest of the bytes as data.
+- If `data_write` has more than one byte **and** `bytes_read` is greater than 0, the Bus Pirate will send an I2C RESTART. 
+- If `start_main` is true **or** an I2C RESET was sent: when `bytes_read` is greater than 0, the Bus Pirate will send the I2C Read address (`data_write` byte 0) and then read the requested bytes from the I2C device. If `stop_main` is true, the Bus Pirate will NACK the last byte read.
+- If `stop_main` is true, the Bus Pirate will send a stop condition.
+
+This is a bit confusing at first, but it allows you to do a complete I2C transaction in a single request, or to control the transaction manually by sending partial requests.
 
 ### ErrorResponse
 
@@ -864,73 +1106,24 @@ table ErrorResponse {
 
 The `ErrorResponse` table is used to return error messages when a request fails. It contains a single `error` string that describes the error.
 
-##### Python Example
+Examples of errors that might be returned include:
+- Invalid request type
+- Packet size too large
+- Timeout waiting for request
+
+#### Python Example
 ```python 
-# Check if the response is an ErrorResponse
-contents_type = resp_packet.ContentsType()  
-if contents_type != ResponsePacketContents.ResponsePacketContents.ErrorResponse:
-    print(f"Expected ErrorResponse, got {contents_type}")
-    return None
-error_resp = ErrorResponse.ErrorResponse()
-error_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
-# Print the error message
-if error_resp.Error() is not None:
+# Decode ResponsePacket
+resp_packet = ResponsePacket.ResponsePacket.GetRootAsResponsePacket(resp_data, 0)
+response_contents_type = resp_packet.ContentsType()
+
+# Check for ErrorResponse
+if response_contents_type == ResponsePacketContents.ResponsePacketContents.ErrorResponse:
+    error_resp = ErrorResponse.ErrorResponse()
+    error_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
     print(f"Error: {error_resp.Error().decode('utf-8')}")
-else:
-    print("No error")
 ```
+
+The [complete example](https://github.com/DangerousPrototypes/BusPirate-BBIO2-flatbuffer-interface/blob/main/python/pybpio/docs_demo.py) is available in the BPIO2 FlatBuffers repo.
 
 See [flatc](https://flatbuffers.dev/quick_start/) for language-specific usage instructions.
-
-### Request & Response Wrappers
-
-
-
-
-#### RequestPacket
-
-```flatbuffer
-union RequestPacketContents { StatusRequest, ConfigurationRequest, DataRequest}
-
-table RequestPacket {
-  version_major:uint8=2;
-  version_minor:uint8=0;
-  contents:RequestPacketContents;
-}
-```
-
-#### Python Example
-```python
-```
-See [flatc](https://flatbuffers.dev/quick_start/) for language-specific usage instructions.
-#### ResponsePacket
-
-```flatbuffer
-union ResponsePacketContents { ErrorResponse, StatusResponse, ConfigurationResponse, DataResponse}
-
-table ResponsePacket{
-  version_major:uint8=2;
-  version_minor:uint8=0;
-  contents:ResponsePacketContents;
-}
-```
-#### Python Example
-```python
-
-```
-See [flatc](https://flatbuffers.dev/quick_start/) for language-specific usage instructions.
-
-##### I2C
-
-I2C data requests have a few special considerations:
-
-In a transaction, including start, stop, write and read can all be done individually, or as a complete I2C write/read transaction.
-
-start, stop, write and read can all be done individually, or as a complete I2C write/read transaction.
-
-- If `start_main` is true, the Bus Pirate will send a start condition 
-- In a transaction the first byte of `data_write` is used as the **8 bit**  I2C address. The I2C Read/Write bit is set and cleared automatically.
-- If `start_main` is true and `data_write` has more than one byte (the I2C address), the Bus Pirate will send the first byte as the I2C address and the rest of the bytes as data to write.
-- If `data_write` has more than one byte **and** `bytes_read` is greater than 0, the Bus Pirate will send an I2C RESTART. 
-- If `bytes_read` is greater than 0, the Bus Pirate will send the I2C Read address (`data_write` byte 0) and then read that many bytes from the I2C device. The Bus Pirate will NACK the last byte read.
-- If `stop_main` is true, the Bus Pirate will send a stop condition.
