@@ -11,7 +11,7 @@ weight = 80505
 
 ![alt text](/images/docs/protocol-bpio2/f33267dd266389489198f64e70e020669f340f66.png)
 
-The Bus Pirate BPIO2 binmode is a [FlatBuffers](https://flatbuffers.dev/) interface designed for simple and complete control of the Bus Pirate hardware from an application or script. It allows for sending and receiving data in a structured format, enabling various operations such as reading and writing to GPIO pins, controlling peripherals, and more.
+The Bus Pirate BPIO2 binmode is a [FlatBuffers](https://flatbuffers.dev/) interface designed for simple and complete control of the Bus Pirate hardware from an application or script. 
 
 Pre-compiled BPIO2 FlatBuffer "tooling" is available for [a bunch](https://github.com/DangerousPrototypes/BusPirate-BPIO2-flatbuffer-interface) of common languages. This means you can easily integrate the BPIO2 protocol into your projects without needing to write extensive parsing or serialization code.
 
@@ -19,7 +19,7 @@ Pre-compiled BPIO2 FlatBuffer "tooling" is available for [a bunch](https://githu
 - [Debugging](#debugging) - Display BPIO2 debug information in the Bus Pirate terminal
 - [FlatBuffer Tooling Download](#flat-buffer-tooling-download) - Download precompiled FlatBuffer tooling for BPIO2
 - [Compile your own tooling](#compiling-your-own-tooling) - How to generate your own tooling from the BPIO2 schema
-- [Schema](#schema) - Explanation of the low level flatbuffer tables used in BPIO2
+- [Schema](#schema) - Explanation of the low level FlatBuffers tables used in BPIO2
 
 ## Why BPIO2?
 
@@ -44,7 +44,7 @@ Select binary mode
  > 2
 {{</ term>}}
 
-Be sure to configure BPIO2 as the binmode before using it. Type `binmode` in the Bus Pirate terminal, and select the BPIO2 flatbuffer interface. Optionally save BPIO2 as the default binmode when prompted.
+Be sure to configure BPIO2 as the binmode. Type `binmode` in the Bus Pirate terminal, and select the BPIO2 flatbuffer interface. Optionally save BPIO2 as the default binmode when prompted.
 
 BPIO2 is now available on the second serial port (the one not used by the terminal).
 
@@ -57,10 +57,10 @@ BPIO2 is now available on the second serial port (the one not used by the termin
 ## Python Library
 
 [Download the BPIO2 Python library and examples](https://github.com/DangerousPrototypes/BusPirate-BPIO2-flatbuffer-interface/tree/main/python):
-- `/` - Example Python scripts for BPIO2
+- `/` - Example Python scripts using the library
 - `/pybpio/` - Python library for BPIO2
-- `/tooling/` - FlatBuffer generated Python tooling
-- `/flatbuffers/` - FlatBuffer library for Python
+- `/tooling/` - FlatBuffers generated Python tooling
+- `/flatbuffers/` - FlatBuffers library for Python
 
 ### Install
 
@@ -158,8 +158,6 @@ The ```error``` field will be populated if there is an error in the request. If 
 
 ### Mode Change
 
-Each mode has a Python class to interact with the Bus Pirate in that mode. You can change the mode by creating an instance of the class for that mode. You can also configure the mode and other hardware during configuration.
-
 ```python
 >>> from bpio_client import BPIOClient
 >>> from bpio_i2c import BPIOI2C
@@ -170,15 +168,15 @@ True
 >>>
 ```
 
-Create a new instance of the `BPIOI2C` class, passing the BPIO2 client connection as an argument.
+There is a Python class for interacting with each mode such as I2C, 1-Wire and SPI. Initialize the mode class with a BPIOClient instance.
 
 ```python
 i2c.configure(speed=400000, pullup_enable=True, psu_enable=True, psu_voltage_mv=3300, psu_current_ma=0)
 ```
 
-The `configure()` function accepts arguments for the mode configuration and other hardware settings. Here we set the I2C speed to 400kHz, enable pull-ups, and set the power supply for 3.3volt with no current limit. The method returns `True` if the configuration was successful, or `False` if there was an error.
+To enter and configure a mode use the `configure()` function. configure() accepts arguments for the mode configuration and other hardware settings. Here we set the I2C speed to 400kHz, enable pull-ups, and set the power supply to 3.3volts with no current limit. The method returns `True` if the configuration was successful, or `False` if there was an error.
 
-Mode configuration arguments are generic for all modes, and correspond to the FlatBuffer [mode configuration table]({{< relref "/docs/binmode-reference/protocol-bpio2/#modeconfiguration" >}}) names:
+Mode configuration arguments are reused for multiple modes, and correspond to the FlatBuffer [mode configuration table]({{< relref "/docs/binmode-reference/protocol-bpio2/#modeconfiguration" >}}) names:
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -192,11 +190,11 @@ Mode configuration arguments are generic for all modes, and correspond to the Fl
 | `clock_polarity` | bool | false | Clock idle polarity for SPI mode (true for high, false for low) |
 | `clock_phase` | bool | false | Clock phase for SPI mode (false for leading edge, true for trailing edge) |
 | `chip_select_idle` | bool | true | Chip select idle state for SPI and 3-wire modes (true for idle high, false for idle low) |
-| `submode` | uint8 | - | Submode for LED and INFRARED modes (e.g., "RGB", "IR TX", "IR RX") |
+| `submode` | uint8 | - | Submode for LED and INFRARED modes |
 | `tx_modulation` | uint32 | - | TX modulation frequency for INFRARED mode |
 | `rx_sensor` | uint8 | - | RX sensor configuration for INFRARED mode|
 
-Other hardware can be configured at the same time as the mode change, for example power supply, and pull-up resistors. The parameters are also identical to the FlatBuffer [configuration request table]({{< relref "/docs/binmode-reference/protocol-bpio2/#configuration-3">}}) names:
+Other hardware can be configured at the same time as the mode change, for example the power supply, and pull-up resistors. The parameter names are also identical to the FlatBuffer [configuration request table]({{< relref "/docs/binmode-reference/protocol-bpio2/#configuration-3">}}) names:
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -214,15 +212,15 @@ Other hardware can be configured at the same time as the mode change, for exampl
 | `io_value` | uint8 | - | IO pin values in 8 bit byte (1 high, 0 low) |
 | `led_resume` | bool | - | Resume LED effect after setting with led_color |
 | `led_color` | [uint32] | - | LED colors in RGB format (0xRRGGBB) |
-| `print_string` | string | - | String to print on terminal |
+| `print_string` | string | - | String to print in the Bus Pirate terminal (e.g. for debugging) |
 
-### Mode Get Methods
+### Mode Get Functions
 
-Each mode class inherits getter methods from the BPIOBase class to query Bus Pirate status information. These methods provide access to specific hardware and firmware details without needing to parse the full status dictionary.
+Mode classes have getter functions that query Bus Pirate status information.
 
 #### Get All Status Info
 {{% alert context="danger" %}}
-Each call to a getter method sends a request to the Bus Pirate and waits for a response. This can be slow. If you need a lot of status info it's faster to use `get_status()` which retrieves all status information in one go, and then access the specific fields from the returned dictionary.
+Each call to a getter function sends a request to the Bus Pirate and waits for a response. This can be slow. If you need a lot of status info it's faster to use `get_status()` which retrieves all status information in one go, and then access the specific fields from the returned dictionary.
 {{% /alert %}}
 
 ```python
@@ -232,7 +230,7 @@ I2C
 ```
 
 {{% alert context="info" %}}
-The mode ```get_status()``` method returns a dictionary with all status information for the current mode. This is the same DICT returned by the `client.status_request()` method. Each mode also has a `show_status()` method that prints the status in a human-readable format for debugging.
+The mode ```get_status()``` function returns a dictionary with all status information for the current mode. This is the same dictionary returned by `client.status_request()`. Each mode also has a `show_status()` function that prints all the status info in a human-readable format.
 {{% /alert %}}
 
 #### Version Information
@@ -246,7 +244,7 @@ The mode ```get_status()``` method returns a dictionary with all status informat
 | `get_version_firmware_git_hash()` | string | Git hash of the firmware build |
 | `get_version_firmware_date()` | string | Date and time of firmware build |
 
-#### Mode Information
+#### Mode Status
 
 | Method | Returns | Description |
 |--------|---------|-------------|
@@ -280,7 +278,7 @@ The mode ```get_status()``` method returns a dictionary with all status informat
 | `get_io_value()` | int | IO pin values bitmask (1=high, 0=low) |
 | `get_led_count()` | int | Number of LEDs on the device |
 
-#### Storage Information
+#### Storage Status
 
 | Method | Returns | Description |
 |--------|---------|-------------|
@@ -291,21 +289,25 @@ The mode ```get_status()``` method returns a dictionary with all status informat
 
 ```python
 >>> i2c = BPIOI2C(client)
+>>> # Get hardware version
 >>> print(f"Hardware: {i2c.get_version_hardware_major()}.{i2c.get_version_hardware_minor()}")
 Hardware: 5.10
+>>> # Get current mode
 >>> print(f"Current mode: {i2c.get_mode_current()}")
 Current mode: I2C
+>>> # Get PSU voltage
 >>> print(f"PSU voltage: {i2c.get_psu_measured_mv()}mV")
 PSU voltage: 3300mV
+>>> # Get IO pin directions
 >>> print(f"IO directions: {i2c.get_io_direction():08b}")
 IO directions: 00000000
 ```
 
-All getter methods return `None` if there is an error or if the Bus Pirate is not properly configured.
+All getter functions return `None` if there is an error or if the Bus Pirate is not properly configured.
 
-### Mode Set Methods
+### Mode Set Functions
 
-Each mode class inherits setter methods from the BPIOBase class to configure Bus Pirate hardware settings. These methods allow you to modify individual configuration parameters without needing to reconfigure the entire mode.
+Mode classes have setter functions that configure the Bus Pirate hardware and settings. 
 
 #### Bit Order Configuration
 
@@ -322,7 +324,7 @@ Each mode class inherits setter methods from the BPIOBase class to configure Bus
 | `set_psu_enable(voltage_mv, current_ma)` | `voltage_mv` (int, default=3300)<br>`current_ma` (int, default=300) | Enable power supply with specified voltage and current limit |
 
 {{% alert context="info" %}}
-Power supply voltage is specified in millivolts, current in milliamps. If you set the current to 0, it will be unlimited.
+Power supply voltage is specified in millivolts, current in milliamps. Set current to 0 to disable the current limit.
 {{% /alert %}}
 
 #### Pull-up Resistor Control
@@ -340,14 +342,14 @@ Power supply voltage is specified in millivolts, current in milliamps. If you se
 | `set_io_value(value_mask, value)` | `value_mask` (int)<br>`value` (int) | Set IO pin values (1=high, 0=low) |
 
 {{% alert context="info" %}}
-For IO operations, use bitmasks to specify which pins to modify. For example, to set pin 7 as output and drive it high, use `set_io_direction(0x80, 0x80)` and `set_io_value(0x80, 0x80)`.
+For IO operations, use bitmasks to specify which pins to modify. For example, to set pin 7 as output and drive it low, use `set_io_direction(0x80, 0x80)` and `set_io_value(0x80, 0x00)`.
 {{% /alert %}}
 
 #### LED Control
 
 | Method | Parameters | Description |
 |--------|------------|-------------|
-| `set_led_resume()` | None | Resume LED effect after configuration |
+| `set_led_resume()` | None | Resume previous LED effect after configuration using set_led_colors() |
 | `set_led_color(colors)` | `colors` (list) | Set LED colors in RGB format (0xRRGGBB) |
 
 #### Utility Functions
@@ -363,30 +365,28 @@ For IO operations, use bitmasks to specify which pins to modify. For example, to
 #### Usage Examples
 
 ```python
-# Enable power supply at 5V with 500mA limit
+>>> i2c = BPIOI2C(client)
+>>> # Enable power supply at 5V with 500mA limit
 >>> i2c.set_psu_enable(voltage_mv=5000, current_ma=500)
 True
-
-# Set IO pin 7 as output and drive it high
+>>> # Set IO pin 7 as output and drive it low
 >>> i2c.set_io_direction(direction_mask=0x80, direction=0x80)
 True
->>> i2c.set_io_value(value_mask=0x80, value=0x80)
+>>> i2c.set_io_value(value_mask=0x80, value=0x00)
 True
-
-# Set all LEDs to red
+>>> # Set all LEDs to red
 >>> i2c.set_led_color([0xFF0000] * 18)
 True
-
-# Print debug message
+>>> # Print debug message
 >>> i2c.set_print_string("Debug: I2C configured")
 True
 ```
 
-All setter methods return `True` if successful, `False` if there was an error, or `None` if not configured
+Setter functions return `True` if successful, `False` if there was an error, or `None` if not configured
  
 ### I2C Data
 
-The `BPIOI2C` class provides methods for I2C communication, inheriting from the `BPIOBase` class for configuration and status functionality.
+The `BPIOI2C` class provides support for I2C bus transactions.
 
 #### Configuration
 
@@ -451,7 +451,7 @@ Found devices: ['0xa0', '0xa1']
 ```
 ### SPI Data
 
-The `BPIOSPI` class provides methods for SPI communication, inheriting from the `BPIOBase` class for configuration and status functionality.
+The `BPIOSPI` class provides support for SPI bus transactions.
 
 #### Configuration
 
@@ -505,7 +505,7 @@ Device ID: ['0xef', '0x40', '0x18']
 
 ### 1-Wire Data
 
-The `BPIO1Wire` class provides methods for 1-Wire communication, inheriting from the `BPIOBase` class for configuration and status functionality.
+The `BPIO1Wire` class provides support for 1-Wire bus transactions.
 
 #### Configuration
 
@@ -590,10 +590,10 @@ Temperature: 21.3125°C
 
 
 {{% alert context="danger" %}}
-BPIO2 can display detailed debugging data in the Bus Pirate terminal. Enable this by setting ```"bpio_debug_enable":1``` in your BPCONFIG.BP JSON file on the Bus Pirate internal storage. **Then reboot the Bus Pirate for this to take effect.**
+Detailed debugging info can be displayed in the Bus Pirate terminal. Enable this by setting ```"bpio_debug_enable":1``` in your BPCONFIG.BP JSON file on the Bus Pirate internal storage. **Then reboot the Bus Pirate for this to take effect.**
 {{% /alert %}}
 
-The Bus Pirate firmware will print debugging information to the terminal when BPIO2 requests are processed. This can help you understand how the protocol works and troubleshoot any issues.
+Detailed debugging information can be displayed in the terminal when BPIO2 requests are processed. This can help you understand how the protocol works and troubleshoot any issues.
 
 {{% alert context="warning" %}}
 If you don't have a BPCONFIG.BP file, type configuration command ```c``` in the Bus Pirate terminal. At the prompt type x to exit, the configuration file will be created.
@@ -611,12 +611,12 @@ Most people won't need to interact with the FlatBuffer tooling directly. Ideally
 
 ### Compile your own tooling
 
-To generate your own tooling from the BPIO2 schema, you can use a FlatBuffers compiler with [bpio2.fbs](https://github.com/DangerousPrototypes/BusPirate-BPIO2-flatbuffer-interface/blob/main/bpio.fbs).
+To generate your own tooling from the BPIO2 schema, you can use a FlatBuffers compiler with [bpio.fbs](https://github.com/DangerousPrototypes/BusPirate-BPIO2-flatbuffer-interface/blob/main/bpio.fbs).
 
 #### C language tooling
 
 ```
-flatcc -a bpio2.fbs
+flatcc -a bpio.fbs
 ```
 
 To generate C tooling, use the [flatcc](https://github.com/dvidelabs/flatcc) compiler. This is the version we use to generate C tooling for the Bus Pirate firmware.
@@ -629,16 +629,16 @@ flatc --python bpio.fbs
 For C++, C#, Dart, Go, Java, JavaScript, Kotlin, Lobster, Lua, PHP, Python, Rust, Swift, TypeScript use [flatc](https://github.com/google/flatbuffers).
 
 {{% alert context="info" %}}
-Javasscript tooling was deprecated in flatc. Transpile the TypeScript tooling to JavaScript using the TypeScript compiler.
+Javasscript tooling was deprecated in recent versions of flatc. Transpile the TypeScript tooling to JavaScript using a TypeScript compiler.
 {{% /alert %}}
 
 ### FlatBuffers Includes
 
-In addition to the generated tooling, you will need to include the FlatBuffers support library for your language. Check the /include/ folder in the BPIO2 repository for the required files.
+In addition to the generated tooling, you will need to include the FlatBuffers support library for your language. Check the `/include/` folder in the BPIO2 repository for the required files.
 
 ## COBS Encoding
 
-FlatBuffers request and response packets are encoded using COBS (Consistent Overhead Byte Stuffing) to ensure that the data can be transmitted over serial without issues. COBS encoding replaces zero bytes with a special marker, allowing the data to be sent as a continuous stream without needing to escape zero bytes. Most languages have a simple COBS library available, for example the [COBS Python library](https://pypi.org/project/cobs/).
+FlatBuffers request and response packets are encoded using COBS (Consistent Overhead Byte Stuffing) to ensure that the data can be transmitted over serial without issues. COBS encoding replaces zero bytes with a special marker. When data is sent 0x00 indicates the end of a packet. Most languages have a simple COBS library available, for example the [COBS Python library](https://pypi.org/project/cobs/) or the [C nanocobs implementation](https://github.com/charlesnicholson/nanocobs).
 
 ## Schema
 
@@ -671,8 +671,8 @@ Finally, there is an *ErrorResponse* table that is used to return error messages
 union RequestPacketContents { StatusRequest, ConfigurationRequest, DataRequest}
 
 table RequestPacket {
-  version_major:uint8=2;
-  version_minor:uint8=0;
+  version_major:uint8;
+  version_minor:uint8;
   contents:RequestPacketContents;
 }
 ```
@@ -689,8 +689,8 @@ The `version_major` and `version_minor` fields are used to indicate the version 
 union ResponsePacketContents { ErrorResponse, StatusResponse, ConfigurationResponse, DataResponse}
 
 table ResponsePacket{
-  version_major:uint8=2;
-  version_minor:uint8=0;
+  version_major:uint8;
+  version_minor:uint8;
   contents:ResponsePacketContents;
 }
 ```
@@ -702,8 +702,8 @@ The `version_major` and `version_minor` fields are used to indicate the version 
 {{% /alert %}}
 
 ### Status
-- The **StatusRequest** is used to query the current status of the Bus Pirate.
-- The **StatusResponse** contains the requested status information.
+- **StatusRequest** queries the current status of the Bus Pirate.
+- **StatusResponse** contains the requested status information.
 
 #### StatusRequest
 
@@ -715,7 +715,7 @@ table StatusRequest{
 }
 ```
 
-StatusRequest has a single field, `query`, which is an array of `StatusRequestTypes`. **All** returns everything, while the other types return specific queries which reduces the size of the StatusResponse. 
+StatusRequest has a single field, `query`, which is an array of `StatusRequestTypes`. **All** returns everything, while the other types return specific queries which reduces the size and latency of the StatusResponse. 
 
 {{% alert context="info" %}}
 If no `query` is specified, all status information is returned.
@@ -780,6 +780,8 @@ status_request = StatusRequest.End(builder)
 
 # Create a RequestPacket
 RequestPacket.Start(builder)
+RequestPacket.AddVersionMajor(builder, 2)  # Update to match your protocol version
+RequestPacket.AddVersionMinor(builder, 0)
 RequestPacket.AddContentsType(builder, RequestPacketContents.RequestPacketContents.StatusRequest) # Add the StatusRequest type
 RequestPacket.AddContents(builder, status_request) # Add the StatusRequest
 request_packet = RequestPacket.End(builder)
@@ -831,8 +833,8 @@ The [complete example](https://github.com/DangerousPrototypes/BusPirate-BPIO2-fl
 See [flatc](https://flatbuffers.dev/quick_start/) for language-specific usage instructions.
 
 ### Configuration
-- The **ConfigurationRequest** is used to configure the Bus Pirate's settings and hardware. 
-- The **ConfigurationResponse** contains any error message.
+- A **ConfigurationRequest** configures the Bus Pirate settings and hardware. 
+- A **ConfigurationResponse** contains any error message.
 
 #### ConfigurationRequest
 
@@ -861,10 +863,10 @@ table ConfigurationRequest {
 }
 ```
 
-The `ConfigurationRequest` table allows you to set various parameters for the Bus Pirate. 
+The `ConfigurationRequest` table configures Bus Pirate settings and hardware. 
 
 {{% alert context="warning" %}}
-Requests are processed in the order they are listed in the table. This means a single request can be used to enable a mode, set the power supply voltage, enable pull-up resistors, and configure pin directions in one go.
+Fields are processed in the order they are listed in the table. This means a single request can be used to enable a mode, set the power supply voltage, enable pull-up resistors, and configure pin directions in one go.
 {{% /alert %}}
 
 #### ModeConfiguration
@@ -896,7 +898,7 @@ table ConfigurationResponse{
 }
 ```
 
-The `ConfigurationResponse` table contains an `error` string that will be populated if there is an error during the configuration process. If the configuration is successful, the `error` field will be empty.
+The `ConfigurationResponse` table `error` string will contain a message if there was a problem processing the configuration request. The `error` field will be empty if configuration was successful.
 
 #### Python Example
 ```python
@@ -935,6 +937,8 @@ config_request = ConfigurationRequest.End(builder)
 
 # Create a RequestPacket
 RequestPacket.Start(builder)
+RequestPacket.AddVersionMajor(builder, 2)  # Update to match your protocol version
+RequestPacket.AddVersionMinor(builder, 0)
 RequestPacket.AddContentsType(builder, RequestPacketContents.RequestPacketContents.ConfigurationRequest) # Add the ConfigRequest type
 RequestPacket.AddContents(builder, config_request) # Add the ConfigRequest
 request_packet = RequestPacket.End(builder)
@@ -980,7 +984,7 @@ See [flatc](https://flatbuffers.dev/quick_start/) for language-specific usage in
 
 ### Data
 - The **DataRequest** table requests a data transaction in the currently selected mode.
-- The **DataResponse** table contains any data received while processing the request.
+- The **DataResponse** table contains any errors or data received while processing the request.
 
 #### DataRequest
 
@@ -998,6 +1002,10 @@ table DataRequest {
 The `DataRequest` table has fields that mimic the general Bus Pirate bus syntax/commands: start, write, read, stop.
 
 The goal is to do a complete transaction in a single request, such as writing and reading an I2C or SPI device. However, you have complete control over the transaction, so you can write, read, start or stop individually as well.
+
+{{% alert context="warning" %}}
+The maximum number of bytes in the `data_write` field is reported by the `mode_max_write` value in the StatusResponse. If you try to write more data than the maximum, the request will fail with an error.
+{{% /alert %}}
 
 |Field|Bus Pirate Syntax|Description|
 |---|---|---|
@@ -1017,71 +1025,77 @@ table DataResponse {
 }
 ```
 
-The `DataResponse` table contains an `error` string that will be populated if there is an error during the data transaction. If the transaction is successful, the `data_read` field will contain the data read from the device.
+The `DataResponse` table `error` string will contain a message if there was a problem processing the data request. The `data_read` field will contain the data read from the device, if any.
+
+{{% alert context="warning" %}}
+The maximum number of bytes in `data_read` reported by the `mode_max_read` value in the StatusResponse. If you try to read more bytes than the maximum, the request will fail with an error.
+{{% /alert %}}
 
 ####  Python Example
 ```python
-  """Create a BPIO DataRequest packet"""
-  builder = flatbuffers.Builder(1024)
+"""Create a BPIO DataRequest packet"""
+builder = flatbuffers.Builder(1024)
 
-  # Define the data to write
-  data_write = [0x9F]
-  data_write_vector = builder.CreateByteVector(bytes(data_write))
+# Define the data to write
+data_write = [0x9F]
+data_write_vector = builder.CreateByteVector(bytes(data_write))
 
-  # Create a DataRequest
-  DataRequest.Start(builder)
-  DataRequest.AddStartMain(builder, True)
-  DataRequest.AddDataWrite(builder, data_write_vector)
-  DataRequest.AddBytesRead(builder, 3)
-  DataRequest.AddStopMain(builder, True)
-  data_request = DataRequest.End(builder)
+# Create a DataRequest
+DataRequest.Start(builder)
+DataRequest.AddStartMain(builder, True)
+DataRequest.AddDataWrite(builder, data_write_vector)
+DataRequest.AddBytesRead(builder, 3)
+DataRequest.AddStopMain(builder, True)
+data_request = DataRequest.End(builder)
 
-  # Create a RequestPacket
-  RequestPacket.Start(builder)
-  RequestPacket.AddContentsType(builder, RequestPacketContents.RequestPacketContents.DataRequest) # Add the DataRequest type
-  RequestPacket.AddContents(builder, data_request) # Add the DataRequest
-  request_packet = RequestPacket.End(builder)
+# Create a RequestPacket
+RequestPacket.Start(builder)
+RequestPacket.AddVersionMajor(builder, 2)  # Update to match your protocol version
+RequestPacket.AddVersionMinor(builder, 0)
+RequestPacket.AddContentsType(builder, RequestPacketContents.RequestPacketContents.DataRequest) # Add the DataRequest type
+RequestPacket.AddContents(builder, data_request) # Add the DataRequest
+request_packet = RequestPacket.End(builder)
 
-  # Finish the builder and get the data
-  builder.Finish(request_packet)
-  data = builder.Output()
+# Finish the builder and get the data
+builder.Finish(request_packet)
+data = builder.Output()
 
-  # COBS encode request and send to the serial port
-  resp_data = self.send_and_receive(data)
+# COBS encode request and send to the serial port
+resp_data = self.send_and_receive(data)
 
-  # Check for the response
-  if not resp_data:
-      return False        
+# Check for the response
+if not resp_data:
+    return False        
 
-  # Decode ResponsePacket
-  resp_packet = ResponsePacket.ResponsePacket.GetRootAsResponsePacket(resp_data, 0)
-  response_contents_type = resp_packet.ContentsType()
+# Decode ResponsePacket
+resp_packet = ResponsePacket.ResponsePacket.GetRootAsResponsePacket(resp_data, 0)
+response_contents_type = resp_packet.ContentsType()
 
-  # Check for ErrorResponse
-  if response_contents_type == ResponsePacketContents.ResponsePacketContents.ErrorResponse:
-      error_resp = ErrorResponse.ErrorResponse()
-      error_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
-      print(f"Error: {error_resp.Error().decode('utf-8')}")
-      return False
+# Check for ErrorResponse
+if response_contents_type == ResponsePacketContents.ResponsePacketContents.ErrorResponse:
+    error_resp = ErrorResponse.ErrorResponse()
+    error_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
+    print(f"Error: {error_resp.Error().decode('utf-8')}")
+    return False
 
-  # Confirm the response type matches expected
-  if response_contents_type != ResponsePacketContents.ResponsePacketContents.DataResponse:
-      print(f"Unexpected response type: {response_contents_type}")
-      return False     
+# Confirm the response type matches expected
+if response_contents_type != ResponsePacketContents.ResponsePacketContents.DataResponse:
+    print(f"Unexpected response type: {response_contents_type}")
+    return False     
 
-  # Decode DataResponse
-  data_resp = DataResponse.DataResponse()
-  data_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
-  
-  # Print the error message if any
-  if data_resp.Error():
-      print(f"Data request error: {data_resp.Error().decode('utf-8')}")
-      return False
+# Decode DataResponse
+data_resp = DataResponse.DataResponse()
+data_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
 
-  # Return data read, if any
-  if data_resp.DataReadLength() > 0:
-      data_bytes = data_resp.DataReadAsNumpy()
-      print(f"Data read: {' '.join(f'{b:02x}' for b in data_bytes)}")
+# Print the error message if any
+if data_resp.Error():
+    print(f"Data request error: {data_resp.Error().decode('utf-8')}")
+    return False
+
+# Return data read, if any
+if data_resp.DataReadLength() > 0:
+    data_bytes = data_resp.DataReadAsNumpy()
+    print(f"Data read: {' '.join(f'{b:02x}' for b in data_bytes)}")  
 ```
 
 The [complete example](https://github.com/DangerousPrototypes/BusPirate-BPIO2-flatbuffer-interface/blob/main/python/pybpio/docs_demo.py) is available in the BPIO2 FlatBuffers repo.
