@@ -83,6 +83,7 @@ The BPIO2 client has a `show_status()` method that sends a `StatusRequest` to th
 >>> client = BPIOClient("COM35")
 >>> client.show_status()
 StatusResponse:
+  FlatBuffers version: 2.0
   Hardware version: 5 REV10
   Firmware version: 0.0
   Firmware git hash: unknown
@@ -127,6 +128,8 @@ The ```error``` field will be populated if there is an error in the request. If 
 >>> print(status)
 {
    'error':None,
+   'version_flatbuffers_major':2,
+   'version_flatbuffers_minor':0,
    'version_hardware_major':5,
    'version_hardware_minor':10,
    'version_firmware_major':0,
@@ -237,6 +240,8 @@ The mode ```get_status()``` function returns a dictionary with all status inform
 
 | Method | Returns | Description |
 |--------|---------|-------------|
+| `get_version_flatbuffers_major()` | int | FlatBuffers version major number (BPIOx)|
+| `get_version_flatbuffers_minor()` | int | FlatBuffers version minor number |
 | `get_version_hardware_major()` | int | Hardware version major number |
 | `get_version_hardware_minor()` | int | Hardware revision number |
 | `get_version_firmware_major()` | int | Firmware version major number |
@@ -658,9 +663,6 @@ Additionally there are wrapper tables for the requests and responses:
 There is a table for mode configuration:
 - *ModeConfiguration* - Contains mode-specific settings, such as speed and other parameters.
 
-Finally, there is an *ErrorResponse* table that is used to return error messages when a request fails.
-- *ErrorResponse* - Contains an error message if a request fails.
-
 ### Request & Response Packets
 - *RequestPacket* is the outermost table/wrapper for requests sent to the Bus Pirate.
 - *ResponsePacket* is the outermost table/wrapper for responses sent by the Bus Pirate
@@ -672,34 +674,41 @@ union RequestPacketContents { StatusRequest, ConfigurationRequest, DataRequest}
 
 table RequestPacket {
   version_major:uint8;
-  version_minor:uint8;
+  minimum_version_minor:uint16; // Minimum version minor for compatibility.
   contents:RequestPacketContents;
 }
 ```
 
-RequestPacket has a single field, `contents`, which contains one of the request tables (StatusRequest, ConfigurationRequest, DataRequest). This packet is sent from the host to the Bus Pirate.
+RequestPacket `contents` field contains one of the request tables (StatusRequest, ConfigurationRequest, DataRequest). This packet is sent from the host to the Bus Pirate.
 
-{{% alert context="info" %}}
-The `version_major` and `version_minor` fields are used to indicate the version of the protocol being used, currently 2.0. Minor version increments will remain compatible, while major version increments may introduce breaking changes.
+`version_major` should be set to 2 for the current BPIO2 FlatBuffers tooling. version_major is used to indicate breaking changes in the protocol.
+
+`minimum_version_minor` tells the Bus Pirate the minimum BPIO2 FlatBuffers tooling version required by the host. If the Bus Pirate firmware has a lower version, it will return an error in the ResponsePacket. This is used to provide clear compatibility error messages to the user, rather than silently failing or returning unexpected results.
+
+{{% alert context="danger" %}}
+The `minimum_version_minor` field is used to ensure compatibility between the host and the Bus Pirate. If the Bus Pirate tooling version is lower than the specified minimum version, it will return an error in the ResponsePacket. FlatBuffers **with the same version_major** are fully backwards compatible, so a host with older tooling will always be able to communicate with a Bus Pirate with newer tooling.  
 {{% /alert %}}
 
 #### ResponsePacket
 
 ```flatbuffer
-union ResponsePacketContents { ErrorResponse, StatusResponse, ConfigurationResponse, DataResponse}
+union ResponsePacketContents {StatusResponse, ConfigurationResponse, DataResponse}
 
 table ResponsePacket{
-  version_major:uint8;
-  version_minor:uint8;
+  error:string; // Error message if any.
   contents:ResponsePacketContents;
 }
 ```
 
-ResponsePacket has a single field, `contents`, which contains one of the response tables (ErrorResponse, StatusResponse, ConfigurationResponse, DataResponse). This packet is sent from the Bus Pirate to the host in response to a RequestPacket.
+ResponsePacket `contents` field, which contains one of the response tables (StatusResponse, ConfigurationResponse, DataResponse). This packet is sent from the Bus Pirate to the host in response to a RequestPacket.
 
-{{% alert context="info" %}}
-The `version_major` and `version_minor` fields are used to indicate the version of the protocol being used, currently 2.0. Minor version increments will remain compatible, while major version increments may introduce breaking changes.
-{{% /alert %}}
+If there was an error processing the RequestPacket, the `error` field will contain a string describing the error. If there was no error, the `error` field will be empty.
+
+Examples of errors that might be returned include:
+- Invalid request type
+- Packet size too large
+- Timeout waiting for request
+- FlatBuffers version_major or minimum_version_minor mismatch
 
 ### Status
 - **StatusRequest** queries the current status of the Bus Pirate.
@@ -723,11 +732,13 @@ If no `query` is specified, all status information is returned.
 
 #### StatusResponse
 
-```flatbuffer
+```flatbuffers
 // returns the status queries requested in StatusRequest
 // if query is empty, then all queries are performed
 table StatusResponse {
   error:string; // Error message if any.
+  version_flatbuffers_major:uint8; // Flatbuffers version major.
+  version_flatbuffers_minor:uint16; // Flatbuffers version minor.
   version_hardware_major:uint8; //HW version
   version_hardware_minor:uint8; //HW revision
   version_firmware_major:uint8;//FW version
@@ -780,8 +791,8 @@ status_request = StatusRequest.End(builder)
 
 # Create a RequestPacket
 RequestPacket.Start(builder)
-RequestPacket.AddVersionMajor(builder, 2)  # Update to match your protocol version
-RequestPacket.AddVersionMinor(builder, 0)
+RequestPacket.AddVersionMajor(builder, 2) 
+RequestPacket.AddMinimumVersionMinor(builder, 0) # Update to match the minimum version tooling required
 RequestPacket.AddContentsType(builder, RequestPacketContents.RequestPacketContents.StatusRequest) # Add the StatusRequest type
 RequestPacket.AddContents(builder, status_request) # Add the StatusRequest
 request_packet = RequestPacket.End(builder)
@@ -799,16 +810,14 @@ if not resp_data:
 
 # Decode ResponsePacket
 resp_packet = ResponsePacket.ResponsePacket.GetRootAsResponsePacket(resp_data, 0)
-response_contents_type = resp_packet.ContentsType()
 
 # Check for ErrorResponse
-if response_contents_type == ResponsePacketContents.ResponsePacketContents.ErrorResponse:
-    error_resp = ErrorResponse.ErrorResponse()
-    error_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
-    print(f"Error: {error_resp.Error().decode('utf-8')}")
+if resp_packet.Error():
+    print(f"Error: {resp_packet.Error().decode('utf-8')}")
     return False
 
 # Confirm the response type matches expected
+response_contents_type = resp_packet.ContentsType()
 if response_contents_type != ResponsePacketContents.ResponsePacketContents.StatusResponse:
     print(f"Unexpected response type: {response_contents_type}")
     return False
@@ -818,6 +827,7 @@ status_resp = StatusResponse.StatusResponse()
 status_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
 
 # Print hardware and firmware versions
+print(f"  Flatbuffers version: {status_resp.VersionFlatbuffersMajor()}.{status_resp.VersionFlatbuffersMinor()}")
 print(f"  Hardware version: {status_resp.VersionHardwareMajor()} REV{status_resp.VersionHardwareMinor()}")
 print(f"  Firmware version: {status_resp.VersionFirmwareMajor()}.{status_resp.VersionFirmwareMinor()}")
 print(f"  Firmware git hash: {status_resp.VersionFirmwareGitHash().decode('utf-8')}")
@@ -937,8 +947,8 @@ config_request = ConfigurationRequest.End(builder)
 
 # Create a RequestPacket
 RequestPacket.Start(builder)
-RequestPacket.AddVersionMajor(builder, 2)  # Update to match your protocol version
-RequestPacket.AddVersionMinor(builder, 0)
+RequestPacket.AddVersionMajor(builder, 2) 
+RequestPacket.AddMinimumVersionMinor(builder, 0) # Update to match the minimum version tooling required
 RequestPacket.AddContentsType(builder, RequestPacketContents.RequestPacketContents.ConfigurationRequest) # Add the ConfigRequest type
 RequestPacket.AddContents(builder, config_request) # Add the ConfigRequest
 request_packet = RequestPacket.End(builder)
@@ -956,16 +966,14 @@ if not resp_data:
 
 # Decode ResponsePacket
 resp_packet = ResponsePacket.ResponsePacket.GetRootAsResponsePacket(resp_data, 0)
-response_contents_type = resp_packet.ContentsType()
 
 # Check for ErrorResponse
-if response_contents_type == ResponsePacketContents.ResponsePacketContents.ErrorResponse:
-    error_resp = ErrorResponse.ErrorResponse()
-    error_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
-    print(f"Error: {error_resp.Error().decode('utf-8')}")
-    return False
+if resp_packet.Error():
+    print(f"Error: {resp_packet.Error().decode('utf-8')}")
+    return False     
 
 # Confirm the response type matches expected
+response_contents_type = resp_packet.ContentsType()
 if response_contents_type != ResponsePacketContents.ResponsePacketContents.ConfigurationResponse:
     print(f"Unexpected response type: {response_contents_type}")
     return False        
@@ -1050,8 +1058,8 @@ data_request = DataRequest.End(builder)
 
 # Create a RequestPacket
 RequestPacket.Start(builder)
-RequestPacket.AddVersionMajor(builder, 2)  # Update to match your protocol version
-RequestPacket.AddVersionMinor(builder, 0)
+RequestPacket.AddVersionMajor(builder, 2)
+RequestPacket.AddMinimumVersionMinor(builder, 0) # Update to match the minimum version tooling required
 RequestPacket.AddContentsType(builder, RequestPacketContents.RequestPacketContents.DataRequest) # Add the DataRequest type
 RequestPacket.AddContents(builder, data_request) # Add the DataRequest
 request_packet = RequestPacket.End(builder)
@@ -1069,16 +1077,14 @@ if not resp_data:
 
 # Decode ResponsePacket
 resp_packet = ResponsePacket.ResponsePacket.GetRootAsResponsePacket(resp_data, 0)
-response_contents_type = resp_packet.ContentsType()
 
 # Check for ErrorResponse
-if response_contents_type == ResponsePacketContents.ResponsePacketContents.ErrorResponse:
-    error_resp = ErrorResponse.ErrorResponse()
-    error_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
-    print(f"Error: {error_resp.Error().decode('utf-8')}")
-    return False
+if resp_packet.Error():
+    print(f"Error: {resp_packet.Error().decode('utf-8')}")
+    return False        
 
 # Confirm the response type matches expected
+response_contents_type = resp_packet.ContentsType()
 if response_contents_type != ResponsePacketContents.ResponsePacketContents.DataResponse:
     print(f"Unexpected response type: {response_contents_type}")
     return False     
@@ -1095,7 +1101,7 @@ if data_resp.Error():
 # Return data read, if any
 if data_resp.DataReadLength() > 0:
     data_bytes = data_resp.DataReadAsNumpy()
-    print(f"Data read: {' '.join(f'{b:02x}' for b in data_bytes)}")  
+    print(f"Data read: {' '.join(f'{b:02x}' for b in data_bytes)}")
 ```
 
 The [complete example](https://github.com/DangerousPrototypes/BusPirate-BPIO2-flatbuffer-interface/blob/main/python/pybpio/docs_demo.py) is available in the BPIO2 FlatBuffers repo.
@@ -1114,35 +1120,3 @@ Start, stop, write and read can all be done individually, or as a complete I2C w
 - If `stop_main` is true, the Bus Pirate will send a stop condition.
 
 This is a bit confusing at first, but it allows you to do a complete I2C transaction in a single request, or to control the transaction manually by sending partial requests.
-
-### ErrorResponse
-
-```flatbuffer
-table ErrorResponse {
-  error:string; // Error message if any.
-}
-```
-
-The `ErrorResponse` table is used to return error messages when a request fails. It contains a single `error` string that describes the error.
-
-Examples of errors that might be returned include:
-- Invalid request type
-- Packet size too large
-- Timeout waiting for request
-
-#### Python Example
-```python 
-# Decode ResponsePacket
-resp_packet = ResponsePacket.ResponsePacket.GetRootAsResponsePacket(resp_data, 0)
-response_contents_type = resp_packet.ContentsType()
-
-# Check for ErrorResponse
-if response_contents_type == ResponsePacketContents.ResponsePacketContents.ErrorResponse:
-    error_resp = ErrorResponse.ErrorResponse()
-    error_resp.Init(resp_packet.Contents().Bytes, resp_packet.Contents().Pos)
-    print(f"Error: {error_resp.Error().decode('utf-8')}")
-```
-
-The [complete example](https://github.com/DangerousPrototypes/BusPirate-BPIO2-flatbuffer-interface/blob/main/python/pybpio/docs_demo.py) is available in the BPIO2 FlatBuffers repo.
-
-See [flatc](https://flatbuffers.dev/quick_start/) for language-specific usage instructions.
