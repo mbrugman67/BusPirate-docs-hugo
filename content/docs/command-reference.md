@@ -2942,6 +2942,37 @@ Flags pass file names and other settings to the command.
 DIO is a mode with no specific protocol. All the Bus Pirate pins are free for use as [input/ouputs]({{% relref "/docs/command-reference/#aa-auxiliary-pin-control-lowhighread" %}}), [frequency generators]({{% relref "/docs/command-reference/#gg-frequency-generator" %}}), [frequency measurement]({{% relref "/docs/command-reference/#ff-measure-frequency" %}}), etc.
 {{% /alert %}} 
 
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:rgb(150,203,89)">DIO></span>&nbsp;> 0xff
+
+<span style="color:#bfa530">TX:</span>&nbsp;0xFF
+<span style="color:rgb(150,203,89)">DIO></span>&nbsp;> 0x00
+
+<span style="color:#bfa530">TX:</span>&nbsp;0x00
+<span style="color:rgb(150,203,89)">DIO></span>&nbsp;> 0b10101010
+
+<span style="color:#bfa530">TX:</span>&nbsp;0b10101010
+<span style="color:rgb(150,203,89)">DIO></span>&nbsp;> 0b01010101
+
+<span style="color:#bfa530">TX:</span>&nbsp;0b01010101
+{{< /term >}}
+
+Bus commands can be used to control all the unused IO pins at once, or use `r` to read the state of all pins.
+- `>0x00` - set all pins low
+- `>0xff` - set all pins high
+- `>0b10101010` - set every other pin high/low
+- `>0b01010101` - set every other pin low/high
+- `>r` - read the state of all pins
+- `>@.0` - make pin 0 an input (used in bus command context)
+- `@ 0` - make pin 0 an input (note no `>` is used)
+
+Return a pin to input with the `@` [auxiliary pin]({{% relref "/docs/command-reference/#aa-auxiliary-pin-control-lowhighread" %}}) read command. 
+
+Pins with active frequency generation or measurement are not changed.
+
+{{% alert context="info" %}}
+Don't forget to start bus command with the `>` bus command character. 
+{{% /alert %}}
 
 ## LED - WS2812/SK6812/'NeoPixel'
 
