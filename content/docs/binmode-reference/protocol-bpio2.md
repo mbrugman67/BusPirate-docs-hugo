@@ -477,6 +477,7 @@ Speed is specified in Hz (e.g., 1000000 for 1MHz).
 | `write(data)` | `data` (list of bytes) | Write data bytes to SPI device |
 | `read(num_bytes)` | `num_bytes` (int) | Read specified number of bytes from SPI device |
 | `transfer(write_data, read_bytes)` | `write_data` (list of bytes)<br>`read_bytes` (int, optional) | Perform complete SPI transaction with select, write/read, and deselect |
+| `transfer_duplex(write_data)` | `write_data` (list of bytes)<br>`read_bytes` (int, optional) | Perform full-duplex (read with write) SPI transaction with select, write/read, and deselect |
 
 {{% alert context="info" %}}
 The actual Chip Select pin state is set according to the SPI `chip_select_idle` state set during configuration.
