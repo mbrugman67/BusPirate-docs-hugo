@@ -2081,12 +2081,13 @@ Use ```ddr5 -h``` to see the latest options and features.
 |```ddr5 lock```|Lock DDR5 SPD NVM block (64 bytes per block). Specify block with -b flag.|
 |```ddr5 unlock```|Unlock DDR5 SPD NVM block. Specify block with -b flag.|
 |```ddr5 crc```|Calculate/verify CRC of JEDEC blocks 0-7 in a file. Specify file with -f flag.|
+|```ddr5 patch```|Update the CRC of JEDEC blocks 0-7 in a file. Specify file with -f flag.|
 
 Options tell the flash command what to do.
 
 |Flag|Description|
 |-----|-----------|
-|```-f```|File flag. Specify a file to write, read, verify or check CRC|
+|```-f```|File flag. Specify a file to write, read, verify, check or patch CRC|
 |```-b```|Block flag. Specify a DDR5 SPD NVM block to lock or unlock (0 - 15)|
 |```-s```|Start address flag. Specify the dump start address|
 |```-b```|Bytes flag. Specify the number of bytes to dump|
