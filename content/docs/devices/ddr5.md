@@ -116,8 +116,6 @@ Connect the Bus Pirate to the DDR5 adapter plank as shown above. Four connection
 When inserting a DDR5 module into the adapter plank, **hold the bottom of the PCB with both hands and press the module firmly into the socket**. The retaining clips should click into place. 
 
 {{% alert context="warning" %}}
-
-
 **Be sure to adequately support the bottom of the PCB. Pressing without support will bend the PCB and break solder joints**. 
 {{% /alert %}}   
 

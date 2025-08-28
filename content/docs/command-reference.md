@@ -2041,6 +2041,28 @@ Calculate or verify the CRC of the JEDEC blocks 0-7 in a DDR5 SPD dump file with
 To verify the CRC on a DDR5 SPD chip instead of a file, use the ```ddr5 probe``` command. It will automatically calculate and verify the CRC for the first 8 blocks of the SPD chip.
 {{% /alert %}}
 
+#### DDR5 crc patch
+
+{{< term >}}
+<span style="color:rgb(150,203,89)">I2C></span>&nbsp;ddr5 patch -f ddr5.bin
+Checking CRC for JEDEC blocks 0-7, file: ddr5.bin
+Stored CRC (bytes 510:511): 0x37 0x00
+Calculated CRC: 0x37 0x3E
+Patching CRC in file to: 0x37 0x3E
+File patched successfully :)
+Verifying patched file CRC:
+CRC verify
+Stored CRC (bytes 510:511): 0x37 0x3E
+Calculated CRC: 0x37 0x3E
+CRC okay :)
+{{< /term >}}
+
+To update the CRC of a DDR5 SPD dump file, say after making modifications in a HEX editor, use the ```ddr5 patch``` command. This command reads the specified file, calculates the correct CRC for the first 8 blocks, and updates the stored CRC in the file. The file name is specified with the ```-f``` flag.
+- ```ddr5 patch -f <file>``` - update the CRC for the first 8 blocks of the DDR5 SPD chip dump file `<file>`
+
+{{% alert context="info" %}}
+The ```ddr5 patch``` command does not modify the contents of the DDR5 SPD chip, it only updates the CRC in the specified file.
+{{% /alert %}}
 
 #### DDR5 Options and flags
 {{< termfile source="static/snippets/ddr5-command-help.html" >}}
