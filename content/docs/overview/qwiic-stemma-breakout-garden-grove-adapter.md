@@ -3,9 +3,7 @@ weight = 20802
 title = 'Qwiic, Stemma (3P/4P/QT), Breakout Garden, Grove I2C Adapter'
 +++
 
-{{% alert context="info" %}}
-This is a placeholder for a future plank. 
-{{% /alert %}}
+![alt text](/images/docs/qwiic-stemma-breakout-garden-grove-adapter/image-1.png)
 
 One fabulous I2C quick connect adapter to rule them all! The quick connect adapter combines the most popular I2C breakout standards in one Bus Pirate compatible plank.
 

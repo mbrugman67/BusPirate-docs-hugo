@@ -1953,11 +1953,15 @@ Options tell the ```eeprom``` command what to do.
 Flags pass file names and other settings.
 
 ### ```ddr5``` Probe, read, write, unlock DDR5 SDRAM modules
+
 {{< asciicast src="/screencast/ddr5-command-cast.json" poster="npt:0:22"  idleTimeLimit=2 >}}
 <br/>
 The ```ddr5``` command can probe, read, write, and unlock the SPD hub chip in [DDR5 SDRAM computer memory modules]({{< relref "/docs/devices/ddr5">}}) (UDIMM, SODIMM). 
 - Unlock SPD chips, backup SPD data and restore corrupted SPD tables. 
 - Search for, and replicate, hidden entries unscrupulous manufacturers use to lock equipment to proprietary RAM modules.
+{{% alert context="info" %}}
+The [DDR5 SPD I2C adapter plank]({{< relref "/docs/overview/ddr-ram-i2c-adapter/" >}}) has everything you need to play with DDR5 without soldering. The plank provides the correct voltage levels and pinouts to interface with a DDR5 SPD chip in offline mode.
+{{% /alert %}}
 
 #### DDR5 probe
 

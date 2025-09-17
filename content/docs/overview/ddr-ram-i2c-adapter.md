@@ -3,13 +3,9 @@ weight = 20804
 title = 'DDR5 RAM SPD I2C Adapter'
 +++
 
-{{% alert context="info" %}}
-This is a placeholder for a future plank. 
-{{% /alert %}}
+![alt text](/images/docs/ddr-ram-i2c-adapter/image.png)
 
-![](/images/docs/demo/ddr5-plank-temp.jpg)
-
-The DDR5 adapter plank makes it read and write the SPD chip on DDR5 UDIMM and SODIMM computer memory modules. 
+The DDR5 adapter plank makes it easy to read and write the SPD chip on DDR5 UDIMM and SODIMM computer memory modules. 
 
 Use the Bus Pirate [```ddr5``` command]({{< relref "/docs/devices/ddr5/#ddr5-command">}}) to read and write the SPD EEPROM on a DDR5 module, or follow the [DDR5 device demo]({{< relref "/docs/devices/ddr5/">}}) to learn about the technical details.
 

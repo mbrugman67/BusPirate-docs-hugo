@@ -15,6 +15,24 @@ Can't get a chip to work? Is it the circuit, code, bad part or a burned out pin?
 
 {{% readfile "/_common/_footer/_footer-cart.md" %}}
 
+## Version comparison
+|Feature|Bus Pirate 5|Bus Pirate 6|
+|-|-|-|
+|Microcontroller|RP2040 dual core 125MHz|RP2350 dual core 133MHz|
+|RAM|264KB|512KB|
+|PIO state machines|8|12|
+|Follow Along Logic Analyzer|No|Yes|
+
+{{% alert context="info" %}}
+There isn't a huge difference between Bus Pirate 5 and Bus Pirate 6. The Bus Pirate 6 uses the new RP2350 microcontroller which is slight faster, has more RAM and an addition PIO module. Eventually that extra RAM and PIO will enable things that aren't possible on Bus Pirate 5, but for now both versions have the same firmware features.
+{{% /alert %}}
+
+The Bus Pirate 6 killer feature is the [follow along logic analyzer]({{< relref "/docs/logic-analyzer/pulseview-fala/">}}) that displays protocol activity in real time on Sigrok/Pulseview. You see exactly what happened on the pins during every transaction, no need to configure a separate logic analyzer and set triggers. This is made possible by the extra pins on the RP2350B microcontroller.
+
+Bus Pirate 5 is in active volume production, is super well tested, and is the primary development platform for new firmware features. The cost is low so it can be as widely accessible as possible.
+
+Bus Pirate 6 is in initial production, is available in limited quantities, and is much more expensive. The goal is not to replace the Bus Pirate 5, but to offer a more "luxury" version for those who want to support the project and get a few bonus features.
+
 ## VT100 terminal interface
 
 <!-- ![](/images/docs/fw/teraterm-done.png) -->
