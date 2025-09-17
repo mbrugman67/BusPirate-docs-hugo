@@ -9,7 +9,7 @@ One fabulous I2C quick connect adapter to rule them all! The quick connect adapt
 
 I2C is a simple communication protocol used by many sensors and devices. Over the years, manufacturers created "standard" I2C breakout board connectors for quick solder-free prototyping. All have the same basic four connections: power (V+), ground (GND), I2C Serial Data (SDA), and I2C Serial Clock (SCL). However, the pinout and connector types vary. 
 
-
+{{% readfile "/_common/_footer/_footer-cart.md" %}}
 
 ## I2C Breakout Standards
 
