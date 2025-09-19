@@ -1734,6 +1734,39 @@ NACK the read and properly end the I2C transaction.
 
 Sniff I2C packets up to 500kHz.
 
+### ```i2c``` Generic dump register command
+
+{{< termfile source="static/snippets/i2cdump.html" >}}
+
+Many I2C devices follow the same pattern to read the contents of the chip registers or memory. Send the device write address followed by a register address to begin reading from. Then send the device read address and read data, the register address increments as each byte is read.
+
+The ```i2c``` command implements this common pattern to dump I2C device contents to the terminal or read them to a file.
+
+{{% alert context="info" %}}
+The address register width generally depends on the device size. Small devices (256 bytes or less) often use a 1-byte address register. Larger devices (EEPROMs, sensors, etc) often use a 2-byte address register. Some devices use 3 or 4 byte address registers. Check the device datasheet for details.
+{{% /alert %}}
+
+|Option|Description|
+|-|-|
+|dump|Dump I2C device contents to terminal. Space to continue, x to exit|
+|read|Read I2C device contents to file|
+
+Options tell the i2c command what to do.
+
+|Flag|Description|
+|-|-|
+|-a <device>|Specify the 7-bit I2C device address, e.g. 0x50|
+|-w <width>|Specify the address register width in bytes (1-4, default 1)|
+|-r <start>|Specify the starting register address (default 0x00)|   
+|-f <file>|Specify the file for read|
+|-b <bytes>|Dump: specify the number of bytes to read|
+|-q|Dump: quiet mode, no address or ASCII columns. Useful for copying HEX values to a HEX editor.|
+|-c|Dump: disable paging, display all data in one go.|
+|-h|Show help for the i2c command|
+
+Flags pass file names and other settings.
+
+
 ### ```eeprom``` Read, write, erase, verify, test, dump I2C EEPROMs
 {{< asciicast src="/screencast/i2c-eeprom-command-cast.json" poster="npt:0:58"  idleTimeLimit=2 >}}
 <br/>
