@@ -677,7 +677,54 @@ Flashrom is a versatile utility for identifying, reading, writing, verifying, an
 There are multiple ways to script actions on the Bus Pirate.
 
 ### ```macro``` Load a set of macros
-{{< termfile  source="static/snippets/cmdref-macro.html" >}}
+
+Macros are single line commands stored in a text file. The macro file can be changed as needed, so you can have different sets of macros for different tasks.
+
+```
+# This is my example macro file
+#! Enable power supply 3.3V, 100mA limit
+1:W 3.3 100
+#! Read 5 bytes from an I2C EEPROM
+2:[0xa0 0][0xa1 r:5]
+```
+Formatting is simple:
+- Lines starting with ```#``` are comments.
+- Lines starting with ```#!``` are macro help/descriptions.
+- Lines starting with a number and a colon (```1:```) are macros. The number is the macro ID, and the text after the colon is the command to execute.
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">HiZ></span> macro -f macros.mcr
+Set macro file: 'macros.mcr'
+{{< /term >}}
+
+Set the active macro file with the ```-f <file>``` flag. 
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">HiZ></span> macro -l
+'macros.mcr' available macros:
+
+<span style="color:#bfa530">#! Enable power supply 3.3V, 100mA limit</span>
+<span style="color:#96cb59">1:W 3.3 100</span>
+<span style="color:#bfa530">#! Read 5 bytes from an I2C EEPROM</span>
+<span style="color:#96cb59">2:[0xa0 0][0xa1 r:5]</span>
+{{< /term >}}
+
+List the macros in the active macro file with the ```-l``` flag. 
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">HiZ></span> macro 1
+Exec macro id: 1
+W 3.3 100
+{{< /term >}}
+
+Execute a macro by its ID number.
+
+|Flag | Description |
+|---|---|
+|```-f <file>```| Set the macro file to \<file>|
+|```-l```| List the macros in the active macro file|
+|```-h```| Show help|
+
 
 ### ```script``` Run a script
 {{< termfile  source="static/snippets/cmdref-script.html" >}}
@@ -748,6 +795,13 @@ Use the ```button``` command to change the script assigned to button presses, co
 {{% alert context="warning" %}}
 Button settings **do not** persist after a reboot.
 {{% /alert %}}
+
+|Flag | Description |
+|---|---|
+|```-f <file>```| Set the script file to run on button press|
+|```-d```| Do not display comments|
+|```-x```| Exit the script on error|
+|```-h```| Show help|
 
 ### ```pause``` Pause and wait for user input
 {{< termfile  source="static/snippets/cmdref-pause.html" >}}
