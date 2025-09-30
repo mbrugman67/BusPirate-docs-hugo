@@ -670,13 +670,47 @@ Flashrom is a versatile utility for identifying, reading, writing, verifying, an
 |Command | Description |
 |---|---|
 |```macro```| Load a set of macros|
-|```script```| Load a set of scripts|
-|```tutorial```| Run a script in tutorial mode|
+|```script```| Run a script|
 |```button```| Assign scripts to the button|
 |```pause```| Pause and wait for user input|
 
+There are multiple ways to script actions on the Bus Pirate.
+
+### ```macro``` Load a set of macros
+{{< termfile  source="static/snippets/cmdref-macro.html" >}}
+
+### ```script``` Run a script
+{{< termfile  source="static/snippets/cmdref-script.html" >}}
+
+Script files are simple text files with one command per line. 
+
+Lines starting with ```#``` are comments. Comments are displayed by default, but can be supressed with the ```-d``` flag.
+
+```
+# This is my example script file
+# The 'pause' command waits for any key press
+pause
+# Did it pause?
+```
+
+This example uses the ```pause``` command to wait for user input.
+
+{{< term "Bus Pirate [/dev/ttyS0]" >}}
+<span style="color:#96cb59">HiZ></span> script example.scr
+<span style="color:#bfa530"># This is my example script file</span>
+<span style="color:#bfa530"># The 'pause' command waits for any key press</span>
+<span style="color:#96cb59">HiZ></span> pause
+Press any key
+
+<span style="color:#bfa530"># Did it pause?</span>
+{{< /term >}}
+
+{{% alert context="info" %}}
+To exit a running script type ```x```.
+{{% /alert %}}
+
 {{% alert context="warning" %}}
-Scripting is possible, but still a bit buggy. Scripts can only inject commands into the command line, not prompts or menus. The up arrow (history) will often cause scripts to execute in a loop, it is best avoided.
+Scripts can only inject commands into the command line, not prompts or menus. 
 {{% /alert %}}
 
 ```
@@ -695,19 +729,25 @@ W
 ```
 This script does not work. Scripts cannot answer menu prompts. 
 
-### ```macro``` Load a set of macros
-{{< termfile  source="static/snippets/cmdref-macro.html" >}}
-
-### ```script``` Load a set of scripts
-{{< termfile  source="static/snippets/cmdref-script.html" >}}
-
-### ```tutorial``` Run a script in tutorial mode
-{{< termfile  source="static/snippets/cmdref-tutorial.html" >}}
+|Flag | Description |
+|---|---|
+|```-p```| Pause at each line, press ```enter``` to continue|
+|```-d```| Do not display comments|
+|```-x```| Exit the script on error|
+|```-h```| Show help|
 
 ### ```button``` Assign scripts to the button
 {{< termfile  source="static/snippets/cmdref-button.html" >}}
 
-Scripts can be assigned to the Bus Pirate button.
+Scripts can be assigned to the Bus Pirate button. Scripts are the same format used with the ```script``` command above.
+- By default short presses run ```button.scr```
+- By default long presses run ```buttlong.scr```
+
+Use the ```button``` command to change the script assigned to button presses, configure comment display, and set error handling. 
+
+{{% alert context="warning" %}}
+Button settings **do not** persist after a reboot.
+{{% /alert %}}
 
 ### ```pause``` Pause and wait for user input
 {{< termfile  source="static/snippets/cmdref-pause.html" >}}
@@ -715,6 +755,12 @@ Scripts can be assigned to the Bus Pirate button.
 - ```pause``` - pause and wait for user input. Press any key to continue.
 
 Pause and wait for user input. Useful for pausing during a script or macro.
+
+|Flag | Description |
+|---|---|
+|```-k```|Pause for any key press (default)|
+|```-b```|Pause for button press|
+|```-x```|Allow escape from scripts whit the 'x' key|
 
 ## Developer commands
 
@@ -1992,6 +2038,9 @@ Flags pass file names and other settings.
 The ```ddr5``` command can probe, read, write, and unlock the SPD hub chip in [DDR5 SDRAM computer memory modules]({{< relref "/docs/devices/ddr5">}}) (UDIMM, SODIMM). 
 - Unlock SPD chips, backup SPD data and restore corrupted SPD tables. 
 - Search for, and replicate, hidden entries unscrupulous manufacturers use to lock equipment to proprietary RAM modules.
+
+DDR5 SPD dumps can be edited with a HEX editor or a dedicated SPD editor GUI like [DDR5SPDEditor](https://github.com/edlf/DDR5SPDEditor).
+
 {{% alert context="info" %}}
 The [DDR5 SPD I2C adapter plank]({{< relref "/docs/overview/ddr-ram-i2c-adapter/" >}}) has everything you need to play with DDR5 without soldering. The plank provides the correct voltage levels and pinouts to interface with a DDR5 SPD chip in offline mode.
 {{% /alert %}}
