@@ -1,7 +1,7 @@
 gps
 [38;5;178mPress any key to exit[0m
-$GPTXT,01,01,02,u-blox ag - ww$
-GPRMC,141458.00,A,4300.16985,N,08754.25421,W,1.481,,151025,,,A*6B
+$GPTXT,01,01,02,u-blox ag - ww
+$GPRMC,141458.00,A,4300.16985,N,08754.25421,W,1.481,,151025,,,A*6B
 $xxRMC: raw coordinates and speed: (430016985/100000,-875425421/100000) 1481/1000
 $xxRMC fixed-point coordinates and speed scaled to three decimal places: (4300170,-8754254) 1481
 $xxRMC floating point degree coordinates and speed: (43.002831,-87.904236) 1.481000
